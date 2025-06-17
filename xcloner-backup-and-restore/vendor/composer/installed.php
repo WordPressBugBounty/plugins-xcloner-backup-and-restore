@@ -4,9 +4,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 ?><?php return array(
     'root' => array(
         'name' => 'watchfulli/xcloner-wordpress',
-        'pretty_version' => 'v4.7.7',
-        'version' => '4.7.7.0',
-        'reference' => '4636a06b674a88dab301be6fd7f9aca7e20d7cd3',
+        'pretty_version' => 'v4.7.8',
+        'version' => '4.7.8.0',
+        'reference' => 'a3f1c4d1953012d7c89400e70a50c19f33df0858',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -497,9 +497,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
             'dev_requirement' => false,
         ),
         'watchfulli/xcloner-wordpress' => array(
-            'pretty_version' => 'v4.7.7',
-            'version' => '4.7.7.0',
-            'reference' => '4636a06b674a88dab301be6fd7f9aca7e20d7cd3',
+            'pretty_version' => 'v4.7.8',
+            'version' => '4.7.8.0',
+            'reference' => 'a3f1c4d1953012d7c89400e70a50c19f33df0858',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
