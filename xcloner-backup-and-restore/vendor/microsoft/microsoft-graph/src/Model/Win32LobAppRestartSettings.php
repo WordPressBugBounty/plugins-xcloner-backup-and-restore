@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Win32LobAppRestartSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Win32LobAppRestartSettings extends Entity
 {
     /**
-    * Gets the countdownDisplayBeforeRestartInMinutes
-    * The number of minutes before the restart time to display the countdown dialog for pending restarts.
-    *
-    * @return int|null The countdownDisplayBeforeRestartInMinutes
-    */
+     * Gets the countdownDisplayBeforeRestartInMinutes
+     * The number of minutes before the restart time to display the countdown dialog for pending restarts.
+     *
+     * @return int|null The countdownDisplayBeforeRestartInMinutes
+     */
     public function getCountdownDisplayBeforeRestartInMinutes()
     {
         if (array_key_exists("countdownDisplayBeforeRestartInMinutes", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Win32LobAppRestartSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countdownDisplayBeforeRestartInMinutes
-    * The number of minutes before the restart time to display the countdown dialog for pending restarts.
-    *
-    * @param int $val The value of the countdownDisplayBeforeRestartInMinutes
-    *
-    * @return Win32LobAppRestartSettings
-    */
+     * Sets the countdownDisplayBeforeRestartInMinutes
+     * The number of minutes before the restart time to display the countdown dialog for pending restarts.
+     *
+     * @param int $val The value of the countdownDisplayBeforeRestartInMinutes
+     *
+     * @return Win32LobAppRestartSettings
+     */
     public function setCountdownDisplayBeforeRestartInMinutes($val)
     {
         $this->_propDict["countdownDisplayBeforeRestartInMinutes"] = $val;
         return $this;
     }
     /**
-    * Gets the gracePeriodInMinutes
-    * The number of minutes to wait before restarting the device after an app installation.
-    *
-    * @return int|null The gracePeriodInMinutes
-    */
+     * Gets the gracePeriodInMinutes
+     * The number of minutes to wait before restarting the device after an app installation.
+     *
+     * @return int|null The gracePeriodInMinutes
+     */
     public function getGracePeriodInMinutes()
     {
         if (array_key_exists("gracePeriodInMinutes", $this->_propDict)) {
@@ -68,26 +69,25 @@ class Win32LobAppRestartSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the gracePeriodInMinutes
-    * The number of minutes to wait before restarting the device after an app installation.
-    *
-    * @param int $val The value of the gracePeriodInMinutes
-    *
-    * @return Win32LobAppRestartSettings
-    */
+     * Sets the gracePeriodInMinutes
+     * The number of minutes to wait before restarting the device after an app installation.
+     *
+     * @param int $val The value of the gracePeriodInMinutes
+     *
+     * @return Win32LobAppRestartSettings
+     */
     public function setGracePeriodInMinutes($val)
     {
         $this->_propDict["gracePeriodInMinutes"] = $val;
         return $this;
     }
     /**
-    * Gets the restartNotificationSnoozeDurationInMinutes
-    * The number of minutes to snooze the restart notification dialog when the snooze button is selected.
-    *
-    * @return int|null The restartNotificationSnoozeDurationInMinutes
-    */
+     * Gets the restartNotificationSnoozeDurationInMinutes
+     * The number of minutes to snooze the restart notification dialog when the snooze button is selected.
+     *
+     * @return int|null The restartNotificationSnoozeDurationInMinutes
+     */
     public function getRestartNotificationSnoozeDurationInMinutes()
     {
         if (array_key_exists("restartNotificationSnoozeDurationInMinutes", $this->_propDict)) {
@@ -96,15 +96,14 @@ class Win32LobAppRestartSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the restartNotificationSnoozeDurationInMinutes
-    * The number of minutes to snooze the restart notification dialog when the snooze button is selected.
-    *
-    * @param int $val The value of the restartNotificationSnoozeDurationInMinutes
-    *
-    * @return Win32LobAppRestartSettings
-    */
+     * Sets the restartNotificationSnoozeDurationInMinutes
+     * The number of minutes to snooze the restart notification dialog when the snooze button is selected.
+     *
+     * @param int $val The value of the restartNotificationSnoozeDurationInMinutes
+     *
+     * @return Win32LobAppRestartSettings
+     */
     public function setRestartNotificationSnoozeDurationInMinutes($val)
     {
         $this->_propDict["restartNotificationSnoozeDurationInMinutes"] = $val;

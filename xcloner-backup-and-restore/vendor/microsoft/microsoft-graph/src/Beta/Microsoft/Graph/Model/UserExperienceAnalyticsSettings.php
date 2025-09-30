@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsSettings extends Entity
 {
     /**
-    * Gets the configurationManagerDataConnectorConfigured
-    * True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
-    *
-    * @return bool|null The configurationManagerDataConnectorConfigured
-    */
+     * Gets the configurationManagerDataConnectorConfigured
+     * True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+     *
+     * @return bool|null The configurationManagerDataConnectorConfigured
+     */
     public function getConfigurationManagerDataConnectorConfigured()
     {
         if (array_key_exists("configurationManagerDataConnectorConfigured", $this->_propDict)) {
@@ -40,15 +42,14 @@ class UserExperienceAnalyticsSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the configurationManagerDataConnectorConfigured
-    * True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
-    *
-    * @param bool $val The value of the configurationManagerDataConnectorConfigured
-    *
-    * @return UserExperienceAnalyticsSettings
-    */
+     * Sets the configurationManagerDataConnectorConfigured
+     * True if Tenant attach is configured. If configured then SCCM tenant attached devices will show up in UXA reporting.
+     *
+     * @param bool $val The value of the configurationManagerDataConnectorConfigured
+     *
+     * @return UserExperienceAnalyticsSettings
+     */
     public function setConfigurationManagerDataConnectorConfigured($val)
     {
         $this->_propDict["configurationManagerDataConnectorConfigured"] = $val;

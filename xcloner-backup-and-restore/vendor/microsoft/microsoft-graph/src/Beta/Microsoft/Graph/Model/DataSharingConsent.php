@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DataSharingConsent class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DataSharingConsent extends Entity
 {
     /**
-    * Gets the grantDateTime
-    * The time consent was granted for this account
-    *
-    * @return \DateTime|null The grantDateTime
-    */
+     * Gets the grantDateTime
+     * The time consent was granted for this account
+     *
+     * @return \DateTime|null The grantDateTime
+     */
     public function getGrantDateTime()
     {
         if (array_key_exists("grantDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["grantDateTime"], "\DateTime") || is_null($this->_propDict["grantDateTime"])) {
+            if (is_a($this->_propDict["grantDateTime"], "\\DateTime") || is_null($this->_propDict["grantDateTime"])) {
                 return $this->_propDict["grantDateTime"];
             } else {
                 $this->_propDict["grantDateTime"] = new \DateTime($this->_propDict["grantDateTime"]);
@@ -45,27 +46,25 @@ class DataSharingConsent extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the grantDateTime
-    * The time consent was granted for this account
-    *
-    * @param \DateTime $val The grantDateTime
-    *
-    * @return DataSharingConsent
-    */
+     * Sets the grantDateTime
+     * The time consent was granted for this account
+     *
+     * @param \DateTime $val The grantDateTime
+     *
+     * @return DataSharingConsent
+     */
     public function setGrantDateTime($val)
     {
         $this->_propDict["grantDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the granted
-    * The granted state for the data sharing consent
-    *
-    * @return bool|null The granted
-    */
+     * Gets the granted
+     * The granted state for the data sharing consent
+     *
+     * @return bool|null The granted
+     */
     public function getGranted()
     {
         if (array_key_exists("granted", $this->_propDict)) {
@@ -74,27 +73,25 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the granted
-    * The granted state for the data sharing consent
-    *
-    * @param bool $val The granted
-    *
-    * @return DataSharingConsent
-    */
+     * Sets the granted
+     * The granted state for the data sharing consent
+     *
+     * @param bool $val The granted
+     *
+     * @return DataSharingConsent
+     */
     public function setGranted($val)
     {
         $this->_propDict["granted"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the grantedByUpn
-    * The Upn of the user that granted consent for this account
-    *
-    * @return string|null The grantedByUpn
-    */
+     * Gets the grantedByUpn
+     * The Upn of the user that granted consent for this account
+     *
+     * @return string|null The grantedByUpn
+     */
     public function getGrantedByUpn()
     {
         if (array_key_exists("grantedByUpn", $this->_propDict)) {
@@ -103,27 +100,25 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the grantedByUpn
-    * The Upn of the user that granted consent for this account
-    *
-    * @param string $val The grantedByUpn
-    *
-    * @return DataSharingConsent
-    */
+     * Sets the grantedByUpn
+     * The Upn of the user that granted consent for this account
+     *
+     * @param string $val The grantedByUpn
+     *
+     * @return DataSharingConsent
+     */
     public function setGrantedByUpn($val)
     {
         $this->_propDict["grantedByUpn"] = $val;
         return $this;
     }
-
     /**
-    * Gets the grantedByUserId
-    * The UserId of the user that granted consent for this account
-    *
-    * @return string|null The grantedByUserId
-    */
+     * Gets the grantedByUserId
+     * The UserId of the user that granted consent for this account
+     *
+     * @return string|null The grantedByUserId
+     */
     public function getGrantedByUserId()
     {
         if (array_key_exists("grantedByUserId", $this->_propDict)) {
@@ -132,27 +127,25 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the grantedByUserId
-    * The UserId of the user that granted consent for this account
-    *
-    * @param string $val The grantedByUserId
-    *
-    * @return DataSharingConsent
-    */
+     * Sets the grantedByUserId
+     * The UserId of the user that granted consent for this account
+     *
+     * @param string $val The grantedByUserId
+     *
+     * @return DataSharingConsent
+     */
     public function setGrantedByUserId($val)
     {
         $this->_propDict["grantedByUserId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the serviceDisplayName
-    * The display name of the service work flow
-    *
-    * @return string|null The serviceDisplayName
-    */
+     * Gets the serviceDisplayName
+     * The display name of the service work flow
+     *
+     * @return string|null The serviceDisplayName
+     */
     public function getServiceDisplayName()
     {
         if (array_key_exists("serviceDisplayName", $this->_propDict)) {
@@ -161,27 +154,25 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the serviceDisplayName
-    * The display name of the service work flow
-    *
-    * @param string $val The serviceDisplayName
-    *
-    * @return DataSharingConsent
-    */
+     * Sets the serviceDisplayName
+     * The display name of the service work flow
+     *
+     * @param string $val The serviceDisplayName
+     *
+     * @return DataSharingConsent
+     */
     public function setServiceDisplayName($val)
     {
         $this->_propDict["serviceDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the termsUrl
-    * The TermsUrl for the data sharing consent
-    *
-    * @return string|null The termsUrl
-    */
+     * Gets the termsUrl
+     * The TermsUrl for the data sharing consent
+     *
+     * @return string|null The termsUrl
+     */
     public function getTermsUrl()
     {
         if (array_key_exists("termsUrl", $this->_propDict)) {
@@ -190,19 +181,17 @@ class DataSharingConsent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the termsUrl
-    * The TermsUrl for the data sharing consent
-    *
-    * @param string $val The termsUrl
-    *
-    * @return DataSharingConsent
-    */
+     * Sets the termsUrl
+     * The TermsUrl for the data sharing consent
+     *
+     * @param string $val The termsUrl
+     *
+     * @return DataSharingConsent
+     */
     public function setTermsUrl($val)
     {
         $this->_propDict["termsUrl"] = $val;
         return $this;
     }
-
 }

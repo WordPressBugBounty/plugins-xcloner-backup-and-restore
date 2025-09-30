@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SmsAuthenticationMethodTarget class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget
 {
     /**
-    * Gets the isUsableForSignIn
-    * Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
-    *
-    * @return bool|null The isUsableForSignIn
-    */
+     * Gets the isUsableForSignIn
+     * Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
+     *
+     * @return bool|null The isUsableForSignIn
+     */
     public function getIsUsableForSignIn()
     {
         if (array_key_exists("isUsableForSignIn", $this->_propDict)) {
@@ -41,19 +42,17 @@ class SmsAuthenticationMethodTarget extends AuthenticationMethodTarget
             return null;
         }
     }
-
     /**
-    * Sets the isUsableForSignIn
-    * Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
-    *
-    * @param bool $val The isUsableForSignIn
-    *
-    * @return SmsAuthenticationMethodTarget
-    */
+     * Sets the isUsableForSignIn
+     * Determines if the users or groups can use this authentication method to sign in to Azure AD. The value is always true.
+     *
+     * @param bool $val The isUsableForSignIn
+     *
+     * @return SmsAuthenticationMethodTarget
+     */
     public function setIsUsableForSignIn($val)
     {
         $this->_propDict["isUsableForSignIn"] = boolval($val);
         return $this;
     }
-
 }

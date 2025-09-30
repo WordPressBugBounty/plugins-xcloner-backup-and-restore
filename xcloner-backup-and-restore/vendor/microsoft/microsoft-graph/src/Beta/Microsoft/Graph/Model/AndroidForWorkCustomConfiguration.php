@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidForWorkCustomConfiguration class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AndroidForWorkCustomConfiguration extends DeviceConfiguration
 {
-
-     /**
+    /**
      * Gets the omaSettings
-    * OMA settings. This collection can contain a maximum of 500 elements.
+     * OMA settings. This collection can contain a maximum of 500 elements.
      *
      * @return array|null The omaSettings
      */
     public function getOmaSettings()
     {
         if (array_key_exists("omaSettings", $this->_propDict)) {
-           return $this->_propDict["omaSettings"];
+            return $this->_propDict["omaSettings"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the omaSettings
-    * OMA settings. This collection can contain a maximum of 500 elements.
-    *
-    * @param OmaSetting[] $val The omaSettings
-    *
-    * @return AndroidForWorkCustomConfiguration
-    */
+     * Sets the omaSettings
+     * OMA settings. This collection can contain a maximum of 500 elements.
+     *
+     * @param OmaSetting[] $val The omaSettings
+     *
+     * @return AndroidForWorkCustomConfiguration
+     */
     public function setOmaSettings($val)
     {
         $this->_propDict["omaSettings"] = $val;
         return $this;
     }
-
 }

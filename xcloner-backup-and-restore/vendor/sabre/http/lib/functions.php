@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTime;
 use InvalidArgumentException;
-
 /**
  * A collection of useful helpers for parsing or generating various HTTP
  * headers.
@@ -18,7 +16,6 @@ use InvalidArgumentException;
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-
 /**
  * Parses a HTTP date-string.
  *
@@ -41,39 +38,34 @@ function parseDate(string $dateString)
     $weekday = '(Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)';
     $wkday = '(Mon|Tue|Wed|Thu|Fri|Sat|Sun)';
     $time = '([0-1]\d|2[0-3])(\:[0-5]\d){2}';
-    $date3 = $month.' ([12]\d|3[01]| [1-9])';
-    $date2 = '(0[1-9]|[12]\d|3[01])\-'.$month.'\-\d{2}';
+    $date3 = $month . ' ([12]\d|3[01]| [1-9])';
+    $date2 = '(0[1-9]|[12]\d|3[01])\-' . $month . '\-\d{2}';
     // 4-digit year cannot begin with 0 - unix timestamp begins in 1970
-    $date1 = '(0[1-9]|[12]\d|3[01]) '.$month.' [1-9]\d{3}';
-
+    $date1 = '(0[1-9]|[12]\d|3[01]) ' . $month . ' [1-9]\d{3}';
     // ANSI C's asctime() format
     // 4-digit year cannot begin with 0 - unix timestamp begins in 1970
-    $asctime_date = $wkday.' '.$date3.' '.$time.' [1-9]\d{3}';
+    $asctime_date = $wkday . ' ' . $date3 . ' ' . $time . ' [1-9]\d{3}';
     // RFC 850, obsoleted by RFC 1036
-    $rfc850_date = $weekday.', '.$date2.' '.$time.' GMT';
+    $rfc850_date = $weekday . ', ' . $date2 . ' ' . $time . ' GMT';
     // RFC 822, updated by RFC 1123
-    $rfc1123_date = $wkday.', '.$date1.' '.$time.' GMT';
+    $rfc1123_date = $wkday . ', ' . $date1 . ' ' . $time . ' GMT';
     // allowed date formats by RFC 2616
-    $HTTP_date = "($rfc1123_date|$rfc850_date|$asctime_date)";
-
+    $HTTP_date = "({$rfc1123_date}|{$rfc850_date}|{$asctime_date})";
     // allow for space around the string and strip it
     $dateString = trim($dateString, ' ');
-    if (!preg_match('/^'.$HTTP_date.'$/', $dateString)) {
-        return false;
+    if (!preg_match('/^' . $HTTP_date . '$/', $dateString)) {
+        return \false;
     }
-
     // append implicit GMT timezone to ANSI C time format
-    if (false === strpos($dateString, ' GMT')) {
+    if (\false === strpos($dateString, ' GMT')) {
         $dateString .= ' GMT';
     }
-
     try {
         return new DateTime($dateString, new \DateTimeZone('UTC'));
     } catch (\Exception $e) {
-        return false;
+        return \false;
     }
 }
-
 /**
  * Transforms a DateTime object to a valid HTTP/1.1 Date header value.
  */
@@ -83,10 +75,8 @@ function toDate(DateTime $dateTime): string
     // DateTime.
     $dateTime = clone $dateTime;
     $dateTime->setTimezone(new \DateTimeZone('GMT'));
-
     return $dateTime->format('D, d M Y H:i:s \G\M\T');
 }
-
 /**
  * This function can be used to aid with content negotiation.
  *
@@ -113,36 +103,23 @@ function negotiateContentType($acceptHeaderValue, array $availableOptions)
         // Grabbing the first in the list.
         return reset($availableOptions);
     }
-
-    $proposals = array_map(
-        'Sabre\HTTP\parseMimeType',
-        explode(',', $acceptHeaderValue)
-    );
-
+    $proposals = array_map('XCloner\Sabre\HTTP\parseMimeType', explode(',', $acceptHeaderValue));
     // Ensuring array keys are reset.
     $availableOptions = array_values($availableOptions);
-
-    $options = array_map(
-        'Sabre\HTTP\parseMimeType',
-        $availableOptions
-    );
-
+    $options = array_map('XCloner\Sabre\HTTP\parseMimeType', $availableOptions);
     $lastQuality = 0;
     $lastSpecificity = 0;
     $lastOptionIndex = 0;
     $lastChoice = null;
-
     foreach ($proposals as $proposal) {
         // Ignoring broken values.
         if (null === $proposal) {
             continue;
         }
-
         // If the quality is lower we don't have to bother comparing.
         if ($proposal['quality'] < $lastQuality) {
             continue;
         }
-
         foreach ($options as $optionIndex => $option) {
             if ('*' !== $proposal['type'] && $proposal['type'] !== $option['type']) {
                 // no match on type.
@@ -152,7 +129,6 @@ function negotiateContentType($acceptHeaderValue, array $availableOptions)
                 // no match on subtype.
                 continue;
             }
-
             // Any parameters appearing on the options must appear on
             // proposals.
             foreach ($option['parameters'] as $paramName => $paramValue) {
@@ -163,21 +139,12 @@ function negotiateContentType($acceptHeaderValue, array $availableOptions)
                     continue 2;
                 }
             }
-
             // If we got here, we have a match on parameters, type and
             // subtype. We need to calculate a score for how specific the
             // match was.
-            $specificity =
-                ('*' !== $proposal['type'] ? 20 : 0) +
-                ('*' !== $proposal['subType'] ? 10 : 0) +
-                count($option['parameters']);
-
+            $specificity = ('*' !== $proposal['type'] ? 20 : 0) + ('*' !== $proposal['subType'] ? 10 : 0) + count($option['parameters']);
             // Does this entry win?
-            if (
-                ($proposal['quality'] > $lastQuality) ||
-                ($proposal['quality'] === $lastQuality && $specificity > $lastSpecificity) ||
-                ($proposal['quality'] === $lastQuality && $specificity === $lastSpecificity && $optionIndex < $lastOptionIndex)
-            ) {
+            if ($proposal['quality'] > $lastQuality || $proposal['quality'] === $lastQuality && $specificity > $lastSpecificity || $proposal['quality'] === $lastQuality && $specificity === $lastSpecificity && $optionIndex < $lastOptionIndex) {
                 $lastQuality = $proposal['quality'];
                 $lastSpecificity = $specificity;
                 $lastOptionIndex = $optionIndex;
@@ -185,10 +152,8 @@ function negotiateContentType($acceptHeaderValue, array $availableOptions)
             }
         }
     }
-
     return $lastChoice;
 }
-
 /**
  * Parses the Prefer header, as defined in RFC7240.
  *
@@ -218,34 +183,30 @@ function negotiateContentType($acceptHeaderValue, array $availableOptions)
 function parsePrefer($input): array
 {
     $token = '[!#$%&\'*+\-.^_`~A-Za-z0-9]+';
-
     // Work in progress
     $word = '(?: [a-zA-Z0-9]+ | "[a-zA-Z0-9]*" )';
-
     $regex = <<<REGEX
 /
 ^
-(?<name> $token)      # Prefer property name
-\s*                   # Optional space
-(?: = \s*             # Prefer property value
-   (?<value> $word)
+(?<name> {$token})      # Prefer property name
+\\s*                   # Optional space
+(?: = \\s*             # Prefer property value
+   (?<value> {$word})
 )?
-(?: \s* ; (?: .*))?   # Prefer parameters (ignored)
-$
+(?: \\s* ; (?: .*))?   # Prefer parameters (ignored)
+\$
 /x
 REGEX;
-
     $output = [];
     foreach (getHeaderValues($input) as $value) {
         if (!preg_match($regex, $value, $matches)) {
             // Ignore
             continue;
         }
-
         // Mapping old values to their new counterparts
         switch ($matches['name']) {
             case 'return-asynch':
-                $output['respond-async'] = true;
+                $output['respond-async'] = \true;
                 break;
             case 'return-representation':
                 $output['return'] = 'representation';
@@ -263,16 +224,14 @@ REGEX;
                 if (isset($matches['value'])) {
                     $value = trim($matches['value'], '"');
                 } else {
-                    $value = true;
+                    $value = \true;
                 }
-                $output[strtolower($matches['name'])] = empty($value) ? true : $value;
+                $output[strtolower($matches['name'])] = empty($value) ? \true : $value;
                 break;
         }
     }
-
     return $output;
 }
-
 /**
  * This method splits up headers into all their individual values.
  *
@@ -296,17 +255,14 @@ function getHeaderValues($values, $values2 = null): array
     if ($values2) {
         $values = array_merge($values, (array) $values2);
     }
-
     $result = [];
     foreach ($values as $l1) {
         foreach (explode(',', $l1) as $l2) {
             $result[] = trim($l2);
         }
     }
-
     return $result;
 }
-
 /**
  * Parses a mime-type and splits it into:.
  *
@@ -320,35 +276,28 @@ function parseMimeType(string $str): array
     $parameters = [];
     // If no q= parameter appears, then quality = 1.
     $quality = 1;
-
     $parts = explode(';', $str);
-
     // The first part is the mime-type.
     $mimeType = trim(array_shift($parts));
-
     if ('*' === $mimeType) {
         $mimeType = '*/*';
     }
-
     $mimeType = explode('/', $mimeType);
     if (2 !== count($mimeType)) {
         // Illegal value
         var_dump($mimeType);
-        exit();
+        exit;
         // throw new InvalidArgumentException('Not a valid mime-type: '.$str);
     }
     list($type, $subType) = $mimeType;
-
     foreach ($parts as $part) {
         $part = trim($part);
         if (strpos($part, '=')) {
-            list($partName, $partValue) =
-                explode('=', $part, 2);
+            list($partName, $partValue) = explode('=', $part, 2);
         } else {
             $partName = $part;
             $partValue = null;
         }
-
         // The quality parameter, if it appears, also marks the end of
         // the parameter list. Anything after the q= counts as an
         // 'accept extension' and could introduce new semantics in
@@ -357,18 +306,12 @@ function parseMimeType(string $str): array
             $parameters[$partName] = $part;
         } else {
             $quality = (float) $partValue;
-            break; // Stop parsing parts
+            break;
+            // Stop parsing parts
         }
     }
-
-    return [
-        'type' => $type,
-        'subType' => $subType,
-        'quality' => $quality,
-        'parameters' => $parameters,
-    ];
+    return ['type' => $type, 'subType' => $subType, 'quality' => $quality, 'parameters' => $parameters];
 }
-
 /**
  * Encodes the path of a url.
  *
@@ -377,10 +320,9 @@ function parseMimeType(string $str): array
 function encodePath(string $path): string
 {
     return preg_replace_callback('/([^A-Za-z0-9_\-\.~\(\)\/:@])/', function ($match) {
-        return '%'.sprintf('%02x', ord($match[0]));
+        return '%' . sprintf('%02x', ord($match[0]));
     }, $path);
 }
-
 /**
  * Encodes a 1 segment of a path.
  *
@@ -389,10 +331,9 @@ function encodePath(string $path): string
 function encodePathSegment(string $pathSegment): string
 {
     return preg_replace_callback('/([^A-Za-z0-9_\-\.~\(\):@])/', function ($match) {
-        return '%'.sprintf('%02x', ord($match[0]));
+        return '%' . sprintf('%02x', ord($match[0]));
     }, $pathSegment);
 }
-
 /**
  * Decodes a url-encoded path.
  */
@@ -400,17 +341,14 @@ function decodePath(string $path): string
 {
     return decodePathSegment($path);
 }
-
 /**
  * Decodes a url-encoded path segment.
  */
 function decodePathSegment(string $path): string
 {
     $path = rawurldecode($path);
-
     if (!mb_check_encoding($path, 'UTF-8') && mb_check_encoding($path, 'ISO-8859-1')) {
         $path = mb_convert_encoding($path, 'UTF-8', 'ISO-8859-1');
     }
-
     return $path;
 }

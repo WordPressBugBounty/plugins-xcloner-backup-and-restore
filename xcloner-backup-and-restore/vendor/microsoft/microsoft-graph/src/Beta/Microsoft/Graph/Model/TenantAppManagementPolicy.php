@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TenantAppManagementPolicy class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TenantAppManagementPolicy extends PolicyBase
 {
     /**
-    * Gets the applicationRestrictions
-    * Restrictions that apply as default to all application objects in the tenant.
-    *
-    * @return AppManagementConfiguration|null The applicationRestrictions
-    */
+     * Gets the applicationRestrictions
+     * Restrictions that apply as default to all application objects in the tenant.
+     *
+     * @return AppManagementConfiguration|null The applicationRestrictions
+     */
     public function getApplicationRestrictions()
     {
         if (array_key_exists("applicationRestrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationRestrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration") || is_null($this->_propDict["applicationRestrictions"])) {
+            if (is_a($this->_propDict["applicationRestrictions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppManagementConfiguration") || is_null($this->_propDict["applicationRestrictions"])) {
                 return $this->_propDict["applicationRestrictions"];
             } else {
                 $this->_propDict["applicationRestrictions"] = new AppManagementConfiguration($this->_propDict["applicationRestrictions"]);
@@ -45,27 +46,25 @@ class TenantAppManagementPolicy extends PolicyBase
         }
         return null;
     }
-
     /**
-    * Sets the applicationRestrictions
-    * Restrictions that apply as default to all application objects in the tenant.
-    *
-    * @param AppManagementConfiguration $val The applicationRestrictions
-    *
-    * @return TenantAppManagementPolicy
-    */
+     * Sets the applicationRestrictions
+     * Restrictions that apply as default to all application objects in the tenant.
+     *
+     * @param AppManagementConfiguration $val The applicationRestrictions
+     *
+     * @return TenantAppManagementPolicy
+     */
     public function setApplicationRestrictions($val)
     {
         $this->_propDict["applicationRestrictions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isEnabled
-    * Denotes whether the policy is enabled. Default value is false.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Denotes whether the policy is enabled. Default value is false.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -74,31 +73,29 @@ class TenantAppManagementPolicy extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Denotes whether the policy is enabled. Default value is false.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return TenantAppManagementPolicy
-    */
+     * Sets the isEnabled
+     * Denotes whether the policy is enabled. Default value is false.
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return TenantAppManagementPolicy
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the servicePrincipalRestrictions
-    * Restrictions that apply as default to all service principal objects in the tenant.
-    *
-    * @return AppManagementConfiguration|null The servicePrincipalRestrictions
-    */
+     * Gets the servicePrincipalRestrictions
+     * Restrictions that apply as default to all service principal objects in the tenant.
+     *
+     * @return AppManagementConfiguration|null The servicePrincipalRestrictions
+     */
     public function getServicePrincipalRestrictions()
     {
         if (array_key_exists("servicePrincipalRestrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["servicePrincipalRestrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration") || is_null($this->_propDict["servicePrincipalRestrictions"])) {
+            if (is_a($this->_propDict["servicePrincipalRestrictions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppManagementConfiguration") || is_null($this->_propDict["servicePrincipalRestrictions"])) {
                 return $this->_propDict["servicePrincipalRestrictions"];
             } else {
                 $this->_propDict["servicePrincipalRestrictions"] = new AppManagementConfiguration($this->_propDict["servicePrincipalRestrictions"]);
@@ -107,19 +104,17 @@ class TenantAppManagementPolicy extends PolicyBase
         }
         return null;
     }
-
     /**
-    * Sets the servicePrincipalRestrictions
-    * Restrictions that apply as default to all service principal objects in the tenant.
-    *
-    * @param AppManagementConfiguration $val The servicePrincipalRestrictions
-    *
-    * @return TenantAppManagementPolicy
-    */
+     * Sets the servicePrincipalRestrictions
+     * Restrictions that apply as default to all service principal objects in the tenant.
+     *
+     * @param AppManagementConfiguration $val The servicePrincipalRestrictions
+     *
+     * @return TenantAppManagementPolicy
+     */
     public function setServicePrincipalRestrictions($val)
     {
         $this->_propDict["servicePrincipalRestrictions"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RequiredResourceAccess class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RequiredResourceAccess extends Entity
 {
-
     /**
-    * Gets the resourceAccess
-    * The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.
-    *
-    * @return ResourceAccess|null The resourceAccess
-    */
+     * Gets the resourceAccess
+     * The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.
+     *
+     * @return ResourceAccess|null The resourceAccess
+     */
     public function getResourceAccess()
     {
         if (array_key_exists("resourceAccess", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceAccess"], "\Microsoft\Graph\Model\ResourceAccess") || is_null($this->_propDict["resourceAccess"])) {
+            if (is_a($this->_propDict["resourceAccess"], "XCloner\\Microsoft\\Graph\\Model\\ResourceAccess") || is_null($this->_propDict["resourceAccess"])) {
                 return $this->_propDict["resourceAccess"];
             } else {
                 $this->_propDict["resourceAccess"] = new ResourceAccess($this->_propDict["resourceAccess"]);
@@ -45,26 +46,25 @@ class RequiredResourceAccess extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resourceAccess
-    * The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.
-    *
-    * @param ResourceAccess $val The value to assign to the resourceAccess
-    *
-    * @return RequiredResourceAccess The RequiredResourceAccess
-    */
+     * Sets the resourceAccess
+     * The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.
+     *
+     * @param ResourceAccess $val The value to assign to the resourceAccess
+     *
+     * @return RequiredResourceAccess The RequiredResourceAccess
+     */
     public function setResourceAccess($val)
     {
         $this->_propDict["resourceAccess"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the resourceAppId
-    * The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
-    *
-    * @return string|null The resourceAppId
-    */
+     * Gets the resourceAppId
+     * The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
+     *
+     * @return string|null The resourceAppId
+     */
     public function getResourceAppId()
     {
         if (array_key_exists("resourceAppId", $this->_propDict)) {
@@ -73,15 +73,14 @@ class RequiredResourceAccess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceAppId
-    * The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
-    *
-    * @param string $val The value of the resourceAppId
-    *
-    * @return RequiredResourceAccess
-    */
+     * Sets the resourceAppId
+     * The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
+     *
+     * @param string $val The value of the resourceAppId
+     *
+     * @return RequiredResourceAccess
+     */
     public function setResourceAppId($val)
     {
         $this->_propDict["resourceAppId"] = $val;

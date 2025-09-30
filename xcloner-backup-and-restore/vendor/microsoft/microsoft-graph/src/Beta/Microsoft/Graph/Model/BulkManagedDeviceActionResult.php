@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BulkManagedDeviceActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BulkManagedDeviceActionResult extends Entity
 {
     /**
-    * Gets the failedDeviceIds
-    * Failed devices
-    *
-    * @return string|null The failedDeviceIds
-    */
+     * Gets the failedDeviceIds
+     * Failed devices
+     *
+     * @return string|null The failedDeviceIds
+     */
     public function getFailedDeviceIds()
     {
         if (array_key_exists("failedDeviceIds", $this->_propDict)) {
@@ -40,26 +42,25 @@ class BulkManagedDeviceActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedDeviceIds
-    * Failed devices
-    *
-    * @param string $val The value of the failedDeviceIds
-    *
-    * @return BulkManagedDeviceActionResult
-    */
+     * Sets the failedDeviceIds
+     * Failed devices
+     *
+     * @param string $val The value of the failedDeviceIds
+     *
+     * @return BulkManagedDeviceActionResult
+     */
     public function setFailedDeviceIds($val)
     {
         $this->_propDict["failedDeviceIds"] = $val;
         return $this;
     }
     /**
-    * Gets the notFoundDeviceIds
-    * Not found devices
-    *
-    * @return string|null The notFoundDeviceIds
-    */
+     * Gets the notFoundDeviceIds
+     * Not found devices
+     *
+     * @return string|null The notFoundDeviceIds
+     */
     public function getNotFoundDeviceIds()
     {
         if (array_key_exists("notFoundDeviceIds", $this->_propDict)) {
@@ -68,26 +69,25 @@ class BulkManagedDeviceActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notFoundDeviceIds
-    * Not found devices
-    *
-    * @param string $val The value of the notFoundDeviceIds
-    *
-    * @return BulkManagedDeviceActionResult
-    */
+     * Sets the notFoundDeviceIds
+     * Not found devices
+     *
+     * @param string $val The value of the notFoundDeviceIds
+     *
+     * @return BulkManagedDeviceActionResult
+     */
     public function setNotFoundDeviceIds($val)
     {
         $this->_propDict["notFoundDeviceIds"] = $val;
         return $this;
     }
     /**
-    * Gets the notSupportedDeviceIds
-    * Not supported devices
-    *
-    * @return string|null The notSupportedDeviceIds
-    */
+     * Gets the notSupportedDeviceIds
+     * Not supported devices
+     *
+     * @return string|null The notSupportedDeviceIds
+     */
     public function getNotSupportedDeviceIds()
     {
         if (array_key_exists("notSupportedDeviceIds", $this->_propDict)) {
@@ -96,26 +96,25 @@ class BulkManagedDeviceActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notSupportedDeviceIds
-    * Not supported devices
-    *
-    * @param string $val The value of the notSupportedDeviceIds
-    *
-    * @return BulkManagedDeviceActionResult
-    */
+     * Sets the notSupportedDeviceIds
+     * Not supported devices
+     *
+     * @param string $val The value of the notSupportedDeviceIds
+     *
+     * @return BulkManagedDeviceActionResult
+     */
     public function setNotSupportedDeviceIds($val)
     {
         $this->_propDict["notSupportedDeviceIds"] = $val;
         return $this;
     }
     /**
-    * Gets the successfulDeviceIds
-    * Successful devices
-    *
-    * @return string|null The successfulDeviceIds
-    */
+     * Gets the successfulDeviceIds
+     * Successful devices
+     *
+     * @return string|null The successfulDeviceIds
+     */
     public function getSuccessfulDeviceIds()
     {
         if (array_key_exists("successfulDeviceIds", $this->_propDict)) {
@@ -124,15 +123,14 @@ class BulkManagedDeviceActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successfulDeviceIds
-    * Successful devices
-    *
-    * @param string $val The value of the successfulDeviceIds
-    *
-    * @return BulkManagedDeviceActionResult
-    */
+     * Sets the successfulDeviceIds
+     * Successful devices
+     *
+     * @param string $val The value of the successfulDeviceIds
+     *
+     * @return BulkManagedDeviceActionResult
+     */
     public function setSuccessfulDeviceIds($val)
     {
         $this->_propDict["successfulDeviceIds"] = $val;

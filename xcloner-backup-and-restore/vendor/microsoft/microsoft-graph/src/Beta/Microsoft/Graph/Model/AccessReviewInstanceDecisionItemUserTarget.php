@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewInstanceDecisionItemUserTarget class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDecisionItemTarget
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.accessReviewInstanceDecisionItemUserTarget");
     }
-
     /**
-    * Gets the userDisplayName
-    * The name of user.
-    *
-    * @return string|null The userDisplayName
-    */
+     * Gets the userDisplayName
+     * The name of user.
+     *
+     * @return string|null The userDisplayName
+     */
     public function getUserDisplayName()
     {
         if (array_key_exists("userDisplayName", $this->_propDict)) {
@@ -51,26 +52,25 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
             return null;
         }
     }
-
     /**
-    * Sets the userDisplayName
-    * The name of user.
-    *
-    * @param string $val The value of the userDisplayName
-    *
-    * @return AccessReviewInstanceDecisionItemUserTarget
-    */
+     * Sets the userDisplayName
+     * The name of user.
+     *
+     * @param string $val The value of the userDisplayName
+     *
+     * @return AccessReviewInstanceDecisionItemUserTarget
+     */
     public function setUserDisplayName($val)
     {
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
     /**
-    * Gets the userId
-    * The identifier of user.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The identifier of user.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -79,26 +79,25 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The identifier of user.
-    *
-    * @param string $val The value of the userId
-    *
-    * @return AccessReviewInstanceDecisionItemUserTarget
-    */
+     * Sets the userId
+     * The identifier of user.
+     *
+     * @param string $val The value of the userId
+     *
+     * @return AccessReviewInstanceDecisionItemUserTarget
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
     /**
-    * Gets the userPrincipalName
-    * The user principal name.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The user principal name.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -107,15 +106,14 @@ class AccessReviewInstanceDecisionItemUserTarget extends AccessReviewInstanceDec
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The user principal name.
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return AccessReviewInstanceDecisionItemUserTarget
-    */
+     * Sets the userPrincipalName
+     * The user principal name.
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return AccessReviewInstanceDecisionItemUserTarget
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

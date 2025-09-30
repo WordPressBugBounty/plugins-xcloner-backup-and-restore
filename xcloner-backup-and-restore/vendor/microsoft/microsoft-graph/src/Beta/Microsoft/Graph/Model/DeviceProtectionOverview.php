@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceProtectionOverview class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceProtectionOverview extends Entity
 {
     /**
-    * Gets the cleanDeviceCount
-    * Clean device count.
-    *
-    * @return int|null The cleanDeviceCount
-    */
+     * Gets the cleanDeviceCount
+     * Clean device count.
+     *
+     * @return int|null The cleanDeviceCount
+     */
     public function getCleanDeviceCount()
     {
         if (array_key_exists("cleanDeviceCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the cleanDeviceCount
-    * Clean device count.
-    *
-    * @param int $val The value of the cleanDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the cleanDeviceCount
+     * Clean device count.
+     *
+     * @param int $val The value of the cleanDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setCleanDeviceCount($val)
     {
         $this->_propDict["cleanDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the criticalFailuresDeviceCount
-    * Critical failures device count.
-    *
-    * @return int|null The criticalFailuresDeviceCount
-    */
+     * Gets the criticalFailuresDeviceCount
+     * Critical failures device count.
+     *
+     * @return int|null The criticalFailuresDeviceCount
+     */
     public function getCriticalFailuresDeviceCount()
     {
         if (array_key_exists("criticalFailuresDeviceCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the criticalFailuresDeviceCount
-    * Critical failures device count.
-    *
-    * @param int $val The value of the criticalFailuresDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the criticalFailuresDeviceCount
+     * Critical failures device count.
+     *
+     * @param int $val The value of the criticalFailuresDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setCriticalFailuresDeviceCount($val)
     {
         $this->_propDict["criticalFailuresDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the inactiveThreatAgentDeviceCount
-    * Device with inactive threat agent count
-    *
-    * @return int|null The inactiveThreatAgentDeviceCount
-    */
+     * Gets the inactiveThreatAgentDeviceCount
+     * Device with inactive threat agent count
+     *
+     * @return int|null The inactiveThreatAgentDeviceCount
+     */
     public function getInactiveThreatAgentDeviceCount()
     {
         if (array_key_exists("inactiveThreatAgentDeviceCount", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the inactiveThreatAgentDeviceCount
-    * Device with inactive threat agent count
-    *
-    * @param int $val The value of the inactiveThreatAgentDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the inactiveThreatAgentDeviceCount
+     * Device with inactive threat agent count
+     *
+     * @param int $val The value of the inactiveThreatAgentDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setInactiveThreatAgentDeviceCount($val)
     {
         $this->_propDict["inactiveThreatAgentDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the pendingFullScanDeviceCount
-    * Pending full scan device count.
-    *
-    * @return int|null The pendingFullScanDeviceCount
-    */
+     * Gets the pendingFullScanDeviceCount
+     * Pending full scan device count.
+     *
+     * @return int|null The pendingFullScanDeviceCount
+     */
     public function getPendingFullScanDeviceCount()
     {
         if (array_key_exists("pendingFullScanDeviceCount", $this->_propDict)) {
@@ -124,26 +123,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pendingFullScanDeviceCount
-    * Pending full scan device count.
-    *
-    * @param int $val The value of the pendingFullScanDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the pendingFullScanDeviceCount
+     * Pending full scan device count.
+     *
+     * @param int $val The value of the pendingFullScanDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setPendingFullScanDeviceCount($val)
     {
         $this->_propDict["pendingFullScanDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the pendingManualStepsDeviceCount
-    * Pending manual steps device count.
-    *
-    * @return int|null The pendingManualStepsDeviceCount
-    */
+     * Gets the pendingManualStepsDeviceCount
+     * Pending manual steps device count.
+     *
+     * @return int|null The pendingManualStepsDeviceCount
+     */
     public function getPendingManualStepsDeviceCount()
     {
         if (array_key_exists("pendingManualStepsDeviceCount", $this->_propDict)) {
@@ -152,26 +150,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pendingManualStepsDeviceCount
-    * Pending manual steps device count.
-    *
-    * @param int $val The value of the pendingManualStepsDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the pendingManualStepsDeviceCount
+     * Pending manual steps device count.
+     *
+     * @param int $val The value of the pendingManualStepsDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setPendingManualStepsDeviceCount($val)
     {
         $this->_propDict["pendingManualStepsDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the pendingOfflineScanDeviceCount
-    * Pending offline scan device count.
-    *
-    * @return int|null The pendingOfflineScanDeviceCount
-    */
+     * Gets the pendingOfflineScanDeviceCount
+     * Pending offline scan device count.
+     *
+     * @return int|null The pendingOfflineScanDeviceCount
+     */
     public function getPendingOfflineScanDeviceCount()
     {
         if (array_key_exists("pendingOfflineScanDeviceCount", $this->_propDict)) {
@@ -180,26 +177,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pendingOfflineScanDeviceCount
-    * Pending offline scan device count.
-    *
-    * @param int $val The value of the pendingOfflineScanDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the pendingOfflineScanDeviceCount
+     * Pending offline scan device count.
+     *
+     * @param int $val The value of the pendingOfflineScanDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setPendingOfflineScanDeviceCount($val)
     {
         $this->_propDict["pendingOfflineScanDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the pendingQuickScanDeviceCount
-    * Pending quick scan device count. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The pendingQuickScanDeviceCount
-    */
+     * Gets the pendingQuickScanDeviceCount
+     * Pending quick scan device count. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The pendingQuickScanDeviceCount
+     */
     public function getPendingQuickScanDeviceCount()
     {
         if (array_key_exists("pendingQuickScanDeviceCount", $this->_propDict)) {
@@ -208,26 +204,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pendingQuickScanDeviceCount
-    * Pending quick scan device count. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the pendingQuickScanDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the pendingQuickScanDeviceCount
+     * Pending quick scan device count. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the pendingQuickScanDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setPendingQuickScanDeviceCount($val)
     {
         $this->_propDict["pendingQuickScanDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the pendingRestartDeviceCount
-    * Pending restart device count.
-    *
-    * @return int|null The pendingRestartDeviceCount
-    */
+     * Gets the pendingRestartDeviceCount
+     * Pending restart device count.
+     *
+     * @return int|null The pendingRestartDeviceCount
+     */
     public function getPendingRestartDeviceCount()
     {
         if (array_key_exists("pendingRestartDeviceCount", $this->_propDict)) {
@@ -236,26 +231,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pendingRestartDeviceCount
-    * Pending restart device count.
-    *
-    * @param int $val The value of the pendingRestartDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the pendingRestartDeviceCount
+     * Pending restart device count.
+     *
+     * @param int $val The value of the pendingRestartDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setPendingRestartDeviceCount($val)
     {
         $this->_propDict["pendingRestartDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the pendingSignatureUpdateDeviceCount
-    * Device with old signature count.
-    *
-    * @return int|null The pendingSignatureUpdateDeviceCount
-    */
+     * Gets the pendingSignatureUpdateDeviceCount
+     * Device with old signature count.
+     *
+     * @return int|null The pendingSignatureUpdateDeviceCount
+     */
     public function getPendingSignatureUpdateDeviceCount()
     {
         if (array_key_exists("pendingSignatureUpdateDeviceCount", $this->_propDict)) {
@@ -264,26 +258,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pendingSignatureUpdateDeviceCount
-    * Device with old signature count.
-    *
-    * @param int $val The value of the pendingSignatureUpdateDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the pendingSignatureUpdateDeviceCount
+     * Device with old signature count.
+     *
+     * @param int $val The value of the pendingSignatureUpdateDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setPendingSignatureUpdateDeviceCount($val)
     {
         $this->_propDict["pendingSignatureUpdateDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the totalReportedDeviceCount
-    * Total device count.
-    *
-    * @return int|null The totalReportedDeviceCount
-    */
+     * Gets the totalReportedDeviceCount
+     * Total device count.
+     *
+     * @return int|null The totalReportedDeviceCount
+     */
     public function getTotalReportedDeviceCount()
     {
         if (array_key_exists("totalReportedDeviceCount", $this->_propDict)) {
@@ -292,26 +285,25 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalReportedDeviceCount
-    * Total device count.
-    *
-    * @param int $val The value of the totalReportedDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the totalReportedDeviceCount
+     * Total device count.
+     *
+     * @param int $val The value of the totalReportedDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setTotalReportedDeviceCount($val)
     {
         $this->_propDict["totalReportedDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the unknownStateThreatAgentDeviceCount
-    * Device with threat agent state as unknown count.
-    *
-    * @return int|null The unknownStateThreatAgentDeviceCount
-    */
+     * Gets the unknownStateThreatAgentDeviceCount
+     * Device with threat agent state as unknown count.
+     *
+     * @return int|null The unknownStateThreatAgentDeviceCount
+     */
     public function getUnknownStateThreatAgentDeviceCount()
     {
         if (array_key_exists("unknownStateThreatAgentDeviceCount", $this->_propDict)) {
@@ -320,15 +312,14 @@ class DeviceProtectionOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownStateThreatAgentDeviceCount
-    * Device with threat agent state as unknown count.
-    *
-    * @param int $val The value of the unknownStateThreatAgentDeviceCount
-    *
-    * @return DeviceProtectionOverview
-    */
+     * Sets the unknownStateThreatAgentDeviceCount
+     * Device with threat agent state as unknown count.
+     *
+     * @param int $val The value of the unknownStateThreatAgentDeviceCount
+     *
+     * @return DeviceProtectionOverview
+     */
     public function setUnknownStateThreatAgentDeviceCount($val)
     {
         $this->_propDict["unknownStateThreatAgentDeviceCount"] = $val;

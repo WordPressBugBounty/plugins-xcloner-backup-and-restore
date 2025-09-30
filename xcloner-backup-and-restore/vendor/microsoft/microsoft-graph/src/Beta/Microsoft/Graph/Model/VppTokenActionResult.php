@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VppTokenActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VppTokenActionResult extends Entity
 {
     /**
-    * Gets the actionName
-    * Action name
-    *
-    * @return string|null The actionName
-    */
+     * Gets the actionName
+     * Action name
+     *
+     * @return string|null The actionName
+     */
     public function getActionName()
     {
         if (array_key_exists("actionName", $this->_propDict)) {
@@ -40,31 +42,29 @@ class VppTokenActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionName
-    * Action name
-    *
-    * @param string $val The value of the actionName
-    *
-    * @return VppTokenActionResult
-    */
+     * Sets the actionName
+     * Action name
+     *
+     * @param string $val The value of the actionName
+     *
+     * @return VppTokenActionResult
+     */
     public function setActionName($val)
     {
         $this->_propDict["actionName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the actionState
-    * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    *
-    * @return ActionState|null The actionState
-    */
+     * Gets the actionState
+     * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     *
+     * @return ActionState|null The actionState
+     */
     public function getActionState()
     {
         if (array_key_exists("actionState", $this->_propDict)) {
-            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["actionState"])) {
+            if (is_a($this->_propDict["actionState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ActionState") || is_null($this->_propDict["actionState"])) {
                 return $this->_propDict["actionState"];
             } else {
                 $this->_propDict["actionState"] = new ActionState($this->_propDict["actionState"]);
@@ -73,31 +73,29 @@ class VppTokenActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actionState
-    * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    *
-    * @param ActionState $val The value to assign to the actionState
-    *
-    * @return VppTokenActionResult The VppTokenActionResult
-    */
+     * Sets the actionState
+     * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     *
+     * @param ActionState $val The value to assign to the actionState
+     *
+     * @return VppTokenActionResult The VppTokenActionResult
+     */
     public function setActionState($val)
     {
         $this->_propDict["actionState"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lastUpdatedDateTime
-    * Time the action state was last updated
-    *
-    * @return \DateTime|null The lastUpdatedDateTime
-    */
+     * Gets the lastUpdatedDateTime
+     * Time the action state was last updated
+     *
+     * @return \DateTime|null The lastUpdatedDateTime
+     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -106,31 +104,29 @@ class VppTokenActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastUpdatedDateTime
-    * Time the action state was last updated
-    *
-    * @param \DateTime $val The value to assign to the lastUpdatedDateTime
-    *
-    * @return VppTokenActionResult The VppTokenActionResult
-    */
+     * Sets the lastUpdatedDateTime
+     * Time the action state was last updated
+     *
+     * @param \DateTime $val The value to assign to the lastUpdatedDateTime
+     *
+     * @return VppTokenActionResult The VppTokenActionResult
+     */
     public function setLastUpdatedDateTime($val)
     {
         $this->_propDict["lastUpdatedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * Time the action was initiated
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * Time the action was initiated
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -139,18 +135,17 @@ class VppTokenActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * Time the action was initiated
-    *
-    * @param \DateTime $val The value to assign to the startDateTime
-    *
-    * @return VppTokenActionResult The VppTokenActionResult
-    */
+     * Sets the startDateTime
+     * Time the action was initiated
+     *
+     * @param \DateTime $val The value to assign to the startDateTime
+     *
+     * @return VppTokenActionResult The VppTokenActionResult
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

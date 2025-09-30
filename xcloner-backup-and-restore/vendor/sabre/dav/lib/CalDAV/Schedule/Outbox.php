@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Schedule;
 
-namespace Sabre\CalDAV\Schedule;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV;
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
 /**
  * The CalDAV scheduling outbox.
  *
@@ -25,14 +23,12 @@ use Sabre\DAVACL;
 class Outbox extends DAV\Collection implements IOutbox
 {
     use DAVACL\ACLTrait;
-
     /**
      * The principal Uri.
      *
      * @var string
      */
     protected $principalUri;
-
     /**
      * Constructor.
      *
@@ -42,7 +38,6 @@ class Outbox extends DAV\Collection implements IOutbox
     {
         $this->principalUri = $principalUri;
     }
-
     /**
      * Returns the name of the node.
      *
@@ -54,7 +49,6 @@ class Outbox extends DAV\Collection implements IOutbox
     {
         return 'outbox';
     }
-
     /**
      * Returns an array with all the child nodes.
      *
@@ -64,7 +58,6 @@ class Outbox extends DAV\Collection implements IOutbox
     {
         return [];
     }
-
     /**
      * Returns the owner principal.
      *
@@ -76,7 +69,6 @@ class Outbox extends DAV\Collection implements IOutbox
     {
         return $this->principalUri;
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -91,32 +83,6 @@ class Outbox extends DAV\Collection implements IOutbox
      */
     public function getACL()
     {
-        return [
-            [
-                'privilege' => '{'.CalDAV\Plugin::NS_CALDAV.'}schedule-send',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{'.CalDAV\Plugin::NS_CALDAV.'}schedule-send',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-read',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{' . CalDAV\Plugin::NS_CALDAV . '}schedule-send', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{' . CalDAV\Plugin::NS_CALDAV . '}schedule-send', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-read', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true]];
     }
 }

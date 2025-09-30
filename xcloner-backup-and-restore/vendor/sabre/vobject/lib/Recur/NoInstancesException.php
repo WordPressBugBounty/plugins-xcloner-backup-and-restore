@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Recur;
+namespace XCloner\Sabre\VObject\Recur;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Exception;
-
 /**
  * This exception gets thrown when a recurrence iterator produces 0 instances.
  *

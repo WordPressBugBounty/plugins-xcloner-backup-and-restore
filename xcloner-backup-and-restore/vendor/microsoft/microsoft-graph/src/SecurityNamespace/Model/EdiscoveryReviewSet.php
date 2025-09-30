@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EdiscoveryReviewSet class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EdiscoveryReviewSet extends DataSet
 {
-
-     /**
+    /**
      * Gets the queries
-    * Represents queries within the review set.
+     * Represents queries within the review set.
      *
      * @return array|null The queries
      */
     public function getQueries()
     {
         if (array_key_exists("queries", $this->_propDict)) {
-           return $this->_propDict["queries"];
+            return $this->_propDict["queries"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the queries
-    * Represents queries within the review set.
-    *
-    * @param EdiscoveryReviewSetQuery[] $val The queries
-    *
-    * @return EdiscoveryReviewSet
-    */
+     * Sets the queries
+     * Represents queries within the review set.
+     *
+     * @param EdiscoveryReviewSetQuery[] $val The queries
+     *
+     * @return EdiscoveryReviewSet
+     */
     public function setQueries($val)
     {
         $this->_propDict["queries"] = $val;
         return $this;
     }
-
 }

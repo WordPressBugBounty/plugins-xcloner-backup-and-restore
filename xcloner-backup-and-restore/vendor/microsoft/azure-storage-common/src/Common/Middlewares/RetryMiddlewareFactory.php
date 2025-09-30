@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Middlewares;
 
-namespace MicrosoftAzure\Storage\Common\Middlewares;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use GuzzleHttp\Exception\ConnectException;
-use GuzzleHttp\Exception\RequestException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\GuzzleHttp\Exception\ConnectException;
+use XCloner\GuzzleHttp\Exception\RequestException;
 /**
  * This class provides static functions that creates retry handlers for Guzzle
  * HTTP clients to handle retry policy.
@@ -47,15 +45,14 @@ class RetryMiddlewareFactory
 {
     //The interval will be increased linearly, the nth retry will have a
     //wait time equal to n * interval.
-    const LINEAR_INTERVAL_ACCUMULATION      = 'Linear';
+    const LINEAR_INTERVAL_ACCUMULATION = 'Linear';
     //The interval will be increased exponentially, the nth retry will have a
     //wait time equal to pow(2, n) * interval.
     const EXPONENTIAL_INTERVAL_ACCUMULATION = 'Exponential';
     //This is for the general type of logic that handles retry.
-    const GENERAL_RETRY_TYPE                = 'General';
+    const GENERAL_RETRY_TYPE = 'General';
     //This is for the append blob retry only.
-    const APPEND_BLOB_RETRY_TYPE            = 'Append Blob Retry';
-
+    const APPEND_BLOB_RETRY_TYPE = 'Append Blob Retry';
     /**
      * Create the retry handler for the Guzzle client, according to the given
      * attributes.
@@ -77,66 +74,28 @@ class RetryMiddlewareFactory
      *                                     the logic of how the request should be
      *                                     handled after a response.
      */
-    public static function create(
-        $type = self::GENERAL_RETRY_TYPE,
-        $numberOfRetries = Resources::DEFAULT_NUMBER_OF_RETRIES,
-        $interval = Resources::DEFAULT_RETRY_INTERVAL,
-        $accumulationMethod = self::LINEAR_INTERVAL_ACCUMULATION,
-        $retryConnect = false
-    ) {
+    public static function create($type = self::GENERAL_RETRY_TYPE, $numberOfRetries = Resources::DEFAULT_NUMBER_OF_RETRIES, $interval = Resources::DEFAULT_RETRY_INTERVAL, $accumulationMethod = self::LINEAR_INTERVAL_ACCUMULATION, $retryConnect = \false)
+    {
         //Validate the input parameters
         //type
-        Validate::isTrue(
-            $type == self::GENERAL_RETRY_TYPE ||
-            $type == self::APPEND_BLOB_RETRY_TYPE,
-            sprintf(
-                Resources::INVALID_PARAM_GENERAL,
-                'type'
-            )
-        );
+        Validate::isTrue($type == self::GENERAL_RETRY_TYPE || $type == self::APPEND_BLOB_RETRY_TYPE, sprintf(Resources::INVALID_PARAM_GENERAL, 'type'));
         //numberOfRetries
-        Validate::isTrue(
-            $numberOfRetries > 0,
-            sprintf(
-                Resources::INVALID_NEGATIVE_PARAM,
-                'numberOfRetries'
-            )
-        );
+        Validate::isTrue($numberOfRetries > 0, sprintf(Resources::INVALID_NEGATIVE_PARAM, 'numberOfRetries'));
         //interval
-        Validate::isTrue(
-            $interval > 0,
-            sprintf(
-                Resources::INVALID_NEGATIVE_PARAM,
-                'interval'
-            )
-        );
+        Validate::isTrue($interval > 0, sprintf(Resources::INVALID_NEGATIVE_PARAM, 'interval'));
         //accumulationMethod
-        Validate::isTrue(
-            $accumulationMethod == self::LINEAR_INTERVAL_ACCUMULATION ||
-            $accumulationMethod == self::EXPONENTIAL_INTERVAL_ACCUMULATION,
-            sprintf(
-                Resources::INVALID_PARAM_GENERAL,
-                'accumulationMethod'
-            )
-        );
+        Validate::isTrue($accumulationMethod == self::LINEAR_INTERVAL_ACCUMULATION || $accumulationMethod == self::EXPONENTIAL_INTERVAL_ACCUMULATION, sprintf(Resources::INVALID_PARAM_GENERAL, 'accumulationMethod'));
         //retryConnect
         Validate::isBoolean($retryConnect);
-
         //Get the interval calculator according to the type of the
         //accumulation method.
-        $intervalCalculator =
-            $accumulationMethod == self::LINEAR_INTERVAL_ACCUMULATION ?
-            static::createLinearDelayCalculator($interval) :
-            static::createExponentialDelayCalculator($interval);
-
+        $intervalCalculator = $accumulationMethod == self::LINEAR_INTERVAL_ACCUMULATION ? static::createLinearDelayCalculator($interval) : static::createExponentialDelayCalculator($interval);
         //Get the retry decider according to the type of the retry and
         //the number of retries.
         $retryDecider = static::createRetryDecider($type, $numberOfRetries, $retryConnect);
-
         //construct the retry middle ware.
         return new RetryMiddleware($intervalCalculator, $retryDecider);
     }
-
     /**
      * Create the retry decider for the retry handler. It will return a callable
      * that accepts the number of retries, the request, the response and the
@@ -151,51 +110,31 @@ class RetryMiddlewareFactory
      */
     protected static function createRetryDecider($type, $maxRetries, $retryConnect)
     {
-        return function (
-            $retries,
-            $request,
-            $response = null,
-            $exception = null,
-            $isSecondary = false
-        ) use (
-            $type,
-            $maxRetries,
-            $retryConnect
-        ) {
+        return function ($retries, $request, $response = null, $exception = null, $isSecondary = \false) use ($type, $maxRetries, $retryConnect) {
             //Exceeds the retry limit. No retry.
             if ($retries >= $maxRetries) {
-                return false;
+                return \false;
             }
-
             if (!$response) {
-                if (!$exception || !($exception instanceof RequestException)) {
-                    return false;
+                if (!$exception || !$exception instanceof RequestException) {
+                    return \false;
                 } elseif ($exception instanceof ConnectException) {
                     return $retryConnect;
                 } else {
                     $response = $exception->getResponse();
                     if (!$response) {
-                        return true;
+                        return \true;
                     }
                 }
             }
-
             if ($type == self::GENERAL_RETRY_TYPE) {
-                return static::generalRetryDecider(
-                    $response->getStatusCode(),
-                    $isSecondary
-                );
+                return static::generalRetryDecider($response->getStatusCode(), $isSecondary);
             } else {
-                return static::appendBlobRetryDecider(
-                    $response->getStatusCode(),
-                    $isSecondary
-                );
+                return static::appendBlobRetryDecider($response->getStatusCode(), $isSecondary);
             }
-
-            return true;
+            return \true;
         };
     }
-
     /**
      * Decide if the given status code indicate the request should be retried.
      *
@@ -206,19 +145,18 @@ class RetryMiddlewareFactory
      */
     protected static function generalRetryDecider($statusCode, $isSecondary)
     {
-        $retry = false;
+        $retry = \false;
         if ($statusCode == 408) {
-            $retry = true;
+            $retry = \true;
         } elseif ($statusCode >= 500) {
             if ($statusCode != 501 && $statusCode != 505) {
-                $retry = true;
+                $retry = \true;
             }
         } elseif ($isSecondary && $statusCode == 404) {
-            $retry = true;
+            $retry = \true;
         }
         return $retry;
     }
-
     /**
      * Decide if the given status code indicate the request should be retried.
      * This is for append blob.
@@ -239,7 +177,6 @@ class RetryMiddlewareFactory
         $retry = static::generalRetryDecider($statusCode, $isSecondary);
         return $retry;
     }
-
     /**
      * Create the delay calculator that increases the interval linearly
      * according to the number of retries.
@@ -255,7 +192,6 @@ class RetryMiddlewareFactory
             return $retries * $interval;
         };
     }
-
     /**
      * Create the delay calculator that increases the interval exponentially
      * according to the number of retries.
@@ -268,7 +204,7 @@ class RetryMiddlewareFactory
     protected static function createExponentialDelayCalculator($interval)
     {
         return function ($retries) use ($interval) {
-            return $interval * ((int)\pow(2, $retries));
+            return $interval * (int) \pow(2, $retries);
         };
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CountryNamedLocation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CountryNamedLocation extends NamedLocation
 {
     /**
-    * Gets the countriesAndRegions
-    * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
-    *
-    * @return array|null The countriesAndRegions
-    */
+     * Gets the countriesAndRegions
+     * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
+     *
+     * @return array|null The countriesAndRegions
+     */
     public function getCountriesAndRegions()
     {
         if (array_key_exists("countriesAndRegions", $this->_propDict)) {
@@ -41,31 +42,29 @@ class CountryNamedLocation extends NamedLocation
             return null;
         }
     }
-
     /**
-    * Sets the countriesAndRegions
-    * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
-    *
-    * @param string[] $val The countriesAndRegions
-    *
-    * @return CountryNamedLocation
-    */
+     * Sets the countriesAndRegions
+     * List of countries and/or regions in two-letter format specified by ISO 3166-2. Required.
+     *
+     * @param string[] $val The countriesAndRegions
+     *
+     * @return CountryNamedLocation
+     */
     public function setCountriesAndRegions($val)
     {
         $this->_propDict["countriesAndRegions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the countryLookupMethod
-    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.
-    *
-    * @return CountryLookupMethodType|null The countryLookupMethod
-    */
+     * Gets the countryLookupMethod
+     * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.
+     *
+     * @return CountryLookupMethodType|null The countryLookupMethod
+     */
     public function getCountryLookupMethod()
     {
         if (array_key_exists("countryLookupMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["countryLookupMethod"], "\Microsoft\Graph\Model\CountryLookupMethodType") || is_null($this->_propDict["countryLookupMethod"])) {
+            if (is_a($this->_propDict["countryLookupMethod"], "XCloner\\Microsoft\\Graph\\Model\\CountryLookupMethodType") || is_null($this->_propDict["countryLookupMethod"])) {
                 return $this->_propDict["countryLookupMethod"];
             } else {
                 $this->_propDict["countryLookupMethod"] = new CountryLookupMethodType($this->_propDict["countryLookupMethod"]);
@@ -74,27 +73,25 @@ class CountryNamedLocation extends NamedLocation
         }
         return null;
     }
-
     /**
-    * Sets the countryLookupMethod
-    * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.
-    *
-    * @param CountryLookupMethodType $val The countryLookupMethod
-    *
-    * @return CountryNamedLocation
-    */
+     * Sets the countryLookupMethod
+     * Determines what method is used to decide which country the user is located in. Possible values are clientIpAddress(default) and authenticatorAppGps. Note: authenticatorAppGps is not yet supported in the Microsoft Cloud for US Government.
+     *
+     * @param CountryLookupMethodType $val The countryLookupMethod
+     *
+     * @return CountryNamedLocation
+     */
     public function setCountryLookupMethod($val)
     {
         $this->_propDict["countryLookupMethod"] = $val;
         return $this;
     }
-
     /**
-    * Gets the includeUnknownCountriesAndRegions
-    * true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
-    *
-    * @return bool|null The includeUnknownCountriesAndRegions
-    */
+     * Gets the includeUnknownCountriesAndRegions
+     * true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
+     *
+     * @return bool|null The includeUnknownCountriesAndRegions
+     */
     public function getIncludeUnknownCountriesAndRegions()
     {
         if (array_key_exists("includeUnknownCountriesAndRegions", $this->_propDict)) {
@@ -103,19 +100,17 @@ class CountryNamedLocation extends NamedLocation
             return null;
         }
     }
-
     /**
-    * Sets the includeUnknownCountriesAndRegions
-    * true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
-    *
-    * @param bool $val The includeUnknownCountriesAndRegions
-    *
-    * @return CountryNamedLocation
-    */
+     * Sets the includeUnknownCountriesAndRegions
+     * true if IP addresses that don't map to a country or region should be included in the named location. Optional. Default value is false.
+     *
+     * @param bool $val The includeUnknownCountriesAndRegions
+     *
+     * @return CountryNamedLocation
+     */
     public function setIncludeUnknownCountriesAndRegions($val)
     {
         $this->_propDict["includeUnknownCountriesAndRegions"] = boolval($val);
         return $this;
     }
-
 }

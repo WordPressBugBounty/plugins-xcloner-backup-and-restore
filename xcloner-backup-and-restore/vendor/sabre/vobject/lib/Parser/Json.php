@@ -1,18 +1,17 @@
 <?php
 
-namespace Sabre\VObject\Parser;
+namespace XCloner\Sabre\VObject\Parser;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Component\VCalendar;
-use Sabre\VObject\Component\VCard;
-use Sabre\VObject\Document;
-use Sabre\VObject\EofException;
-use Sabre\VObject\ParseException;
-use Sabre\VObject\Property\FlatText;
-use Sabre\VObject\Property\Text;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Component\VCalendar;
+use XCloner\Sabre\VObject\Component\VCard;
+use XCloner\Sabre\VObject\Document;
+use XCloner\Sabre\VObject\EofException;
+use XCloner\Sabre\VObject\ParseException;
+use XCloner\Sabre\VObject\Property\FlatText;
+use XCloner\Sabre\VObject\Property\Text;
 /**
  * Json Parser.
  *
@@ -30,14 +29,12 @@ class Json extends Parser
      * @var array
      */
     protected $input;
-
     /**
      * Root component.
      *
      * @var Document
      */
     protected $root;
-
     /**
      * This method starts the parsing process.
      *
@@ -59,17 +56,15 @@ class Json extends Parser
         if (is_null($this->input)) {
             throw new EofException('End of input stream, or no input supplied');
         }
-
         if (0 !== $options) {
             $this->options = $options;
         }
-
         switch ($this->input[0]) {
             case 'vcalendar':
-                $this->root = new VCalendar([], false);
+                $this->root = new VCalendar([], \false);
                 break;
             case 'vcard':
-                $this->root = new VCard([], false);
+                $this->root = new VCard([], \false);
                 break;
             default:
                 throw new ParseException('The root component must either be a vcalendar, or a vcard');
@@ -82,13 +77,10 @@ class Json extends Parser
                 $this->root->add($this->parseComponent($comp));
             }
         }
-
         // Resetting the input so we can throw an feof exception the next time.
         $this->input = null;
-
         return $this->root;
     }
-
     /**
      * Parses a component.
      *
@@ -98,32 +90,18 @@ class Json extends Parser
     {
         // We can remove $self from PHP 5.4 onward.
         $self = $this;
-
-        $properties = array_map(
-            function ($jProp) use ($self) {
-                return $self->parseProperty($jProp);
-            },
-            $jComp[1]
-        );
-
+        $properties = array_map(function ($jProp) use ($self) {
+            return $self->parseProperty($jProp);
+        }, $jComp[1]);
         if (isset($jComp[2])) {
-            $components = array_map(
-                function ($jComp) use ($self) {
-                    return $self->parseComponent($jComp);
-                },
-                $jComp[2]
-            );
+            $components = array_map(function ($jComp) use ($self) {
+                return $self->parseComponent($jComp);
+            }, $jComp[2]);
         } else {
             $components = [];
         }
-
-        return $this->root->createComponent(
-            $jComp[0],
-            array_merge($properties, $components),
-            $defaults = false
-        );
+        return $this->root->createComponent($jComp[0], array_merge($properties, $components), $defaults = \false);
     }
-
     /**
      * Parses properties.
      *
@@ -131,32 +109,20 @@ class Json extends Parser
      */
     public function parseProperty(array $jProp)
     {
-        list(
-            $propertyName,
-            $parameters,
-            $valueType
-        ) = $jProp;
-
+        list($propertyName, $parameters, $valueType) = $jProp;
         $propertyName = strtoupper($propertyName);
-
         // This is the default class we would be using if we didn't know the
         // value type. We're using this value later in this function.
         $defaultPropertyClass = $this->root->getClassNameForPropertyName($propertyName);
-
         $parameters = (array) $parameters;
-
         $value = array_slice($jProp, 3);
-
         $valueType = strtoupper($valueType);
-
         if (isset($parameters['group'])) {
-            $propertyName = $parameters['group'].'.'.$propertyName;
+            $propertyName = $parameters['group'] . '.' . $propertyName;
             unset($parameters['group']);
         }
-
         $prop = $this->root->createProperty($propertyName, null, $parameters, $valueType);
         $prop->setJsonValue($value);
-
         // We have to do something awkward here. FlatText as well as Text
         // represents TEXT values. We have to normalize these here. In the
         // future we can get rid of FlatText once we're allowed to break BC
@@ -164,17 +130,14 @@ class Json extends Parser
         if (FlatText::class === $defaultPropertyClass) {
             $defaultPropertyClass = Text::class;
         }
-
         // If the value type we received (e.g.: TEXT) was not the default value
         // type for the given property (e.g.: BDAY), we need to add a VALUE=
         // parameter.
         if ($defaultPropertyClass !== get_class($prop)) {
             $prop['VALUE'] = $valueType;
         }
-
         return $prop;
     }
-
     /**
      * Sets the input data.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ScheduleItem class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ScheduleItem extends Entity
 {
-
     /**
-    * Gets the end
-    * The date, time, and time zone that the corresponding event ends.
-    *
-    * @return DateTimeTimeZone|null The end
-    */
+     * Gets the end
+     * The date, time, and time zone that the corresponding event ends.
+     *
+     * @return DateTimeTimeZone|null The end
+     */
     public function getEnd()
     {
         if (array_key_exists("end", $this->_propDict)) {
-            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["end"])) {
+            if (is_a($this->_propDict["end"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["end"])) {
                 return $this->_propDict["end"];
             } else {
                 $this->_propDict["end"] = new DateTimeTimeZone($this->_propDict["end"]);
@@ -45,26 +46,25 @@ class ScheduleItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the end
-    * The date, time, and time zone that the corresponding event ends.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the end
-    *
-    * @return ScheduleItem The ScheduleItem
-    */
+     * Sets the end
+     * The date, time, and time zone that the corresponding event ends.
+     *
+     * @param DateTimeTimeZone $val The value to assign to the end
+     *
+     * @return ScheduleItem The ScheduleItem
+     */
     public function setEnd($val)
     {
         $this->_propDict["end"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the isPrivate
-    * The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.
-    *
-    * @return bool|null The isPrivate
-    */
+     * Gets the isPrivate
+     * The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.
+     *
+     * @return bool|null The isPrivate
+     */
     public function getIsPrivate()
     {
         if (array_key_exists("isPrivate", $this->_propDict)) {
@@ -73,26 +73,25 @@ class ScheduleItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isPrivate
-    * The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.
-    *
-    * @param bool $val The value of the isPrivate
-    *
-    * @return ScheduleItem
-    */
+     * Sets the isPrivate
+     * The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.
+     *
+     * @param bool $val The value of the isPrivate
+     *
+     * @return ScheduleItem
+     */
     public function setIsPrivate($val)
     {
         $this->_propDict["isPrivate"] = $val;
         return $this;
     }
     /**
-    * Gets the location
-    * The location where the corresponding event is held or attended from. Optional.
-    *
-    * @return string|null The location
-    */
+     * Gets the location
+     * The location where the corresponding event is held or attended from. Optional.
+     *
+     * @return string|null The location
+     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
@@ -101,31 +100,29 @@ class ScheduleItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the location
-    * The location where the corresponding event is held or attended from. Optional.
-    *
-    * @param string $val The value of the location
-    *
-    * @return ScheduleItem
-    */
+     * Sets the location
+     * The location where the corresponding event is held or attended from. Optional.
+     *
+     * @param string $val The value of the location
+     *
+     * @return ScheduleItem
+     */
     public function setLocation($val)
     {
         $this->_propDict["location"] = $val;
         return $this;
     }
-
     /**
-    * Gets the start
-    * The date, time, and time zone that the corresponding event starts.
-    *
-    * @return DateTimeTimeZone|null The start
-    */
+     * Gets the start
+     * The date, time, and time zone that the corresponding event starts.
+     *
+     * @return DateTimeTimeZone|null The start
+     */
     public function getStart()
     {
         if (array_key_exists("start", $this->_propDict)) {
-            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["start"])) {
+            if (is_a($this->_propDict["start"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["start"])) {
                 return $this->_propDict["start"];
             } else {
                 $this->_propDict["start"] = new DateTimeTimeZone($this->_propDict["start"]);
@@ -134,31 +131,29 @@ class ScheduleItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the start
-    * The date, time, and time zone that the corresponding event starts.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the start
-    *
-    * @return ScheduleItem The ScheduleItem
-    */
+     * Sets the start
+     * The date, time, and time zone that the corresponding event starts.
+     *
+     * @param DateTimeTimeZone $val The value to assign to the start
+     *
+     * @return ScheduleItem The ScheduleItem
+     */
     public function setStart($val)
     {
         $this->_propDict["start"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the status
-    * The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
-    *
-    * @return FreeBusyStatus|null The status
-    */
+     * Gets the status
+     * The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     *
+     * @return FreeBusyStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\FreeBusyStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\FreeBusyStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new FreeBusyStatus($this->_propDict["status"]);
@@ -167,26 +162,25 @@ class ScheduleItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
-    *
-    * @param FreeBusyStatus $val The value to assign to the status
-    *
-    * @return ScheduleItem The ScheduleItem
-    */
+     * Sets the status
+     * The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     *
+     * @param FreeBusyStatus $val The value to assign to the status
+     *
+     * @return ScheduleItem The ScheduleItem
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the subject
-    * The corresponding event's subject line. Optional.
-    *
-    * @return string|null The subject
-    */
+     * Gets the subject
+     * The corresponding event's subject line. Optional.
+     *
+     * @return string|null The subject
+     */
     public function getSubject()
     {
         if (array_key_exists("subject", $this->_propDict)) {
@@ -195,15 +189,14 @@ class ScheduleItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subject
-    * The corresponding event's subject line. Optional.
-    *
-    * @param string $val The value of the subject
-    *
-    * @return ScheduleItem
-    */
+     * Sets the subject
+     * The corresponding event's subject line. Optional.
+     *
+     * @param string $val The value of the subject
+     *
+     * @return ScheduleItem
+     */
     public function setSubject($val)
     {
         $this->_propDict["subject"] = $val;

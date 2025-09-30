@@ -1,15 +1,14 @@
 <?php
 
-namespace Sabre\VObject\Component;
+namespace XCloner\Sabre\VObject\Component;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeInterface;
-use Sabre\VObject;
-use Sabre\VObject\Recur\EventIterator;
-use Sabre\VObject\Recur\NoInstancesException;
-
+use XCloner\Sabre\VObject;
+use XCloner\Sabre\VObject\Recur\EventIterator;
+use XCloner\Sabre\VObject\Recur\NoInstancesException;
 /**
  * VEvent component.
  *
@@ -38,11 +37,9 @@ class VEvent extends VObject\Component
             } catch (NoInstancesException $e) {
                 // If we've caught this exception, there are no instances
                 // for the event that fall into the specified time-range.
-                return false;
+                return \false;
             }
-
             $it->fastForward($start);
-
             // We fast-forwarded to a spot where the end-time of the
             // recurrence instance exceeded the start of the requested
             // time-range.
@@ -51,7 +48,6 @@ class VEvent extends VObject\Component
             // end of the time range as well, we have a match.
             return $it->getDTStart() < $end && $it->getDTEnd() > $start;
         }
-
         $effectiveStart = $this->DTSTART->getDateTime($start->getTimezone());
         if (isset($this->DTEND)) {
             // The DTEND property is considered non inclusive. So for a 3 day
@@ -68,12 +64,8 @@ class VEvent extends VObject\Component
         } else {
             $effectiveEnd = $effectiveStart;
         }
-
-        return
-            ($start < $effectiveEnd) && ($end > $effectiveStart)
-        ;
+        return $start < $effectiveEnd && $end > $effectiveStart;
     }
-
     /**
      * This method should return a list of default property values.
      *
@@ -81,12 +73,8 @@ class VEvent extends VObject\Component
      */
     protected function getDefaults()
     {
-        return [
-            'UID' => 'sabre-vobject-'.VObject\UUIDUtil::getUUID(),
-            'DTSTAMP' => gmdate('Ymd\\THis\\Z'),
-        ];
+        return ['UID' => 'sabre-vobject-' . VObject\UUIDUtil::getUUID(), 'DTSTAMP' => gmdate('Ymd\THis\Z')];
     }
-
     /**
      * A simple list of validation rules.
      *
@@ -105,39 +93,6 @@ class VEvent extends VObject\Component
     public function getValidationRules()
     {
         $hasMethod = isset($this->parent->METHOD);
-
-        return [
-            'UID' => 1,
-            'DTSTAMP' => 1,
-            'DTSTART' => $hasMethod ? '?' : '1',
-            'CLASS' => '?',
-            'CREATED' => '?',
-            'DESCRIPTION' => '?',
-            'GEO' => '?',
-            'LAST-MODIFIED' => '?',
-            'LOCATION' => '?',
-            'ORGANIZER' => '?',
-            'PRIORITY' => '?',
-            'SEQUENCE' => '?',
-            'STATUS' => '?',
-            'SUMMARY' => '?',
-            'TRANSP' => '?',
-            'URL' => '?',
-            'RECURRENCE-ID' => '?',
-            'RRULE' => '?',
-            'DTEND' => '?',
-            'DURATION' => '?',
-
-            'ATTACH' => '*',
-            'ATTENDEE' => '*',
-            'CATEGORIES' => '*',
-            'COMMENT' => '*',
-            'CONTACT' => '*',
-            'EXDATE' => '*',
-            'REQUEST-STATUS' => '*',
-            'RELATED-TO' => '*',
-            'RESOURCES' => '*',
-            'RDATE' => '*',
-        ];
+        return ['UID' => 1, 'DTSTAMP' => 1, 'DTSTART' => $hasMethod ? '?' : '1', 'CLASS' => '?', 'CREATED' => '?', 'DESCRIPTION' => '?', 'GEO' => '?', 'LAST-MODIFIED' => '?', 'LOCATION' => '?', 'ORGANIZER' => '?', 'PRIORITY' => '?', 'SEQUENCE' => '?', 'STATUS' => '?', 'SUMMARY' => '?', 'TRANSP' => '?', 'URL' => '?', 'RECURRENCE-ID' => '?', 'RRULE' => '?', 'DTEND' => '?', 'DURATION' => '?', 'ATTACH' => '*', 'ATTENDEE' => '*', 'CATEGORIES' => '*', 'COMMENT' => '*', 'CONTACT' => '*', 'EXDATE' => '*', 'REQUEST-STATUS' => '*', 'RELATED-TO' => '*', 'RESOURCES' => '*', 'RDATE' => '*'];
     }
 }

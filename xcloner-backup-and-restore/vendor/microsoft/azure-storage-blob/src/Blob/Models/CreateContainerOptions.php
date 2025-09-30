@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Optional parameters for createContainer API
  *
@@ -43,7 +41,6 @@ class CreateContainerOptions extends BlobServiceOptions
 {
     private $_publicAccess;
     private $_metadata;
-
     /**
      * Gets container public access.
      *
@@ -53,7 +50,6 @@ class CreateContainerOptions extends BlobServiceOptions
     {
         return $this->_publicAccess;
     }
-
     /**
      * Specifies whether data in the container may be accessed publicly and the level
      * of access. Possible values include:
@@ -76,7 +72,6 @@ class CreateContainerOptions extends BlobServiceOptions
         Validate::canCastAsString($publicAccess, 'publicAccess');
         $this->_publicAccess = $publicAccess;
     }
-
     /**
      * Gets user defined metadata.
      *
@@ -86,7 +81,6 @@ class CreateContainerOptions extends BlobServiceOptions
     {
         return $this->_metadata;
     }
-
     /**
      * Sets user defined metadata. This metadata should be added without the header
      * prefix (x-ms-meta-*).
@@ -99,7 +93,6 @@ class CreateContainerOptions extends BlobServiceOptions
     {
         $this->_metadata = $metadata;
     }
-
     /**
      * Adds new metadata element. This element should be added without the header
      * prefix (x-ms-meta-*).

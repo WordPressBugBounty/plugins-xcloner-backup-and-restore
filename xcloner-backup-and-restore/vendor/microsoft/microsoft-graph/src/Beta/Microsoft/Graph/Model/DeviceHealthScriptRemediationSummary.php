@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptRemediationSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceHealthScriptRemediationSummary extends Entity
 {
     /**
-    * Gets the remediatedDeviceCount
-    * The number of devices remediated by device health scripts.
-    *
-    * @return int|null The remediatedDeviceCount
-    */
+     * Gets the remediatedDeviceCount
+     * The number of devices remediated by device health scripts.
+     *
+     * @return int|null The remediatedDeviceCount
+     */
     public function getRemediatedDeviceCount()
     {
         if (array_key_exists("remediatedDeviceCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceHealthScriptRemediationSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedDeviceCount
-    * The number of devices remediated by device health scripts.
-    *
-    * @param int $val The value of the remediatedDeviceCount
-    *
-    * @return DeviceHealthScriptRemediationSummary
-    */
+     * Sets the remediatedDeviceCount
+     * The number of devices remediated by device health scripts.
+     *
+     * @param int $val The value of the remediatedDeviceCount
+     *
+     * @return DeviceHealthScriptRemediationSummary
+     */
     public function setRemediatedDeviceCount($val)
     {
         $this->_propDict["remediatedDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the scriptCount
-    * The number of device health scripts deployed.
-    *
-    * @return int|null The scriptCount
-    */
+     * Gets the scriptCount
+     * The number of device health scripts deployed.
+     *
+     * @return int|null The scriptCount
+     */
     public function getScriptCount()
     {
         if (array_key_exists("scriptCount", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DeviceHealthScriptRemediationSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the scriptCount
-    * The number of device health scripts deployed.
-    *
-    * @param int $val The value of the scriptCount
-    *
-    * @return DeviceHealthScriptRemediationSummary
-    */
+     * Sets the scriptCount
+     * The number of device health scripts deployed.
+     *
+     * @param int $val The value of the scriptCount
+     *
+     * @return DeviceHealthScriptRemediationSummary
+     */
     public function setScriptCount($val)
     {
         $this->_propDict["scriptCount"] = $val;

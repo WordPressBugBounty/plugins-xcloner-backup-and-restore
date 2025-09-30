@@ -1,24 +1,21 @@
 <?php
 
-namespace League\Flysystem\Adapter;
+namespace XCloner\League\Flysystem\Adapter;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use League\Flysystem\AdapterInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\League\Flysystem\AdapterInterface;
 abstract class AbstractAdapter implements AdapterInterface
 {
     /**
      * @var string|null path prefix
      */
     protected $pathPrefix;
-
     /**
      * @var string
      */
     protected $pathSeparator = '/';
-
     /**
      * Set the path prefix.
      *
@@ -29,16 +26,12 @@ abstract class AbstractAdapter implements AdapterInterface
     public function setPathPrefix($prefix)
     {
         $prefix = (string) $prefix;
-
         if ($prefix === '') {
             $this->pathPrefix = null;
-
             return;
         }
-
-        $this->pathPrefix = rtrim($prefix, '\\/') . $this->pathSeparator;
+        $this->pathPrefix = rtrim($prefix, '\/') . $this->pathSeparator;
     }
-
     /**
      * Get the path prefix.
      *
@@ -48,7 +41,6 @@ abstract class AbstractAdapter implements AdapterInterface
     {
         return $this->pathPrefix;
     }
-
     /**
      * Prefix a path.
      *
@@ -58,9 +50,8 @@ abstract class AbstractAdapter implements AdapterInterface
      */
     public function applyPathPrefix($path)
     {
-        return $this->getPathPrefix() . ltrim($path, '\\/');
+        return $this->getPathPrefix() . ltrim($path, '\/');
     }
-
     /**
      * Remove a path prefix.
      *

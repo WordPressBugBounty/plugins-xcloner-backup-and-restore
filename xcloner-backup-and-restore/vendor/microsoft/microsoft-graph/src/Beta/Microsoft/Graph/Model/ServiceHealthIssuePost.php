@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ServiceHealthIssuePost class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ServiceHealthIssuePost extends Entity
 {
-
     /**
-    * Gets the createdDateTime
-    * The published time of the post.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The published time of the post.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,31 +46,29 @@ class ServiceHealthIssuePost extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The published time of the post.
-    *
-    * @param \DateTime $val The value to assign to the createdDateTime
-    *
-    * @return ServiceHealthIssuePost The ServiceHealthIssuePost
-    */
+     * Sets the createdDateTime
+     * The published time of the post.
+     *
+     * @param \DateTime $val The value to assign to the createdDateTime
+     *
+     * @return ServiceHealthIssuePost The ServiceHealthIssuePost
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the description
-    * The content of the service issue post.
-    *
-    * @return ItemBody|null The description
-    */
+     * Gets the description
+     * The content of the service issue post.
+     *
+     * @return ItemBody|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
-            if (is_a($this->_propDict["description"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["description"])) {
+            if (is_a($this->_propDict["description"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ItemBody") || is_null($this->_propDict["description"])) {
                 return $this->_propDict["description"];
             } else {
                 $this->_propDict["description"] = new ItemBody($this->_propDict["description"]);
@@ -78,31 +77,29 @@ class ServiceHealthIssuePost extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the description
-    * The content of the service issue post.
-    *
-    * @param ItemBody $val The value to assign to the description
-    *
-    * @return ServiceHealthIssuePost The ServiceHealthIssuePost
-    */
+     * Sets the description
+     * The content of the service issue post.
+     *
+     * @param ItemBody $val The value to assign to the description
+     *
+     * @return ServiceHealthIssuePost The ServiceHealthIssuePost
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the postType
-    * The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
-    *
-    * @return PostType|null The postType
-    */
+     * Gets the postType
+     * The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
+     *
+     * @return PostType|null The postType
+     */
     public function getPostType()
     {
         if (array_key_exists("postType", $this->_propDict)) {
-            if (is_a($this->_propDict["postType"], "\Beta\Microsoft\Graph\Model\PostType") || is_null($this->_propDict["postType"])) {
+            if (is_a($this->_propDict["postType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PostType") || is_null($this->_propDict["postType"])) {
                 return $this->_propDict["postType"];
             } else {
                 $this->_propDict["postType"] = new PostType($this->_propDict["postType"]);
@@ -111,18 +108,17 @@ class ServiceHealthIssuePost extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the postType
-    * The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
-    *
-    * @param PostType $val The value to assign to the postType
-    *
-    * @return ServiceHealthIssuePost The ServiceHealthIssuePost
-    */
+     * Sets the postType
+     * The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.
+     *
+     * @param PostType $val The value to assign to the postType
+     *
+     * @return ServiceHealthIssuePost The ServiceHealthIssuePost
+     */
     public function setPostType($val)
     {
         $this->_propDict["postType"] = $val;
-         return $this;
+        return $this;
     }
 }

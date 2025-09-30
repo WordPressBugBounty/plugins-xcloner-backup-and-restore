@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ImportedDeviceIdentity class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ImportedDeviceIdentity extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * Created Date Time of the device
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Created Date Time of the device
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class ImportedDeviceIdentity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Created Date Time of the device
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the createdDateTime
+     * Created Date Time of the device
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * The description of the device
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the device
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -74,31 +73,29 @@ class ImportedDeviceIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the device
-    *
-    * @param string $val The description
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the description
+     * The description of the device
+     *
+     * @param string $val The description
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the enrollmentState
-    * The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
-    *
-    * @return EnrollmentState|null The enrollmentState
-    */
+     * Gets the enrollmentState
+     * The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     *
+     * @return EnrollmentState|null The enrollmentState
+     */
     public function getEnrollmentState()
     {
         if (array_key_exists("enrollmentState", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentState"], "\Beta\Microsoft\Graph\Model\EnrollmentState") || is_null($this->_propDict["enrollmentState"])) {
+            if (is_a($this->_propDict["enrollmentState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EnrollmentState") || is_null($this->_propDict["enrollmentState"])) {
                 return $this->_propDict["enrollmentState"];
             } else {
                 $this->_propDict["enrollmentState"] = new EnrollmentState($this->_propDict["enrollmentState"]);
@@ -107,27 +104,25 @@ class ImportedDeviceIdentity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the enrollmentState
-    * The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
-    *
-    * @param EnrollmentState $val The enrollmentState
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the enrollmentState
+     * The state of the device in Intune. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     *
+     * @param EnrollmentState $val The enrollmentState
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setEnrollmentState($val)
     {
         $this->_propDict["enrollmentState"] = $val;
         return $this;
     }
-
     /**
-    * Gets the importedDeviceIdentifier
-    * Imported Device Identifier
-    *
-    * @return string|null The importedDeviceIdentifier
-    */
+     * Gets the importedDeviceIdentifier
+     * Imported Device Identifier
+     *
+     * @return string|null The importedDeviceIdentifier
+     */
     public function getImportedDeviceIdentifier()
     {
         if (array_key_exists("importedDeviceIdentifier", $this->_propDict)) {
@@ -136,31 +131,29 @@ class ImportedDeviceIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the importedDeviceIdentifier
-    * Imported Device Identifier
-    *
-    * @param string $val The importedDeviceIdentifier
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the importedDeviceIdentifier
+     * Imported Device Identifier
+     *
+     * @param string $val The importedDeviceIdentifier
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setImportedDeviceIdentifier($val)
     {
         $this->_propDict["importedDeviceIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the importedDeviceIdentityType
-    * Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
-    *
-    * @return ImportedDeviceIdentityType|null The importedDeviceIdentityType
-    */
+     * Gets the importedDeviceIdentityType
+     * Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
+     *
+     * @return ImportedDeviceIdentityType|null The importedDeviceIdentityType
+     */
     public function getImportedDeviceIdentityType()
     {
         if (array_key_exists("importedDeviceIdentityType", $this->_propDict)) {
-            if (is_a($this->_propDict["importedDeviceIdentityType"], "\Beta\Microsoft\Graph\Model\ImportedDeviceIdentityType") || is_null($this->_propDict["importedDeviceIdentityType"])) {
+            if (is_a($this->_propDict["importedDeviceIdentityType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ImportedDeviceIdentityType") || is_null($this->_propDict["importedDeviceIdentityType"])) {
                 return $this->_propDict["importedDeviceIdentityType"];
             } else {
                 $this->_propDict["importedDeviceIdentityType"] = new ImportedDeviceIdentityType($this->_propDict["importedDeviceIdentityType"]);
@@ -169,31 +162,29 @@ class ImportedDeviceIdentity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the importedDeviceIdentityType
-    * Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
-    *
-    * @param ImportedDeviceIdentityType $val The importedDeviceIdentityType
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the importedDeviceIdentityType
+     * Type of Imported Device Identity. Possible values are: unknown, imei, serialNumber.
+     *
+     * @param ImportedDeviceIdentityType $val The importedDeviceIdentityType
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setImportedDeviceIdentityType($val)
     {
         $this->_propDict["importedDeviceIdentityType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastContactedDateTime
-    * Last Contacted Date Time of the device
-    *
-    * @return \DateTime|null The lastContactedDateTime
-    */
+     * Gets the lastContactedDateTime
+     * Last Contacted Date Time of the device
+     *
+     * @return \DateTime|null The lastContactedDateTime
+     */
     public function getLastContactedDateTime()
     {
         if (array_key_exists("lastContactedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastContactedDateTime"], "\DateTime") || is_null($this->_propDict["lastContactedDateTime"])) {
+            if (is_a($this->_propDict["lastContactedDateTime"], "\\DateTime") || is_null($this->_propDict["lastContactedDateTime"])) {
                 return $this->_propDict["lastContactedDateTime"];
             } else {
                 $this->_propDict["lastContactedDateTime"] = new \DateTime($this->_propDict["lastContactedDateTime"]);
@@ -202,31 +193,29 @@ class ImportedDeviceIdentity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastContactedDateTime
-    * Last Contacted Date Time of the device
-    *
-    * @param \DateTime $val The lastContactedDateTime
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the lastContactedDateTime
+     * Last Contacted Date Time of the device
+     *
+     * @param \DateTime $val The lastContactedDateTime
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setLastContactedDateTime($val)
     {
         $this->_propDict["lastContactedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Last Modified DateTime of the description
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Last Modified DateTime of the description
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -235,31 +224,29 @@ class ImportedDeviceIdentity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Last Modified DateTime of the description
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the lastModifiedDateTime
+     * Last Modified DateTime of the description
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the platform
-    * The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
-    *
-    * @return Platform|null The platform
-    */
+     * Gets the platform
+     * The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     *
+     * @return Platform|null The platform
+     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\Platform") || is_null($this->_propDict["platform"])) {
+            if (is_a($this->_propDict["platform"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Platform") || is_null($this->_propDict["platform"])) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new Platform($this->_propDict["platform"]);
@@ -268,19 +255,17 @@ class ImportedDeviceIdentity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the platform
-    * The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
-    *
-    * @param Platform $val The platform
-    *
-    * @return ImportedDeviceIdentity
-    */
+     * Sets the platform
+     * The platform of the Device. Possible values are: unknown, ios, android, windows, windowsMobile, macOS.
+     *
+     * @param Platform $val The platform
+     *
+     * @return ImportedDeviceIdentity
+     */
     public function setPlatform($val)
     {
         $this->_propDict["platform"] = $val;
         return $this;
     }
-
 }

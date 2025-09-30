@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttackSimulationUser class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AttackSimulationUser extends Entity
 {
     /**
-    * Gets the displayName
-    * Display name of the user.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the user.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AttackSimulationUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the user.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AttackSimulationUser
-    */
+     * Sets the displayName
+     * Display name of the user.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AttackSimulationUser
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the email
-    * Email address of the user.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * Email address of the user.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AttackSimulationUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * Email address of the user.
-    *
-    * @param string $val The value of the email
-    *
-    * @return AttackSimulationUser
-    */
+     * Sets the email
+     * Email address of the user.
+     *
+     * @param string $val The value of the email
+     *
+     * @return AttackSimulationUser
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
     /**
-    * Gets the userId
-    * This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -96,15 +96,14 @@ class AttackSimulationUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
-    *
-    * @param string $val The value of the userId
-    *
-    * @return AttackSimulationUser
-    */
+     * Sets the userId
+     * This is the id property value of the user resource that represents the user in the Azure Active Directory tenant.
+     *
+     * @param string $val The value of the userId
+     *
+     * @return AttackSimulationUser
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProfileCardAnnotation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProfileCardAnnotation extends Entity
 {
     /**
-    * Gets the displayName
-    * If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center').
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center').
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ProfileCardAnnotation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center').
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ProfileCardAnnotation
-    */
+     * Sets the displayName
+     * If present, the value of this field is used by the profile card as the default property label in the experience (for example, 'Cost Center').
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ProfileCardAnnotation
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the localizations
-    * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
-    *
-    * @return DisplayNameLocalization|null The localizations
-    */
+     * Gets the localizations
+     * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
+     *
+     * @return DisplayNameLocalization|null The localizations
+     */
     public function getLocalizations()
     {
         if (array_key_exists("localizations", $this->_propDict)) {
-            if (is_a($this->_propDict["localizations"], "\Beta\Microsoft\Graph\Model\DisplayNameLocalization") || is_null($this->_propDict["localizations"])) {
+            if (is_a($this->_propDict["localizations"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DisplayNameLocalization") || is_null($this->_propDict["localizations"])) {
                 return $this->_propDict["localizations"];
             } else {
                 $this->_propDict["localizations"] = new DisplayNameLocalization($this->_propDict["localizations"]);
@@ -73,18 +73,17 @@ class ProfileCardAnnotation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the localizations
-    * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
-    *
-    * @param DisplayNameLocalization $val The value to assign to the localizations
-    *
-    * @return ProfileCardAnnotation The ProfileCardAnnotation
-    */
+     * Sets the localizations
+     * Each resource in this collection represents the localized value of the attribute name for a given language, used as the default label for that locale. For example, a user with a no-NB client gets 'Kostnads Senter' as the attribute label, rather than 'Cost Center.'
+     *
+     * @param DisplayNameLocalization $val The value to assign to the localizations
+     *
+     * @return ProfileCardAnnotation The ProfileCardAnnotation
+     */
     public function setLocalizations($val)
     {
         $this->_propDict["localizations"] = $val;
-         return $this;
+        return $this;
     }
 }

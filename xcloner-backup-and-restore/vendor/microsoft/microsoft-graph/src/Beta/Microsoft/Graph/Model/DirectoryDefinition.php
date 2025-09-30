@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DirectoryDefinition class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DirectoryDefinition extends Entity
 {
     /**
-    * Gets the discoverabilities
-    * Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
-    *
-    * @return DirectoryDefinitionDiscoverabilities|null The discoverabilities
-    */
+     * Gets the discoverabilities
+     * Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+     *
+     * @return DirectoryDefinitionDiscoverabilities|null The discoverabilities
+     */
     public function getDiscoverabilities()
     {
         if (array_key_exists("discoverabilities", $this->_propDict)) {
-            if (is_a($this->_propDict["discoverabilities"], "\Beta\Microsoft\Graph\Model\DirectoryDefinitionDiscoverabilities") || is_null($this->_propDict["discoverabilities"])) {
+            if (is_a($this->_propDict["discoverabilities"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DirectoryDefinitionDiscoverabilities") || is_null($this->_propDict["discoverabilities"])) {
                 return $this->_propDict["discoverabilities"];
             } else {
                 $this->_propDict["discoverabilities"] = new DirectoryDefinitionDiscoverabilities($this->_propDict["discoverabilities"]);
@@ -45,31 +46,29 @@ class DirectoryDefinition extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the discoverabilities
-    * Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
-    *
-    * @param DirectoryDefinitionDiscoverabilities $val The discoverabilities
-    *
-    * @return DirectoryDefinition
-    */
+     * Sets the discoverabilities
+     * Read only value indicating what type of discovery the app supports. Possible values are: AttributeDataTypes, AttributeNames, AttributeReadOnly, None, ReferenceAttributes, UnknownFutureValue.
+     *
+     * @param DirectoryDefinitionDiscoverabilities $val The discoverabilities
+     *
+     * @return DirectoryDefinition
+     */
     public function setDiscoverabilities($val)
     {
         $this->_propDict["discoverabilities"] = $val;
         return $this;
     }
-
     /**
-    * Gets the discoveryDateTime
-    * Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The discoveryDateTime
-    */
+     * Gets the discoveryDateTime
+     * Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The discoveryDateTime
+     */
     public function getDiscoveryDateTime()
     {
         if (array_key_exists("discoveryDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["discoveryDateTime"], "\DateTime") || is_null($this->_propDict["discoveryDateTime"])) {
+            if (is_a($this->_propDict["discoveryDateTime"], "\\DateTime") || is_null($this->_propDict["discoveryDateTime"])) {
                 return $this->_propDict["discoveryDateTime"];
             } else {
                 $this->_propDict["discoveryDateTime"] = new \DateTime($this->_propDict["discoveryDateTime"]);
@@ -78,27 +77,25 @@ class DirectoryDefinition extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the discoveryDateTime
-    * Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The discoveryDateTime
-    *
-    * @return DirectoryDefinition
-    */
+     * Sets the discoveryDateTime
+     * Represents the discovery date and time using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The discoveryDateTime
+     *
+     * @return DirectoryDefinition
+     */
     public function setDiscoveryDateTime($val)
     {
         $this->_propDict["discoveryDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the name
-    * Name of the directory. Must be unique within the synchronization schema. Not nullable.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the directory. Must be unique within the synchronization schema. Not nullable.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -107,56 +104,51 @@ class DirectoryDefinition extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the directory. Must be unique within the synchronization schema. Not nullable.
-    *
-    * @param string $val The name
-    *
-    * @return DirectoryDefinition
-    */
+     * Sets the name
+     * Name of the directory. Must be unique within the synchronization schema. Not nullable.
+     *
+     * @param string $val The name
+     *
+     * @return DirectoryDefinition
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the objects
-    * Collection of objects supported by the directory.
+     * Collection of objects supported by the directory.
      *
      * @return array|null The objects
      */
     public function getObjects()
     {
         if (array_key_exists("objects", $this->_propDict)) {
-           return $this->_propDict["objects"];
+            return $this->_propDict["objects"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the objects
-    * Collection of objects supported by the directory.
-    *
-    * @param ObjectDefinition[] $val The objects
-    *
-    * @return DirectoryDefinition
-    */
+     * Sets the objects
+     * Collection of objects supported by the directory.
+     *
+     * @param ObjectDefinition[] $val The objects
+     *
+     * @return DirectoryDefinition
+     */
     public function setObjects($val)
     {
         $this->_propDict["objects"] = $val;
         return $this;
     }
-
     /**
-    * Gets the readOnly
-    *
-    * @return bool|null The readOnly
-    */
+     * Gets the readOnly
+     *
+     * @return bool|null The readOnly
+     */
     public function getReadOnly()
     {
         if (array_key_exists("readOnly", $this->_propDict)) {
@@ -165,26 +157,24 @@ class DirectoryDefinition extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the readOnly
-    *
-    * @param bool $val The readOnly
-    *
-    * @return DirectoryDefinition
-    */
+     * Sets the readOnly
+     *
+     * @param bool $val The readOnly
+     *
+     * @return DirectoryDefinition
+     */
     public function setReadOnly($val)
     {
         $this->_propDict["readOnly"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the version
-    * Read only value that indicates version discovered. null if discovery has not yet occurred.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * Read only value that indicates version discovered. null if discovery has not yet occurred.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -193,19 +183,17 @@ class DirectoryDefinition extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * Read only value that indicates version discovered. null if discovery has not yet occurred.
-    *
-    * @param string $val The version
-    *
-    * @return DirectoryDefinition
-    */
+     * Sets the version
+     * Read only value that indicates version discovered. null if discovery has not yet occurred.
+     *
+     * @param string $val The version
+     *
+     * @return DirectoryDefinition
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

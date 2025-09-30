@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedDeviceSummarizedAppState class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedDeviceSummarizedAppState extends Entity
 {
     /**
-    * Gets the deviceId
-    * DeviceId of device represented by this object
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * DeviceId of device represented by this object
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ManagedDeviceSummarizedAppState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * DeviceId of device represented by this object
-    *
-    * @param string $val The value of the deviceId
-    *
-    * @return ManagedDeviceSummarizedAppState
-    */
+     * Sets the deviceId
+     * DeviceId of device represented by this object
+     *
+     * @param string $val The value of the deviceId
+     *
+     * @return ManagedDeviceSummarizedAppState
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the summarizedAppState
-    * runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
-    *
-    * @return RunState|null The summarizedAppState
-    */
+     * Gets the summarizedAppState
+     * runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     *
+     * @return RunState|null The summarizedAppState
+     */
     public function getSummarizedAppState()
     {
         if (array_key_exists("summarizedAppState", $this->_propDict)) {
-            if (is_a($this->_propDict["summarizedAppState"], "\Beta\Microsoft\Graph\Model\RunState") || is_null($this->_propDict["summarizedAppState"])) {
+            if (is_a($this->_propDict["summarizedAppState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RunState") || is_null($this->_propDict["summarizedAppState"])) {
                 return $this->_propDict["summarizedAppState"];
             } else {
                 $this->_propDict["summarizedAppState"] = new RunState($this->_propDict["summarizedAppState"]);
@@ -73,18 +73,17 @@ class ManagedDeviceSummarizedAppState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the summarizedAppState
-    * runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
-    *
-    * @param RunState $val The value to assign to the summarizedAppState
-    *
-    * @return ManagedDeviceSummarizedAppState The ManagedDeviceSummarizedAppState
-    */
+     * Sets the summarizedAppState
+     * runState for the object. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     *
+     * @param RunState $val The value to assign to the summarizedAppState
+     *
+     * @return ManagedDeviceSummarizedAppState The ManagedDeviceSummarizedAppState
+     */
     public function setSummarizedAppState($val)
     {
         $this->_propDict["summarizedAppState"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Request;
 
-namespace Sabre\DAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Element\KeyValue;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Element\KeyValue;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * WebDAV PROPFIND request parser.
  *
@@ -29,15 +27,13 @@ class PropFind implements XmlDeserializable
      *
      * @var bool
      */
-    public $allProp = false;
-
+    public $allProp = \false;
     /**
      * The property list.
      *
      * @var array|null
      */
     public $properties;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -61,22 +57,18 @@ class PropFind implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $self = new self();
-
         $reader->pushContext();
-        $reader->elementMap['{DAV:}prop'] = 'Sabre\Xml\Element\Elements';
-
+        $reader->elementMap['{DAV:}prop'] = 'XCloner\Sabre\Xml\Element\Elements';
         foreach (KeyValue::xmlDeserialize($reader) as $k => $v) {
             switch ($k) {
                 case '{DAV:}prop':
                     $self->properties = $v;
                     break;
                 case '{DAV:}allprop':
-                    $self->allProp = true;
+                    $self->allProp = \true;
             }
         }
-
         $reader->popContext();
-
         return $self;
     }
 }

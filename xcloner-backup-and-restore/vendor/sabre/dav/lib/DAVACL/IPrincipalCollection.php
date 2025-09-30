@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL;
 
-namespace Sabre\DAVACL;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * Principal Collection interface.
  *
@@ -45,7 +43,6 @@ interface IPrincipalCollection extends DAV\ICollection
      * @return array
      */
     public function searchPrincipals(array $searchProperties, $test = 'allof');
-
     /**
      * Finds a principal by its URI.
      *

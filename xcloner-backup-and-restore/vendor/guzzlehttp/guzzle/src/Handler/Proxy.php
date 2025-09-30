@@ -1,14 +1,13 @@
 <?php
 
-namespace GuzzleHttp\Handler;
+namespace XCloner\GuzzleHttp\Handler;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\RequestOptions;
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Promise\PromiseInterface;
+use XCloner\GuzzleHttp\RequestOptions;
+use XCloner\Psr\Http\Message\RequestInterface;
 /**
  * Provides basic proxies for handlers.
  *
@@ -31,7 +30,6 @@ class Proxy
             return empty($options[RequestOptions::SYNCHRONOUS]) ? $default($request, $options) : $sync($request, $options);
         };
     }
-
     /**
      * Sends streaming requests to a streaming compatible handler while sending
      * all other requests to a default handler.

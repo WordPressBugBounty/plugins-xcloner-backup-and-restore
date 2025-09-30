@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmailContentThreatSubmission class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EmailContentThreatSubmission extends EmailThreatSubmission
 {
     /**
-    * Gets the fileContent
-    * Base64 encoded file content.
-    *
-    * @return string|null The fileContent
-    */
+     * Gets the fileContent
+     * Base64 encoded file content.
+     *
+     * @return string|null The fileContent
+     */
     public function getFileContent()
     {
         if (array_key_exists("fileContent", $this->_propDict)) {
@@ -41,19 +42,17 @@ class EmailContentThreatSubmission extends EmailThreatSubmission
             return null;
         }
     }
-
     /**
-    * Sets the fileContent
-    * Base64 encoded file content.
-    *
-    * @param string $val The fileContent
-    *
-    * @return EmailContentThreatSubmission
-    */
+     * Sets the fileContent
+     * Base64 encoded file content.
+     *
+     * @param string $val The fileContent
+     *
+     * @return EmailContentThreatSubmission
+     */
     public function setFileContent($val)
     {
         $this->_propDict["fileContent"] = $val;
         return $this;
     }
-
 }

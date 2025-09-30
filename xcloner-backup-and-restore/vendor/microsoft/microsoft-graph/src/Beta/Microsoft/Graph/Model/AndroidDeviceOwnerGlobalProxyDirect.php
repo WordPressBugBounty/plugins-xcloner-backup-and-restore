@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceOwnerGlobalProxyDirect class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.androidDeviceOwnerGlobalProxyDirect");
     }
-
     /**
-    * Gets the excludedHosts
-    * The excluded hosts
-    *
-    * @return string|null The excludedHosts
-    */
+     * Gets the excludedHosts
+     * The excluded hosts
+     *
+     * @return string|null The excludedHosts
+     */
     public function getExcludedHosts()
     {
         if (array_key_exists("excludedHosts", $this->_propDict)) {
@@ -51,26 +52,25 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy
             return null;
         }
     }
-
     /**
-    * Sets the excludedHosts
-    * The excluded hosts
-    *
-    * @param string $val The value of the excludedHosts
-    *
-    * @return AndroidDeviceOwnerGlobalProxyDirect
-    */
+     * Sets the excludedHosts
+     * The excluded hosts
+     *
+     * @param string $val The value of the excludedHosts
+     *
+     * @return AndroidDeviceOwnerGlobalProxyDirect
+     */
     public function setExcludedHosts($val)
     {
         $this->_propDict["excludedHosts"] = $val;
         return $this;
     }
     /**
-    * Gets the host
-    * The host name
-    *
-    * @return string|null The host
-    */
+     * Gets the host
+     * The host name
+     *
+     * @return string|null The host
+     */
     public function getHost()
     {
         if (array_key_exists("host", $this->_propDict)) {
@@ -79,26 +79,25 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy
             return null;
         }
     }
-
     /**
-    * Sets the host
-    * The host name
-    *
-    * @param string $val The value of the host
-    *
-    * @return AndroidDeviceOwnerGlobalProxyDirect
-    */
+     * Sets the host
+     * The host name
+     *
+     * @param string $val The value of the host
+     *
+     * @return AndroidDeviceOwnerGlobalProxyDirect
+     */
     public function setHost($val)
     {
         $this->_propDict["host"] = $val;
         return $this;
     }
     /**
-    * Gets the port
-    * The port
-    *
-    * @return int|null The port
-    */
+     * Gets the port
+     * The port
+     *
+     * @return int|null The port
+     */
     public function getPort()
     {
         if (array_key_exists("port", $this->_propDict)) {
@@ -107,15 +106,14 @@ class AndroidDeviceOwnerGlobalProxyDirect extends AndroidDeviceOwnerGlobalProxy
             return null;
         }
     }
-
     /**
-    * Sets the port
-    * The port
-    *
-    * @param int $val The value of the port
-    *
-    * @return AndroidDeviceOwnerGlobalProxyDirect
-    */
+     * Sets the port
+     * The port
+     *
+     * @param int $val The value of the port
+     *
+     * @return AndroidDeviceOwnerGlobalProxyDirect
+     */
     public function setPort($val)
     {
         $this->_propDict["port"] = $val;

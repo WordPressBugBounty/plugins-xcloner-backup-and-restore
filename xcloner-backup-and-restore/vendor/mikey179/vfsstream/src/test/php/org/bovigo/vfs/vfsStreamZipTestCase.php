@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,33 +8,30 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper in conjunction with ext/zip.
  *
  * @group  zip
  */
-class vfsStreamZipTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamZipTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * set up test environment
      */
     public function setUp()
     {
-        if (extension_loaded('zip') === false) {
+        if (extension_loaded('zip') === \false) {
             $this->markTestSkipped('No ext/zip installed, skipping test.');
         }
-
         $this->markTestSkipped('Zip extension can not work with vfsStream urls.');
-
         vfsStreamWrapper::register();
         vfsStreamWrapper::setRoot(vfsStream::newDirectory('root'));
-
     }
-
     /**
      * @test
      */

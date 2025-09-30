@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkOnlineMeetingInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamworkOnlineMeetingInfo extends Entity
 {
     /**
-    * Gets the calendarEventId
-    * The identifier of the calendar event associated with the meeting.
-    *
-    * @return string|null The calendarEventId
-    */
+     * Gets the calendarEventId
+     * The identifier of the calendar event associated with the meeting.
+     *
+     * @return string|null The calendarEventId
+     */
     public function getCalendarEventId()
     {
         if (array_key_exists("calendarEventId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeamworkOnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the calendarEventId
-    * The identifier of the calendar event associated with the meeting.
-    *
-    * @param string $val The value of the calendarEventId
-    *
-    * @return TeamworkOnlineMeetingInfo
-    */
+     * Sets the calendarEventId
+     * The identifier of the calendar event associated with the meeting.
+     *
+     * @param string $val The value of the calendarEventId
+     *
+     * @return TeamworkOnlineMeetingInfo
+     */
     public function setCalendarEventId($val)
     {
         $this->_propDict["calendarEventId"] = $val;
         return $this;
     }
     /**
-    * Gets the joinWebUrl
-    * The URL that users click to join or uniquely identify the meeting.
-    *
-    * @return string|null The joinWebUrl
-    */
+     * Gets the joinWebUrl
+     * The URL that users click to join or uniquely identify the meeting.
+     *
+     * @return string|null The joinWebUrl
+     */
     public function getJoinWebUrl()
     {
         if (array_key_exists("joinWebUrl", $this->_propDict)) {
@@ -68,31 +69,29 @@ class TeamworkOnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the joinWebUrl
-    * The URL that users click to join or uniquely identify the meeting.
-    *
-    * @param string $val The value of the joinWebUrl
-    *
-    * @return TeamworkOnlineMeetingInfo
-    */
+     * Sets the joinWebUrl
+     * The URL that users click to join or uniquely identify the meeting.
+     *
+     * @param string $val The value of the joinWebUrl
+     *
+     * @return TeamworkOnlineMeetingInfo
+     */
     public function setJoinWebUrl($val)
     {
         $this->_propDict["joinWebUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the organizer
-    * The organizer of the meeting.
-    *
-    * @return TeamworkUserIdentity|null The organizer
-    */
+     * Gets the organizer
+     * The organizer of the meeting.
+     *
+     * @return TeamworkUserIdentity|null The organizer
+     */
     public function getOrganizer()
     {
         if (array_key_exists("organizer", $this->_propDict)) {
-            if (is_a($this->_propDict["organizer"], "\Microsoft\Graph\Model\TeamworkUserIdentity") || is_null($this->_propDict["organizer"])) {
+            if (is_a($this->_propDict["organizer"], "XCloner\\Microsoft\\Graph\\Model\\TeamworkUserIdentity") || is_null($this->_propDict["organizer"])) {
                 return $this->_propDict["organizer"];
             } else {
                 $this->_propDict["organizer"] = new TeamworkUserIdentity($this->_propDict["organizer"]);
@@ -101,18 +100,17 @@ class TeamworkOnlineMeetingInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the organizer
-    * The organizer of the meeting.
-    *
-    * @param TeamworkUserIdentity $val The value to assign to the organizer
-    *
-    * @return TeamworkOnlineMeetingInfo The TeamworkOnlineMeetingInfo
-    */
+     * Sets the organizer
+     * The organizer of the meeting.
+     *
+     * @param TeamworkUserIdentity $val The value to assign to the organizer
+     *
+     * @return TeamworkOnlineMeetingInfo The TeamworkOnlineMeetingInfo
+     */
     public function setOrganizer($val)
     {
         $this->_propDict["organizer"] = $val;
-         return $this;
+        return $this;
     }
 }

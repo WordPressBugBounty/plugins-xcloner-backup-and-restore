@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Optional parameters for commitBlobBlocks
  *
@@ -46,7 +45,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     private $_cacheControl;
     private $_contentDisposition;
     private $_metadata;
-
     /**
      * Gets ContentType.
      *
@@ -56,7 +54,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_contentType;
     }
-
     /**
      * Sets ContentType.
      *
@@ -68,7 +65,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_contentType = $contentType;
     }
-
     /**
      * Gets ContentEncoding.
      *
@@ -78,7 +74,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_contentEncoding;
     }
-
     /**
      * Sets ContentEncoding.
      *
@@ -90,7 +85,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_contentEncoding = $contentEncoding;
     }
-
     /**
      * Gets ContentLanguage.
      *
@@ -100,7 +94,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_contentLanguage;
     }
-
     /**
      * Sets ContentLanguage.
      *
@@ -112,7 +105,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_contentLanguage = $contentLanguage;
     }
-
     /**
      * Gets ContentMD5.
      *
@@ -122,7 +114,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_contentMD5;
     }
-
     /**
      * Sets ContentMD5.
      *
@@ -134,7 +125,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_contentMD5 = $contentMD5;
     }
-
     /**
      * Gets cache control.
      *
@@ -144,7 +134,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_cacheControl;
     }
-
     /**
      * Sets cacheControl.
      *
@@ -156,7 +145,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_cacheControl = $cacheControl;
     }
-
     /**
      * Gets content disposition.
      *
@@ -166,7 +154,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_contentDisposition;
     }
-
     /**
      * Sets contentDisposition.
      *
@@ -178,7 +165,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_contentDisposition = $contentDisposition;
     }
-
     /**
      * Gets blob metadata.
      *
@@ -188,7 +174,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         return $this->_metadata;
     }
-
     /**
      * Sets blob metadata.
      *
@@ -200,7 +185,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
     {
         $this->_metadata = $metadata;
     }
-
     /**
      * Create a instance using the given options
      * @param  mixed $options Input options
@@ -221,7 +205,6 @@ class CommitBlobBlocksOptions extends BlobServiceOptions
         $result->setMetadata($options->getMetadata());
         $result->setLeaseId($options->getLeaseId());
         $result->setAccessConditions($options->getAccessConditions());
-
         return $result;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OmaSettingBase64 class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OmaSettingBase64 extends OmaSetting
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.omaSettingBase64");
     }
-
     /**
-    * Gets the fileName
-    * File name associated with the Value property (.cer
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * File name associated with the Value property (.cer
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -51,26 +52,25 @@ class OmaSettingBase64 extends OmaSetting
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * File name associated with the Value property (.cer
-    *
-    * @param string $val The value of the fileName
-    *
-    * @return OmaSettingBase64
-    */
+     * Sets the fileName
+     * File name associated with the Value property (.cer
+     *
+     * @param string $val The value of the fileName
+     *
+     * @return OmaSettingBase64
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Value. (Base64 encoded string)
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Value. (Base64 encoded string)
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -79,15 +79,14 @@ class OmaSettingBase64 extends OmaSetting
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Value. (Base64 encoded string)
-    *
-    * @param string $val The value of the value
-    *
-    * @return OmaSettingBase64
-    */
+     * Sets the value
+     * Value. (Base64 encoded string)
+     *
+     * @param string $val The value of the value
+     *
+     * @return OmaSettingBase64
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AdminReportSettings class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AdminReportSettings extends Entity
 {
     /**
-    * Gets the displayConcealedNames
-    * If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
-    *
-    * @return bool|null The displayConcealedNames
-    */
+     * Gets the displayConcealedNames
+     * If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
+     *
+     * @return bool|null The displayConcealedNames
+     */
     public function getDisplayConcealedNames()
     {
         if (array_key_exists("displayConcealedNames", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AdminReportSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayConcealedNames
-    * If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
-    *
-    * @param bool $val The displayConcealedNames
-    *
-    * @return AdminReportSettings
-    */
+     * Sets the displayConcealedNames
+     * If set to true, all reports will conceal user information such as usernames, groups, and sites. If false, all reports will show identifiable information. This property represents a setting in the Microsoft 365 admin center. Required.
+     *
+     * @param bool $val The displayConcealedNames
+     *
+     * @return AdminReportSettings
+     */
     public function setDisplayConcealedNames($val)
     {
         $this->_propDict["displayConcealedNames"] = boolval($val);
         return $this;
     }
-
 }

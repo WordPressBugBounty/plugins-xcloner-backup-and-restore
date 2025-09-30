@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ClassificationAttribute class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ClassificationAttribute extends Entity
 {
     /**
-    * Gets the confidence
-    *
-    * @return int|null The confidence
-    */
+     * Gets the confidence
+     *
+     * @return int|null The confidence
+     */
     public function getConfidence()
     {
         if (array_key_exists("confidence", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ClassificationAttribute extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the confidence
-    *
-    * @param int $val The value of the confidence
-    *
-    * @return ClassificationAttribute
-    */
+     * Sets the confidence
+     *
+     * @param int $val The value of the confidence
+     *
+     * @return ClassificationAttribute
+     */
     public function setConfidence($val)
     {
         $this->_propDict["confidence"] = $val;
         return $this;
     }
     /**
-    * Gets the count
-    *
-    * @return int|null The count
-    */
+     * Gets the count
+     *
+     * @return int|null The count
+     */
     public function getCount()
     {
         if (array_key_exists("count", $this->_propDict)) {
@@ -65,14 +66,13 @@ class ClassificationAttribute extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the count
-    *
-    * @param int $val The value of the count
-    *
-    * @return ClassificationAttribute
-    */
+     * Sets the count
+     *
+     * @param int $val The value of the count
+     *
+     * @return ClassificationAttribute
+     */
     public function setCount($val)
     {
         $this->_propDict["count"] = $val;

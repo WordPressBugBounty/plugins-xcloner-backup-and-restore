@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookFormatProtection class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookFormatProtection extends Entity
 {
     /**
-    * Gets the formulaHidden
-    * Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
-    *
-    * @return bool|null The formulaHidden
-    */
+     * Gets the formulaHidden
+     * Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
+     *
+     * @return bool|null The formulaHidden
+     */
     public function getFormulaHidden()
     {
         if (array_key_exists("formulaHidden", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WorkbookFormatProtection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the formulaHidden
-    * Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
-    *
-    * @param bool $val The formulaHidden
-    *
-    * @return WorkbookFormatProtection
-    */
+     * Sets the formulaHidden
+     * Indicates if Excel hides the formula for the cells in the range. A null value indicates that the entire range doesn't have uniform formula hidden setting.
+     *
+     * @param bool $val The formulaHidden
+     *
+     * @return WorkbookFormatProtection
+     */
     public function setFormulaHidden($val)
     {
         $this->_propDict["formulaHidden"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the locked
-    * Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
-    *
-    * @return bool|null The locked
-    */
+     * Gets the locked
+     * Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
+     *
+     * @return bool|null The locked
+     */
     public function getLocked()
     {
         if (array_key_exists("locked", $this->_propDict)) {
@@ -70,19 +69,17 @@ class WorkbookFormatProtection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the locked
-    * Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
-    *
-    * @param bool $val The locked
-    *
-    * @return WorkbookFormatProtection
-    */
+     * Sets the locked
+     * Indicates if Excel locks the cells in the object. A null value indicates that the entire range doesn't have uniform lock setting.
+     *
+     * @param bool $val The locked
+     *
+     * @return WorkbookFormatProtection
+     */
     public function setLocked($val)
     {
         $this->_propDict["locked"] = boolval($val);
         return $this;
     }
-
 }

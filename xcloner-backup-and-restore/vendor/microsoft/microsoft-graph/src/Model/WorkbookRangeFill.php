@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookRangeFill class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookRangeFill extends Entity
 {
     /**
-    * Gets the color
-    * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange')
-    *
-    * @return string|null The color
-    */
+     * Gets the color
+     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange')
+     *
+     * @return string|null The color
+     */
     public function getColor()
     {
         if (array_key_exists("color", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WorkbookRangeFill extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the color
-    * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange')
-    *
-    * @param string $val The color
-    *
-    * @return WorkbookRangeFill
-    */
+     * Sets the color
+     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange')
+     *
+     * @param string $val The color
+     *
+     * @return WorkbookRangeFill
+     */
     public function setColor($val)
     {
         $this->_propDict["color"] = $val;
         return $this;
     }
-
 }

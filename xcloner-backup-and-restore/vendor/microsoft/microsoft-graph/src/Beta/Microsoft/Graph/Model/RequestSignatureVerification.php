@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RequestSignatureVerification class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RequestSignatureVerification extends Entity
 {
-
     /**
-    * Gets the allowedWeakAlgorithms
-    * Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
-    *
-    * @return WeakAlgorithms|null The allowedWeakAlgorithms
-    */
+     * Gets the allowedWeakAlgorithms
+     * Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
+     *
+     * @return WeakAlgorithms|null The allowedWeakAlgorithms
+     */
     public function getAllowedWeakAlgorithms()
     {
         if (array_key_exists("allowedWeakAlgorithms", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedWeakAlgorithms"], "\Beta\Microsoft\Graph\Model\WeakAlgorithms") || is_null($this->_propDict["allowedWeakAlgorithms"])) {
+            if (is_a($this->_propDict["allowedWeakAlgorithms"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WeakAlgorithms") || is_null($this->_propDict["allowedWeakAlgorithms"])) {
                 return $this->_propDict["allowedWeakAlgorithms"];
             } else {
                 $this->_propDict["allowedWeakAlgorithms"] = new WeakAlgorithms($this->_propDict["allowedWeakAlgorithms"]);
@@ -45,26 +46,25 @@ class RequestSignatureVerification extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the allowedWeakAlgorithms
-    * Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
-    *
-    * @param WeakAlgorithms $val The value to assign to the allowedWeakAlgorithms
-    *
-    * @return RequestSignatureVerification The RequestSignatureVerification
-    */
+     * Sets the allowedWeakAlgorithms
+     * Specifies whether this application accepts weak algorithms.  The possible values are: rsaSha1, unknownFutureValue.
+     *
+     * @param WeakAlgorithms $val The value to assign to the allowedWeakAlgorithms
+     *
+     * @return RequestSignatureVerification The RequestSignatureVerification
+     */
     public function setAllowedWeakAlgorithms($val)
     {
         $this->_propDict["allowedWeakAlgorithms"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the isSignedRequestRequired
-    * Specifies whether signed authentication requests for this application should be required.
-    *
-    * @return bool|null The isSignedRequestRequired
-    */
+     * Gets the isSignedRequestRequired
+     * Specifies whether signed authentication requests for this application should be required.
+     *
+     * @return bool|null The isSignedRequestRequired
+     */
     public function getIsSignedRequestRequired()
     {
         if (array_key_exists("isSignedRequestRequired", $this->_propDict)) {
@@ -73,15 +73,14 @@ class RequestSignatureVerification extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isSignedRequestRequired
-    * Specifies whether signed authentication requests for this application should be required.
-    *
-    * @param bool $val The value of the isSignedRequestRequired
-    *
-    * @return RequestSignatureVerification
-    */
+     * Sets the isSignedRequestRequired
+     * Specifies whether signed authentication requests for this application should be required.
+     *
+     * @param bool $val The value of the isSignedRequestRequired
+     *
+     * @return RequestSignatureVerification
+     */
     public function setIsSignedRequestRequired($val)
     {
         $this->_propDict["isSignedRequestRequired"] = $val;

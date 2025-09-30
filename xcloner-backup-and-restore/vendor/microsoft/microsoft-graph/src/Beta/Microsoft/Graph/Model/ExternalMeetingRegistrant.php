@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExternalMeetingRegistrant class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExternalMeetingRegistrant extends MeetingRegistrantBase
 {
     /**
-    * Gets the tenantId
-    * The tenant ID of this registrant if in Azure Active Directory.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The tenant ID of this registrant if in Azure Active Directory.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The tenant ID of this registrant if in Azure Active Directory.
-    *
-    * @param string $val The tenantId
-    *
-    * @return ExternalMeetingRegistrant
-    */
+     * Sets the tenantId
+     * The tenant ID of this registrant if in Azure Active Directory.
+     *
+     * @param string $val The tenantId
+     *
+     * @return ExternalMeetingRegistrant
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * The user ID of this registrant if in Azure Active Directory.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The user ID of this registrant if in Azure Active Directory.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -70,19 +69,17 @@ class ExternalMeetingRegistrant extends MeetingRegistrantBase
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The user ID of this registrant if in Azure Active Directory.
-    *
-    * @param string $val The userId
-    *
-    * @return ExternalMeetingRegistrant
-    */
+     * Sets the userId
+     * The user ID of this registrant if in Azure Active Directory.
+     *
+     * @param string $val The userId
+     *
+     * @return ExternalMeetingRegistrant
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

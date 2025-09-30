@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSetting class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSetting extends Entity
 {
     /**
-    * Gets the settingInstance
-    * Setting Instance
-    *
-    * @return DeviceManagementConfigurationSettingInstance|null The settingInstance
-    */
+     * Gets the settingInstance
+     * Setting Instance
+     *
+     * @return DeviceManagementConfigurationSettingInstance|null The settingInstance
+     */
     public function getSettingInstance()
     {
         if (array_key_exists("settingInstance", $this->_propDict)) {
-            if (is_a($this->_propDict["settingInstance"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstance") || is_null($this->_propDict["settingInstance"])) {
+            if (is_a($this->_propDict["settingInstance"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationSettingInstance") || is_null($this->_propDict["settingInstance"])) {
                 return $this->_propDict["settingInstance"];
             } else {
                 $this->_propDict["settingInstance"] = new DeviceManagementConfigurationSettingInstance($this->_propDict["settingInstance"]);
@@ -45,49 +46,44 @@ class DeviceManagementConfigurationSetting extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settingInstance
-    * Setting Instance
-    *
-    * @param DeviceManagementConfigurationSettingInstance $val The settingInstance
-    *
-    * @return DeviceManagementConfigurationSetting
-    */
+     * Sets the settingInstance
+     * Setting Instance
+     *
+     * @param DeviceManagementConfigurationSettingInstance $val The settingInstance
+     *
+     * @return DeviceManagementConfigurationSetting
+     */
     public function setSettingInstance($val)
     {
         $this->_propDict["settingInstance"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the settingDefinitions
-    * List of related Setting Definitions. This property is read-only.
+     * List of related Setting Definitions. This property is read-only.
      *
      * @return array|null The settingDefinitions
      */
     public function getSettingDefinitions()
     {
         if (array_key_exists("settingDefinitions", $this->_propDict)) {
-           return $this->_propDict["settingDefinitions"];
+            return $this->_propDict["settingDefinitions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the settingDefinitions
-    * List of related Setting Definitions. This property is read-only.
-    *
-    * @param DeviceManagementConfigurationSettingDefinition[] $val The settingDefinitions
-    *
-    * @return DeviceManagementConfigurationSetting
-    */
+     * Sets the settingDefinitions
+     * List of related Setting Definitions. This property is read-only.
+     *
+     * @param DeviceManagementConfigurationSettingDefinition[] $val The settingDefinitions
+     *
+     * @return DeviceManagementConfigurationSetting
+     */
     public function setSettingDefinitions($val)
     {
         $this->_propDict["settingDefinitions"] = $val;
         return $this;
     }
-
 }

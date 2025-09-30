@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Holds result of calling setBlobProperties wrapper
  *
@@ -46,7 +44,6 @@ class SetBlobPropertiesResult
     private $_lastModified;
     private $_etag;
     private $_sequenceNumber;
-
     /**
      * Creates SetBlobPropertiesResult from response headers.
      *
@@ -59,23 +56,12 @@ class SetBlobPropertiesResult
     public static function create(array $headers)
     {
         $result = new SetBlobPropertiesResult();
-        $date   = Utilities::tryGetValueInsensitive(
-            Resources::LAST_MODIFIED,
-            $headers
-        );
+        $date = Utilities::tryGetValueInsensitive(Resources::LAST_MODIFIED, $headers);
         $result->setLastModified(Utilities::rfc1123ToDateTime($date));
-        $result->setETag(Utilities::tryGetValueInsensitive(
-            Resources::ETAG,
-            $headers
-        ));
-        $result->setSequenceNumber(Utilities::tryGetValueInsensitive(
-            Resources::X_MS_BLOB_SEQUENCE_NUMBER,
-            $headers
-        ));
-
+        $result->setETag(Utilities::tryGetValueInsensitive(Resources::ETAG, $headers));
+        $result->setSequenceNumber(Utilities::tryGetValueInsensitive(Resources::X_MS_BLOB_SEQUENCE_NUMBER, $headers));
         return $result;
     }
-
     /**
      * Gets blob lastModified.
      *
@@ -85,7 +71,6 @@ class SetBlobPropertiesResult
     {
         return $this->_lastModified;
     }
-
     /**
      * Sets blob lastModified.
      *
@@ -98,7 +83,6 @@ class SetBlobPropertiesResult
         Validate::isDate($lastModified);
         $this->_lastModified = $lastModified;
     }
-
     /**
      * Gets blob etag.
      *
@@ -108,7 +92,6 @@ class SetBlobPropertiesResult
     {
         return $this->_etag;
     }
-
     /**
      * Sets blob etag.
      *
@@ -121,7 +104,6 @@ class SetBlobPropertiesResult
         Validate::canCastAsString($etag, 'etag');
         $this->_etag = $etag;
     }
-
     /**
      * Gets blob sequenceNumber.
      *
@@ -131,7 +113,6 @@ class SetBlobPropertiesResult
     {
         return $this->_sequenceNumber;
     }
-
     /**
      * Sets blob sequenceNumber.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SimulationAutomationRun class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SimulationAutomationRun extends Entity
 {
     /**
-    * Gets the endDateTime
-    * Date and time when the run ends in an attack simulation automation.
-    *
-    * @return \DateTime|null The endDateTime
-    */
+     * Gets the endDateTime
+     * Date and time when the run ends in an attack simulation automation.
+     *
+     * @return \DateTime|null The endDateTime
+     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -45,27 +46,25 @@ class SimulationAutomationRun extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDateTime
-    * Date and time when the run ends in an attack simulation automation.
-    *
-    * @param \DateTime $val The endDateTime
-    *
-    * @return SimulationAutomationRun
-    */
+     * Sets the endDateTime
+     * Date and time when the run ends in an attack simulation automation.
+     *
+     * @param \DateTime $val The endDateTime
+     *
+     * @return SimulationAutomationRun
+     */
     public function setEndDateTime($val)
     {
         $this->_propDict["endDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the simulationId
-    * Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.
-    *
-    * @return string|null The simulationId
-    */
+     * Gets the simulationId
+     * Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.
+     *
+     * @return string|null The simulationId
+     */
     public function getSimulationId()
     {
         if (array_key_exists("simulationId", $this->_propDict)) {
@@ -74,31 +73,29 @@ class SimulationAutomationRun extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the simulationId
-    * Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.
-    *
-    * @param string $val The simulationId
-    *
-    * @return SimulationAutomationRun
-    */
+     * Sets the simulationId
+     * Unique identifier for the attack simulation campaign initiated in the attack simulation automation run.
+     *
+     * @param string $val The simulationId
+     *
+     * @return SimulationAutomationRun
+     */
     public function setSimulationId($val)
     {
         $this->_propDict["simulationId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * Date and time when the run starts in an attack simulation automation.
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * Date and time when the run starts in an attack simulation automation.
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -107,31 +104,29 @@ class SimulationAutomationRun extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * Date and time when the run starts in an attack simulation automation.
-    *
-    * @param \DateTime $val The startDateTime
-    *
-    * @return SimulationAutomationRun
-    */
+     * Sets the startDateTime
+     * Date and time when the run starts in an attack simulation automation.
+     *
+     * @param \DateTime $val The startDateTime
+     *
+     * @return SimulationAutomationRun
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
-    *
-    * @return SimulationAutomationRunStatus|null The status
-    */
+     * Gets the status
+     * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+     *
+     * @return SimulationAutomationRunStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\SimulationAutomationRunStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Microsoft\\Graph\\Model\\SimulationAutomationRunStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new SimulationAutomationRunStatus($this->_propDict["status"]);
@@ -140,19 +135,17 @@ class SimulationAutomationRun extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
-    *
-    * @param SimulationAutomationRunStatus $val The status
-    *
-    * @return SimulationAutomationRun
-    */
+     * Sets the status
+     * Status of the attack simulation automation run. The possible values are: unknown, running, succeeded, failed, skipped, unknownFutureValue.
+     *
+     * @param SimulationAutomationRunStatus $val The status
+     *
+     * @return SimulationAutomationRun
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
 }

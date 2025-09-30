@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CasesRoot class
 *
@@ -25,10 +26,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class CasesRoot extends \Microsoft\Graph\Model\Entity
+class CasesRoot extends \XCloner\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the ediscoveryCases
      *
      * @return array|null The ediscoveryCases
@@ -36,23 +36,21 @@ class CasesRoot extends \Microsoft\Graph\Model\Entity
     public function getEdiscoveryCases()
     {
         if (array_key_exists("ediscoveryCases", $this->_propDict)) {
-           return $this->_propDict["ediscoveryCases"];
+            return $this->_propDict["ediscoveryCases"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the ediscoveryCases
-    *
-    * @param EdiscoveryCase[] $val The ediscoveryCases
-    *
-    * @return CasesRoot
-    */
+     * Sets the ediscoveryCases
+     *
+     * @param EdiscoveryCase[] $val The ediscoveryCases
+     *
+     * @return CasesRoot
+     */
     public function setEdiscoveryCases($val)
     {
         $this->_propDict["ediscoveryCases"] = $val;
         return $this;
     }
-
 }

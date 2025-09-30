@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationChoiceSettingInstance class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagementConfigurationSettingInstance
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementConfigurationChoiceSettingInstance");
     }
-
-
     /**
-    * Gets the choiceSettingValue
-    * Choice setting value
-    *
-    * @return DeviceManagementConfigurationChoiceSettingValue|null The choiceSettingValue
-    */
+     * Gets the choiceSettingValue
+     * Choice setting value
+     *
+     * @return DeviceManagementConfigurationChoiceSettingValue|null The choiceSettingValue
+     */
     public function getChoiceSettingValue()
     {
         if (array_key_exists("choiceSettingValue", $this->_propDict)) {
-            if (is_a($this->_propDict["choiceSettingValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationChoiceSettingValue") || is_null($this->_propDict["choiceSettingValue"])) {
+            if (is_a($this->_propDict["choiceSettingValue"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationChoiceSettingValue") || is_null($this->_propDict["choiceSettingValue"])) {
                 return $this->_propDict["choiceSettingValue"];
             } else {
                 $this->_propDict["choiceSettingValue"] = new DeviceManagementConfigurationChoiceSettingValue($this->_propDict["choiceSettingValue"]);
@@ -56,18 +56,17 @@ class DeviceManagementConfigurationChoiceSettingInstance extends DeviceManagemen
         }
         return null;
     }
-
     /**
-    * Sets the choiceSettingValue
-    * Choice setting value
-    *
-    * @param DeviceManagementConfigurationChoiceSettingValue $val The value to assign to the choiceSettingValue
-    *
-    * @return DeviceManagementConfigurationChoiceSettingInstance The DeviceManagementConfigurationChoiceSettingInstance
-    */
+     * Sets the choiceSettingValue
+     * Choice setting value
+     *
+     * @param DeviceManagementConfigurationChoiceSettingValue $val The value to assign to the choiceSettingValue
+     *
+     * @return DeviceManagementConfigurationChoiceSettingInstance The DeviceManagementConfigurationChoiceSettingInstance
+     */
     public function setChoiceSettingValue($val)
     {
         $this->_propDict["choiceSettingValue"] = $val;
-         return $this;
+        return $this;
     }
 }

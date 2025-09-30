@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LabelPolicy class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LabelPolicy extends Entity
 {
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -39,24 +41,23 @@ class LabelPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return LabelPolicy
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return LabelPolicy
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -65,14 +66,13 @@ class LabelPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return LabelPolicy
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return LabelPolicy
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ImportedWindowsAutopilotDeviceIdentityUpload class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity
 {
     /**
-    * Gets the createdDateTimeUtc
-    * DateTime when the entity is created.
-    *
-    * @return \DateTime|null The createdDateTimeUtc
-    */
+     * Gets the createdDateTimeUtc
+     * DateTime when the entity is created.
+     *
+     * @return \DateTime|null The createdDateTimeUtc
+     */
     public function getCreatedDateTimeUtc()
     {
         if (array_key_exists("createdDateTimeUtc", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTimeUtc"], "\DateTime") || is_null($this->_propDict["createdDateTimeUtc"])) {
+            if (is_a($this->_propDict["createdDateTimeUtc"], "\\DateTime") || is_null($this->_propDict["createdDateTimeUtc"])) {
                 return $this->_propDict["createdDateTimeUtc"];
             } else {
                 $this->_propDict["createdDateTimeUtc"] = new \DateTime($this->_propDict["createdDateTimeUtc"]);
@@ -45,31 +46,29 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTimeUtc
-    * DateTime when the entity is created.
-    *
-    * @param \DateTime $val The createdDateTimeUtc
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityUpload
-    */
+     * Sets the createdDateTimeUtc
+     * DateTime when the entity is created.
+     *
+     * @param \DateTime $val The createdDateTimeUtc
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityUpload
+     */
     public function setCreatedDateTimeUtc($val)
     {
         $this->_propDict["createdDateTimeUtc"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Upload status.
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityUploadStatus|null The status
-    */
+     * Gets the status
+     * Upload status.
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityUploadStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\ImportedWindowsAutopilotDeviceIdentityUploadStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ImportedWindowsAutopilotDeviceIdentityUploadStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ImportedWindowsAutopilotDeviceIdentityUploadStatus($this->_propDict["status"]);
@@ -78,49 +77,44 @@ class ImportedWindowsAutopilotDeviceIdentityUpload extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Upload status.
-    *
-    * @param ImportedWindowsAutopilotDeviceIdentityUploadStatus $val The status
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityUpload
-    */
+     * Sets the status
+     * Upload status.
+     *
+     * @param ImportedWindowsAutopilotDeviceIdentityUploadStatus $val The status
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityUpload
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the deviceIdentities
-    * Collection of all Autopilot devices as a part of this upload.
+     * Collection of all Autopilot devices as a part of this upload.
      *
      * @return array|null The deviceIdentities
      */
     public function getDeviceIdentities()
     {
         if (array_key_exists("deviceIdentities", $this->_propDict)) {
-           return $this->_propDict["deviceIdentities"];
+            return $this->_propDict["deviceIdentities"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the deviceIdentities
-    * Collection of all Autopilot devices as a part of this upload.
-    *
-    * @param ImportedWindowsAutopilotDeviceIdentity[] $val The deviceIdentities
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityUpload
-    */
+     * Sets the deviceIdentities
+     * Collection of all Autopilot devices as a part of this upload.
+     *
+     * @param ImportedWindowsAutopilotDeviceIdentity[] $val The deviceIdentities
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityUpload
+     */
     public function setDeviceIdentities($val)
     {
         $this->_propDict["deviceIdentities"] = $val;
         return $this;
     }
-
 }

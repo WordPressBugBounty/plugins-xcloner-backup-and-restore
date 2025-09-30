@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MeetingParticipantInfo class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MeetingParticipantInfo extends Entity
 {
-
     /**
-    * Gets the identity
-    * Identity information of the participant.
-    *
-    * @return IdentitySet|null The identity
-    */
+     * Gets the identity
+     * Identity information of the participant.
+     *
+     * @return IdentitySet|null The identity
+     */
     public function getIdentity()
     {
         if (array_key_exists("identity", $this->_propDict)) {
-            if (is_a($this->_propDict["identity"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["identity"])) {
+            if (is_a($this->_propDict["identity"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["identity"])) {
                 return $this->_propDict["identity"];
             } else {
                 $this->_propDict["identity"] = new IdentitySet($this->_propDict["identity"]);
@@ -45,31 +46,29 @@ class MeetingParticipantInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the identity
-    * Identity information of the participant.
-    *
-    * @param IdentitySet $val The value to assign to the identity
-    *
-    * @return MeetingParticipantInfo The MeetingParticipantInfo
-    */
+     * Sets the identity
+     * Identity information of the participant.
+     *
+     * @param IdentitySet $val The value to assign to the identity
+     *
+     * @return MeetingParticipantInfo The MeetingParticipantInfo
+     */
     public function setIdentity($val)
     {
         $this->_propDict["identity"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the role
-    * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
-    *
-    * @return OnlineMeetingRole|null The role
-    */
+     * Gets the role
+     * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+     *
+     * @return OnlineMeetingRole|null The role
+     */
     public function getRole()
     {
         if (array_key_exists("role", $this->_propDict)) {
-            if (is_a($this->_propDict["role"], "\Microsoft\Graph\Model\OnlineMeetingRole") || is_null($this->_propDict["role"])) {
+            if (is_a($this->_propDict["role"], "XCloner\\Microsoft\\Graph\\Model\\OnlineMeetingRole") || is_null($this->_propDict["role"])) {
                 return $this->_propDict["role"];
             } else {
                 $this->_propDict["role"] = new OnlineMeetingRole($this->_propDict["role"]);
@@ -78,26 +77,25 @@ class MeetingParticipantInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the role
-    * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
-    *
-    * @param OnlineMeetingRole $val The value to assign to the role
-    *
-    * @return MeetingParticipantInfo The MeetingParticipantInfo
-    */
+     * Sets the role
+     * Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+     *
+     * @param OnlineMeetingRole $val The value to assign to the role
+     *
+     * @return MeetingParticipantInfo The MeetingParticipantInfo
+     */
     public function setRole($val)
     {
         $this->_propDict["role"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the upn
-    * User principal name of the participant.
-    *
-    * @return string|null The upn
-    */
+     * Gets the upn
+     * User principal name of the participant.
+     *
+     * @return string|null The upn
+     */
     public function getUpn()
     {
         if (array_key_exists("upn", $this->_propDict)) {
@@ -106,15 +104,14 @@ class MeetingParticipantInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the upn
-    * User principal name of the participant.
-    *
-    * @param string $val The value of the upn
-    *
-    * @return MeetingParticipantInfo
-    */
+     * Sets the upn
+     * User principal name of the participant.
+     *
+     * @param string $val The value of the upn
+     *
+     * @return MeetingParticipantInfo
+     */
     public function setUpn($val)
     {
         $this->_propDict["upn"] = $val;

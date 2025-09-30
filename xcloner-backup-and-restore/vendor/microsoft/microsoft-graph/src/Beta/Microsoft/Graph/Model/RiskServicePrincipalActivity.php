@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RiskServicePrincipalActivity class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RiskServicePrincipalActivity extends Entity
 {
-
     /**
-    * Gets the detail
-    * Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
-    *
-    * @return RiskDetail|null The detail
-    */
+     * Gets the detail
+     * Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
+     *
+     * @return RiskDetail|null The detail
+     */
     public function getDetail()
     {
         if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\RiskDetail") || is_null($this->_propDict["detail"])) {
+            if (is_a($this->_propDict["detail"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RiskDetail") || is_null($this->_propDict["detail"])) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new RiskDetail($this->_propDict["detail"]);
@@ -45,25 +46,24 @@ class RiskServicePrincipalActivity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the detail
-    * Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
-    *
-    * @param RiskDetail $val The value to assign to the detail
-    *
-    * @return RiskServicePrincipalActivity The RiskServicePrincipalActivity
-    */
+     * Sets the detail
+     * Details of the detected risk. Note: Details for this property are only available for Azure AD Premium P2 customers. P1 customers will be returned hidden. The possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden,  adminConfirmedUserCompromised, unknownFutureValue, adminConfirmedServicePrincipalCompromised, adminDismissedAllRiskForServicePrincipal. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: adminConfirmedServicePrincipalCompromised , adminDismissedAllRiskForServicePrincipal.
+     *
+     * @param RiskDetail $val The value to assign to the detail
+     *
+     * @return RiskServicePrincipalActivity The RiskServicePrincipalActivity
+     */
     public function setDetail($val)
     {
         $this->_propDict["detail"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the riskEventTypes
-    *
-    * @return string|null The riskEventTypes
-    */
+     * Gets the riskEventTypes
+     *
+     * @return string|null The riskEventTypes
+     */
     public function getRiskEventTypes()
     {
         if (array_key_exists("riskEventTypes", $this->_propDict)) {
@@ -72,14 +72,13 @@ class RiskServicePrincipalActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskEventTypes
-    *
-    * @param string $val The value of the riskEventTypes
-    *
-    * @return RiskServicePrincipalActivity
-    */
+     * Sets the riskEventTypes
+     *
+     * @param string $val The value of the riskEventTypes
+     *
+     * @return RiskServicePrincipalActivity
+     */
     public function setRiskEventTypes($val)
     {
         $this->_propDict["riskEventTypes"] = $val;

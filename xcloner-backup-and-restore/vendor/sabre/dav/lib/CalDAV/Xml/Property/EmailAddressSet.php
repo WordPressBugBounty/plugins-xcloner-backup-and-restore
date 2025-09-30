@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Property;
 
-namespace Sabre\CalDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * email-address-set property.
  *
@@ -30,7 +28,6 @@ class EmailAddressSet implements XmlSerializable
      * @var array
      */
     private $emails;
-
     /**
      * __construct.
      */
@@ -38,7 +35,6 @@ class EmailAddressSet implements XmlSerializable
     {
         $this->emails = $emails;
     }
-
     /**
      * Returns the email addresses.
      *
@@ -48,7 +44,6 @@ class EmailAddressSet implements XmlSerializable
     {
         return $this->emails;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *

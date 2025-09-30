@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceOwnerKioskModeApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderItem
 {
     /**
-    * Gets the className
-    * Class name of application
-    *
-    * @return string|null The className
-    */
+     * Gets the className
+     * Class name of application
+     *
+     * @return string|null The className
+     */
     public function getClassName()
     {
         if (array_key_exists("className", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
             return null;
         }
     }
-
     /**
-    * Sets the className
-    * Class name of application
-    *
-    * @param string $val The value of the className
-    *
-    * @return AndroidDeviceOwnerKioskModeApp
-    */
+     * Sets the className
+     * Class name of application
+     *
+     * @param string $val The value of the className
+     *
+     * @return AndroidDeviceOwnerKioskModeApp
+     */
     public function setClassName($val)
     {
         $this->_propDict["className"] = $val;
         return $this;
     }
     /**
-    * Gets the package
-    * Package name of application
-    *
-    * @return string|null The package
-    */
+     * Gets the package
+     * Package name of application
+     *
+     * @return string|null The package
+     */
     public function getPackage()
     {
         if (array_key_exists("package", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AndroidDeviceOwnerKioskModeApp extends AndroidDeviceOwnerKioskModeFolderIt
             return null;
         }
     }
-
     /**
-    * Sets the package
-    * Package name of application
-    *
-    * @param string $val The value of the package
-    *
-    * @return AndroidDeviceOwnerKioskModeApp
-    */
+     * Sets the package
+     * Package name of application
+     *
+     * @param string $val The value of the package
+     *
+     * @return AndroidDeviceOwnerKioskModeApp
+     */
     public function setPackage($val)
     {
         $this->_propDict["package"] = $val;

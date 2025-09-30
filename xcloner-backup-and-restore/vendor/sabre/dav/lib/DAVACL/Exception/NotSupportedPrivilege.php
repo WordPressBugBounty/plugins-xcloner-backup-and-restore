@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Exception;
 
-namespace Sabre\DAVACL\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * If a client tried to set a privilege that doesn't exist, this exception will
  * be thrown.
@@ -27,7 +25,6 @@ class NotSupportedPrivilege extends DAV\Exception\PreconditionFailed
     public function serialize(DAV\Server $server, \DOMElement $errorNode)
     {
         $doc = $errorNode->ownerDocument;
-
         $np = $doc->createElementNS('DAV:', 'd:not-supported-privilege');
         $errorNode->appendChild($np);
     }

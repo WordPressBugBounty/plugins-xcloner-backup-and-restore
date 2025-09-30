@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CalendarSharingMessageAction class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CalendarSharingMessageAction extends Entity
 {
-
     /**
-    * Gets the action
-    *
-    * @return CalendarSharingAction|null The action
-    */
+     * Gets the action
+     *
+     * @return CalendarSharingAction|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\CalendarSharingAction") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CalendarSharingAction") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new CalendarSharingAction($this->_propDict["action"]);
@@ -44,29 +45,27 @@ class CalendarSharingMessageAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    *
-    * @param CalendarSharingAction $val The value to assign to the action
-    *
-    * @return CalendarSharingMessageAction The CalendarSharingMessageAction
-    */
+     * Sets the action
+     *
+     * @param CalendarSharingAction $val The value to assign to the action
+     *
+     * @return CalendarSharingMessageAction The CalendarSharingMessageAction
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the actionType
-    *
-    * @return CalendarSharingActionType|null The actionType
-    */
+     * Gets the actionType
+     *
+     * @return CalendarSharingActionType|null The actionType
+     */
     public function getActionType()
     {
         if (array_key_exists("actionType", $this->_propDict)) {
-            if (is_a($this->_propDict["actionType"], "\Beta\Microsoft\Graph\Model\CalendarSharingActionType") || is_null($this->_propDict["actionType"])) {
+            if (is_a($this->_propDict["actionType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CalendarSharingActionType") || is_null($this->_propDict["actionType"])) {
                 return $this->_propDict["actionType"];
             } else {
                 $this->_propDict["actionType"] = new CalendarSharingActionType($this->_propDict["actionType"]);
@@ -75,29 +74,27 @@ class CalendarSharingMessageAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actionType
-    *
-    * @param CalendarSharingActionType $val The value to assign to the actionType
-    *
-    * @return CalendarSharingMessageAction The CalendarSharingMessageAction
-    */
+     * Sets the actionType
+     *
+     * @param CalendarSharingActionType $val The value to assign to the actionType
+     *
+     * @return CalendarSharingMessageAction The CalendarSharingMessageAction
+     */
     public function setActionType($val)
     {
         $this->_propDict["actionType"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the importance
-    *
-    * @return CalendarSharingActionImportance|null The importance
-    */
+     * Gets the importance
+     *
+     * @return CalendarSharingActionImportance|null The importance
+     */
     public function getImportance()
     {
         if (array_key_exists("importance", $this->_propDict)) {
-            if (is_a($this->_propDict["importance"], "\Beta\Microsoft\Graph\Model\CalendarSharingActionImportance") || is_null($this->_propDict["importance"])) {
+            if (is_a($this->_propDict["importance"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CalendarSharingActionImportance") || is_null($this->_propDict["importance"])) {
                 return $this->_propDict["importance"];
             } else {
                 $this->_propDict["importance"] = new CalendarSharingActionImportance($this->_propDict["importance"]);
@@ -106,17 +103,16 @@ class CalendarSharingMessageAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the importance
-    *
-    * @param CalendarSharingActionImportance $val The value to assign to the importance
-    *
-    * @return CalendarSharingMessageAction The CalendarSharingMessageAction
-    */
+     * Sets the importance
+     *
+     * @param CalendarSharingActionImportance $val The value to assign to the importance
+     *
+     * @return CalendarSharingMessageAction The CalendarSharingMessageAction
+     */
     public function setImportance($val)
     {
         $this->_propDict["importance"] = $val;
-         return $this;
+        return $this;
     }
 }

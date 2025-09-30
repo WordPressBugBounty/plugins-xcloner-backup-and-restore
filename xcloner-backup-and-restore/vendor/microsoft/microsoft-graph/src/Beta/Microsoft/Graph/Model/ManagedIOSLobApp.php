@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedIOSLobApp class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedIOSLobApp extends ManagedMobileLobApp
 {
     /**
-    * Gets the applicableDeviceType
-    * The iOS architecture for which this app can run on.
-    *
-    * @return IosDeviceType|null The applicableDeviceType
-    */
+     * Gets the applicableDeviceType
+     * The iOS architecture for which this app can run on.
+     *
+     * @return IosDeviceType|null The applicableDeviceType
+     */
     public function getApplicableDeviceType()
     {
         if (array_key_exists("applicableDeviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableDeviceType"], "\Beta\Microsoft\Graph\Model\IosDeviceType") || is_null($this->_propDict["applicableDeviceType"])) {
+            if (is_a($this->_propDict["applicableDeviceType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IosDeviceType") || is_null($this->_propDict["applicableDeviceType"])) {
                 return $this->_propDict["applicableDeviceType"];
             } else {
                 $this->_propDict["applicableDeviceType"] = new IosDeviceType($this->_propDict["applicableDeviceType"]);
@@ -45,27 +46,25 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
         }
         return null;
     }
-
     /**
-    * Sets the applicableDeviceType
-    * The iOS architecture for which this app can run on.
-    *
-    * @param IosDeviceType $val The applicableDeviceType
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the applicableDeviceType
+     * The iOS architecture for which this app can run on.
+     *
+     * @param IosDeviceType $val The applicableDeviceType
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setApplicableDeviceType($val)
     {
         $this->_propDict["applicableDeviceType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the buildNumber
-    * The build number of managed iOS Line of Business (LoB) app.
-    *
-    * @return string|null The buildNumber
-    */
+     * Gets the buildNumber
+     * The build number of managed iOS Line of Business (LoB) app.
+     *
+     * @return string|null The buildNumber
+     */
     public function getBuildNumber()
     {
         if (array_key_exists("buildNumber", $this->_propDict)) {
@@ -74,27 +73,25 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the buildNumber
-    * The build number of managed iOS Line of Business (LoB) app.
-    *
-    * @param string $val The buildNumber
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the buildNumber
+     * The build number of managed iOS Line of Business (LoB) app.
+     *
+     * @param string $val The buildNumber
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setBuildNumber($val)
     {
         $this->_propDict["buildNumber"] = $val;
         return $this;
     }
-
     /**
-    * Gets the bundleId
-    * The Identity Name.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * The Identity Name.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -103,31 +100,29 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * The Identity Name.
-    *
-    * @param string $val The bundleId
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the bundleId
+     * The Identity Name.
+     *
+     * @param string $val The bundleId
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the expirationDateTime
-    * The expiration time.
-    *
-    * @return \DateTime|null The expirationDateTime
-    */
+     * Gets the expirationDateTime
+     * The expiration time.
+     *
+     * @return \DateTime|null The expirationDateTime
+     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -136,27 +131,25 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
         }
         return null;
     }
-
     /**
-    * Sets the expirationDateTime
-    * The expiration time.
-    *
-    * @param \DateTime $val The expirationDateTime
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the expirationDateTime
+     * The expiration time.
+     *
+     * @param \DateTime $val The expirationDateTime
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setExpirationDateTime($val)
     {
         $this->_propDict["expirationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the identityVersion
-    * The identity version.
-    *
-    * @return string|null The identityVersion
-    */
+     * Gets the identityVersion
+     * The identity version.
+     *
+     * @return string|null The identityVersion
+     */
     public function getIdentityVersion()
     {
         if (array_key_exists("identityVersion", $this->_propDict)) {
@@ -165,31 +158,29 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the identityVersion
-    * The identity version.
-    *
-    * @param string $val The identityVersion
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the identityVersion
+     * The identity version.
+     *
+     * @param string $val The identityVersion
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setIdentityVersion($val)
     {
         $this->_propDict["identityVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @return IosMinimumOperatingSystem|null The minimumSupportedOperatingSystem
-    */
+     * Gets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @return IosMinimumOperatingSystem|null The minimumSupportedOperatingSystem
+     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\IosMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IosMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new IosMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -198,27 +189,25 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
         }
         return null;
     }
-
     /**
-    * Sets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @param IosMinimumOperatingSystem $val The minimumSupportedOperatingSystem
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @param IosMinimumOperatingSystem $val The minimumSupportedOperatingSystem
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setMinimumSupportedOperatingSystem($val)
     {
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-
     /**
-    * Gets the versionNumber
-    * The version number of managed iOS Line of Business (LoB) app.
-    *
-    * @return string|null The versionNumber
-    */
+     * Gets the versionNumber
+     * The version number of managed iOS Line of Business (LoB) app.
+     *
+     * @return string|null The versionNumber
+     */
     public function getVersionNumber()
     {
         if (array_key_exists("versionNumber", $this->_propDict)) {
@@ -227,19 +216,17 @@ class ManagedIOSLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the versionNumber
-    * The version number of managed iOS Line of Business (LoB) app.
-    *
-    * @param string $val The versionNumber
-    *
-    * @return ManagedIOSLobApp
-    */
+     * Sets the versionNumber
+     * The version number of managed iOS Line of Business (LoB) app.
+     *
+     * @param string $val The versionNumber
+     *
+     * @return ManagedIOSLobApp
+     */
     public function setVersionNumber($val)
     {
         $this->_propDict["versionNumber"] = $val;
         return $this;
     }
-
 }

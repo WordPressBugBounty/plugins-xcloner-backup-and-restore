@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DomainIdentitySource class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DomainIdentitySource extends IdentitySource
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.domainIdentitySource");
     }
-
     /**
-    * Gets the displayName
-    * The name of the identity source, typically also the domain name. Read only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the identity source, typically also the domain name. Read only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -51,26 +52,25 @@ class DomainIdentitySource extends IdentitySource
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the identity source, typically also the domain name. Read only.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return DomainIdentitySource
-    */
+     * Sets the displayName
+     * The name of the identity source, typically also the domain name. Read only.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return DomainIdentitySource
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the domainName
-    * The domain name. Read only.
-    *
-    * @return string|null The domainName
-    */
+     * Gets the domainName
+     * The domain name. Read only.
+     *
+     * @return string|null The domainName
+     */
     public function getDomainName()
     {
         if (array_key_exists("domainName", $this->_propDict)) {
@@ -79,15 +79,14 @@ class DomainIdentitySource extends IdentitySource
             return null;
         }
     }
-
     /**
-    * Sets the domainName
-    * The domain name. Read only.
-    *
-    * @param string $val The value of the domainName
-    *
-    * @return DomainIdentitySource
-    */
+     * Sets the domainName
+     * The domain name. Read only.
+     *
+     * @param string $val The value of the domainName
+     *
+     * @return DomainIdentitySource
+     */
     public function setDomainName($val)
     {
         $this->_propDict["domainName"] = $val;

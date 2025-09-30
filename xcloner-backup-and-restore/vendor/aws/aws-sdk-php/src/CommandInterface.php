@@ -1,9 +1,10 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * A command object encapsulates the input parameters used to control the
  * creation of a HTTP request and processing of a HTTP response.
@@ -19,14 +20,12 @@ interface CommandInterface extends \ArrayAccess, \Countable, \IteratorAggregate
      * @return array
      */
     public function toArray();
-
     /**
      * Get the name of the command
      *
      * @return string
      */
     public function getName();
-
     /**
      * Check if the command has a parameter by name.
      *
@@ -35,7 +34,6 @@ interface CommandInterface extends \ArrayAccess, \Countable, \IteratorAggregate
      * @return bool
      */
     public function hasParam($name);
-
     /**
      * Get the handler list used to transfer the command.
      *

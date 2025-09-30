@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP\Auth;
 
-namespace Sabre\HTTP\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP;
 /**
  * HTTP AWS Authentication handler.
  *
@@ -26,14 +24,12 @@ class AWS extends AbstractAuth
      * @var string
      */
     private $signature = null;
-
     /**
      * The accesskey supplied by the HTTP client.
      *
      * @var string
      */
     private $accessKey = null;
-
     /**
      * An error code, if any.
      *
@@ -42,13 +38,11 @@ class AWS extends AbstractAuth
      * @var int
      */
     public $errorCode = 0;
-
     const ERR_NOAWSHEADER = 1;
     const ERR_MD5CHECKSUMWRONG = 2;
     const ERR_INVALIDDATEFORMAT = 3;
     const ERR_REQUESTTIMESKEWED = 4;
     const ERR_INVALIDSIGNATURE = 5;
-
     /**
      * Gathers all information from the headers.
      *
@@ -57,25 +51,18 @@ class AWS extends AbstractAuth
     public function init(): bool
     {
         $authHeader = $this->request->getHeader('Authorization');
-
         if (null === $authHeader) {
             $this->errorCode = self::ERR_NOAWSHEADER;
-
-            return false;
+            return \false;
         }
         $authHeader = explode(' ', $authHeader);
-
         if ('AWS' !== $authHeader[0] || !isset($authHeader[1])) {
             $this->errorCode = self::ERR_NOAWSHEADER;
-
-            return false;
+            return \false;
         }
-
         list($this->accessKey, $this->signature) = explode(':', $authHeader[1]);
-
-        return true;
+        return \true;
     }
-
     /**
      * Returns the username for the request.
      */
@@ -83,57 +70,36 @@ class AWS extends AbstractAuth
     {
         return $this->accessKey;
     }
-
     /**
      * Validates the signature based on the secretKey.
      */
     public function validate(string $secretKey): bool
     {
         $contentMD5 = $this->request->getHeader('Content-MD5');
-
         if ($contentMD5) {
             // We need to validate the integrity of the request
             $body = $this->request->getBody();
             $this->request->setBody($body);
-
-            if ($contentMD5 !== base64_encode(md5((string) $body, true))) {
+            if ($contentMD5 !== base64_encode(md5((string) $body, \true))) {
                 // content-md5 header did not match md5 signature of body
                 $this->errorCode = self::ERR_MD5CHECKSUMWRONG;
-
-                return false;
+                return \false;
             }
         }
-
         if (!$requestDate = $this->request->getHeader('x-amz-date')) {
             $requestDate = $this->request->getHeader('Date');
         }
-
         if (!$this->validateRFC2616Date((string) $requestDate)) {
-            return false;
+            return \false;
         }
-
         $amzHeaders = $this->getAmzHeaders();
-
-        $signature = base64_encode(
-            $this->hmacsha1($secretKey,
-                $this->request->getMethod()."\n".
-                $contentMD5."\n".
-                $this->request->getHeader('Content-type')."\n".
-                $requestDate."\n".
-                $amzHeaders.
-                $this->request->getUrl()
-            )
-        );
-
+        $signature = base64_encode($this->hmacsha1($secretKey, $this->request->getMethod() . "\n" . $contentMD5 . "\n" . $this->request->getHeader('Content-type') . "\n" . $requestDate . "\n" . $amzHeaders . $this->request->getUrl()));
         if ($this->signature !== $signature) {
             $this->errorCode = self::ERR_INVALIDSIGNATURE;
-
-            return false;
+            return \false;
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * Returns an HTTP 401 header, forcing login.
      *
@@ -144,7 +110,6 @@ class AWS extends AbstractAuth
         $this->response->addHeader('WWW-Authenticate', 'AWS');
         $this->response->setStatus(401);
     }
-
     /**
      * Makes sure the supplied value is a valid RFC2616 date.
      *
@@ -157,27 +122,20 @@ class AWS extends AbstractAuth
     protected function validateRFC2616Date(string $dateHeader): bool
     {
         $date = HTTP\parseDate($dateHeader);
-
         // Unknown format
         if (!$date) {
             $this->errorCode = self::ERR_INVALIDDATEFORMAT;
-
-            return false;
+            return \false;
         }
-
         $min = new \DateTime('-15 minutes');
         $max = new \DateTime('+15 minutes');
-
         // We allow 15 minutes around the current date/time
         if ($date > $max || $date < $min) {
             $this->errorCode = self::ERR_REQUESTTIMESKEWED;
-
-            return false;
+            return \false;
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * Returns a list of AMZ headers.
      */
@@ -187,37 +145,32 @@ class AWS extends AbstractAuth
         $headers = $this->request->getHeaders();
         foreach ($headers as $headerName => $headerValue) {
             if (0 === strpos(strtolower($headerName), 'x-amz-')) {
-                $amzHeaders[strtolower($headerName)] = str_replace(["\r\n"], [' '], $headerValue[0])."\n";
+                $amzHeaders[strtolower($headerName)] = str_replace(["\r\n"], [' '], $headerValue[0]) . "\n";
             }
         }
         ksort($amzHeaders);
-
         $headerStr = '';
         foreach ($amzHeaders as $h => $v) {
-            $headerStr .= $h.':'.$v;
+            $headerStr .= $h . ':' . $v;
         }
-
         return $headerStr;
     }
-
     /**
      * Generates an HMAC-SHA1 signature.
      */
     private function hmacsha1(string $key, string $message): string
     {
         if (function_exists('hash_hmac')) {
-            return hash_hmac('sha1', $message, $key, true);
+            return hash_hmac('sha1', $message, $key, \true);
         }
-
         $blocksize = 64;
         if (strlen($key) > $blocksize) {
             $key = pack('H*', sha1($key));
         }
-        $key = str_pad($key, $blocksize, chr(0x00));
+        $key = str_pad($key, $blocksize, chr(0x0));
         $ipad = str_repeat(chr(0x36), $blocksize);
         $opad = str_repeat(chr(0x5c), $blocksize);
-        $hmac = pack('H*', sha1(($key ^ $opad).pack('H*', sha1(($key ^ $ipad).$message))));
-
+        $hmac = pack('H*', sha1(($key ^ $opad) . pack('H*', sha1(($key ^ $ipad) . $message))));
         return $hmac;
     }
 }

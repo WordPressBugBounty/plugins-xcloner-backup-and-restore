@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamsTabConfiguration class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamsTabConfiguration extends Entity
 {
     /**
-    * Gets the contentUrl
-    * Url used for rendering tab contents in Teams. Required.
-    *
-    * @return string|null The contentUrl
-    */
+     * Gets the contentUrl
+     * Url used for rendering tab contents in Teams. Required.
+     *
+     * @return string|null The contentUrl
+     */
     public function getContentUrl()
     {
         if (array_key_exists("contentUrl", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeamsTabConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentUrl
-    * Url used for rendering tab contents in Teams. Required.
-    *
-    * @param string $val The value of the contentUrl
-    *
-    * @return TeamsTabConfiguration
-    */
+     * Sets the contentUrl
+     * Url used for rendering tab contents in Teams. Required.
+     *
+     * @param string $val The value of the contentUrl
+     *
+     * @return TeamsTabConfiguration
+     */
     public function setContentUrl($val)
     {
         $this->_propDict["contentUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the entityId
-    * Identifier for the entity hosted by the tab provider.
-    *
-    * @return string|null The entityId
-    */
+     * Gets the entityId
+     * Identifier for the entity hosted by the tab provider.
+     *
+     * @return string|null The entityId
+     */
     public function getEntityId()
     {
         if (array_key_exists("entityId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TeamsTabConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the entityId
-    * Identifier for the entity hosted by the tab provider.
-    *
-    * @param string $val The value of the entityId
-    *
-    * @return TeamsTabConfiguration
-    */
+     * Sets the entityId
+     * Identifier for the entity hosted by the tab provider.
+     *
+     * @param string $val The value of the entityId
+     *
+     * @return TeamsTabConfiguration
+     */
     public function setEntityId($val)
     {
         $this->_propDict["entityId"] = $val;
         return $this;
     }
     /**
-    * Gets the removeUrl
-    * Url called by Teams client when a Tab is removed using the Teams Client.
-    *
-    * @return string|null The removeUrl
-    */
+     * Gets the removeUrl
+     * Url called by Teams client when a Tab is removed using the Teams Client.
+     *
+     * @return string|null The removeUrl
+     */
     public function getRemoveUrl()
     {
         if (array_key_exists("removeUrl", $this->_propDict)) {
@@ -96,26 +96,25 @@ class TeamsTabConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the removeUrl
-    * Url called by Teams client when a Tab is removed using the Teams Client.
-    *
-    * @param string $val The value of the removeUrl
-    *
-    * @return TeamsTabConfiguration
-    */
+     * Sets the removeUrl
+     * Url called by Teams client when a Tab is removed using the Teams Client.
+     *
+     * @param string $val The value of the removeUrl
+     *
+     * @return TeamsTabConfiguration
+     */
     public function setRemoveUrl($val)
     {
         $this->_propDict["removeUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the websiteUrl
-    * Url for showing tab contents outside of Teams.
-    *
-    * @return string|null The websiteUrl
-    */
+     * Gets the websiteUrl
+     * Url for showing tab contents outside of Teams.
+     *
+     * @return string|null The websiteUrl
+     */
     public function getWebsiteUrl()
     {
         if (array_key_exists("websiteUrl", $this->_propDict)) {
@@ -124,15 +123,14 @@ class TeamsTabConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the websiteUrl
-    * Url for showing tab contents outside of Teams.
-    *
-    * @param string $val The value of the websiteUrl
-    *
-    * @return TeamsTabConfiguration
-    */
+     * Sets the websiteUrl
+     * Url for showing tab contents outside of Teams.
+     *
+     * @param string $val The value of the websiteUrl
+     *
+     * @return TeamsTabConfiguration
+     */
     public function setWebsiteUrl($val)
     {
         $this->_propDict["websiteUrl"] = $val;

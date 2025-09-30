@@ -1,12 +1,12 @@
 <?php
-namespace Aws\Api\Parser;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Api\Parser;
 
-
-use Aws\Api\DateTimeResult;
-use Aws\Api\Shape;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Api\DateTimeResult;
+use XCloner\Aws\Api\Shape;
 /**
  * @internal Implements standard JSON parsing.
  */
@@ -17,7 +17,6 @@ class JsonParser
         if ($value === null) {
             return $value;
         }
-
         switch ($shape['type']) {
             case 'structure':
                 if (isset($shape['document']) && $shape['document']) {
@@ -30,17 +29,12 @@ class JsonParser
                         $target[$name] = $this->parse($member, $value[$locationName]);
                     }
                 }
-                if (isset($shape['union'])
-                    && $shape['union']
-                    && is_array($value)
-                    && empty($target)
-                ) {
+                if (isset($shape['union']) && $shape['union'] && is_array($value) && empty($target)) {
                     foreach ($value as $key => $val) {
                         $target['Unknown'][$key] = $val;
                     }
                 }
                 return $target;
-
             case 'list':
                 $member = $shape->getMember();
                 $target = [];
@@ -48,7 +42,6 @@ class JsonParser
                     $target[] = $this->parse($member, $v);
                 }
                 return $target;
-
             case 'map':
                 $values = $shape->getValue();
                 $target = [];
@@ -56,19 +49,12 @@ class JsonParser
                     $target[$k] = $this->parse($values, $v);
                 }
                 return $target;
-
             case 'timestamp':
-                return DateTimeResult::fromTimestamp(
-                    $value,
-                    !empty($shape['timestampFormat']) ? $shape['timestampFormat'] : null
-                );
-
+                return DateTimeResult::fromTimestamp($value, !empty($shape['timestampFormat']) ? $shape['timestampFormat'] : null);
             case 'blob':
                 return base64_decode($value);
-
             default:
                 return $value;
         }
     }
 }
-

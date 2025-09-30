@@ -1,19 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Browser\HtmlOutput;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\Uri;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Browser\HtmlOutput;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\Uri;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * Href property.
  *
@@ -36,7 +34,6 @@ class Href implements Element, HtmlOutput
      * @var array
      */
     protected $hrefs;
-
     /**
      * Constructor.
      *
@@ -51,7 +48,6 @@ class Href implements Element, HtmlOutput
         }
         $this->hrefs = $hrefs;
     }
-
     /**
      * Returns the first Href.
      *
@@ -61,7 +57,6 @@ class Href implements Element, HtmlOutput
     {
         return $this->hrefs[0] ?? null;
     }
-
     /**
      * Returns the hrefs as an array.
      *
@@ -71,7 +66,6 @@ class Href implements Element, HtmlOutput
     {
         return $this->hrefs;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -95,7 +89,6 @@ class Href implements Element, HtmlOutput
             $writer->writeElement('{DAV:}href', $href);
         }
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -115,10 +108,8 @@ class Href implements Element, HtmlOutput
         foreach ($this->getHrefs() as $href) {
             $links[] = $html->link($href);
         }
-
         return implode('<br />', $links);
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -146,7 +137,6 @@ class Href implements Element, HtmlOutput
             if ('{DAV:}href' !== $elem['name']) {
                 continue;
             }
-
             $hrefs[] = $elem['value'];
         }
         if ($hrefs) {

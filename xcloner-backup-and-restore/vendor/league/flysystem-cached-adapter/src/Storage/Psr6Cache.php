@@ -1,29 +1,25 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Cache\CacheItemPoolInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Cache\CacheItemPoolInterface;
 class Psr6Cache extends AbstractCache
 {
     /**
      * @var CacheItemPoolInterface
      */
     private $pool;
-
     /**
      * @var string storage key
      */
     protected $key;
-
     /**
      * @var int|null seconds until cache expiration
      */
     protected $expire;
-
     /**
      * Constructor.
      *
@@ -37,7 +33,6 @@ class Psr6Cache extends AbstractCache
         $this->key = $key;
         $this->expire = $expire;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -48,7 +43,6 @@ class Psr6Cache extends AbstractCache
         $item->expiresAfter($this->expire);
         $this->pool->save($item);
     }
-
     /**
      * {@inheritdoc}
      */

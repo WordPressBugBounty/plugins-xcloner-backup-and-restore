@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Authentication;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Authentication;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\Psr7\Request;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Psr7\Request;
 /**
  * Interface for azure authentication schemes.
  *

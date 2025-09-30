@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidManagedStoreAppTrack class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidManagedStoreAppTrack extends Entity
 {
     /**
-    * Gets the trackAlias
-    * Friendly name for track.
-    *
-    * @return string|null The trackAlias
-    */
+     * Gets the trackAlias
+     * Friendly name for track.
+     *
+     * @return string|null The trackAlias
+     */
     public function getTrackAlias()
     {
         if (array_key_exists("trackAlias", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AndroidManagedStoreAppTrack extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the trackAlias
-    * Friendly name for track.
-    *
-    * @param string $val The value of the trackAlias
-    *
-    * @return AndroidManagedStoreAppTrack
-    */
+     * Sets the trackAlias
+     * Friendly name for track.
+     *
+     * @param string $val The value of the trackAlias
+     *
+     * @return AndroidManagedStoreAppTrack
+     */
     public function setTrackAlias($val)
     {
         $this->_propDict["trackAlias"] = $val;
         return $this;
     }
     /**
-    * Gets the trackId
-    * Unique track identifier.
-    *
-    * @return string|null The trackId
-    */
+     * Gets the trackId
+     * Unique track identifier.
+     *
+     * @return string|null The trackId
+     */
     public function getTrackId()
     {
         if (array_key_exists("trackId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AndroidManagedStoreAppTrack extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the trackId
-    * Unique track identifier.
-    *
-    * @param string $val The value of the trackId
-    *
-    * @return AndroidManagedStoreAppTrack
-    */
+     * Sets the trackId
+     * Unique track identifier.
+     *
+     * @param string $val The value of the trackId
+     *
+     * @return AndroidManagedStoreAppTrack
+     */
     public function setTrackId($val)
     {
         $this->_propDict["trackId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LogicAppTriggerEndpointConfiguration class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfiguration
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.logicAppTriggerEndpointConfiguration");
     }
-
     /**
-    * Gets the logicAppWorkflowName
-    * The name of the logic app.
-    *
-    * @return string|null The logicAppWorkflowName
-    */
+     * Gets the logicAppWorkflowName
+     * The name of the logic app.
+     *
+     * @return string|null The logicAppWorkflowName
+     */
     public function getLogicAppWorkflowName()
     {
         if (array_key_exists("logicAppWorkflowName", $this->_propDict)) {
@@ -51,26 +52,25 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
             return null;
         }
     }
-
     /**
-    * Sets the logicAppWorkflowName
-    * The name of the logic app.
-    *
-    * @param string $val The value of the logicAppWorkflowName
-    *
-    * @return LogicAppTriggerEndpointConfiguration
-    */
+     * Sets the logicAppWorkflowName
+     * The name of the logic app.
+     *
+     * @param string $val The value of the logicAppWorkflowName
+     *
+     * @return LogicAppTriggerEndpointConfiguration
+     */
     public function setLogicAppWorkflowName($val)
     {
         $this->_propDict["logicAppWorkflowName"] = $val;
         return $this;
     }
     /**
-    * Gets the resourceGroupName
-    * The Azure resource group name for the logic app.
-    *
-    * @return string|null The resourceGroupName
-    */
+     * Gets the resourceGroupName
+     * The Azure resource group name for the logic app.
+     *
+     * @return string|null The resourceGroupName
+     */
     public function getResourceGroupName()
     {
         if (array_key_exists("resourceGroupName", $this->_propDict)) {
@@ -79,26 +79,25 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
             return null;
         }
     }
-
     /**
-    * Sets the resourceGroupName
-    * The Azure resource group name for the logic app.
-    *
-    * @param string $val The value of the resourceGroupName
-    *
-    * @return LogicAppTriggerEndpointConfiguration
-    */
+     * Sets the resourceGroupName
+     * The Azure resource group name for the logic app.
+     *
+     * @param string $val The value of the resourceGroupName
+     *
+     * @return LogicAppTriggerEndpointConfiguration
+     */
     public function setResourceGroupName($val)
     {
         $this->_propDict["resourceGroupName"] = $val;
         return $this;
     }
     /**
-    * Gets the subscriptionId
-    * Identifier of the Azure subscription for the logic app.
-    *
-    * @return string|null The subscriptionId
-    */
+     * Gets the subscriptionId
+     * Identifier of the Azure subscription for the logic app.
+     *
+     * @return string|null The subscriptionId
+     */
     public function getSubscriptionId()
     {
         if (array_key_exists("subscriptionId", $this->_propDict)) {
@@ -107,15 +106,14 @@ class LogicAppTriggerEndpointConfiguration extends CustomExtensionEndpointConfig
             return null;
         }
     }
-
     /**
-    * Sets the subscriptionId
-    * Identifier of the Azure subscription for the logic app.
-    *
-    * @param string $val The value of the subscriptionId
-    *
-    * @return LogicAppTriggerEndpointConfiguration
-    */
+     * Sets the subscriptionId
+     * Identifier of the Azure subscription for the logic app.
+     *
+     * @param string $val The value of the subscriptionId
+     *
+     * @return LogicAppTriggerEndpointConfiguration
+     */
     public function setSubscriptionId($val)
     {
         $this->_propDict["subscriptionId"] = $val;

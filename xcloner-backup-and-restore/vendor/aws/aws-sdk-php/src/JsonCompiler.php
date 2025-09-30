@@ -1,9 +1,10 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Loads JSON files and compiles them into PHP arrays.
  *
@@ -13,7 +14,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class JsonCompiler
 {
     const CACHE_ENV = 'AWS_PHP_CACHE_DIR';
-
     /**
      * Loads a JSON file from cache or from the JSON file directly.
      *

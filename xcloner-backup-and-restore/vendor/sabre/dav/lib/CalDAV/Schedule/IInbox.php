@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Schedule;
 
-namespace Sabre\CalDAV\Schedule;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Implement this interface to have a node be recognized as a CalDAV scheduling
  * inbox.
@@ -15,6 +14,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-interface IInbox extends \Sabre\CalDAV\ICalendarObjectContainer, \Sabre\DAVACL\IACL
+interface IInbox extends \XCloner\Sabre\CalDAV\ICalendarObjectContainer, \XCloner\Sabre\DAVACL\IACL
 {
 }

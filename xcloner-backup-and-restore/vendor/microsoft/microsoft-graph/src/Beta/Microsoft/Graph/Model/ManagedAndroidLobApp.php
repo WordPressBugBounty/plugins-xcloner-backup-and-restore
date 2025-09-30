@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAndroidLobApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAndroidLobApp extends ManagedMobileLobApp
 {
     /**
-    * Gets the identityName
-    * The Identity Name.
-    *
-    * @return string|null The identityName
-    */
+     * Gets the identityName
+     * The Identity Name.
+     *
+     * @return string|null The identityName
+     */
     public function getIdentityName()
     {
         if (array_key_exists("identityName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the identityName
-    * The Identity Name.
-    *
-    * @param string $val The identityName
-    *
-    * @return ManagedAndroidLobApp
-    */
+     * Sets the identityName
+     * The Identity Name.
+     *
+     * @param string $val The identityName
+     *
+     * @return ManagedAndroidLobApp
+     */
     public function setIdentityName($val)
     {
         $this->_propDict["identityName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the identityVersion
-    * The identity version.
-    *
-    * @return string|null The identityVersion
-    */
+     * Gets the identityVersion
+     * The identity version.
+     *
+     * @return string|null The identityVersion
+     */
     public function getIdentityVersion()
     {
         if (array_key_exists("identityVersion", $this->_propDict)) {
@@ -70,31 +69,29 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the identityVersion
-    * The identity version.
-    *
-    * @param string $val The identityVersion
-    *
-    * @return ManagedAndroidLobApp
-    */
+     * Sets the identityVersion
+     * The identity version.
+     *
+     * @param string $val The identityVersion
+     *
+     * @return ManagedAndroidLobApp
+     */
     public function setIdentityVersion($val)
     {
         $this->_propDict["identityVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
-    */
+     * Gets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
+     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new AndroidMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -103,27 +100,25 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp
         }
         return null;
     }
-
     /**
-    * Sets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @param AndroidMinimumOperatingSystem $val The minimumSupportedOperatingSystem
-    *
-    * @return ManagedAndroidLobApp
-    */
+     * Sets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @param AndroidMinimumOperatingSystem $val The minimumSupportedOperatingSystem
+     *
+     * @return ManagedAndroidLobApp
+     */
     public function setMinimumSupportedOperatingSystem($val)
     {
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-
     /**
-    * Gets the packageId
-    * The package identifier.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * The package identifier.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -132,27 +127,25 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * The package identifier.
-    *
-    * @param string $val The packageId
-    *
-    * @return ManagedAndroidLobApp
-    */
+     * Sets the packageId
+     * The package identifier.
+     *
+     * @param string $val The packageId
+     *
+     * @return ManagedAndroidLobApp
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the versionCode
-    * The version code of managed Android Line of Business (LoB) app.
-    *
-    * @return string|null The versionCode
-    */
+     * Gets the versionCode
+     * The version code of managed Android Line of Business (LoB) app.
+     *
+     * @return string|null The versionCode
+     */
     public function getVersionCode()
     {
         if (array_key_exists("versionCode", $this->_propDict)) {
@@ -161,27 +154,25 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the versionCode
-    * The version code of managed Android Line of Business (LoB) app.
-    *
-    * @param string $val The versionCode
-    *
-    * @return ManagedAndroidLobApp
-    */
+     * Sets the versionCode
+     * The version code of managed Android Line of Business (LoB) app.
+     *
+     * @param string $val The versionCode
+     *
+     * @return ManagedAndroidLobApp
+     */
     public function setVersionCode($val)
     {
         $this->_propDict["versionCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the versionName
-    * The version name of managed Android Line of Business (LoB) app.
-    *
-    * @return string|null The versionName
-    */
+     * Gets the versionName
+     * The version name of managed Android Line of Business (LoB) app.
+     *
+     * @return string|null The versionName
+     */
     public function getVersionName()
     {
         if (array_key_exists("versionName", $this->_propDict)) {
@@ -190,19 +181,17 @@ class ManagedAndroidLobApp extends ManagedMobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the versionName
-    * The version name of managed Android Line of Business (LoB) app.
-    *
-    * @param string $val The versionName
-    *
-    * @return ManagedAndroidLobApp
-    */
+     * Sets the versionName
+     * The version name of managed Android Line of Business (LoB) app.
+     *
+     * @param string $val The versionName
+     *
+     * @return ManagedAndroidLobApp
+     */
     public function setVersionName($val)
     {
         $this->_propDict["versionName"] = $val;
         return $this;
     }
-
 }

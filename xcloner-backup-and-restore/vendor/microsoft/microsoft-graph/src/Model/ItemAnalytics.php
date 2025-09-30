@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemAnalytics class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemAnalytics extends Entity
 {
     /**
-    * Gets the allTime
-    *
-    * @return ItemActivityStat|null The allTime
-    */
+     * Gets the allTime
+     *
+     * @return ItemActivityStat|null The allTime
+     */
     public function getAllTime()
     {
         if (array_key_exists("allTime", $this->_propDict)) {
-            if (is_a($this->_propDict["allTime"], "\Microsoft\Graph\Model\ItemActivityStat") || is_null($this->_propDict["allTime"])) {
+            if (is_a($this->_propDict["allTime"], "XCloner\\Microsoft\\Graph\\Model\\ItemActivityStat") || is_null($this->_propDict["allTime"])) {
                 return $this->_propDict["allTime"];
             } else {
                 $this->_propDict["allTime"] = new ItemActivityStat($this->_propDict["allTime"]);
@@ -44,22 +45,19 @@ class ItemAnalytics extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the allTime
-    *
-    * @param ItemActivityStat $val The allTime
-    *
-    * @return ItemAnalytics
-    */
+     * Sets the allTime
+     *
+     * @param ItemActivityStat $val The allTime
+     *
+     * @return ItemAnalytics
+     */
     public function setAllTime($val)
     {
         $this->_propDict["allTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the itemActivityStats
      *
      * @return array|null The itemActivityStats
@@ -67,34 +65,32 @@ class ItemAnalytics extends Entity
     public function getItemActivityStats()
     {
         if (array_key_exists("itemActivityStats", $this->_propDict)) {
-           return $this->_propDict["itemActivityStats"];
+            return $this->_propDict["itemActivityStats"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the itemActivityStats
-    *
-    * @param ItemActivityStat[] $val The itemActivityStats
-    *
-    * @return ItemAnalytics
-    */
+     * Sets the itemActivityStats
+     *
+     * @param ItemActivityStat[] $val The itemActivityStats
+     *
+     * @return ItemAnalytics
+     */
     public function setItemActivityStats($val)
     {
         $this->_propDict["itemActivityStats"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastSevenDays
-    *
-    * @return ItemActivityStat|null The lastSevenDays
-    */
+     * Gets the lastSevenDays
+     *
+     * @return ItemActivityStat|null The lastSevenDays
+     */
     public function getLastSevenDays()
     {
         if (array_key_exists("lastSevenDays", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSevenDays"], "\Microsoft\Graph\Model\ItemActivityStat") || is_null($this->_propDict["lastSevenDays"])) {
+            if (is_a($this->_propDict["lastSevenDays"], "XCloner\\Microsoft\\Graph\\Model\\ItemActivityStat") || is_null($this->_propDict["lastSevenDays"])) {
                 return $this->_propDict["lastSevenDays"];
             } else {
                 $this->_propDict["lastSevenDays"] = new ItemActivityStat($this->_propDict["lastSevenDays"]);
@@ -103,18 +99,16 @@ class ItemAnalytics extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSevenDays
-    *
-    * @param ItemActivityStat $val The lastSevenDays
-    *
-    * @return ItemAnalytics
-    */
+     * Sets the lastSevenDays
+     *
+     * @param ItemActivityStat $val The lastSevenDays
+     *
+     * @return ItemAnalytics
+     */
     public function setLastSevenDays($val)
     {
         $this->_propDict["lastSevenDays"] = $val;
         return $this;
     }
-
 }

@@ -1,17 +1,17 @@
 <?php
-namespace Aws\S3;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3;
 
-
-use Aws;
-use Aws\CommandInterface;
-use Aws\Exception\AwsException;
-use GuzzleHttp\Promise;
-use GuzzleHttp\Promise\PromiseInterface;
-use GuzzleHttp\Promise\PromisorInterface;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws;
+use XCloner\Aws\CommandInterface;
+use XCloner\Aws\Exception\AwsException;
+use XCloner\GuzzleHttp\Promise;
+use XCloner\GuzzleHttp\Promise\PromiseInterface;
+use XCloner\GuzzleHttp\Promise\PromisorInterface;
 use Iterator;
-
 /**
  * Transfers files from the local filesystem to S3 or from S3 to the local
  * filesystem.
@@ -30,7 +30,6 @@ class Transfer implements PromisorInterface
     private $mupThreshold;
     private $before;
     private $s3Args = [];
-
     /**
      * When providing the $source argument, you may provide a string referencing
      * the path to a directory on disk to upload, an s3 scheme URI that contains
@@ -70,56 +69,37 @@ class Transfer implements PromisorInterface
      * @param string            $dest    Where the files are transferred to.
      * @param array             $options Hash of options.
      */
-    public function __construct(
-        S3ClientInterface $client,
-        $source,
-        $dest,
-        array $options = []
-    ) {
+    public function __construct(S3ClientInterface $client, $source, $dest, array $options = [])
+    {
         $this->client = $client;
-
         // Prepare the destination.
         $this->destination = $this->prepareTarget($dest);
         if ($this->destination['scheme'] === 's3') {
             $this->s3Args = $this->getS3Args($this->destination['path']);
         }
-
         // Prepare the source.
         if (is_string($source)) {
             $this->sourceMetadata = $this->prepareTarget($source);
             $this->source = $source;
         } elseif ($source instanceof Iterator) {
             if (empty($options['base_dir'])) {
-                throw new \InvalidArgumentException('You must provide the source'
-                    . ' argument as a string or provide the "base_dir" option.');
+                throw new \InvalidArgumentException('You must provide the source' . ' argument as a string or provide the "base_dir" option.');
             }
-
             $this->sourceMetadata = $this->prepareTarget($options['base_dir']);
             $this->source = $source;
         } else {
-            throw new \InvalidArgumentException('source must be the path to a '
-                . 'directory or an iterator that yields file names.');
+            throw new \InvalidArgumentException('source must be the path to a ' . 'directory or an iterator that yields file names.');
         }
-
         // Validate schemes.
         if ($this->sourceMetadata['scheme'] === $this->destination['scheme']) {
-            throw new \InvalidArgumentException("You cannot copy from"
-                . " {$this->sourceMetadata['scheme']} to"
-                . " {$this->destination['scheme']}."
-            );
+            throw new \InvalidArgumentException("You cannot copy from" . " {$this->sourceMetadata['scheme']} to" . " {$this->destination['scheme']}.");
         }
-
         // Handle multipart-related options.
-        $this->concurrency = isset($options['concurrency'])
-            ? $options['concurrency']
-            : MultipartUploader::DEFAULT_CONCURRENCY;
-        $this->mupThreshold = isset($options['mup_threshold'])
-            ? $options['mup_threshold']
-            : 16777216;
+        $this->concurrency = isset($options['concurrency']) ? $options['concurrency'] : MultipartUploader::DEFAULT_CONCURRENCY;
+        $this->mupThreshold = isset($options['mup_threshold']) ? $options['mup_threshold'] : 16777216;
         if ($this->mupThreshold < MultipartUploader::PART_MIN_SIZE) {
             throw new \InvalidArgumentException('mup_threshold must be >= 5MB');
         }
-
         // Handle "before" callback option.
         if (isset($options['before'])) {
             $this->before = $options['before'];
@@ -127,10 +107,9 @@ class Transfer implements PromisorInterface
                 throw new \InvalidArgumentException('before must be a callable.');
             }
         }
-
         // Handle "debug" option.
         if (isset($options['debug'])) {
-            if ($options['debug'] === true) {
+            if ($options['debug'] === \true) {
                 $options['debug'] = fopen('php://output', 'w');
             }
             if (is_resource($options['debug'])) {
@@ -138,7 +117,6 @@ class Transfer implements PromisorInterface
             }
         }
     }
-
     /**
      * Transfers the files.
      *
@@ -149,14 +127,10 @@ class Transfer implements PromisorInterface
         // If the promise has been created, just return it.
         if (!$this->promise) {
             // Create an upload/download promise for the transfer.
-            $this->promise = $this->sourceMetadata['scheme'] === 'file'
-                ? $this->createUploadPromise()
-                : $this->createDownloadPromise();
+            $this->promise = $this->sourceMetadata['scheme'] === 'file' ? $this->createUploadPromise() : $this->createDownloadPromise();
         }
-
         return $this->promise;
     }
-
     /**
      * Transfers the files synchronously.
      */
@@ -164,21 +138,14 @@ class Transfer implements PromisorInterface
     {
         $this->promise()->wait();
     }
-
     private function prepareTarget($targetPath)
     {
-        $target = [
-            'path'   => $this->normalizePath($targetPath),
-            'scheme' => $this->determineScheme($targetPath),
-        ];
-
+        $target = ['path' => $this->normalizePath($targetPath), 'scheme' => $this->determineScheme($targetPath)];
         if ($target['scheme'] !== 's3' && $target['scheme'] !== 'file') {
             throw new \InvalidArgumentException('Scheme must be "s3" or "file".');
         }
-
         return $target;
     }
-
     /**
      * Creates an array that contains Bucket and Key by parsing the filename.
      *
@@ -193,10 +160,8 @@ class Transfer implements PromisorInterface
         if (isset($parts[1])) {
             $args['Key'] = $parts[1];
         }
-
         return $args;
     }
-
     /**
      * Parses the scheme from a filename.
      *
@@ -208,7 +173,6 @@ class Transfer implements PromisorInterface
     {
         return !strpos($path, '://') ? 'file' : explode('://', $path)[0];
     }
-
     /**
      * Normalize a path so that it has UNIX-style directory separators and no trailing /
      *
@@ -220,7 +184,6 @@ class Transfer implements PromisorInterface
     {
         return rtrim(str_replace('\\', '/', $path), '/');
     }
-
     private function resolvesOutsideTargetDirectory($sink, $objectKey)
     {
         $resolved = [];
@@ -228,7 +191,6 @@ class Transfer implements PromisorInterface
         $targetSectionsLength = count(explode('/', $objectKey));
         $targetSections = array_slice($sections, -($targetSectionsLength + 1));
         $targetDirectory = $targetSections[0];
-
         foreach ($targetSections as $section) {
             if ($section === '.' || $section === '') {
                 continue;
@@ -236,86 +198,60 @@ class Transfer implements PromisorInterface
             if ($section === '..') {
                 array_pop($resolved);
                 if (empty($resolved) || $resolved[0] !== $targetDirectory) {
-                    return true;
+                    return \true;
                 }
             } else {
-                $resolved []= $section;
+                $resolved[] = $section;
             }
         }
-        return false;
+        return \false;
     }
-
     private function createDownloadPromise()
     {
         $parts = $this->getS3Args($this->sourceMetadata['path']);
-        $prefix = "s3://{$parts['Bucket']}/"
-            . (isset($parts['Key']) ? $parts['Key'] . '/' : '');
-
+        $prefix = "s3://{$parts['Bucket']}/" . (isset($parts['Key']) ? $parts['Key'] . '/' : '');
         $commands = [];
         foreach ($this->getDownloadsIterator() as $object) {
             // Prepare the sink.
             $objectKey = preg_replace('/^' . preg_quote($prefix, '/') . '/', '', $object);
             $sink = $this->destination['path'] . '/' . $objectKey;
-
-            $command = $this->client->getCommand(
-                'GetObject',
-                $this->getS3Args($object) + ['@http'  => ['sink'  => $sink]]
-            );
-
+            $command = $this->client->getCommand('GetObject', $this->getS3Args($object) + ['@http' => ['sink' => $sink]]);
             if ($this->resolvesOutsideTargetDirectory($sink, $objectKey)) {
-                throw new AwsException(
-                    'Cannot download key ' . $objectKey
-                    . ', its relative path resolves outside the'
-                    . ' parent directory', $command);
+                throw new AwsException('Cannot download key ' . $objectKey . ', its relative path resolves outside the' . ' parent directory', $command);
             }
-
             // Create the directory if needed.
             $dir = dirname($sink);
-            if (!is_dir($dir) && !mkdir($dir, 0777, true)) {
+            if (!is_dir($dir) && !mkdir($dir, 0777, \true)) {
                 throw new \RuntimeException("Could not create dir: {$dir}");
             }
-
             // Create the command.
-            $commands []= $command;
+            $commands[] = $command;
         }
-
         // Create a GetObject command pool and return the promise.
-        return (new Aws\CommandPool($this->client, $commands, [
-            'concurrency' => $this->concurrency,
-            'before'      => $this->before,
-            'rejected'    => function ($reason, $idx, Promise\PromiseInterface $p) {
-                $p->reject($reason);
-            }
-        ]))->promise();
+        return (new Aws\CommandPool($this->client, $commands, ['concurrency' => $this->concurrency, 'before' => $this->before, 'rejected' => function ($reason, $idx, Promise\PromiseInterface $p) {
+            $p->reject($reason);
+        }]))->promise();
     }
-
     private function createUploadPromise()
     {
         // Map each file into a promise that performs the actual transfer.
-        $files = \Aws\map($this->getUploadsIterator(), function ($file) {
-            return (filesize($file) >= $this->mupThreshold)
-                ? $this->uploadMultipart($file)
-                : $this->upload($file);
+        $files = \XCloner\Aws\map($this->getUploadsIterator(), function ($file) {
+            return filesize($file) >= $this->mupThreshold ? $this->uploadMultipart($file) : $this->upload($file);
         });
-
         // Create an EachPromise, that will concurrently handle the upload
         // operations' yielded promises from the iterator.
         return Promise\Each::ofLimitAll($files, $this->concurrency);
     }
-
     /** @return Iterator */
     private function getUploadsIterator()
     {
         if (is_string($this->source)) {
-            return Aws\filter(
-                Aws\recursive_dir_iterator($this->sourceMetadata['path']),
-                function ($file) { return !is_dir($file); }
-            );
+            return Aws\filter(Aws\recursive_dir_iterator($this->sourceMetadata['path']), function ($file) {
+                return !is_dir($file);
+            });
         }
-
         return $this->source;
     }
-
     /** @return Iterator */
     private function getDownloadsIterator()
     {
@@ -325,21 +261,16 @@ class Transfer implements PromisorInterface
                 $listArgs['Prefix'] = $listArgs['Key'] . '/';
                 unset($listArgs['Key']);
             }
-
-            $files = $this->client
-                ->getPaginator('ListObjects', $listArgs)
-                ->search('Contents[].Key');
+            $files = $this->client->getPaginator('ListObjects', $listArgs)->search('Contents[].Key');
             $files = Aws\map($files, function ($key) use ($listArgs) {
-                return "s3://{$listArgs['Bucket']}/$key";
+                return "s3://{$listArgs['Bucket']}/{$key}";
             });
             return Aws\filter($files, function ($key) {
                 return substr($key, -1, 1) !== '/';
             });
         }
-
         return $this->source;
     }
-
     private function upload($filename)
     {
         $args = $this->s3Args;
@@ -347,53 +278,32 @@ class Transfer implements PromisorInterface
         $args['Key'] = $this->createS3Key($filename);
         $command = $this->client->getCommand('PutObject', $args);
         $this->before and call_user_func($this->before, $command);
-
         return $this->client->executeAsync($command);
     }
-
     private function uploadMultipart($filename)
     {
         $args = $this->s3Args;
         $args['Key'] = $this->createS3Key($filename);
         $filename = $filename instanceof \SplFileInfo ? $filename->getPathname() : $filename;
-
-        return (new MultipartUploader($this->client, $filename, [
-            'bucket'          => $args['Bucket'],
-            'key'             => $args['Key'],
-            'before_initiate' => $this->before,
-            'before_upload'   => $this->before,
-            'before_complete' => $this->before,
-            'concurrency'     => $this->concurrency,
-        ]))->promise();
+        return (new MultipartUploader($this->client, $filename, ['bucket' => $args['Bucket'], 'key' => $args['Key'], 'before_initiate' => $this->before, 'before_upload' => $this->before, 'before_complete' => $this->before, 'concurrency' => $this->concurrency]))->promise();
     }
-
     private function createS3Key($filename)
     {
         $filename = $this->normalizePath($filename);
-        $relative_file_path = ltrim(
-            preg_replace('#^' . preg_quote($this->sourceMetadata['path']) . '#', '', $filename),
-            '/\\'
-        );
-
+        $relative_file_path = ltrim(preg_replace('#^' . preg_quote($this->sourceMetadata['path']) . '#', '', $filename), '/\\');
         if (isset($this->s3Args['Key'])) {
-            return rtrim($this->s3Args['Key'], '/').'/'.$relative_file_path;
+            return rtrim($this->s3Args['Key'], '/') . '/' . $relative_file_path;
         }
-
         return $relative_file_path;
     }
-
     private function addDebugToBefore($debug)
     {
         $before = $this->before;
         $sourcePath = $this->sourceMetadata['path'];
         $s3Args = $this->s3Args;
-
-        $this->before = static function (
-            CommandInterface $command
-        ) use ($before, $debug, $sourcePath, $s3Args) {
+        $this->before = static function (CommandInterface $command) use ($before, $debug, $sourcePath, $s3Args) {
             // Call the composed before function.
             $before and $before($command);
-
             // Determine the source and dest values based on operation.
             switch ($operation = $command->getName()) {
                 case 'GetObject':
@@ -416,11 +326,8 @@ class Transfer implements PromisorInterface
                     $dest = "s3://{$command['Bucket']}/{$command['Key']}";
                     break;
                 default:
-                    throw new \UnexpectedValueException(
-                        "Transfer encountered an unexpected operation: {$operation}."
-                    );
+                    throw new \UnexpectedValueException("Transfer encountered an unexpected operation: {$operation}.");
             }
-
             // Print the debugging message.
             $context = sprintf('%s -> %s (%s)', $source, $dest, $operation);
             if (isset($part)) {

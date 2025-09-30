@@ -1,1 +1,5 @@
-<?php // Silence is golden
+<?php
+
+namespace XCloner;
+
+// Silence is golden

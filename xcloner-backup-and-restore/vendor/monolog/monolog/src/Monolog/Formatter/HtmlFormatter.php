@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This file is part of the Monolog package.
  *
@@ -7,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Formatter;
 
-namespace Monolog\Formatter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Logger;
-use Monolog\Utils;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Logger;
+use XCloner\Monolog\Utils;
 /**
  * Formats incoming records into an HTML table
  *
@@ -28,17 +27,7 @@ class HtmlFormatter extends NormalizerFormatter
     /**
      * Translates Monolog log levels to html color priorities.
      */
-    protected $logLevels = array(
-        Logger::DEBUG     => '#cccccc',
-        Logger::INFO      => '#468847',
-        Logger::NOTICE    => '#3a87ad',
-        Logger::WARNING   => '#c09853',
-        Logger::ERROR     => '#f0ad4e',
-        Logger::CRITICAL  => '#FF7708',
-        Logger::ALERT     => '#C12A19',
-        Logger::EMERGENCY => '#000000',
-    );
-
+    protected $logLevels = array(Logger::DEBUG => '#cccccc', Logger::INFO => '#468847', Logger::NOTICE => '#3a87ad', Logger::WARNING => '#c09853', Logger::ERROR => '#f0ad4e', Logger::CRITICAL => '#FF7708', Logger::ALERT => '#C12A19', Logger::EMERGENCY => '#000000');
     /**
      * @param string $dateFormat The format of the timestamp: one supported by DateTime::format
      */
@@ -46,7 +35,6 @@ class HtmlFormatter extends NormalizerFormatter
     {
         parent::__construct($dateFormat);
     }
-
     /**
      * Creates an HTML table row
      *
@@ -55,16 +43,14 @@ class HtmlFormatter extends NormalizerFormatter
      * @param  bool   $escapeTd false if td content must not be html escaped
      * @return string
      */
-    protected function addRow($th, $td = ' ', $escapeTd = true)
+    protected function addRow($th, $td = ' ', $escapeTd = \true)
     {
-        $th = htmlspecialchars($th, ENT_NOQUOTES, 'UTF-8');
+        $th = htmlspecialchars($th, \ENT_NOQUOTES, 'UTF-8');
         if ($escapeTd) {
-            $td = '<pre>'.htmlspecialchars($td, ENT_NOQUOTES, 'UTF-8').'</pre>';
+            $td = '<pre>' . htmlspecialchars($td, \ENT_NOQUOTES, 'UTF-8') . '</pre>';
         }
-
-        return "<tr style=\"padding: 4px;text-align: left;\">\n<th style=\"vertical-align: top;background: #ccc;color: #000\" width=\"100\">$th:</th>\n<td style=\"padding: 4px;text-align: left;vertical-align: top;background: #eee;color: #000\">".$td."</td>\n</tr>";
+        return "<tr style=\"padding: 4px;text-align: left;\">\n<th style=\"vertical-align: top;background: #ccc;color: #000\" width=\"100\">{$th}:</th>\n<td style=\"padding: 4px;text-align: left;vertical-align: top;background: #eee;color: #000\">" . $td . "</td>\n</tr>";
     }
-
     /**
      * Create a HTML h1 tag
      *
@@ -74,11 +60,9 @@ class HtmlFormatter extends NormalizerFormatter
      */
     protected function addTitle($title, $level)
     {
-        $title = htmlspecialchars($title, ENT_NOQUOTES, 'UTF-8');
-
-        return '<h1 style="background: '.$this->logLevels[$level].';color: #ffffff;padding: 5px;" class="monolog-output">'.$title.'</h1>';
+        $title = htmlspecialchars($title, \ENT_NOQUOTES, 'UTF-8');
+        return '<h1 style="background: ' . $this->logLevels[$level] . ';color: #ffffff;padding: 5px;" class="monolog-output">' . $title . '</h1>';
     }
-
     /**
      * Formats a log record.
      *
@@ -89,7 +73,6 @@ class HtmlFormatter extends NormalizerFormatter
     {
         $output = $this->addTitle($record['level_name'], $record['level']);
         $output .= '<table cellspacing="1" width="100%" class="monolog-output">';
-
         $output .= $this->addRow('Message', (string) $record['message']);
         $output .= $this->addRow('Time', $record['datetime']->format($this->dateFormat));
         $output .= $this->addRow('Channel', $record['channel']);
@@ -99,7 +82,7 @@ class HtmlFormatter extends NormalizerFormatter
                 $embeddedTable .= $this->addRow($key, $this->convertToString($value));
             }
             $embeddedTable .= '</table>';
-            $output .= $this->addRow('Context', $embeddedTable, false);
+            $output .= $this->addRow('Context', $embeddedTable, \false);
         }
         if ($record['extra']) {
             $embeddedTable = '<table cellspacing="1" width="100%">';
@@ -107,12 +90,10 @@ class HtmlFormatter extends NormalizerFormatter
                 $embeddedTable .= $this->addRow($key, $this->convertToString($value));
             }
             $embeddedTable .= '</table>';
-            $output .= $this->addRow('Extra', $embeddedTable, false);
+            $output .= $this->addRow('Extra', $embeddedTable, \false);
         }
-
-        return $output.'</table>';
+        return $output . '</table>';
     }
-
     /**
      * Formats a set of log records.
      *
@@ -125,21 +106,17 @@ class HtmlFormatter extends NormalizerFormatter
         foreach ($records as $record) {
             $message .= $this->format($record);
         }
-
         return $message;
     }
-
     protected function convertToString($data)
     {
         if (null === $data || is_scalar($data)) {
             return (string) $data;
         }
-
         $data = $this->normalize($data);
-        if (version_compare(PHP_VERSION, '5.4.0', '>=')) {
-            return Utils::jsonEncode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE, true);
+        if (version_compare(\PHP_VERSION, '5.4.0', '>=')) {
+            return Utils::jsonEncode($data, \JSON_PRETTY_PRINT | \JSON_UNESCAPED_SLASHES | \JSON_UNESCAPED_UNICODE, \true);
         }
-
-        return str_replace('\\/', '/', Utils::jsonEncode($data, null, true));
+        return str_replace('\/', '/', Utils::jsonEncode($data, null, \true));
     }
 }

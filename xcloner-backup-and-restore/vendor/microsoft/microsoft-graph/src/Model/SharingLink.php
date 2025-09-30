@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SharingLink class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class SharingLink extends Entity
 {
-
     /**
-    * Gets the application
-    * The app the link is associated with.
-    *
-    * @return Identity|null The application
-    */
+     * Gets the application
+     * The app the link is associated with.
+     *
+     * @return Identity|null The application
+     */
     public function getApplication()
     {
         if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["application"])) {
+            if (is_a($this->_propDict["application"], "XCloner\\Microsoft\\Graph\\Model\\Identity") || is_null($this->_propDict["application"])) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new Identity($this->_propDict["application"]);
@@ -45,26 +46,25 @@ class SharingLink extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the application
-    * The app the link is associated with.
-    *
-    * @param Identity $val The value to assign to the application
-    *
-    * @return SharingLink The SharingLink
-    */
+     * Sets the application
+     * The app the link is associated with.
+     *
+     * @param Identity $val The value to assign to the application
+     *
+     * @return SharingLink The SharingLink
+     */
     public function setApplication($val)
     {
         $this->_propDict["application"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the preventsDownload
-    * If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
-    *
-    * @return bool|null The preventsDownload
-    */
+     * Gets the preventsDownload
+     * If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
+     *
+     * @return bool|null The preventsDownload
+     */
     public function getPreventsDownload()
     {
         if (array_key_exists("preventsDownload", $this->_propDict)) {
@@ -73,26 +73,25 @@ class SharingLink extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the preventsDownload
-    * If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
-    *
-    * @param bool $val The value of the preventsDownload
-    *
-    * @return SharingLink
-    */
+     * Sets the preventsDownload
+     * If true then the user can only use this link to view the item on the web, and cannot use it to download the contents of the item. Only for OneDrive for Business and SharePoint.
+     *
+     * @param bool $val The value of the preventsDownload
+     *
+     * @return SharingLink
+     */
     public function setPreventsDownload($val)
     {
         $this->_propDict["preventsDownload"] = $val;
         return $this;
     }
     /**
-    * Gets the scope
-    * The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.
-    *
-    * @return string|null The scope
-    */
+     * Gets the scope
+     * The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.
+     *
+     * @return string|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
@@ -101,26 +100,25 @@ class SharingLink extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the scope
-    * The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.
-    *
-    * @param string $val The value of the scope
-    *
-    * @return SharingLink
-    */
+     * Sets the scope
+     * The scope of the link represented by this permission. Value anonymous indicates the link is usable by anyone, organization indicates the link is only usable for users signed into the same tenant.
+     *
+     * @param string $val The value of the scope
+     *
+     * @return SharingLink
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * The type of the link created.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * The type of the link created.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -129,26 +127,25 @@ class SharingLink extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * The type of the link created.
-    *
-    * @param string $val The value of the type
-    *
-    * @return SharingLink
-    */
+     * Sets the type
+     * The type of the link created.
+     *
+     * @param string $val The value of the type
+     *
+     * @return SharingLink
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
     /**
-    * Gets the webHtml
-    * For embed links, this property contains the HTML code for an &amp;lt;iframe&amp;gt; element that will embed the item in a webpage.
-    *
-    * @return string|null The webHtml
-    */
+     * Gets the webHtml
+     * For embed links, this property contains the HTML code for an &amp;lt;iframe&amp;gt; element that will embed the item in a webpage.
+     *
+     * @return string|null The webHtml
+     */
     public function getWebHtml()
     {
         if (array_key_exists("webHtml", $this->_propDict)) {
@@ -157,26 +154,25 @@ class SharingLink extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the webHtml
-    * For embed links, this property contains the HTML code for an &amp;lt;iframe&amp;gt; element that will embed the item in a webpage.
-    *
-    * @param string $val The value of the webHtml
-    *
-    * @return SharingLink
-    */
+     * Sets the webHtml
+     * For embed links, this property contains the HTML code for an &amp;lt;iframe&amp;gt; element that will embed the item in a webpage.
+     *
+     * @param string $val The value of the webHtml
+     *
+     * @return SharingLink
+     */
     public function setWebHtml($val)
     {
         $this->_propDict["webHtml"] = $val;
         return $this;
     }
     /**
-    * Gets the webUrl
-    * A URL that opens the item in the browser on the OneDrive website.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * A URL that opens the item in the browser on the OneDrive website.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -185,15 +181,14 @@ class SharingLink extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * A URL that opens the item in the browser on the OneDrive website.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return SharingLink
-    */
+     * Sets the webUrl
+     * A URL that opens the item in the browser on the OneDrive website.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return SharingLink
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

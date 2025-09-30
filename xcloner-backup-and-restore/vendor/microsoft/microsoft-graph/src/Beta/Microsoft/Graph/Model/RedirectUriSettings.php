@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RedirectUriSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RedirectUriSettings extends Entity
 {
     /**
-    * Gets the index
-    * Identifies the specific URI within the redirectURIs collection in SAML SSO flows. Defaults to null. The index is unique across all the redirectUris for the application.
-    *
-    * @return int|null The index
-    */
+     * Gets the index
+     * Identifies the specific URI within the redirectURIs collection in SAML SSO flows. Defaults to null. The index is unique across all the redirectUris for the application.
+     *
+     * @return int|null The index
+     */
     public function getIndex()
     {
         if (array_key_exists("index", $this->_propDict)) {
@@ -40,26 +42,25 @@ class RedirectUriSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the index
-    * Identifies the specific URI within the redirectURIs collection in SAML SSO flows. Defaults to null. The index is unique across all the redirectUris for the application.
-    *
-    * @param int $val The value of the index
-    *
-    * @return RedirectUriSettings
-    */
+     * Sets the index
+     * Identifies the specific URI within the redirectURIs collection in SAML SSO flows. Defaults to null. The index is unique across all the redirectUris for the application.
+     *
+     * @param int $val The value of the index
+     *
+     * @return RedirectUriSettings
+     */
     public function setIndex($val)
     {
         $this->_propDict["index"] = $val;
         return $this;
     }
     /**
-    * Gets the uri
-    * Specifies the URI that tokens are sent to.
-    *
-    * @return string|null The uri
-    */
+     * Gets the uri
+     * Specifies the URI that tokens are sent to.
+     *
+     * @return string|null The uri
+     */
     public function getUri()
     {
         if (array_key_exists("uri", $this->_propDict)) {
@@ -68,15 +69,14 @@ class RedirectUriSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the uri
-    * Specifies the URI that tokens are sent to.
-    *
-    * @param string $val The value of the uri
-    *
-    * @return RedirectUriSettings
-    */
+     * Sets the uri
+     * Specifies the URI that tokens are sent to.
+     *
+     * @param string $val The value of the uri
+     *
+     * @return RedirectUriSettings
+     */
     public function setUri($val)
     {
         $this->_propDict["uri"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RequestorSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RequestorSettings extends Entity
 {
     /**
-    * Gets the acceptRequests
-    * Indicates whether new requests are accepted on this policy.
-    *
-    * @return bool|null The acceptRequests
-    */
+     * Gets the acceptRequests
+     * Indicates whether new requests are accepted on this policy.
+     *
+     * @return bool|null The acceptRequests
+     */
     public function getAcceptRequests()
     {
         if (array_key_exists("acceptRequests", $this->_propDict)) {
@@ -40,31 +42,29 @@ class RequestorSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the acceptRequests
-    * Indicates whether new requests are accepted on this policy.
-    *
-    * @param bool $val The value of the acceptRequests
-    *
-    * @return RequestorSettings
-    */
+     * Sets the acceptRequests
+     * Indicates whether new requests are accepted on this policy.
+     *
+     * @param bool $val The value of the acceptRequests
+     *
+     * @return RequestorSettings
+     */
     public function setAcceptRequests($val)
     {
         $this->_propDict["acceptRequests"] = $val;
         return $this;
     }
-
     /**
-    * Gets the allowedRequestors
-    * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
-    *
-    * @return UserSet|null The allowedRequestors
-    */
+     * Gets the allowedRequestors
+     * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
+     *
+     * @return UserSet|null The allowedRequestors
+     */
     public function getAllowedRequestors()
     {
         if (array_key_exists("allowedRequestors", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedRequestors"], "\Beta\Microsoft\Graph\Model\UserSet") || is_null($this->_propDict["allowedRequestors"])) {
+            if (is_a($this->_propDict["allowedRequestors"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\UserSet") || is_null($this->_propDict["allowedRequestors"])) {
                 return $this->_propDict["allowedRequestors"];
             } else {
                 $this->_propDict["allowedRequestors"] = new UserSet($this->_propDict["allowedRequestors"]);
@@ -73,26 +73,25 @@ class RequestorSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the allowedRequestors
-    * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
-    *
-    * @param UserSet $val The value to assign to the allowedRequestors
-    *
-    * @return RequestorSettings The RequestorSettings
-    */
+     * Sets the allowedRequestors
+     * The users who are allowed to request on this policy, which can be singleUser, groupMembers, and connectedOrganizationMembers.
+     *
+     * @param UserSet $val The value to assign to the allowedRequestors
+     *
+     * @return RequestorSettings The RequestorSettings
+     */
     public function setAllowedRequestors($val)
     {
         $this->_propDict["allowedRequestors"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the scopeType
-    * Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
-    *
-    * @return string|null The scopeType
-    */
+     * Gets the scopeType
+     * Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
+     *
+     * @return string|null The scopeType
+     */
     public function getScopeType()
     {
         if (array_key_exists("scopeType", $this->_propDict)) {
@@ -101,15 +100,14 @@ class RequestorSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the scopeType
-    * Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
-    *
-    * @param string $val The value of the scopeType
-    *
-    * @return RequestorSettings
-    */
+     * Sets the scopeType
+     * Who can request. One of NoSubjects, SpecificDirectorySubjects, SpecificConnectedOrganizationSubjects, AllConfiguredConnectedOrganizationSubjects, AllExistingConnectedOrganizationSubjects, AllExistingDirectoryMemberUsers, AllExistingDirectorySubjects or AllExternalSubjects.
+     *
+     * @param string $val The value of the scopeType
+     *
+     * @return RequestorSettings
+     */
     public function setScopeType($val)
     {
         $this->_propDict["scopeType"] = $val;

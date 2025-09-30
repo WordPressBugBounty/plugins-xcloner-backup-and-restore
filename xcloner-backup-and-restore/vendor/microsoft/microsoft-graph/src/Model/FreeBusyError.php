@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FreeBusyError class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FreeBusyError extends Entity
 {
     /**
-    * Gets the message
-    * Describes the error.
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     * Describes the error.
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -40,26 +42,25 @@ class FreeBusyError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    * Describes the error.
-    *
-    * @param string $val The value of the message
-    *
-    * @return FreeBusyError
-    */
+     * Sets the message
+     * Describes the error.
+     *
+     * @param string $val The value of the message
+     *
+     * @return FreeBusyError
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;
         return $this;
     }
     /**
-    * Gets the responseCode
-    * The response code from querying for the availability of the user, distribution list, or resource.
-    *
-    * @return string|null The responseCode
-    */
+     * Gets the responseCode
+     * The response code from querying for the availability of the user, distribution list, or resource.
+     *
+     * @return string|null The responseCode
+     */
     public function getResponseCode()
     {
         if (array_key_exists("responseCode", $this->_propDict)) {
@@ -68,15 +69,14 @@ class FreeBusyError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the responseCode
-    * The response code from querying for the availability of the user, distribution list, or resource.
-    *
-    * @param string $val The value of the responseCode
-    *
-    * @return FreeBusyError
-    */
+     * Sets the responseCode
+     * The response code from querying for the availability of the user, distribution list, or resource.
+     *
+     * @param string $val The value of the responseCode
+     *
+     * @return FreeBusyError
+     */
     public function setResponseCode($val)
     {
         $this->_propDict["responseCode"] = $val;

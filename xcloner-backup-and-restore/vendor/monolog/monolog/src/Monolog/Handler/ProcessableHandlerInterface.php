@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
+declare (strict_types=1);
 /*
  * This file is part of the Monolog package.
  *
@@ -8,14 +9,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Processor\ProcessorInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Processor\ProcessorInterface;
 /**
  * Interface to describe loggers that have processors
  *
@@ -32,7 +31,6 @@ interface ProcessableHandlerInterface
      * @return HandlerInterface            self
      */
     public function pushProcessor($callback): HandlerInterface;
-
     /**
      * Removes the processor on top of the stack and returns it.
      *

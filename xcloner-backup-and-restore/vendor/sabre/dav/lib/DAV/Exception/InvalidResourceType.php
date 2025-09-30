@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Exception;
 
-namespace Sabre\DAV\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * InvalidResourceType.
  *
@@ -24,7 +23,7 @@ class InvalidResourceType extends Forbidden
     /**
      * This method allows the exception to include additional information into the WebDAV error response.
      */
-    public function serialize(\Sabre\DAV\Server $server, \DOMElement $errorNode)
+    public function serialize(\XCloner\Sabre\DAV\Server $server, \DOMElement $errorNode)
     {
         $error = $errorNode->ownerDocument->createElementNS('DAV:', 'd:valid-resourcetype');
         $errorNode->appendChild($error);

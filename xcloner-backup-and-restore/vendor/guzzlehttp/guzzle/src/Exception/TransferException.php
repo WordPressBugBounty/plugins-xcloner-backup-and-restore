@@ -1,10 +1,10 @@
 <?php
 
-namespace GuzzleHttp\Exception;
+namespace XCloner\GuzzleHttp\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class TransferException extends \RuntimeException implements GuzzleException
 {
 }

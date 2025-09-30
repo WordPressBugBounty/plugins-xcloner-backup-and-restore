@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * LanManagerAuthenticationLevel class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class LanManagerAuthenticationLevel extends Enum
 {
     /**
-    * The Enum LanManagerAuthenticationLevel
-    */
+     * The Enum LanManagerAuthenticationLevel
+     */
     const LM_AND_NLTM = "lmAndNltm";
     const LM_NTLM_AND_NTLM_V2 = "lmNtlmAndNtlmV2";
     const LM_AND_NTLM_ONLY = "lmAndNtlmOnly";

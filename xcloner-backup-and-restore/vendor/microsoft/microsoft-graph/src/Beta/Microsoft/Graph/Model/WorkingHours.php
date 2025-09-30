@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkingHours class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WorkingHours extends Entity
 {
-
     /**
-    * Gets the daysOfWeek
-    * The days of the week on which the user works.
-    *
-    * @return DayOfWeek|null The daysOfWeek
-    */
+     * Gets the daysOfWeek
+     * The days of the week on which the user works.
+     *
+     * @return DayOfWeek|null The daysOfWeek
+     */
     public function getDaysOfWeek()
     {
         if (array_key_exists("daysOfWeek", $this->_propDict)) {
-            if (is_a($this->_propDict["daysOfWeek"], "\Beta\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["daysOfWeek"])) {
+            if (is_a($this->_propDict["daysOfWeek"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DayOfWeek") || is_null($this->_propDict["daysOfWeek"])) {
                 return $this->_propDict["daysOfWeek"];
             } else {
                 $this->_propDict["daysOfWeek"] = new DayOfWeek($this->_propDict["daysOfWeek"]);
@@ -45,31 +46,29 @@ class WorkingHours extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the daysOfWeek
-    * The days of the week on which the user works.
-    *
-    * @param DayOfWeek $val The value to assign to the daysOfWeek
-    *
-    * @return WorkingHours The WorkingHours
-    */
+     * Sets the daysOfWeek
+     * The days of the week on which the user works.
+     *
+     * @param DayOfWeek $val The value to assign to the daysOfWeek
+     *
+     * @return WorkingHours The WorkingHours
+     */
     public function setDaysOfWeek($val)
     {
         $this->_propDict["daysOfWeek"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the endTime
-    * The time of the day that the user stops working.
-    *
-    * @return TimeOfDay|null The endTime
-    */
+     * Gets the endTime
+     * The time of the day that the user stops working.
+     *
+     * @return TimeOfDay|null The endTime
+     */
     public function getEndTime()
     {
         if (array_key_exists("endTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["endTime"])) {
+            if (is_a($this->_propDict["endTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["endTime"])) {
                 return $this->_propDict["endTime"];
             } else {
                 $this->_propDict["endTime"] = new TimeOfDay($this->_propDict["endTime"]);
@@ -78,31 +77,29 @@ class WorkingHours extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endTime
-    * The time of the day that the user stops working.
-    *
-    * @param TimeOfDay $val The value to assign to the endTime
-    *
-    * @return WorkingHours The WorkingHours
-    */
+     * Sets the endTime
+     * The time of the day that the user stops working.
+     *
+     * @param TimeOfDay $val The value to assign to the endTime
+     *
+     * @return WorkingHours The WorkingHours
+     */
     public function setEndTime($val)
     {
         $this->_propDict["endTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the startTime
-    * The time of the day that the user starts working.
-    *
-    * @return TimeOfDay|null The startTime
-    */
+     * Gets the startTime
+     * The time of the day that the user starts working.
+     *
+     * @return TimeOfDay|null The startTime
+     */
     public function getStartTime()
     {
         if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["startTime"])) {
+            if (is_a($this->_propDict["startTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["startTime"])) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);
@@ -111,31 +108,29 @@ class WorkingHours extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startTime
-    * The time of the day that the user starts working.
-    *
-    * @param TimeOfDay $val The value to assign to the startTime
-    *
-    * @return WorkingHours The WorkingHours
-    */
+     * Sets the startTime
+     * The time of the day that the user starts working.
+     *
+     * @param TimeOfDay $val The value to assign to the startTime
+     *
+     * @return WorkingHours The WorkingHours
+     */
     public function setStartTime($val)
     {
         $this->_propDict["startTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the timeZone
-    * The time zone to which the working hours apply.
-    *
-    * @return TimeZoneBase|null The timeZone
-    */
+     * Gets the timeZone
+     * The time zone to which the working hours apply.
+     *
+     * @return TimeZoneBase|null The timeZone
+     */
     public function getTimeZone()
     {
         if (array_key_exists("timeZone", $this->_propDict)) {
-            if (is_a($this->_propDict["timeZone"], "\Beta\Microsoft\Graph\Model\TimeZoneBase") || is_null($this->_propDict["timeZone"])) {
+            if (is_a($this->_propDict["timeZone"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeZoneBase") || is_null($this->_propDict["timeZone"])) {
                 return $this->_propDict["timeZone"];
             } else {
                 $this->_propDict["timeZone"] = new TimeZoneBase($this->_propDict["timeZone"]);
@@ -144,18 +139,17 @@ class WorkingHours extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeZone
-    * The time zone to which the working hours apply.
-    *
-    * @param TimeZoneBase $val The value to assign to the timeZone
-    *
-    * @return WorkingHours The WorkingHours
-    */
+     * Sets the timeZone
+     * The time zone to which the working hours apply.
+     *
+     * @param TimeZoneBase $val The value to assign to the timeZone
+     *
+     * @return WorkingHours The WorkingHours
+     */
     public function setTimeZone($val)
     {
         $this->_propDict["timeZone"] = $val;
-         return $this;
+        return $this;
     }
 }

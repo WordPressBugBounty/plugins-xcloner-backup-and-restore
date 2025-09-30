@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintOperationStatus class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintOperationStatus extends Entity
 {
     /**
-    * Gets the description
-    * A human-readable description of the printOperation's current processing state. Read-only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * A human-readable description of the printOperation's current processing state. Read-only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PrintOperationStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * A human-readable description of the printOperation's current processing state. Read-only.
-    *
-    * @param string $val The value of the description
-    *
-    * @return PrintOperationStatus
-    */
+     * Sets the description
+     * A human-readable description of the printOperation's current processing state. Read-only.
+     *
+     * @param string $val The value of the description
+     *
+     * @return PrintOperationStatus
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The printOperation's current processing state. Valid values are described in the following table. Read-only.
-    *
-    * @return PrintOperationProcessingState|null The state
-    */
+     * Gets the state
+     * The printOperation's current processing state. Valid values are described in the following table. Read-only.
+     *
+     * @return PrintOperationProcessingState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrintOperationProcessingState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Microsoft\\Graph\\Model\\PrintOperationProcessingState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrintOperationProcessingState($this->_propDict["state"]);
@@ -73,18 +73,17 @@ class PrintOperationStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The printOperation's current processing state. Valid values are described in the following table. Read-only.
-    *
-    * @param PrintOperationProcessingState $val The value to assign to the state
-    *
-    * @return PrintOperationStatus The PrintOperationStatus
-    */
+     * Sets the state
+     * The printOperation's current processing state. Valid values are described in the following table. Read-only.
+     *
+     * @param PrintOperationProcessingState $val The value to assign to the state
+     *
+     * @return PrintOperationStatus The PrintOperationStatus
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
 }

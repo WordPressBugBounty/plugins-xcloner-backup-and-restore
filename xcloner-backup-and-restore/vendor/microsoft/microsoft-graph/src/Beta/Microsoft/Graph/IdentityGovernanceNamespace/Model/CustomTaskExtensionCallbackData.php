@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CustomTaskExtensionCallbackData class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class CustomTaskExtensionCallbackData extends \Beta\Microsoft\Graph\Model\CustomExtensionData
+class CustomTaskExtensionCallbackData extends \XCloner\Beta\Microsoft\Graph\Model\CustomExtensionData
 {
-
     /**
-    * Gets the operationStatus
-    * Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
-    *
-    * @return CustomTaskExtensionOperationStatus|null The operationStatus
-    */
+     * Gets the operationStatus
+     * Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
+     *
+     * @return CustomTaskExtensionOperationStatus|null The operationStatus
+     */
     public function getOperationStatus()
     {
         if (array_key_exists("operationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["operationStatus"], "\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\CustomTaskExtensionOperationStatus") || is_null($this->_propDict["operationStatus"])) {
+            if (is_a($this->_propDict["operationStatus"], "XCloner\\Beta\\Microsoft\\Graph\\IdentityGovernanceNamespace\\Model\\CustomTaskExtensionOperationStatus") || is_null($this->_propDict["operationStatus"])) {
                 return $this->_propDict["operationStatus"];
             } else {
                 $this->_propDict["operationStatus"] = new CustomTaskExtensionOperationStatus($this->_propDict["operationStatus"]);
@@ -45,18 +46,17 @@ class CustomTaskExtensionCallbackData extends \Beta\Microsoft\Graph\Model\Custom
         }
         return null;
     }
-
     /**
-    * Sets the operationStatus
-    * Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
-    *
-    * @param CustomTaskExtensionOperationStatus $val The value to assign to the operationStatus
-    *
-    * @return CustomTaskExtensionCallbackData The CustomTaskExtensionCallbackData
-    */
+     * Sets the operationStatus
+     * Operation status that's provided by the Azure Logic App indicating whenever the Azure Logic App has run successfully or not. Supported values: completed, failed, unknownFutureValue.
+     *
+     * @param CustomTaskExtensionOperationStatus $val The value to assign to the operationStatus
+     *
+     * @return CustomTaskExtensionCallbackData The CustomTaskExtensionCallbackData
+     */
     public function setOperationStatus($val)
     {
         $this->_propDict["operationStatus"] = $val;
-         return $this;
+        return $this;
     }
 }

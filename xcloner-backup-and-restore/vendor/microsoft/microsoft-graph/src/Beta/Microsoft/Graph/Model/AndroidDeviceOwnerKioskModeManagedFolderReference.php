@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceOwnerKioskModeManagedFolderReference class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwnerKioskModeHomeScreenItem
 {
     /**
-    * Gets the folderIdentifier
-    * Unique identifier for the folder
-    *
-    * @return string|null The folderIdentifier
-    */
+     * Gets the folderIdentifier
+     * Unique identifier for the folder
+     *
+     * @return string|null The folderIdentifier
+     */
     public function getFolderIdentifier()
     {
         if (array_key_exists("folderIdentifier", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
             return null;
         }
     }
-
     /**
-    * Sets the folderIdentifier
-    * Unique identifier for the folder
-    *
-    * @param string $val The value of the folderIdentifier
-    *
-    * @return AndroidDeviceOwnerKioskModeManagedFolderReference
-    */
+     * Sets the folderIdentifier
+     * Unique identifier for the folder
+     *
+     * @param string $val The value of the folderIdentifier
+     *
+     * @return AndroidDeviceOwnerKioskModeManagedFolderReference
+     */
     public function setFolderIdentifier($val)
     {
         $this->_propDict["folderIdentifier"] = $val;
         return $this;
     }
     /**
-    * Gets the folderName
-    * Name of the folder
-    *
-    * @return string|null The folderName
-    */
+     * Gets the folderName
+     * Name of the folder
+     *
+     * @return string|null The folderName
+     */
     public function getFolderName()
     {
         if (array_key_exists("folderName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AndroidDeviceOwnerKioskModeManagedFolderReference extends AndroidDeviceOwn
             return null;
         }
     }
-
     /**
-    * Sets the folderName
-    * Name of the folder
-    *
-    * @param string $val The value of the folderName
-    *
-    * @return AndroidDeviceOwnerKioskModeManagedFolderReference
-    */
+     * Sets the folderName
+     * Name of the folder
+     *
+     * @param string $val The value of the folderName
+     *
+     * @return AndroidDeviceOwnerKioskModeManagedFolderReference
+     */
     public function setFolderName($val)
     {
         $this->_propDict["folderName"] = $val;

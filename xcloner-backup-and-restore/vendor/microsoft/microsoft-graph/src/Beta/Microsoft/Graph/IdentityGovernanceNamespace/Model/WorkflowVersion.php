@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkflowVersion class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkflowVersion extends WorkflowBase
 {
     /**
-    * Gets the versionNumber
-    * The version of the workflow.
-    *
-    * @return int|null The versionNumber
-    */
+     * Gets the versionNumber
+     * The version of the workflow.
+     *
+     * @return int|null The versionNumber
+     */
     public function getVersionNumber()
     {
         if (array_key_exists("versionNumber", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WorkflowVersion extends WorkflowBase
             return null;
         }
     }
-
     /**
-    * Sets the versionNumber
-    * The version of the workflow.
-    *
-    * @param int $val The versionNumber
-    *
-    * @return WorkflowVersion
-    */
+     * Sets the versionNumber
+     * The version of the workflow.
+     *
+     * @param int $val The versionNumber
+     *
+     * @return WorkflowVersion
+     */
     public function setVersionNumber($val)
     {
         $this->_propDict["versionNumber"] = intval($val);
         return $this;
     }
-
 }

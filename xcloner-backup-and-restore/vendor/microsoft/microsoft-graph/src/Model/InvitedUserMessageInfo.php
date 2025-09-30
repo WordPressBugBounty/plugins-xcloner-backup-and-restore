@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InvitedUserMessageInfo class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class InvitedUserMessageInfo extends Entity
 {
-
     /**
-    * Gets the ccRecipients
-    * Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.
-    *
-    * @return Recipient|null The ccRecipients
-    */
+     * Gets the ccRecipients
+     * Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.
+     *
+     * @return Recipient|null The ccRecipients
+     */
     public function getCcRecipients()
     {
         if (array_key_exists("ccRecipients", $this->_propDict)) {
-            if (is_a($this->_propDict["ccRecipients"], "\Microsoft\Graph\Model\Recipient") || is_null($this->_propDict["ccRecipients"])) {
+            if (is_a($this->_propDict["ccRecipients"], "XCloner\\Microsoft\\Graph\\Model\\Recipient") || is_null($this->_propDict["ccRecipients"])) {
                 return $this->_propDict["ccRecipients"];
             } else {
                 $this->_propDict["ccRecipients"] = new Recipient($this->_propDict["ccRecipients"]);
@@ -45,26 +46,25 @@ class InvitedUserMessageInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the ccRecipients
-    * Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.
-    *
-    * @param Recipient $val The value to assign to the ccRecipients
-    *
-    * @return InvitedUserMessageInfo The InvitedUserMessageInfo
-    */
+     * Sets the ccRecipients
+     * Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.
+     *
+     * @param Recipient $val The value to assign to the ccRecipients
+     *
+     * @return InvitedUserMessageInfo The InvitedUserMessageInfo
+     */
     public function setCcRecipients($val)
     {
         $this->_propDict["ccRecipients"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the customizedMessageBody
-    * Customized message body you want to send if you don't want the default message.
-    *
-    * @return string|null The customizedMessageBody
-    */
+     * Gets the customizedMessageBody
+     * Customized message body you want to send if you don't want the default message.
+     *
+     * @return string|null The customizedMessageBody
+     */
     public function getCustomizedMessageBody()
     {
         if (array_key_exists("customizedMessageBody", $this->_propDict)) {
@@ -73,26 +73,25 @@ class InvitedUserMessageInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the customizedMessageBody
-    * Customized message body you want to send if you don't want the default message.
-    *
-    * @param string $val The value of the customizedMessageBody
-    *
-    * @return InvitedUserMessageInfo
-    */
+     * Sets the customizedMessageBody
+     * Customized message body you want to send if you don't want the default message.
+     *
+     * @param string $val The value of the customizedMessageBody
+     *
+     * @return InvitedUserMessageInfo
+     */
     public function setCustomizedMessageBody($val)
     {
         $this->_propDict["customizedMessageBody"] = $val;
         return $this;
     }
     /**
-    * Gets the messageLanguage
-    * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
-    *
-    * @return string|null The messageLanguage
-    */
+     * Gets the messageLanguage
+     * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
+     *
+     * @return string|null The messageLanguage
+     */
     public function getMessageLanguage()
     {
         if (array_key_exists("messageLanguage", $this->_propDict)) {
@@ -101,15 +100,14 @@ class InvitedUserMessageInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the messageLanguage
-    * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
-    *
-    * @param string $val The value of the messageLanguage
-    *
-    * @return InvitedUserMessageInfo
-    */
+     * Sets the messageLanguage
+     * The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.
+     *
+     * @param string $val The value of the messageLanguage
+     *
+     * @return InvitedUserMessageInfo
+     */
     public function setMessageLanguage($val)
     {
         $this->_propDict["messageLanguage"] = $val;

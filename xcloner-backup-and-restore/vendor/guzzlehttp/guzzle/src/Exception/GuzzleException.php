@@ -1,12 +1,11 @@
 <?php
 
-namespace GuzzleHttp\Exception;
+namespace XCloner\GuzzleHttp\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Client\ClientExceptionInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Client\ClientExceptionInterface;
 interface GuzzleException extends ClientExceptionInterface
 {
 }

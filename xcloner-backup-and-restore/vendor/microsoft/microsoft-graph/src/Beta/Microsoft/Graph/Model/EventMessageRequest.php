@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EventMessageRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EventMessageRequest extends EventMessage
 {
     /**
-    * Gets the allowNewTimeProposals
-    * True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
-    *
-    * @return bool|null The allowNewTimeProposals
-    */
+     * Gets the allowNewTimeProposals
+     * True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
+     *
+     * @return bool|null The allowNewTimeProposals
+     */
     public function getAllowNewTimeProposals()
     {
         if (array_key_exists("allowNewTimeProposals", $this->_propDict)) {
@@ -41,31 +42,29 @@ class EventMessageRequest extends EventMessage
             return null;
         }
     }
-
     /**
-    * Sets the allowNewTimeProposals
-    * True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
-    *
-    * @param bool $val The allowNewTimeProposals
-    *
-    * @return EventMessageRequest
-    */
+     * Sets the allowNewTimeProposals
+     * True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
+     *
+     * @param bool $val The allowNewTimeProposals
+     *
+     * @return EventMessageRequest
+     */
     public function setAllowNewTimeProposals($val)
     {
         $this->_propDict["allowNewTimeProposals"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the previousEndDateTime
-    * If the meeting update changes the meeting end time, this property specifies the previous meeting end time.
-    *
-    * @return DateTimeTimeZone|null The previousEndDateTime
-    */
+     * Gets the previousEndDateTime
+     * If the meeting update changes the meeting end time, this property specifies the previous meeting end time.
+     *
+     * @return DateTimeTimeZone|null The previousEndDateTime
+     */
     public function getPreviousEndDateTime()
     {
         if (array_key_exists("previousEndDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["previousEndDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["previousEndDateTime"])) {
+            if (is_a($this->_propDict["previousEndDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["previousEndDateTime"])) {
                 return $this->_propDict["previousEndDateTime"];
             } else {
                 $this->_propDict["previousEndDateTime"] = new DateTimeTimeZone($this->_propDict["previousEndDateTime"]);
@@ -74,31 +73,29 @@ class EventMessageRequest extends EventMessage
         }
         return null;
     }
-
     /**
-    * Sets the previousEndDateTime
-    * If the meeting update changes the meeting end time, this property specifies the previous meeting end time.
-    *
-    * @param DateTimeTimeZone $val The previousEndDateTime
-    *
-    * @return EventMessageRequest
-    */
+     * Sets the previousEndDateTime
+     * If the meeting update changes the meeting end time, this property specifies the previous meeting end time.
+     *
+     * @param DateTimeTimeZone $val The previousEndDateTime
+     *
+     * @return EventMessageRequest
+     */
     public function setPreviousEndDateTime($val)
     {
         $this->_propDict["previousEndDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the previousLocation
-    * If the meeting update changes the meeting location, this property specifies the previous meeting location.
-    *
-    * @return Location|null The previousLocation
-    */
+     * Gets the previousLocation
+     * If the meeting update changes the meeting location, this property specifies the previous meeting location.
+     *
+     * @return Location|null The previousLocation
+     */
     public function getPreviousLocation()
     {
         if (array_key_exists("previousLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["previousLocation"], "\Beta\Microsoft\Graph\Model\Location") || is_null($this->_propDict["previousLocation"])) {
+            if (is_a($this->_propDict["previousLocation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Location") || is_null($this->_propDict["previousLocation"])) {
                 return $this->_propDict["previousLocation"];
             } else {
                 $this->_propDict["previousLocation"] = new Location($this->_propDict["previousLocation"]);
@@ -107,31 +104,29 @@ class EventMessageRequest extends EventMessage
         }
         return null;
     }
-
     /**
-    * Sets the previousLocation
-    * If the meeting update changes the meeting location, this property specifies the previous meeting location.
-    *
-    * @param Location $val The previousLocation
-    *
-    * @return EventMessageRequest
-    */
+     * Sets the previousLocation
+     * If the meeting update changes the meeting location, this property specifies the previous meeting location.
+     *
+     * @param Location $val The previousLocation
+     *
+     * @return EventMessageRequest
+     */
     public function setPreviousLocation($val)
     {
         $this->_propDict["previousLocation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the previousStartDateTime
-    * If the meeting update changes the meeting start time, this property specifies the previous meeting start time.
-    *
-    * @return DateTimeTimeZone|null The previousStartDateTime
-    */
+     * Gets the previousStartDateTime
+     * If the meeting update changes the meeting start time, this property specifies the previous meeting start time.
+     *
+     * @return DateTimeTimeZone|null The previousStartDateTime
+     */
     public function getPreviousStartDateTime()
     {
         if (array_key_exists("previousStartDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["previousStartDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["previousStartDateTime"])) {
+            if (is_a($this->_propDict["previousStartDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["previousStartDateTime"])) {
                 return $this->_propDict["previousStartDateTime"];
             } else {
                 $this->_propDict["previousStartDateTime"] = new DateTimeTimeZone($this->_propDict["previousStartDateTime"]);
@@ -140,27 +135,25 @@ class EventMessageRequest extends EventMessage
         }
         return null;
     }
-
     /**
-    * Sets the previousStartDateTime
-    * If the meeting update changes the meeting start time, this property specifies the previous meeting start time.
-    *
-    * @param DateTimeTimeZone $val The previousStartDateTime
-    *
-    * @return EventMessageRequest
-    */
+     * Sets the previousStartDateTime
+     * If the meeting update changes the meeting start time, this property specifies the previous meeting start time.
+     *
+     * @param DateTimeTimeZone $val The previousStartDateTime
+     *
+     * @return EventMessageRequest
+     */
     public function setPreviousStartDateTime($val)
     {
         $this->_propDict["previousStartDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the responseRequested
-    * Set to true if the sender would like the invitee to send a response to the requested meeting.
-    *
-    * @return bool|null The responseRequested
-    */
+     * Gets the responseRequested
+     * Set to true if the sender would like the invitee to send a response to the requested meeting.
+     *
+     * @return bool|null The responseRequested
+     */
     public function getResponseRequested()
     {
         if (array_key_exists("responseRequested", $this->_propDict)) {
@@ -169,19 +162,17 @@ class EventMessageRequest extends EventMessage
             return null;
         }
     }
-
     /**
-    * Sets the responseRequested
-    * Set to true if the sender would like the invitee to send a response to the requested meeting.
-    *
-    * @param bool $val The responseRequested
-    *
-    * @return EventMessageRequest
-    */
+     * Sets the responseRequested
+     * Set to true if the sender would like the invitee to send a response to the requested meeting.
+     *
+     * @param bool $val The responseRequested
+     *
+     * @return EventMessageRequest
+     */
     public function setResponseRequested($val)
     {
         $this->_propDict["responseRequested"] = boolval($val);
         return $this;
     }
-
 }

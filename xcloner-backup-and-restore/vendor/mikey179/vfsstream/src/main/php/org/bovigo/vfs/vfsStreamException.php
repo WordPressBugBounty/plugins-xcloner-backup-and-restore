@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Exception for vfsStream errors.
  *

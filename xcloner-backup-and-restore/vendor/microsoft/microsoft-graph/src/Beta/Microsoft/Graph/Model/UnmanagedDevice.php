@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnmanagedDevice class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnmanagedDevice extends Entity
 {
     /**
-    * Gets the deviceName
-    * Device name.
-    *
-    * @return string|null The deviceName
-    */
+     * Gets the deviceName
+     * Device name.
+     *
+     * @return string|null The deviceName
+     */
     public function getDeviceName()
     {
         if (array_key_exists("deviceName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceName
-    * Device name.
-    *
-    * @param string $val The value of the deviceName
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the deviceName
+     * Device name.
+     *
+     * @param string $val The value of the deviceName
+     *
+     * @return UnmanagedDevice
+     */
     public function setDeviceName($val)
     {
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
     /**
-    * Gets the domain
-    * Domain.
-    *
-    * @return string|null The domain
-    */
+     * Gets the domain
+     * Domain.
+     *
+     * @return string|null The domain
+     */
     public function getDomain()
     {
         if (array_key_exists("domain", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the domain
-    * Domain.
-    *
-    * @param string $val The value of the domain
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the domain
+     * Domain.
+     *
+     * @param string $val The value of the domain
+     *
+     * @return UnmanagedDevice
+     */
     public function setDomain($val)
     {
         $this->_propDict["domain"] = $val;
         return $this;
     }
     /**
-    * Gets the ipAddress
-    * IP address.
-    *
-    * @return string|null The ipAddress
-    */
+     * Gets the ipAddress
+     * IP address.
+     *
+     * @return string|null The ipAddress
+     */
     public function getIpAddress()
     {
         if (array_key_exists("ipAddress", $this->_propDict)) {
@@ -96,26 +96,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ipAddress
-    * IP address.
-    *
-    * @param string $val The value of the ipAddress
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the ipAddress
+     * IP address.
+     *
+     * @param string $val The value of the ipAddress
+     *
+     * @return UnmanagedDevice
+     */
     public function setIpAddress($val)
     {
         $this->_propDict["ipAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the lastLoggedOnUser
-    * Last logged on user.
-    *
-    * @return string|null The lastLoggedOnUser
-    */
+     * Gets the lastLoggedOnUser
+     * Last logged on user.
+     *
+     * @return string|null The lastLoggedOnUser
+     */
     public function getLastLoggedOnUser()
     {
         if (array_key_exists("lastLoggedOnUser", $this->_propDict)) {
@@ -124,31 +123,29 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastLoggedOnUser
-    * Last logged on user.
-    *
-    * @param string $val The value of the lastLoggedOnUser
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the lastLoggedOnUser
+     * Last logged on user.
+     *
+     * @param string $val The value of the lastLoggedOnUser
+     *
+     * @return UnmanagedDevice
+     */
     public function setLastLoggedOnUser($val)
     {
         $this->_propDict["lastLoggedOnUser"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastSeenDateTime
-    * Last seen date and time.
-    *
-    * @return \DateTime|null The lastSeenDateTime
-    */
+     * Gets the lastSeenDateTime
+     * Last seen date and time.
+     *
+     * @return \DateTime|null The lastSeenDateTime
+     */
     public function getLastSeenDateTime()
     {
         if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -157,26 +154,25 @@ class UnmanagedDevice extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSeenDateTime
-    * Last seen date and time.
-    *
-    * @param \DateTime $val The value to assign to the lastSeenDateTime
-    *
-    * @return UnmanagedDevice The UnmanagedDevice
-    */
+     * Sets the lastSeenDateTime
+     * Last seen date and time.
+     *
+     * @param \DateTime $val The value to assign to the lastSeenDateTime
+     *
+     * @return UnmanagedDevice The UnmanagedDevice
+     */
     public function setLastSeenDateTime($val)
     {
         $this->_propDict["lastSeenDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the location
-    * Location.
-    *
-    * @return string|null The location
-    */
+     * Gets the location
+     * Location.
+     *
+     * @return string|null The location
+     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
@@ -185,26 +181,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the location
-    * Location.
-    *
-    * @param string $val The value of the location
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the location
+     * Location.
+     *
+     * @param string $val The value of the location
+     *
+     * @return UnmanagedDevice
+     */
     public function setLocation($val)
     {
         $this->_propDict["location"] = $val;
         return $this;
     }
     /**
-    * Gets the macAddress
-    * MAC address.
-    *
-    * @return string|null The macAddress
-    */
+     * Gets the macAddress
+     * MAC address.
+     *
+     * @return string|null The macAddress
+     */
     public function getMacAddress()
     {
         if (array_key_exists("macAddress", $this->_propDict)) {
@@ -213,26 +208,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the macAddress
-    * MAC address.
-    *
-    * @param string $val The value of the macAddress
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the macAddress
+     * MAC address.
+     *
+     * @param string $val The value of the macAddress
+     *
+     * @return UnmanagedDevice
+     */
     public function setMacAddress($val)
     {
         $this->_propDict["macAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the manufacturer
-    * Manufacturer.
-    *
-    * @return string|null The manufacturer
-    */
+     * Gets the manufacturer
+     * Manufacturer.
+     *
+     * @return string|null The manufacturer
+     */
     public function getManufacturer()
     {
         if (array_key_exists("manufacturer", $this->_propDict)) {
@@ -241,26 +235,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the manufacturer
-    * Manufacturer.
-    *
-    * @param string $val The value of the manufacturer
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the manufacturer
+     * Manufacturer.
+     *
+     * @param string $val The value of the manufacturer
+     *
+     * @return UnmanagedDevice
+     */
     public function setManufacturer($val)
     {
         $this->_propDict["manufacturer"] = $val;
         return $this;
     }
     /**
-    * Gets the model
-    * Model.
-    *
-    * @return string|null The model
-    */
+     * Gets the model
+     * Model.
+     *
+     * @return string|null The model
+     */
     public function getModel()
     {
         if (array_key_exists("model", $this->_propDict)) {
@@ -269,26 +262,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the model
-    * Model.
-    *
-    * @param string $val The value of the model
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the model
+     * Model.
+     *
+     * @param string $val The value of the model
+     *
+     * @return UnmanagedDevice
+     */
     public function setModel($val)
     {
         $this->_propDict["model"] = $val;
         return $this;
     }
     /**
-    * Gets the os
-    * Operating system.
-    *
-    * @return string|null The os
-    */
+     * Gets the os
+     * Operating system.
+     *
+     * @return string|null The os
+     */
     public function getOs()
     {
         if (array_key_exists("os", $this->_propDict)) {
@@ -297,26 +289,25 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the os
-    * Operating system.
-    *
-    * @param string $val The value of the os
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the os
+     * Operating system.
+     *
+     * @param string $val The value of the os
+     *
+     * @return UnmanagedDevice
+     */
     public function setOs($val)
     {
         $this->_propDict["os"] = $val;
         return $this;
     }
     /**
-    * Gets the osVersion
-    * Operating system version.
-    *
-    * @return string|null The osVersion
-    */
+     * Gets the osVersion
+     * Operating system version.
+     *
+     * @return string|null The osVersion
+     */
     public function getOsVersion()
     {
         if (array_key_exists("osVersion", $this->_propDict)) {
@@ -325,15 +316,14 @@ class UnmanagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the osVersion
-    * Operating system version.
-    *
-    * @param string $val The value of the osVersion
-    *
-    * @return UnmanagedDevice
-    */
+     * Sets the osVersion
+     * Operating system version.
+     *
+     * @param string $val The value of the osVersion
+     *
+     * @return UnmanagedDevice
+     */
     public function setOsVersion($val)
     {
         $this->_propDict["osVersion"] = $val;

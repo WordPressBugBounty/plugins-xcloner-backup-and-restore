@@ -1,22 +1,21 @@
 <?php
-namespace Aws\Api;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Api;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Represents a list shape.
  */
 class ListShape extends Shape
 {
     private $member;
-
     public function __construct(array $definition, ShapeMap $shapeMap)
     {
         $definition['type'] = 'list';
         parent::__construct($definition, $shapeMap);
     }
-
     /**
      * @return Shape
      * @throws \RuntimeException if no member is specified
@@ -27,12 +26,8 @@ class ListShape extends Shape
             if (!isset($this->definition['member'])) {
                 throw new \RuntimeException('No member attribute specified');
             }
-            $this->member = Shape::create(
-                $this->definition['member'],
-                $this->shapeMap
-            );
+            $this->member = Shape::create($this->definition['member'], $this->shapeMap);
         }
-
         return $this->member;
     }
 }

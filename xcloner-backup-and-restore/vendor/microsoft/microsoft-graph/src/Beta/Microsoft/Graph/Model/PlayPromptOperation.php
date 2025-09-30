@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlayPromptOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlayPromptOperation extends CommsOperation
 {
     /**
-    * Gets the completionReason
-    * Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
-    *
-    * @return PlayPromptCompletionReason|null The completionReason
-    */
+     * Gets the completionReason
+     * Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
+     *
+     * @return PlayPromptCompletionReason|null The completionReason
+     */
     public function getCompletionReason()
     {
         if (array_key_exists("completionReason", $this->_propDict)) {
-            if (is_a($this->_propDict["completionReason"], "\Beta\Microsoft\Graph\Model\PlayPromptCompletionReason") || is_null($this->_propDict["completionReason"])) {
+            if (is_a($this->_propDict["completionReason"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PlayPromptCompletionReason") || is_null($this->_propDict["completionReason"])) {
                 return $this->_propDict["completionReason"];
             } else {
                 $this->_propDict["completionReason"] = new PlayPromptCompletionReason($this->_propDict["completionReason"]);
@@ -45,19 +46,17 @@ class PlayPromptOperation extends CommsOperation
         }
         return null;
     }
-
     /**
-    * Sets the completionReason
-    * Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
-    *
-    * @param PlayPromptCompletionReason $val The completionReason
-    *
-    * @return PlayPromptOperation
-    */
+     * Sets the completionReason
+     * Possible values are: unknown, completedSuccessfully, mediaOperationCanceled.
+     *
+     * @param PlayPromptCompletionReason $val The completionReason
+     *
+     * @return PlayPromptOperation
+     */
     public function setCompletionReason($val)
     {
         $this->_propDict["completionReason"] = $val;
         return $this;
     }
-
 }

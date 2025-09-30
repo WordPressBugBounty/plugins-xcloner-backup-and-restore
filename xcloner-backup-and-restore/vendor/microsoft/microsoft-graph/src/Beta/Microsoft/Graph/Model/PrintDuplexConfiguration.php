@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * PrintDuplexConfiguration class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class PrintDuplexConfiguration extends Enum
 {
     /**
-    * The Enum PrintDuplexConfiguration
-    */
+     * The Enum PrintDuplexConfiguration
+     */
     const TWO_SIDED_LONG_EDGE = "twoSidedLongEdge";
     const TWO_SIDED_SHORT_EDGE = "twoSidedShortEdge";
     const ONE_SIDED = "oneSided";

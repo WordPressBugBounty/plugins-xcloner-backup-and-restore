@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\ITip;
+namespace XCloner\Sabre\VObject\ITip;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * SameOrganizerForAllComponentsException.
  *

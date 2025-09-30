@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RegistryValueEvidence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RegistryValueEvidence extends AlertEvidence
 {
     /**
-    * Gets the registryHive
-    * Registry hive of the key that the recorded action was applied to.
-    *
-    * @return string|null The registryHive
-    */
+     * Gets the registryHive
+     * Registry hive of the key that the recorded action was applied to.
+     *
+     * @return string|null The registryHive
+     */
     public function getRegistryHive()
     {
         if (array_key_exists("registryHive", $this->_propDict)) {
@@ -40,26 +42,25 @@ class RegistryValueEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the registryHive
-    * Registry hive of the key that the recorded action was applied to.
-    *
-    * @param string $val The value of the registryHive
-    *
-    * @return RegistryValueEvidence
-    */
+     * Sets the registryHive
+     * Registry hive of the key that the recorded action was applied to.
+     *
+     * @param string $val The value of the registryHive
+     *
+     * @return RegistryValueEvidence
+     */
     public function setRegistryHive($val)
     {
         $this->_propDict["registryHive"] = $val;
         return $this;
     }
     /**
-    * Gets the registryKey
-    * Registry key that the recorded action was applied to.
-    *
-    * @return string|null The registryKey
-    */
+     * Gets the registryKey
+     * Registry key that the recorded action was applied to.
+     *
+     * @return string|null The registryKey
+     */
     public function getRegistryKey()
     {
         if (array_key_exists("registryKey", $this->_propDict)) {
@@ -68,26 +69,25 @@ class RegistryValueEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the registryKey
-    * Registry key that the recorded action was applied to.
-    *
-    * @param string $val The value of the registryKey
-    *
-    * @return RegistryValueEvidence
-    */
+     * Sets the registryKey
+     * Registry key that the recorded action was applied to.
+     *
+     * @param string $val The value of the registryKey
+     *
+     * @return RegistryValueEvidence
+     */
     public function setRegistryKey($val)
     {
         $this->_propDict["registryKey"] = $val;
         return $this;
     }
     /**
-    * Gets the registryValue
-    * Data of the registry value that the recorded action was applied to.
-    *
-    * @return string|null The registryValue
-    */
+     * Gets the registryValue
+     * Data of the registry value that the recorded action was applied to.
+     *
+     * @return string|null The registryValue
+     */
     public function getRegistryValue()
     {
         if (array_key_exists("registryValue", $this->_propDict)) {
@@ -96,26 +96,25 @@ class RegistryValueEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the registryValue
-    * Data of the registry value that the recorded action was applied to.
-    *
-    * @param string $val The value of the registryValue
-    *
-    * @return RegistryValueEvidence
-    */
+     * Sets the registryValue
+     * Data of the registry value that the recorded action was applied to.
+     *
+     * @param string $val The value of the registryValue
+     *
+     * @return RegistryValueEvidence
+     */
     public function setRegistryValue($val)
     {
         $this->_propDict["registryValue"] = $val;
         return $this;
     }
     /**
-    * Gets the registryValueName
-    * Name of the registry value that the recorded action was applied to.
-    *
-    * @return string|null The registryValueName
-    */
+     * Gets the registryValueName
+     * Name of the registry value that the recorded action was applied to.
+     *
+     * @return string|null The registryValueName
+     */
     public function getRegistryValueName()
     {
         if (array_key_exists("registryValueName", $this->_propDict)) {
@@ -124,26 +123,25 @@ class RegistryValueEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the registryValueName
-    * Name of the registry value that the recorded action was applied to.
-    *
-    * @param string $val The value of the registryValueName
-    *
-    * @return RegistryValueEvidence
-    */
+     * Sets the registryValueName
+     * Name of the registry value that the recorded action was applied to.
+     *
+     * @param string $val The value of the registryValueName
+     *
+     * @return RegistryValueEvidence
+     */
     public function setRegistryValueName($val)
     {
         $this->_propDict["registryValueName"] = $val;
         return $this;
     }
     /**
-    * Gets the registryValueType
-    * Data type, such as binary or string, of the registry value that the recorded action was applied to.
-    *
-    * @return string|null The registryValueType
-    */
+     * Gets the registryValueType
+     * Data type, such as binary or string, of the registry value that the recorded action was applied to.
+     *
+     * @return string|null The registryValueType
+     */
     public function getRegistryValueType()
     {
         if (array_key_exists("registryValueType", $this->_propDict)) {
@@ -152,15 +150,14 @@ class RegistryValueEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the registryValueType
-    * Data type, such as binary or string, of the registry value that the recorded action was applied to.
-    *
-    * @param string $val The value of the registryValueType
-    *
-    * @return RegistryValueEvidence
-    */
+     * Sets the registryValueType
+     * Data type, such as binary or string, of the registry value that the recorded action was applied to.
+     *
+     * @param string $val The value of the registryValueType
+     *
+     * @return RegistryValueEvidence
+     */
     public function setRegistryValueType($val)
     {
         $this->_propDict["registryValueType"] = $val;

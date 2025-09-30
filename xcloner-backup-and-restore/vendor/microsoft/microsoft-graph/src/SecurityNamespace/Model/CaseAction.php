@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * CaseAction class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class CaseAction extends Enum
 {
     /**
-    * The Enum CaseAction
-    */
+     * The Enum CaseAction
+     */
     const CONTENT_EXPORT = "contentExport";
     const APPLY_TAGS = "applyTags";
     const CONVERT_TO_PDF = "convertToPdf";

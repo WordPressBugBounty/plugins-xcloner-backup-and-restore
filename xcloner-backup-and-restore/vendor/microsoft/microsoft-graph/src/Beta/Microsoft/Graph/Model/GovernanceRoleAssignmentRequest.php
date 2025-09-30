@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GovernanceRoleAssignmentRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GovernanceRoleAssignmentRequest extends Entity
 {
     /**
-    * Gets the assignmentState
-    * Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
-    *
-    * @return string|null The assignmentState
-    */
+     * Gets the assignmentState
+     * Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
+     *
+     * @return string|null The assignmentState
+     */
     public function getAssignmentState()
     {
         if (array_key_exists("assignmentState", $this->_propDict)) {
@@ -41,27 +42,25 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the assignmentState
-    * Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
-    *
-    * @param string $val The assignmentState
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the assignmentState
+     * Required. The state of the assignment. The possible values are: Eligible (for eligible assignment),  Active (if it is directly assigned), Active (by administrators, or activated on an eligible assignment by the users).
+     *
+     * @param string $val The assignmentState
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setAssignmentState($val)
     {
         $this->_propDict["assignmentState"] = $val;
         return $this;
     }
-
     /**
-    * Gets the linkedEligibleRoleAssignmentId
-    * If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.
-    *
-    * @return string|null The linkedEligibleRoleAssignmentId
-    */
+     * Gets the linkedEligibleRoleAssignmentId
+     * If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.
+     *
+     * @return string|null The linkedEligibleRoleAssignmentId
+     */
     public function getLinkedEligibleRoleAssignmentId()
     {
         if (array_key_exists("linkedEligibleRoleAssignmentId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the linkedEligibleRoleAssignmentId
-    * If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.
-    *
-    * @param string $val The linkedEligibleRoleAssignmentId
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the linkedEligibleRoleAssignmentId
+     * If this is a request for role activation, it represents the id of the eligible assignment being referred; Otherwise, the value is null.
+     *
+     * @param string $val The linkedEligibleRoleAssignmentId
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setLinkedEligibleRoleAssignmentId($val)
     {
         $this->_propDict["linkedEligibleRoleAssignmentId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the reason
-    * A message provided by users and administrators when create the request about why it is needed.
-    *
-    * @return string|null The reason
-    */
+     * Gets the reason
+     * A message provided by users and administrators when create the request about why it is needed.
+     *
+     * @return string|null The reason
+     */
     public function getReason()
     {
         if (array_key_exists("reason", $this->_propDict)) {
@@ -99,31 +96,29 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the reason
-    * A message provided by users and administrators when create the request about why it is needed.
-    *
-    * @param string $val The reason
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the reason
+     * A message provided by users and administrators when create the request about why it is needed.
+     *
+     * @param string $val The reason
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setReason($val)
     {
         $this->_propDict["reason"] = $val;
         return $this;
     }
-
     /**
-    * Gets the requestedDateTime
-    * Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The requestedDateTime
-    */
+     * Gets the requestedDateTime
+     * Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The requestedDateTime
+     */
     public function getRequestedDateTime()
     {
         if (array_key_exists("requestedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["requestedDateTime"], "\DateTime") || is_null($this->_propDict["requestedDateTime"])) {
+            if (is_a($this->_propDict["requestedDateTime"], "\\DateTime") || is_null($this->_propDict["requestedDateTime"])) {
                 return $this->_propDict["requestedDateTime"];
             } else {
                 $this->_propDict["requestedDateTime"] = new \DateTime($this->_propDict["requestedDateTime"]);
@@ -132,27 +127,25 @@ class GovernanceRoleAssignmentRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the requestedDateTime
-    * Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The requestedDateTime
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the requestedDateTime
+     * Read-only. The request create time. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The requestedDateTime
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setRequestedDateTime($val)
     {
         $this->_propDict["requestedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceId
-    * Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.
-    *
-    * @return string|null The resourceId
-    */
+     * Gets the resourceId
+     * Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.
+     *
+     * @return string|null The resourceId
+     */
     public function getResourceId()
     {
         if (array_key_exists("resourceId", $this->_propDict)) {
@@ -161,27 +154,25 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceId
-    * Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.
-    *
-    * @param string $val The resourceId
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the resourceId
+     * Required. The unique identifier of the Azure resource that is associated with the role assignment request. Azure resources can include subscriptions, resource groups, virtual machines, and SQL databases.
+     *
+     * @param string $val The resourceId
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setResourceId($val)
     {
         $this->_propDict["resourceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleDefinitionId
-    * Required. The identifier of the Azure role definition that the role assignment request is associated with.
-    *
-    * @return string|null The roleDefinitionId
-    */
+     * Gets the roleDefinitionId
+     * Required. The identifier of the Azure role definition that the role assignment request is associated with.
+     *
+     * @return string|null The roleDefinitionId
+     */
     public function getRoleDefinitionId()
     {
         if (array_key_exists("roleDefinitionId", $this->_propDict)) {
@@ -190,31 +181,29 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleDefinitionId
-    * Required. The identifier of the Azure role definition that the role assignment request is associated with.
-    *
-    * @param string $val The roleDefinitionId
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the roleDefinitionId
+     * Required. The identifier of the Azure role definition that the role assignment request is associated with.
+     *
+     * @param string $val The roleDefinitionId
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setRoleDefinitionId($val)
     {
         $this->_propDict["roleDefinitionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the schedule
-    * The schedule object of the role assignment request.
-    *
-    * @return GovernanceSchedule|null The schedule
-    */
+     * Gets the schedule
+     * The schedule object of the role assignment request.
+     *
+     * @return GovernanceSchedule|null The schedule
+     */
     public function getSchedule()
     {
         if (array_key_exists("schedule", $this->_propDict)) {
-            if (is_a($this->_propDict["schedule"], "\Beta\Microsoft\Graph\Model\GovernanceSchedule") || is_null($this->_propDict["schedule"])) {
+            if (is_a($this->_propDict["schedule"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceSchedule") || is_null($this->_propDict["schedule"])) {
                 return $this->_propDict["schedule"];
             } else {
                 $this->_propDict["schedule"] = new GovernanceSchedule($this->_propDict["schedule"]);
@@ -223,31 +212,29 @@ class GovernanceRoleAssignmentRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the schedule
-    * The schedule object of the role assignment request.
-    *
-    * @param GovernanceSchedule $val The schedule
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the schedule
+     * The schedule object of the role assignment request.
+     *
+     * @param GovernanceSchedule $val The schedule
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setSchedule($val)
     {
         $this->_propDict["schedule"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * The status of the role assignment request.
-    *
-    * @return GovernanceRoleAssignmentRequestStatus|null The status
-    */
+     * Gets the status
+     * The status of the role assignment request.
+     *
+     * @return GovernanceRoleAssignmentRequestStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\GovernanceRoleAssignmentRequestStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceRoleAssignmentRequestStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new GovernanceRoleAssignmentRequestStatus($this->_propDict["status"]);
@@ -256,27 +243,25 @@ class GovernanceRoleAssignmentRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * The status of the role assignment request.
-    *
-    * @param GovernanceRoleAssignmentRequestStatus $val The status
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the status
+     * The status of the role assignment request.
+     *
+     * @param GovernanceRoleAssignmentRequestStatus $val The status
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the subjectId
-    * Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.
-    *
-    * @return string|null The subjectId
-    */
+     * Gets the subjectId
+     * Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.
+     *
+     * @return string|null The subjectId
+     */
     public function getSubjectId()
     {
         if (array_key_exists("subjectId", $this->_propDict)) {
@@ -285,27 +270,25 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subjectId
-    * Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.
-    *
-    * @param string $val The subjectId
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the subjectId
+     * Required. The unique identifier of the principal or subject that the role assignment request is associated with. Principals can be users, groups, or service principals.
+     *
+     * @param string $val The subjectId
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setSubjectId($val)
     {
         $this->_propDict["subjectId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -314,31 +297,29 @@ class GovernanceRoleAssignmentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.
-    *
-    * @param string $val The type
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the type
+     * Required. Representing the type of the operation on the role assignment. The possible values are: AdminAdd , UserAdd , AdminUpdate , AdminRemove , UserRemove , UserExtend , AdminExtend , UserRenew , AdminRenew.
+     *
+     * @param string $val The type
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resource
-    * Read-only. The resource that the request aims to.
-    *
-    * @return GovernanceResource|null The resource
-    */
+     * Gets the resource
+     * Read-only. The resource that the request aims to.
+     *
+     * @return GovernanceResource|null The resource
+     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\GovernanceResource") || is_null($this->_propDict["resource"])) {
+            if (is_a($this->_propDict["resource"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceResource") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new GovernanceResource($this->_propDict["resource"]);
@@ -347,31 +328,29 @@ class GovernanceRoleAssignmentRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resource
-    * Read-only. The resource that the request aims to.
-    *
-    * @param GovernanceResource $val The resource
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the resource
+     * Read-only. The resource that the request aims to.
+     *
+     * @param GovernanceResource $val The resource
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setResource($val)
     {
         $this->_propDict["resource"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleDefinition
-    * Read-only. The role definition that the request aims to.
-    *
-    * @return GovernanceRoleDefinition|null The roleDefinition
-    */
+     * Gets the roleDefinition
+     * Read-only. The role definition that the request aims to.
+     *
+     * @return GovernanceRoleDefinition|null The roleDefinition
+     */
     public function getRoleDefinition()
     {
         if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\GovernanceRoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
+            if (is_a($this->_propDict["roleDefinition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceRoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new GovernanceRoleDefinition($this->_propDict["roleDefinition"]);
@@ -380,31 +359,29 @@ class GovernanceRoleAssignmentRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the roleDefinition
-    * Read-only. The role definition that the request aims to.
-    *
-    * @param GovernanceRoleDefinition $val The roleDefinition
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the roleDefinition
+     * Read-only. The role definition that the request aims to.
+     *
+     * @param GovernanceRoleDefinition $val The roleDefinition
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setRoleDefinition($val)
     {
         $this->_propDict["roleDefinition"] = $val;
         return $this;
     }
-
     /**
-    * Gets the subject
-    * Read-only. The user/group principal.
-    *
-    * @return GovernanceSubject|null The subject
-    */
+     * Gets the subject
+     * Read-only. The user/group principal.
+     *
+     * @return GovernanceSubject|null The subject
+     */
     public function getSubject()
     {
         if (array_key_exists("subject", $this->_propDict)) {
-            if (is_a($this->_propDict["subject"], "\Beta\Microsoft\Graph\Model\GovernanceSubject") || is_null($this->_propDict["subject"])) {
+            if (is_a($this->_propDict["subject"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceSubject") || is_null($this->_propDict["subject"])) {
                 return $this->_propDict["subject"];
             } else {
                 $this->_propDict["subject"] = new GovernanceSubject($this->_propDict["subject"]);
@@ -413,19 +390,17 @@ class GovernanceRoleAssignmentRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the subject
-    * Read-only. The user/group principal.
-    *
-    * @param GovernanceSubject $val The subject
-    *
-    * @return GovernanceRoleAssignmentRequest
-    */
+     * Sets the subject
+     * Read-only. The user/group principal.
+     *
+     * @param GovernanceSubject $val The subject
+     *
+     * @return GovernanceRoleAssignmentRequest
+     */
     public function setSubject($val)
     {
         $this->_propDict["subject"] = $val;
         return $this;
     }
-
 }

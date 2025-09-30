@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOsVppApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOsVppApp extends MobileApp
 {
     /**
-    * Gets the appStoreUrl
-    * The store URL.
-    *
-    * @return string|null The appStoreUrl
-    */
+     * Gets the appStoreUrl
+     * The store URL.
+     *
+     * @return string|null The appStoreUrl
+     */
     public function getAppStoreUrl()
     {
         if (array_key_exists("appStoreUrl", $this->_propDict)) {
@@ -41,27 +42,25 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appStoreUrl
-    * The store URL.
-    *
-    * @param string $val The appStoreUrl
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the appStoreUrl
+     * The store URL.
+     *
+     * @param string $val The appStoreUrl
+     *
+     * @return MacOsVppApp
+     */
     public function setAppStoreUrl($val)
     {
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the bundleId
-    * The Identity Name.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * The Identity Name.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -70,31 +69,29 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * The Identity Name.
-    *
-    * @param string $val The bundleId
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the bundleId
+     * The Identity Name.
+     *
+     * @param string $val The bundleId
+     *
+     * @return MacOsVppApp
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the licensingType
-    * The supported License Type.
-    *
-    * @return VppLicensingType|null The licensingType
-    */
+     * Gets the licensingType
+     * The supported License Type.
+     *
+     * @return VppLicensingType|null The licensingType
+     */
     public function getLicensingType()
     {
         if (array_key_exists("licensingType", $this->_propDict)) {
-            if (is_a($this->_propDict["licensingType"], "\Beta\Microsoft\Graph\Model\VppLicensingType") || is_null($this->_propDict["licensingType"])) {
+            if (is_a($this->_propDict["licensingType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VppLicensingType") || is_null($this->_propDict["licensingType"])) {
                 return $this->_propDict["licensingType"];
             } else {
                 $this->_propDict["licensingType"] = new VppLicensingType($this->_propDict["licensingType"]);
@@ -103,31 +100,29 @@ class MacOsVppApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the licensingType
-    * The supported License Type.
-    *
-    * @param VppLicensingType $val The licensingType
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the licensingType
+     * The supported License Type.
+     *
+     * @param VppLicensingType $val The licensingType
+     *
+     * @return MacOsVppApp
+     */
     public function setLicensingType($val)
     {
         $this->_propDict["licensingType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the releaseDateTime
-    * The VPP application release date and time.
-    *
-    * @return \DateTime|null The releaseDateTime
-    */
+     * Gets the releaseDateTime
+     * The VPP application release date and time.
+     *
+     * @return \DateTime|null The releaseDateTime
+     */
     public function getReleaseDateTime()
     {
         if (array_key_exists("releaseDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["releaseDateTime"], "\DateTime") || is_null($this->_propDict["releaseDateTime"])) {
+            if (is_a($this->_propDict["releaseDateTime"], "\\DateTime") || is_null($this->_propDict["releaseDateTime"])) {
                 return $this->_propDict["releaseDateTime"];
             } else {
                 $this->_propDict["releaseDateTime"] = new \DateTime($this->_propDict["releaseDateTime"]);
@@ -136,57 +131,52 @@ class MacOsVppApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the releaseDateTime
-    * The VPP application release date and time.
-    *
-    * @param \DateTime $val The releaseDateTime
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the releaseDateTime
+     * The VPP application release date and time.
+     *
+     * @param \DateTime $val The releaseDateTime
+     *
+     * @return MacOsVppApp
+     */
     public function setReleaseDateTime($val)
     {
         $this->_propDict["releaseDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the revokeLicenseActionResults
-    * Results of revoke license actions on this app.
+     * Results of revoke license actions on this app.
      *
      * @return array|null The revokeLicenseActionResults
      */
     public function getRevokeLicenseActionResults()
     {
         if (array_key_exists("revokeLicenseActionResults", $this->_propDict)) {
-           return $this->_propDict["revokeLicenseActionResults"];
+            return $this->_propDict["revokeLicenseActionResults"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the revokeLicenseActionResults
-    * Results of revoke license actions on this app.
-    *
-    * @param MacOsVppAppRevokeLicensesActionResult[] $val The revokeLicenseActionResults
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the revokeLicenseActionResults
+     * Results of revoke license actions on this app.
+     *
+     * @param MacOsVppAppRevokeLicensesActionResult[] $val The revokeLicenseActionResults
+     *
+     * @return MacOsVppApp
+     */
     public function setRevokeLicenseActionResults($val)
     {
         $this->_propDict["revokeLicenseActionResults"] = $val;
         return $this;
     }
-
     /**
-    * Gets the totalLicenseCount
-    * The total number of VPP licenses.
-    *
-    * @return int|null The totalLicenseCount
-    */
+     * Gets the totalLicenseCount
+     * The total number of VPP licenses.
+     *
+     * @return int|null The totalLicenseCount
+     */
     public function getTotalLicenseCount()
     {
         if (array_key_exists("totalLicenseCount", $this->_propDict)) {
@@ -195,27 +185,25 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the totalLicenseCount
-    * The total number of VPP licenses.
-    *
-    * @param int $val The totalLicenseCount
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the totalLicenseCount
+     * The total number of VPP licenses.
+     *
+     * @param int $val The totalLicenseCount
+     *
+     * @return MacOsVppApp
+     */
     public function setTotalLicenseCount($val)
     {
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @return int|null The usedLicenseCount
-    */
+     * Gets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @return int|null The usedLicenseCount
+     */
     public function getUsedLicenseCount()
     {
         if (array_key_exists("usedLicenseCount", $this->_propDict)) {
@@ -224,31 +212,29 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @param int $val The usedLicenseCount
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @param int $val The usedLicenseCount
+     *
+     * @return MacOsVppApp
+     */
     public function setUsedLicenseCount($val)
     {
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the vppTokenAccountType
-    * The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
-    *
-    * @return VppTokenAccountType|null The vppTokenAccountType
-    */
+     * Gets the vppTokenAccountType
+     * The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
+     *
+     * @return VppTokenAccountType|null The vppTokenAccountType
+     */
     public function getVppTokenAccountType()
     {
         if (array_key_exists("vppTokenAccountType", $this->_propDict)) {
-            if (is_a($this->_propDict["vppTokenAccountType"], "\Beta\Microsoft\Graph\Model\VppTokenAccountType") || is_null($this->_propDict["vppTokenAccountType"])) {
+            if (is_a($this->_propDict["vppTokenAccountType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VppTokenAccountType") || is_null($this->_propDict["vppTokenAccountType"])) {
                 return $this->_propDict["vppTokenAccountType"];
             } else {
                 $this->_propDict["vppTokenAccountType"] = new VppTokenAccountType($this->_propDict["vppTokenAccountType"]);
@@ -257,27 +243,25 @@ class MacOsVppApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the vppTokenAccountType
-    * The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
-    *
-    * @param VppTokenAccountType $val The vppTokenAccountType
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the vppTokenAccountType
+     * The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.
+     *
+     * @param VppTokenAccountType $val The vppTokenAccountType
+     *
+     * @return MacOsVppApp
+     */
     public function setVppTokenAccountType($val)
     {
         $this->_propDict["vppTokenAccountType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vppTokenAppleId
-    * The Apple Id associated with the given Apple Volume Purchase Program Token.
-    *
-    * @return string|null The vppTokenAppleId
-    */
+     * Gets the vppTokenAppleId
+     * The Apple Id associated with the given Apple Volume Purchase Program Token.
+     *
+     * @return string|null The vppTokenAppleId
+     */
     public function getVppTokenAppleId()
     {
         if (array_key_exists("vppTokenAppleId", $this->_propDict)) {
@@ -286,27 +270,25 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the vppTokenAppleId
-    * The Apple Id associated with the given Apple Volume Purchase Program Token.
-    *
-    * @param string $val The vppTokenAppleId
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the vppTokenAppleId
+     * The Apple Id associated with the given Apple Volume Purchase Program Token.
+     *
+     * @param string $val The vppTokenAppleId
+     *
+     * @return MacOsVppApp
+     */
     public function setVppTokenAppleId($val)
     {
         $this->_propDict["vppTokenAppleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vppTokenId
-    * Identifier of the VPP token associated with this app.
-    *
-    * @return string|null The vppTokenId
-    */
+     * Gets the vppTokenId
+     * Identifier of the VPP token associated with this app.
+     *
+     * @return string|null The vppTokenId
+     */
     public function getVppTokenId()
     {
         if (array_key_exists("vppTokenId", $this->_propDict)) {
@@ -315,27 +297,25 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the vppTokenId
-    * Identifier of the VPP token associated with this app.
-    *
-    * @param string $val The vppTokenId
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the vppTokenId
+     * Identifier of the VPP token associated with this app.
+     *
+     * @param string $val The vppTokenId
+     *
+     * @return MacOsVppApp
+     */
     public function setVppTokenId($val)
     {
         $this->_propDict["vppTokenId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vppTokenOrganizationName
-    * The organization associated with the Apple Volume Purchase Program Token
-    *
-    * @return string|null The vppTokenOrganizationName
-    */
+     * Gets the vppTokenOrganizationName
+     * The organization associated with the Apple Volume Purchase Program Token
+     *
+     * @return string|null The vppTokenOrganizationName
+     */
     public function getVppTokenOrganizationName()
     {
         if (array_key_exists("vppTokenOrganizationName", $this->_propDict)) {
@@ -344,49 +324,44 @@ class MacOsVppApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the vppTokenOrganizationName
-    * The organization associated with the Apple Volume Purchase Program Token
-    *
-    * @param string $val The vppTokenOrganizationName
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the vppTokenOrganizationName
+     * The organization associated with the Apple Volume Purchase Program Token
+     *
+     * @param string $val The vppTokenOrganizationName
+     *
+     * @return MacOsVppApp
+     */
     public function setVppTokenOrganizationName($val)
     {
         $this->_propDict["vppTokenOrganizationName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignedLicenses
-    * The licenses assigned to this app.
+     * The licenses assigned to this app.
      *
      * @return array|null The assignedLicenses
      */
     public function getAssignedLicenses()
     {
         if (array_key_exists("assignedLicenses", $this->_propDict)) {
-           return $this->_propDict["assignedLicenses"];
+            return $this->_propDict["assignedLicenses"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignedLicenses
-    * The licenses assigned to this app.
-    *
-    * @param MacOsVppAppAssignedLicense[] $val The assignedLicenses
-    *
-    * @return MacOsVppApp
-    */
+     * Sets the assignedLicenses
+     * The licenses assigned to this app.
+     *
+     * @param MacOsVppAppAssignedLicense[] $val The assignedLicenses
+     *
+     * @return MacOsVppApp
+     */
     public function setAssignedLicenses($val)
     {
         $this->_propDict["assignedLicenses"] = $val;
         return $this;
     }
-
 }

@@ -1,33 +1,30 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class Noop extends AbstractCache
 {
     /**
      * {@inheritdoc}
      */
-    protected $autosave = false;
-
+    protected $autosave = \false;
     /**
      * {@inheritdoc}
      */
-    public function updateObject($path, array $object, $autosave = false)
+    public function updateObject($path, array $object, $autosave = \false)
     {
         return $object;
     }
-
     /**
      * {@inheritdoc}
      */
     public function isComplete($dirname, $recursive)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -35,31 +32,27 @@ class Noop extends AbstractCache
     {
         //
     }
-
     /**
      * {@inheritdoc}
      */
     public function copy($path, $newpath)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function rename($path, $newpath)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function storeContents($directory, array $contents, $recursive = false)
+    public function storeContents($directory, array $contents, $recursive = \false)
     {
         return $contents;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -67,7 +60,6 @@ class Noop extends AbstractCache
     {
         return $this;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -75,7 +67,6 @@ class Noop extends AbstractCache
     {
         //
     }
-
     /**
      * {@inheritdoc}
      */
@@ -83,7 +74,6 @@ class Noop extends AbstractCache
     {
         //
     }
-
     /**
      * {@inheritdoc}
      */
@@ -91,7 +81,6 @@ class Noop extends AbstractCache
     {
         //
     }
-
     /**
      * {@inheritdoc}
      */
@@ -99,7 +88,6 @@ class Noop extends AbstractCache
     {
         //
     }
-
     /**
      * {@inheritdoc}
      */
@@ -107,68 +95,60 @@ class Noop extends AbstractCache
     {
         return;
     }
-
     /**
      * {@inheritdoc}
      */
     public function read($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function readStream($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function listContents($directory = '', $recursive = false)
+    public function listContents($directory = '', $recursive = \false)
     {
         return [];
     }
-
     /**
      * {@inheritdoc}
      */
     public function getMetadata($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function getSize($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function getMimetype($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function getTimestamp($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function getVisibility($path)
     {
-        return false;
+        return \false;
     }
 }

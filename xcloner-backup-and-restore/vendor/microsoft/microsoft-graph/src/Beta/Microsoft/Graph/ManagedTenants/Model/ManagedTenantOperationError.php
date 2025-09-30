@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedTenantOperationError class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ManagedTenantOperationError extends \Beta\Microsoft\Graph\Model\Entity
+class ManagedTenantOperationError extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the error
-    * The error message for the exception.
-    *
-    * @return string|null The error
-    */
+     * Gets the error
+     * The error message for the exception.
+     *
+     * @return string|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ManagedTenantOperationError extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the error
-    * The error message for the exception.
-    *
-    * @param string $val The value of the error
-    *
-    * @return ManagedTenantOperationError
-    */
+     * Sets the error
+     * The error message for the exception.
+     *
+     * @param string $val The value of the error
+     *
+     * @return ManagedTenantOperationError
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
     /**
-    * Gets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ManagedTenantOperationError extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant.
-    *
-    * @param string $val The value of the tenantId
-    *
-    * @return ManagedTenantOperationError
-    */
+     * Sets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant.
+     *
+     * @param string $val The value of the tenantId
+     *
+     * @return ManagedTenantOperationError
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;

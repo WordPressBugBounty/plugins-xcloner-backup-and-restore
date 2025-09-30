@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\HTTP;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\HTTP;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * HTTP Digest authentication backend class.
  *
@@ -34,14 +32,12 @@ abstract class AbstractDigest implements BackendInterface
      * @var string
      */
     protected $realm = 'SabreDAV';
-
     /**
      * This is the prefix that will be used to generate principal urls.
      *
      * @var string
      */
     protected $principalPrefix = 'principals/';
-
     /**
      * Sets the authentication realm for this backend.
      *
@@ -55,7 +51,6 @@ abstract class AbstractDigest implements BackendInterface
     {
         $this->realm = $realm;
     }
-
     /**
      * Returns a users digest hash based on the username and realm.
      *
@@ -67,7 +62,6 @@ abstract class AbstractDigest implements BackendInterface
      * @return string|null
      */
     abstract public function getDigestHash($realm, $username);
-
     /**
      * When this method is called, the backend must check if authentication was
      * successful.
@@ -96,37 +90,27 @@ abstract class AbstractDigest implements BackendInterface
      */
     public function check(RequestInterface $request, ResponseInterface $response)
     {
-        $digest = new HTTP\Auth\Digest(
-            $this->realm,
-            $request,
-            $response
-        );
+        $digest = new HTTP\Auth\Digest($this->realm, $request, $response);
         $digest->init();
-
         $username = $digest->getUsername();
-
         // No username was given
         if (!$username) {
-            return [false, "No 'Authorization: Digest' header found. Either the client didn't send one, or the server is misconfigured"];
+            return [\false, "No 'Authorization: Digest' header found. Either the client didn't send one, or the server is misconfigured"];
         }
-
         $hash = $this->getDigestHash($this->realm, $username);
         // If this was false, the user account didn't exist
-        if (false === $hash || is_null($hash)) {
-            return [false, 'Username or password was incorrect'];
+        if (\false === $hash || is_null($hash)) {
+            return [\false, 'Username or password was incorrect'];
         }
         if (!is_string($hash)) {
             throw new DAV\Exception('The returned value from getDigestHash must be a string or null');
         }
-
         // If this was false, the password or part of the hash was incorrect.
         if (!$digest->validateA1($hash)) {
-            return [false, 'Username or password was incorrect'];
+            return [\false, 'Username or password was incorrect'];
         }
-
-        return [true, $this->principalPrefix.$username];
+        return [\true, $this->principalPrefix . $username];
     }
-
     /**
      * This method is called when a user could not be authenticated, and
      * authentication was required for the current request.
@@ -146,16 +130,10 @@ abstract class AbstractDigest implements BackendInterface
      */
     public function challenge(RequestInterface $request, ResponseInterface $response)
     {
-        $auth = new HTTP\Auth\Digest(
-            $this->realm,
-            $request,
-            $response
-        );
+        $auth = new HTTP\Auth\Digest($this->realm, $request, $response);
         $auth->init();
-
         $oldStatus = $response->getStatus() ?: 200;
         $auth->requireLogin();
-
         // Preventing the digest utility from modifying the http status code,
         // this should be handled by the main plugin.
         $response->setStatus($oldStatus);

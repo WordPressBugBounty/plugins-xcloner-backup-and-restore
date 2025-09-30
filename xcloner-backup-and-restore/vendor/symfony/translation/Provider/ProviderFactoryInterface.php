@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Provider;
 
-namespace Symfony\Component\Translation\Provider;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\Exception\IncompleteDsnException;
-use Symfony\Component\Translation\Exception\UnsupportedSchemeException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\Exception\IncompleteDsnException;
+use XCloner\Symfony\Component\Translation\Exception\UnsupportedSchemeException;
 interface ProviderFactoryInterface
 {
     /**
@@ -24,6 +22,5 @@ interface ProviderFactoryInterface
      * @throws IncompleteDsnException
      */
     public function create(Dsn $dsn): ProviderInterface;
-
     public function supports(Dsn $dsn): bool;
 }

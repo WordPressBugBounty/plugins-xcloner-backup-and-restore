@@ -1,11 +1,11 @@
 <?php
-namespace Aws\Arn\S3;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn\S3;
 
-
-use Aws\Arn\ArnInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Arn\ArnInterface;
 /**
  * @internal
  */

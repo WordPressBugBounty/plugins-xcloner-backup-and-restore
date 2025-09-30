@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This interface represents a file in the directory tree.
  *
@@ -42,7 +41,6 @@ interface IFile extends INode
      * @return string|null
      */
     public function put($data);
-
     /**
      * Returns the data.
      *
@@ -51,7 +49,6 @@ interface IFile extends INode
      * @return mixed
      */
     public function get();
-
     /**
      * Returns the mime-type for a file.
      *
@@ -60,7 +57,6 @@ interface IFile extends INode
      * @return string|null
      */
     public function getContentType();
-
     /**
      * Returns the ETag for a file.
      *
@@ -76,7 +72,6 @@ interface IFile extends INode
      * @return string|null
      */
     public function getETag();
-
     /**
      * Returns the size of the node, in bytes.
      *

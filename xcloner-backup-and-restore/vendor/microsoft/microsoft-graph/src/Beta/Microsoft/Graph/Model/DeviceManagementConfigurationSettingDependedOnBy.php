@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingDependedOnBy class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingDependedOnBy extends Entity
 {
     /**
-    * Gets the dependedOnBy
-    * Identifier of child setting that is dependent on the current setting
-    *
-    * @return string|null The dependedOnBy
-    */
+     * Gets the dependedOnBy
+     * Identifier of child setting that is dependent on the current setting
+     *
+     * @return string|null The dependedOnBy
+     */
     public function getDependedOnBy()
     {
         if (array_key_exists("dependedOnBy", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementConfigurationSettingDependedOnBy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dependedOnBy
-    * Identifier of child setting that is dependent on the current setting
-    *
-    * @param string $val The value of the dependedOnBy
-    *
-    * @return DeviceManagementConfigurationSettingDependedOnBy
-    */
+     * Sets the dependedOnBy
+     * Identifier of child setting that is dependent on the current setting
+     *
+     * @param string $val The value of the dependedOnBy
+     *
+     * @return DeviceManagementConfigurationSettingDependedOnBy
+     */
     public function setDependedOnBy($val)
     {
         $this->_propDict["dependedOnBy"] = $val;
         return $this;
     }
     /**
-    * Gets the required
-    * Value that determines if the child setting is required based on the parent setting's selection
-    *
-    * @return bool|null The required
-    */
+     * Gets the required
+     * Value that determines if the child setting is required based on the parent setting's selection
+     *
+     * @return bool|null The required
+     */
     public function getRequired()
     {
         if (array_key_exists("required", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DeviceManagementConfigurationSettingDependedOnBy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the required
-    * Value that determines if the child setting is required based on the parent setting's selection
-    *
-    * @param bool $val The value of the required
-    *
-    * @return DeviceManagementConfigurationSettingDependedOnBy
-    */
+     * Sets the required
+     * Value that determines if the child setting is required based on the parent setting's selection
+     *
+     * @param bool $val The value of the required
+     *
+     * @return DeviceManagementConfigurationSettingDependedOnBy
+     */
     public function setRequired($val)
     {
         $this->_propDict["required"] = $val;

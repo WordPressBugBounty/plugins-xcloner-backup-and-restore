@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -14,17 +15,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-namespace Google\Auth\HttpHandler;
+namespace XCloner\Google\Auth\HttpHandler;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\BodySummarizer;
-use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\BodySummarizer;
+use XCloner\GuzzleHttp\Client;
+use XCloner\GuzzleHttp\ClientInterface;
+use XCloner\GuzzleHttp\HandlerStack;
+use XCloner\GuzzleHttp\Middleware;
 class HttpHandlerFactory
 {
     /**
@@ -47,15 +47,13 @@ class HttpHandlerFactory
             }
             $client = new Client(['handler' => $stack]);
         }
-
         $version = null;
-        if (defined('GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
+        if (defined('XCloner\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
             $version = ClientInterface::MAJOR_VERSION;
-        } elseif (defined('GuzzleHttp\ClientInterface::VERSION')) {
+        } elseif (defined('XCloner\GuzzleHttp\ClientInterface::VERSION')) {
             /** @phpstan-ignore-next-line */
             $version = (int) substr(ClientInterface::VERSION, 0, 1);
         }
-
         switch ($version) {
             case 5:
                 return new Guzzle5HttpHandler($client);

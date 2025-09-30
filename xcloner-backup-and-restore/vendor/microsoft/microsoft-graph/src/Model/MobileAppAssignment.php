@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppAssignment class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppAssignment extends Entity
 {
     /**
-    * Gets the intent
-    * The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
-    *
-    * @return InstallIntent|null The intent
-    */
+     * Gets the intent
+     * The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     *
+     * @return InstallIntent|null The intent
+     */
     public function getIntent()
     {
         if (array_key_exists("intent", $this->_propDict)) {
-            if (is_a($this->_propDict["intent"], "\Microsoft\Graph\Model\InstallIntent") || is_null($this->_propDict["intent"])) {
+            if (is_a($this->_propDict["intent"], "XCloner\\Microsoft\\Graph\\Model\\InstallIntent") || is_null($this->_propDict["intent"])) {
                 return $this->_propDict["intent"];
             } else {
                 $this->_propDict["intent"] = new InstallIntent($this->_propDict["intent"]);
@@ -45,31 +46,29 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the intent
-    * The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
-    *
-    * @param InstallIntent $val The intent
-    *
-    * @return MobileAppAssignment
-    */
+     * Sets the intent
+     * The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     *
+     * @param InstallIntent $val The intent
+     *
+     * @return MobileAppAssignment
+     */
     public function setIntent($val)
     {
         $this->_propDict["intent"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settings
-    * The settings for target assignment defined by the admin.
-    *
-    * @return MobileAppAssignmentSettings|null The settings
-    */
+     * Gets the settings
+     * The settings for target assignment defined by the admin.
+     *
+     * @return MobileAppAssignmentSettings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Microsoft\Graph\Model\MobileAppAssignmentSettings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Microsoft\\Graph\\Model\\MobileAppAssignmentSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new MobileAppAssignmentSettings($this->_propDict["settings"]);
@@ -78,31 +77,29 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    * The settings for target assignment defined by the admin.
-    *
-    * @param MobileAppAssignmentSettings $val The settings
-    *
-    * @return MobileAppAssignment
-    */
+     * Sets the settings
+     * The settings for target assignment defined by the admin.
+     *
+     * @param MobileAppAssignmentSettings $val The settings
+     *
+     * @return MobileAppAssignment
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
     /**
-    * Gets the target
-    * The target group assignment defined by the admin.
-    *
-    * @return DeviceAndAppManagementAssignmentTarget|null The target
-    */
+     * Gets the target
+     * The target group assignment defined by the admin.
+     *
+     * @return DeviceAndAppManagementAssignmentTarget|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "XCloner\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -111,19 +108,17 @@ class MobileAppAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the target
-    * The target group assignment defined by the admin.
-    *
-    * @param DeviceAndAppManagementAssignmentTarget $val The target
-    *
-    * @return MobileAppAssignment
-    */
+     * Sets the target
+     * The target group assignment defined by the admin.
+     *
+     * @param DeviceAndAppManagementAssignmentTarget $val The target
+     *
+     * @return MobileAppAssignment
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;
         return $this;
     }
-
 }

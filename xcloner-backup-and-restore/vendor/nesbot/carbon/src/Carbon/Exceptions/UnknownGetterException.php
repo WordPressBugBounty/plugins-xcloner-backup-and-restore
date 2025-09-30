@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Exceptions;
 
-namespace Carbon\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use InvalidArgumentException as BaseInvalidArgumentException;
 use Throwable;
-
 class UnknownGetterException extends BaseInvalidArgumentException implements InvalidArgumentException
 {
     /**
@@ -25,7 +23,6 @@ class UnknownGetterException extends BaseInvalidArgumentException implements Inv
      * @var string
      */
     protected $getter;
-
     /**
      * Constructor.
      *
@@ -36,10 +33,8 @@ class UnknownGetterException extends BaseInvalidArgumentException implements Inv
     public function __construct($getter, $code = 0, Throwable $previous = null)
     {
         $this->getter = $getter;
-
-        parent::__construct("Unknown getter '$getter'", $code, $previous);
+        parent::__construct("Unknown getter '{$getter}'", $code, $previous);
     }
-
     /**
      * Get the getter.
      *

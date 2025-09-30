@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TenantRelationshipAccessPolicyBase class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TenantRelationshipAccessPolicyBase extends PolicyBase
 {
     /**
-    * Gets the definition
-    *
-    * @return array|null The definition
-    */
+     * Gets the definition
+     *
+     * @return array|null The definition
+     */
     public function getDefinition()
     {
         if (array_key_exists("definition", $this->_propDict)) {
@@ -40,18 +41,16 @@ class TenantRelationshipAccessPolicyBase extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the definition
-    *
-    * @param string[] $val The definition
-    *
-    * @return TenantRelationshipAccessPolicyBase
-    */
+     * Sets the definition
+     *
+     * @param string[] $val The definition
+     *
+     * @return TenantRelationshipAccessPolicyBase
+     */
     public function setDefinition($val)
     {
         $this->_propDict["definition"] = $val;
         return $this;
     }
-
 }

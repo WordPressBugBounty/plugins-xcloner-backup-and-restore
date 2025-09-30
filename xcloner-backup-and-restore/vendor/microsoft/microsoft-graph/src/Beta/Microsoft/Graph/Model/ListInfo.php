@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ListInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ListInfo extends Entity
 {
     /**
-    * Gets the contentTypesEnabled
-    * If true, indicates that content types are enabled for this list.
-    *
-    * @return bool|null The contentTypesEnabled
-    */
+     * Gets the contentTypesEnabled
+     * If true, indicates that content types are enabled for this list.
+     *
+     * @return bool|null The contentTypesEnabled
+     */
     public function getContentTypesEnabled()
     {
         if (array_key_exists("contentTypesEnabled", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ListInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentTypesEnabled
-    * If true, indicates that content types are enabled for this list.
-    *
-    * @param bool $val The value of the contentTypesEnabled
-    *
-    * @return ListInfo
-    */
+     * Sets the contentTypesEnabled
+     * If true, indicates that content types are enabled for this list.
+     *
+     * @param bool $val The value of the contentTypesEnabled
+     *
+     * @return ListInfo
+     */
     public function setContentTypesEnabled($val)
     {
         $this->_propDict["contentTypesEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the hidden
-    * If true, indicates that the list is not normally visible in the SharePoint user experience.
-    *
-    * @return bool|null The hidden
-    */
+     * Gets the hidden
+     * If true, indicates that the list is not normally visible in the SharePoint user experience.
+     *
+     * @return bool|null The hidden
+     */
     public function getHidden()
     {
         if (array_key_exists("hidden", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ListInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hidden
-    * If true, indicates that the list is not normally visible in the SharePoint user experience.
-    *
-    * @param bool $val The value of the hidden
-    *
-    * @return ListInfo
-    */
+     * Sets the hidden
+     * If true, indicates that the list is not normally visible in the SharePoint user experience.
+     *
+     * @param bool $val The value of the hidden
+     *
+     * @return ListInfo
+     */
     public function setHidden($val)
     {
         $this->_propDict["hidden"] = $val;
         return $this;
     }
     /**
-    * Gets the template
-    * An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-    *
-    * @return string|null The template
-    */
+     * Gets the template
+     * An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+     *
+     * @return string|null The template
+     */
     public function getTemplate()
     {
         if (array_key_exists("template", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ListInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the template
-    * An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
-    *
-    * @param string $val The value of the template
-    *
-    * @return ListInfo
-    */
+     * Sets the template
+     * An enumerated value that represents the base list template used in creating the list. Possible values include documentLibrary, genericList, task, survey, announcements, contacts, and more.
+     *
+     * @param string $val The value of the template
+     *
+     * @return ListInfo
+     */
     public function setTemplate($val)
     {
         $this->_propDict["template"] = $val;

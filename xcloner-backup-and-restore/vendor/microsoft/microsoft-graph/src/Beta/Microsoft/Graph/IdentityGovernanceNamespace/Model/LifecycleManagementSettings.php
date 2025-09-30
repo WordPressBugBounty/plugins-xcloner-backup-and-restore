@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LifecycleManagementSettings class
 *
@@ -25,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class LifecycleManagementSettings extends \Beta\Microsoft\Graph\Model\Entity
+class LifecycleManagementSettings extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the workflowScheduleIntervalInHours
-    * The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
-    *
-    * @return int|null The workflowScheduleIntervalInHours
-    */
+     * Gets the workflowScheduleIntervalInHours
+     * The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
+     *
+     * @return int|null The workflowScheduleIntervalInHours
+     */
     public function getWorkflowScheduleIntervalInHours()
     {
         if (array_key_exists("workflowScheduleIntervalInHours", $this->_propDict)) {
@@ -41,19 +42,17 @@ class LifecycleManagementSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the workflowScheduleIntervalInHours
-    * The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
-    *
-    * @param int $val The workflowScheduleIntervalInHours
-    *
-    * @return LifecycleManagementSettings
-    */
+     * Sets the workflowScheduleIntervalInHours
+     * The interval in hours at which all workflows running in the tenant should be scheduled for execution. This interval has a minimum value of 1 and a maximum value of 24. The default value is 3 hours.
+     *
+     * @param int $val The workflowScheduleIntervalInHours
+     *
+     * @return LifecycleManagementSettings
+     */
     public function setWorkflowScheduleIntervalInHours($val)
     {
         $this->_propDict["workflowScheduleIntervalInHours"] = intval($val);
         return $this;
     }
-
 }

@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Mount;
 
-namespace Sabre\DAV\Mount;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * This plugin provides support for RFC4709: Mounting WebDAV servers.
  *
@@ -28,7 +26,6 @@ class Plugin extends DAV\ServerPlugin
      * @var DAV\Server
      */
     protected $server;
-
     /**
      * Initializes the plugin and registers event handles.
      */
@@ -37,7 +34,6 @@ class Plugin extends DAV\ServerPlugin
         $this->server = $server;
         $this->server->on('method:GET', [$this, 'httpGet'], 90);
     }
-
     /**
      * 'beforeMethod' event handles. This event handles intercepts GET requests ending
      * with ?mount.
@@ -50,18 +46,13 @@ class Plugin extends DAV\ServerPlugin
         if (!array_key_exists('mount', $queryParams)) {
             return;
         }
-
         $currentUri = $request->getAbsoluteUrl();
-
         // Stripping off everything after the ?
         list($currentUri) = explode('?', $currentUri);
-
         $this->davMount($response, $currentUri);
-
         // Returning false to break the event chain
-        return false;
+        return \false;
     }
-
     /**
      * Generates the davmount response.
      *
@@ -74,7 +65,7 @@ class Plugin extends DAV\ServerPlugin
         ob_start();
         echo '<?xml version="1.0"?>', "\n";
         echo "<dm:mount xmlns:dm=\"http://purl.org/NET/webdav/mount\">\n";
-        echo '  <dm:url>', htmlspecialchars($uri, ENT_NOQUOTES, 'UTF-8'), "</dm:url>\n";
+        echo '  <dm:url>', htmlspecialchars($uri, \ENT_NOQUOTES, 'UTF-8'), "</dm:url>\n";
         echo '</dm:mount>';
         $response->setBody(ob_get_clean());
     }

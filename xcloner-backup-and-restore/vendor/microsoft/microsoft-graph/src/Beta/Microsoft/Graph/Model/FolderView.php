@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FolderView class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FolderView extends Entity
 {
     /**
-    * Gets the sortBy
-    * The method by which the folder should be sorted.
-    *
-    * @return string|null The sortBy
-    */
+     * Gets the sortBy
+     * The method by which the folder should be sorted.
+     *
+     * @return string|null The sortBy
+     */
     public function getSortBy()
     {
         if (array_key_exists("sortBy", $this->_propDict)) {
@@ -40,26 +42,25 @@ class FolderView extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sortBy
-    * The method by which the folder should be sorted.
-    *
-    * @param string $val The value of the sortBy
-    *
-    * @return FolderView
-    */
+     * Sets the sortBy
+     * The method by which the folder should be sorted.
+     *
+     * @param string $val The value of the sortBy
+     *
+     * @return FolderView
+     */
     public function setSortBy($val)
     {
         $this->_propDict["sortBy"] = $val;
         return $this;
     }
     /**
-    * Gets the sortOrder
-    * If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.
-    *
-    * @return string|null The sortOrder
-    */
+     * Gets the sortOrder
+     * If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.
+     *
+     * @return string|null The sortOrder
+     */
     public function getSortOrder()
     {
         if (array_key_exists("sortOrder", $this->_propDict)) {
@@ -68,26 +69,25 @@ class FolderView extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sortOrder
-    * If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.
-    *
-    * @param string $val The value of the sortOrder
-    *
-    * @return FolderView
-    */
+     * Sets the sortOrder
+     * If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.
+     *
+     * @param string $val The value of the sortOrder
+     *
+     * @return FolderView
+     */
     public function setSortOrder($val)
     {
         $this->_propDict["sortOrder"] = $val;
         return $this;
     }
     /**
-    * Gets the viewType
-    * The type of view that should be used to represent the folder.
-    *
-    * @return string|null The viewType
-    */
+     * Gets the viewType
+     * The type of view that should be used to represent the folder.
+     *
+     * @return string|null The viewType
+     */
     public function getViewType()
     {
         if (array_key_exists("viewType", $this->_propDict)) {
@@ -96,15 +96,14 @@ class FolderView extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the viewType
-    * The type of view that should be used to represent the folder.
-    *
-    * @param string $val The value of the viewType
-    *
-    * @return FolderView
-    */
+     * Sets the viewType
+     * The type of view that should be used to represent the folder.
+     *
+     * @param string $val The value of the viewType
+     *
+     * @return FolderView
+     */
     public function setViewType($val)
     {
         $this->_propDict["viewType"] = $val;

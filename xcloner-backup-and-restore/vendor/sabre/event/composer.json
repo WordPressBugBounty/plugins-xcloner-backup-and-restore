@@ -1,6 +1,6 @@
 {
-    "name": "sabre/event",
-    "description": "sabre/event is a library for lightweight event-based programming",
+    "name": "sabre\/event",
+    "description": "sabre\/event is a library for lightweight event-based programming",
     "keywords": [
         "Events",
         "EventEmitter",
@@ -13,7 +13,7 @@
         "Reactor",
         "Coroutine"
     ],
-    "homepage": "http://sabre.io/event/",
+    "homepage": "http:\/\/sabre.io\/event\/",
     "license": "BSD-3-Clause",
     "require": {
         "php": "^7.1 || ^8.0"
@@ -22,33 +22,33 @@
         {
             "name": "Evert Pot",
             "email": "me@evertpot.com",
-            "homepage": "http://evertpot.com/",
+            "homepage": "http:\/\/evertpot.com\/",
             "role": "Developer"
         }
     ],
     "support": {
-        "forum": "https://groups.google.com/group/sabredav-discuss",
-        "source": "https://github.com/fruux/sabre-event"
+        "forum": "https:\/\/groups.google.com\/group\/sabredav-discuss",
+        "source": "https:\/\/github.com\/fruux\/sabre-event"
     },
     "autoload": {
         "psr-4": {
-            "Sabre\\Event\\": "lib/"
+            "XCloner\\Sabre\\Event\\": "lib\/"
         },
-        "files" : [
-            "lib/coroutine.php",
-            "lib/Loop/functions.php",
-            "lib/Promise/functions.php"
+        "files": [
+            "lib\/coroutine.php",
+            "lib\/Loop\/functions.php",
+            "lib\/Promise\/functions.php"
         ]
     },
     "autoload-dev": {
-        "psr-4" : {
-            "Sabre\\Event\\" : "tests/Event"
+        "psr-4": {
+            "XCloner\\Sabre\\Event\\": "tests\/Event"
         }
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2.17.1",
-        "phpstan/phpstan": "^0.12",
-        "phpunit/phpunit" : "^7.5 || ^8.5 || ^9.0"
+        "friendsofphp\/php-cs-fixer": "~2.17.1",
+        "phpstan\/phpstan": "^0.12",
+        "phpunit\/phpunit": "^7.5 || ^8.5 || ^9.0"
     },
     "scripts": {
         "phpstan": [
@@ -58,7 +58,7 @@
             "php-cs-fixer fix"
         ],
         "phpunit": [
-            "phpunit --configuration tests/phpunit.xml"
+            "phpunit --configuration tests\/phpunit.xml"
         ],
         "test": [
             "composer phpstan",

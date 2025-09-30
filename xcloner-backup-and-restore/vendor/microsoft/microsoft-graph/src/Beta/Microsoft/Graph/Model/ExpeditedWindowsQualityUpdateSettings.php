@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExpeditedWindowsQualityUpdateSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExpeditedWindowsQualityUpdateSettings extends Entity
 {
     /**
-    * Gets the daysUntilForcedReboot
-    * The number of days after installation that forced reboot will happen.
-    *
-    * @return int|null The daysUntilForcedReboot
-    */
+     * Gets the daysUntilForcedReboot
+     * The number of days after installation that forced reboot will happen.
+     *
+     * @return int|null The daysUntilForcedReboot
+     */
     public function getDaysUntilForcedReboot()
     {
         if (array_key_exists("daysUntilForcedReboot", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ExpeditedWindowsQualityUpdateSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the daysUntilForcedReboot
-    * The number of days after installation that forced reboot will happen.
-    *
-    * @param int $val The value of the daysUntilForcedReboot
-    *
-    * @return ExpeditedWindowsQualityUpdateSettings
-    */
+     * Sets the daysUntilForcedReboot
+     * The number of days after installation that forced reboot will happen.
+     *
+     * @param int $val The value of the daysUntilForcedReboot
+     *
+     * @return ExpeditedWindowsQualityUpdateSettings
+     */
     public function setDaysUntilForcedReboot($val)
     {
         $this->_propDict["daysUntilForcedReboot"] = $val;
         return $this;
     }
     /**
-    * Gets the qualityUpdateRelease
-    * The release date to identify a quality update.
-    *
-    * @return string|null The qualityUpdateRelease
-    */
+     * Gets the qualityUpdateRelease
+     * The release date to identify a quality update.
+     *
+     * @return string|null The qualityUpdateRelease
+     */
     public function getQualityUpdateRelease()
     {
         if (array_key_exists("qualityUpdateRelease", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ExpeditedWindowsQualityUpdateSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the qualityUpdateRelease
-    * The release date to identify a quality update.
-    *
-    * @param string $val The value of the qualityUpdateRelease
-    *
-    * @return ExpeditedWindowsQualityUpdateSettings
-    */
+     * Sets the qualityUpdateRelease
+     * The release date to identify a quality update.
+     *
+     * @param string $val The value of the qualityUpdateRelease
+     *
+     * @return ExpeditedWindowsQualityUpdateSettings
+     */
     public function setQualityUpdateRelease($val)
     {
         $this->_propDict["qualityUpdateRelease"] = $val;

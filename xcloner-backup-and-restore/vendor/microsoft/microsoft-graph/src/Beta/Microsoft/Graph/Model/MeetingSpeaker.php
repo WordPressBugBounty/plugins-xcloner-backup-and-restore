@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MeetingSpeaker class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MeetingSpeaker extends Entity
 {
     /**
-    * Gets the bio
-    * Bio of the speaker.
-    *
-    * @return string|null The bio
-    */
+     * Gets the bio
+     * Bio of the speaker.
+     *
+     * @return string|null The bio
+     */
     public function getBio()
     {
         if (array_key_exists("bio", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MeetingSpeaker extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bio
-    * Bio of the speaker.
-    *
-    * @param string $val The value of the bio
-    *
-    * @return MeetingSpeaker
-    */
+     * Sets the bio
+     * Bio of the speaker.
+     *
+     * @param string $val The value of the bio
+     *
+     * @return MeetingSpeaker
+     */
     public function setBio($val)
     {
         $this->_propDict["bio"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Display name of the speaker.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the speaker.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MeetingSpeaker extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the speaker.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return MeetingSpeaker
-    */
+     * Sets the displayName
+     * Display name of the speaker.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return MeetingSpeaker
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;

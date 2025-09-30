@@ -1,14 +1,13 @@
 <?php
 
-namespace Sabre\VObject\Property\ICalendar;
+namespace XCloner\Sabre\VObject\Property\ICalendar;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\DateTimeParser;
-use Sabre\VObject\Property;
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\VObject\Property;
+use XCloner\Sabre\Xml;
 /**
  * Period property.
  *
@@ -29,7 +28,6 @@ class Period extends Property
      * @var string
      */
     public $delimiter = ',';
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -42,7 +40,6 @@ class Period extends Property
     {
         $this->setValue(explode($this->delimiter, $val));
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -52,7 +49,6 @@ class Period extends Property
     {
         return implode($this->delimiter, $this->getParts());
     }
-
     /**
      * Returns the type of value.
      *
@@ -65,7 +61,6 @@ class Period extends Property
     {
         return 'PERIOD';
     }
-
     /**
      * Sets the json value, as it would appear in a jCard or jCal object.
      *
@@ -73,15 +68,11 @@ class Period extends Property
      */
     public function setJsonValue(array $value)
     {
-        $value = array_map(
-            function ($item) {
-                return strtr(implode('/', $item), [':' => '', '-' => '']);
-            },
-            $value
-        );
+        $value = array_map(function ($item) {
+            return strtr(implode('/', $item), [':' => '', '-' => '']);
+        }, $value);
         parent::setJsonValue($value);
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -94,27 +85,17 @@ class Period extends Property
         $return = [];
         foreach ($this->getParts() as $item) {
             list($start, $end) = explode('/', $item, 2);
-
             $start = DateTimeParser::parseDateTime($start);
-
             // This is a duration value.
             if ('P' === $end[0]) {
-                $return[] = [
-                    $start->format('Y-m-d\\TH:i:s'),
-                    $end,
-                ];
+                $return[] = [$start->format('Y-m-d\TH:i:s'), $end];
             } else {
                 $end = DateTimeParser::parseDateTime($end);
-                $return[] = [
-                    $start->format('Y-m-d\\TH:i:s'),
-                    $end->format('Y-m-d\\TH:i:s'),
-                ];
+                $return[] = [$start->format('Y-m-d\TH:i:s'), $end->format('Y-m-d\TH:i:s')];
             }
         }
-
         return $return;
     }
-
     /**
      * This method serializes only the value of a property. This is used to
      * create xCard or xCal documents.
@@ -126,13 +107,11 @@ class Period extends Property
         $writer->startElement(strtolower($this->getValueType()));
         $value = $this->getJsonValue();
         $writer->writeElement('start', $value[0][0]);
-
         if ('P' === $value[0][1][0]) {
             $writer->writeElement('duration', $value[0][1]);
         } else {
             $writer->writeElement('end', $value[0][1]);
         }
-
         $writer->endElement();
     }
 }

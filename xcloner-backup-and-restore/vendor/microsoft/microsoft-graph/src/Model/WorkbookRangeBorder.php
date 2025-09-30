@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookRangeBorder class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookRangeBorder extends Entity
 {
     /**
-    * Gets the color
-    * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange').
-    *
-    * @return string|null The color
-    */
+     * Gets the color
+     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange').
+     *
+     * @return string|null The color
+     */
     public function getColor()
     {
         if (array_key_exists("color", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WorkbookRangeBorder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the color
-    * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange').
-    *
-    * @param string $val The color
-    *
-    * @return WorkbookRangeBorder
-    */
+     * Sets the color
+     * HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange').
+     *
+     * @param string $val The color
+     *
+     * @return WorkbookRangeBorder
+     */
     public function setColor($val)
     {
         $this->_propDict["color"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sideIndex
-    * Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
-    *
-    * @return string|null The sideIndex
-    */
+     * Gets the sideIndex
+     * Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
+     *
+     * @return string|null The sideIndex
+     */
     public function getSideIndex()
     {
         if (array_key_exists("sideIndex", $this->_propDict)) {
@@ -70,27 +69,25 @@ class WorkbookRangeBorder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sideIndex
-    * Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
-    *
-    * @param string $val The sideIndex
-    *
-    * @return WorkbookRangeBorder
-    */
+     * Sets the sideIndex
+     * Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
+     *
+     * @param string $val The sideIndex
+     *
+     * @return WorkbookRangeBorder
+     */
     public function setSideIndex($val)
     {
         $this->_propDict["sideIndex"] = $val;
         return $this;
     }
-
     /**
-    * Gets the style
-    * One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
-    *
-    * @return string|null The style
-    */
+     * Gets the style
+     * One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
+     *
+     * @return string|null The style
+     */
     public function getStyle()
     {
         if (array_key_exists("style", $this->_propDict)) {
@@ -99,27 +96,25 @@ class WorkbookRangeBorder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the style
-    * One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
-    *
-    * @param string $val The style
-    *
-    * @return WorkbookRangeBorder
-    */
+     * Sets the style
+     * One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
+     *
+     * @param string $val The style
+     *
+     * @return WorkbookRangeBorder
+     */
     public function setStyle($val)
     {
         $this->_propDict["style"] = $val;
         return $this;
     }
-
     /**
-    * Gets the weight
-    * Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
-    *
-    * @return string|null The weight
-    */
+     * Gets the weight
+     * Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
+     *
+     * @return string|null The weight
+     */
     public function getWeight()
     {
         if (array_key_exists("weight", $this->_propDict)) {
@@ -128,19 +123,17 @@ class WorkbookRangeBorder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the weight
-    * Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
-    *
-    * @param string $val The weight
-    *
-    * @return WorkbookRangeBorder
-    */
+     * Sets the weight
+     * Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
+     *
+     * @param string $val The weight
+     *
+     * @return WorkbookRangeBorder
+     */
     public function setWeight($val)
     {
         $this->_propDict["weight"] = $val;
         return $this;
     }
-
 }

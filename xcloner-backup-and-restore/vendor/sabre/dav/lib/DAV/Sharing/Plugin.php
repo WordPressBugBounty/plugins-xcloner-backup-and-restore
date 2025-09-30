@@ -1,23 +1,21 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Sharing;
 
-namespace Sabre\DAV\Sharing;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\INode;
-use Sabre\DAV\PropFind;
-use Sabre\DAV\Server;
-use Sabre\DAV\ServerPlugin;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\DAV\Xml\Property;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\DAV\Exception\Forbidden;
+use XCloner\Sabre\DAV\INode;
+use XCloner\Sabre\DAV\PropFind;
+use XCloner\Sabre\DAV\Server;
+use XCloner\Sabre\DAV\ServerPlugin;
+use XCloner\Sabre\DAV\Xml\Element\Sharee;
+use XCloner\Sabre\DAV\Xml\Property;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * This plugin implements HTTP requests and properties related to:.
  *
@@ -36,19 +34,16 @@ class Plugin extends ServerPlugin
     const ACCESS_READ = 2;
     const ACCESS_READWRITE = 3;
     const ACCESS_NOACCESS = 4;
-
     const INVITE_NORESPONSE = 1;
     const INVITE_ACCEPTED = 2;
     const INVITE_DECLINED = 3;
     const INVITE_INVALID = 4;
-
     /**
      * Reference to SabreDAV server object.
      *
      * @var Server
      */
     protected $server;
-
     /**
      * This method should return a list of server-features.
      *
@@ -61,7 +56,6 @@ class Plugin extends ServerPlugin
     {
         return ['resource-sharing'];
     }
-
     /**
      * Returns a plugin name.
      *
@@ -74,7 +68,6 @@ class Plugin extends ServerPlugin
     {
         return 'sharing';
     }
-
     /**
      * This initializes the plugin.
      *
@@ -86,21 +79,14 @@ class Plugin extends ServerPlugin
     public function initialize(Server $server)
     {
         $this->server = $server;
-
-        $server->xml->elementMap['{DAV:}share-resource'] = 'Sabre\\DAV\\Xml\\Request\\ShareResource';
-
-        array_push(
-            $server->protectedProperties,
-            '{DAV:}share-mode'
-        );
-
+        $server->xml->elementMap['{DAV:}share-resource'] = 'XCloner\Sabre\DAV\Xml\Request\ShareResource';
+        array_push($server->protectedProperties, '{DAV:}share-mode');
         $server->on('method:POST', [$this, 'httpPost']);
         $server->on('propFind', [$this, 'propFind']);
         $server->on('getSupportedPrivilegeSet', [$this, 'getSupportedPrivilegeSet']);
         $server->on('onHTMLActionsPanel', [$this, 'htmlActionsPanel']);
         $server->on('onBrowserPostAction', [$this, 'browserPostAction']);
     }
-
     /**
      * Updates the list of sharees on a shared resource.
      *
@@ -113,19 +99,15 @@ class Plugin extends ServerPlugin
     public function shareResource($path, array $sharees)
     {
         $node = $this->server->tree->getNodeForPath($path);
-
         if (!$node instanceof ISharedNode) {
             throw new Forbidden('Sharing is not allowed on this node');
         }
-
         // Getting ACL info
         $acl = $this->server->getPlugin('acl');
-
         // If there's no ACL support, we allow everything
         if ($acl) {
             $acl->checkPrivileges($path, '{DAV:}share');
         }
-
         foreach ($sharees as $sharee) {
             // We're going to attempt to get a local principal uri for a share
             // href by emitting the getPrincipalByUri event.
@@ -135,7 +117,6 @@ class Plugin extends ServerPlugin
         }
         $node->updateInvites($sharees);
     }
-
     /**
      * This event is triggered when properties are requested for nodes.
      *
@@ -155,7 +136,6 @@ class Plugin extends ServerPlugin
             });
         }
     }
-
     /**
      * We intercept this to handle POST requests on shared resources.
      *
@@ -168,18 +148,11 @@ class Plugin extends ServerPlugin
         if (null === $contentType) {
             return;
         }
-
         // We're only interested in the davsharing content type.
-        if (false === strpos($contentType, 'application/davsharing+xml')) {
+        if (\false === strpos($contentType, 'application/davsharing+xml')) {
             return;
         }
-
-        $message = $this->server->xml->parse(
-            $request->getBody(),
-            $request->getUrl(),
-            $documentType
-        );
-
+        $message = $this->server->xml->parse($request->getBody(), $request->getUrl(), $documentType);
         switch ($documentType) {
             case '{DAV:}share-resource':
                 $this->shareResource($path, $message->sharees);
@@ -187,15 +160,12 @@ class Plugin extends ServerPlugin
                 // Adding this because sending a response body may cause issues,
                 // and I wanted some type of indicator the response was handled.
                 $response->setHeader('X-Sabre-Status', 'everything-went-well');
-
                 // Breaking the event chain
-                return false;
-
+                return \false;
             default:
-                throw new BadRequest('Unexpected document type: '.$documentType.' for this Content-Type');
+                throw new BadRequest('Unexpected document type: ' . $documentType . ' for this Content-Type');
         }
     }
-
     /**
      * This method is triggered whenever a subsystem reqeuests the privileges
      * hat are supported on a particular node.
@@ -205,13 +175,9 @@ class Plugin extends ServerPlugin
     public function getSupportedPrivilegeSet(INode $node, array &$supportedPrivilegeSet)
     {
         if ($node instanceof ISharedNode) {
-            $supportedPrivilegeSet['{DAV:}share'] = [
-                'abstract' => false,
-                'aggregates' => [],
-            ];
+            $supportedPrivilegeSet['{DAV:}share'] = ['abstract' => \false, 'aggregates' => []];
         }
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -225,13 +191,8 @@ class Plugin extends ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'This plugin implements WebDAV resource sharing',
-            'link' => 'https://github.com/evert/webdav-sharing',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'This plugin implements WebDAV resource sharing', 'link' => 'https://github.com/evert/webdav-sharing'];
     }
-
     /**
      * This method is used to generate HTML output for the
      * DAV\Browser\Plugin.
@@ -246,15 +207,13 @@ class Plugin extends ServerPlugin
         if (!$node instanceof ISharedNode) {
             return;
         }
-
         $aclPlugin = $this->server->getPlugin('acl');
         if ($aclPlugin) {
-            if (!$aclPlugin->checkPrivileges($path, '{DAV:}share', \Sabre\DAVACL\Plugin::R_PARENT, false)) {
+            if (!$aclPlugin->checkPrivileges($path, '{DAV:}share', \XCloner\Sabre\DAVACL\Plugin::R_PARENT, \false)) {
                 // Sharing is not permitted, we will not draw this interface.
                 return;
             }
         }
-
         $output .= '<tr><td colspan="2"><form method="post" action="">
             <h3>Share this resource</h3>
             <input type="hidden" name="sabreAction" value="share" />
@@ -269,7 +228,6 @@ class Plugin extends ServerPlugin
             </form>
             </td></tr>';
     }
-
     /**
      * This method is triggered for POST actions generated by the browser
      * plugin.
@@ -283,33 +241,18 @@ class Plugin extends ServerPlugin
         if ('share' !== $action) {
             return;
         }
-
         if (empty($postVars['href'])) {
             throw new BadRequest('The "href" POST parameter is required');
         }
         if (empty($postVars['access'])) {
             throw new BadRequest('The "access" POST parameter is required');
         }
-
-        $accessMap = [
-            'readwrite' => self::ACCESS_READWRITE,
-            'read' => self::ACCESS_READ,
-            'no-access' => self::ACCESS_NOACCESS,
-        ];
-
+        $accessMap = ['readwrite' => self::ACCESS_READWRITE, 'read' => self::ACCESS_READ, 'no-access' => self::ACCESS_NOACCESS];
         if (!isset($accessMap[$postVars['access']])) {
             throw new BadRequest('The "access" POST must be readwrite, read or no-access');
         }
-        $sharee = new Sharee([
-            'href' => $postVars['href'],
-            'access' => $accessMap[$postVars['access']],
-        ]);
-
-        $this->shareResource(
-            $path,
-            [$sharee]
-        );
-
-        return false;
+        $sharee = new Sharee(['href' => $postVars['href'], 'access' => $accessMap[$postVars['access']]]);
+        $this->shareResource($path, [$sharee]);
+        return \false;
     }
 }

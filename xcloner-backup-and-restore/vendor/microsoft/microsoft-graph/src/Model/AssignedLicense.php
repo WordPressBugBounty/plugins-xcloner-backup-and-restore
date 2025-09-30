@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AssignedLicense class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AssignedLicense extends Entity
 {
     /**
-    * Gets the disabledPlans
-    * A collection of the unique identifiers for plans that have been disabled.
-    *
-    * @return string|null The disabledPlans
-    */
+     * Gets the disabledPlans
+     * A collection of the unique identifiers for plans that have been disabled.
+     *
+     * @return string|null The disabledPlans
+     */
     public function getDisabledPlans()
     {
         if (array_key_exists("disabledPlans", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AssignedLicense extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the disabledPlans
-    * A collection of the unique identifiers for plans that have been disabled.
-    *
-    * @param string $val The value of the disabledPlans
-    *
-    * @return AssignedLicense
-    */
+     * Sets the disabledPlans
+     * A collection of the unique identifiers for plans that have been disabled.
+     *
+     * @param string $val The value of the disabledPlans
+     *
+     * @return AssignedLicense
+     */
     public function setDisabledPlans($val)
     {
         $this->_propDict["disabledPlans"] = $val;
         return $this;
     }
     /**
-    * Gets the skuId
-    * The unique identifier for the SKU.
-    *
-    * @return string|null The skuId
-    */
+     * Gets the skuId
+     * The unique identifier for the SKU.
+     *
+     * @return string|null The skuId
+     */
     public function getSkuId()
     {
         if (array_key_exists("skuId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AssignedLicense extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the skuId
-    * The unique identifier for the SKU.
-    *
-    * @param string $val The value of the skuId
-    *
-    * @return AssignedLicense
-    */
+     * Sets the skuId
+     * The unique identifier for the SKU.
+     *
+     * @param string $val The value of the skuId
+     *
+     * @return AssignedLicense
+     */
     public function setSkuId($val)
     {
         $this->_propDict["skuId"] = $val;

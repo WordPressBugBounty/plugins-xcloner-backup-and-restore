@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceCompliancePolicySettingStateSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceCompliancePolicySettingStateSummary extends Entity
 {
     /**
-    * Gets the compliantDeviceCount
-    * Number of compliant devices
-    *
-    * @return int|null The compliantDeviceCount
-    */
+     * Gets the compliantDeviceCount
+     * Number of compliant devices
+     *
+     * @return int|null The compliantDeviceCount
+     */
     public function getCompliantDeviceCount()
     {
         if (array_key_exists("compliantDeviceCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the compliantDeviceCount
-    * Number of compliant devices
-    *
-    * @param int $val The compliantDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the compliantDeviceCount
+     * Number of compliant devices
+     *
+     * @param int $val The compliantDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setCompliantDeviceCount($val)
     {
         $this->_propDict["compliantDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the conflictDeviceCount
-    * Number of conflict devices
-    *
-    * @return int|null The conflictDeviceCount
-    */
+     * Gets the conflictDeviceCount
+     * Number of conflict devices
+     *
+     * @return int|null The conflictDeviceCount
+     */
     public function getConflictDeviceCount()
     {
         if (array_key_exists("conflictDeviceCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conflictDeviceCount
-    * Number of conflict devices
-    *
-    * @param int $val The conflictDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the conflictDeviceCount
+     * Number of conflict devices
+     *
+     * @param int $val The conflictDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setConflictDeviceCount($val)
     {
         $this->_propDict["conflictDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the errorDeviceCount
-    * Number of error devices
-    *
-    * @return int|null The errorDeviceCount
-    */
+     * Gets the errorDeviceCount
+     * Number of error devices
+     *
+     * @return int|null The errorDeviceCount
+     */
     public function getErrorDeviceCount()
     {
         if (array_key_exists("errorDeviceCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorDeviceCount
-    * Number of error devices
-    *
-    * @param int $val The errorDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the errorDeviceCount
+     * Number of error devices
+     *
+     * @param int $val The errorDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setErrorDeviceCount($val)
     {
         $this->_propDict["errorDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the nonCompliantDeviceCount
-    * Number of NonCompliant devices
-    *
-    * @return int|null The nonCompliantDeviceCount
-    */
+     * Gets the nonCompliantDeviceCount
+     * Number of NonCompliant devices
+     *
+     * @return int|null The nonCompliantDeviceCount
+     */
     public function getNonCompliantDeviceCount()
     {
         if (array_key_exists("nonCompliantDeviceCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the nonCompliantDeviceCount
-    * Number of NonCompliant devices
-    *
-    * @param int $val The nonCompliantDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the nonCompliantDeviceCount
+     * Number of NonCompliant devices
+     *
+     * @param int $val The nonCompliantDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setNonCompliantDeviceCount($val)
     {
         $this->_propDict["nonCompliantDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicableDeviceCount
-    * Number of not applicable devices
-    *
-    * @return int|null The notApplicableDeviceCount
-    */
+     * Gets the notApplicableDeviceCount
+     * Number of not applicable devices
+     *
+     * @return int|null The notApplicableDeviceCount
+     */
     public function getNotApplicableDeviceCount()
     {
         if (array_key_exists("notApplicableDeviceCount", $this->_propDict)) {
@@ -157,31 +150,29 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicableDeviceCount
-    * Number of not applicable devices
-    *
-    * @param int $val The notApplicableDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the notApplicableDeviceCount
+     * Number of not applicable devices
+     *
+     * @param int $val The notApplicableDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setNotApplicableDeviceCount($val)
     {
         $this->_propDict["notApplicableDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the platformType
-    * Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
-    *
-    * @return PolicyPlatformType|null The platformType
-    */
+     * Gets the platformType
+     * Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
+     *
+     * @return PolicyPlatformType|null The platformType
+     */
     public function getPlatformType()
     {
         if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Microsoft\Graph\Model\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
+            if (is_a($this->_propDict["platformType"], "XCloner\\Microsoft\\Graph\\Model\\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new PolicyPlatformType($this->_propDict["platformType"]);
@@ -190,27 +181,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the platformType
-    * Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
-    *
-    * @param PolicyPlatformType $val The platformType
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the platformType
+     * Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
+     *
+     * @param PolicyPlatformType $val The platformType
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setPlatformType($val)
     {
         $this->_propDict["platformType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the remediatedDeviceCount
-    * Number of remediated devices
-    *
-    * @return int|null The remediatedDeviceCount
-    */
+     * Gets the remediatedDeviceCount
+     * Number of remediated devices
+     *
+     * @return int|null The remediatedDeviceCount
+     */
     public function getRemediatedDeviceCount()
     {
         if (array_key_exists("remediatedDeviceCount", $this->_propDict)) {
@@ -219,27 +208,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedDeviceCount
-    * Number of remediated devices
-    *
-    * @param int $val The remediatedDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the remediatedDeviceCount
+     * Number of remediated devices
+     *
+     * @param int $val The remediatedDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setRemediatedDeviceCount($val)
     {
         $this->_propDict["remediatedDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the setting
-    * The setting class name and property name.
-    *
-    * @return string|null The setting
-    */
+     * Gets the setting
+     * The setting class name and property name.
+     *
+     * @return string|null The setting
+     */
     public function getSetting()
     {
         if (array_key_exists("setting", $this->_propDict)) {
@@ -248,27 +235,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the setting
-    * The setting class name and property name.
-    *
-    * @param string $val The setting
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the setting
+     * The setting class name and property name.
+     *
+     * @param string $val The setting
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setSetting($val)
     {
         $this->_propDict["setting"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingName
-    * Name of the setting.
-    *
-    * @return string|null The settingName
-    */
+     * Gets the settingName
+     * Name of the setting.
+     *
+     * @return string|null The settingName
+     */
     public function getSettingName()
     {
         if (array_key_exists("settingName", $this->_propDict)) {
@@ -277,27 +262,25 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingName
-    * Name of the setting.
-    *
-    * @param string $val The settingName
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the settingName
+     * Name of the setting.
+     *
+     * @param string $val The settingName
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setSettingName($val)
     {
         $this->_propDict["settingName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the unknownDeviceCount
-    * Number of unknown devices
-    *
-    * @return int|null The unknownDeviceCount
-    */
+     * Gets the unknownDeviceCount
+     * Number of unknown devices
+     *
+     * @return int|null The unknownDeviceCount
+     */
     public function getUnknownDeviceCount()
     {
         if (array_key_exists("unknownDeviceCount", $this->_propDict)) {
@@ -306,49 +289,44 @@ class DeviceCompliancePolicySettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownDeviceCount
-    * Number of unknown devices
-    *
-    * @param int $val The unknownDeviceCount
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the unknownDeviceCount
+     * Number of unknown devices
+     *
+     * @param int $val The unknownDeviceCount
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setUnknownDeviceCount($val)
     {
         $this->_propDict["unknownDeviceCount"] = intval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the deviceComplianceSettingStates
-    * Not yet documented
+     * Not yet documented
      *
      * @return array|null The deviceComplianceSettingStates
      */
     public function getDeviceComplianceSettingStates()
     {
         if (array_key_exists("deviceComplianceSettingStates", $this->_propDict)) {
-           return $this->_propDict["deviceComplianceSettingStates"];
+            return $this->_propDict["deviceComplianceSettingStates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the deviceComplianceSettingStates
-    * Not yet documented
-    *
-    * @param DeviceComplianceSettingState[] $val The deviceComplianceSettingStates
-    *
-    * @return DeviceCompliancePolicySettingStateSummary
-    */
+     * Sets the deviceComplianceSettingStates
+     * Not yet documented
+     *
+     * @param DeviceComplianceSettingState[] $val The deviceComplianceSettingStates
+     *
+     * @return DeviceCompliancePolicySettingStateSummary
+     */
     public function setDeviceComplianceSettingStates($val)
     {
         $this->_propDict["deviceComplianceSettingStates"] = $val;
         return $this;
     }
-
 }

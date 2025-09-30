@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MediaContentRatingAustralia class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MediaContentRatingAustralia extends Entity
 {
-
     /**
-    * Gets the movieRating
-    * Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18.
-    *
-    * @return RatingAustraliaMoviesType|null The movieRating
-    */
+     * Gets the movieRating
+     * Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18.
+     *
+     * @return RatingAustraliaMoviesType|null The movieRating
+     */
     public function getMovieRating()
     {
         if (array_key_exists("movieRating", $this->_propDict)) {
-            if (is_a($this->_propDict["movieRating"], "\Beta\Microsoft\Graph\Model\RatingAustraliaMoviesType") || is_null($this->_propDict["movieRating"])) {
+            if (is_a($this->_propDict["movieRating"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RatingAustraliaMoviesType") || is_null($this->_propDict["movieRating"])) {
                 return $this->_propDict["movieRating"];
             } else {
                 $this->_propDict["movieRating"] = new RatingAustraliaMoviesType($this->_propDict["movieRating"]);
@@ -45,31 +46,29 @@ class MediaContentRatingAustralia extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the movieRating
-    * Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18.
-    *
-    * @param RatingAustraliaMoviesType $val The value to assign to the movieRating
-    *
-    * @return MediaContentRatingAustralia The MediaContentRatingAustralia
-    */
+     * Sets the movieRating
+     * Movies rating selected for Australia. Possible values are: allAllowed, allBlocked, general, parentalGuidance, mature, agesAbove15, agesAbove18.
+     *
+     * @param RatingAustraliaMoviesType $val The value to assign to the movieRating
+     *
+     * @return MediaContentRatingAustralia The MediaContentRatingAustralia
+     */
     public function setMovieRating($val)
     {
         $this->_propDict["movieRating"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the tvRating
-    * TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence.
-    *
-    * @return RatingAustraliaTelevisionType|null The tvRating
-    */
+     * Gets the tvRating
+     * TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence.
+     *
+     * @return RatingAustraliaTelevisionType|null The tvRating
+     */
     public function getTvRating()
     {
         if (array_key_exists("tvRating", $this->_propDict)) {
-            if (is_a($this->_propDict["tvRating"], "\Beta\Microsoft\Graph\Model\RatingAustraliaTelevisionType") || is_null($this->_propDict["tvRating"])) {
+            if (is_a($this->_propDict["tvRating"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RatingAustraliaTelevisionType") || is_null($this->_propDict["tvRating"])) {
                 return $this->_propDict["tvRating"];
             } else {
                 $this->_propDict["tvRating"] = new RatingAustraliaTelevisionType($this->_propDict["tvRating"]);
@@ -78,18 +77,17 @@ class MediaContentRatingAustralia extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the tvRating
-    * TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence.
-    *
-    * @param RatingAustraliaTelevisionType $val The value to assign to the tvRating
-    *
-    * @return MediaContentRatingAustralia The MediaContentRatingAustralia
-    */
+     * Sets the tvRating
+     * TV rating selected for Australia. Possible values are: allAllowed, allBlocked, preschoolers, children, general, parentalGuidance, mature, agesAbove15, agesAbove15AdultViolence.
+     *
+     * @param RatingAustraliaTelevisionType $val The value to assign to the tvRating
+     *
+     * @return MediaContentRatingAustralia The MediaContentRatingAustralia
+     */
     public function setTvRating($val)
     {
         $this->_propDict["tvRating"] = $val;
-         return $this;
+        return $this;
     }
 }

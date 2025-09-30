@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CustomTimeZone class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CustomTimeZone extends TimeZoneBase
 {
     /**
-    * Gets the bias
-    * The time offset of the time zone from Coordinated Universal Time (UTC). This value is in minutes. Time zones that are ahead of UTC have a positive offset; time zones that are behind UTC have a negative offset.
-    *
-    * @return int|null The bias
-    */
+     * Gets the bias
+     * The time offset of the time zone from Coordinated Universal Time (UTC). This value is in minutes. Time zones that are ahead of UTC have a positive offset; time zones that are behind UTC have a negative offset.
+     *
+     * @return int|null The bias
+     */
     public function getBias()
     {
         if (array_key_exists("bias", $this->_propDict)) {
@@ -40,31 +42,29 @@ class CustomTimeZone extends TimeZoneBase
             return null;
         }
     }
-
     /**
-    * Sets the bias
-    * The time offset of the time zone from Coordinated Universal Time (UTC). This value is in minutes. Time zones that are ahead of UTC have a positive offset; time zones that are behind UTC have a negative offset.
-    *
-    * @param int $val The value of the bias
-    *
-    * @return CustomTimeZone
-    */
+     * Sets the bias
+     * The time offset of the time zone from Coordinated Universal Time (UTC). This value is in minutes. Time zones that are ahead of UTC have a positive offset; time zones that are behind UTC have a negative offset.
+     *
+     * @param int $val The value of the bias
+     *
+     * @return CustomTimeZone
+     */
     public function setBias($val)
     {
         $this->_propDict["bias"] = $val;
         return $this;
     }
-
     /**
-    * Gets the daylightOffset
-    * Specifies when the time zone switches from standard time to daylight saving time.
-    *
-    * @return DaylightTimeZoneOffset|null The daylightOffset
-    */
+     * Gets the daylightOffset
+     * Specifies when the time zone switches from standard time to daylight saving time.
+     *
+     * @return DaylightTimeZoneOffset|null The daylightOffset
+     */
     public function getDaylightOffset()
     {
         if (array_key_exists("daylightOffset", $this->_propDict)) {
-            if (is_a($this->_propDict["daylightOffset"], "\Beta\Microsoft\Graph\Model\DaylightTimeZoneOffset") || is_null($this->_propDict["daylightOffset"])) {
+            if (is_a($this->_propDict["daylightOffset"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DaylightTimeZoneOffset") || is_null($this->_propDict["daylightOffset"])) {
                 return $this->_propDict["daylightOffset"];
             } else {
                 $this->_propDict["daylightOffset"] = new DaylightTimeZoneOffset($this->_propDict["daylightOffset"]);
@@ -73,31 +73,29 @@ class CustomTimeZone extends TimeZoneBase
         }
         return null;
     }
-
     /**
-    * Sets the daylightOffset
-    * Specifies when the time zone switches from standard time to daylight saving time.
-    *
-    * @param DaylightTimeZoneOffset $val The value to assign to the daylightOffset
-    *
-    * @return CustomTimeZone The CustomTimeZone
-    */
+     * Sets the daylightOffset
+     * Specifies when the time zone switches from standard time to daylight saving time.
+     *
+     * @param DaylightTimeZoneOffset $val The value to assign to the daylightOffset
+     *
+     * @return CustomTimeZone The CustomTimeZone
+     */
     public function setDaylightOffset($val)
     {
         $this->_propDict["daylightOffset"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the standardOffset
-    * Specifies when the time zone switches from daylight saving time to standard time.
-    *
-    * @return StandardTimeZoneOffset|null The standardOffset
-    */
+     * Gets the standardOffset
+     * Specifies when the time zone switches from daylight saving time to standard time.
+     *
+     * @return StandardTimeZoneOffset|null The standardOffset
+     */
     public function getStandardOffset()
     {
         if (array_key_exists("standardOffset", $this->_propDict)) {
-            if (is_a($this->_propDict["standardOffset"], "\Beta\Microsoft\Graph\Model\StandardTimeZoneOffset") || is_null($this->_propDict["standardOffset"])) {
+            if (is_a($this->_propDict["standardOffset"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\StandardTimeZoneOffset") || is_null($this->_propDict["standardOffset"])) {
                 return $this->_propDict["standardOffset"];
             } else {
                 $this->_propDict["standardOffset"] = new StandardTimeZoneOffset($this->_propDict["standardOffset"]);
@@ -106,18 +104,17 @@ class CustomTimeZone extends TimeZoneBase
         }
         return null;
     }
-
     /**
-    * Sets the standardOffset
-    * Specifies when the time zone switches from daylight saving time to standard time.
-    *
-    * @param StandardTimeZoneOffset $val The value to assign to the standardOffset
-    *
-    * @return CustomTimeZone The CustomTimeZone
-    */
+     * Sets the standardOffset
+     * Specifies when the time zone switches from daylight saving time to standard time.
+     *
+     * @param StandardTimeZoneOffset $val The value to assign to the standardOffset
+     *
+     * @return CustomTimeZone The CustomTimeZone
+     */
     public function setStandardOffset($val)
     {
         $this->_propDict["standardOffset"] = $val;
-         return $this;
+        return $this;
     }
 }

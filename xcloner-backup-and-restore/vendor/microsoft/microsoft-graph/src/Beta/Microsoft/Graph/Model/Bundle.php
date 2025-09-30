@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Bundle class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Bundle extends Entity
 {
-
     /**
-    * Gets the album
-    * If the bundle is an [album][], then the album property is included
-    *
-    * @return Album|null The album
-    */
+     * Gets the album
+     * If the bundle is an [album][], then the album property is included
+     *
+     * @return Album|null The album
+     */
     public function getAlbum()
     {
         if (array_key_exists("album", $this->_propDict)) {
-            if (is_a($this->_propDict["album"], "\Beta\Microsoft\Graph\Model\Album") || is_null($this->_propDict["album"])) {
+            if (is_a($this->_propDict["album"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Album") || is_null($this->_propDict["album"])) {
                 return $this->_propDict["album"];
             } else {
                 $this->_propDict["album"] = new Album($this->_propDict["album"]);
@@ -45,26 +46,25 @@ class Bundle extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the album
-    * If the bundle is an [album][], then the album property is included
-    *
-    * @param Album $val The value to assign to the album
-    *
-    * @return Bundle The Bundle
-    */
+     * Sets the album
+     * If the bundle is an [album][], then the album property is included
+     *
+     * @param Album $val The value to assign to the album
+     *
+     * @return Bundle The Bundle
+     */
     public function setAlbum($val)
     {
         $this->_propDict["album"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the childCount
-    * Number of children contained immediately within this container.
-    *
-    * @return int|null The childCount
-    */
+     * Gets the childCount
+     * Number of children contained immediately within this container.
+     *
+     * @return int|null The childCount
+     */
     public function getChildCount()
     {
         if (array_key_exists("childCount", $this->_propDict)) {
@@ -73,15 +73,14 @@ class Bundle extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the childCount
-    * Number of children contained immediately within this container.
-    *
-    * @param int $val The value of the childCount
-    *
-    * @return Bundle
-    */
+     * Sets the childCount
+     * Number of children contained immediately within this container.
+     *
+     * @param int $val The value of the childCount
+     *
+     * @return Bundle
+     */
     public function setChildCount($val)
     {
         $this->_propDict["childCount"] = $val;

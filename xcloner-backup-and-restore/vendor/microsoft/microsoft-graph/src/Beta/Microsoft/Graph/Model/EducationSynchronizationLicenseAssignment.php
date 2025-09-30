@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationSynchronizationLicenseAssignment class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EducationSynchronizationLicenseAssignment extends Entity
 {
-
     /**
-    * Gets the appliesTo
-    * The user role type to assign to license. Possible values are: student, teacher, faculty.
-    *
-    * @return EducationUserRole|null The appliesTo
-    */
+     * Gets the appliesTo
+     * The user role type to assign to license. Possible values are: student, teacher, faculty.
+     *
+     * @return EducationUserRole|null The appliesTo
+     */
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
+            if (is_a($this->_propDict["appliesTo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
                 return $this->_propDict["appliesTo"];
             } else {
                 $this->_propDict["appliesTo"] = new EducationUserRole($this->_propDict["appliesTo"]);
@@ -45,26 +46,25 @@ class EducationSynchronizationLicenseAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the appliesTo
-    * The user role type to assign to license. Possible values are: student, teacher, faculty.
-    *
-    * @param EducationUserRole $val The value to assign to the appliesTo
-    *
-    * @return EducationSynchronizationLicenseAssignment The EducationSynchronizationLicenseAssignment
-    */
+     * Sets the appliesTo
+     * The user role type to assign to license. Possible values are: student, teacher, faculty.
+     *
+     * @param EducationUserRole $val The value to assign to the appliesTo
+     *
+     * @return EducationSynchronizationLicenseAssignment The EducationSynchronizationLicenseAssignment
+     */
     public function setAppliesTo($val)
     {
         $this->_propDict["appliesTo"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the skuIds
-    * Represents the SKU identifiers of the licenses to assign.
-    *
-    * @return string|null The skuIds
-    */
+     * Gets the skuIds
+     * Represents the SKU identifiers of the licenses to assign.
+     *
+     * @return string|null The skuIds
+     */
     public function getSkuIds()
     {
         if (array_key_exists("skuIds", $this->_propDict)) {
@@ -73,15 +73,14 @@ class EducationSynchronizationLicenseAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the skuIds
-    * Represents the SKU identifiers of the licenses to assign.
-    *
-    * @param string $val The value of the skuIds
-    *
-    * @return EducationSynchronizationLicenseAssignment
-    */
+     * Sets the skuIds
+     * Represents the SKU identifiers of the licenses to assign.
+     *
+     * @param string $val The value of the skuIds
+     *
+     * @return EducationSynchronizationLicenseAssignment
+     */
     public function setSkuIds($val)
     {
         $this->_propDict["skuIds"] = $val;

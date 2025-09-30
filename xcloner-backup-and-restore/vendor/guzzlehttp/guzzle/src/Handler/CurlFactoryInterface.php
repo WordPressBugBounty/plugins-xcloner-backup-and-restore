@@ -1,12 +1,11 @@
 <?php
 
-namespace GuzzleHttp\Handler;
+namespace XCloner\GuzzleHttp\Handler;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\RequestInterface;
 interface CurlFactoryInterface
 {
     /**
@@ -18,7 +17,6 @@ interface CurlFactoryInterface
      * @throws \RuntimeException when an option cannot be applied
      */
     public function create(RequestInterface $request, array $options): EasyHandle;
-
     /**
      * Release an easy handle, allowing it to be reused or closed.
      *

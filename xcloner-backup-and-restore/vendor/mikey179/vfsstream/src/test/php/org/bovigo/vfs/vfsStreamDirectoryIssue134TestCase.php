@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * Project: vfsStream
@@ -6,14 +7,12 @@
  * Date: 14.07.16
  * Time: 14:07
  */
+namespace XCloner\org\bovigo\vfs;
 
-namespace org\bovigo\vfs;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-
-class vfsStreamDirectoryIssue134TestCase extends \BC_PHPUnit_Framework_TestCase
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+class vfsStreamDirectoryIssue134TestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * access to root directory
@@ -21,7 +20,6 @@ class vfsStreamDirectoryIssue134TestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamDirectory
      */
     protected $rootDirectory;
-
     /**
      * set up test environment
      */
@@ -29,9 +27,7 @@ class vfsStreamDirectoryIssue134TestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->rootDirectory = vfsStream::newDirectory('/');
         $this->rootDirectory->addChild(vfsStream::newDirectory('var/log/app'));
-
     }
-
     /**
      * Test: should save directory name as string internal
      *
@@ -40,14 +36,9 @@ class vfsStreamDirectoryIssue134TestCase extends \BC_PHPUnit_Framework_TestCase
     public function testShouldSaveDirectoryNameAsStringInternal()
     {
         $dir = $this->rootDirectory->getChild('var/log/app');
-
         $dir->addChild(vfsStream::newDirectory(80));
-
         static::assertNotNull($this->rootDirectory->getChild('var/log/app/80'));
     }
-
-
-
     /**
      * Test: should rename directory name as string internal
      *
@@ -56,12 +47,9 @@ class vfsStreamDirectoryIssue134TestCase extends \BC_PHPUnit_Framework_TestCase
     public function testShouldRenameDirectoryNameAsStringInternal()
     {
         $dir = $this->rootDirectory->getChild('var/log/app');
-
         $dir->addChild(vfsStream::newDirectory(80));
-
         $child = $this->rootDirectory->getChild('var/log/app/80');
         $child->rename(90);
-
         static::assertNotNull($this->rootDirectory->getChild('var/log/app/90'));
     }
 }

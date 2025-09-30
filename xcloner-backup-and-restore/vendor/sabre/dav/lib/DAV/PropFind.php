@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class holds all the information about a PROPFIND request.
  *
@@ -19,7 +18,6 @@ class PropFind
      * A normal propfind.
      */
     const NORMAL = 0;
-
     /**
      * An allprops request.
      *
@@ -30,13 +28,11 @@ class PropFind
      * So 'all properties' now means a hardcoded list.
      */
     const ALLPROPS = 1;
-
     /**
      * A propname request. This just returns a list of properties that are
      * defined on a node, without their values.
      */
     const PROPNAME = 2;
-
     /**
      * Creates the PROPFIND object.
      *
@@ -50,26 +46,15 @@ class PropFind
         $this->properties = $properties;
         $this->depth = $depth;
         $this->requestType = $requestType;
-
         if (self::ALLPROPS === $requestType) {
-            $this->properties = [
-                '{DAV:}getlastmodified',
-                '{DAV:}getcontentlength',
-                '{DAV:}resourcetype',
-                '{DAV:}quota-used-bytes',
-                '{DAV:}quota-available-bytes',
-                '{DAV:}getetag',
-                '{DAV:}getcontenttype',
-            ];
+            $this->properties = ['{DAV:}getlastmodified', '{DAV:}getcontentlength', '{DAV:}resourcetype', '{DAV:}quota-used-bytes', '{DAV:}quota-available-bytes', '{DAV:}getetag', '{DAV:}getcontenttype'];
         }
-
         foreach ($this->properties as $propertyName) {
             // Seeding properties with 404's.
             $this->result[$propertyName] = [404, null];
         }
         $this->itemsLeft = count($this->result);
     }
-
     /**
      * Handles a specific property.
      *
@@ -105,7 +90,6 @@ class PropFind
             }
         }
     }
-
     /**
      * Sets the value of the property.
      *
@@ -127,7 +111,6 @@ class PropFind
             if (self::ALLPROPS === $this->requestType) {
                 $this->result[$propertyName] = [$status, $value];
             }
-
             return;
         }
         if (404 !== $status && 404 === $this->result[$propertyName][0]) {
@@ -137,7 +120,6 @@ class PropFind
         }
         $this->result[$propertyName] = [$status, $value];
     }
-
     /**
      * Returns the current value for a property.
      *
@@ -149,7 +131,6 @@ class PropFind
     {
         return isset($this->result[$propertyName]) ? $this->result[$propertyName][1] : null;
     }
-
     /**
      * Returns the current status code for a property name.
      *
@@ -164,7 +145,6 @@ class PropFind
     {
         return isset($this->result[$propertyName]) ? $this->result[$propertyName][0] : null;
     }
-
     /**
      * Updates the path for this PROPFIND.
      *
@@ -174,7 +154,6 @@ class PropFind
     {
         $this->path = $path;
     }
-
     /**
      * Returns the path this PROPFIND request is for.
      *
@@ -184,7 +163,6 @@ class PropFind
     {
         return $this->path;
     }
-
     /**
      * Returns the depth of this propfind request.
      *
@@ -194,7 +172,6 @@ class PropFind
     {
         return $this->depth;
     }
-
     /**
      * Updates the depth of this propfind request.
      *
@@ -204,7 +181,6 @@ class PropFind
     {
         $this->depth = $depth;
     }
-
     /**
      * Returns all propertynames that have a 404 status, and thus don't have a
      * value yet.
@@ -222,10 +198,8 @@ class PropFind
                 $result[] = $propertyName;
             }
         }
-
         return $result;
     }
-
     /**
      * Returns the full list of requested properties.
      *
@@ -237,7 +211,6 @@ class PropFind
     {
         return $this->properties;
     }
-
     /**
      * Returns true if this was an '{DAV:}allprops' request.
      *
@@ -247,7 +220,6 @@ class PropFind
     {
         return self::ALLPROPS === $this->requestType;
     }
-
     /**
      * Returns a result array that's often used in multistatus responses.
      *
@@ -262,10 +234,7 @@ class PropFind
      */
     public function getResultForMultiStatus()
     {
-        $r = [
-            200 => [],
-            404 => [],
-        ];
+        $r = [200 => [], 404 => []];
         foreach ($this->result as $propertyName => $info) {
             if (!isset($r[$info[0]])) {
                 $r[$info[0]] = [$propertyName => $info[1]];
@@ -277,17 +246,14 @@ class PropFind
         if (self::ALLPROPS === $this->requestType) {
             unset($r[404]);
         }
-
         return $r;
     }
-
     /**
      * The path that we're fetching properties for.
      *
      * @var string
      */
     protected $path;
-
     /**
      * The Depth of the request.
      *
@@ -297,19 +263,16 @@ class PropFind
      * @var int
      */
     protected $depth = 0;
-
     /**
      * The type of request. See the TYPE constants.
      */
     protected $requestType;
-
     /**
      * A list of requested properties.
      *
      * @var array
      */
     protected $properties = [];
-
     /**
      * The result of the operation.
      *
@@ -327,7 +290,6 @@ class PropFind
      * @var array
      */
     protected $result = [];
-
     /**
      * This is used as an internal counter for the number of properties that do
      * not yet have a value.

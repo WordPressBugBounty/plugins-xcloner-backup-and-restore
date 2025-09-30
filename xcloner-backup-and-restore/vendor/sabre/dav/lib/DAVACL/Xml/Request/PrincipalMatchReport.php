@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Request;
 
-namespace Sabre\DAVACL\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Deserializer;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Deserializer;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * PrincipalMatchReport request parser.
  *
@@ -29,26 +27,22 @@ class PrincipalMatchReport implements XmlDeserializable
      * Report on a list of principals that match the current principal.
      */
     const SELF = 1;
-
     /**
      * Report on a property on resources, such as {DAV:}owner, that match the current principal.
      */
     const PRINCIPAL_PROPERTY = 2;
-
     /**
      * Must be SELF or PRINCIPAL_PROPERTY.
      *
      * @var int
      */
     public $type;
-
     /**
      * List of properties that are being requested for matching resources.
      *
      * @var string[]
      */
     public $properties = [];
-
     /**
      * If $type = PRINCIPAL_PROPERTY, which WebDAV property we should compare
      * to the current principal.
@@ -56,7 +50,6 @@ class PrincipalMatchReport implements XmlDeserializable
      * @var string
      */
     public $principalProperty;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -80,30 +73,20 @@ class PrincipalMatchReport implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $reader->pushContext();
-        $reader->elementMap['{DAV:}prop'] = 'Sabre\Xml\Deserializer\enum';
-
-        $elems = Deserializer\keyValue(
-            $reader,
-            'DAV:'
-        );
-
+        $reader->elementMap['{DAV:}prop'] = 'XCloner\Sabre\Xml\Deserializer\enum';
+        $elems = Deserializer\keyValue($reader, 'DAV:');
         $reader->popContext();
-
         $principalMatch = new self();
-
         if (array_key_exists('self', $elems)) {
             $principalMatch->type = self::SELF;
         }
-
         if (array_key_exists('principal-property', $elems)) {
             $principalMatch->type = self::PRINCIPAL_PROPERTY;
             $principalMatch->principalProperty = $elems['principal-property'][0]['name'];
         }
-
         if (!empty($elems['prop'])) {
             $principalMatch->properties = $elems['prop'];
         }
-
         return $principalMatch;
     }
 }

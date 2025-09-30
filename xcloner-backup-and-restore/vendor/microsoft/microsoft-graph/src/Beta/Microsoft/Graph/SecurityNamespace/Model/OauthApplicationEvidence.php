@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OauthApplicationEvidence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OauthApplicationEvidence extends AlertEvidence
 {
     /**
-    * Gets the appId
-    * Unique identifier of the application.
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * Unique identifier of the application.
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OauthApplicationEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * Unique identifier of the application.
-    *
-    * @param string $val The value of the appId
-    *
-    * @return OauthApplicationEvidence
-    */
+     * Sets the appId
+     * Unique identifier of the application.
+     *
+     * @param string $val The value of the appId
+     *
+     * @return OauthApplicationEvidence
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Name of the application.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the application.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class OauthApplicationEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the application.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return OauthApplicationEvidence
-    */
+     * Sets the displayName
+     * Name of the application.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return OauthApplicationEvidence
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the objectId
-    * The unique identifier of the application object in Azure AD.
-    *
-    * @return string|null The objectId
-    */
+     * Gets the objectId
+     * The unique identifier of the application object in Azure AD.
+     *
+     * @return string|null The objectId
+     */
     public function getObjectId()
     {
         if (array_key_exists("objectId", $this->_propDict)) {
@@ -96,26 +96,25 @@ class OauthApplicationEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the objectId
-    * The unique identifier of the application object in Azure AD.
-    *
-    * @param string $val The value of the objectId
-    *
-    * @return OauthApplicationEvidence
-    */
+     * Sets the objectId
+     * The unique identifier of the application object in Azure AD.
+     *
+     * @param string $val The value of the objectId
+     *
+     * @return OauthApplicationEvidence
+     */
     public function setObjectId($val)
     {
         $this->_propDict["objectId"] = $val;
         return $this;
     }
     /**
-    * Gets the publisher
-    * The name of the application publisher.
-    *
-    * @return string|null The publisher
-    */
+     * Gets the publisher
+     * The name of the application publisher.
+     *
+     * @return string|null The publisher
+     */
     public function getPublisher()
     {
         if (array_key_exists("publisher", $this->_propDict)) {
@@ -124,15 +123,14 @@ class OauthApplicationEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the publisher
-    * The name of the application publisher.
-    *
-    * @param string $val The value of the publisher
-    *
-    * @return OauthApplicationEvidence
-    */
+     * Sets the publisher
+     * The name of the application publisher.
+     *
+     * @param string $val The value of the publisher
+     *
+     * @return OauthApplicationEvidence
+     */
     public function setPublisher($val)
     {
         $this->_propDict["publisher"] = $val;

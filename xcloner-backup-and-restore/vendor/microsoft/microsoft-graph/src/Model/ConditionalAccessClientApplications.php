@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessClientApplications class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ConditionalAccessClientApplications extends Entity
 {
     /**
-    * Gets the excludeServicePrincipals
-    * Service principal IDs excluded from the policy scope.
-    *
-    * @return string|null The excludeServicePrincipals
-    */
+     * Gets the excludeServicePrincipals
+     * Service principal IDs excluded from the policy scope.
+     *
+     * @return string|null The excludeServicePrincipals
+     */
     public function getExcludeServicePrincipals()
     {
         if (array_key_exists("excludeServicePrincipals", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ConditionalAccessClientApplications extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludeServicePrincipals
-    * Service principal IDs excluded from the policy scope.
-    *
-    * @param string $val The value of the excludeServicePrincipals
-    *
-    * @return ConditionalAccessClientApplications
-    */
+     * Sets the excludeServicePrincipals
+     * Service principal IDs excluded from the policy scope.
+     *
+     * @param string $val The value of the excludeServicePrincipals
+     *
+     * @return ConditionalAccessClientApplications
+     */
     public function setExcludeServicePrincipals($val)
     {
         $this->_propDict["excludeServicePrincipals"] = $val;
         return $this;
     }
     /**
-    * Gets the includeServicePrincipals
-    * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
-    *
-    * @return string|null The includeServicePrincipals
-    */
+     * Gets the includeServicePrincipals
+     * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
+     *
+     * @return string|null The includeServicePrincipals
+     */
     public function getIncludeServicePrincipals()
     {
         if (array_key_exists("includeServicePrincipals", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ConditionalAccessClientApplications extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeServicePrincipals
-    * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
-    *
-    * @param string $val The value of the includeServicePrincipals
-    *
-    * @return ConditionalAccessClientApplications
-    */
+     * Sets the includeServicePrincipals
+     * Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.
+     *
+     * @param string $val The value of the includeServicePrincipals
+     *
+     * @return ConditionalAccessClientApplications
+     */
     public function setIncludeServicePrincipals($val)
     {
         $this->_propDict["includeServicePrincipals"] = $val;

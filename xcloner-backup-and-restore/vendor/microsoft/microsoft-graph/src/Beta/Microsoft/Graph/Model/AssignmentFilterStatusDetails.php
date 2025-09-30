@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AssignmentFilterStatusDetails class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AssignmentFilterStatusDetails extends Entity
 {
-
     /**
-    * Gets the deviceProperties
-    * Device properties used for filter evaluation during device check-in time.
-    *
-    * @return KeyValuePair|null The deviceProperties
-    */
+     * Gets the deviceProperties
+     * Device properties used for filter evaluation during device check-in time.
+     *
+     * @return KeyValuePair|null The deviceProperties
+     */
     public function getDeviceProperties()
     {
         if (array_key_exists("deviceProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceProperties"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["deviceProperties"])) {
+            if (is_a($this->_propDict["deviceProperties"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\KeyValuePair") || is_null($this->_propDict["deviceProperties"])) {
                 return $this->_propDict["deviceProperties"];
             } else {
                 $this->_propDict["deviceProperties"] = new KeyValuePair($this->_propDict["deviceProperties"]);
@@ -45,31 +46,29 @@ class AssignmentFilterStatusDetails extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceProperties
-    * Device properties used for filter evaluation during device check-in time.
-    *
-    * @param KeyValuePair $val The value to assign to the deviceProperties
-    *
-    * @return AssignmentFilterStatusDetails The AssignmentFilterStatusDetails
-    */
+     * Sets the deviceProperties
+     * Device properties used for filter evaluation during device check-in time.
+     *
+     * @param KeyValuePair $val The value to assign to the deviceProperties
+     *
+     * @return AssignmentFilterStatusDetails The AssignmentFilterStatusDetails
+     */
     public function setDeviceProperties($val)
     {
         $this->_propDict["deviceProperties"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the evalutionSummaries
-    * Evaluation result summaries for each filter associated to device and payload
-    *
-    * @return AssignmentFilterEvaluationSummary|null The evalutionSummaries
-    */
+     * Gets the evalutionSummaries
+     * Evaluation result summaries for each filter associated to device and payload
+     *
+     * @return AssignmentFilterEvaluationSummary|null The evalutionSummaries
+     */
     public function getEvalutionSummaries()
     {
         if (array_key_exists("evalutionSummaries", $this->_propDict)) {
-            if (is_a($this->_propDict["evalutionSummaries"], "\Beta\Microsoft\Graph\Model\AssignmentFilterEvaluationSummary") || is_null($this->_propDict["evalutionSummaries"])) {
+            if (is_a($this->_propDict["evalutionSummaries"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AssignmentFilterEvaluationSummary") || is_null($this->_propDict["evalutionSummaries"])) {
                 return $this->_propDict["evalutionSummaries"];
             } else {
                 $this->_propDict["evalutionSummaries"] = new AssignmentFilterEvaluationSummary($this->_propDict["evalutionSummaries"]);
@@ -78,26 +77,25 @@ class AssignmentFilterStatusDetails extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the evalutionSummaries
-    * Evaluation result summaries for each filter associated to device and payload
-    *
-    * @param AssignmentFilterEvaluationSummary $val The value to assign to the evalutionSummaries
-    *
-    * @return AssignmentFilterStatusDetails The AssignmentFilterStatusDetails
-    */
+     * Sets the evalutionSummaries
+     * Evaluation result summaries for each filter associated to device and payload
+     *
+     * @param AssignmentFilterEvaluationSummary $val The value to assign to the evalutionSummaries
+     *
+     * @return AssignmentFilterStatusDetails The AssignmentFilterStatusDetails
+     */
     public function setEvalutionSummaries($val)
     {
         $this->_propDict["evalutionSummaries"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the managedDeviceId
-    * Unique identifier for the device object.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * Unique identifier for the device object.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -106,26 +104,25 @@ class AssignmentFilterStatusDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * Unique identifier for the device object.
-    *
-    * @param string $val The value of the managedDeviceId
-    *
-    * @return AssignmentFilterStatusDetails
-    */
+     * Sets the managedDeviceId
+     * Unique identifier for the device object.
+     *
+     * @param string $val The value of the managedDeviceId
+     *
+     * @return AssignmentFilterStatusDetails
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
     /**
-    * Gets the payloadId
-    * Unique identifier for payload object.
-    *
-    * @return string|null The payloadId
-    */
+     * Gets the payloadId
+     * Unique identifier for payload object.
+     *
+     * @return string|null The payloadId
+     */
     public function getPayloadId()
     {
         if (array_key_exists("payloadId", $this->_propDict)) {
@@ -134,26 +131,25 @@ class AssignmentFilterStatusDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the payloadId
-    * Unique identifier for payload object.
-    *
-    * @param string $val The value of the payloadId
-    *
-    * @return AssignmentFilterStatusDetails
-    */
+     * Sets the payloadId
+     * Unique identifier for payload object.
+     *
+     * @param string $val The value of the payloadId
+     *
+     * @return AssignmentFilterStatusDetails
+     */
     public function setPayloadId($val)
     {
         $this->_propDict["payloadId"] = $val;
         return $this;
     }
     /**
-    * Gets the userId
-    * Unique identifier for UserId object. Can be null
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * Unique identifier for UserId object. Can be null
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -162,15 +158,14 @@ class AssignmentFilterStatusDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * Unique identifier for UserId object. Can be null
-    *
-    * @param string $val The value of the userId
-    *
-    * @return AssignmentFilterStatusDetails
-    */
+     * Sets the userId
+     * Unique identifier for UserId object. Can be null
+     *
+     * @param string $val The value of the userId
+     *
+     * @return AssignmentFilterStatusDetails
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;

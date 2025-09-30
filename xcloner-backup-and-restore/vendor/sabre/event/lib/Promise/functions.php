@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event\Promise;
 
-namespace Sabre\Event\Promise;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Event\Promise;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Event\Promise;
 use Throwable;
-
 /**
  * This file contains a set of functions that are useful for dealing with the
  * Promise object.
@@ -18,7 +16,6 @@ use Throwable;
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-
 /**
  * This function takes an array of Promises, and returns a Promise that
  * resolves when all the given arguments have resolved.
@@ -38,33 +35,24 @@ function all(array $promises): Promise
     return new Promise(function ($success, $fail) use ($promises) {
         if (empty($promises)) {
             $success([]);
-
             return;
         }
-
         $successCount = 0;
         $completeResult = [];
-
         foreach ($promises as $promiseIndex => $subPromise) {
-            $subPromise->then(
-                function ($result) use ($promiseIndex, &$completeResult, &$successCount, $success, $promises) {
-                    $completeResult[$promiseIndex] = $result;
-                    ++$successCount;
-                    if ($successCount === count($promises)) {
-                        $success($completeResult);
-                    }
-
-                    return $result;
+            $subPromise->then(function ($result) use ($promiseIndex, &$completeResult, &$successCount, $success, $promises) {
+                $completeResult[$promiseIndex] = $result;
+                ++$successCount;
+                if ($successCount === count($promises)) {
+                    $success($completeResult);
                 }
-            )->otherwise(
-                function ($reason) use ($fail) {
-                    $fail($reason);
-                }
-            );
+                return $result;
+            })->otherwise(function ($reason) use ($fail) {
+                $fail($reason);
+            });
         }
     });
 }
-
 /**
  * The race function returns a promise that resolves or rejects as soon as
  * one of the promises in the argument resolves or rejects.
@@ -77,28 +65,24 @@ function all(array $promises): Promise
 function race(array $promises): Promise
 {
     return new Promise(function ($success, $fail) use ($promises) {
-        $alreadyDone = false;
+        $alreadyDone = \false;
         foreach ($promises as $promise) {
-            $promise->then(
-                function ($result) use ($success, &$alreadyDone) {
-                    if ($alreadyDone) {
-                        return;
-                    }
-                    $alreadyDone = true;
-                    $success($result);
-                },
-                function ($reason) use ($fail, &$alreadyDone) {
-                    if ($alreadyDone) {
-                        return;
-                    }
-                    $alreadyDone = true;
-                    $fail($reason);
+            $promise->then(function ($result) use ($success, &$alreadyDone) {
+                if ($alreadyDone) {
+                    return;
                 }
-            );
+                $alreadyDone = \true;
+                $success($result);
+            }, function ($reason) use ($fail, &$alreadyDone) {
+                if ($alreadyDone) {
+                    return;
+                }
+                $alreadyDone = \true;
+                $fail($reason);
+            });
         }
     });
 }
-
 /**
  * Returns a Promise that resolves with the given value.
  *
@@ -114,11 +98,9 @@ function resolve($value): Promise
     } else {
         $promise = new Promise();
         $promise->fulfill($value);
-
         return $promise;
     }
 }
-
 /**
  * Returns a Promise that will reject with the given reason.
  */
@@ -126,6 +108,5 @@ function reject(Throwable $reason): Promise
 {
     $promise = new Promise();
     $promise->reject($reason);
-
     return $promise;
 }

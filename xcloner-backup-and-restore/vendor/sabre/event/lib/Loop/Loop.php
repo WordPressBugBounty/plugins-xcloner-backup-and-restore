@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event\Loop;
 
-namespace Sabre\Event\Loop;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * A simple eventloop implementation.
  *
@@ -27,28 +26,20 @@ class Loop
      */
     public function setTimeout(callable $cb, float $timeout)
     {
-        $triggerTime = microtime(true) + ($timeout);
-
+        $triggerTime = microtime(\true) + $timeout;
         if (!$this->timers) {
             // Special case when the timers array was empty.
             $this->timers[] = [$triggerTime, $cb];
-
             return;
         }
-
         // We need to insert these values in the timers array, but the timers
         // array must be in reverse-order of trigger times.
         //
         // So here we search the array for the insertion point.
         $index = count($this->timers) - 1;
-        while (true) {
+        while (\true) {
             if ($triggerTime < $this->timers[$index][0]) {
-                array_splice(
-                    $this->timers,
-                    $index + 1,
-                    0,
-                    [[$triggerTime, $cb]]
-                );
+                array_splice($this->timers, $index + 1, 0, [[$triggerTime, $cb]]);
                 break;
             } elseif (0 === $index) {
                 array_unshift($this->timers, [$triggerTime, $cb]);
@@ -57,7 +48,6 @@ class Loop
             --$index;
         }
     }
-
     /**
      * Executes a function every x seconds.
      *
@@ -66,9 +56,8 @@ class Loop
      */
     public function setInterval(callable $cb, float $timeout): array
     {
-        $keepGoing = true;
+        $keepGoing = \true;
         $f = null;
-
         $f = function () use ($cb, &$f, $timeout, &$keepGoing) {
             if ($keepGoing) {
                 $cb();
@@ -76,7 +65,6 @@ class Loop
             }
         };
         $this->setTimeout($f, $timeout);
-
         // Really the only thing that matters is returning the $keepGoing
         // boolean value.
         //
@@ -85,15 +73,13 @@ class Loop
         // sort of identifier, I added an extra string.
         return ['I\'m an implementation detail', &$keepGoing];
     }
-
     /**
      * Stops a running interval.
      */
     public function clearInterval(array $intervalId)
     {
-        $intervalId[1] = false;
+        $intervalId[1] = \false;
     }
-
     /**
      * Runs a function immediately at the next iteration of the loop.
      */
@@ -101,7 +87,6 @@ class Loop
     {
         $this->nextTick[] = $cb;
     }
-
     /**
      * Adds a read stream.
      *
@@ -118,7 +103,6 @@ class Loop
         $this->readStreams[(int) $stream] = $stream;
         $this->readCallbacks[(int) $stream] = $cb;
     }
-
     /**
      * Adds a write stream.
      *
@@ -135,7 +119,6 @@ class Loop
         $this->writeStreams[(int) $stream] = $stream;
         $this->writeCallbacks[(int) $stream] = $cb;
     }
-
     /**
      * Stop watching a stream for reads.
      *
@@ -143,12 +126,8 @@ class Loop
      */
     public function removeReadStream($stream)
     {
-        unset(
-            $this->readStreams[(int) $stream],
-            $this->readCallbacks[(int) $stream]
-        );
+        unset($this->readStreams[(int) $stream], $this->readCallbacks[(int) $stream]);
     }
-
     /**
      * Stop watching a stream for writes.
      *
@@ -156,12 +135,8 @@ class Loop
      */
     public function removeWriteStream($stream)
     {
-        unset(
-            $this->writeStreams[(int) $stream],
-            $this->writeCallbacks[(int) $stream]
-        );
+        unset($this->writeStreams[(int) $stream], $this->writeCallbacks[(int) $stream]);
     }
-
     /**
      * Runs the loop.
      *
@@ -170,14 +145,12 @@ class Loop
      */
     public function run()
     {
-        $this->running = true;
-
+        $this->running = \true;
         do {
-            $hasEvents = $this->tick(true);
+            $hasEvents = $this->tick(\true);
         } while ($this->running && $hasEvents);
-        $this->running = false;
+        $this->running = \false;
     }
-
     /**
      * Executes all pending events.
      *
@@ -190,11 +163,10 @@ class Loop
      * This function will return true if there are _any_ events left in the
      * loop after the tick.
      */
-    public function tick(bool $block = false): bool
+    public function tick(bool $block = \false): bool
     {
         $this->runNextTicks();
         $nextTimeout = $this->runTimers();
-
         // Calculating how long runStreams should at most wait.
         if (!$block) {
             // Don't wait
@@ -209,20 +181,16 @@ class Loop
             // Wait indefinitely
             $streamWait = null;
         }
-
         $this->runStreams($streamWait);
-
         return $this->readStreams || $this->writeStreams || $this->nextTick || $this->timers;
     }
-
     /**
      * Stops a running eventloop.
      */
     public function stop()
     {
-        $this->running = false;
+        $this->running = \false;
     }
-
     /**
      * Executes all 'nextTick' callbacks.
      *
@@ -232,12 +200,10 @@ class Loop
     {
         $nextTick = $this->nextTick;
         $this->nextTick = [];
-
         foreach ($nextTick as $cb) {
             $cb();
         }
     }
-
     /**
      * Runs all pending timers.
      *
@@ -250,18 +216,16 @@ class Loop
      */
     protected function runTimers()
     {
-        $now = microtime(true);
+        $now = microtime(\true);
         while (($timer = array_pop($this->timers)) && $timer[0] < $now) {
             $timer[1]();
         }
         // Add the last timer back to the array.
         if ($timer) {
             $this->timers[] = $timer;
-
-            return max(0, $timer[0] - microtime(true));
+            return max(0, $timer[0] - microtime(\true));
         }
     }
-
     /**
      * Runs all pending stream events.
      *
@@ -294,49 +258,42 @@ class Loop
             usleep(null !== $timeout ? intval($timeout * 1000000) : 200000);
         }
     }
-
     /**
      * Is the main loop active.
      *
      * @var bool
      */
-    protected $running = false;
-
+    protected $running = \false;
     /**
      * A list of timers, added by setTimeout.
      *
      * @var array
      */
     protected $timers = [];
-
     /**
      * A list of 'nextTick' callbacks.
      *
      * @var callable[]
      */
     protected $nextTick = [];
-
     /**
      * List of readable streams for stream_select, indexed by stream id.
      *
      * @var resource[]
      */
     protected $readStreams = [];
-
     /**
      * List of writable streams for stream_select, indexed by stream id.
      *
      * @var resource[]
      */
     protected $writeStreams = [];
-
     /**
      * List of read callbacks, indexed by stream id.
      *
      * @var callable[]
      */
     protected $readCallbacks = [];
-
     /**
      * List of write callbacks, indexed by stream id.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WritebackConfiguration class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WritebackConfiguration extends Entity
 {
     /**
-    * Gets the isEnabled
-    * Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -40,15 +42,14 @@ class WritebackConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
-    *
-    * @param bool $val The value of the isEnabled
-    *
-    * @return WritebackConfiguration
-    */
+     * Sets the isEnabled
+     * Indicates whether writeback of cloud groups to on-premise Active Directory is enabled. Default value is true for Microsoft 365 groups and false for security groups.
+     *
+     * @param bool $val The value of the isEnabled
+     *
+     * @return WritebackConfiguration
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = $val;

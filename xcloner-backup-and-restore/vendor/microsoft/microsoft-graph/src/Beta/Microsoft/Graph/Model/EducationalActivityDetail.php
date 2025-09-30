@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationalActivityDetail class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationalActivityDetail extends Entity
 {
     /**
-    * Gets the abbreviation
-    * Shortened name of the degree or program (example: PhD, MBA)
-    *
-    * @return string|null The abbreviation
-    */
+     * Gets the abbreviation
+     * Shortened name of the degree or program (example: PhD, MBA)
+     *
+     * @return string|null The abbreviation
+     */
     public function getAbbreviation()
     {
         if (array_key_exists("abbreviation", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the abbreviation
-    * Shortened name of the degree or program (example: PhD, MBA)
-    *
-    * @param string $val The value of the abbreviation
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the abbreviation
+     * Shortened name of the degree or program (example: PhD, MBA)
+     *
+     * @param string $val The value of the abbreviation
+     *
+     * @return EducationalActivityDetail
+     */
     public function setAbbreviation($val)
     {
         $this->_propDict["abbreviation"] = $val;
         return $this;
     }
     /**
-    * Gets the activities
-    * Extracurricular activities undertaken alongside the program.
-    *
-    * @return string|null The activities
-    */
+     * Gets the activities
+     * Extracurricular activities undertaken alongside the program.
+     *
+     * @return string|null The activities
+     */
     public function getActivities()
     {
         if (array_key_exists("activities", $this->_propDict)) {
@@ -68,26 +69,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activities
-    * Extracurricular activities undertaken alongside the program.
-    *
-    * @param string $val The value of the activities
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the activities
+     * Extracurricular activities undertaken alongside the program.
+     *
+     * @param string $val The value of the activities
+     *
+     * @return EducationalActivityDetail
+     */
     public function setActivities($val)
     {
         $this->_propDict["activities"] = $val;
         return $this;
     }
     /**
-    * Gets the awards
-    * Any awards or honors associated with the program.
-    *
-    * @return string|null The awards
-    */
+     * Gets the awards
+     * Any awards or honors associated with the program.
+     *
+     * @return string|null The awards
+     */
     public function getAwards()
     {
         if (array_key_exists("awards", $this->_propDict)) {
@@ -96,26 +96,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the awards
-    * Any awards or honors associated with the program.
-    *
-    * @param string $val The value of the awards
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the awards
+     * Any awards or honors associated with the program.
+     *
+     * @param string $val The value of the awards
+     *
+     * @return EducationalActivityDetail
+     */
     public function setAwards($val)
     {
         $this->_propDict["awards"] = $val;
         return $this;
     }
     /**
-    * Gets the description
-    * Short description of the program provided by the user.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Short description of the program provided by the user.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -124,26 +123,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Short description of the program provided by the user.
-    *
-    * @param string $val The value of the description
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the description
+     * Short description of the program provided by the user.
+     *
+     * @param string $val The value of the description
+     *
+     * @return EducationalActivityDetail
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Long-form name of the program that the user has provided.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Long-form name of the program that the user has provided.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -152,26 +150,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Long-form name of the program that the user has provided.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the displayName
+     * Long-form name of the program that the user has provided.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return EducationalActivityDetail
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the fieldsOfStudy
-    * Majors and minors associated with the program. (if applicable)
-    *
-    * @return string|null The fieldsOfStudy
-    */
+     * Gets the fieldsOfStudy
+     * Majors and minors associated with the program. (if applicable)
+     *
+     * @return string|null The fieldsOfStudy
+     */
     public function getFieldsOfStudy()
     {
         if (array_key_exists("fieldsOfStudy", $this->_propDict)) {
@@ -180,26 +177,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fieldsOfStudy
-    * Majors and minors associated with the program. (if applicable)
-    *
-    * @param string $val The value of the fieldsOfStudy
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the fieldsOfStudy
+     * Majors and minors associated with the program. (if applicable)
+     *
+     * @param string $val The value of the fieldsOfStudy
+     *
+     * @return EducationalActivityDetail
+     */
     public function setFieldsOfStudy($val)
     {
         $this->_propDict["fieldsOfStudy"] = $val;
         return $this;
     }
     /**
-    * Gets the grade
-    * The final grade, class, GPA or score.
-    *
-    * @return string|null The grade
-    */
+     * Gets the grade
+     * The final grade, class, GPA or score.
+     *
+     * @return string|null The grade
+     */
     public function getGrade()
     {
         if (array_key_exists("grade", $this->_propDict)) {
@@ -208,26 +204,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the grade
-    * The final grade, class, GPA or score.
-    *
-    * @param string $val The value of the grade
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the grade
+     * The final grade, class, GPA or score.
+     *
+     * @param string $val The value of the grade
+     *
+     * @return EducationalActivityDetail
+     */
     public function setGrade($val)
     {
         $this->_propDict["grade"] = $val;
         return $this;
     }
     /**
-    * Gets the notes
-    * Additional notes the user has provided.
-    *
-    * @return string|null The notes
-    */
+     * Gets the notes
+     * Additional notes the user has provided.
+     *
+     * @return string|null The notes
+     */
     public function getNotes()
     {
         if (array_key_exists("notes", $this->_propDict)) {
@@ -236,26 +231,25 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notes
-    * Additional notes the user has provided.
-    *
-    * @param string $val The value of the notes
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the notes
+     * Additional notes the user has provided.
+     *
+     * @param string $val The value of the notes
+     *
+     * @return EducationalActivityDetail
+     */
     public function setNotes($val)
     {
         $this->_propDict["notes"] = $val;
         return $this;
     }
     /**
-    * Gets the webUrl
-    * Link to the degree or program page.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Link to the degree or program page.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -264,15 +258,14 @@ class EducationalActivityDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Link to the degree or program page.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return EducationalActivityDetail
-    */
+     * Sets the webUrl
+     * Link to the degree or program page.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return EducationalActivityDetail
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

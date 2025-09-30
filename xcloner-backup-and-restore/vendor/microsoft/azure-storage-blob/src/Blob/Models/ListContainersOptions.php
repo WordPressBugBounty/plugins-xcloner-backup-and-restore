@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Options for listBlobs API.
  *
@@ -43,11 +41,9 @@ use MicrosoftAzure\Storage\Common\Internal\Validate;
 class ListContainersOptions extends BlobServiceOptions
 {
     use MarkerContinuationTokenTrait;
-
     private $_prefix;
     private $_maxResults;
     private $_includeMetadata;
-
     /**
      * Gets prefix - filters the results to return only containers whose name
      * begins with the specified prefix.
@@ -58,7 +54,6 @@ class ListContainersOptions extends BlobServiceOptions
     {
         return $this->_prefix;
     }
-
     /**
      * Sets prefix - filters the results to return only containers whose name
      * begins with the specified prefix.
@@ -72,7 +67,6 @@ class ListContainersOptions extends BlobServiceOptions
         Validate::canCastAsString($prefix, 'prefix');
         $this->_prefix = $prefix;
     }
-
     /**
      * Gets max results which specifies the maximum number of containers to return.
      * If the request does not specify maxresults, or specifies a value
@@ -86,7 +80,6 @@ class ListContainersOptions extends BlobServiceOptions
     {
         return $this->_maxResults;
     }
-
     /**
      * Sets max results which specifies the maximum number of containers to return.
      * If the request does not specify maxresults, or specifies a value
@@ -103,7 +96,6 @@ class ListContainersOptions extends BlobServiceOptions
         Validate::canCastAsString($maxResults, 'maxResults');
         $this->_maxResults = $maxResults;
     }
-
     /**
      * Indicates if metadata is included or not.
      *
@@ -113,7 +105,6 @@ class ListContainersOptions extends BlobServiceOptions
     {
         return $this->_includeMetadata;
     }
-
     /**
      * Sets the include metadata flag.
      *

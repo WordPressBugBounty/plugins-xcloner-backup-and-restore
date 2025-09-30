@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PasswordValidationInformation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PasswordValidationInformation extends Entity
 {
     /**
-    * Gets the isValid
-    * Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
-    *
-    * @return bool|null The isValid
-    */
+     * Gets the isValid
+     * Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
+     *
+     * @return bool|null The isValid
+     */
     public function getIsValid()
     {
         if (array_key_exists("isValid", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PasswordValidationInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isValid
-    * Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
-    *
-    * @param bool $val The value of the isValid
-    *
-    * @return PasswordValidationInformation
-    */
+     * Sets the isValid
+     * Specifies whether the password is valid based on the calculation of the results in the validationResults property. Not nullable. Read-only.
+     *
+     * @param bool $val The value of the isValid
+     *
+     * @return PasswordValidationInformation
+     */
     public function setIsValid($val)
     {
         $this->_propDict["isValid"] = $val;
         return $this;
     }
-
     /**
-    * Gets the validationResults
-    * The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
-    *
-    * @return ValidationResult|null The validationResults
-    */
+     * Gets the validationResults
+     * The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
+     *
+     * @return ValidationResult|null The validationResults
+     */
     public function getValidationResults()
     {
         if (array_key_exists("validationResults", $this->_propDict)) {
-            if (is_a($this->_propDict["validationResults"], "\Beta\Microsoft\Graph\Model\ValidationResult") || is_null($this->_propDict["validationResults"])) {
+            if (is_a($this->_propDict["validationResults"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ValidationResult") || is_null($this->_propDict["validationResults"])) {
                 return $this->_propDict["validationResults"];
             } else {
                 $this->_propDict["validationResults"] = new ValidationResult($this->_propDict["validationResults"]);
@@ -73,18 +73,17 @@ class PasswordValidationInformation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the validationResults
-    * The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
-    *
-    * @param ValidationResult $val The value to assign to the validationResults
-    *
-    * @return PasswordValidationInformation The PasswordValidationInformation
-    */
+     * Sets the validationResults
+     * The list of password validation rules and whether the password passed those rules. Not nullable. Read-only.
+     *
+     * @param ValidationResult $val The value to assign to the validationResults
+     *
+     * @return PasswordValidationInformation The PasswordValidationInformation
+     */
     public function setValidationResults($val)
     {
         $this->_propDict["validationResults"] = $val;
-         return $this;
+        return $this;
     }
 }

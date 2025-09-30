@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ExternalConnectors\Model;
+namespace XCloner\Beta\Microsoft\Graph\ExternalConnectors\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Identity class
 *
@@ -25,17 +26,17 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Identity extends \Beta\Microsoft\Graph\Model\Entity
+class Identity extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the type
-    *
-    * @return IdentityType|null The type
-    */
+     * Gets the type
+     *
+     * @return IdentityType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\ExternalConnectors\Model\IdentityType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\ExternalConnectors\\Model\\IdentityType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new IdentityType($this->_propDict["type"]);
@@ -44,18 +45,16 @@ class Identity extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    *
-    * @param IdentityType $val The type
-    *
-    * @return Identity
-    */
+     * Sets the type
+     *
+     * @param IdentityType $val The type
+     *
+     * @return Identity
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
 }

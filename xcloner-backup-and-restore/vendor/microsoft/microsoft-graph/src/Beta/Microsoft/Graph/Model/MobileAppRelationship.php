@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppRelationship class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppRelationship extends Entity
 {
     /**
-    * Gets the targetDisplayName
-    * The target mobile app's display name.
-    *
-    * @return string|null The targetDisplayName
-    */
+     * Gets the targetDisplayName
+     * The target mobile app's display name.
+     *
+     * @return string|null The targetDisplayName
+     */
     public function getTargetDisplayName()
     {
         if (array_key_exists("targetDisplayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetDisplayName
-    * The target mobile app's display name.
-    *
-    * @param string $val The targetDisplayName
-    *
-    * @return MobileAppRelationship
-    */
+     * Sets the targetDisplayName
+     * The target mobile app's display name.
+     *
+     * @param string $val The targetDisplayName
+     *
+     * @return MobileAppRelationship
+     */
     public function setTargetDisplayName($val)
     {
         $this->_propDict["targetDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetDisplayVersion
-    * The target mobile app's display version.
-    *
-    * @return string|null The targetDisplayVersion
-    */
+     * Gets the targetDisplayVersion
+     * The target mobile app's display version.
+     *
+     * @return string|null The targetDisplayVersion
+     */
     public function getTargetDisplayVersion()
     {
         if (array_key_exists("targetDisplayVersion", $this->_propDict)) {
@@ -70,27 +69,25 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetDisplayVersion
-    * The target mobile app's display version.
-    *
-    * @param string $val The targetDisplayVersion
-    *
-    * @return MobileAppRelationship
-    */
+     * Sets the targetDisplayVersion
+     * The target mobile app's display version.
+     *
+     * @param string $val The targetDisplayVersion
+     *
+     * @return MobileAppRelationship
+     */
     public function setTargetDisplayVersion($val)
     {
         $this->_propDict["targetDisplayVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetId
-    * The target mobile app's app id.
-    *
-    * @return string|null The targetId
-    */
+     * Gets the targetId
+     * The target mobile app's app id.
+     *
+     * @return string|null The targetId
+     */
     public function getTargetId()
     {
         if (array_key_exists("targetId", $this->_propDict)) {
@@ -99,27 +96,25 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetId
-    * The target mobile app's app id.
-    *
-    * @param string $val The targetId
-    *
-    * @return MobileAppRelationship
-    */
+     * Sets the targetId
+     * The target mobile app's app id.
+     *
+     * @param string $val The targetId
+     *
+     * @return MobileAppRelationship
+     */
     public function setTargetId($val)
     {
         $this->_propDict["targetId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetPublisher
-    * The target mobile app's publisher.
-    *
-    * @return string|null The targetPublisher
-    */
+     * Gets the targetPublisher
+     * The target mobile app's publisher.
+     *
+     * @return string|null The targetPublisher
+     */
     public function getTargetPublisher()
     {
         if (array_key_exists("targetPublisher", $this->_propDict)) {
@@ -128,31 +123,29 @@ class MobileAppRelationship extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetPublisher
-    * The target mobile app's publisher.
-    *
-    * @param string $val The targetPublisher
-    *
-    * @return MobileAppRelationship
-    */
+     * Sets the targetPublisher
+     * The target mobile app's publisher.
+     *
+     * @param string $val The targetPublisher
+     *
+     * @return MobileAppRelationship
+     */
     public function setTargetPublisher($val)
     {
         $this->_propDict["targetPublisher"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetType
-    * The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
-    *
-    * @return MobileAppRelationshipType|null The targetType
-    */
+     * Gets the targetType
+     * The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
+     *
+     * @return MobileAppRelationshipType|null The targetType
+     */
     public function getTargetType()
     {
         if (array_key_exists("targetType", $this->_propDict)) {
-            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\MobileAppRelationshipType") || is_null($this->_propDict["targetType"])) {
+            if (is_a($this->_propDict["targetType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppRelationshipType") || is_null($this->_propDict["targetType"])) {
                 return $this->_propDict["targetType"];
             } else {
                 $this->_propDict["targetType"] = new MobileAppRelationshipType($this->_propDict["targetType"]);
@@ -161,19 +154,17 @@ class MobileAppRelationship extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the targetType
-    * The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
-    *
-    * @param MobileAppRelationshipType $val The targetType
-    *
-    * @return MobileAppRelationship
-    */
+     * Sets the targetType
+     * The type of relationship indicating whether the target is a parent or child. Possible values are: child, parent.
+     *
+     * @param MobileAppRelationshipType $val The targetType
+     *
+     * @return MobileAppRelationship
+     */
     public function setTargetType($val)
     {
         $this->_propDict["targetType"] = $val;
         return $this;
     }
-
 }

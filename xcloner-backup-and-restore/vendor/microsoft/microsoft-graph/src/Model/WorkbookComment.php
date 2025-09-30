@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookComment class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookComment extends Entity
 {
     /**
-    * Gets the content
-    * The content of comment.
-    *
-    * @return string|null The content
-    */
+     * Gets the content
+     * The content of comment.
+     *
+     * @return string|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WorkbookComment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the content
-    * The content of comment.
-    *
-    * @param string $val The content
-    *
-    * @return WorkbookComment
-    */
+     * Sets the content
+     * The content of comment.
+     *
+     * @param string $val The content
+     *
+     * @return WorkbookComment
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentType
-    * Indicates the type for the comment.
-    *
-    * @return string|null The contentType
-    */
+     * Gets the contentType
+     * Indicates the type for the comment.
+     *
+     * @return string|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
@@ -70,23 +69,20 @@ class WorkbookComment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentType
-    * Indicates the type for the comment.
-    *
-    * @param string $val The contentType
-    *
-    * @return WorkbookComment
-    */
+     * Sets the contentType
+     * Indicates the type for the comment.
+     *
+     * @param string $val The contentType
+     *
+     * @return WorkbookComment
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the replies
      *
      * @return array|null The replies
@@ -94,23 +90,21 @@ class WorkbookComment extends Entity
     public function getReplies()
     {
         if (array_key_exists("replies", $this->_propDict)) {
-           return $this->_propDict["replies"];
+            return $this->_propDict["replies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the replies
-    *
-    * @param WorkbookCommentReply[] $val The replies
-    *
-    * @return WorkbookComment
-    */
+     * Sets the replies
+     *
+     * @param WorkbookCommentReply[] $val The replies
+     *
+     * @return WorkbookComment
+     */
     public function setReplies($val)
     {
         $this->_propDict["replies"] = $val;
         return $this;
     }
-
 }

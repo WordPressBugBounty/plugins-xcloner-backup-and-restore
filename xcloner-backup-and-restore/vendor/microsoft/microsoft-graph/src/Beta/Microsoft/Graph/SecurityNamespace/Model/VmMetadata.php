@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VmMetadata class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class VmMetadata extends \Beta\Microsoft\Graph\Model\Entity
+class VmMetadata extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the cloudProvider
-    * The cloud provider hosting the virtual machine. The possible values are: unknown, azure, unknownFutureValue.
-    *
-    * @return VmCloudProvider|null The cloudProvider
-    */
+     * Gets the cloudProvider
+     * The cloud provider hosting the virtual machine. The possible values are: unknown, azure, unknownFutureValue.
+     *
+     * @return VmCloudProvider|null The cloudProvider
+     */
     public function getCloudProvider()
     {
         if (array_key_exists("cloudProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["cloudProvider"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\VmCloudProvider") || is_null($this->_propDict["cloudProvider"])) {
+            if (is_a($this->_propDict["cloudProvider"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\VmCloudProvider") || is_null($this->_propDict["cloudProvider"])) {
                 return $this->_propDict["cloudProvider"];
             } else {
                 $this->_propDict["cloudProvider"] = new VmCloudProvider($this->_propDict["cloudProvider"]);
@@ -45,26 +46,25 @@ class VmMetadata extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the cloudProvider
-    * The cloud provider hosting the virtual machine. The possible values are: unknown, azure, unknownFutureValue.
-    *
-    * @param VmCloudProvider $val The value to assign to the cloudProvider
-    *
-    * @return VmMetadata The VmMetadata
-    */
+     * Sets the cloudProvider
+     * The cloud provider hosting the virtual machine. The possible values are: unknown, azure, unknownFutureValue.
+     *
+     * @param VmCloudProvider $val The value to assign to the cloudProvider
+     *
+     * @return VmMetadata The VmMetadata
+     */
     public function setCloudProvider($val)
     {
         $this->_propDict["cloudProvider"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the resourceId
-    * Unique identifier of the Azure resource.
-    *
-    * @return string|null The resourceId
-    */
+     * Gets the resourceId
+     * Unique identifier of the Azure resource.
+     *
+     * @return string|null The resourceId
+     */
     public function getResourceId()
     {
         if (array_key_exists("resourceId", $this->_propDict)) {
@@ -73,26 +73,25 @@ class VmMetadata extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceId
-    * Unique identifier of the Azure resource.
-    *
-    * @param string $val The value of the resourceId
-    *
-    * @return VmMetadata
-    */
+     * Sets the resourceId
+     * Unique identifier of the Azure resource.
+     *
+     * @param string $val The value of the resourceId
+     *
+     * @return VmMetadata
+     */
     public function setResourceId($val)
     {
         $this->_propDict["resourceId"] = $val;
         return $this;
     }
     /**
-    * Gets the subscriptionId
-    * Unique identifier of the Azure subscription the customer tenant belongs to.
-    *
-    * @return string|null The subscriptionId
-    */
+     * Gets the subscriptionId
+     * Unique identifier of the Azure subscription the customer tenant belongs to.
+     *
+     * @return string|null The subscriptionId
+     */
     public function getSubscriptionId()
     {
         if (array_key_exists("subscriptionId", $this->_propDict)) {
@@ -101,26 +100,25 @@ class VmMetadata extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the subscriptionId
-    * Unique identifier of the Azure subscription the customer tenant belongs to.
-    *
-    * @param string $val The value of the subscriptionId
-    *
-    * @return VmMetadata
-    */
+     * Sets the subscriptionId
+     * Unique identifier of the Azure subscription the customer tenant belongs to.
+     *
+     * @param string $val The value of the subscriptionId
+     *
+     * @return VmMetadata
+     */
     public function setSubscriptionId($val)
     {
         $this->_propDict["subscriptionId"] = $val;
         return $this;
     }
     /**
-    * Gets the vmId
-    * Unique identifier of the virtual machine instance.
-    *
-    * @return string|null The vmId
-    */
+     * Gets the vmId
+     * Unique identifier of the virtual machine instance.
+     *
+     * @return string|null The vmId
+     */
     public function getVmId()
     {
         if (array_key_exists("vmId", $this->_propDict)) {
@@ -129,15 +127,14 @@ class VmMetadata extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the vmId
-    * Unique identifier of the virtual machine instance.
-    *
-    * @param string $val The value of the vmId
-    *
-    * @return VmMetadata
-    */
+     * Sets the vmId
+     * Unique identifier of the virtual machine instance.
+     *
+     * @param string $val The value of the vmId
+     *
+     * @return VmMetadata
+     */
     public function setVmId($val)
     {
         $this->_propDict["vmId"] = $val;

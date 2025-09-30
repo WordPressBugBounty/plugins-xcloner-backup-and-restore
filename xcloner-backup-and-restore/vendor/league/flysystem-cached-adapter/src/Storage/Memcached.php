@@ -1,29 +1,25 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Memcached as NativeMemcached;
-
 class Memcached extends AbstractCache
 {
     /**
      * @var string storage key
      */
     protected $key;
-
     /**
      * @var int|null seconds until cache expiration
      */
     protected $expire;
-
     /**
      * @var \Memcached Memcached instance
      */
     protected $memcached;
-
     /**
      * Constructor.
      *
@@ -37,19 +33,16 @@ class Memcached extends AbstractCache
         $this->expire = $expire;
         $this->memcached = $memcached;
     }
-
     /**
      * {@inheritdoc}
      */
     public function load()
     {
         $contents = $this->memcached->get($this->key);
-
-        if ($contents !== false) {
+        if ($contents !== \false) {
             $this->setFromStorage($contents);
         }
     }
-
     /**
      * {@inheritdoc}
      */

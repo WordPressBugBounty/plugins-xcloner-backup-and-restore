@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml;
 
-namespace Sabre\Xml;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Context Stack.
  *
@@ -38,7 +37,6 @@ trait ContextStackTrait
      * @var array
      */
     public $elementMap = [];
-
     /**
      * A contextUri pointing to the document being parsed / written.
      * This uri may be used to resolve relative urls that may appear in the
@@ -51,7 +49,6 @@ trait ContextStackTrait
      * @var string|null
      */
     public $contextUri;
-
     /**
      * This is a list of namespaces that you want to give default prefixes.
      *
@@ -61,7 +58,6 @@ trait ContextStackTrait
      * @var array
      */
     public $namespaceMap = [];
-
     /**
      * This is a list of custom serializers for specific classes.
      *
@@ -81,14 +77,12 @@ trait ContextStackTrait
      * @var array
      */
     public $classMap = [];
-
     /**
      * Backups of previous contexts.
      *
      * @var array
      */
     protected $contextStack = [];
-
     /**
      * Create a new "context".
      *
@@ -98,24 +92,13 @@ trait ContextStackTrait
      */
     public function pushContext()
     {
-        $this->contextStack[] = [
-            $this->elementMap,
-            $this->contextUri,
-            $this->namespaceMap,
-            $this->classMap,
-        ];
+        $this->contextStack[] = [$this->elementMap, $this->contextUri, $this->namespaceMap, $this->classMap];
     }
-
     /**
      * Restore the previous "context".
      */
     public function popContext()
     {
-        list(
-            $this->elementMap,
-            $this->contextUri,
-            $this->namespaceMap,
-            $this->classMap
-        ) = array_pop($this->contextStack);
+        list($this->elementMap, $this->contextUri, $this->namespaceMap, $this->classMap) = array_pop($this->contextStack);
     }
 }

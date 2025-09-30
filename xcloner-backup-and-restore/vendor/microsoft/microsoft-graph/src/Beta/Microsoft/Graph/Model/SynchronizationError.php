@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SynchronizationError class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SynchronizationError extends Entity
 {
     /**
-    * Gets the code
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -39,24 +41,23 @@ class SynchronizationError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    *
-    * @param string $val The value of the code
-    *
-    * @return SynchronizationError
-    */
+     * Sets the code
+     *
+     * @param string $val The value of the code
+     *
+     * @return SynchronizationError
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
     /**
-    * Gets the message
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -65,24 +66,23 @@ class SynchronizationError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    *
-    * @param string $val The value of the message
-    *
-    * @return SynchronizationError
-    */
+     * Sets the message
+     *
+     * @param string $val The value of the message
+     *
+     * @return SynchronizationError
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;
         return $this;
     }
     /**
-    * Gets the tenantActionable
-    *
-    * @return bool|null The tenantActionable
-    */
+     * Gets the tenantActionable
+     *
+     * @return bool|null The tenantActionable
+     */
     public function getTenantActionable()
     {
         if (array_key_exists("tenantActionable", $this->_propDict)) {
@@ -91,14 +91,13 @@ class SynchronizationError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantActionable
-    *
-    * @param bool $val The value of the tenantActionable
-    *
-    * @return SynchronizationError
-    */
+     * Sets the tenantActionable
+     *
+     * @param bool $val The value of the tenantActionable
+     *
+     * @return SynchronizationError
+     */
     public function setTenantActionable($val)
     {
         $this->_propDict["tenantActionable"] = $val;

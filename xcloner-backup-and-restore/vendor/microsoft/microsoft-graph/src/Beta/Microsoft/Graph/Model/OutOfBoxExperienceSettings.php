@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OutOfBoxExperienceSettings class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OutOfBoxExperienceSettings extends Entity
 {
-
     /**
-    * Gets the deviceUsageType
-    * AAD join authentication type. Possible values are: singleUser, shared.
-    *
-    * @return WindowsDeviceUsageType|null The deviceUsageType
-    */
+     * Gets the deviceUsageType
+     * AAD join authentication type. Possible values are: singleUser, shared.
+     *
+     * @return WindowsDeviceUsageType|null The deviceUsageType
+     */
     public function getDeviceUsageType()
     {
         if (array_key_exists("deviceUsageType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceUsageType"], "\Beta\Microsoft\Graph\Model\WindowsDeviceUsageType") || is_null($this->_propDict["deviceUsageType"])) {
+            if (is_a($this->_propDict["deviceUsageType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsDeviceUsageType") || is_null($this->_propDict["deviceUsageType"])) {
                 return $this->_propDict["deviceUsageType"];
             } else {
                 $this->_propDict["deviceUsageType"] = new WindowsDeviceUsageType($this->_propDict["deviceUsageType"]);
@@ -45,26 +46,25 @@ class OutOfBoxExperienceSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceUsageType
-    * AAD join authentication type. Possible values are: singleUser, shared.
-    *
-    * @param WindowsDeviceUsageType $val The value to assign to the deviceUsageType
-    *
-    * @return OutOfBoxExperienceSettings The OutOfBoxExperienceSettings
-    */
+     * Sets the deviceUsageType
+     * AAD join authentication type. Possible values are: singleUser, shared.
+     *
+     * @param WindowsDeviceUsageType $val The value to assign to the deviceUsageType
+     *
+     * @return OutOfBoxExperienceSettings The OutOfBoxExperienceSettings
+     */
     public function setDeviceUsageType($val)
     {
         $this->_propDict["deviceUsageType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the hideEscapeLink
-    * If set to true, then the user can't start over with different account, on company sign-in
-    *
-    * @return bool|null The hideEscapeLink
-    */
+     * Gets the hideEscapeLink
+     * If set to true, then the user can't start over with different account, on company sign-in
+     *
+     * @return bool|null The hideEscapeLink
+     */
     public function getHideEscapeLink()
     {
         if (array_key_exists("hideEscapeLink", $this->_propDict)) {
@@ -73,26 +73,25 @@ class OutOfBoxExperienceSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hideEscapeLink
-    * If set to true, then the user can't start over with different account, on company sign-in
-    *
-    * @param bool $val The value of the hideEscapeLink
-    *
-    * @return OutOfBoxExperienceSettings
-    */
+     * Sets the hideEscapeLink
+     * If set to true, then the user can't start over with different account, on company sign-in
+     *
+     * @param bool $val The value of the hideEscapeLink
+     *
+     * @return OutOfBoxExperienceSettings
+     */
     public function setHideEscapeLink($val)
     {
         $this->_propDict["hideEscapeLink"] = $val;
         return $this;
     }
     /**
-    * Gets the hideEULA
-    * Show or hide EULA to user
-    *
-    * @return bool|null The hideEULA
-    */
+     * Gets the hideEULA
+     * Show or hide EULA to user
+     *
+     * @return bool|null The hideEULA
+     */
     public function getHideEULA()
     {
         if (array_key_exists("hideEULA", $this->_propDict)) {
@@ -101,26 +100,25 @@ class OutOfBoxExperienceSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hideEULA
-    * Show or hide EULA to user
-    *
-    * @param bool $val The value of the hideEULA
-    *
-    * @return OutOfBoxExperienceSettings
-    */
+     * Sets the hideEULA
+     * Show or hide EULA to user
+     *
+     * @param bool $val The value of the hideEULA
+     *
+     * @return OutOfBoxExperienceSettings
+     */
     public function setHideEULA($val)
     {
         $this->_propDict["hideEULA"] = $val;
         return $this;
     }
     /**
-    * Gets the hidePrivacySettings
-    * Show or hide privacy settings to user
-    *
-    * @return bool|null The hidePrivacySettings
-    */
+     * Gets the hidePrivacySettings
+     * Show or hide privacy settings to user
+     *
+     * @return bool|null The hidePrivacySettings
+     */
     public function getHidePrivacySettings()
     {
         if (array_key_exists("hidePrivacySettings", $this->_propDict)) {
@@ -129,26 +127,25 @@ class OutOfBoxExperienceSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hidePrivacySettings
-    * Show or hide privacy settings to user
-    *
-    * @param bool $val The value of the hidePrivacySettings
-    *
-    * @return OutOfBoxExperienceSettings
-    */
+     * Sets the hidePrivacySettings
+     * Show or hide privacy settings to user
+     *
+     * @param bool $val The value of the hidePrivacySettings
+     *
+     * @return OutOfBoxExperienceSettings
+     */
     public function setHidePrivacySettings($val)
     {
         $this->_propDict["hidePrivacySettings"] = $val;
         return $this;
     }
     /**
-    * Gets the skipKeyboardSelectionPage
-    * If set, then skip the keyboard selection page if Language and Region are set
-    *
-    * @return bool|null The skipKeyboardSelectionPage
-    */
+     * Gets the skipKeyboardSelectionPage
+     * If set, then skip the keyboard selection page if Language and Region are set
+     *
+     * @return bool|null The skipKeyboardSelectionPage
+     */
     public function getSkipKeyboardSelectionPage()
     {
         if (array_key_exists("skipKeyboardSelectionPage", $this->_propDict)) {
@@ -157,31 +154,29 @@ class OutOfBoxExperienceSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the skipKeyboardSelectionPage
-    * If set, then skip the keyboard selection page if Language and Region are set
-    *
-    * @param bool $val The value of the skipKeyboardSelectionPage
-    *
-    * @return OutOfBoxExperienceSettings
-    */
+     * Sets the skipKeyboardSelectionPage
+     * If set, then skip the keyboard selection page if Language and Region are set
+     *
+     * @param bool $val The value of the skipKeyboardSelectionPage
+     *
+     * @return OutOfBoxExperienceSettings
+     */
     public function setSkipKeyboardSelectionPage($val)
     {
         $this->_propDict["skipKeyboardSelectionPage"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userType
-    * Type of user. Possible values are: administrator, standard.
-    *
-    * @return WindowsUserType|null The userType
-    */
+     * Gets the userType
+     * Type of user. Possible values are: administrator, standard.
+     *
+     * @return WindowsUserType|null The userType
+     */
     public function getUserType()
     {
         if (array_key_exists("userType", $this->_propDict)) {
-            if (is_a($this->_propDict["userType"], "\Beta\Microsoft\Graph\Model\WindowsUserType") || is_null($this->_propDict["userType"])) {
+            if (is_a($this->_propDict["userType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsUserType") || is_null($this->_propDict["userType"])) {
                 return $this->_propDict["userType"];
             } else {
                 $this->_propDict["userType"] = new WindowsUserType($this->_propDict["userType"]);
@@ -190,18 +185,17 @@ class OutOfBoxExperienceSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the userType
-    * Type of user. Possible values are: administrator, standard.
-    *
-    * @param WindowsUserType $val The value to assign to the userType
-    *
-    * @return OutOfBoxExperienceSettings The OutOfBoxExperienceSettings
-    */
+     * Sets the userType
+     * Type of user. Possible values are: administrator, standard.
+     *
+     * @param WindowsUserType $val The value to assign to the userType
+     *
+     * @return OutOfBoxExperienceSettings The OutOfBoxExperienceSettings
+     */
     public function setUserType($val)
     {
         $this->_propDict["userType"] = $val;
-         return $this;
+        return $this;
     }
 }

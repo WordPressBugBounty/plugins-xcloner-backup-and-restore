@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsPhone81StoreApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsPhone81StoreApp extends MobileApp
 {
     /**
-    * Gets the appStoreUrl
-    * The Windows Phone 8.1 app store URL.
-    *
-    * @return string|null The appStoreUrl
-    */
+     * Gets the appStoreUrl
+     * The Windows Phone 8.1 app store URL.
+     *
+     * @return string|null The appStoreUrl
+     */
     public function getAppStoreUrl()
     {
         if (array_key_exists("appStoreUrl", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WindowsPhone81StoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appStoreUrl
-    * The Windows Phone 8.1 app store URL.
-    *
-    * @param string $val The appStoreUrl
-    *
-    * @return WindowsPhone81StoreApp
-    */
+     * Sets the appStoreUrl
+     * The Windows Phone 8.1 app store URL.
+     *
+     * @param string $val The appStoreUrl
+     *
+     * @return WindowsPhone81StoreApp
+     */
     public function setAppStoreUrl($val)
     {
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResourceOperation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResourceOperation extends Entity
 {
     /**
-    * Gets the actionName
-    * Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
-    *
-    * @return string|null The actionName
-    */
+     * Gets the actionName
+     * Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
+     *
+     * @return string|null The actionName
+     */
     public function getActionName()
     {
         if (array_key_exists("actionName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ResourceOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionName
-    * Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
-    *
-    * @param string $val The actionName
-    *
-    * @return ResourceOperation
-    */
+     * Sets the actionName
+     * Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.
+     *
+     * @param string $val The actionName
+     *
+     * @return ResourceOperation
+     */
     public function setActionName($val)
     {
         $this->_propDict["actionName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -70,27 +69,25 @@ class ResourceOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
-    *
-    * @param string $val The description
-    *
-    * @return ResourceOperation
-    */
+     * Sets the description
+     * Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.
+     *
+     * @param string $val The description
+     *
+     * @return ResourceOperation
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceName
-    * Name of the Resource this operation is performed on.
-    *
-    * @return string|null The resourceName
-    */
+     * Gets the resourceName
+     * Name of the Resource this operation is performed on.
+     *
+     * @return string|null The resourceName
+     */
     public function getResourceName()
     {
         if (array_key_exists("resourceName", $this->_propDict)) {
@@ -99,19 +96,17 @@ class ResourceOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceName
-    * Name of the Resource this operation is performed on.
-    *
-    * @param string $val The resourceName
-    *
-    * @return ResourceOperation
-    */
+     * Sets the resourceName
+     * Name of the Resource this operation is performed on.
+     *
+     * @param string $val The resourceName
+     *
+     * @return ResourceOperation
+     */
     public function setResourceName($val)
     {
         $this->_propDict["resourceName"] = $val;
         return $this;
     }
-
 }

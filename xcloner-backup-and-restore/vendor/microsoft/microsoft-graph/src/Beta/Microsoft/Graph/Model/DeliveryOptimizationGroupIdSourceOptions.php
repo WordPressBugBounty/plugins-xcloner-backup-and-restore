@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeliveryOptimizationGroupIdSourceOptions class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroupIdSource
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deliveryOptimizationGroupIdSourceOptions");
     }
-
-
     /**
-    * Gets the groupIdSourceOption
-    * Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
-    *
-    * @return DeliveryOptimizationGroupIdOptionsType|null The groupIdSourceOption
-    */
+     * Gets the groupIdSourceOption
+     * Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
+     *
+     * @return DeliveryOptimizationGroupIdOptionsType|null The groupIdSourceOption
+     */
     public function getGroupIdSourceOption()
     {
         if (array_key_exists("groupIdSourceOption", $this->_propDict)) {
-            if (is_a($this->_propDict["groupIdSourceOption"], "\Beta\Microsoft\Graph\Model\DeliveryOptimizationGroupIdOptionsType") || is_null($this->_propDict["groupIdSourceOption"])) {
+            if (is_a($this->_propDict["groupIdSourceOption"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeliveryOptimizationGroupIdOptionsType") || is_null($this->_propDict["groupIdSourceOption"])) {
                 return $this->_propDict["groupIdSourceOption"];
             } else {
                 $this->_propDict["groupIdSourceOption"] = new DeliveryOptimizationGroupIdOptionsType($this->_propDict["groupIdSourceOption"]);
@@ -56,18 +56,17 @@ class DeliveryOptimizationGroupIdSourceOptions extends DeliveryOptimizationGroup
         }
         return null;
     }
-
     /**
-    * Sets the groupIdSourceOption
-    * Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
-    *
-    * @param DeliveryOptimizationGroupIdOptionsType $val The value to assign to the groupIdSourceOption
-    *
-    * @return DeliveryOptimizationGroupIdSourceOptions The DeliveryOptimizationGroupIdSourceOptions
-    */
+     * Sets the groupIdSourceOption
+     * Set this policy to restrict peer selection to a specific source. Possible values are: notConfigured, adSite, authenticatedDomainSid, dhcpUserOption, dnsSuffix.
+     *
+     * @param DeliveryOptimizationGroupIdOptionsType $val The value to assign to the groupIdSourceOption
+     *
+     * @return DeliveryOptimizationGroupIdSourceOptions The DeliveryOptimizationGroupIdSourceOptions
+     */
     public function setGroupIdSourceOption($val)
     {
         $this->_propDict["groupIdSourceOption"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SpecialFolder class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SpecialFolder extends Entity
 {
     /**
-    * Gets the name
-    * The unique identifier for this item in the /drive/special collection
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The unique identifier for this item in the /drive/special collection
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,15 +42,14 @@ class SpecialFolder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The unique identifier for this item in the /drive/special collection
-    *
-    * @param string $val The value of the name
-    *
-    * @return SpecialFolder
-    */
+     * Sets the name
+     * The unique identifier for this item in the /drive/special collection
+     *
+     * @param string $val The value of the name
+     *
+     * @return SpecialFolder
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property\ICalendar;
+namespace XCloner\Sabre\VObject\Property\ICalendar;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property\Text;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property\Text;
 /**
  * CalAddress property.
  *
@@ -25,7 +24,6 @@ class CalAddress extends Text
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Returns the type of value.
      *
@@ -38,7 +36,6 @@ class CalAddress extends Text
     {
         return 'CAL-ADDRESS';
     }
-
     /**
      * This returns a normalized form of the value.
      *
@@ -60,7 +57,6 @@ class CalAddress extends Text
         if ('mailto' === $schema) {
             $everythingElse = strtolower($everythingElse);
         }
-
-        return $schema.':'.$everythingElse;
+        return $schema . ':' . $everythingElse;
     }
 }

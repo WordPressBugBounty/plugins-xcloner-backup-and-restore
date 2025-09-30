@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BusinessFlowSettings class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BusinessFlowSettings extends AccessReviewSettings
 {
     /**
-    * Gets the durationInDays
-    *
-    * @return int|null The durationInDays
-    */
+     * Gets the durationInDays
+     *
+     * @return int|null The durationInDays
+     */
     public function getDurationInDays()
     {
         if (array_key_exists("durationInDays", $this->_propDict)) {
@@ -39,14 +41,13 @@ class BusinessFlowSettings extends AccessReviewSettings
             return null;
         }
     }
-
     /**
-    * Sets the durationInDays
-    *
-    * @param int $val The value of the durationInDays
-    *
-    * @return BusinessFlowSettings
-    */
+     * Sets the durationInDays
+     *
+     * @param int $val The value of the durationInDays
+     *
+     * @return BusinessFlowSettings
+     */
     public function setDurationInDays($val)
     {
         $this->_propDict["durationInDays"] = $val;

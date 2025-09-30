@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AzureADDevice class
 *
@@ -27,64 +28,58 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AzureADDevice extends UpdatableAsset
 {
-
-     /**
+    /**
      * Gets the enrollments
-    * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
+     * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
      *
      * @return array|null The enrollments
      */
     public function getEnrollments()
     {
         if (array_key_exists("enrollments", $this->_propDict)) {
-           return $this->_propDict["enrollments"];
+            return $this->_propDict["enrollments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the enrollments
-    * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
-    *
-    * @param UpdatableAssetEnrollment[] $val The enrollments
-    *
-    * @return AzureADDevice
-    */
+     * Sets the enrollments
+     * Specifies areas of the service in which the device is enrolled. Read-only. Returned by default.
+     *
+     * @param UpdatableAssetEnrollment[] $val The enrollments
+     *
+     * @return AzureADDevice
+     */
     public function setEnrollments($val)
     {
         $this->_propDict["enrollments"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the errors
-    * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
+     * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
      *
      * @return array|null The errors
      */
     public function getErrors()
     {
         if (array_key_exists("errors", $this->_propDict)) {
-           return $this->_propDict["errors"];
+            return $this->_propDict["errors"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the errors
-    * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
-    *
-    * @param UpdatableAssetError[] $val The errors
-    *
-    * @return AzureADDevice
-    */
+     * Sets the errors
+     * Specifies any errors that prevent the device from being enrolled in update management or receving deployed content. Read-only. Returned by default.
+     *
+     * @param UpdatableAssetError[] $val The errors
+     *
+     * @return AzureADDevice
+     */
     public function setErrors($val)
     {
         $this->_propDict["errors"] = $val;
         return $this;
     }
-
 }

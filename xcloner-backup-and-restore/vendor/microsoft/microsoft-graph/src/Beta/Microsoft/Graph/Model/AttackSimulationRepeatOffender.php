@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttackSimulationRepeatOffender class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AttackSimulationRepeatOffender extends Entity
 {
-
     /**
-    * Gets the attackSimulationUser
-    * The user in an attack simulation and training campaign.
-    *
-    * @return AttackSimulationUser|null The attackSimulationUser
-    */
+     * Gets the attackSimulationUser
+     * The user in an attack simulation and training campaign.
+     *
+     * @return AttackSimulationUser|null The attackSimulationUser
+     */
     public function getAttackSimulationUser()
     {
         if (array_key_exists("attackSimulationUser", $this->_propDict)) {
-            if (is_a($this->_propDict["attackSimulationUser"], "\Beta\Microsoft\Graph\Model\AttackSimulationUser") || is_null($this->_propDict["attackSimulationUser"])) {
+            if (is_a($this->_propDict["attackSimulationUser"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AttackSimulationUser") || is_null($this->_propDict["attackSimulationUser"])) {
                 return $this->_propDict["attackSimulationUser"];
             } else {
                 $this->_propDict["attackSimulationUser"] = new AttackSimulationUser($this->_propDict["attackSimulationUser"]);
@@ -45,26 +46,25 @@ class AttackSimulationRepeatOffender extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attackSimulationUser
-    * The user in an attack simulation and training campaign.
-    *
-    * @param AttackSimulationUser $val The value to assign to the attackSimulationUser
-    *
-    * @return AttackSimulationRepeatOffender The AttackSimulationRepeatOffender
-    */
+     * Sets the attackSimulationUser
+     * The user in an attack simulation and training campaign.
+     *
+     * @param AttackSimulationUser $val The value to assign to the attackSimulationUser
+     *
+     * @return AttackSimulationRepeatOffender The AttackSimulationRepeatOffender
+     */
     public function setAttackSimulationUser($val)
     {
         $this->_propDict["attackSimulationUser"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the repeatOffenceCount
-    * Number of repeat offences of the user in attack simulation and training campaigns.
-    *
-    * @return int|null The repeatOffenceCount
-    */
+     * Gets the repeatOffenceCount
+     * Number of repeat offences of the user in attack simulation and training campaigns.
+     *
+     * @return int|null The repeatOffenceCount
+     */
     public function getRepeatOffenceCount()
     {
         if (array_key_exists("repeatOffenceCount", $this->_propDict)) {
@@ -73,15 +73,14 @@ class AttackSimulationRepeatOffender extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the repeatOffenceCount
-    * Number of repeat offences of the user in attack simulation and training campaigns.
-    *
-    * @param int $val The value of the repeatOffenceCount
-    *
-    * @return AttackSimulationRepeatOffender
-    */
+     * Sets the repeatOffenceCount
+     * Number of repeat offences of the user in attack simulation and training campaigns.
+     *
+     * @param int $val The value of the repeatOffenceCount
+     *
+     * @return AttackSimulationRepeatOffender
+     */
     public function setRepeatOffenceCount($val)
     {
         $this->_propDict["repeatOffenceCount"] = $val;

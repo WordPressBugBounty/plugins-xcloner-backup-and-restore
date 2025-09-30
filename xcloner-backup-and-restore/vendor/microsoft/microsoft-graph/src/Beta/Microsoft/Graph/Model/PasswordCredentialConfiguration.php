@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PasswordCredentialConfiguration class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PasswordCredentialConfiguration extends Entity
 {
-
     /**
-    * Gets the maxLifetime
-    *
-    * @return \DateInterval|null The maxLifetime
-    */
+     * Gets the maxLifetime
+     *
+     * @return \DateInterval|null The maxLifetime
+     */
     public function getMaxLifetime()
     {
         if (array_key_exists("maxLifetime", $this->_propDict)) {
-            if (is_a($this->_propDict["maxLifetime"], "\DateInterval") || is_null($this->_propDict["maxLifetime"])) {
+            if (is_a($this->_propDict["maxLifetime"], "\\DateInterval") || is_null($this->_propDict["maxLifetime"])) {
                 return $this->_propDict["maxLifetime"];
             } else {
                 $this->_propDict["maxLifetime"] = new \DateInterval($this->_propDict["maxLifetime"]);
@@ -44,30 +45,28 @@ class PasswordCredentialConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the maxLifetime
-    *
-    * @param \DateInterval $val The value to assign to the maxLifetime
-    *
-    * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
-    */
+     * Sets the maxLifetime
+     *
+     * @param \DateInterval $val The value to assign to the maxLifetime
+     *
+     * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
+     */
     public function setMaxLifetime($val)
     {
         $this->_propDict["maxLifetime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the restrictForAppsCreatedAfterDateTime
-    * Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null.
-    *
-    * @return \DateTime|null The restrictForAppsCreatedAfterDateTime
-    */
+     * Gets the restrictForAppsCreatedAfterDateTime
+     * Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null.
+     *
+     * @return \DateTime|null The restrictForAppsCreatedAfterDateTime
+     */
     public function getRestrictForAppsCreatedAfterDateTime()
     {
         if (array_key_exists("restrictForAppsCreatedAfterDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictForAppsCreatedAfterDateTime"], "\DateTime") || is_null($this->_propDict["restrictForAppsCreatedAfterDateTime"])) {
+            if (is_a($this->_propDict["restrictForAppsCreatedAfterDateTime"], "\\DateTime") || is_null($this->_propDict["restrictForAppsCreatedAfterDateTime"])) {
                 return $this->_propDict["restrictForAppsCreatedAfterDateTime"];
             } else {
                 $this->_propDict["restrictForAppsCreatedAfterDateTime"] = new \DateTime($this->_propDict["restrictForAppsCreatedAfterDateTime"]);
@@ -76,31 +75,29 @@ class PasswordCredentialConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the restrictForAppsCreatedAfterDateTime
-    * Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null.
-    *
-    * @param \DateTime $val The value to assign to the restrictForAppsCreatedAfterDateTime
-    *
-    * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
-    */
+     * Sets the restrictForAppsCreatedAfterDateTime
+     * Enforces the policy for an app created on or after the enforcement date. For existing applications, the enforcement date would be backdated. To apply to all applications, this date would be null.
+     *
+     * @param \DateTime $val The value to assign to the restrictForAppsCreatedAfterDateTime
+     *
+     * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
+     */
     public function setRestrictForAppsCreatedAfterDateTime($val)
     {
         $this->_propDict["restrictForAppsCreatedAfterDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the restrictionType
-    * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
-    *
-    * @return AppCredentialRestrictionType|null The restrictionType
-    */
+     * Gets the restrictionType
+     * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
+     *
+     * @return AppCredentialRestrictionType|null The restrictionType
+     */
     public function getRestrictionType()
     {
         if (array_key_exists("restrictionType", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictionType"], "\Beta\Microsoft\Graph\Model\AppCredentialRestrictionType") || is_null($this->_propDict["restrictionType"])) {
+            if (is_a($this->_propDict["restrictionType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppCredentialRestrictionType") || is_null($this->_propDict["restrictionType"])) {
                 return $this->_propDict["restrictionType"];
             } else {
                 $this->_propDict["restrictionType"] = new AppCredentialRestrictionType($this->_propDict["restrictionType"]);
@@ -109,18 +106,17 @@ class PasswordCredentialConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the restrictionType
-    * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
-    *
-    * @param AppCredentialRestrictionType $val The value to assign to the restrictionType
-    *
-    * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
-    */
+     * Sets the restrictionType
+     * The type of restriction being applied. The possible values are: passwordAddition, passwordLifetime, symmetricKeyAddition, symmetricKeyLifetime,customPasswordAddition, unknownFutureValue. Each value of restrictionType can be used only once per policy.
+     *
+     * @param AppCredentialRestrictionType $val The value to assign to the restrictionType
+     *
+     * @return PasswordCredentialConfiguration The PasswordCredentialConfiguration
+     */
     public function setRestrictionType($val)
     {
         $this->_propDict["restrictionType"] = $val;
-         return $this;
+        return $this;
     }
 }

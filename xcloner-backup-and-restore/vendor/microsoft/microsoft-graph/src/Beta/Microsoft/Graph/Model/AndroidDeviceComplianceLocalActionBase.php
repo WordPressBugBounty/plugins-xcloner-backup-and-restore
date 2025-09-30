@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceComplianceLocalActionBase class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidDeviceComplianceLocalActionBase extends Entity
 {
     /**
-    * Gets the gracePeriodInMinutes
-    * Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
-    *
-    * @return int|null The gracePeriodInMinutes
-    */
+     * Gets the gracePeriodInMinutes
+     * Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
+     *
+     * @return int|null The gracePeriodInMinutes
+     */
     public function getGracePeriodInMinutes()
     {
         if (array_key_exists("gracePeriodInMinutes", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AndroidDeviceComplianceLocalActionBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the gracePeriodInMinutes
-    * Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
-    *
-    * @param int $val The gracePeriodInMinutes
-    *
-    * @return AndroidDeviceComplianceLocalActionBase
-    */
+     * Sets the gracePeriodInMinutes
+     * Number of minutes to wait till a local action is enforced. Valid values 0 to 2147483647
+     *
+     * @param int $val The gracePeriodInMinutes
+     *
+     * @return AndroidDeviceComplianceLocalActionBase
+     */
     public function setGracePeriodInMinutes($val)
     {
         $this->_propDict["gracePeriodInMinutes"] = intval($val);
         return $this;
     }
-
 }

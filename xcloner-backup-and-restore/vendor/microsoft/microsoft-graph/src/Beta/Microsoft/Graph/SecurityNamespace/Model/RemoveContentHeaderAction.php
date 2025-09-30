@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RemoveContentHeaderAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RemoveContentHeaderAction extends InformationProtectionAction
 {
     /**
-    * Gets the uiElementNames
-    * The name of the UI element of the header to be removed.
-    *
-    * @return string|null The uiElementNames
-    */
+     * Gets the uiElementNames
+     * The name of the UI element of the header to be removed.
+     *
+     * @return string|null The uiElementNames
+     */
     public function getUiElementNames()
     {
         if (array_key_exists("uiElementNames", $this->_propDict)) {
@@ -40,15 +42,14 @@ class RemoveContentHeaderAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the uiElementNames
-    * The name of the UI element of the header to be removed.
-    *
-    * @param string $val The value of the uiElementNames
-    *
-    * @return RemoveContentHeaderAction
-    */
+     * Sets the uiElementNames
+     * The name of the UI element of the header to be removed.
+     *
+     * @param string $val The value of the uiElementNames
+     *
+     * @return RemoveContentHeaderAction
+     */
     public function setUiElementNames($val)
     {
         $this->_propDict["uiElementNames"] = $val;

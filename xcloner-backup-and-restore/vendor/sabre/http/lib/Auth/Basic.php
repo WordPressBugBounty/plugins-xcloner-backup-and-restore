@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP\Auth;
 
-namespace Sabre\HTTP\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * HTTP Basic authentication utility.
  *
@@ -33,31 +32,25 @@ class Basic extends AbstractAuth
     public function getCredentials()
     {
         $auth = $this->request->getHeader('Authorization');
-
         if (!$auth) {
             return null;
         }
-
         if ('basic ' !== strtolower(substr($auth, 0, 6))) {
             return null;
         }
-
         $credentials = explode(':', base64_decode(substr($auth, 6)), 2);
-
         if (2 !== count($credentials)) {
             return null;
         }
-
         return $credentials;
     }
-
     /**
      * This method sends the needed HTTP header and status code (401) to force
      * the user to login.
      */
     public function requireLogin()
     {
-        $this->response->addHeader('WWW-Authenticate', 'Basic realm="'.$this->realm.'", charset="UTF-8"');
+        $this->response->addHeader('WWW-Authenticate', 'Basic realm="' . $this->realm . '", charset="UTF-8"');
         $this->response->setStatus(401);
     }
 }

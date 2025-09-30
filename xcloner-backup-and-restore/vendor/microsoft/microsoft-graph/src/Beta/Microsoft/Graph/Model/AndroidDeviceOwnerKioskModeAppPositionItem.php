@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceOwnerKioskModeAppPositionItem class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AndroidDeviceOwnerKioskModeAppPositionItem extends Entity
 {
-
     /**
-    * Gets the item
-    * Item to be arranged
-    *
-    * @return AndroidDeviceOwnerKioskModeHomeScreenItem|null The item
-    */
+     * Gets the item
+     * Item to be arranged
+     *
+     * @return AndroidDeviceOwnerKioskModeHomeScreenItem|null The item
+     */
     public function getItem()
     {
         if (array_key_exists("item", $this->_propDict)) {
-            if (is_a($this->_propDict["item"], "\Beta\Microsoft\Graph\Model\AndroidDeviceOwnerKioskModeHomeScreenItem") || is_null($this->_propDict["item"])) {
+            if (is_a($this->_propDict["item"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AndroidDeviceOwnerKioskModeHomeScreenItem") || is_null($this->_propDict["item"])) {
                 return $this->_propDict["item"];
             } else {
                 $this->_propDict["item"] = new AndroidDeviceOwnerKioskModeHomeScreenItem($this->_propDict["item"]);
@@ -45,26 +46,25 @@ class AndroidDeviceOwnerKioskModeAppPositionItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the item
-    * Item to be arranged
-    *
-    * @param AndroidDeviceOwnerKioskModeHomeScreenItem $val The value to assign to the item
-    *
-    * @return AndroidDeviceOwnerKioskModeAppPositionItem The AndroidDeviceOwnerKioskModeAppPositionItem
-    */
+     * Sets the item
+     * Item to be arranged
+     *
+     * @param AndroidDeviceOwnerKioskModeHomeScreenItem $val The value to assign to the item
+     *
+     * @return AndroidDeviceOwnerKioskModeAppPositionItem The AndroidDeviceOwnerKioskModeAppPositionItem
+     */
     public function setItem($val)
     {
         $this->_propDict["item"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the position
-    * Position of the item on the grid. Valid values 0 to 9999999
-    *
-    * @return int|null The position
-    */
+     * Gets the position
+     * Position of the item on the grid. Valid values 0 to 9999999
+     *
+     * @return int|null The position
+     */
     public function getPosition()
     {
         if (array_key_exists("position", $this->_propDict)) {
@@ -73,15 +73,14 @@ class AndroidDeviceOwnerKioskModeAppPositionItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the position
-    * Position of the item on the grid. Valid values 0 to 9999999
-    *
-    * @param int $val The value of the position
-    *
-    * @return AndroidDeviceOwnerKioskModeAppPositionItem
-    */
+     * Sets the position
+     * Position of the item on the grid. Valid values 0 to 9999999
+     *
+     * @param int $val The value of the position
+     *
+     * @return AndroidDeviceOwnerKioskModeAppPositionItem
+     */
     public function setPosition($val)
     {
         $this->_propDict["position"] = $val;

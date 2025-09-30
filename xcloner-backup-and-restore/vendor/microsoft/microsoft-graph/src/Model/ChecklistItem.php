@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChecklistItem class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ChecklistItem extends Entity
 {
     /**
-    * Gets the checkedDateTime
-    * The date and time when the checklistItem was finished.
-    *
-    * @return \DateTime|null The checkedDateTime
-    */
+     * Gets the checkedDateTime
+     * The date and time when the checklistItem was finished.
+     *
+     * @return \DateTime|null The checkedDateTime
+     */
     public function getCheckedDateTime()
     {
         if (array_key_exists("checkedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["checkedDateTime"], "\DateTime") || is_null($this->_propDict["checkedDateTime"])) {
+            if (is_a($this->_propDict["checkedDateTime"], "\\DateTime") || is_null($this->_propDict["checkedDateTime"])) {
                 return $this->_propDict["checkedDateTime"];
             } else {
                 $this->_propDict["checkedDateTime"] = new \DateTime($this->_propDict["checkedDateTime"]);
@@ -45,31 +46,29 @@ class ChecklistItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the checkedDateTime
-    * The date and time when the checklistItem was finished.
-    *
-    * @param \DateTime $val The checkedDateTime
-    *
-    * @return ChecklistItem
-    */
+     * Sets the checkedDateTime
+     * The date and time when the checklistItem was finished.
+     *
+     * @param \DateTime $val The checkedDateTime
+     *
+     * @return ChecklistItem
+     */
     public function setCheckedDateTime($val)
     {
         $this->_propDict["checkedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The date and time when the checklistItem was created.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time when the checklistItem was created.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -78,27 +77,25 @@ class ChecklistItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time when the checklistItem was created.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return ChecklistItem
-    */
+     * Sets the createdDateTime
+     * The date and time when the checklistItem was created.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return ChecklistItem
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Field indicating the title of checklistItem.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Field indicating the title of checklistItem.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -107,27 +104,25 @@ class ChecklistItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Field indicating the title of checklistItem.
-    *
-    * @param string $val The displayName
-    *
-    * @return ChecklistItem
-    */
+     * Sets the displayName
+     * Field indicating the title of checklistItem.
+     *
+     * @param string $val The displayName
+     *
+     * @return ChecklistItem
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isChecked
-    * State indicating whether the item is checked off or not.
-    *
-    * @return bool|null The isChecked
-    */
+     * Gets the isChecked
+     * State indicating whether the item is checked off or not.
+     *
+     * @return bool|null The isChecked
+     */
     public function getIsChecked()
     {
         if (array_key_exists("isChecked", $this->_propDict)) {
@@ -136,19 +131,17 @@ class ChecklistItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isChecked
-    * State indicating whether the item is checked off or not.
-    *
-    * @param bool $val The isChecked
-    *
-    * @return ChecklistItem
-    */
+     * Sets the isChecked
+     * State indicating whether the item is checked off or not.
+     *
+     * @param bool $val The isChecked
+     *
+     * @return ChecklistItem
+     */
     public function setIsChecked($val)
     {
         $this->_propDict["isChecked"] = boolval($val);
         return $this;
     }
-
 }

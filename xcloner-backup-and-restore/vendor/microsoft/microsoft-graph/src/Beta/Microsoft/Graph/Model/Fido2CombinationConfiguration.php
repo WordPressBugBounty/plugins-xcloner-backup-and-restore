@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Fido2CombinationConfiguration class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Fido2CombinationConfiguration extends AuthenticationCombinationConfiguration
 {
     /**
-    * Gets the allowedAAGUIDs
-    *
-    * @return array|null The allowedAAGUIDs
-    */
+     * Gets the allowedAAGUIDs
+     *
+     * @return array|null The allowedAAGUIDs
+     */
     public function getAllowedAAGUIDs()
     {
         if (array_key_exists("allowedAAGUIDs", $this->_propDict)) {
@@ -40,18 +41,16 @@ class Fido2CombinationConfiguration extends AuthenticationCombinationConfigurati
             return null;
         }
     }
-
     /**
-    * Sets the allowedAAGUIDs
-    *
-    * @param string[] $val The allowedAAGUIDs
-    *
-    * @return Fido2CombinationConfiguration
-    */
+     * Sets the allowedAAGUIDs
+     *
+     * @param string[] $val The allowedAAGUIDs
+     *
+     * @return Fido2CombinationConfiguration
+     */
     public function setAllowedAAGUIDs($val)
     {
         $this->_propDict["allowedAAGUIDs"] = $val;
         return $this;
     }
-
 }

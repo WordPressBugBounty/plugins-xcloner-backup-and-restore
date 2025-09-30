@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppMetadataEntry class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppMetadataEntry extends Entity
 {
     /**
-    * Gets the key
-    *
-    * @return string|null The key
-    */
+     * Gets the key
+     *
+     * @return string|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
@@ -39,48 +41,45 @@ class AppMetadataEntry extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the key
-    *
-    * @param string $val The value of the key
-    *
-    * @return AppMetadataEntry
-    */
+     * Sets the key
+     *
+     * @param string $val The value of the key
+     *
+     * @return AppMetadataEntry
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;
         return $this;
     }
-
     /**
-    * Gets the value
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The value
-    */
+     * Gets the value
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["value"])) {
+            if (is_a($this->_propDict["value"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["value"])) {
                 return $this->_propDict["value"];
             } else {
-                $this->_propDict["value"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["value"]);
+                $this->_propDict["value"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["value"]);
                 return $this->_propDict["value"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the value
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the value
-    *
-    * @return AppMetadataEntry The AppMetadataEntry
-    */
+     * Sets the value
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the value
+     *
+     * @return AppMetadataEntry The AppMetadataEntry
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
-         return $this;
+        return $this;
     }
 }

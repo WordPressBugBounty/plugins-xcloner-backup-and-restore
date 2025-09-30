@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeleteUserFromSharedAppleDeviceActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeleteUserFromSharedAppleDeviceActionResult extends DeviceActionResult
 {
     /**
-    * Gets the userPrincipalName
-    * User principal name of the user to be deleted
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * User principal name of the user to be deleted
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeleteUserFromSharedAppleDeviceActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * User principal name of the user to be deleted
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return DeleteUserFromSharedAppleDeviceActionResult
-    */
+     * Sets the userPrincipalName
+     * User principal name of the user to be deleted
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return DeleteUserFromSharedAppleDeviceActionResult
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

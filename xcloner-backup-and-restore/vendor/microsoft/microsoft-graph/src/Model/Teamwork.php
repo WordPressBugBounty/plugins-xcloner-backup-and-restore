@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Teamwork class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Teamwork extends Entity
 {
-
-     /**
+    /**
      * Gets the workforceIntegrations
      *
      * @return array|null The workforceIntegrations
@@ -36,23 +36,21 @@ class Teamwork extends Entity
     public function getWorkforceIntegrations()
     {
         if (array_key_exists("workforceIntegrations", $this->_propDict)) {
-           return $this->_propDict["workforceIntegrations"];
+            return $this->_propDict["workforceIntegrations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the workforceIntegrations
-    *
-    * @param WorkforceIntegration[] $val The workforceIntegrations
-    *
-    * @return Teamwork
-    */
+     * Sets the workforceIntegrations
+     *
+     * @param WorkforceIntegration[] $val The workforceIntegrations
+     *
+     * @return Teamwork
+     */
     public function setWorkforceIntegrations($val)
     {
         $this->_propDict["workforceIntegrations"] = $val;
         return $this;
     }
-
 }

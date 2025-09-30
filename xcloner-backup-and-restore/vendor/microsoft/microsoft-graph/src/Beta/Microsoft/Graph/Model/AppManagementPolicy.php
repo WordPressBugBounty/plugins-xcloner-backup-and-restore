@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppManagementPolicy class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppManagementPolicy extends PolicyBase
 {
     /**
-    * Gets the isEnabled
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -40,29 +41,27 @@ class AppManagementPolicy extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return AppManagementPolicy
-    */
+     * Sets the isEnabled
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return AppManagementPolicy
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the restrictions
-    *
-    * @return AppManagementConfiguration|null The restrictions
-    */
+     * Gets the restrictions
+     *
+     * @return AppManagementConfiguration|null The restrictions
+     */
     public function getRestrictions()
     {
         if (array_key_exists("restrictions", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictions"], "\Beta\Microsoft\Graph\Model\AppManagementConfiguration") || is_null($this->_propDict["restrictions"])) {
+            if (is_a($this->_propDict["restrictions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppManagementConfiguration") || is_null($this->_propDict["restrictions"])) {
                 return $this->_propDict["restrictions"];
             } else {
                 $this->_propDict["restrictions"] = new AppManagementConfiguration($this->_propDict["restrictions"]);
@@ -71,22 +70,19 @@ class AppManagementPolicy extends PolicyBase
         }
         return null;
     }
-
     /**
-    * Sets the restrictions
-    *
-    * @param AppManagementConfiguration $val The restrictions
-    *
-    * @return AppManagementPolicy
-    */
+     * Sets the restrictions
+     *
+     * @param AppManagementConfiguration $val The restrictions
+     *
+     * @return AppManagementPolicy
+     */
     public function setRestrictions($val)
     {
         $this->_propDict["restrictions"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the appliesTo
      *
      * @return array|null The appliesTo
@@ -94,23 +90,21 @@ class AppManagementPolicy extends PolicyBase
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-           return $this->_propDict["appliesTo"];
+            return $this->_propDict["appliesTo"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the appliesTo
-    *
-    * @param DirectoryObject[] $val The appliesTo
-    *
-    * @return AppManagementPolicy
-    */
+     * Sets the appliesTo
+     *
+     * @param DirectoryObject[] $val The appliesTo
+     *
+     * @return AppManagementPolicy
+     */
     public function setAppliesTo($val)
     {
         $this->_propDict["appliesTo"] = $val;
         return $this;
     }
-
 }

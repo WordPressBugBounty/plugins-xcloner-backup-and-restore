@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Serialization;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Short description
  *
@@ -44,10 +42,9 @@ use MicrosoftAzure\Storage\Common\Internal\Validate;
  */
 class XmlSerializer implements ISerializer
 {
-    const STANDALONE  = 'standalone';
-    const ROOT_NAME   = 'rootName';
+    const STANDALONE = 'standalone';
+    const ROOT_NAME = 'rootName';
     const DEFAULT_TAG = 'defaultTag';
-
     /**
      * Converts a SimpleXML object to an Array recursively
      * ensuring all sub-elements are arrays as well.
@@ -60,16 +57,14 @@ class XmlSerializer implements ISerializer
     private function sxml2arr($sxml, array $arr = null)
     {
         foreach ((array) $sxml as $key => $value) {
-            if (is_object($value) || (is_array($value))) {
+            if (is_object($value) || is_array($value)) {
                 $arr[$key] = $this->sxml2arr($value);
             } else {
                 $arr[$key] = $value;
             }
         }
-
         return $arr;
     }
-
     /**
      * Takes an array and produces XML based on it.
      *
@@ -95,9 +90,7 @@ class XmlSerializer implements ISerializer
                         $xmlw->startElement($defaultTag);
                     }
                 }
-
                 $this->arr2xml($xmlw, $value);
-
                 if (!is_int($key)) {
                     $xmlw->endElement();
                 }
@@ -106,7 +99,6 @@ class XmlSerializer implements ISerializer
             }
         }
     }
-
     /**
      * Gets the attributes of a specified object if get attributes
      * method is exposed.
@@ -126,7 +118,6 @@ class XmlSerializer implements ISerializer
         }
         return null;
     }
-
     /**
      * Serialize an object with specified root element name.
      *
@@ -141,39 +132,23 @@ class XmlSerializer implements ISerializer
         Validate::canCastAsString($rootName, 'rootName');
         $xmlWriter = new \XmlWriter();
         $xmlWriter->openMemory();
-        $xmlWriter->setIndent(true);
+        $xmlWriter->setIndent(\true);
         $reflectionClass = new \ReflectionClass($targetObject);
-        $methodArray     = $reflectionClass->getMethods();
-        $attributes      = self::getInstanceAttributes(
-            $targetObject,
-            $methodArray
-        );
-
+        $methodArray = $reflectionClass->getMethods();
+        $attributes = self::getInstanceAttributes($targetObject, $methodArray);
         $xmlWriter->startElement($rootName);
         if (!is_null($attributes)) {
             foreach (array_keys($attributes) as $attributeKey) {
-                $xmlWriter->writeAttribute(
-                    $attributeKey,
-                    $attributes[$attributeKey]
-                );
+                $xmlWriter->writeAttribute($attributeKey, $attributes[$attributeKey]);
             }
         }
-
         foreach ($methodArray as $method) {
-            if ((strpos($method->name, 'get') === 0)
-                && $method->isPublic()
-                && ($method->name != 'getAttributes')
-            ) {
-                $variableName  = substr($method->name, 3);
+            if (strpos($method->name, 'get') === 0 && $method->isPublic() && $method->name != 'getAttributes') {
+                $variableName = substr($method->name, 3);
                 $variableValue = $method->invoke($targetObject);
                 if (!empty($variableValue)) {
                     if (gettype($variableValue) === 'object') {
-                        $xmlWriter->writeRaw(
-                            XmlSerializer::objectSerialize(
-                                $variableValue,
-                                $variableName
-                            )
-                        );
+                        $xmlWriter->writeRaw(XmlSerializer::objectSerialize($variableValue, $variableName));
                     } else {
                         $xmlWriter->writeElement($variableName, $variableValue);
                     }
@@ -181,9 +156,8 @@ class XmlSerializer implements ISerializer
             }
         }
         $xmlWriter->endElement();
-        return $xmlWriter->outputMemory(true);
+        return $xmlWriter->outputMemory(\true);
     }
-
     /**
      * Serializes given array. The array indices must be string to use them as
      * as element name.
@@ -195,26 +169,19 @@ class XmlSerializer implements ISerializer
      */
     public function serialize(array $array, array $properties = null)
     {
-        $xmlVersion   = '1.0';
-        $xmlEncoding  = 'UTF-8';
-        $standalone   = Utilities::tryGetValue($properties, self::STANDALONE);
-        $defaultTag   = Utilities::tryGetValue($properties, self::DEFAULT_TAG);
-        $rootName     = Utilities::tryGetValue($properties, self::ROOT_NAME);
-        $docNamespace = Utilities::tryGetValue(
-            $array,
-            Resources::XTAG_NAMESPACE,
-            null
-        );
-
+        $xmlVersion = '1.0';
+        $xmlEncoding = 'UTF-8';
+        $standalone = Utilities::tryGetValue($properties, self::STANDALONE);
+        $defaultTag = Utilities::tryGetValue($properties, self::DEFAULT_TAG);
+        $rootName = Utilities::tryGetValue($properties, self::ROOT_NAME);
+        $docNamespace = Utilities::tryGetValue($array, Resources::XTAG_NAMESPACE, null);
         if (!is_array($array)) {
-            return false;
+            return \false;
         }
-
         $xmlw = new \XmlWriter();
         $xmlw->openMemory();
-        $xmlw->setIndent(true);
+        $xmlw->setIndent(\true);
         $xmlw->startDocument($xmlVersion, $xmlEncoding, $standalone);
-
         if (is_null($docNamespace)) {
             $xmlw->startElement($rootName);
         } else {
@@ -223,15 +190,11 @@ class XmlSerializer implements ISerializer
                 break;
             }
         }
-
         unset($array[Resources::XTAG_NAMESPACE]);
         self::arr2xml($xmlw, $array, $defaultTag);
-
         $xmlw->endElement();
-
-        return $xmlw->outputMemory(true);
+        return $xmlw->outputMemory(\true);
     }
-
     /**
      * Unserializes given serialized string.
      *
@@ -242,7 +205,6 @@ class XmlSerializer implements ISerializer
     public function unserialize($serialized)
     {
         $sxml = new \SimpleXMLElement($serialized);
-
         return $this->sxml2arr($sxml);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MyRole class
 *
@@ -28,72 +29,66 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MyRole implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new MyRole
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new MyRole
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the MyRole
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the MyRole
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
-
-     /**
+    /**
      * Gets the assignments
-    * A collection of role assignments for the managed tenant.
+     * A collection of role assignments for the managed tenant.
      *
      * @return array|null The assignments
      */
     public function getAssignments()
     {
         if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+            return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignments
-    * A collection of role assignments for the managed tenant.
-    *
-    * @param RoleAssignment[] $val The assignments
-    *
-    * @return MyRole
-    */
+     * Sets the assignments
+     * A collection of role assignments for the managed tenant.
+     *
+     * @param RoleAssignment[] $val The assignments
+     *
+     * @return MyRole
+     */
     public function setAssignments($val)
     {
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -102,26 +97,24 @@ class MyRole implements \JsonSerializable
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    *
-    * @param string $val The tenantId
-    *
-    * @return MyRole
-    */
+     * Sets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
+     *
+     * @param string $val The tenantId
+     *
+     * @return MyRole
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -129,36 +122,34 @@ class MyRole implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return MyRole
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return MyRole
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

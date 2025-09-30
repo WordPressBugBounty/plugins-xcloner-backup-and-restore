@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ObjectDefinition class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ObjectDefinition extends Entity
 {
-
     /**
-    * Gets the attributes
-    *
-    * @return AttributeDefinition|null The attributes
-    */
+     * Gets the attributes
+     *
+     * @return AttributeDefinition|null The attributes
+     */
     public function getAttributes()
     {
         if (array_key_exists("attributes", $this->_propDict)) {
-            if (is_a($this->_propDict["attributes"], "\Beta\Microsoft\Graph\Model\AttributeDefinition") || is_null($this->_propDict["attributes"])) {
+            if (is_a($this->_propDict["attributes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AttributeDefinition") || is_null($this->_propDict["attributes"])) {
                 return $this->_propDict["attributes"];
             } else {
                 $this->_propDict["attributes"] = new AttributeDefinition($this->_propDict["attributes"]);
@@ -44,29 +45,27 @@ class ObjectDefinition extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attributes
-    *
-    * @param AttributeDefinition $val The value to assign to the attributes
-    *
-    * @return ObjectDefinition The ObjectDefinition
-    */
+     * Sets the attributes
+     *
+     * @param AttributeDefinition $val The value to assign to the attributes
+     *
+     * @return ObjectDefinition The ObjectDefinition
+     */
     public function setAttributes($val)
     {
         $this->_propDict["attributes"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the metadata
-    *
-    * @return MetadataEntry|null The metadata
-    */
+     * Gets the metadata
+     *
+     * @return MetadataEntry|null The metadata
+     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
+            if (is_a($this->_propDict["metadata"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MetadataEntry") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
@@ -75,24 +74,23 @@ class ObjectDefinition extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the metadata
-    *
-    * @param MetadataEntry $val The value to assign to the metadata
-    *
-    * @return ObjectDefinition The ObjectDefinition
-    */
+     * Sets the metadata
+     *
+     * @param MetadataEntry $val The value to assign to the metadata
+     *
+     * @return ObjectDefinition The ObjectDefinition
+     */
     public function setMetadata($val)
     {
         $this->_propDict["metadata"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -101,24 +99,23 @@ class ObjectDefinition extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return ObjectDefinition
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return ObjectDefinition
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the supportedApis
-    *
-    * @return string|null The supportedApis
-    */
+     * Gets the supportedApis
+     *
+     * @return string|null The supportedApis
+     */
     public function getSupportedApis()
     {
         if (array_key_exists("supportedApis", $this->_propDict)) {
@@ -127,14 +124,13 @@ class ObjectDefinition extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the supportedApis
-    *
-    * @param string $val The value of the supportedApis
-    *
-    * @return ObjectDefinition
-    */
+     * Sets the supportedApis
+     *
+     * @param string $val The value of the supportedApis
+     *
+     * @return ObjectDefinition
+     */
     public function setSupportedApis($val)
     {
         $this->_propDict["supportedApis"] = $val;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Psr\Cache;
+namespace XCloner\Psr\Cache;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Exception interface for invalid cache arguments.
  *

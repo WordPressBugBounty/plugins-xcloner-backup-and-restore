@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TopicModelingSettings class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
+class TopicModelingSettings extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the dynamicallyAdjustTopicCount
-    * To learn more, see Adjust maximum number of themes dynamically.
-    *
-    * @return bool|null The dynamicallyAdjustTopicCount
-    */
+     * Gets the dynamicallyAdjustTopicCount
+     * To learn more, see Adjust maximum number of themes dynamically.
+     *
+     * @return bool|null The dynamicallyAdjustTopicCount
+     */
     public function getDynamicallyAdjustTopicCount()
     {
         if (array_key_exists("dynamicallyAdjustTopicCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the dynamicallyAdjustTopicCount
-    * To learn more, see Adjust maximum number of themes dynamically.
-    *
-    * @param bool $val The value of the dynamicallyAdjustTopicCount
-    *
-    * @return TopicModelingSettings
-    */
+     * Sets the dynamicallyAdjustTopicCount
+     * To learn more, see Adjust maximum number of themes dynamically.
+     *
+     * @param bool $val The value of the dynamicallyAdjustTopicCount
+     *
+     * @return TopicModelingSettings
+     */
     public function setDynamicallyAdjustTopicCount($val)
     {
         $this->_propDict["dynamicallyAdjustTopicCount"] = $val;
         return $this;
     }
     /**
-    * Gets the ignoreNumbers
-    * To learn more, see Include numbers in themes.
-    *
-    * @return bool|null The ignoreNumbers
-    */
+     * Gets the ignoreNumbers
+     * To learn more, see Include numbers in themes.
+     *
+     * @return bool|null The ignoreNumbers
+     */
     public function getIgnoreNumbers()
     {
         if (array_key_exists("ignoreNumbers", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the ignoreNumbers
-    * To learn more, see Include numbers in themes.
-    *
-    * @param bool $val The value of the ignoreNumbers
-    *
-    * @return TopicModelingSettings
-    */
+     * Sets the ignoreNumbers
+     * To learn more, see Include numbers in themes.
+     *
+     * @param bool $val The value of the ignoreNumbers
+     *
+     * @return TopicModelingSettings
+     */
     public function setIgnoreNumbers($val)
     {
         $this->_propDict["ignoreNumbers"] = $val;
         return $this;
     }
     /**
-    * Gets the isEnabled
-    * Indicates whether themes is enabled for the case.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Indicates whether themes is enabled for the case.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -96,26 +96,25 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Indicates whether themes is enabled for the case.
-    *
-    * @param bool $val The value of the isEnabled
-    *
-    * @return TopicModelingSettings
-    */
+     * Sets the isEnabled
+     * Indicates whether themes is enabled for the case.
+     *
+     * @param bool $val The value of the isEnabled
+     *
+     * @return TopicModelingSettings
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the topicCount
-    * To learn more, see Maximum number of themes.
-    *
-    * @return int|null The topicCount
-    */
+     * Gets the topicCount
+     * To learn more, see Maximum number of themes.
+     *
+     * @return int|null The topicCount
+     */
     public function getTopicCount()
     {
         if (array_key_exists("topicCount", $this->_propDict)) {
@@ -124,15 +123,14 @@ class TopicModelingSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the topicCount
-    * To learn more, see Maximum number of themes.
-    *
-    * @param int $val The value of the topicCount
-    *
-    * @return TopicModelingSettings
-    */
+     * Sets the topicCount
+     * To learn more, see Maximum number of themes.
+     *
+     * @param int $val The value of the topicCount
+     *
+     * @return TopicModelingSettings
+     */
     public function setTopicCount($val)
     {
         $this->_propDict["topicCount"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TaskDefinition class
 *
@@ -25,18 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TaskDefinition extends \Beta\Microsoft\Graph\Model\Entity
+class TaskDefinition extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the category
-    * The category of the HR function that the tasks created using this definition can be used with. The possible values are: joiner, leaver. This is a multi-valued enumeration whose allowed combinations are joiner, joiner,leaver, or leaver. Supports $filter (eq).
-    *
-    * @return LifecycleTaskCategory|null The category
-    */
+     * Gets the category
+     * The category of the HR function that the tasks created using this definition can be used with. The possible values are: joiner, leaver. This is a multi-valued enumeration whose allowed combinations are joiner, joiner,leaver, or leaver. Supports $filter (eq).
+     *
+     * @return LifecycleTaskCategory|null The category
+     */
     public function getCategory()
     {
         if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\LifecycleTaskCategory") || is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "XCloner\\Beta\\Microsoft\\Graph\\IdentityGovernanceNamespace\\Model\\LifecycleTaskCategory") || is_null($this->_propDict["category"])) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new LifecycleTaskCategory($this->_propDict["category"]);
@@ -45,26 +46,24 @@ class TaskDefinition extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the category
-    * The category of the HR function that the tasks created using this definition can be used with. The possible values are: joiner, leaver. This is a multi-valued enumeration whose allowed combinations are joiner, joiner,leaver, or leaver. Supports $filter (eq).
-    *
-    * @param LifecycleTaskCategory $val The category
-    *
-    * @return TaskDefinition
-    */
+     * Sets the category
+     * The category of the HR function that the tasks created using this definition can be used with. The possible values are: joiner, leaver. This is a multi-valued enumeration whose allowed combinations are joiner, joiner,leaver, or leaver. Supports $filter (eq).
+     *
+     * @param LifecycleTaskCategory $val The category
+     *
+     * @return TaskDefinition
+     */
     public function setCategory($val)
     {
         $this->_propDict["category"] = $val;
         return $this;
     }
-
     /**
-    * Gets the continueOnError
-    *
-    * @return bool|null The continueOnError
-    */
+     * Gets the continueOnError
+     *
+     * @return bool|null The continueOnError
+     */
     public function getContinueOnError()
     {
         if (array_key_exists("continueOnError", $this->_propDict)) {
@@ -73,26 +72,24 @@ class TaskDefinition extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the continueOnError
-    *
-    * @param bool $val The continueOnError
-    *
-    * @return TaskDefinition
-    */
+     * Sets the continueOnError
+     *
+     * @param bool $val The continueOnError
+     *
+     * @return TaskDefinition
+     */
     public function setContinueOnError($val)
     {
         $this->_propDict["continueOnError"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the description
-    * The description of the taskDefinition.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the taskDefinition.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -101,27 +98,25 @@ class TaskDefinition extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the taskDefinition.
-    *
-    * @param string $val The description
-    *
-    * @return TaskDefinition
-    */
+     * Sets the description
+     * The description of the taskDefinition.
+     *
+     * @param string $val The description
+     *
+     * @return TaskDefinition
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name of the taskDefinition`.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the taskDefinition`.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -130,57 +125,52 @@ class TaskDefinition extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the taskDefinition`.
-    *
-    * @param string $val The displayName
-    *
-    * @return TaskDefinition
-    */
+     * Sets the displayName
+     * The display name of the taskDefinition`.
+     *
+     * @param string $val The displayName
+     *
+     * @return TaskDefinition
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the parameters
-    * The parameters that must be supplied when creating a workflow task object.
+     * The parameters that must be supplied when creating a workflow task object.
      *
      * @return array|null The parameters
      */
     public function getParameters()
     {
         if (array_key_exists("parameters", $this->_propDict)) {
-           return $this->_propDict["parameters"];
+            return $this->_propDict["parameters"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the parameters
-    * The parameters that must be supplied when creating a workflow task object.
-    *
-    * @param Parameter[] $val The parameters
-    *
-    * @return TaskDefinition
-    */
+     * Sets the parameters
+     * The parameters that must be supplied when creating a workflow task object.
+     *
+     * @param Parameter[] $val The parameters
+     *
+     * @return TaskDefinition
+     */
     public function setParameters($val)
     {
         $this->_propDict["parameters"] = $val;
         return $this;
     }
-
     /**
-    * Gets the version
-    * The version number of the taskDefinition. New records are pushed when we add support for new parameters.
-    *
-    * @return int|null The version
-    */
+     * Gets the version
+     * The version number of the taskDefinition. New records are pushed when we add support for new parameters.
+     *
+     * @return int|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -189,19 +179,17 @@ class TaskDefinition extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * The version number of the taskDefinition. New records are pushed when we add support for new parameters.
-    *
-    * @param int $val The version
-    *
-    * @return TaskDefinition
-    */
+     * Sets the version
+     * The version number of the taskDefinition. New records are pushed when we add support for new parameters.
+     *
+     * @param int $val The version
+     *
+     * @return TaskDefinition
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = intval($val);
         return $this;
     }
-
 }

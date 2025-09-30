@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Trait implementing setting and getting useTransactionalMD5 for
  * option classes which need support transactional MD5 validation
@@ -43,7 +42,6 @@ trait TransactionalMD5Trait
 {
     /** @var $useTransactionalMD5 boolean */
     private $useTransactionalMD5;
-
     /**
      * Gets whether using transactional MD5 validation.
      *
@@ -53,7 +51,6 @@ trait TransactionalMD5Trait
     {
         return $this->useTransactionalMD5;
     }
-
     /**
      * Sets whether using transactional MD5 validation.
      *

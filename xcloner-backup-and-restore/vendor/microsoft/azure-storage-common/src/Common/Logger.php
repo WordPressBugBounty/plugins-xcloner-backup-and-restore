@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common;
 
-namespace MicrosoftAzure\Storage\Common;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
 /**
  * Logger class for debugging purpose.
  *
@@ -45,7 +43,6 @@ class Logger
      * @var string
      */
     private static $_filePath;
-
     /**
      * Logs $var to file.
      *
@@ -59,14 +56,12 @@ class Logger
         if (!empty($tip)) {
             error_log($tip . "\n", 3, self::$_filePath);
         }
-
         if (is_array($var) || is_object($var)) {
-            error_log(print_r($var, true), 3, self::$_filePath);
+            error_log(print_r($var, \true), 3, self::$_filePath);
         } else {
             error_log($var . "\n", 3, self::$_filePath);
         }
     }
-
     /**
      * Sets file path to use.
      *

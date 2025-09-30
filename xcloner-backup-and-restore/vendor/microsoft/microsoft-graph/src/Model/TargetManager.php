@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TargetManager class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TargetManager extends SubjectSet
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.targetManager");
     }
-
     /**
-    * Gets the managerLevel
-    * Manager level, between 1 and 4. The direct manager is 1.
-    *
-    * @return int|null The managerLevel
-    */
+     * Gets the managerLevel
+     * Manager level, between 1 and 4. The direct manager is 1.
+     *
+     * @return int|null The managerLevel
+     */
     public function getManagerLevel()
     {
         if (array_key_exists("managerLevel", $this->_propDict)) {
@@ -51,15 +52,14 @@ class TargetManager extends SubjectSet
             return null;
         }
     }
-
     /**
-    * Sets the managerLevel
-    * Manager level, between 1 and 4. The direct manager is 1.
-    *
-    * @param int $val The value of the managerLevel
-    *
-    * @return TargetManager
-    */
+     * Sets the managerLevel
+     * Manager level, between 1 and 4. The direct manager is 1.
+     *
+     * @param int $val The value of the managerLevel
+     *
+     * @return TargetManager
+     */
     public function setManagerLevel($val)
     {
         $this->_propDict["managerLevel"] = $val;

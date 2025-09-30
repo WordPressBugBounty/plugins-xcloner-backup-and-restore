@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CertificateConnectorSetting class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CertificateConnectorSetting extends Entity
 {
-
     /**
-    * Gets the certExpiryTime
-    * Certificate expire time
-    *
-    * @return \DateTime|null The certExpiryTime
-    */
+     * Gets the certExpiryTime
+     * Certificate expire time
+     *
+     * @return \DateTime|null The certExpiryTime
+     */
     public function getCertExpiryTime()
     {
         if (array_key_exists("certExpiryTime", $this->_propDict)) {
-            if (is_a($this->_propDict["certExpiryTime"], "\DateTime") || is_null($this->_propDict["certExpiryTime"])) {
+            if (is_a($this->_propDict["certExpiryTime"], "\\DateTime") || is_null($this->_propDict["certExpiryTime"])) {
                 return $this->_propDict["certExpiryTime"];
             } else {
                 $this->_propDict["certExpiryTime"] = new \DateTime($this->_propDict["certExpiryTime"]);
@@ -45,26 +46,25 @@ class CertificateConnectorSetting extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the certExpiryTime
-    * Certificate expire time
-    *
-    * @param \DateTime $val The value to assign to the certExpiryTime
-    *
-    * @return CertificateConnectorSetting The CertificateConnectorSetting
-    */
+     * Sets the certExpiryTime
+     * Certificate expire time
+     *
+     * @param \DateTime $val The value to assign to the certExpiryTime
+     *
+     * @return CertificateConnectorSetting The CertificateConnectorSetting
+     */
     public function setCertExpiryTime($val)
     {
         $this->_propDict["certExpiryTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the connectorVersion
-    * Version of certificate connector
-    *
-    * @return string|null The connectorVersion
-    */
+     * Gets the connectorVersion
+     * Version of certificate connector
+     *
+     * @return string|null The connectorVersion
+     */
     public function getConnectorVersion()
     {
         if (array_key_exists("connectorVersion", $this->_propDict)) {
@@ -73,26 +73,25 @@ class CertificateConnectorSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the connectorVersion
-    * Version of certificate connector
-    *
-    * @param string $val The value of the connectorVersion
-    *
-    * @return CertificateConnectorSetting
-    */
+     * Sets the connectorVersion
+     * Version of certificate connector
+     *
+     * @param string $val The value of the connectorVersion
+     *
+     * @return CertificateConnectorSetting
+     */
     public function setConnectorVersion($val)
     {
         $this->_propDict["connectorVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the enrollmentError
-    * Certificate connector enrollment error
-    *
-    * @return string|null The enrollmentError
-    */
+     * Gets the enrollmentError
+     * Certificate connector enrollment error
+     *
+     * @return string|null The enrollmentError
+     */
     public function getEnrollmentError()
     {
         if (array_key_exists("enrollmentError", $this->_propDict)) {
@@ -101,31 +100,29 @@ class CertificateConnectorSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enrollmentError
-    * Certificate connector enrollment error
-    *
-    * @param string $val The value of the enrollmentError
-    *
-    * @return CertificateConnectorSetting
-    */
+     * Sets the enrollmentError
+     * Certificate connector enrollment error
+     *
+     * @param string $val The value of the enrollmentError
+     *
+     * @return CertificateConnectorSetting
+     */
     public function setEnrollmentError($val)
     {
         $this->_propDict["enrollmentError"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastConnectorConnectionTime
-    * Last time certificate connector connected
-    *
-    * @return \DateTime|null The lastConnectorConnectionTime
-    */
+     * Gets the lastConnectorConnectionTime
+     * Last time certificate connector connected
+     *
+     * @return \DateTime|null The lastConnectorConnectionTime
+     */
     public function getLastConnectorConnectionTime()
     {
         if (array_key_exists("lastConnectorConnectionTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectorConnectionTime"], "\DateTime") || is_null($this->_propDict["lastConnectorConnectionTime"])) {
+            if (is_a($this->_propDict["lastConnectorConnectionTime"], "\\DateTime") || is_null($this->_propDict["lastConnectorConnectionTime"])) {
                 return $this->_propDict["lastConnectorConnectionTime"];
             } else {
                 $this->_propDict["lastConnectorConnectionTime"] = new \DateTime($this->_propDict["lastConnectorConnectionTime"]);
@@ -134,26 +131,25 @@ class CertificateConnectorSetting extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastConnectorConnectionTime
-    * Last time certificate connector connected
-    *
-    * @param \DateTime $val The value to assign to the lastConnectorConnectionTime
-    *
-    * @return CertificateConnectorSetting The CertificateConnectorSetting
-    */
+     * Sets the lastConnectorConnectionTime
+     * Last time certificate connector connected
+     *
+     * @param \DateTime $val The value to assign to the lastConnectorConnectionTime
+     *
+     * @return CertificateConnectorSetting The CertificateConnectorSetting
+     */
     public function setLastConnectorConnectionTime($val)
     {
         $this->_propDict["lastConnectorConnectionTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the lastUploadVersion
-    * Version of last uploaded certificate connector
-    *
-    * @return int|null The lastUploadVersion
-    */
+     * Gets the lastUploadVersion
+     * Version of last uploaded certificate connector
+     *
+     * @return int|null The lastUploadVersion
+     */
     public function getLastUploadVersion()
     {
         if (array_key_exists("lastUploadVersion", $this->_propDict)) {
@@ -162,26 +158,25 @@ class CertificateConnectorSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastUploadVersion
-    * Version of last uploaded certificate connector
-    *
-    * @param int $val The value of the lastUploadVersion
-    *
-    * @return CertificateConnectorSetting
-    */
+     * Sets the lastUploadVersion
+     * Version of last uploaded certificate connector
+     *
+     * @param int $val The value of the lastUploadVersion
+     *
+     * @return CertificateConnectorSetting
+     */
     public function setLastUploadVersion($val)
     {
         $this->_propDict["lastUploadVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the status
-    * Certificate connector status
-    *
-    * @return int|null The status
-    */
+     * Gets the status
+     * Certificate connector status
+     *
+     * @return int|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
@@ -190,15 +185,14 @@ class CertificateConnectorSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the status
-    * Certificate connector status
-    *
-    * @param int $val The value of the status
-    *
-    * @return CertificateConnectorSetting
-    */
+     * Sets the status
+     * Certificate connector status
+     *
+     * @param int $val The value of the status
+     *
+     * @return CertificateConnectorSetting
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;

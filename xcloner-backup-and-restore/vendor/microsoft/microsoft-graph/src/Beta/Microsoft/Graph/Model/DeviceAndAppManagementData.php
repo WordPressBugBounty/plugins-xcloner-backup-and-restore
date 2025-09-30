@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceAndAppManagementData class
 *
@@ -26,37 +28,35 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceAndAppManagementData extends Entity
 {
-
     /**
-    * Gets the content
-    * Not yet documented
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The content
-    */
+     * Gets the content
+     * Not yet documented
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
+                $this->_propDict["content"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the content
-    * Not yet documented
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the content
-    *
-    * @return DeviceAndAppManagementData The DeviceAndAppManagementData
-    */
+     * Sets the content
+     * Not yet documented
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the content
+     *
+     * @return DeviceAndAppManagementData The DeviceAndAppManagementData
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
-         return $this;
+        return $this;
     }
 }

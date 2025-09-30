@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TrustFrameworkKeySet class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TrustFrameworkKeySet extends Entity
 {
-
-     /**
+    /**
      * Gets the keys
-    * A collection of the keys.
+     * A collection of the keys.
      *
      * @return array|null The keys
      */
     public function getKeys()
     {
         if (array_key_exists("keys", $this->_propDict)) {
-           return $this->_propDict["keys"];
+            return $this->_propDict["keys"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the keys
-    * A collection of the keys.
-    *
-    * @param TrustFrameworkKey[] $val The keys
-    *
-    * @return TrustFrameworkKeySet
-    */
+     * Sets the keys
+     * A collection of the keys.
+     *
+     * @param TrustFrameworkKey[] $val The keys
+     *
+     * @return TrustFrameworkKeySet
+     */
     public function setKeys($val)
     {
         $this->_propDict["keys"] = $val;
         return $this;
     }
-
 }

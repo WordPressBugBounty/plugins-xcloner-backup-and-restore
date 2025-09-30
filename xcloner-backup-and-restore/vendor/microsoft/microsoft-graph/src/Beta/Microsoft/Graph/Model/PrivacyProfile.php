@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrivacyProfile class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrivacyProfile extends Entity
 {
     /**
-    * Gets the contactEmail
-    * A valid smtp email address for the privacy statement contact. Not required.
-    *
-    * @return string|null The contactEmail
-    */
+     * Gets the contactEmail
+     * A valid smtp email address for the privacy statement contact. Not required.
+     *
+     * @return string|null The contactEmail
+     */
     public function getContactEmail()
     {
         if (array_key_exists("contactEmail", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PrivacyProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contactEmail
-    * A valid smtp email address for the privacy statement contact. Not required.
-    *
-    * @param string $val The value of the contactEmail
-    *
-    * @return PrivacyProfile
-    */
+     * Sets the contactEmail
+     * A valid smtp email address for the privacy statement contact. Not required.
+     *
+     * @param string $val The value of the contactEmail
+     *
+     * @return PrivacyProfile
+     */
     public function setContactEmail($val)
     {
         $this->_propDict["contactEmail"] = $val;
         return $this;
     }
     /**
-    * Gets the statementUrl
-    * A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required.
-    *
-    * @return string|null The statementUrl
-    */
+     * Gets the statementUrl
+     * A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required.
+     *
+     * @return string|null The statementUrl
+     */
     public function getStatementUrl()
     {
         if (array_key_exists("statementUrl", $this->_propDict)) {
@@ -68,15 +69,14 @@ class PrivacyProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the statementUrl
-    * A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required.
-    *
-    * @param string $val The value of the statementUrl
-    *
-    * @return PrivacyProfile
-    */
+     * Sets the statementUrl
+     * A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required.
+     *
+     * @param string $val The value of the statementUrl
+     *
+     * @return PrivacyProfile
+     */
     public function setStatementUrl($val)
     {
         $this->_propDict["statementUrl"] = $val;

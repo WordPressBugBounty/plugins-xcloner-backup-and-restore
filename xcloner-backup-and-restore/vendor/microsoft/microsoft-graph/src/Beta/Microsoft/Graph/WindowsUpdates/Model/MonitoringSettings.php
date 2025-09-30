@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MonitoringSettings class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class MonitoringSettings extends \Beta\Microsoft\Graph\Model\Entity
+class MonitoringSettings extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the monitoringRules
-    * Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
-    *
-    * @return MonitoringRule|null The monitoringRules
-    */
+     * Gets the monitoringRules
+     * Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
+     *
+     * @return MonitoringRule|null The monitoringRules
+     */
     public function getMonitoringRules()
     {
         if (array_key_exists("monitoringRules", $this->_propDict)) {
-            if (is_a($this->_propDict["monitoringRules"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringRule") || is_null($this->_propDict["monitoringRules"])) {
+            if (is_a($this->_propDict["monitoringRules"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\MonitoringRule") || is_null($this->_propDict["monitoringRules"])) {
                 return $this->_propDict["monitoringRules"];
             } else {
                 $this->_propDict["monitoringRules"] = new MonitoringRule($this->_propDict["monitoringRules"]);
@@ -45,18 +46,17 @@ class MonitoringSettings extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the monitoringRules
-    * Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
-    *
-    * @param MonitoringRule $val The value to assign to the monitoringRules
-    *
-    * @return MonitoringSettings The MonitoringSettings
-    */
+     * Sets the monitoringRules
+     * Specifies the rules through which monitoring signals can trigger actions on the deployment. Rules are combined using 'or'.
+     *
+     * @param MonitoringRule $val The value to assign to the monitoringRules
+     *
+     * @return MonitoringSettings The MonitoringSettings
+     */
     public function setMonitoringRules($val)
     {
         $this->_propDict["monitoringRules"] = $val;
-         return $this;
+        return $this;
     }
 }

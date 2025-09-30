@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnsupportedGroupPolicyExtension class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnsupportedGroupPolicyExtension extends Entity
 {
     /**
-    * Gets the extensionType
-    * ExtensionType of the unsupported extension.
-    *
-    * @return string|null The extensionType
-    */
+     * Gets the extensionType
+     * ExtensionType of the unsupported extension.
+     *
+     * @return string|null The extensionType
+     */
     public function getExtensionType()
     {
         if (array_key_exists("extensionType", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UnsupportedGroupPolicyExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionType
-    * ExtensionType of the unsupported extension.
-    *
-    * @param string $val The extensionType
-    *
-    * @return UnsupportedGroupPolicyExtension
-    */
+     * Sets the extensionType
+     * ExtensionType of the unsupported extension.
+     *
+     * @param string $val The extensionType
+     *
+     * @return UnsupportedGroupPolicyExtension
+     */
     public function setExtensionType($val)
     {
         $this->_propDict["extensionType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the namespaceUrl
-    * Namespace Url of the unsupported extension.
-    *
-    * @return string|null The namespaceUrl
-    */
+     * Gets the namespaceUrl
+     * Namespace Url of the unsupported extension.
+     *
+     * @return string|null The namespaceUrl
+     */
     public function getNamespaceUrl()
     {
         if (array_key_exists("namespaceUrl", $this->_propDict)) {
@@ -70,27 +69,25 @@ class UnsupportedGroupPolicyExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the namespaceUrl
-    * Namespace Url of the unsupported extension.
-    *
-    * @param string $val The namespaceUrl
-    *
-    * @return UnsupportedGroupPolicyExtension
-    */
+     * Sets the namespaceUrl
+     * Namespace Url of the unsupported extension.
+     *
+     * @param string $val The namespaceUrl
+     *
+     * @return UnsupportedGroupPolicyExtension
+     */
     public function setNamespaceUrl($val)
     {
         $this->_propDict["namespaceUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the nodeName
-    * Node name of the unsupported extension.
-    *
-    * @return string|null The nodeName
-    */
+     * Gets the nodeName
+     * Node name of the unsupported extension.
+     *
+     * @return string|null The nodeName
+     */
     public function getNodeName()
     {
         if (array_key_exists("nodeName", $this->_propDict)) {
@@ -99,31 +96,29 @@ class UnsupportedGroupPolicyExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the nodeName
-    * Node name of the unsupported extension.
-    *
-    * @param string $val The nodeName
-    *
-    * @return UnsupportedGroupPolicyExtension
-    */
+     * Sets the nodeName
+     * Node name of the unsupported extension.
+     *
+     * @param string $val The nodeName
+     *
+     * @return UnsupportedGroupPolicyExtension
+     */
     public function setNodeName($val)
     {
         $this->_propDict["nodeName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingScope
-    * Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
-    *
-    * @return GroupPolicySettingScope|null The settingScope
-    */
+     * Gets the settingScope
+     * Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
+     *
+     * @return GroupPolicySettingScope|null The settingScope
+     */
     public function getSettingScope()
     {
         if (array_key_exists("settingScope", $this->_propDict)) {
-            if (is_a($this->_propDict["settingScope"], "\Beta\Microsoft\Graph\Model\GroupPolicySettingScope") || is_null($this->_propDict["settingScope"])) {
+            if (is_a($this->_propDict["settingScope"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicySettingScope") || is_null($this->_propDict["settingScope"])) {
                 return $this->_propDict["settingScope"];
             } else {
                 $this->_propDict["settingScope"] = new GroupPolicySettingScope($this->_propDict["settingScope"]);
@@ -132,19 +127,17 @@ class UnsupportedGroupPolicyExtension extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settingScope
-    * Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
-    *
-    * @param GroupPolicySettingScope $val The settingScope
-    *
-    * @return UnsupportedGroupPolicyExtension
-    */
+     * Sets the settingScope
+     * Setting Scope of the unsupported extension. Possible values are: unknown, device, user.
+     *
+     * @param GroupPolicySettingScope $val The settingScope
+     *
+     * @return UnsupportedGroupPolicyExtension
+     */
     public function setSettingScope($val)
     {
         $this->_propDict["settingScope"] = $val;
         return $this;
     }
-
 }

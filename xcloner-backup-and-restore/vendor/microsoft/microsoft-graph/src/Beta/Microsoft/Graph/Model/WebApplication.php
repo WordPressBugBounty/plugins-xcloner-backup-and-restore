@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WebApplication class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WebApplication extends Entity
 {
     /**
-    * Gets the homePageUrl
-    * Home page or landing page of the application.
-    *
-    * @return string|null The homePageUrl
-    */
+     * Gets the homePageUrl
+     * Home page or landing page of the application.
+     *
+     * @return string|null The homePageUrl
+     */
     public function getHomePageUrl()
     {
         if (array_key_exists("homePageUrl", $this->_propDict)) {
@@ -40,31 +42,29 @@ class WebApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the homePageUrl
-    * Home page or landing page of the application.
-    *
-    * @param string $val The value of the homePageUrl
-    *
-    * @return WebApplication
-    */
+     * Sets the homePageUrl
+     * Home page or landing page of the application.
+     *
+     * @param string $val The value of the homePageUrl
+     *
+     * @return WebApplication
+     */
     public function setHomePageUrl($val)
     {
         $this->_propDict["homePageUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the implicitGrantSettings
-    * Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
-    *
-    * @return ImplicitGrantSettings|null The implicitGrantSettings
-    */
+     * Gets the implicitGrantSettings
+     * Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
+     *
+     * @return ImplicitGrantSettings|null The implicitGrantSettings
+     */
     public function getImplicitGrantSettings()
     {
         if (array_key_exists("implicitGrantSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["implicitGrantSettings"], "\Beta\Microsoft\Graph\Model\ImplicitGrantSettings") || is_null($this->_propDict["implicitGrantSettings"])) {
+            if (is_a($this->_propDict["implicitGrantSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ImplicitGrantSettings") || is_null($this->_propDict["implicitGrantSettings"])) {
                 return $this->_propDict["implicitGrantSettings"];
             } else {
                 $this->_propDict["implicitGrantSettings"] = new ImplicitGrantSettings($this->_propDict["implicitGrantSettings"]);
@@ -73,26 +73,25 @@ class WebApplication extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the implicitGrantSettings
-    * Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
-    *
-    * @param ImplicitGrantSettings $val The value to assign to the implicitGrantSettings
-    *
-    * @return WebApplication The WebApplication
-    */
+     * Sets the implicitGrantSettings
+     * Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.
+     *
+     * @param ImplicitGrantSettings $val The value to assign to the implicitGrantSettings
+     *
+     * @return WebApplication The WebApplication
+     */
     public function setImplicitGrantSettings($val)
     {
         $this->_propDict["implicitGrantSettings"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the logoutUrl
-    * Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
-    *
-    * @return string|null The logoutUrl
-    */
+     * Gets the logoutUrl
+     * Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
+     *
+     * @return string|null The logoutUrl
+     */
     public function getLogoutUrl()
     {
         if (array_key_exists("logoutUrl", $this->_propDict)) {
@@ -101,25 +100,24 @@ class WebApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the logoutUrl
-    * Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
-    *
-    * @param string $val The value of the logoutUrl
-    *
-    * @return WebApplication
-    */
+     * Sets the logoutUrl
+     * Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.
+     *
+     * @param string $val The value of the logoutUrl
+     *
+     * @return WebApplication
+     */
     public function setLogoutUrl($val)
     {
         $this->_propDict["logoutUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the oauth2AllowImplicitFlow
-    *
-    * @return bool|null The oauth2AllowImplicitFlow
-    */
+     * Gets the oauth2AllowImplicitFlow
+     *
+     * @return bool|null The oauth2AllowImplicitFlow
+     */
     public function getOauth2AllowImplicitFlow()
     {
         if (array_key_exists("oauth2AllowImplicitFlow", $this->_propDict)) {
@@ -128,25 +126,24 @@ class WebApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the oauth2AllowImplicitFlow
-    *
-    * @param bool $val The value of the oauth2AllowImplicitFlow
-    *
-    * @return WebApplication
-    */
+     * Sets the oauth2AllowImplicitFlow
+     *
+     * @param bool $val The value of the oauth2AllowImplicitFlow
+     *
+     * @return WebApplication
+     */
     public function setOauth2AllowImplicitFlow($val)
     {
         $this->_propDict["oauth2AllowImplicitFlow"] = $val;
         return $this;
     }
     /**
-    * Gets the redirectUris
-    * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-    *
-    * @return string|null The redirectUris
-    */
+     * Gets the redirectUris
+     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     *
+     * @return string|null The redirectUris
+     */
     public function getRedirectUris()
     {
         if (array_key_exists("redirectUris", $this->_propDict)) {
@@ -155,31 +152,29 @@ class WebApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the redirectUris
-    * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-    *
-    * @param string $val The value of the redirectUris
-    *
-    * @return WebApplication
-    */
+     * Sets the redirectUris
+     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     *
+     * @param string $val The value of the redirectUris
+     *
+     * @return WebApplication
+     */
     public function setRedirectUris($val)
     {
         $this->_propDict["redirectUris"] = $val;
         return $this;
     }
-
     /**
-    * Gets the redirectUriSettings
-    * Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.
-    *
-    * @return RedirectUriSettings|null The redirectUriSettings
-    */
+     * Gets the redirectUriSettings
+     * Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.
+     *
+     * @return RedirectUriSettings|null The redirectUriSettings
+     */
     public function getRedirectUriSettings()
     {
         if (array_key_exists("redirectUriSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["redirectUriSettings"], "\Beta\Microsoft\Graph\Model\RedirectUriSettings") || is_null($this->_propDict["redirectUriSettings"])) {
+            if (is_a($this->_propDict["redirectUriSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RedirectUriSettings") || is_null($this->_propDict["redirectUriSettings"])) {
                 return $this->_propDict["redirectUriSettings"];
             } else {
                 $this->_propDict["redirectUriSettings"] = new RedirectUriSettings($this->_propDict["redirectUriSettings"]);
@@ -188,18 +183,17 @@ class WebApplication extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the redirectUriSettings
-    * Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.
-    *
-    * @param RedirectUriSettings $val The value to assign to the redirectUriSettings
-    *
-    * @return WebApplication The WebApplication
-    */
+     * Sets the redirectUriSettings
+     * Specifies the index of the URLs where user tokens are sent for sign-in. This is only valid for applications using SAML.
+     *
+     * @param RedirectUriSettings $val The value to assign to the redirectUriSettings
+     *
+     * @return WebApplication The WebApplication
+     */
     public function setRedirectUriSettings($val)
     {
         $this->_propDict["redirectUriSettings"] = $val;
-         return $this;
+        return $this;
     }
 }

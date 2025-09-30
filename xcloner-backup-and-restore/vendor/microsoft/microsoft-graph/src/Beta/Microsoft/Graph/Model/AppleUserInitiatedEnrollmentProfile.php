@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppleUserInitiatedEnrollmentProfile class
 *
@@ -27,46 +28,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppleUserInitiatedEnrollmentProfile extends Entity
 {
-
-     /**
+    /**
      * Gets the availableEnrollmentTypeOptions
-    * List of available enrollment type options
+     * List of available enrollment type options
      *
      * @return array|null The availableEnrollmentTypeOptions
      */
     public function getAvailableEnrollmentTypeOptions()
     {
         if (array_key_exists("availableEnrollmentTypeOptions", $this->_propDict)) {
-           return $this->_propDict["availableEnrollmentTypeOptions"];
+            return $this->_propDict["availableEnrollmentTypeOptions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the availableEnrollmentTypeOptions
-    * List of available enrollment type options
-    *
-    * @param AppleOwnerTypeEnrollmentType[] $val The availableEnrollmentTypeOptions
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the availableEnrollmentTypeOptions
+     * List of available enrollment type options
+     *
+     * @param AppleOwnerTypeEnrollmentType[] $val The availableEnrollmentTypeOptions
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setAvailableEnrollmentTypeOptions($val)
     {
         $this->_propDict["availableEnrollmentTypeOptions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * Profile creation time
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Profile creation time
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -75,31 +73,29 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Profile creation time
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the createdDateTime
+     * Profile creation time
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the defaultEnrollmentType
-    * The default profile enrollment type. Possible values are: unknown, device, user.
-    *
-    * @return AppleUserInitiatedEnrollmentType|null The defaultEnrollmentType
-    */
+     * Gets the defaultEnrollmentType
+     * The default profile enrollment type. Possible values are: unknown, device, user.
+     *
+     * @return AppleUserInitiatedEnrollmentType|null The defaultEnrollmentType
+     */
     public function getDefaultEnrollmentType()
     {
         if (array_key_exists("defaultEnrollmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultEnrollmentType"], "\Beta\Microsoft\Graph\Model\AppleUserInitiatedEnrollmentType") || is_null($this->_propDict["defaultEnrollmentType"])) {
+            if (is_a($this->_propDict["defaultEnrollmentType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppleUserInitiatedEnrollmentType") || is_null($this->_propDict["defaultEnrollmentType"])) {
                 return $this->_propDict["defaultEnrollmentType"];
             } else {
                 $this->_propDict["defaultEnrollmentType"] = new AppleUserInitiatedEnrollmentType($this->_propDict["defaultEnrollmentType"]);
@@ -108,27 +104,25 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the defaultEnrollmentType
-    * The default profile enrollment type. Possible values are: unknown, device, user.
-    *
-    * @param AppleUserInitiatedEnrollmentType $val The defaultEnrollmentType
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the defaultEnrollmentType
+     * The default profile enrollment type. Possible values are: unknown, device, user.
+     *
+     * @param AppleUserInitiatedEnrollmentType $val The defaultEnrollmentType
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setDefaultEnrollmentType($val)
     {
         $this->_propDict["defaultEnrollmentType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Description of the profile
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the profile
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -137,27 +131,25 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the profile
-    *
-    * @param string $val The description
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the description
+     * Description of the profile
+     *
+     * @param string $val The description
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Name of the profile
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the profile
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -166,31 +158,29 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the profile
-    *
-    * @param string $val The displayName
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the displayName
+     * Name of the profile
+     *
+     * @param string $val The displayName
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Profile last modified time
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Profile last modified time
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -199,31 +189,29 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Profile last modified time
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the lastModifiedDateTime
+     * Profile last modified time
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the platform
-    * The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
-    *
-    * @return DevicePlatformType|null The platform
-    */
+     * Gets the platform
+     * The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     *
+     * @return DevicePlatformType|null The platform
+     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
+            if (is_a($this->_propDict["platform"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DevicePlatformType") || is_null($this->_propDict["platform"])) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new DevicePlatformType($this->_propDict["platform"]);
@@ -232,27 +220,25 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the platform
-    * The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
-    *
-    * @param DevicePlatformType $val The platform
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the platform
+     * The platform of the Device. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown, androidAOSP.
+     *
+     * @param DevicePlatformType $val The platform
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setPlatform($val)
     {
         $this->_propDict["platform"] = $val;
         return $this;
     }
-
     /**
-    * Gets the priority
-    * Priority, 0 is highest
-    *
-    * @return int|null The priority
-    */
+     * Gets the priority
+     * Priority, 0 is highest
+     *
+     * @return int|null The priority
+     */
     public function getPriority()
     {
         if (array_key_exists("priority", $this->_propDict)) {
@@ -261,49 +247,44 @@ class AppleUserInitiatedEnrollmentProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the priority
-    * Priority, 0 is highest
-    *
-    * @param int $val The priority
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the priority
+     * Priority, 0 is highest
+     *
+     * @param int $val The priority
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setPriority($val)
     {
         $this->_propDict["priority"] = intval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignments
-    * The list of assignments for this profile.
+     * The list of assignments for this profile.
      *
      * @return array|null The assignments
      */
     public function getAssignments()
     {
         if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+            return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignments
-    * The list of assignments for this profile.
-    *
-    * @param AppleEnrollmentProfileAssignment[] $val The assignments
-    *
-    * @return AppleUserInitiatedEnrollmentProfile
-    */
+     * Sets the assignments
+     * The list of assignments for this profile.
+     *
+     * @param AppleEnrollmentProfileAssignment[] $val The assignments
+     *
+     * @return AppleUserInitiatedEnrollmentProfile
+     */
     public function setAssignments($val)
     {
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-
 }

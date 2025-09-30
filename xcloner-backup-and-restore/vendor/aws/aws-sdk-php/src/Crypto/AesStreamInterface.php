@@ -1,11 +1,11 @@
 <?php
-namespace Aws\Crypto;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto;
 
-
-use Psr\Http\Message\StreamInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\StreamInterface;
 interface AesStreamInterface extends StreamInterface
 {
     /**
@@ -15,14 +15,12 @@ interface AesStreamInterface extends StreamInterface
      * @return string
      */
     public function getOpenSslName();
-
     /**
      * Returns an AES recognizable name, such as 'AES/GCM/NoPadding'.
      *
      * @return string
      */
     public function getAesName();
-
     /**
      * Returns the IV that should be used to initialize the next block in
      * encrypt or decrypt.

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AgreementAcceptance class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AgreementAcceptance extends Entity
 {
     /**
-    * Gets the agreementFileId
-    * ID of the agreement file accepted by the user.
-    *
-    * @return string|null The agreementFileId
-    */
+     * Gets the agreementFileId
+     * ID of the agreement file accepted by the user.
+     *
+     * @return string|null The agreementFileId
+     */
     public function getAgreementFileId()
     {
         if (array_key_exists("agreementFileId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the agreementFileId
-    * ID of the agreement file accepted by the user.
-    *
-    * @param string $val The agreementFileId
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the agreementFileId
+     * ID of the agreement file accepted by the user.
+     *
+     * @param string $val The agreementFileId
+     *
+     * @return AgreementAcceptance
+     */
     public function setAgreementFileId($val)
     {
         $this->_propDict["agreementFileId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the agreementId
-    * ID of the agreement.
-    *
-    * @return string|null The agreementId
-    */
+     * Gets the agreementId
+     * ID of the agreement.
+     *
+     * @return string|null The agreementId
+     */
     public function getAgreementId()
     {
         if (array_key_exists("agreementId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the agreementId
-    * ID of the agreement.
-    *
-    * @param string $val The agreementId
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the agreementId
+     * ID of the agreement.
+     *
+     * @param string $val The agreementId
+     *
+     * @return AgreementAcceptance
+     */
     public function setAgreementId($val)
     {
         $this->_propDict["agreementId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceDisplayName
-    * The display name of the device used for accepting the agreement.
-    *
-    * @return string|null The deviceDisplayName
-    */
+     * Gets the deviceDisplayName
+     * The display name of the device used for accepting the agreement.
+     *
+     * @return string|null The deviceDisplayName
+     */
     public function getDeviceDisplayName()
     {
         if (array_key_exists("deviceDisplayName", $this->_propDict)) {
@@ -99,27 +96,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceDisplayName
-    * The display name of the device used for accepting the agreement.
-    *
-    * @param string $val The deviceDisplayName
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the deviceDisplayName
+     * The display name of the device used for accepting the agreement.
+     *
+     * @param string $val The deviceDisplayName
+     *
+     * @return AgreementAcceptance
+     */
     public function setDeviceDisplayName($val)
     {
         $this->_propDict["deviceDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceId
-    * The unique identifier of the device used for accepting the agreement.
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * The unique identifier of the device used for accepting the agreement.
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -128,27 +123,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * The unique identifier of the device used for accepting the agreement.
-    *
-    * @param string $val The deviceId
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the deviceId
+     * The unique identifier of the device used for accepting the agreement.
+     *
+     * @param string $val The deviceId
+     *
+     * @return AgreementAcceptance
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceOSType
-    * The operating system used for accepting the agreement.
-    *
-    * @return string|null The deviceOSType
-    */
+     * Gets the deviceOSType
+     * The operating system used for accepting the agreement.
+     *
+     * @return string|null The deviceOSType
+     */
     public function getDeviceOSType()
     {
         if (array_key_exists("deviceOSType", $this->_propDict)) {
@@ -157,27 +150,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceOSType
-    * The operating system used for accepting the agreement.
-    *
-    * @param string $val The deviceOSType
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the deviceOSType
+     * The operating system used for accepting the agreement.
+     *
+     * @param string $val The deviceOSType
+     *
+     * @return AgreementAcceptance
+     */
     public function setDeviceOSType($val)
     {
         $this->_propDict["deviceOSType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceOSVersion
-    * The operating system version of the device used for accepting the agreement.
-    *
-    * @return string|null The deviceOSVersion
-    */
+     * Gets the deviceOSVersion
+     * The operating system version of the device used for accepting the agreement.
+     *
+     * @return string|null The deviceOSVersion
+     */
     public function getDeviceOSVersion()
     {
         if (array_key_exists("deviceOSVersion", $this->_propDict)) {
@@ -186,31 +177,29 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceOSVersion
-    * The operating system version of the device used for accepting the agreement.
-    *
-    * @param string $val The deviceOSVersion
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the deviceOSVersion
+     * The operating system version of the device used for accepting the agreement.
+     *
+     * @param string $val The deviceOSVersion
+     *
+     * @return AgreementAcceptance
+     */
     public function setDeviceOSVersion($val)
     {
         $this->_propDict["deviceOSVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the expirationDateTime
-    * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The expirationDateTime
-    */
+     * Gets the expirationDateTime
+     * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The expirationDateTime
+     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -219,31 +208,29 @@ class AgreementAcceptance extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the expirationDateTime
-    * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The expirationDateTime
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the expirationDateTime
+     * The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The expirationDateTime
+     *
+     * @return AgreementAcceptance
+     */
     public function setExpirationDateTime($val)
     {
         $this->_propDict["expirationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recordedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The recordedDateTime
-    */
+     * Gets the recordedDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The recordedDateTime
+     */
     public function getRecordedDateTime()
     {
         if (array_key_exists("recordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["recordedDateTime"], "\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
+            if (is_a($this->_propDict["recordedDateTime"], "\\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
                 return $this->_propDict["recordedDateTime"];
             } else {
                 $this->_propDict["recordedDateTime"] = new \DateTime($this->_propDict["recordedDateTime"]);
@@ -252,31 +239,29 @@ class AgreementAcceptance extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the recordedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The recordedDateTime
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the recordedDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The recordedDateTime
+     *
+     * @return AgreementAcceptance
+     */
     public function setRecordedDateTime($val)
     {
         $this->_propDict["recordedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * Possible values are: accepted, declined. Supports $filter (eq).
-    *
-    * @return AgreementAcceptanceState|null The state
-    */
+     * Gets the state
+     * Possible values are: accepted, declined. Supports $filter (eq).
+     *
+     * @return AgreementAcceptanceState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\AgreementAcceptanceState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AgreementAcceptanceState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new AgreementAcceptanceState($this->_propDict["state"]);
@@ -285,27 +270,25 @@ class AgreementAcceptance extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * Possible values are: accepted, declined. Supports $filter (eq).
-    *
-    * @param AgreementAcceptanceState $val The state
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the state
+     * Possible values are: accepted, declined. Supports $filter (eq).
+     *
+     * @param AgreementAcceptanceState $val The state
+     *
+     * @return AgreementAcceptance
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userDisplayName
-    * Display name of the user when the acceptance was recorded.
-    *
-    * @return string|null The userDisplayName
-    */
+     * Gets the userDisplayName
+     * Display name of the user when the acceptance was recorded.
+     *
+     * @return string|null The userDisplayName
+     */
     public function getUserDisplayName()
     {
         if (array_key_exists("userDisplayName", $this->_propDict)) {
@@ -314,27 +297,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userDisplayName
-    * Display name of the user when the acceptance was recorded.
-    *
-    * @param string $val The userDisplayName
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the userDisplayName
+     * Display name of the user when the acceptance was recorded.
+     *
+     * @param string $val The userDisplayName
+     *
+     * @return AgreementAcceptance
+     */
     public function setUserDisplayName($val)
     {
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userEmail
-    * Email of the user when the acceptance was recorded.
-    *
-    * @return string|null The userEmail
-    */
+     * Gets the userEmail
+     * Email of the user when the acceptance was recorded.
+     *
+     * @return string|null The userEmail
+     */
     public function getUserEmail()
     {
         if (array_key_exists("userEmail", $this->_propDict)) {
@@ -343,27 +324,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userEmail
-    * Email of the user when the acceptance was recorded.
-    *
-    * @param string $val The userEmail
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the userEmail
+     * Email of the user when the acceptance was recorded.
+     *
+     * @param string $val The userEmail
+     *
+     * @return AgreementAcceptance
+     */
     public function setUserEmail($val)
     {
         $this->_propDict["userEmail"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * ID of the user who accepted the agreement.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * ID of the user who accepted the agreement.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -372,27 +351,25 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * ID of the user who accepted the agreement.
-    *
-    * @param string $val The userId
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the userId
+     * ID of the user who accepted the agreement.
+     *
+     * @param string $val The userId
+     *
+     * @return AgreementAcceptance
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * UPN of the user when the acceptance was recorded.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * UPN of the user when the acceptance was recorded.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -401,19 +378,17 @@ class AgreementAcceptance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * UPN of the user when the acceptance was recorded.
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return AgreementAcceptance
-    */
+     * Sets the userPrincipalName
+     * UPN of the user when the acceptance was recorded.
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return AgreementAcceptance
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

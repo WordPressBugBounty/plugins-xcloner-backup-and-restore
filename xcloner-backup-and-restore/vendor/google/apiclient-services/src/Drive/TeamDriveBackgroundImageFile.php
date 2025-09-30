@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,88 +15,85 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class TeamDriveBackgroundImageFile extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $id;
-  /**
-   * @var float
-   */
-  public $width;
-  /**
-   * @var float
-   */
-  public $xCoordinate;
-  /**
-   * @var float
-   */
-  public $yCoordinate;
-
-  /**
-   * @param string
-   */
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  /**
-   * @return string
-   */
-  public function getId()
-  {
-    return $this->id;
-  }
-  /**
-   * @param float
-   */
-  public function setWidth($width)
-  {
-    $this->width = $width;
-  }
-  /**
-   * @return float
-   */
-  public function getWidth()
-  {
-    return $this->width;
-  }
-  /**
-   * @param float
-   */
-  public function setXCoordinate($xCoordinate)
-  {
-    $this->xCoordinate = $xCoordinate;
-  }
-  /**
-   * @return float
-   */
-  public function getXCoordinate()
-  {
-    return $this->xCoordinate;
-  }
-  /**
-   * @param float
-   */
-  public function setYCoordinate($yCoordinate)
-  {
-    $this->yCoordinate = $yCoordinate;
-  }
-  /**
-   * @return float
-   */
-  public function getYCoordinate()
-  {
-    return $this->yCoordinate;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class TeamDriveBackgroundImageFile extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $id;
+    /**
+     * @var float
+     */
+    public $width;
+    /**
+     * @var float
+     */
+    public $xCoordinate;
+    /**
+     * @var float
+     */
+    public $yCoordinate;
+    /**
+     * @param string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param float
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+    /**
+     * @return float
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+    /**
+     * @param float
+     */
+    public function setXCoordinate($xCoordinate)
+    {
+        $this->xCoordinate = $xCoordinate;
+    }
+    /**
+     * @return float
+     */
+    public function getXCoordinate()
+    {
+        return $this->xCoordinate;
+    }
+    /**
+     * @param float
+     */
+    public function setYCoordinate($yCoordinate)
+    {
+        $this->yCoordinate = $yCoordinate;
+    }
+    /**
+     * @return float
+     */
+    public function getYCoordinate()
+    {
+        return $this->yCoordinate;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(TeamDriveBackgroundImageFile::class, 'Google_Service_Drive_TeamDriveBackgroundImageFile');
+class_alias(TeamDriveBackgroundImageFile::class, 'XCloner\Google_Service_Drive_TeamDriveBackgroundImageFile');

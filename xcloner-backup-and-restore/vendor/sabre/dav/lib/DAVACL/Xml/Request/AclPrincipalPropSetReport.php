@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Request;
 
-namespace Sabre\DAVACL\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Deserializer;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Deserializer;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * AclPrincipalPropSet request parser.
  *
@@ -25,7 +23,6 @@ use Sabre\Xml\XmlDeserializable;
 class AclPrincipalPropSetReport implements XmlDeserializable
 {
     public $properties = [];
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -49,21 +46,13 @@ class AclPrincipalPropSetReport implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $reader->pushContext();
-        $reader->elementMap['{DAV:}prop'] = 'Sabre\Xml\Deserializer\enum';
-
-        $elems = Deserializer\keyValue(
-            $reader,
-            'DAV:'
-        );
-
+        $reader->elementMap['{DAV:}prop'] = 'XCloner\Sabre\Xml\Deserializer\enum';
+        $elems = Deserializer\keyValue($reader, 'DAV:');
         $reader->popContext();
-
         $report = new self();
-
         if (!empty($elems['prop'])) {
             $report->properties = $elems['prop'];
         }
-
         return $report;
     }
 }

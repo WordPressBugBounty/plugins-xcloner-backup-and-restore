@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementApplicabilityRuleOsEdition class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementApplicabilityRuleOsEdition extends Entity
 {
     /**
-    * Gets the name
-    * Name for object.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name for object.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,31 +42,29 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name for object.
-    *
-    * @param string $val The value of the name
-    *
-    * @return DeviceManagementApplicabilityRuleOsEdition
-    */
+     * Sets the name
+     * Name for object.
+     *
+     * @param string $val The value of the name
+     *
+     * @return DeviceManagementApplicabilityRuleOsEdition
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the osEditionTypes
-    * Applicability rule OS edition type.
-    *
-    * @return Windows10EditionType|null The osEditionTypes
-    */
+     * Gets the osEditionTypes
+     * Applicability rule OS edition type.
+     *
+     * @return Windows10EditionType|null The osEditionTypes
+     */
     public function getOsEditionTypes()
     {
         if (array_key_exists("osEditionTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["osEditionTypes"], "\Beta\Microsoft\Graph\Model\Windows10EditionType") || is_null($this->_propDict["osEditionTypes"])) {
+            if (is_a($this->_propDict["osEditionTypes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Windows10EditionType") || is_null($this->_propDict["osEditionTypes"])) {
                 return $this->_propDict["osEditionTypes"];
             } else {
                 $this->_propDict["osEditionTypes"] = new Windows10EditionType($this->_propDict["osEditionTypes"]);
@@ -73,31 +73,29 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the osEditionTypes
-    * Applicability rule OS edition type.
-    *
-    * @param Windows10EditionType $val The value to assign to the osEditionTypes
-    *
-    * @return DeviceManagementApplicabilityRuleOsEdition The DeviceManagementApplicabilityRuleOsEdition
-    */
+     * Sets the osEditionTypes
+     * Applicability rule OS edition type.
+     *
+     * @param Windows10EditionType $val The value to assign to the osEditionTypes
+     *
+     * @return DeviceManagementApplicabilityRuleOsEdition The DeviceManagementApplicabilityRuleOsEdition
+     */
     public function setOsEditionTypes($val)
     {
         $this->_propDict["osEditionTypes"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the ruleType
-    * Applicability Rule type. Possible values are: include, exclude.
-    *
-    * @return DeviceManagementApplicabilityRuleType|null The ruleType
-    */
+     * Gets the ruleType
+     * Applicability Rule type. Possible values are: include, exclude.
+     *
+     * @return DeviceManagementApplicabilityRuleType|null The ruleType
+     */
     public function getRuleType()
     {
         if (array_key_exists("ruleType", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
+            if (is_a($this->_propDict["ruleType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
                 return $this->_propDict["ruleType"];
             } else {
                 $this->_propDict["ruleType"] = new DeviceManagementApplicabilityRuleType($this->_propDict["ruleType"]);
@@ -106,18 +104,17 @@ class DeviceManagementApplicabilityRuleOsEdition extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the ruleType
-    * Applicability Rule type. Possible values are: include, exclude.
-    *
-    * @param DeviceManagementApplicabilityRuleType $val The value to assign to the ruleType
-    *
-    * @return DeviceManagementApplicabilityRuleOsEdition The DeviceManagementApplicabilityRuleOsEdition
-    */
+     * Sets the ruleType
+     * Applicability Rule type. Possible values are: include, exclude.
+     *
+     * @param DeviceManagementApplicabilityRuleType $val The value to assign to the ruleType
+     *
+     * @return DeviceManagementApplicabilityRuleOsEdition The DeviceManagementApplicabilityRuleOsEdition
+     */
     public function setRuleType($val)
     {
         $this->_propDict["ruleType"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OfficeClientConfigurationAssignment class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OfficeClientConfigurationAssignment extends Entity
 {
     /**
-    * Gets the target
-    * The target assignment defined by the admin.
-    *
-    * @return OfficeConfigurationAssignmentTarget|null The target
-    */
+     * Gets the target
+     * The target assignment defined by the admin.
+     *
+     * @return OfficeConfigurationAssignmentTarget|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\OfficeConfigurationAssignmentTarget") || is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OfficeConfigurationAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new OfficeConfigurationAssignmentTarget($this->_propDict["target"]);
@@ -45,19 +46,17 @@ class OfficeClientConfigurationAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the target
-    * The target assignment defined by the admin.
-    *
-    * @param OfficeConfigurationAssignmentTarget $val The target
-    *
-    * @return OfficeClientConfigurationAssignment
-    */
+     * Sets the target
+     * The target assignment defined by the admin.
+     *
+     * @param OfficeConfigurationAssignmentTarget $val The target
+     *
+     * @return OfficeClientConfigurationAssignment
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;
         return $this;
     }
-
 }

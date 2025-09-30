@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Iterator for children of a directory container.
  */
@@ -22,7 +24,6 @@ class vfsStreamContainerIterator implements \Iterator
      * @type  vfsStreamContent[]
      */
     protected $children;
-
     /**
      * constructor
      *
@@ -34,10 +35,8 @@ class vfsStreamContainerIterator implements \Iterator
         if (vfsStream::useDotfiles()) {
             array_unshift($this->children, new DotDirectory('.'), new DotDirectory('..'));
         }
-
         reset($this->children);
     }
-
     /**
      * resets children pointer
      */
@@ -46,7 +45,6 @@ class vfsStreamContainerIterator implements \Iterator
     {
         reset($this->children);
     }
-
     /**
      * returns the current child
      *
@@ -56,13 +54,11 @@ class vfsStreamContainerIterator implements \Iterator
     public function current()
     {
         $child = current($this->children);
-        if (false === $child) {
+        if (\false === $child) {
             return null;
         }
-
         return $child;
     }
-
     /**
      * returns the name of the current child
      *
@@ -72,13 +68,11 @@ class vfsStreamContainerIterator implements \Iterator
     public function key()
     {
         $child = current($this->children);
-        if (false === $child) {
+        if (\false === $child) {
             return null;
         }
-
         return $child->getName();
     }
-
     /**
      * iterates to next child
      */
@@ -87,7 +81,6 @@ class vfsStreamContainerIterator implements \Iterator
     {
         next($this->children);
     }
-
     /**
      * checks if the current value is valid
      *
@@ -96,6 +89,6 @@ class vfsStreamContainerIterator implements \Iterator
     #[\ReturnTypeWillChange]
     public function valid()
     {
-        return (false !== current($this->children));
+        return \false !== current($this->children);
     }
 }

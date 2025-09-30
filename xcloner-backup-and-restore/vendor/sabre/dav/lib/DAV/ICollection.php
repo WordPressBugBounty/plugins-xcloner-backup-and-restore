@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The ICollection Interface.
  *
@@ -44,14 +43,12 @@ interface ICollection extends INode
      * @return string|null
      */
     public function createFile($name, $data = null);
-
     /**
      * Creates a new subdirectory.
      *
      * @param string $name
      */
     public function createDirectory($name);
-
     /**
      * Returns a specific child node, referenced by its name.
      *
@@ -63,14 +60,12 @@ interface ICollection extends INode
      * @return INode
      */
     public function getChild($name);
-
     /**
      * Returns an array with all the child nodes.
      *
      * @return INode[]
      */
     public function getChildren();
-
     /**
      * Checks if a child-node with the specified name exists.
      *

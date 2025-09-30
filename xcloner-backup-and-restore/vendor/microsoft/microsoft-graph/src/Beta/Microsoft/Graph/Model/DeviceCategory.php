@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceCategory class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceCategory extends Entity
 {
     /**
-    * Gets the description
-    * Optional description for the device category.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Optional description for the device category.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceCategory extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Optional description for the device category.
-    *
-    * @param string $val The description
-    *
-    * @return DeviceCategory
-    */
+     * Sets the description
+     * Optional description for the device category.
+     *
+     * @param string $val The description
+     *
+     * @return DeviceCategory
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Display name for the device category.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name for the device category.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceCategory extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name for the device category.
-    *
-    * @param string $val The displayName
-    *
-    * @return DeviceCategory
-    */
+     * Sets the displayName
+     * Display name for the device category.
+     *
+     * @param string $val The displayName
+     *
+     * @return DeviceCategory
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleScopeTagIds
-    * Optional role scope tags for the device category.
-    *
-    * @return array|null The roleScopeTagIds
-    */
+     * Gets the roleScopeTagIds
+     * Optional role scope tags for the device category.
+     *
+     * @return array|null The roleScopeTagIds
+     */
     public function getRoleScopeTagIds()
     {
         if (array_key_exists("roleScopeTagIds", $this->_propDict)) {
@@ -99,19 +96,17 @@ class DeviceCategory extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleScopeTagIds
-    * Optional role scope tags for the device category.
-    *
-    * @param string[] $val The roleScopeTagIds
-    *
-    * @return DeviceCategory
-    */
+     * Sets the roleScopeTagIds
+     * Optional role scope tags for the device category.
+     *
+     * @param string[] $val The roleScopeTagIds
+     *
+     * @return DeviceCategory
+     */
     public function setRoleScopeTagIds($val)
     {
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-
 }

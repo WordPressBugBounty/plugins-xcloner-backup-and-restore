@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CommsOperation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CommsOperation extends Entity
 {
     /**
-    * Gets the clientContext
-    * Unique Client Context string. Max limit is 256 chars.
-    *
-    * @return string|null The clientContext
-    */
+     * Gets the clientContext
+     * Unique Client Context string. Max limit is 256 chars.
+     *
+     * @return string|null The clientContext
+     */
     public function getClientContext()
     {
         if (array_key_exists("clientContext", $this->_propDict)) {
@@ -41,31 +42,29 @@ class CommsOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the clientContext
-    * Unique Client Context string. Max limit is 256 chars.
-    *
-    * @param string $val The clientContext
-    *
-    * @return CommsOperation
-    */
+     * Sets the clientContext
+     * Unique Client Context string. Max limit is 256 chars.
+     *
+     * @param string $val The clientContext
+     *
+     * @return CommsOperation
+     */
     public function setClientContext($val)
     {
         $this->_propDict["clientContext"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resultInfo
-    * The result information. Read-only.
-    *
-    * @return ResultInfo|null The resultInfo
-    */
+     * Gets the resultInfo
+     * The result information. Read-only.
+     *
+     * @return ResultInfo|null The resultInfo
+     */
     public function getResultInfo()
     {
         if (array_key_exists("resultInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["resultInfo"], "\Microsoft\Graph\Model\ResultInfo") || is_null($this->_propDict["resultInfo"])) {
+            if (is_a($this->_propDict["resultInfo"], "XCloner\\Microsoft\\Graph\\Model\\ResultInfo") || is_null($this->_propDict["resultInfo"])) {
                 return $this->_propDict["resultInfo"];
             } else {
                 $this->_propDict["resultInfo"] = new ResultInfo($this->_propDict["resultInfo"]);
@@ -74,31 +73,29 @@ class CommsOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resultInfo
-    * The result information. Read-only.
-    *
-    * @param ResultInfo $val The resultInfo
-    *
-    * @return CommsOperation
-    */
+     * Sets the resultInfo
+     * The result information. Read-only.
+     *
+     * @param ResultInfo $val The resultInfo
+     *
+     * @return CommsOperation
+     */
     public function setResultInfo($val)
     {
         $this->_propDict["resultInfo"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Possible values are: notStarted, running, completed, failed. Read-only.
-    *
-    * @return OperationStatus|null The status
-    */
+     * Gets the status
+     * Possible values are: notStarted, running, completed, failed. Read-only.
+     *
+     * @return OperationStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\OperationStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Microsoft\\Graph\\Model\\OperationStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new OperationStatus($this->_propDict["status"]);
@@ -107,19 +104,17 @@ class CommsOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Possible values are: notStarted, running, completed, failed. Read-only.
-    *
-    * @param OperationStatus $val The status
-    *
-    * @return CommsOperation
-    */
+     * Sets the status
+     * Possible values are: notStarted, running, completed, failed. Read-only.
+     *
+     * @param OperationStatus $val The status
+     *
+     * @return CommsOperation
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
 }

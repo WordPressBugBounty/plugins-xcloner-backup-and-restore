@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Middlewares;
 
-namespace MicrosoftAzure\Storage\Common\Middlewares;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * IMiddleware is called before sending the request and after receiving the
  * response.
@@ -38,7 +37,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
-
 interface IMiddleware
 {
     /**

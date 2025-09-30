@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Models\ServiceOptions;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Models\ServiceOptions;
 /**
  * Blob service options.
  *
@@ -43,7 +41,6 @@ class BlobServiceOptions extends ServiceOptions
 {
     private $_leaseId;
     private $_accessConditions;
-
     /**
      * Gets lease Id for the blob
      *
@@ -53,7 +50,6 @@ class BlobServiceOptions extends ServiceOptions
     {
         return $this->_leaseId;
     }
-
     /**
      * Sets lease Id for the blob
      *
@@ -65,7 +61,6 @@ class BlobServiceOptions extends ServiceOptions
     {
         $this->_leaseId = $leaseId;
     }
-
     /**
      * Gets access condition
      *
@@ -75,7 +70,6 @@ class BlobServiceOptions extends ServiceOptions
     {
         return $this->_accessConditions;
     }
-
     /**
      * Sets access condition
      *
@@ -85,8 +79,7 @@ class BlobServiceOptions extends ServiceOptions
      */
     public function setAccessConditions($accessConditions)
     {
-        if (!is_null($accessConditions) &&
-            is_array($accessConditions)) {
+        if (!is_null($accessConditions) && is_array($accessConditions)) {
             $this->_accessConditions = $accessConditions;
         } else {
             $this->_accessConditions = [$accessConditions];

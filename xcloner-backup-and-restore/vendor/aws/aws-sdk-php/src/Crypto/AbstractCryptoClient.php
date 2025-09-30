@@ -1,13 +1,13 @@
 <?php
-namespace Aws\Crypto;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto;
 
-
-use Aws\Crypto\Cipher\CipherMethod;
-use Aws\Crypto\Cipher\Cbc;
-use GuzzleHttp\Psr7\Stream;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Crypto\Cipher\CipherMethod;
+use XCloner\Aws\Crypto\Cipher\Cbc;
+use XCloner\GuzzleHttp\Psr7\Stream;
 /**
  * Legacy abstract encryption client. New workflows should use
  * AbstractCryptoClientV2.
@@ -18,11 +18,7 @@ use GuzzleHttp\Psr7\Stream;
 abstract class AbstractCryptoClient
 {
     public static $supportedCiphers = ['cbc', 'gcm'];
-
-    public static $supportedKeyWraps = [
-        KmsMaterialsProvider::WRAP_ALGORITHM_NAME
-    ];
-
+    public static $supportedKeyWraps = [KmsMaterialsProvider::WRAP_ALGORITHM_NAME];
     /**
      * Returns if the passed cipher name is supported for encryption by the SDK.
      *
@@ -34,7 +30,6 @@ abstract class AbstractCryptoClient
     {
         return in_array($cipherName, self::$supportedCiphers);
     }
-
     /**
      * Returns an identifier recognizable by `openssl_*` functions, such as
      * `aes-256-cbc` or `aes-128-ctr`.
@@ -47,7 +42,6 @@ abstract class AbstractCryptoClient
      * @return string
      */
     abstract protected function getCipherOpenSslName($cipherName, $keySize);
-
     /**
      * Constructs a CipherMethod for the given name, initialized with the other
      * data passed for use in encrypting or decrypting.
@@ -62,7 +56,6 @@ abstract class AbstractCryptoClient
      * @internal
      */
     abstract protected function buildCipherMethod($cipherName, $iv, $keySize);
-
     /**
      * Performs a reverse lookup to get the openssl_* cipher name from the
      * AESName passed in from the MetadataEnvelope.
@@ -74,7 +67,6 @@ abstract class AbstractCryptoClient
      * @internal
      */
     abstract protected function getCipherFromAesName($aesName);
-
     /**
      * Dependency to provide an interface for building an encryption stream for
      * data given cipher details, metadata, and materials to do so.
@@ -92,13 +84,7 @@ abstract class AbstractCryptoClient
      *
      * @internal
      */
-    abstract public function encrypt(
-        Stream $plaintext,
-        array $cipherOptions,
-        MaterialsProvider $provider,
-        MetadataEnvelope $envelope
-    );
-
+    abstract public function encrypt(Stream $plaintext, array $cipherOptions, MaterialsProvider $provider, MetadataEnvelope $envelope);
     /**
      * Dependency to provide an interface for building a decryption stream for
      * cipher text given metadata and materials to do so.
@@ -115,10 +101,5 @@ abstract class AbstractCryptoClient
      *
      * @internal
      */
-    abstract public function decrypt(
-        $cipherText,
-        MaterialsProviderInterface $provider,
-        MetadataEnvelope $envelope,
-        array $cipherOptions = []
-    );
+    abstract public function decrypt($cipherText, MaterialsProviderInterface $provider, MetadataEnvelope $envelope, array $cipherOptions = []);
 }

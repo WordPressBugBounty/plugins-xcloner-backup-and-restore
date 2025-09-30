@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessEnumeratedExternalTenants class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExternalTenants
 {
     /**
-    * Gets the members
-    * Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
-    *
-    * @return string|null The members
-    */
+     * Gets the members
+     * Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
+     *
+     * @return string|null The members
+     */
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ConditionalAccessEnumeratedExternalTenants extends ConditionalAccessExtern
             return null;
         }
     }
-
     /**
-    * Sets the members
-    * Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
-    *
-    * @param string $val The value of the members
-    *
-    * @return ConditionalAccessEnumeratedExternalTenants
-    */
+     * Sets the members
+     * Represents a collection of tenant ids in the scope of Conditional Access for guests and external users policy targeting.
+     *
+     * @param string $val The value of the members
+     *
+     * @return ConditionalAccessEnumeratedExternalTenants
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;

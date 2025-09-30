@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\PartialUpdate;
 
-namespace Sabre\DAV\PartialUpdate;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * Partial update plugin (Patch method).
  *
@@ -30,14 +28,12 @@ class Plugin extends DAV\ServerPlugin
     const RANGE_APPEND = 1;
     const RANGE_START = 2;
     const RANGE_END = 3;
-
     /**
      * Reference to server.
      *
      * @var DAV\Server
      */
     protected $server;
-
     /**
      * Initializes the plugin.
      *
@@ -48,7 +44,6 @@ class Plugin extends DAV\ServerPlugin
         $this->server = $server;
         $server->on('method:PATCH', [$this, 'httpPatch']);
     }
-
     /**
      * Returns a plugin name.
      *
@@ -61,7 +56,6 @@ class Plugin extends DAV\ServerPlugin
     {
         return 'partialupdate';
     }
-
     /**
      * Use this method to tell the server this plugin defines additional
      * HTTP methods.
@@ -80,17 +74,14 @@ class Plugin extends DAV\ServerPlugin
     public function getHTTPMethods($uri)
     {
         $tree = $this->server->tree;
-
         if ($tree->nodeExists($uri)) {
             $node = $tree->getNodeForPath($uri);
             if ($node instanceof IPatchSupport) {
                 return ['PATCH'];
             }
         }
-
         return [];
     }
-
     /**
      * Returns a list of features for the HTTP OPTIONS Dav: header.
      *
@@ -100,7 +91,6 @@ class Plugin extends DAV\ServerPlugin
     {
         return ['sabredav-partialupdate'];
     }
-
     /**
      * Patch an uri.
      *
@@ -111,27 +101,19 @@ class Plugin extends DAV\ServerPlugin
     public function httpPatch(RequestInterface $request, ResponseInterface $response)
     {
         $path = $request->getPath();
-
         // Get the node. Will throw a 404 if not found
         $node = $this->server->tree->getNodeForPath($path);
         if (!$node instanceof IPatchSupport) {
             throw new DAV\Exception\MethodNotAllowed('The target resource does not support the PATCH method.');
         }
-
         $range = $this->getHTTPUpdateRange($request);
-
         if (!$range) {
             throw new DAV\Exception\BadRequest('No valid "X-Update-Range" found in the headers');
         }
-
-        $contentType = strtolower(
-            (string) $request->getHeader('Content-Type')
-        );
-
+        $contentType = strtolower((string) $request->getHeader('Content-Type'));
         if ('application/x-sabredav-partialupdate' != $contentType) {
-            throw new DAV\Exception\UnsupportedMediaType('Unknown Content-Type header "'.$contentType.'"');
+            throw new DAV\Exception\UnsupportedMediaType('Unknown Content-Type header "' . $contentType . '"');
         }
-
         $len = $this->server->httpRequest->getHeader('Content-Length');
         if (!$len) {
             throw new DAV\Exception\LengthRequired('A Content-Length header is required');
@@ -143,35 +125,28 @@ class Plugin extends DAV\ServerPlugin
                     $range[2] = $range[1] + $len - 1;
                 } else {
                     if ($range[2] < $range[1]) {
-                        throw new DAV\Exception\RequestedRangeNotSatisfiable('The end offset ('.$range[2].') is lower than the start offset ('.$range[1].')');
+                        throw new DAV\Exception\RequestedRangeNotSatisfiable('The end offset (' . $range[2] . ') is lower than the start offset (' . $range[1] . ')');
                     }
                     if ($range[2] - $range[1] + 1 != $len) {
-                        throw new DAV\Exception\RequestedRangeNotSatisfiable('Actual data length ('.$len.') is not consistent with begin ('.$range[1].') and end ('.$range[2].') offsets');
+                        throw new DAV\Exception\RequestedRangeNotSatisfiable('Actual data length (' . $len . ') is not consistent with begin (' . $range[1] . ') and end (' . $range[2] . ') offsets');
                     }
                 }
                 break;
         }
-
         if (!$this->server->emit('beforeWriteContent', [$path, $node, null])) {
             return;
         }
-
         $body = $this->server->httpRequest->getBody();
-
         $etag = $node->patch($body, $range[0], isset($range[1]) ? $range[1] : null);
-
         $this->server->emit('afterWriteContent', [$path, $node]);
-
         $response->setHeader('Content-Length', '0');
         if ($etag) {
             $response->setHeader('ETag', $etag);
         }
         $response->setStatus(204);
-
         // Breaks the event chain
-        return false;
+        return \false;
     }
-
     /**
      * Returns the HTTP custom range update header.
      *
@@ -197,13 +172,10 @@ class Plugin extends DAV\ServerPlugin
         if (is_null($range)) {
             return null;
         }
-
         // Matching "Range: bytes=1234-5678: both numbers are optional
-
         if (!preg_match('/^(append)|(?:bytes=([0-9]+)-([0-9]*))|(?:bytes=(-[0-9]+))$/i', $range, $matches)) {
             return null;
         }
-
         if ('append' === $matches[1]) {
             return [self::RANGE_APPEND];
         } elseif (strlen($matches[2]) > 0) {

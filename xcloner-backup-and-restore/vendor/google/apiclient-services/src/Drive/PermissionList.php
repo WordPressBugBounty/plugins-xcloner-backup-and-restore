@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,69 +15,66 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class PermissionList extends \Google\Collection
-{
-  protected $collection_key = 'permissions';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $nextPageToken;
-  protected $permissionsType = Permission::class;
-  protected $permissionsDataType = 'array';
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  /**
-   * @param Permission[]
-   */
-  public function setPermissions($permissions)
-  {
-    $this->permissions = $permissions;
-  }
-  /**
-   * @return Permission[]
-   */
-  public function getPermissions()
-  {
-    return $this->permissions;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class PermissionList extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'permissions';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $nextPageToken;
+    protected $permissionsType = Permission::class;
+    protected $permissionsDataType = 'array';
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+    /**
+     * @param Permission[]
+     */
+    public function setPermissions($permissions)
+    {
+        $this->permissions = $permissions;
+    }
+    /**
+     * @return Permission[]
+     */
+    public function getPermissions()
+    {
+        return $this->permissions;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(PermissionList::class, 'Google_Service_Drive_PermissionList');
+class_alias(PermissionList::class, 'XCloner\Google_Service_Drive_PermissionList');

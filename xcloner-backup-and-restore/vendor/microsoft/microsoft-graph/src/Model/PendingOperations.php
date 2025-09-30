@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PendingOperations class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PendingOperations extends Entity
 {
-
     /**
-    * Gets the pendingContentUpdate
-    * A property that indicates that an operation that might update the binary content of a file is pending completion.
-    *
-    * @return PendingContentUpdate|null The pendingContentUpdate
-    */
+     * Gets the pendingContentUpdate
+     * A property that indicates that an operation that might update the binary content of a file is pending completion.
+     *
+     * @return PendingContentUpdate|null The pendingContentUpdate
+     */
     public function getPendingContentUpdate()
     {
         if (array_key_exists("pendingContentUpdate", $this->_propDict)) {
-            if (is_a($this->_propDict["pendingContentUpdate"], "\Microsoft\Graph\Model\PendingContentUpdate") || is_null($this->_propDict["pendingContentUpdate"])) {
+            if (is_a($this->_propDict["pendingContentUpdate"], "XCloner\\Microsoft\\Graph\\Model\\PendingContentUpdate") || is_null($this->_propDict["pendingContentUpdate"])) {
                 return $this->_propDict["pendingContentUpdate"];
             } else {
                 $this->_propDict["pendingContentUpdate"] = new PendingContentUpdate($this->_propDict["pendingContentUpdate"]);
@@ -45,18 +46,17 @@ class PendingOperations extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the pendingContentUpdate
-    * A property that indicates that an operation that might update the binary content of a file is pending completion.
-    *
-    * @param PendingContentUpdate $val The value to assign to the pendingContentUpdate
-    *
-    * @return PendingOperations The PendingOperations
-    */
+     * Sets the pendingContentUpdate
+     * A property that indicates that an operation that might update the binary content of a file is pending completion.
+     *
+     * @param PendingContentUpdate $val The value to assign to the pendingContentUpdate
+     *
+     * @return PendingOperations The PendingOperations
+     */
     public function setPendingContentUpdate($val)
     {
         $this->_propDict["pendingContentUpdate"] = $val;
-         return $this;
+        return $this;
     }
 }

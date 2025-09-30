@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosVppAppRevokeLicensesActionResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class IosVppAppRevokeLicensesActionResult extends Entity
 {
-
     /**
-    * Gets the actionFailureReason
-    * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
-    *
-    * @return VppTokenActionFailureReason|null The actionFailureReason
-    */
+     * Gets the actionFailureReason
+     * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     *
+     * @return VppTokenActionFailureReason|null The actionFailureReason
+     */
     public function getActionFailureReason()
     {
         if (array_key_exists("actionFailureReason", $this->_propDict)) {
-            if (is_a($this->_propDict["actionFailureReason"], "\Beta\Microsoft\Graph\Model\VppTokenActionFailureReason") || is_null($this->_propDict["actionFailureReason"])) {
+            if (is_a($this->_propDict["actionFailureReason"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VppTokenActionFailureReason") || is_null($this->_propDict["actionFailureReason"])) {
                 return $this->_propDict["actionFailureReason"];
             } else {
                 $this->_propDict["actionFailureReason"] = new VppTokenActionFailureReason($this->_propDict["actionFailureReason"]);
@@ -45,26 +46,25 @@ class IosVppAppRevokeLicensesActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actionFailureReason
-    * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
-    *
-    * @param VppTokenActionFailureReason $val The value to assign to the actionFailureReason
-    *
-    * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the actionFailureReason
+     * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     *
+     * @param VppTokenActionFailureReason $val The value to assign to the actionFailureReason
+     *
+     * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
+     */
     public function setActionFailureReason($val)
     {
         $this->_propDict["actionFailureReason"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the actionName
-    * Action name
-    *
-    * @return string|null The actionName
-    */
+     * Gets the actionName
+     * Action name
+     *
+     * @return string|null The actionName
+     */
     public function getActionName()
     {
         if (array_key_exists("actionName", $this->_propDict)) {
@@ -73,31 +73,29 @@ class IosVppAppRevokeLicensesActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionName
-    * Action name
-    *
-    * @param string $val The value of the actionName
-    *
-    * @return IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the actionName
+     * Action name
+     *
+     * @param string $val The value of the actionName
+     *
+     * @return IosVppAppRevokeLicensesActionResult
+     */
     public function setActionName($val)
     {
         $this->_propDict["actionName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the actionState
-    * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    *
-    * @return ActionState|null The actionState
-    */
+     * Gets the actionState
+     * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     *
+     * @return ActionState|null The actionState
+     */
     public function getActionState()
     {
         if (array_key_exists("actionState", $this->_propDict)) {
-            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["actionState"])) {
+            if (is_a($this->_propDict["actionState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ActionState") || is_null($this->_propDict["actionState"])) {
                 return $this->_propDict["actionState"];
             } else {
                 $this->_propDict["actionState"] = new ActionState($this->_propDict["actionState"]);
@@ -106,26 +104,25 @@ class IosVppAppRevokeLicensesActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actionState
-    * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    *
-    * @param ActionState $val The value to assign to the actionState
-    *
-    * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the actionState
+     * State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     *
+     * @param ActionState $val The value to assign to the actionState
+     *
+     * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
+     */
     public function setActionState($val)
     {
         $this->_propDict["actionState"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the failedLicensesCount
-    * A count of the number of licenses for which revoke failed.
-    *
-    * @return int|null The failedLicensesCount
-    */
+     * Gets the failedLicensesCount
+     * A count of the number of licenses for which revoke failed.
+     *
+     * @return int|null The failedLicensesCount
+     */
     public function getFailedLicensesCount()
     {
         if (array_key_exists("failedLicensesCount", $this->_propDict)) {
@@ -134,31 +131,29 @@ class IosVppAppRevokeLicensesActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedLicensesCount
-    * A count of the number of licenses for which revoke failed.
-    *
-    * @param int $val The value of the failedLicensesCount
-    *
-    * @return IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the failedLicensesCount
+     * A count of the number of licenses for which revoke failed.
+     *
+     * @param int $val The value of the failedLicensesCount
+     *
+     * @return IosVppAppRevokeLicensesActionResult
+     */
     public function setFailedLicensesCount($val)
     {
         $this->_propDict["failedLicensesCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastUpdatedDateTime
-    * Time the action state was last updated
-    *
-    * @return \DateTime|null The lastUpdatedDateTime
-    */
+     * Gets the lastUpdatedDateTime
+     * Time the action state was last updated
+     *
+     * @return \DateTime|null The lastUpdatedDateTime
+     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -167,26 +162,25 @@ class IosVppAppRevokeLicensesActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastUpdatedDateTime
-    * Time the action state was last updated
-    *
-    * @param \DateTime $val The value to assign to the lastUpdatedDateTime
-    *
-    * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the lastUpdatedDateTime
+     * Time the action state was last updated
+     *
+     * @param \DateTime $val The value to assign to the lastUpdatedDateTime
+     *
+     * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
+     */
     public function setLastUpdatedDateTime($val)
     {
         $this->_propDict["lastUpdatedDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the managedDeviceId
-    * DeviceId associated with the action.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * DeviceId associated with the action.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -195,31 +189,29 @@ class IosVppAppRevokeLicensesActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * DeviceId associated with the action.
-    *
-    * @param string $val The value of the managedDeviceId
-    *
-    * @return IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the managedDeviceId
+     * DeviceId associated with the action.
+     *
+     * @param string $val The value of the managedDeviceId
+     *
+     * @return IosVppAppRevokeLicensesActionResult
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * Time the action was initiated
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * Time the action was initiated
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -228,26 +220,25 @@ class IosVppAppRevokeLicensesActionResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * Time the action was initiated
-    *
-    * @param \DateTime $val The value to assign to the startDateTime
-    *
-    * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the startDateTime
+     * Time the action was initiated
+     *
+     * @param \DateTime $val The value to assign to the startDateTime
+     *
+     * @return IosVppAppRevokeLicensesActionResult The IosVppAppRevokeLicensesActionResult
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the totalLicensesCount
-    * A count of the number of licenses for which revoke was attempted.
-    *
-    * @return int|null The totalLicensesCount
-    */
+     * Gets the totalLicensesCount
+     * A count of the number of licenses for which revoke was attempted.
+     *
+     * @return int|null The totalLicensesCount
+     */
     public function getTotalLicensesCount()
     {
         if (array_key_exists("totalLicensesCount", $this->_propDict)) {
@@ -256,26 +247,25 @@ class IosVppAppRevokeLicensesActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalLicensesCount
-    * A count of the number of licenses for which revoke was attempted.
-    *
-    * @param int $val The value of the totalLicensesCount
-    *
-    * @return IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the totalLicensesCount
+     * A count of the number of licenses for which revoke was attempted.
+     *
+     * @param int $val The value of the totalLicensesCount
+     *
+     * @return IosVppAppRevokeLicensesActionResult
+     */
     public function setTotalLicensesCount($val)
     {
         $this->_propDict["totalLicensesCount"] = $val;
         return $this;
     }
     /**
-    * Gets the userId
-    * UserId associated with the action.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * UserId associated with the action.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -284,15 +274,14 @@ class IosVppAppRevokeLicensesActionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * UserId associated with the action.
-    *
-    * @param string $val The value of the userId
-    *
-    * @return IosVppAppRevokeLicensesActionResult
-    */
+     * Sets the userId
+     * UserId associated with the action.
+     *
+     * @param string $val The value of the userId
+     *
+     * @return IosVppAppRevokeLicensesActionResult
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;

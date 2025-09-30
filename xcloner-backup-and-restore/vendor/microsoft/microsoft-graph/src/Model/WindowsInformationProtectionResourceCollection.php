@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsInformationProtectionResourceCollection class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsInformationProtectionResourceCollection extends Entity
 {
     /**
-    * Gets the displayName
-    * Display name
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsInformationProtectionResourceCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return WindowsInformationProtectionResourceCollection
-    */
+     * Sets the displayName
+     * Display name
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return WindowsInformationProtectionResourceCollection
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the resources
-    * Collection of resources
-    *
-    * @return string|null The resources
-    */
+     * Gets the resources
+     * Collection of resources
+     *
+     * @return string|null The resources
+     */
     public function getResources()
     {
         if (array_key_exists("resources", $this->_propDict)) {
@@ -68,15 +69,14 @@ class WindowsInformationProtectionResourceCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resources
-    * Collection of resources
-    *
-    * @param string $val The value of the resources
-    *
-    * @return WindowsInformationProtectionResourceCollection
-    */
+     * Sets the resources
+     * Collection of resources
+     *
+     * @param string $val The value of the resources
+     *
+     * @return WindowsInformationProtectionResourceCollection
+     */
     public function setResources($val)
     {
         $this->_propDict["resources"] = $val;

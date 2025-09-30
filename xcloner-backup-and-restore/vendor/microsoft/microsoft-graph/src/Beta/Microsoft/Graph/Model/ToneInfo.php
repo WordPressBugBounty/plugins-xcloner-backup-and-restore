@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ToneInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ToneInfo extends Entity
 {
     /**
-    * Gets the sequenceId
-    * An incremental identifier used for ordering DTMF events.
-    *
-    * @return int|null The sequenceId
-    */
+     * Gets the sequenceId
+     * An incremental identifier used for ordering DTMF events.
+     *
+     * @return int|null The sequenceId
+     */
     public function getSequenceId()
     {
         if (array_key_exists("sequenceId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ToneInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sequenceId
-    * An incremental identifier used for ordering DTMF events.
-    *
-    * @param int $val The value of the sequenceId
-    *
-    * @return ToneInfo
-    */
+     * Sets the sequenceId
+     * An incremental identifier used for ordering DTMF events.
+     *
+     * @param int $val The value of the sequenceId
+     *
+     * @return ToneInfo
+     */
     public function setSequenceId($val)
     {
         $this->_propDict["sequenceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tone
-    * Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
-    *
-    * @return Tone|null The tone
-    */
+     * Gets the tone
+     * Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
+     *
+     * @return Tone|null The tone
+     */
     public function getTone()
     {
         if (array_key_exists("tone", $this->_propDict)) {
-            if (is_a($this->_propDict["tone"], "\Beta\Microsoft\Graph\Model\Tone") || is_null($this->_propDict["tone"])) {
+            if (is_a($this->_propDict["tone"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Tone") || is_null($this->_propDict["tone"])) {
                 return $this->_propDict["tone"];
             } else {
                 $this->_propDict["tone"] = new Tone($this->_propDict["tone"]);
@@ -73,18 +73,17 @@ class ToneInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the tone
-    * Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
-    *
-    * @param Tone $val The value to assign to the tone
-    *
-    * @return ToneInfo The ToneInfo
-    */
+     * Sets the tone
+     * Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.
+     *
+     * @param Tone $val The value to assign to the tone
+     *
+     * @return ToneInfo The ToneInfo
+     */
     public function setTone($val)
     {
         $this->_propDict["tone"] = $val;
-         return $this;
+        return $this;
     }
 }

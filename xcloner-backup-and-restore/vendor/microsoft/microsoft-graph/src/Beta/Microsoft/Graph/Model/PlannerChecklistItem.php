@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerChecklistItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerChecklistItem extends Entity
 {
     /**
-    * Gets the isChecked
-    * Value is true if the item is checked and false otherwise.
-    *
-    * @return bool|null The isChecked
-    */
+     * Gets the isChecked
+     * Value is true if the item is checked and false otherwise.
+     *
+     * @return bool|null The isChecked
+     */
     public function getIsChecked()
     {
         if (array_key_exists("isChecked", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PlannerChecklistItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isChecked
-    * Value is true if the item is checked and false otherwise.
-    *
-    * @param bool $val The value of the isChecked
-    *
-    * @return PlannerChecklistItem
-    */
+     * Sets the isChecked
+     * Value is true if the item is checked and false otherwise.
+     *
+     * @param bool $val The value of the isChecked
+     *
+     * @return PlannerChecklistItem
+     */
     public function setIsChecked($val)
     {
         $this->_propDict["isChecked"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedBy
-    * Read-only. User ID by which this is last modified.
-    *
-    * @return IdentitySet|null The lastModifiedBy
-    */
+     * Gets the lastModifiedBy
+     * Read-only. User ID by which this is last modified.
+     *
+     * @return IdentitySet|null The lastModifiedBy
+     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -73,31 +73,29 @@ class PlannerChecklistItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedBy
-    * Read-only. User ID by which this is last modified.
-    *
-    * @param IdentitySet $val The value to assign to the lastModifiedBy
-    *
-    * @return PlannerChecklistItem The PlannerChecklistItem
-    */
+     * Sets the lastModifiedBy
+     * Read-only. User ID by which this is last modified.
+     *
+     * @param IdentitySet $val The value to assign to the lastModifiedBy
+     *
+     * @return PlannerChecklistItem The PlannerChecklistItem
+     */
     public function setLastModifiedBy($val)
     {
         $this->_propDict["lastModifiedBy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -106,26 +104,25 @@ class PlannerChecklistItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return PlannerChecklistItem The PlannerChecklistItem
-    */
+     * Sets the lastModifiedDateTime
+     * Read-only. Date and time at which this is last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return PlannerChecklistItem The PlannerChecklistItem
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the orderHint
-    * Used to set the relative order of items in the checklist. The format is defined as outlined here.
-    *
-    * @return string|null The orderHint
-    */
+     * Gets the orderHint
+     * Used to set the relative order of items in the checklist. The format is defined as outlined here.
+     *
+     * @return string|null The orderHint
+     */
     public function getOrderHint()
     {
         if (array_key_exists("orderHint", $this->_propDict)) {
@@ -134,26 +131,25 @@ class PlannerChecklistItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the orderHint
-    * Used to set the relative order of items in the checklist. The format is defined as outlined here.
-    *
-    * @param string $val The value of the orderHint
-    *
-    * @return PlannerChecklistItem
-    */
+     * Sets the orderHint
+     * Used to set the relative order of items in the checklist. The format is defined as outlined here.
+     *
+     * @param string $val The value of the orderHint
+     *
+     * @return PlannerChecklistItem
+     */
     public function setOrderHint($val)
     {
         $this->_propDict["orderHint"] = $val;
         return $this;
     }
     /**
-    * Gets the title
-    * Title of the checklist item
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * Title of the checklist item
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -162,15 +158,14 @@ class PlannerChecklistItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * Title of the checklist item
-    *
-    * @param string $val The value of the title
-    *
-    * @return PlannerChecklistItem
-    */
+     * Sets the title
+     * Title of the checklist item
+     *
+     * @param string $val The value of the title
+     *
+     * @return PlannerChecklistItem
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;

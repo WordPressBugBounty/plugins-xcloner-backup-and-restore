@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentation extends Entity
 {
     /**
-    * Gets the label
-    * Localized text label for any presentation entity. The default value is empty.
-    *
-    * @return string|null The label
-    */
+     * Gets the label
+     * Localized text label for any presentation entity. The default value is empty.
+     *
+     * @return string|null The label
+     */
     public function getLabel()
     {
         if (array_key_exists("label", $this->_propDict)) {
@@ -41,31 +42,29 @@ class GroupPolicyPresentation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the label
-    * Localized text label for any presentation entity. The default value is empty.
-    *
-    * @param string $val The label
-    *
-    * @return GroupPolicyPresentation
-    */
+     * Sets the label
+     * Localized text label for any presentation entity. The default value is empty.
+     *
+     * @param string $val The label
+     *
+     * @return GroupPolicyPresentation
+     */
     public function setLabel($val)
     {
         $this->_propDict["label"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -74,31 +73,29 @@ class GroupPolicyPresentation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return GroupPolicyPresentation
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return GroupPolicyPresentation
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the definition
-    * The group policy definition associated with the presentation.
-    *
-    * @return GroupPolicyDefinition|null The definition
-    */
+     * Gets the definition
+     * The group policy definition associated with the presentation.
+     *
+     * @return GroupPolicyDefinition|null The definition
+     */
     public function getDefinition()
     {
         if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\GroupPolicyDefinition") || is_null($this->_propDict["definition"])) {
+            if (is_a($this->_propDict["definition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicyDefinition") || is_null($this->_propDict["definition"])) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new GroupPolicyDefinition($this->_propDict["definition"]);
@@ -107,19 +104,17 @@ class GroupPolicyPresentation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the definition
-    * The group policy definition associated with the presentation.
-    *
-    * @param GroupPolicyDefinition $val The definition
-    *
-    * @return GroupPolicyPresentation
-    */
+     * Sets the definition
+     * The group policy definition associated with the presentation.
+     *
+     * @param GroupPolicyDefinition $val The definition
+     *
+     * @return GroupPolicyPresentation
+     */
     public function setDefinition($val)
     {
         $this->_propDict["definition"] = $val;
         return $this;
     }
-
 }

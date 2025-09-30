@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Search\Model;
+namespace XCloner\Beta\Microsoft\Graph\Search\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Identity class
 *
@@ -24,13 +26,13 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Identity extends \Beta\Microsoft\Graph\Model\Entity
+class Identity extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -39,24 +41,23 @@ class Identity extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return Identity
-    */
+     * Sets the displayName
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return Identity
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -65,14 +66,13 @@ class Identity extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return Identity
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return Identity
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;

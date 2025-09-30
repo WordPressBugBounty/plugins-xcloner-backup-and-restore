@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationSynchronizationConnectionSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationSynchronizationConnectionSettings extends Entity
 {
     /**
-    * Gets the clientId
-    * Client ID used to connect to the provider.
-    *
-    * @return string|null The clientId
-    */
+     * Gets the clientId
+     * Client ID used to connect to the provider.
+     *
+     * @return string|null The clientId
+     */
     public function getClientId()
     {
         if (array_key_exists("clientId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EducationSynchronizationConnectionSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the clientId
-    * Client ID used to connect to the provider.
-    *
-    * @param string $val The value of the clientId
-    *
-    * @return EducationSynchronizationConnectionSettings
-    */
+     * Sets the clientId
+     * Client ID used to connect to the provider.
+     *
+     * @param string $val The value of the clientId
+     *
+     * @return EducationSynchronizationConnectionSettings
+     */
     public function setClientId($val)
     {
         $this->_propDict["clientId"] = $val;
         return $this;
     }
     /**
-    * Gets the clientSecret
-    * Client secret to authenticate the connection to the provider.
-    *
-    * @return string|null The clientSecret
-    */
+     * Gets the clientSecret
+     * Client secret to authenticate the connection to the provider.
+     *
+     * @return string|null The clientSecret
+     */
     public function getClientSecret()
     {
         if (array_key_exists("clientSecret", $this->_propDict)) {
@@ -68,15 +69,14 @@ class EducationSynchronizationConnectionSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the clientSecret
-    * Client secret to authenticate the connection to the provider.
-    *
-    * @param string $val The value of the clientSecret
-    *
-    * @return EducationSynchronizationConnectionSettings
-    */
+     * Sets the clientSecret
+     * Client secret to authenticate the connection to the provider.
+     *
+     * @param string $val The value of the clientSecret
+     *
+     * @return EducationSynchronizationConnectionSettings
+     */
     public function setClientSecret($val)
     {
         $this->_propDict["clientSecret"] = $val;

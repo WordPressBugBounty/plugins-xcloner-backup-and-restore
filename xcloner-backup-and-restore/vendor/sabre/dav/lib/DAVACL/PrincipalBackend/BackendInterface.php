@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\PrincipalBackend;
 
-namespace Sabre\DAVACL\PrincipalBackend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Implement this interface to create your own principal backends.
  *
@@ -38,7 +37,6 @@ interface BackendInterface
      * @return array
      */
     public function getPrincipalsByPrefix($prefixPath);
-
     /**
      * Returns a specific principal, specified by it's path.
      * The returned structure should be the exact same as from
@@ -49,7 +47,6 @@ interface BackendInterface
      * @return array
      */
     public function getPrincipalByPath($path);
-
     /**
      * Updates one ore more webdav properties on a principal.
      *
@@ -64,8 +61,7 @@ interface BackendInterface
      *
      * @param string $path
      */
-    public function updatePrincipal($path, \Sabre\DAV\PropPatch $propPatch);
-
+    public function updatePrincipal($path, \XCloner\Sabre\DAV\PropPatch $propPatch);
     /**
      * This method is used to search for principals matching a set of
      * properties.
@@ -96,7 +92,6 @@ interface BackendInterface
      * @return array
      */
     public function searchPrincipals($prefixPath, array $searchProperties, $test = 'allof');
-
     /**
      * Finds a principal by its URI.
      *
@@ -116,7 +111,6 @@ interface BackendInterface
      * @return string|null
      */
     public function findByUri($uri, $principalPrefix);
-
     /**
      * Returns the list of members for a group-principal.
      *
@@ -125,7 +119,6 @@ interface BackendInterface
      * @return array
      */
     public function getGroupMemberSet($principal);
-
     /**
      * Returns the list of groups a principal is a member of.
      *
@@ -134,7 +127,6 @@ interface BackendInterface
      * @return array
      */
     public function getGroupMembership($principal);
-
     /**
      * Updates the list of group members for a group principal.
      *

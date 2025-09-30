@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DefaultUserRolePermissions class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DefaultUserRolePermissions extends Entity
 {
     /**
-    * Gets the allowedToCreateApps
-    * Indicates whether the default user role can create applications.
-    *
-    * @return bool|null The allowedToCreateApps
-    */
+     * Gets the allowedToCreateApps
+     * Indicates whether the default user role can create applications.
+     *
+     * @return bool|null The allowedToCreateApps
+     */
     public function getAllowedToCreateApps()
     {
         if (array_key_exists("allowedToCreateApps", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DefaultUserRolePermissions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedToCreateApps
-    * Indicates whether the default user role can create applications.
-    *
-    * @param bool $val The value of the allowedToCreateApps
-    *
-    * @return DefaultUserRolePermissions
-    */
+     * Sets the allowedToCreateApps
+     * Indicates whether the default user role can create applications.
+     *
+     * @param bool $val The value of the allowedToCreateApps
+     *
+     * @return DefaultUserRolePermissions
+     */
     public function setAllowedToCreateApps($val)
     {
         $this->_propDict["allowedToCreateApps"] = $val;
         return $this;
     }
     /**
-    * Gets the allowedToCreateSecurityGroups
-    * Indicates whether the default user role can create security groups.
-    *
-    * @return bool|null The allowedToCreateSecurityGroups
-    */
+     * Gets the allowedToCreateSecurityGroups
+     * Indicates whether the default user role can create security groups.
+     *
+     * @return bool|null The allowedToCreateSecurityGroups
+     */
     public function getAllowedToCreateSecurityGroups()
     {
         if (array_key_exists("allowedToCreateSecurityGroups", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DefaultUserRolePermissions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedToCreateSecurityGroups
-    * Indicates whether the default user role can create security groups.
-    *
-    * @param bool $val The value of the allowedToCreateSecurityGroups
-    *
-    * @return DefaultUserRolePermissions
-    */
+     * Sets the allowedToCreateSecurityGroups
+     * Indicates whether the default user role can create security groups.
+     *
+     * @param bool $val The value of the allowedToCreateSecurityGroups
+     *
+     * @return DefaultUserRolePermissions
+     */
     public function setAllowedToCreateSecurityGroups($val)
     {
         $this->_propDict["allowedToCreateSecurityGroups"] = $val;
         return $this;
     }
     /**
-    * Gets the allowedToReadBitlockerKeysForOwnedDevice
-    * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
-    *
-    * @return bool|null The allowedToReadBitlockerKeysForOwnedDevice
-    */
+     * Gets the allowedToReadBitlockerKeysForOwnedDevice
+     * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+     *
+     * @return bool|null The allowedToReadBitlockerKeysForOwnedDevice
+     */
     public function getAllowedToReadBitlockerKeysForOwnedDevice()
     {
         if (array_key_exists("allowedToReadBitlockerKeysForOwnedDevice", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DefaultUserRolePermissions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedToReadBitlockerKeysForOwnedDevice
-    * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
-    *
-    * @param bool $val The value of the allowedToReadBitlockerKeysForOwnedDevice
-    *
-    * @return DefaultUserRolePermissions
-    */
+     * Sets the allowedToReadBitlockerKeysForOwnedDevice
+     * Indicates whether the registered owners of a device can read their own BitLocker recovery keys with default user role.
+     *
+     * @param bool $val The value of the allowedToReadBitlockerKeysForOwnedDevice
+     *
+     * @return DefaultUserRolePermissions
+     */
     public function setAllowedToReadBitlockerKeysForOwnedDevice($val)
     {
         $this->_propDict["allowedToReadBitlockerKeysForOwnedDevice"] = $val;
         return $this;
     }
     /**
-    * Gets the allowedToReadOtherUsers
-    * Indicates whether the default user role can read other users.
-    *
-    * @return bool|null The allowedToReadOtherUsers
-    */
+     * Gets the allowedToReadOtherUsers
+     * Indicates whether the default user role can read other users.
+     *
+     * @return bool|null The allowedToReadOtherUsers
+     */
     public function getAllowedToReadOtherUsers()
     {
         if (array_key_exists("allowedToReadOtherUsers", $this->_propDict)) {
@@ -124,15 +123,14 @@ class DefaultUserRolePermissions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedToReadOtherUsers
-    * Indicates whether the default user role can read other users.
-    *
-    * @param bool $val The value of the allowedToReadOtherUsers
-    *
-    * @return DefaultUserRolePermissions
-    */
+     * Sets the allowedToReadOtherUsers
+     * Indicates whether the default user role can read other users.
+     *
+     * @param bool $val The value of the allowedToReadOtherUsers
+     *
+     * @return DefaultUserRolePermissions
+     */
     public function setAllowedToReadOtherUsers($val)
     {
         $this->_propDict["allowedToReadOtherUsers"] = $val;

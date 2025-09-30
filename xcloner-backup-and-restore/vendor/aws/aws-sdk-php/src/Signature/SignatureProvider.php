@@ -1,11 +1,11 @@
 <?php
-namespace Aws\Signature;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Signature;
 
-
-use Aws\Exception\UnresolvedSignatureException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Exception\UnresolvedSignatureException;
 /**
  * Signature providers.
  *
@@ -43,12 +43,7 @@ use Aws\Exception\UnresolvedSignatureException;
  */
 class SignatureProvider
 {
-    private static $s3v4SignedServices = [
-        's3' => true,
-        's3control' => true,
-        's3-object-lambda' => true,
-    ];
-
+    private static $s3v4SignedServices = ['s3' => \true, 's3control' => \true, 's3-object-lambda' => \true];
     /**
      * Resolves and signature provider and ensures a non-null return value.
      *
@@ -66,13 +61,8 @@ class SignatureProvider
         if ($result instanceof SignatureInterface) {
             return $result;
         }
-
-        throw new UnresolvedSignatureException(
-            "Unable to resolve a signature for $version/$service/$region.\n"
-            . "Valid signature versions include v4 and anonymous."
-        );
+        throw new UnresolvedSignatureException("Unable to resolve a signature for {$version}/{$service}/{$region}.\n" . "Valid signature versions include v4 and anonymous.");
     }
-
     /**
      * Default SDK signature provider.
      *
@@ -82,7 +72,6 @@ class SignatureProvider
     {
         return self::memoize(self::version());
     }
-
     /**
      * Creates a signature provider that caches previously created signature
      * objects. The computed cache key is the concatenation of the version,
@@ -96,14 +85,13 @@ class SignatureProvider
     {
         $cache = [];
         return function ($version, $service, $region) use (&$cache, $provider) {
-            $key = "($version)($service)($region)";
+            $key = "({$version})({$service})({$region})";
             if (!isset($cache[$key])) {
                 $cache[$key] = $provider($version, $service, $region);
             }
             return $cache[$key];
         };
     }
-
     /**
      * Creates signature objects from known signature versions.
      *
@@ -120,15 +108,11 @@ class SignatureProvider
             switch ($version) {
                 case 's3v4':
                 case 'v4':
-                    return !empty(self::$s3v4SignedServices[$service])
-                        ? new S3SignatureV4($service, $region)
-                        : new SignatureV4($service, $region);
+                    return !empty(self::$s3v4SignedServices[$service]) ? new S3SignatureV4($service, $region) : new SignatureV4($service, $region);
                 case 'v4a':
-                    return new SignatureV4($service, $region, ['use_v4a' => true]);
+                    return new SignatureV4($service, $region, ['use_v4a' => \true]);
                 case 'v4-unsigned-body':
-                    return !empty(self::$s3v4SignedServices[$service])
-                    ? new S3SignatureV4($service, $region, ['unsigned-body' => 'true'])
-                    : new SignatureV4($service, $region, ['unsigned-body' => 'true']);
+                    return !empty(self::$s3v4SignedServices[$service]) ? new S3SignatureV4($service, $region, ['unsigned-body' => 'true']) : new SignatureV4($service, $region, ['unsigned-body' => 'true']);
                 case 'anonymous':
                     return new AnonymousSignature();
                 default:

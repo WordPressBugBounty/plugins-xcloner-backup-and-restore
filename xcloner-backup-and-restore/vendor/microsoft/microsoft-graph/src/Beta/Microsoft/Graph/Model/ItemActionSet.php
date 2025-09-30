@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemActionSet class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ItemActionSet extends Entity
 {
-
     /**
-    * Gets the comment
-    * A comment was added to the item.
-    *
-    * @return CommentAction|null The comment
-    */
+     * Gets the comment
+     * A comment was added to the item.
+     *
+     * @return CommentAction|null The comment
+     */
     public function getComment()
     {
         if (array_key_exists("comment", $this->_propDict)) {
-            if (is_a($this->_propDict["comment"], "\Beta\Microsoft\Graph\Model\CommentAction") || is_null($this->_propDict["comment"])) {
+            if (is_a($this->_propDict["comment"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CommentAction") || is_null($this->_propDict["comment"])) {
                 return $this->_propDict["comment"];
             } else {
                 $this->_propDict["comment"] = new CommentAction($this->_propDict["comment"]);
@@ -45,31 +46,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the comment
-    * A comment was added to the item.
-    *
-    * @param CommentAction $val The value to assign to the comment
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the comment
+     * A comment was added to the item.
+     *
+     * @param CommentAction $val The value to assign to the comment
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setComment($val)
     {
         $this->_propDict["comment"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the create
-    * An item was created.
-    *
-    * @return CreateAction|null The create
-    */
+     * Gets the create
+     * An item was created.
+     *
+     * @return CreateAction|null The create
+     */
     public function getCreate()
     {
         if (array_key_exists("create", $this->_propDict)) {
-            if (is_a($this->_propDict["create"], "\Beta\Microsoft\Graph\Model\CreateAction") || is_null($this->_propDict["create"])) {
+            if (is_a($this->_propDict["create"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CreateAction") || is_null($this->_propDict["create"])) {
                 return $this->_propDict["create"];
             } else {
                 $this->_propDict["create"] = new CreateAction($this->_propDict["create"]);
@@ -78,31 +77,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the create
-    * An item was created.
-    *
-    * @param CreateAction $val The value to assign to the create
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the create
+     * An item was created.
+     *
+     * @param CreateAction $val The value to assign to the create
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setCreate($val)
     {
         $this->_propDict["create"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the delete
-    * An item was deleted.
-    *
-    * @return DeleteAction|null The delete
-    */
+     * Gets the delete
+     * An item was deleted.
+     *
+     * @return DeleteAction|null The delete
+     */
     public function getDelete()
     {
         if (array_key_exists("delete", $this->_propDict)) {
-            if (is_a($this->_propDict["delete"], "\Beta\Microsoft\Graph\Model\DeleteAction") || is_null($this->_propDict["delete"])) {
+            if (is_a($this->_propDict["delete"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeleteAction") || is_null($this->_propDict["delete"])) {
                 return $this->_propDict["delete"];
             } else {
                 $this->_propDict["delete"] = new DeleteAction($this->_propDict["delete"]);
@@ -111,31 +108,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the delete
-    * An item was deleted.
-    *
-    * @param DeleteAction $val The value to assign to the delete
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the delete
+     * An item was deleted.
+     *
+     * @param DeleteAction $val The value to assign to the delete
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setDelete($val)
     {
         $this->_propDict["delete"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the edit
-    * An item was edited.
-    *
-    * @return EditAction|null The edit
-    */
+     * Gets the edit
+     * An item was edited.
+     *
+     * @return EditAction|null The edit
+     */
     public function getEdit()
     {
         if (array_key_exists("edit", $this->_propDict)) {
-            if (is_a($this->_propDict["edit"], "\Beta\Microsoft\Graph\Model\EditAction") || is_null($this->_propDict["edit"])) {
+            if (is_a($this->_propDict["edit"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EditAction") || is_null($this->_propDict["edit"])) {
                 return $this->_propDict["edit"];
             } else {
                 $this->_propDict["edit"] = new EditAction($this->_propDict["edit"]);
@@ -144,31 +139,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the edit
-    * An item was edited.
-    *
-    * @param EditAction $val The value to assign to the edit
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the edit
+     * An item was edited.
+     *
+     * @param EditAction $val The value to assign to the edit
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setEdit($val)
     {
         $this->_propDict["edit"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the mention
-    * A user was mentioned in the item.
-    *
-    * @return MentionAction|null The mention
-    */
+     * Gets the mention
+     * A user was mentioned in the item.
+     *
+     * @return MentionAction|null The mention
+     */
     public function getMention()
     {
         if (array_key_exists("mention", $this->_propDict)) {
-            if (is_a($this->_propDict["mention"], "\Beta\Microsoft\Graph\Model\MentionAction") || is_null($this->_propDict["mention"])) {
+            if (is_a($this->_propDict["mention"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MentionAction") || is_null($this->_propDict["mention"])) {
                 return $this->_propDict["mention"];
             } else {
                 $this->_propDict["mention"] = new MentionAction($this->_propDict["mention"]);
@@ -177,31 +170,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mention
-    * A user was mentioned in the item.
-    *
-    * @param MentionAction $val The value to assign to the mention
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the mention
+     * A user was mentioned in the item.
+     *
+     * @param MentionAction $val The value to assign to the mention
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setMention($val)
     {
         $this->_propDict["mention"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the move
-    * An item was moved.
-    *
-    * @return MoveAction|null The move
-    */
+     * Gets the move
+     * An item was moved.
+     *
+     * @return MoveAction|null The move
+     */
     public function getMove()
     {
         if (array_key_exists("move", $this->_propDict)) {
-            if (is_a($this->_propDict["move"], "\Beta\Microsoft\Graph\Model\MoveAction") || is_null($this->_propDict["move"])) {
+            if (is_a($this->_propDict["move"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MoveAction") || is_null($this->_propDict["move"])) {
                 return $this->_propDict["move"];
             } else {
                 $this->_propDict["move"] = new MoveAction($this->_propDict["move"]);
@@ -210,31 +201,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the move
-    * An item was moved.
-    *
-    * @param MoveAction $val The value to assign to the move
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the move
+     * An item was moved.
+     *
+     * @param MoveAction $val The value to assign to the move
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setMove($val)
     {
         $this->_propDict["move"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the rename
-    * An item was renamed.
-    *
-    * @return RenameAction|null The rename
-    */
+     * Gets the rename
+     * An item was renamed.
+     *
+     * @return RenameAction|null The rename
+     */
     public function getRename()
     {
         if (array_key_exists("rename", $this->_propDict)) {
-            if (is_a($this->_propDict["rename"], "\Beta\Microsoft\Graph\Model\RenameAction") || is_null($this->_propDict["rename"])) {
+            if (is_a($this->_propDict["rename"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RenameAction") || is_null($this->_propDict["rename"])) {
                 return $this->_propDict["rename"];
             } else {
                 $this->_propDict["rename"] = new RenameAction($this->_propDict["rename"]);
@@ -243,31 +232,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the rename
-    * An item was renamed.
-    *
-    * @param RenameAction $val The value to assign to the rename
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the rename
+     * An item was renamed.
+     *
+     * @param RenameAction $val The value to assign to the rename
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setRename($val)
     {
         $this->_propDict["rename"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the restore
-    * An item was restored.
-    *
-    * @return RestoreAction|null The restore
-    */
+     * Gets the restore
+     * An item was restored.
+     *
+     * @return RestoreAction|null The restore
+     */
     public function getRestore()
     {
         if (array_key_exists("restore", $this->_propDict)) {
-            if (is_a($this->_propDict["restore"], "\Beta\Microsoft\Graph\Model\RestoreAction") || is_null($this->_propDict["restore"])) {
+            if (is_a($this->_propDict["restore"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RestoreAction") || is_null($this->_propDict["restore"])) {
                 return $this->_propDict["restore"];
             } else {
                 $this->_propDict["restore"] = new RestoreAction($this->_propDict["restore"]);
@@ -276,31 +263,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the restore
-    * An item was restored.
-    *
-    * @param RestoreAction $val The value to assign to the restore
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the restore
+     * An item was restored.
+     *
+     * @param RestoreAction $val The value to assign to the restore
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setRestore($val)
     {
         $this->_propDict["restore"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the share
-    * An item was shared.
-    *
-    * @return ShareAction|null The share
-    */
+     * Gets the share
+     * An item was shared.
+     *
+     * @return ShareAction|null The share
+     */
     public function getShare()
     {
         if (array_key_exists("share", $this->_propDict)) {
-            if (is_a($this->_propDict["share"], "\Beta\Microsoft\Graph\Model\ShareAction") || is_null($this->_propDict["share"])) {
+            if (is_a($this->_propDict["share"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ShareAction") || is_null($this->_propDict["share"])) {
                 return $this->_propDict["share"];
             } else {
                 $this->_propDict["share"] = new ShareAction($this->_propDict["share"]);
@@ -309,31 +294,29 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the share
-    * An item was shared.
-    *
-    * @param ShareAction $val The value to assign to the share
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the share
+     * An item was shared.
+     *
+     * @param ShareAction $val The value to assign to the share
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setShare($val)
     {
         $this->_propDict["share"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the version
-    * An item was versioned.
-    *
-    * @return VersionAction|null The version
-    */
+     * Gets the version
+     * An item was versioned.
+     *
+     * @return VersionAction|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
-            if (is_a($this->_propDict["version"], "\Beta\Microsoft\Graph\Model\VersionAction") || is_null($this->_propDict["version"])) {
+            if (is_a($this->_propDict["version"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VersionAction") || is_null($this->_propDict["version"])) {
                 return $this->_propDict["version"];
             } else {
                 $this->_propDict["version"] = new VersionAction($this->_propDict["version"]);
@@ -342,18 +325,17 @@ class ItemActionSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the version
-    * An item was versioned.
-    *
-    * @param VersionAction $val The value to assign to the version
-    *
-    * @return ItemActionSet The ItemActionSet
-    */
+     * Sets the version
+     * An item was versioned.
+     *
+     * @param VersionAction $val The value to assign to the version
+     *
+     * @return ItemActionSet The ItemActionSet
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
-         return $this;
+        return $this;
     }
 }

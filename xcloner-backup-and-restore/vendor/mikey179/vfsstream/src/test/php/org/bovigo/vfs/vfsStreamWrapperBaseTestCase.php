@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
  */
-abstract class vfsStreamWrapperBaseTestCase extends \BC_PHPUnit_Framework_TestCase
+abstract class vfsStreamWrapperBaseTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * root directory
@@ -64,37 +66,24 @@ abstract class vfsStreamWrapperBaseTestCase extends \BC_PHPUnit_Framework_TestCa
      * @var  string
      */
     protected $baz2URL;
-
     /**
      * set up test environment
      */
     public function setUp()
     {
-        $this->fooURL  = vfsStream::url('foo');
-        $this->barURL  = vfsStream::url('foo/bar');
+        $this->fooURL = vfsStream::url('foo');
+        $this->barURL = vfsStream::url('foo/bar');
         $this->baz1URL = vfsStream::url('foo/bar/baz1');
         $this->baz2URL = vfsStream::url('foo/baz2');
-        $this->foo     = new vfsStreamDirectory('foo');
-        $this->bar     = new vfsStreamDirectory('bar');
-        $this->baz1    = vfsStream::newFile('baz1')
-                                  ->lastModified(300)
-                                  ->lastAccessed(300)
-                                  ->lastAttributeModified(300)
-                                  ->withContent('baz 1');
-        $this->baz2    = vfsStream::newFile('baz2')
-                                  ->withContent('baz2')
-                                  ->lastModified(400)
-                                  ->lastAccessed(400)
-                                  ->lastAttributeModified(400);
+        $this->foo = new vfsStreamDirectory('foo');
+        $this->bar = new vfsStreamDirectory('bar');
+        $this->baz1 = vfsStream::newFile('baz1')->lastModified(300)->lastAccessed(300)->lastAttributeModified(300)->withContent('baz 1');
+        $this->baz2 = vfsStream::newFile('baz2')->withContent('baz2')->lastModified(400)->lastAccessed(400)->lastAttributeModified(400);
         $this->bar->addChild($this->baz1);
         $this->foo->addChild($this->bar);
         $this->foo->addChild($this->baz2);
-        $this->foo->lastModified(100)
-                  ->lastAccessed(100)
-                  ->lastAttributeModified(100);
-        $this->bar->lastModified(200)
-                  ->lastAccessed(100)
-                  ->lastAttributeModified(100);
+        $this->foo->lastModified(100)->lastAccessed(100)->lastAttributeModified(100);
+        $this->bar->lastModified(200)->lastAccessed(100)->lastAttributeModified(100);
         vfsStreamWrapper::register();
         vfsStreamWrapper::setRoot($this->foo);
     }

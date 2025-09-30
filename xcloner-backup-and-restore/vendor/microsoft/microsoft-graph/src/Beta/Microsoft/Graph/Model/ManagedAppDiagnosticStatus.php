@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAppDiagnosticStatus class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAppDiagnosticStatus extends Entity
 {
     /**
-    * Gets the mitigationInstruction
-    * Instruction on how to mitigate a failed validation
-    *
-    * @return string|null The mitigationInstruction
-    */
+     * Gets the mitigationInstruction
+     * Instruction on how to mitigate a failed validation
+     *
+     * @return string|null The mitigationInstruction
+     */
     public function getMitigationInstruction()
     {
         if (array_key_exists("mitigationInstruction", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ManagedAppDiagnosticStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mitigationInstruction
-    * Instruction on how to mitigate a failed validation
-    *
-    * @param string $val The value of the mitigationInstruction
-    *
-    * @return ManagedAppDiagnosticStatus
-    */
+     * Sets the mitigationInstruction
+     * Instruction on how to mitigate a failed validation
+     *
+     * @param string $val The value of the mitigationInstruction
+     *
+     * @return ManagedAppDiagnosticStatus
+     */
     public function setMitigationInstruction($val)
     {
         $this->_propDict["mitigationInstruction"] = $val;
         return $this;
     }
     /**
-    * Gets the state
-    * The state of the operation
-    *
-    * @return string|null The state
-    */
+     * Gets the state
+     * The state of the operation
+     *
+     * @return string|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ManagedAppDiagnosticStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the state
-    * The state of the operation
-    *
-    * @param string $val The value of the state
-    *
-    * @return ManagedAppDiagnosticStatus
-    */
+     * Sets the state
+     * The state of the operation
+     *
+     * @param string $val The value of the state
+     *
+     * @return ManagedAppDiagnosticStatus
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
     /**
-    * Gets the validationName
-    * The validation friendly name
-    *
-    * @return string|null The validationName
-    */
+     * Gets the validationName
+     * The validation friendly name
+     *
+     * @return string|null The validationName
+     */
     public function getValidationName()
     {
         if (array_key_exists("validationName", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ManagedAppDiagnosticStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the validationName
-    * The validation friendly name
-    *
-    * @param string $val The value of the validationName
-    *
-    * @return ManagedAppDiagnosticStatus
-    */
+     * Sets the validationName
+     * The validation friendly name
+     *
+     * @param string $val The value of the validationName
+     *
+     * @return ManagedAppDiagnosticStatus
+     */
     public function setValidationName($val)
     {
         $this->_propDict["validationName"] = $val;

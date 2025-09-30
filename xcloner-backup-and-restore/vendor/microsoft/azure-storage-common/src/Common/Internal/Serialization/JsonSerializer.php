@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Serialization;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Perform JSON serialization / deserialization
  *
@@ -54,14 +52,10 @@ class JsonSerializer implements ISerializer
     {
         Validate::notNull($targetObject, 'targetObject');
         Validate::canCastAsString($rootName, 'rootName');
-
         $contianer = new \stdClass();
-
-        $contianer->$rootName = $targetObject;
-
+        $contianer->{$rootName} = $targetObject;
         return json_encode($contianer);
     }
-
     /**
      * Serializes given array. The array indices must be string to use them as
      * as element name.
@@ -74,10 +68,8 @@ class JsonSerializer implements ISerializer
     public function serialize(array $array = null, array $properties = null)
     {
         Validate::isArray($array, 'array');
-
         return json_encode($array);
     }
-
     /**
      * Unserializes given serialized string to array.
      *
@@ -88,7 +80,6 @@ class JsonSerializer implements ISerializer
     public function unserialize($serialized)
     {
         Validate::canCastAsString($serialized, 'serialized');
-
         $json = json_decode($serialized);
         if ($json && !is_array($json)) {
             return get_object_vars($json);

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ServicePrincipalCreationPolicy class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ServicePrincipalCreationPolicy extends PolicyBase
 {
     /**
-    * Gets the isBuiltIn
-    *
-    * @return bool|null The isBuiltIn
-    */
+     * Gets the isBuiltIn
+     *
+     * @return bool|null The isBuiltIn
+     */
     public function getIsBuiltIn()
     {
         if (array_key_exists("isBuiltIn", $this->_propDict)) {
@@ -40,22 +41,19 @@ class ServicePrincipalCreationPolicy extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the isBuiltIn
-    *
-    * @param bool $val The isBuiltIn
-    *
-    * @return ServicePrincipalCreationPolicy
-    */
+     * Sets the isBuiltIn
+     *
+     * @param bool $val The isBuiltIn
+     *
+     * @return ServicePrincipalCreationPolicy
+     */
     public function setIsBuiltIn($val)
     {
         $this->_propDict["isBuiltIn"] = boolval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the excludes
      *
      * @return array|null The excludes
@@ -63,27 +61,24 @@ class ServicePrincipalCreationPolicy extends PolicyBase
     public function getExcludes()
     {
         if (array_key_exists("excludes", $this->_propDict)) {
-           return $this->_propDict["excludes"];
+            return $this->_propDict["excludes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the excludes
-    *
-    * @param ServicePrincipalCreationConditionSet[] $val The excludes
-    *
-    * @return ServicePrincipalCreationPolicy
-    */
+     * Sets the excludes
+     *
+     * @param ServicePrincipalCreationConditionSet[] $val The excludes
+     *
+     * @return ServicePrincipalCreationPolicy
+     */
     public function setExcludes($val)
     {
         $this->_propDict["excludes"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the includes
      *
      * @return array|null The includes
@@ -91,23 +86,21 @@ class ServicePrincipalCreationPolicy extends PolicyBase
     public function getIncludes()
     {
         if (array_key_exists("includes", $this->_propDict)) {
-           return $this->_propDict["includes"];
+            return $this->_propDict["includes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the includes
-    *
-    * @param ServicePrincipalCreationConditionSet[] $val The includes
-    *
-    * @return ServicePrincipalCreationPolicy
-    */
+     * Sets the includes
+     *
+     * @param ServicePrincipalCreationConditionSet[] $val The includes
+     *
+     * @return ServicePrincipalCreationPolicy
+     */
     public function setIncludes($val)
     {
         $this->_propDict["includes"] = $val;
         return $this;
     }
-
 }

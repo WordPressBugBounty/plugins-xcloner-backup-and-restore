@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SideLoadingKey class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SideLoadingKey extends Entity
 {
     /**
-    * Gets the description
-    * Side Loading Key description displayed to the ITPro Admins..
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Side Loading Key description displayed to the ITPro Admins..
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Side Loading Key description displayed to the ITPro Admins..
-    *
-    * @param string $val The description
-    *
-    * @return SideLoadingKey
-    */
+     * Sets the description
+     * Side Loading Key description displayed to the ITPro Admins..
+     *
+     * @param string $val The description
+     *
+     * @return SideLoadingKey
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Side Loading Key Name displayed to the ITPro Admins.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Side Loading Key Name displayed to the ITPro Admins.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Side Loading Key Name displayed to the ITPro Admins.
-    *
-    * @param string $val The displayName
-    *
-    * @return SideLoadingKey
-    */
+     * Sets the displayName
+     * Side Loading Key Name displayed to the ITPro Admins.
+     *
+     * @param string $val The displayName
+     *
+     * @return SideLoadingKey
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastUpdatedDateTime
-    * Side Loading Key Last Updated Date displayed to the ITPro Admins.
-    *
-    * @return string|null The lastUpdatedDateTime
-    */
+     * Gets the lastUpdatedDateTime
+     * Side Loading Key Last Updated Date displayed to the ITPro Admins.
+     *
+     * @return string|null The lastUpdatedDateTime
+     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
@@ -99,27 +96,25 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastUpdatedDateTime
-    * Side Loading Key Last Updated Date displayed to the ITPro Admins.
-    *
-    * @param string $val The lastUpdatedDateTime
-    *
-    * @return SideLoadingKey
-    */
+     * Sets the lastUpdatedDateTime
+     * Side Loading Key Last Updated Date displayed to the ITPro Admins.
+     *
+     * @param string $val The lastUpdatedDateTime
+     *
+     * @return SideLoadingKey
+     */
     public function setLastUpdatedDateTime($val)
     {
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the totalActivation
-    * Side Loading Key Total Activation displayed to the ITPro Admins.
-    *
-    * @return int|null The totalActivation
-    */
+     * Gets the totalActivation
+     * Side Loading Key Total Activation displayed to the ITPro Admins.
+     *
+     * @return int|null The totalActivation
+     */
     public function getTotalActivation()
     {
         if (array_key_exists("totalActivation", $this->_propDict)) {
@@ -128,27 +123,25 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalActivation
-    * Side Loading Key Total Activation displayed to the ITPro Admins.
-    *
-    * @param int $val The totalActivation
-    *
-    * @return SideLoadingKey
-    */
+     * Sets the totalActivation
+     * Side Loading Key Total Activation displayed to the ITPro Admins.
+     *
+     * @param int $val The totalActivation
+     *
+     * @return SideLoadingKey
+     */
     public function setTotalActivation($val)
     {
         $this->_propDict["totalActivation"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the value
-    * Side Loading Key Value, it is 5x5 value, seperated by hiphens.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Side Loading Key Value, it is 5x5 value, seperated by hiphens.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -157,19 +150,17 @@ class SideLoadingKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Side Loading Key Value, it is 5x5 value, seperated by hiphens.
-    *
-    * @param string $val The value
-    *
-    * @return SideLoadingKey
-    */
+     * Sets the value
+     * Side Loading Key Value, it is 5x5 value, seperated by hiphens.
+     *
+     * @param string $val The value
+     *
+     * @return SideLoadingKey
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
         return $this;
     }
-
 }

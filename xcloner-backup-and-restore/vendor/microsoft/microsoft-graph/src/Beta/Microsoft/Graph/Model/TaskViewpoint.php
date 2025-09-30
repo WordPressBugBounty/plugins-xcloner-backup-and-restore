@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TaskViewpoint class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TaskViewpoint extends Entity
 {
     /**
-    * Gets the categories
-    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
-    *
-    * @return string|null The categories
-    */
+     * Gets the categories
+     * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
+     *
+     * @return string|null The categories
+     */
     public function getCategories()
     {
         if (array_key_exists("categories", $this->_propDict)) {
@@ -40,31 +42,29 @@ class TaskViewpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the categories
-    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
-    *
-    * @param string $val The value of the categories
-    *
-    * @return TaskViewpoint
-    */
+     * Sets the categories
+     * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
+     *
+     * @param string $val The value of the categories
+     *
+     * @return TaskViewpoint
+     */
     public function setCategories($val)
     {
         $this->_propDict["categories"] = $val;
         return $this;
     }
-
     /**
-    * Gets the reminderDateTime
-    * The date and time for a reminder alert of the task to occur.
-    *
-    * @return DateTimeTimeZone|null The reminderDateTime
-    */
+     * Gets the reminderDateTime
+     * The date and time for a reminder alert of the task to occur.
+     *
+     * @return DateTimeTimeZone|null The reminderDateTime
+     */
     public function getReminderDateTime()
     {
         if (array_key_exists("reminderDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reminderDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["reminderDateTime"])) {
+            if (is_a($this->_propDict["reminderDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["reminderDateTime"])) {
                 return $this->_propDict["reminderDateTime"];
             } else {
                 $this->_propDict["reminderDateTime"] = new DateTimeTimeZone($this->_propDict["reminderDateTime"]);
@@ -73,18 +73,17 @@ class TaskViewpoint extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the reminderDateTime
-    * The date and time for a reminder alert of the task to occur.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the reminderDateTime
-    *
-    * @return TaskViewpoint The TaskViewpoint
-    */
+     * Sets the reminderDateTime
+     * The date and time for a reminder alert of the task to occur.
+     *
+     * @param DateTimeTimeZone $val The value to assign to the reminderDateTime
+     *
+     * @return TaskViewpoint The TaskViewpoint
+     */
     public function setReminderDateTime($val)
     {
         $this->_propDict["reminderDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

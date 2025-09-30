@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Phone class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Phone extends Entity
 {
     /**
-    * Gets the number
-    * The phone number.
-    *
-    * @return string|null The number
-    */
+     * Gets the number
+     * The phone number.
+     *
+     * @return string|null The number
+     */
     public function getNumber()
     {
         if (array_key_exists("number", $this->_propDict)) {
@@ -40,31 +42,29 @@ class Phone extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the number
-    * The phone number.
-    *
-    * @param string $val The value of the number
-    *
-    * @return Phone
-    */
+     * Sets the number
+     * The phone number.
+     *
+     * @param string $val The value of the number
+     *
+     * @return Phone
+     */
     public function setNumber($val)
     {
         $this->_propDict["number"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-    *
-    * @return PhoneType|null The type
-    */
+     * Gets the type
+     * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     *
+     * @return PhoneType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PhoneType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PhoneType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PhoneType($this->_propDict["type"]);
@@ -73,18 +73,17 @@ class Phone extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
-    *
-    * @param PhoneType $val The value to assign to the type
-    *
-    * @return Phone The Phone
-    */
+     * Sets the type
+     * The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     *
+     * @param PhoneType $val The value to assign to the type
+     *
+     * @return Phone The Phone
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

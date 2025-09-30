@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,86 +15,83 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class Label extends \Google\Model
-{
-  protected $fieldsType = LabelField::class;
-  protected $fieldsDataType = 'map';
-  /**
-   * @var string
-   */
-  public $id;
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $revisionId;
-
-  /**
-   * @param LabelField[]
-   */
-  public function setFields($fields)
-  {
-    $this->fields = $fields;
-  }
-  /**
-   * @return LabelField[]
-   */
-  public function getFields()
-  {
-    return $this->fields;
-  }
-  /**
-   * @param string
-   */
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  /**
-   * @return string
-   */
-  public function getId()
-  {
-    return $this->id;
-  }
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setRevisionId($revisionId)
-  {
-    $this->revisionId = $revisionId;
-  }
-  /**
-   * @return string
-   */
-  public function getRevisionId()
-  {
-    return $this->revisionId;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class Label extends \XCloner\Google\Model
+{
+    protected $fieldsType = LabelField::class;
+    protected $fieldsDataType = 'map';
+    /**
+     * @var string
+     */
+    public $id;
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $revisionId;
+    /**
+     * @param LabelField[]
+     */
+    public function setFields($fields)
+    {
+        $this->fields = $fields;
+    }
+    /**
+     * @return LabelField[]
+     */
+    public function getFields()
+    {
+        return $this->fields;
+    }
+    /**
+     * @param string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setRevisionId($revisionId)
+    {
+        $this->revisionId = $revisionId;
+    }
+    /**
+     * @return string
+     */
+    public function getRevisionId()
+    {
+        return $this->revisionId;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(Label::class, 'Google_Service_Drive_Label');
+class_alias(Label::class, 'XCloner\Google_Service_Drive_Label');

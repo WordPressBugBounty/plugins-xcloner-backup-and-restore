@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
 /**
  * Integer property.
  *
@@ -31,7 +30,6 @@ class IntegerValue extends Property
     {
         $this->setValue((int) $val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -41,7 +39,6 @@ class IntegerValue extends Property
     {
         return $this->value;
     }
-
     /**
      * Returns the type of value.
      *
@@ -54,7 +51,6 @@ class IntegerValue extends Property
     {
         return 'INTEGER';
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -66,7 +62,6 @@ class IntegerValue extends Property
     {
         return [(int) $this->getValue()];
     }
-
     /**
      * Hydrate data from a XML subtree, as it would appear in a xCard or xCal
      * object.

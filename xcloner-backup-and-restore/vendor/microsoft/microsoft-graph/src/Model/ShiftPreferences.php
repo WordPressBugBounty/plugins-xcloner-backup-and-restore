@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ShiftPreferences class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ShiftPreferences extends ChangeTrackedEntity
 {
-
-     /**
+    /**
      * Gets the availability
-    * Availability of the user to be scheduled for work and its recurrence pattern.
+     * Availability of the user to be scheduled for work and its recurrence pattern.
      *
      * @return array|null The availability
      */
     public function getAvailability()
     {
         if (array_key_exists("availability", $this->_propDict)) {
-           return $this->_propDict["availability"];
+            return $this->_propDict["availability"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the availability
-    * Availability of the user to be scheduled for work and its recurrence pattern.
-    *
-    * @param ShiftAvailability[] $val The availability
-    *
-    * @return ShiftPreferences
-    */
+     * Sets the availability
+     * Availability of the user to be scheduled for work and its recurrence pattern.
+     *
+     * @param ShiftAvailability[] $val The availability
+     *
+     * @return ShiftPreferences
+     */
     public function setAvailability($val)
     {
         $this->_propDict["availability"] = $val;
         return $this;
     }
-
 }

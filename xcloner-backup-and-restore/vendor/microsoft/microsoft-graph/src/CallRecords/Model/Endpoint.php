@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\CallRecords\Model;
+namespace XCloner\Microsoft\Graph\CallRecords\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Endpoint class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Endpoint extends \Microsoft\Graph\Model\Entity
+class Endpoint extends \XCloner\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the userAgent
-    * User-agent reported by this endpoint.
-    *
-    * @return UserAgent|null The userAgent
-    */
+     * Gets the userAgent
+     * User-agent reported by this endpoint.
+     *
+     * @return UserAgent|null The userAgent
+     */
     public function getUserAgent()
     {
         if (array_key_exists("userAgent", $this->_propDict)) {
-            if (is_a($this->_propDict["userAgent"], "\Microsoft\Graph\CallRecords\Model\UserAgent") || is_null($this->_propDict["userAgent"])) {
+            if (is_a($this->_propDict["userAgent"], "XCloner\\Microsoft\\Graph\\CallRecords\\Model\\UserAgent") || is_null($this->_propDict["userAgent"])) {
                 return $this->_propDict["userAgent"];
             } else {
                 $this->_propDict["userAgent"] = new UserAgent($this->_propDict["userAgent"]);
@@ -45,18 +46,17 @@ class Endpoint extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the userAgent
-    * User-agent reported by this endpoint.
-    *
-    * @param UserAgent $val The value to assign to the userAgent
-    *
-    * @return Endpoint The Endpoint
-    */
+     * Sets the userAgent
+     * User-agent reported by this endpoint.
+     *
+     * @param UserAgent $val The value to assign to the userAgent
+     *
+     * @return Endpoint The Endpoint
+     */
     public function setUserAgent($val)
     {
         $this->_propDict["userAgent"] = $val;
-         return $this;
+        return $this;
     }
 }

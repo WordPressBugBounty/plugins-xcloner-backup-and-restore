@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OperatingSystemVersionRange class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OperatingSystemVersionRange extends Entity
 {
     /**
-    * Gets the description
-    * The description of this range (e.g. Valid 1702 builds)
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of this range (e.g. Valid 1702 builds)
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OperatingSystemVersionRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of this range (e.g. Valid 1702 builds)
-    *
-    * @param string $val The value of the description
-    *
-    * @return OperatingSystemVersionRange
-    */
+     * Sets the description
+     * The description of this range (e.g. Valid 1702 builds)
+     *
+     * @param string $val The value of the description
+     *
+     * @return OperatingSystemVersionRange
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the highestVersion
-    * The highest inclusive version that this range contains.
-    *
-    * @return string|null The highestVersion
-    */
+     * Gets the highestVersion
+     * The highest inclusive version that this range contains.
+     *
+     * @return string|null The highestVersion
+     */
     public function getHighestVersion()
     {
         if (array_key_exists("highestVersion", $this->_propDict)) {
@@ -68,26 +69,25 @@ class OperatingSystemVersionRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the highestVersion
-    * The highest inclusive version that this range contains.
-    *
-    * @param string $val The value of the highestVersion
-    *
-    * @return OperatingSystemVersionRange
-    */
+     * Sets the highestVersion
+     * The highest inclusive version that this range contains.
+     *
+     * @param string $val The value of the highestVersion
+     *
+     * @return OperatingSystemVersionRange
+     */
     public function setHighestVersion($val)
     {
         $this->_propDict["highestVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the lowestVersion
-    * The lowest inclusive version that this range contains.
-    *
-    * @return string|null The lowestVersion
-    */
+     * Gets the lowestVersion
+     * The lowest inclusive version that this range contains.
+     *
+     * @return string|null The lowestVersion
+     */
     public function getLowestVersion()
     {
         if (array_key_exists("lowestVersion", $this->_propDict)) {
@@ -96,15 +96,14 @@ class OperatingSystemVersionRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lowestVersion
-    * The lowest inclusive version that this range contains.
-    *
-    * @param string $val The value of the lowestVersion
-    *
-    * @return OperatingSystemVersionRange
-    */
+     * Sets the lowestVersion
+     * The lowest inclusive version that this range contains.
+     *
+     * @param string $val The value of the lowestVersion
+     *
+     * @return OperatingSystemVersionRange
+     */
     public function setLowestVersion($val)
     {
         $this->_propDict["lowestVersion"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnTokenIssuanceStartReturnClaim class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OnTokenIssuanceStartReturnClaim extends Entity
 {
     /**
-    * Gets the claimIdInApiResponse
-    *
-    * @return string|null The claimIdInApiResponse
-    */
+     * Gets the claimIdInApiResponse
+     *
+     * @return string|null The claimIdInApiResponse
+     */
     public function getClaimIdInApiResponse()
     {
         if (array_key_exists("claimIdInApiResponse", $this->_propDict)) {
@@ -39,14 +41,13 @@ class OnTokenIssuanceStartReturnClaim extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the claimIdInApiResponse
-    *
-    * @param string $val The value of the claimIdInApiResponse
-    *
-    * @return OnTokenIssuanceStartReturnClaim
-    */
+     * Sets the claimIdInApiResponse
+     *
+     * @param string $val The value of the claimIdInApiResponse
+     *
+     * @return OnTokenIssuanceStartReturnClaim
+     */
     public function setClaimIdInApiResponse($val)
     {
         $this->_propDict["claimIdInApiResponse"] = $val;

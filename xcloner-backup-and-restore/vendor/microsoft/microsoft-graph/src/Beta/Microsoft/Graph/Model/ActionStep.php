@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ActionStep class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ActionStep extends Entity
 {
-
     /**
-    * Gets the actionUrl
-    *
-    * @return ActionUrl|null The actionUrl
-    */
+     * Gets the actionUrl
+     *
+     * @return ActionUrl|null The actionUrl
+     */
     public function getActionUrl()
     {
         if (array_key_exists("actionUrl", $this->_propDict)) {
-            if (is_a($this->_propDict["actionUrl"], "\Beta\Microsoft\Graph\Model\ActionUrl") || is_null($this->_propDict["actionUrl"])) {
+            if (is_a($this->_propDict["actionUrl"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ActionUrl") || is_null($this->_propDict["actionUrl"])) {
                 return $this->_propDict["actionUrl"];
             } else {
                 $this->_propDict["actionUrl"] = new ActionUrl($this->_propDict["actionUrl"]);
@@ -44,24 +45,23 @@ class ActionStep extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actionUrl
-    *
-    * @param ActionUrl $val The value to assign to the actionUrl
-    *
-    * @return ActionStep The ActionStep
-    */
+     * Sets the actionUrl
+     *
+     * @param ActionUrl $val The value to assign to the actionUrl
+     *
+     * @return ActionStep The ActionStep
+     */
     public function setActionUrl($val)
     {
         $this->_propDict["actionUrl"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the stepNumber
-    *
-    * @return int|null The stepNumber
-    */
+     * Gets the stepNumber
+     *
+     * @return int|null The stepNumber
+     */
     public function getStepNumber()
     {
         if (array_key_exists("stepNumber", $this->_propDict)) {
@@ -70,24 +70,23 @@ class ActionStep extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the stepNumber
-    *
-    * @param int $val The value of the stepNumber
-    *
-    * @return ActionStep
-    */
+     * Sets the stepNumber
+     *
+     * @param int $val The value of the stepNumber
+     *
+     * @return ActionStep
+     */
     public function setStepNumber($val)
     {
         $this->_propDict["stepNumber"] = $val;
         return $this;
     }
     /**
-    * Gets the text
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -96,14 +95,13 @@ class ActionStep extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the text
-    *
-    * @param string $val The value of the text
-    *
-    * @return ActionStep
-    */
+     * Sets the text
+     *
+     * @param string $val The value of the text
+     *
+     * @return ActionStep
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;

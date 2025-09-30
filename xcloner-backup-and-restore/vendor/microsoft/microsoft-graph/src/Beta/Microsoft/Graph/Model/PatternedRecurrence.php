@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PatternedRecurrence class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PatternedRecurrence extends Entity
 {
-
     /**
-    * Gets the pattern
-    * The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
-    *
-    * @return RecurrencePattern|null The pattern
-    */
+     * Gets the pattern
+     * The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
+     *
+     * @return RecurrencePattern|null The pattern
+     */
     public function getPattern()
     {
         if (array_key_exists("pattern", $this->_propDict)) {
-            if (is_a($this->_propDict["pattern"], "\Beta\Microsoft\Graph\Model\RecurrencePattern") || is_null($this->_propDict["pattern"])) {
+            if (is_a($this->_propDict["pattern"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RecurrencePattern") || is_null($this->_propDict["pattern"])) {
                 return $this->_propDict["pattern"];
             } else {
                 $this->_propDict["pattern"] = new RecurrencePattern($this->_propDict["pattern"]);
@@ -45,31 +46,29 @@ class PatternedRecurrence extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the pattern
-    * The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
-    *
-    * @param RecurrencePattern $val The value to assign to the pattern
-    *
-    * @return PatternedRecurrence The PatternedRecurrence
-    */
+     * Sets the pattern
+     * The frequency of an event. Do not specify for a one-time access review.  For access reviews: Do not specify this property for a one-time access review.   Only interval, dayOfMonth, and type (weekly, absoluteMonthly) properties of recurrencePattern are supported.
+     *
+     * @param RecurrencePattern $val The value to assign to the pattern
+     *
+     * @return PatternedRecurrence The PatternedRecurrence
+     */
     public function setPattern($val)
     {
         $this->_propDict["pattern"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the range
-    * The duration of an event.
-    *
-    * @return RecurrenceRange|null The range
-    */
+     * Gets the range
+     * The duration of an event.
+     *
+     * @return RecurrenceRange|null The range
+     */
     public function getRange()
     {
         if (array_key_exists("range", $this->_propDict)) {
-            if (is_a($this->_propDict["range"], "\Beta\Microsoft\Graph\Model\RecurrenceRange") || is_null($this->_propDict["range"])) {
+            if (is_a($this->_propDict["range"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RecurrenceRange") || is_null($this->_propDict["range"])) {
                 return $this->_propDict["range"];
             } else {
                 $this->_propDict["range"] = new RecurrenceRange($this->_propDict["range"]);
@@ -78,18 +77,17 @@ class PatternedRecurrence extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the range
-    * The duration of an event.
-    *
-    * @param RecurrenceRange $val The value to assign to the range
-    *
-    * @return PatternedRecurrence The PatternedRecurrence
-    */
+     * Sets the range
+     * The duration of an event.
+     *
+     * @param RecurrenceRange $val The value to assign to the range
+     *
+     * @return PatternedRecurrence The PatternedRecurrence
+     */
     public function setRange($val)
     {
         $this->_propDict["range"] = $val;
-         return $this;
+        return $this;
     }
 }

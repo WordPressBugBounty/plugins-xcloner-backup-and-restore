@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BroadcastMeetingCaptionSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BroadcastMeetingCaptionSettings extends Entity
 {
     /**
-    * Gets the isCaptionEnabled
-    * Indicates whether captions are enabled for this Teams live event.
-    *
-    * @return bool|null The isCaptionEnabled
-    */
+     * Gets the isCaptionEnabled
+     * Indicates whether captions are enabled for this Teams live event.
+     *
+     * @return bool|null The isCaptionEnabled
+     */
     public function getIsCaptionEnabled()
     {
         if (array_key_exists("isCaptionEnabled", $this->_propDict)) {
@@ -40,26 +42,25 @@ class BroadcastMeetingCaptionSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isCaptionEnabled
-    * Indicates whether captions are enabled for this Teams live event.
-    *
-    * @param bool $val The value of the isCaptionEnabled
-    *
-    * @return BroadcastMeetingCaptionSettings
-    */
+     * Sets the isCaptionEnabled
+     * Indicates whether captions are enabled for this Teams live event.
+     *
+     * @param bool $val The value of the isCaptionEnabled
+     *
+     * @return BroadcastMeetingCaptionSettings
+     */
     public function setIsCaptionEnabled($val)
     {
         $this->_propDict["isCaptionEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the spokenLanguage
-    * The spoken language.
-    *
-    * @return string|null The spokenLanguage
-    */
+     * Gets the spokenLanguage
+     * The spoken language.
+     *
+     * @return string|null The spokenLanguage
+     */
     public function getSpokenLanguage()
     {
         if (array_key_exists("spokenLanguage", $this->_propDict)) {
@@ -68,26 +69,25 @@ class BroadcastMeetingCaptionSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the spokenLanguage
-    * The spoken language.
-    *
-    * @param string $val The value of the spokenLanguage
-    *
-    * @return BroadcastMeetingCaptionSettings
-    */
+     * Sets the spokenLanguage
+     * The spoken language.
+     *
+     * @param string $val The value of the spokenLanguage
+     *
+     * @return BroadcastMeetingCaptionSettings
+     */
     public function setSpokenLanguage($val)
     {
         $this->_propDict["spokenLanguage"] = $val;
         return $this;
     }
     /**
-    * Gets the translationLanguages
-    * The translation languages (choose up to 6).
-    *
-    * @return string|null The translationLanguages
-    */
+     * Gets the translationLanguages
+     * The translation languages (choose up to 6).
+     *
+     * @return string|null The translationLanguages
+     */
     public function getTranslationLanguages()
     {
         if (array_key_exists("translationLanguages", $this->_propDict)) {
@@ -96,15 +96,14 @@ class BroadcastMeetingCaptionSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the translationLanguages
-    * The translation languages (choose up to 6).
-    *
-    * @param string $val The value of the translationLanguages
-    *
-    * @return BroadcastMeetingCaptionSettings
-    */
+     * Sets the translationLanguages
+     * The translation languages (choose up to 6).
+     *
+     * @param string $val The value of the translationLanguages
+     *
+     * @return BroadcastMeetingCaptionSettings
+     */
     public function setTranslationLanguages($val)
     {
         $this->_propDict["translationLanguages"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingInstanceTemplateReference class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingInstanceTemplateReference extends Entity
 {
     /**
-    * Gets the settingInstanceTemplateId
-    * Setting instance template id
-    *
-    * @return string|null The settingInstanceTemplateId
-    */
+     * Gets the settingInstanceTemplateId
+     * Setting instance template id
+     *
+     * @return string|null The settingInstanceTemplateId
+     */
     public function getSettingInstanceTemplateId()
     {
         if (array_key_exists("settingInstanceTemplateId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeviceManagementConfigurationSettingInstanceTemplateReference extends Enti
             return null;
         }
     }
-
     /**
-    * Sets the settingInstanceTemplateId
-    * Setting instance template id
-    *
-    * @param string $val The value of the settingInstanceTemplateId
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplateReference
-    */
+     * Sets the settingInstanceTemplateId
+     * Setting instance template id
+     *
+     * @param string $val The value of the settingInstanceTemplateId
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplateReference
+     */
     public function setSettingInstanceTemplateId($val)
     {
         $this->_propDict["settingInstanceTemplateId"] = $val;

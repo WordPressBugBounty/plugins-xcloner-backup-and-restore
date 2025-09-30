@@ -1,15 +1,14 @@
 <?php
 
-namespace GuzzleHttp;
+namespace XCloner\GuzzleHttp;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\Promise\PromiseInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\UriInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Exception\GuzzleException;
+use XCloner\GuzzleHttp\Promise\PromiseInterface;
+use XCloner\Psr\Http\Message\ResponseInterface;
+use XCloner\Psr\Http\Message\UriInterface;
 /**
  * Client interface for sending HTTP requests.
  */
@@ -29,7 +28,6 @@ trait ClientTrait
      * @throws GuzzleException
      */
     abstract public function request(string $method, $uri, array $options = []): ResponseInterface;
-
     /**
      * Create and send an HTTP GET request.
      *
@@ -46,7 +44,6 @@ trait ClientTrait
     {
         return $this->request('GET', $uri, $options);
     }
-
     /**
      * Create and send an HTTP HEAD request.
      *
@@ -63,7 +60,6 @@ trait ClientTrait
     {
         return $this->request('HEAD', $uri, $options);
     }
-
     /**
      * Create and send an HTTP PUT request.
      *
@@ -80,7 +76,6 @@ trait ClientTrait
     {
         return $this->request('PUT', $uri, $options);
     }
-
     /**
      * Create and send an HTTP POST request.
      *
@@ -97,7 +92,6 @@ trait ClientTrait
     {
         return $this->request('POST', $uri, $options);
     }
-
     /**
      * Create and send an HTTP PATCH request.
      *
@@ -114,7 +108,6 @@ trait ClientTrait
     {
         return $this->request('PATCH', $uri, $options);
     }
-
     /**
      * Create and send an HTTP DELETE request.
      *
@@ -131,7 +124,6 @@ trait ClientTrait
     {
         return $this->request('DELETE', $uri, $options);
     }
-
     /**
      * Create and send an asynchronous HTTP request.
      *
@@ -145,7 +137,6 @@ trait ClientTrait
      * @param array               $options Request options to apply.
      */
     abstract public function requestAsync(string $method, $uri, array $options = []): PromiseInterface;
-
     /**
      * Create and send an asynchronous HTTP GET request.
      *
@@ -161,7 +152,6 @@ trait ClientTrait
     {
         return $this->requestAsync('GET', $uri, $options);
     }
-
     /**
      * Create and send an asynchronous HTTP HEAD request.
      *
@@ -177,7 +167,6 @@ trait ClientTrait
     {
         return $this->requestAsync('HEAD', $uri, $options);
     }
-
     /**
      * Create and send an asynchronous HTTP PUT request.
      *
@@ -193,7 +182,6 @@ trait ClientTrait
     {
         return $this->requestAsync('PUT', $uri, $options);
     }
-
     /**
      * Create and send an asynchronous HTTP POST request.
      *
@@ -209,7 +197,6 @@ trait ClientTrait
     {
         return $this->requestAsync('POST', $uri, $options);
     }
-
     /**
      * Create and send an asynchronous HTTP PATCH request.
      *
@@ -225,7 +212,6 @@ trait ClientTrait
     {
         return $this->requestAsync('PATCH', $uri, $options);
     }
-
     /**
      * Create and send an asynchronous HTTP DELETE request.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EdiscoveryFile class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EdiscoveryFile extends File
 {
     /**
-    * Gets the custodian
-    * Custodians associated with the file.
-    *
-    * @return EdiscoveryCustodian|null The custodian
-    */
+     * Gets the custodian
+     * Custodians associated with the file.
+     *
+     * @return EdiscoveryCustodian|null The custodian
+     */
     public function getCustodian()
     {
         if (array_key_exists("custodian", $this->_propDict)) {
-            if (is_a($this->_propDict["custodian"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\EdiscoveryCustodian") || is_null($this->_propDict["custodian"])) {
+            if (is_a($this->_propDict["custodian"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\EdiscoveryCustodian") || is_null($this->_propDict["custodian"])) {
                 return $this->_propDict["custodian"];
             } else {
                 $this->_propDict["custodian"] = new EdiscoveryCustodian($this->_propDict["custodian"]);
@@ -45,49 +46,44 @@ class EdiscoveryFile extends File
         }
         return null;
     }
-
     /**
-    * Sets the custodian
-    * Custodians associated with the file.
-    *
-    * @param EdiscoveryCustodian $val The custodian
-    *
-    * @return EdiscoveryFile
-    */
+     * Sets the custodian
+     * Custodians associated with the file.
+     *
+     * @param EdiscoveryCustodian $val The custodian
+     *
+     * @return EdiscoveryFile
+     */
     public function setCustodian($val)
     {
         $this->_propDict["custodian"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the tags
-    * Tags associated with the file.
+     * Tags associated with the file.
      *
      * @return array|null The tags
      */
     public function getTags()
     {
         if (array_key_exists("tags", $this->_propDict)) {
-           return $this->_propDict["tags"];
+            return $this->_propDict["tags"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the tags
-    * Tags associated with the file.
-    *
-    * @param EdiscoveryReviewTag[] $val The tags
-    *
-    * @return EdiscoveryFile
-    */
+     * Sets the tags
+     * Tags associated with the file.
+     *
+     * @param EdiscoveryReviewTag[] $val The tags
+     *
+     * @return EdiscoveryFile
+     */
     public function setTags($val)
     {
         $this->_propDict["tags"] = $val;
         return $this;
     }
-
 }

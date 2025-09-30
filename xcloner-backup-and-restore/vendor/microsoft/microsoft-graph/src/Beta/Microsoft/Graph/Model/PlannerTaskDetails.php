@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerTaskDetails class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerTaskDetails extends PlannerDelta
 {
     /**
-    * Gets the checklist
-    * The collection of checklist items on the task.
-    *
-    * @return PlannerChecklistItems|null The checklist
-    */
+     * Gets the checklist
+     * The collection of checklist items on the task.
+     *
+     * @return PlannerChecklistItems|null The checklist
+     */
     public function getChecklist()
     {
         if (array_key_exists("checklist", $this->_propDict)) {
-            if (is_a($this->_propDict["checklist"], "\Beta\Microsoft\Graph\Model\PlannerChecklistItems") || is_null($this->_propDict["checklist"])) {
+            if (is_a($this->_propDict["checklist"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PlannerChecklistItems") || is_null($this->_propDict["checklist"])) {
                 return $this->_propDict["checklist"];
             } else {
                 $this->_propDict["checklist"] = new PlannerChecklistItems($this->_propDict["checklist"]);
@@ -45,27 +46,25 @@ class PlannerTaskDetails extends PlannerDelta
         }
         return null;
     }
-
     /**
-    * Sets the checklist
-    * The collection of checklist items on the task.
-    *
-    * @param PlannerChecklistItems $val The checklist
-    *
-    * @return PlannerTaskDetails
-    */
+     * Sets the checklist
+     * The collection of checklist items on the task.
+     *
+     * @param PlannerChecklistItems $val The checklist
+     *
+     * @return PlannerTaskDetails
+     */
     public function setChecklist($val)
     {
         $this->_propDict["checklist"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Description of the task.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the task.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -74,30 +73,28 @@ class PlannerTaskDetails extends PlannerDelta
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the task.
-    *
-    * @param string $val The description
-    *
-    * @return PlannerTaskDetails
-    */
+     * Sets the description
+     * Description of the task.
+     *
+     * @param string $val The description
+     *
+     * @return PlannerTaskDetails
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the notes
-    *
-    * @return ItemBody|null The notes
-    */
+     * Gets the notes
+     *
+     * @return ItemBody|null The notes
+     */
     public function getNotes()
     {
         if (array_key_exists("notes", $this->_propDict)) {
-            if (is_a($this->_propDict["notes"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["notes"])) {
+            if (is_a($this->_propDict["notes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ItemBody") || is_null($this->_propDict["notes"])) {
                 return $this->_propDict["notes"];
             } else {
                 $this->_propDict["notes"] = new ItemBody($this->_propDict["notes"]);
@@ -106,30 +103,28 @@ class PlannerTaskDetails extends PlannerDelta
         }
         return null;
     }
-
     /**
-    * Sets the notes
-    *
-    * @param ItemBody $val The notes
-    *
-    * @return PlannerTaskDetails
-    */
+     * Sets the notes
+     *
+     * @param ItemBody $val The notes
+     *
+     * @return PlannerTaskDetails
+     */
     public function setNotes($val)
     {
         $this->_propDict["notes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the previewType
-    * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-    *
-    * @return PlannerPreviewType|null The previewType
-    */
+     * Gets the previewType
+     * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
+     *
+     * @return PlannerPreviewType|null The previewType
+     */
     public function getPreviewType()
     {
         if (array_key_exists("previewType", $this->_propDict)) {
-            if (is_a($this->_propDict["previewType"], "\Beta\Microsoft\Graph\Model\PlannerPreviewType") || is_null($this->_propDict["previewType"])) {
+            if (is_a($this->_propDict["previewType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PlannerPreviewType") || is_null($this->_propDict["previewType"])) {
                 return $this->_propDict["previewType"];
             } else {
                 $this->_propDict["previewType"] = new PlannerPreviewType($this->_propDict["previewType"]);
@@ -138,31 +133,29 @@ class PlannerTaskDetails extends PlannerDelta
         }
         return null;
     }
-
     /**
-    * Sets the previewType
-    * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
-    *
-    * @param PlannerPreviewType $val The previewType
-    *
-    * @return PlannerTaskDetails
-    */
+     * Sets the previewType
+     * This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
+     *
+     * @param PlannerPreviewType $val The previewType
+     *
+     * @return PlannerTaskDetails
+     */
     public function setPreviewType($val)
     {
         $this->_propDict["previewType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the references
-    * The collection of references on the task.
-    *
-    * @return PlannerExternalReferences|null The references
-    */
+     * Gets the references
+     * The collection of references on the task.
+     *
+     * @return PlannerExternalReferences|null The references
+     */
     public function getReferences()
     {
         if (array_key_exists("references", $this->_propDict)) {
-            if (is_a($this->_propDict["references"], "\Beta\Microsoft\Graph\Model\PlannerExternalReferences") || is_null($this->_propDict["references"])) {
+            if (is_a($this->_propDict["references"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PlannerExternalReferences") || is_null($this->_propDict["references"])) {
                 return $this->_propDict["references"];
             } else {
                 $this->_propDict["references"] = new PlannerExternalReferences($this->_propDict["references"]);
@@ -171,19 +164,17 @@ class PlannerTaskDetails extends PlannerDelta
         }
         return null;
     }
-
     /**
-    * Sets the references
-    * The collection of references on the task.
-    *
-    * @param PlannerExternalReferences $val The references
-    *
-    * @return PlannerTaskDetails
-    */
+     * Sets the references
+     * The collection of references on the task.
+     *
+     * @param PlannerExternalReferences $val The references
+     *
+     * @return PlannerTaskDetails
+     */
     public function setReferences($val)
     {
         $this->_propDict["references"] = $val;
         return $this;
     }
-
 }

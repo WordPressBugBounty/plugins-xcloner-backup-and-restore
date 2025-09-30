@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SynchronizationJobApplicationParameters class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SynchronizationJobApplicationParameters extends Entity
 {
     /**
-    * Gets the ruleId
-    * The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
-    *
-    * @return string|null The ruleId
-    */
+     * Gets the ruleId
+     * The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
+     *
+     * @return string|null The ruleId
+     */
     public function getRuleId()
     {
         if (array_key_exists("ruleId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class SynchronizationJobApplicationParameters extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ruleId
-    * The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
-    *
-    * @param string $val The value of the ruleId
-    *
-    * @return SynchronizationJobApplicationParameters
-    */
+     * Sets the ruleId
+     * The identifier of the synchronizationRule to be applied. This rule ID is defined in the schema for a given synchronization job or template.
+     *
+     * @param string $val The value of the ruleId
+     *
+     * @return SynchronizationJobApplicationParameters
+     */
     public function setRuleId($val)
     {
         $this->_propDict["ruleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the subjects
-    * The identifiers of one or more objects to which a synchronizationJob is to be applied.
-    *
-    * @return SynchronizationJobSubject|null The subjects
-    */
+     * Gets the subjects
+     * The identifiers of one or more objects to which a synchronizationJob is to be applied.
+     *
+     * @return SynchronizationJobSubject|null The subjects
+     */
     public function getSubjects()
     {
         if (array_key_exists("subjects", $this->_propDict)) {
-            if (is_a($this->_propDict["subjects"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject") || is_null($this->_propDict["subjects"])) {
+            if (is_a($this->_propDict["subjects"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationJobSubject") || is_null($this->_propDict["subjects"])) {
                 return $this->_propDict["subjects"];
             } else {
                 $this->_propDict["subjects"] = new SynchronizationJobSubject($this->_propDict["subjects"]);
@@ -73,18 +73,17 @@ class SynchronizationJobApplicationParameters extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the subjects
-    * The identifiers of one or more objects to which a synchronizationJob is to be applied.
-    *
-    * @param SynchronizationJobSubject $val The value to assign to the subjects
-    *
-    * @return SynchronizationJobApplicationParameters The SynchronizationJobApplicationParameters
-    */
+     * Sets the subjects
+     * The identifiers of one or more objects to which a synchronizationJob is to be applied.
+     *
+     * @param SynchronizationJobSubject $val The value to assign to the subjects
+     *
+     * @return SynchronizationJobApplicationParameters The SynchronizationJobApplicationParameters
+     */
     public function setSubjects($val)
     {
         $this->_propDict["subjects"] = $val;
-         return $this;
+        return $this;
     }
 }

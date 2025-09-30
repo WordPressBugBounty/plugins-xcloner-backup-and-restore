@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /*
  * This file is part of the Symfony package.
  *
@@ -11,8 +13,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-if (!function_exists('trigger_deprecation')) {
+if (!\function_exists('XCloner\trigger_deprecation')) {
     /**
      * Triggers a silenced deprecation notice.
      *
@@ -25,6 +26,6 @@ if (!function_exists('trigger_deprecation')) {
      */
     function trigger_deprecation(string $package, string $version, string $message, ...$args): void
     {
-        @trigger_error(($package || $version ? "Since $package $version: " : '').($args ? vsprintf($message, $args) : $message), \E_USER_DEPRECATED);
+        @\trigger_error(($package || $version ? "Since {$package} {$version}: " : '') . ($args ? \vsprintf($message, $args) : $message), \E_USER_DEPRECATED);
     }
 }

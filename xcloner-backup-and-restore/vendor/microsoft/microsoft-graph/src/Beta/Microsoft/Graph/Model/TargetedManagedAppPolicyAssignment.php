@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TargetedManagedAppPolicyAssignment class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TargetedManagedAppPolicyAssignment extends Entity
 {
     /**
-    * Gets the source
-    * Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
-    *
-    * @return DeviceAndAppManagementAssignmentSource|null The source
-    */
+     * Gets the source
+     * Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
+     *
+     * @return DeviceAndAppManagementAssignmentSource|null The source
+     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentSource") || is_null($this->_propDict["source"])) {
+            if (is_a($this->_propDict["source"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentSource") || is_null($this->_propDict["source"])) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new DeviceAndAppManagementAssignmentSource($this->_propDict["source"]);
@@ -45,27 +46,25 @@ class TargetedManagedAppPolicyAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the source
-    * Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
-    *
-    * @param DeviceAndAppManagementAssignmentSource $val The source
-    *
-    * @return TargetedManagedAppPolicyAssignment
-    */
+     * Sets the source
+     * Type of resource used for deployment to a group, direct or parcel/policySet. Possible values are: direct, policySets.
+     *
+     * @param DeviceAndAppManagementAssignmentSource $val The source
+     *
+     * @return TargetedManagedAppPolicyAssignment
+     */
     public function setSource($val)
     {
         $this->_propDict["source"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sourceId
-    * Identifier for resource used for deployment to a group
-    *
-    * @return string|null The sourceId
-    */
+     * Gets the sourceId
+     * Identifier for resource used for deployment to a group
+     *
+     * @return string|null The sourceId
+     */
     public function getSourceId()
     {
         if (array_key_exists("sourceId", $this->_propDict)) {
@@ -74,31 +73,29 @@ class TargetedManagedAppPolicyAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceId
-    * Identifier for resource used for deployment to a group
-    *
-    * @param string $val The sourceId
-    *
-    * @return TargetedManagedAppPolicyAssignment
-    */
+     * Sets the sourceId
+     * Identifier for resource used for deployment to a group
+     *
+     * @param string $val The sourceId
+     *
+     * @return TargetedManagedAppPolicyAssignment
+     */
     public function setSourceId($val)
     {
         $this->_propDict["sourceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the target
-    * Identifier for deployment to a group or app
-    *
-    * @return DeviceAndAppManagementAssignmentTarget|null The target
-    */
+     * Gets the target
+     * Identifier for deployment to a group or app
+     *
+     * @return DeviceAndAppManagementAssignmentTarget|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -107,19 +104,17 @@ class TargetedManagedAppPolicyAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the target
-    * Identifier for deployment to a group or app
-    *
-    * @param DeviceAndAppManagementAssignmentTarget $val The target
-    *
-    * @return TargetedManagedAppPolicyAssignment
-    */
+     * Sets the target
+     * Identifier for deployment to a group or app
+     *
+     * @param DeviceAndAppManagementAssignmentTarget $val The target
+     *
+     * @return TargetedManagedAppPolicyAssignment
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;
         return $this;
     }
-
 }

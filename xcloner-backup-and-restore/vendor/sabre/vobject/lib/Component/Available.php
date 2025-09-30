@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Component;
+namespace XCloner\Sabre\VObject\Component;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject;
 /**
  * The Available sub-component.
  *
@@ -39,10 +38,8 @@ class Available extends VObject\Component
         } else {
             $effectiveEnd = $effectiveStart->add(VObject\DateTimeParser::parseDuration($this->DURATION));
         }
-
         return [$effectiveStart, $effectiveEnd];
     }
-
     /**
      * A simple list of validation rules.
      *
@@ -60,31 +57,8 @@ class Available extends VObject\Component
      */
     public function getValidationRules()
     {
-        return [
-            'UID' => 1,
-            'DTSTART' => 1,
-            'DTSTAMP' => 1,
-
-            'DTEND' => '?',
-            'DURATION' => '?',
-
-            'CREATED' => '?',
-            'DESCRIPTION' => '?',
-            'LAST-MODIFIED' => '?',
-            'RECURRENCE-ID' => '?',
-            'RRULE' => '?',
-            'SUMMARY' => '?',
-
-            'CATEGORIES' => '*',
-            'COMMENT' => '*',
-            'CONTACT' => '*',
-            'EXDATE' => '*',
-            'RDATE' => '*',
-
-            'AVAILABLE' => '*',
-        ];
+        return ['UID' => 1, 'DTSTART' => 1, 'DTSTAMP' => 1, 'DTEND' => '?', 'DURATION' => '?', 'CREATED' => '?', 'DESCRIPTION' => '?', 'LAST-MODIFIED' => '?', 'RECURRENCE-ID' => '?', 'RRULE' => '?', 'SUMMARY' => '?', 'CATEGORIES' => '*', 'COMMENT' => '*', 'CONTACT' => '*', 'EXDATE' => '*', 'RDATE' => '*', 'AVAILABLE' => '*'];
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -112,15 +86,9 @@ class Available extends VObject\Component
     public function validate($options = 0)
     {
         $result = parent::validate($options);
-
         if (isset($this->DTEND) && isset($this->DURATION)) {
-            $result[] = [
-                'level' => 3,
-                'message' => 'DTEND and DURATION cannot both be present',
-                'node' => $this,
-            ];
+            $result[] = ['level' => 3, 'message' => 'DTEND and DURATION cannot both be present', 'node' => $this];
         }
-
         return $result;
     }
 }

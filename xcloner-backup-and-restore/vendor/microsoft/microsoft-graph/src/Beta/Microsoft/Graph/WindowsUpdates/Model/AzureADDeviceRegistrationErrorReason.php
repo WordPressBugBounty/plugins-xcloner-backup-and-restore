@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * AzureADDeviceRegistrationErrorReason class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class AzureADDeviceRegistrationErrorReason extends Enum
 {
     /**
-    * The Enum AzureADDeviceRegistrationErrorReason
-    */
+     * The Enum AzureADDeviceRegistrationErrorReason
+     */
     const INVALID_GLOBAL_DEVICE_ID = "invalidGlobalDeviceId";
     const INVALID_AZURE_AD_DEVICE_ID = "invalidAzureADDeviceId";
     const MISSING_TRUST_TYPE = "missingTrustType";

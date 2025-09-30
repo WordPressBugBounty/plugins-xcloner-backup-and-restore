@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OperationalInsightsConnection class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OperationalInsightsConnection extends ResourceConnection
 {
     /**
-    * Gets the azureResourceGroupName
-    * The name of the Azure resource group that contains the Log Analytics workspace.
-    *
-    * @return string|null The azureResourceGroupName
-    */
+     * Gets the azureResourceGroupName
+     * The name of the Azure resource group that contains the Log Analytics workspace.
+     *
+     * @return string|null The azureResourceGroupName
+     */
     public function getAzureResourceGroupName()
     {
         if (array_key_exists("azureResourceGroupName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class OperationalInsightsConnection extends ResourceConnection
             return null;
         }
     }
-
     /**
-    * Sets the azureResourceGroupName
-    * The name of the Azure resource group that contains the Log Analytics workspace.
-    *
-    * @param string $val The azureResourceGroupName
-    *
-    * @return OperationalInsightsConnection
-    */
+     * Sets the azureResourceGroupName
+     * The name of the Azure resource group that contains the Log Analytics workspace.
+     *
+     * @param string $val The azureResourceGroupName
+     *
+     * @return OperationalInsightsConnection
+     */
     public function setAzureResourceGroupName($val)
     {
         $this->_propDict["azureResourceGroupName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureSubscriptionId
-    * The Azure subscription ID that contains the Log Analytics workspace.
-    *
-    * @return string|null The azureSubscriptionId
-    */
+     * Gets the azureSubscriptionId
+     * The Azure subscription ID that contains the Log Analytics workspace.
+     *
+     * @return string|null The azureSubscriptionId
+     */
     public function getAzureSubscriptionId()
     {
         if (array_key_exists("azureSubscriptionId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class OperationalInsightsConnection extends ResourceConnection
             return null;
         }
     }
-
     /**
-    * Sets the azureSubscriptionId
-    * The Azure subscription ID that contains the Log Analytics workspace.
-    *
-    * @param string $val The azureSubscriptionId
-    *
-    * @return OperationalInsightsConnection
-    */
+     * Sets the azureSubscriptionId
+     * The Azure subscription ID that contains the Log Analytics workspace.
+     *
+     * @param string $val The azureSubscriptionId
+     *
+     * @return OperationalInsightsConnection
+     */
     public function setAzureSubscriptionId($val)
     {
         $this->_propDict["azureSubscriptionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the workspaceName
-    * The name of the Log Analytics workspace.
-    *
-    * @return string|null The workspaceName
-    */
+     * Gets the workspaceName
+     * The name of the Log Analytics workspace.
+     *
+     * @return string|null The workspaceName
+     */
     public function getWorkspaceName()
     {
         if (array_key_exists("workspaceName", $this->_propDict)) {
@@ -99,19 +96,17 @@ class OperationalInsightsConnection extends ResourceConnection
             return null;
         }
     }
-
     /**
-    * Sets the workspaceName
-    * The name of the Log Analytics workspace.
-    *
-    * @param string $val The workspaceName
-    *
-    * @return OperationalInsightsConnection
-    */
+     * Sets the workspaceName
+     * The name of the Log Analytics workspace.
+     *
+     * @param string $val The workspaceName
+     *
+     * @return OperationalInsightsConnection
+     */
     public function setWorkspaceName($val)
     {
         $this->_propDict["workspaceName"] = $val;
         return $this;
     }
-
 }

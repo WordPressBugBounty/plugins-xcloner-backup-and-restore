@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Models\RangeDiff;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Models\RangeDiff;
 /**
  * Holds result of calling listPageBlobRangesDiff wrapper
  *
@@ -55,49 +53,33 @@ class ListPageBlobRangesDiffResult extends ListPageBlobRangesResult
      */
     public static function create(array $headers, array $parsed = null)
     {
-        $result  = new ListPageBlobRangesDiffResult();
+        $result = new ListPageBlobRangesDiffResult();
         $headers = array_change_key_case($headers);
-
-        $date          = $headers[Resources::LAST_MODIFIED];
-        $date          = Utilities::rfc1123ToDateTime($date);
-        $blobLength    = intval($headers[Resources::X_MS_BLOB_CONTENT_LENGTH]);
-
+        $date = $headers[Resources::LAST_MODIFIED];
+        $date = Utilities::rfc1123ToDateTime($date);
+        $blobLength = intval($headers[Resources::X_MS_BLOB_CONTENT_LENGTH]);
         $result->setContentLength($blobLength);
         $result->setLastModified($date);
         $result->setETag($headers[Resources::ETAG]);
-
         if (is_null($parsed)) {
             return $result;
         }
-
         $parsed = array_change_key_case($parsed);
-
         $rawRanges = array();
         if (!empty($parsed[strtolower(Resources::XTAG_PAGE_RANGE)])) {
             $rawRanges = Utilities::getArray($parsed[strtolower(Resources::XTAG_PAGE_RANGE)]);
         }
-
         $pageRanges = array();
         foreach ($rawRanges as $value) {
-            $pageRanges[] = new RangeDiff(
-                intval($value[Resources::XTAG_RANGE_START]),
-                intval($value[Resources::XTAG_RANGE_END])
-            );
+            $pageRanges[] = new RangeDiff(intval($value[Resources::XTAG_RANGE_START]), intval($value[Resources::XTAG_RANGE_END]));
         }
-
         $rawRanges = array();
         if (!empty($parsed[strtolower(Resources::XTAG_CLEAR_RANGE)])) {
             $rawRanges = Utilities::getArray($parsed[strtolower(Resources::XTAG_CLEAR_RANGE)]);
         }
-
         foreach ($rawRanges as $value) {
-            $pageRanges[] = new RangeDiff(
-                intval($value[Resources::XTAG_RANGE_START]),
-                intval($value[Resources::XTAG_RANGE_END]),
-                true
-            );
+            $pageRanges[] = new RangeDiff(intval($value[Resources::XTAG_RANGE_START]), intval($value[Resources::XTAG_RANGE_END]), \true);
         }
-
         $result->setRanges($pageRanges);
         return $result;
     }

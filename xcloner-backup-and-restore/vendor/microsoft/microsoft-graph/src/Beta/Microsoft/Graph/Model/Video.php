@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Video class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Video extends Entity
 {
     /**
-    * Gets the audioBitsPerSample
-    * Number of audio bits per sample.
-    *
-    * @return int|null The audioBitsPerSample
-    */
+     * Gets the audioBitsPerSample
+     * Number of audio bits per sample.
+     *
+     * @return int|null The audioBitsPerSample
+     */
     public function getAudioBitsPerSample()
     {
         if (array_key_exists("audioBitsPerSample", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the audioBitsPerSample
-    * Number of audio bits per sample.
-    *
-    * @param int $val The value of the audioBitsPerSample
-    *
-    * @return Video
-    */
+     * Sets the audioBitsPerSample
+     * Number of audio bits per sample.
+     *
+     * @param int $val The value of the audioBitsPerSample
+     *
+     * @return Video
+     */
     public function setAudioBitsPerSample($val)
     {
         $this->_propDict["audioBitsPerSample"] = $val;
         return $this;
     }
     /**
-    * Gets the audioChannels
-    * Number of audio channels.
-    *
-    * @return int|null The audioChannels
-    */
+     * Gets the audioChannels
+     * Number of audio channels.
+     *
+     * @return int|null The audioChannels
+     */
     public function getAudioChannels()
     {
         if (array_key_exists("audioChannels", $this->_propDict)) {
@@ -68,26 +69,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the audioChannels
-    * Number of audio channels.
-    *
-    * @param int $val The value of the audioChannels
-    *
-    * @return Video
-    */
+     * Sets the audioChannels
+     * Number of audio channels.
+     *
+     * @param int $val The value of the audioChannels
+     *
+     * @return Video
+     */
     public function setAudioChannels($val)
     {
         $this->_propDict["audioChannels"] = $val;
         return $this;
     }
     /**
-    * Gets the audioFormat
-    * Name of the audio format (AAC, MP3, etc.).
-    *
-    * @return string|null The audioFormat
-    */
+     * Gets the audioFormat
+     * Name of the audio format (AAC, MP3, etc.).
+     *
+     * @return string|null The audioFormat
+     */
     public function getAudioFormat()
     {
         if (array_key_exists("audioFormat", $this->_propDict)) {
@@ -96,26 +96,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the audioFormat
-    * Name of the audio format (AAC, MP3, etc.).
-    *
-    * @param string $val The value of the audioFormat
-    *
-    * @return Video
-    */
+     * Sets the audioFormat
+     * Name of the audio format (AAC, MP3, etc.).
+     *
+     * @param string $val The value of the audioFormat
+     *
+     * @return Video
+     */
     public function setAudioFormat($val)
     {
         $this->_propDict["audioFormat"] = $val;
         return $this;
     }
     /**
-    * Gets the audioSamplesPerSecond
-    * Number of audio samples per second.
-    *
-    * @return int|null The audioSamplesPerSecond
-    */
+     * Gets the audioSamplesPerSecond
+     * Number of audio samples per second.
+     *
+     * @return int|null The audioSamplesPerSecond
+     */
     public function getAudioSamplesPerSecond()
     {
         if (array_key_exists("audioSamplesPerSecond", $this->_propDict)) {
@@ -124,26 +123,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the audioSamplesPerSecond
-    * Number of audio samples per second.
-    *
-    * @param int $val The value of the audioSamplesPerSecond
-    *
-    * @return Video
-    */
+     * Sets the audioSamplesPerSecond
+     * Number of audio samples per second.
+     *
+     * @param int $val The value of the audioSamplesPerSecond
+     *
+     * @return Video
+     */
     public function setAudioSamplesPerSecond($val)
     {
         $this->_propDict["audioSamplesPerSecond"] = $val;
         return $this;
     }
     /**
-    * Gets the bitrate
-    * Bit rate of the video in bits per second.
-    *
-    * @return int|null The bitrate
-    */
+     * Gets the bitrate
+     * Bit rate of the video in bits per second.
+     *
+     * @return int|null The bitrate
+     */
     public function getBitrate()
     {
         if (array_key_exists("bitrate", $this->_propDict)) {
@@ -152,26 +150,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bitrate
-    * Bit rate of the video in bits per second.
-    *
-    * @param int $val The value of the bitrate
-    *
-    * @return Video
-    */
+     * Sets the bitrate
+     * Bit rate of the video in bits per second.
+     *
+     * @param int $val The value of the bitrate
+     *
+     * @return Video
+     */
     public function setBitrate($val)
     {
         $this->_propDict["bitrate"] = $val;
         return $this;
     }
     /**
-    * Gets the duration
-    * Duration of the file in milliseconds.
-    *
-    * @return int|null The duration
-    */
+     * Gets the duration
+     * Duration of the file in milliseconds.
+     *
+     * @return int|null The duration
+     */
     public function getDuration()
     {
         if (array_key_exists("duration", $this->_propDict)) {
@@ -180,26 +177,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the duration
-    * Duration of the file in milliseconds.
-    *
-    * @param int $val The value of the duration
-    *
-    * @return Video
-    */
+     * Sets the duration
+     * Duration of the file in milliseconds.
+     *
+     * @param int $val The value of the duration
+     *
+     * @return Video
+     */
     public function setDuration($val)
     {
         $this->_propDict["duration"] = $val;
         return $this;
     }
     /**
-    * Gets the fourCC
-    * 'Four character code' name of the video format.
-    *
-    * @return string|null The fourCC
-    */
+     * Gets the fourCC
+     * 'Four character code' name of the video format.
+     *
+     * @return string|null The fourCC
+     */
     public function getFourCC()
     {
         if (array_key_exists("fourCC", $this->_propDict)) {
@@ -208,25 +204,24 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fourCC
-    * 'Four character code' name of the video format.
-    *
-    * @param string $val The value of the fourCC
-    *
-    * @return Video
-    */
+     * Sets the fourCC
+     * 'Four character code' name of the video format.
+     *
+     * @param string $val The value of the fourCC
+     *
+     * @return Video
+     */
     public function setFourCC($val)
     {
         $this->_propDict["fourCC"] = $val;
         return $this;
     }
     /**
-    * Gets the frameRate
-    *
-    * @return float|null The frameRate
-    */
+     * Gets the frameRate
+     *
+     * @return float|null The frameRate
+     */
     public function getFrameRate()
     {
         if (array_key_exists("frameRate", $this->_propDict)) {
@@ -235,25 +230,24 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the frameRate
-    *
-    * @param float $val The value of the frameRate
-    *
-    * @return Video
-    */
+     * Sets the frameRate
+     *
+     * @param float $val The value of the frameRate
+     *
+     * @return Video
+     */
     public function setFrameRate($val)
     {
         $this->_propDict["frameRate"] = $val;
         return $this;
     }
     /**
-    * Gets the height
-    * Height of the video, in pixels.
-    *
-    * @return int|null The height
-    */
+     * Gets the height
+     * Height of the video, in pixels.
+     *
+     * @return int|null The height
+     */
     public function getHeight()
     {
         if (array_key_exists("height", $this->_propDict)) {
@@ -262,26 +256,25 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the height
-    * Height of the video, in pixels.
-    *
-    * @param int $val The value of the height
-    *
-    * @return Video
-    */
+     * Sets the height
+     * Height of the video, in pixels.
+     *
+     * @param int $val The value of the height
+     *
+     * @return Video
+     */
     public function setHeight($val)
     {
         $this->_propDict["height"] = $val;
         return $this;
     }
     /**
-    * Gets the width
-    * Width of the video, in pixels.
-    *
-    * @return int|null The width
-    */
+     * Gets the width
+     * Width of the video, in pixels.
+     *
+     * @return int|null The width
+     */
     public function getWidth()
     {
         if (array_key_exists("width", $this->_propDict)) {
@@ -290,15 +283,14 @@ class Video extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the width
-    * Width of the video, in pixels.
-    *
-    * @param int $val The value of the width
-    *
-    * @return Video
-    */
+     * Sets the width
+     * Width of the video, in pixels.
+     *
+     * @param int $val The value of the width
+     *
+     * @return Video
+     */
     public function setWidth($val)
     {
         $this->_propDict["width"] = $val;

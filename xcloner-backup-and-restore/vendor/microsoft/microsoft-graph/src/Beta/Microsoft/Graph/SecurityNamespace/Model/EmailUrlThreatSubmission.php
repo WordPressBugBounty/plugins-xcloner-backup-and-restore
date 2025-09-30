@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmailUrlThreatSubmission class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EmailUrlThreatSubmission extends EmailThreatSubmission
 {
     /**
-    * Gets the messageUrl
-    * Specifies the url of the message to be submitted.
-    *
-    * @return string|null The messageUrl
-    */
+     * Gets the messageUrl
+     * Specifies the url of the message to be submitted.
+     *
+     * @return string|null The messageUrl
+     */
     public function getMessageUrl()
     {
         if (array_key_exists("messageUrl", $this->_propDict)) {
@@ -41,19 +42,17 @@ class EmailUrlThreatSubmission extends EmailThreatSubmission
             return null;
         }
     }
-
     /**
-    * Sets the messageUrl
-    * Specifies the url of the message to be submitted.
-    *
-    * @param string $val The messageUrl
-    *
-    * @return EmailUrlThreatSubmission
-    */
+     * Sets the messageUrl
+     * Specifies the url of the message to be submitted.
+     *
+     * @param string $val The messageUrl
+     *
+     * @return EmailUrlThreatSubmission
+     */
     public function setMessageUrl($val)
     {
         $this->_propDict["messageUrl"] = $val;
         return $this;
     }
-
 }

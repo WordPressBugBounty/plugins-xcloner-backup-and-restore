@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DomainDnsRecord class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DomainDnsRecord extends Entity
 {
     /**
-    * Gets the isOptional
-    * If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
-    *
-    * @return bool|null The isOptional
-    */
+     * Gets the isOptional
+     * If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
+     *
+     * @return bool|null The isOptional
+     */
     public function getIsOptional()
     {
         if (array_key_exists("isOptional", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DomainDnsRecord extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isOptional
-    * If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
-    *
-    * @param bool $val The isOptional
-    *
-    * @return DomainDnsRecord
-    */
+     * Sets the isOptional
+     * If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
+     *
+     * @param bool $val The isOptional
+     *
+     * @return DomainDnsRecord
+     */
     public function setIsOptional($val)
     {
         $this->_propDict["isOptional"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the label
-    * Value used when configuring the name of the DNS record at the DNS host.
-    *
-    * @return string|null The label
-    */
+     * Gets the label
+     * Value used when configuring the name of the DNS record at the DNS host.
+     *
+     * @return string|null The label
+     */
     public function getLabel()
     {
         if (array_key_exists("label", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DomainDnsRecord extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the label
-    * Value used when configuring the name of the DNS record at the DNS host.
-    *
-    * @param string $val The label
-    *
-    * @return DomainDnsRecord
-    */
+     * Sets the label
+     * Value used when configuring the name of the DNS record at the DNS host.
+     *
+     * @param string $val The label
+     *
+     * @return DomainDnsRecord
+     */
     public function setLabel($val)
     {
         $this->_propDict["label"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recordType
-    * Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
-    *
-    * @return string|null The recordType
-    */
+     * Gets the recordType
+     * Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
+     *
+     * @return string|null The recordType
+     */
     public function getRecordType()
     {
         if (array_key_exists("recordType", $this->_propDict)) {
@@ -99,27 +96,25 @@ class DomainDnsRecord extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the recordType
-    * Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
-    *
-    * @param string $val The recordType
-    *
-    * @return DomainDnsRecord
-    */
+     * Sets the recordType
+     * Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
+     *
+     * @param string $val The recordType
+     *
+     * @return DomainDnsRecord
+     */
     public function setRecordType($val)
     {
         $this->_propDict["recordType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the supportedService
-    * Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
-    *
-    * @return string|null The supportedService
-    */
+     * Gets the supportedService
+     * Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
+     *
+     * @return string|null The supportedService
+     */
     public function getSupportedService()
     {
         if (array_key_exists("supportedService", $this->_propDict)) {
@@ -128,27 +123,25 @@ class DomainDnsRecord extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the supportedService
-    * Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
-    *
-    * @param string $val The supportedService
-    *
-    * @return DomainDnsRecord
-    */
+     * Sets the supportedService
+     * Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
+     *
+     * @param string $val The supportedService
+     *
+     * @return DomainDnsRecord
+     */
     public function setSupportedService($val)
     {
         $this->_propDict["supportedService"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ttl
-    * Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable.
-    *
-    * @return int|null The ttl
-    */
+     * Gets the ttl
+     * Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable.
+     *
+     * @return int|null The ttl
+     */
     public function getTtl()
     {
         if (array_key_exists("ttl", $this->_propDict)) {
@@ -157,19 +150,17 @@ class DomainDnsRecord extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ttl
-    * Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable.
-    *
-    * @param int $val The ttl
-    *
-    * @return DomainDnsRecord
-    */
+     * Sets the ttl
+     * Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable.
+     *
+     * @param int $val The ttl
+     *
+     * @return DomainDnsRecord
+     */
     public function setTtl($val)
     {
         $this->_propDict["ttl"] = intval($val);
         return $this;
     }
-
 }

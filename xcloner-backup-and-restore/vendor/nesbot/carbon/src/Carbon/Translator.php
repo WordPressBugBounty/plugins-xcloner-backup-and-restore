@@ -8,27 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon;
 
-namespace Carbon;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use ReflectionMethod;
-use Symfony\Component\Translation;
-use Symfony\Contracts\Translation\TranslatorInterface;
-
-$transMethod = new ReflectionMethod(
-    class_exists(TranslatorInterface::class)
-        ? TranslatorInterface::class
-        : Translation\Translator::class,
-    'trans'
-);
-
-require $transMethod->hasReturnType()
-    ? __DIR__.'/../../lazy/Carbon/TranslatorStrongType.php'
-    : __DIR__.'/../../lazy/Carbon/TranslatorWeakType.php';
-
+use XCloner\Symfony\Component\Translation;
+use XCloner\Symfony\Contracts\Translation\TranslatorInterface;
+$transMethod = new ReflectionMethod(class_exists(TranslatorInterface::class) ? TranslatorInterface::class : Translation\Translator::class, 'trans');
+require $transMethod->hasReturnType() ? __DIR__ . '/../../lazy/Carbon/TranslatorStrongType.php' : __DIR__ . '/../../lazy/Carbon/TranslatorWeakType.php';
 class Translator extends LazyTranslator
 {
     // Proxy dynamically loaded LazyTranslator in a static way

@@ -4,14 +4,13 @@
  * Thanks to https://github.com/flaushi for his suggestion:
  * https://github.com/doctrine/dbal/issues/2873#issuecomment-534956358
  */
-namespace Carbon\Doctrine;
+namespace XCloner\Carbon\Doctrine;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Carbon\Carbon;
-use Doctrine\DBAL\Types\VarDateTimeType;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Carbon\Carbon;
+use XCloner\Doctrine\DBAL\Types\VarDateTimeType;
 class DateTimeType extends VarDateTimeType implements CarbonDoctrineType
 {
     /** @use CarbonTypeConverter<Carbon> */

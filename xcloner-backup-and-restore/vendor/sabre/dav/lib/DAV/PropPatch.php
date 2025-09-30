@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use UnexpectedValueException;
-
 /**
  * This class represents a set of properties that are going to be updated.
  *
@@ -33,7 +31,6 @@ class PropPatch
      * @var array
      */
     protected $mutations;
-
     /**
      * A list of properties and the result of the update. The result is in the
      * form of a HTTP status code.
@@ -41,21 +38,18 @@ class PropPatch
      * @var array
      */
     protected $result = [];
-
     /**
      * This is the list of callbacks when we're performing the actual update.
      *
      * @var array
      */
     protected $propertyUpdateCallbacks = [];
-
     /**
      * This property will be set to true if the operation failed.
      *
      * @var bool
      */
-    protected $failed = false;
-
+    protected $failed = \false;
     /**
      * Constructor.
      *
@@ -65,7 +59,6 @@ class PropPatch
     {
         $this->mutations = $mutations;
     }
-
     /**
      * Call this function if you wish to handle updating certain properties.
      * For instance, your class may be responsible for handling updates for the
@@ -96,7 +89,6 @@ class PropPatch
                 $this->result[$propertyName] = 202;
             }
         }
-
         // Only registering if there's any unhandled properties.
         if (!$usedProperties) {
             return;
@@ -109,7 +101,6 @@ class PropPatch
             $callback,
         ];
     }
-
     /**
      * Call this function if you wish to handle _all_ properties that haven't
      * been handled by anything else yet. Note that you effectively claim with
@@ -122,18 +113,12 @@ class PropPatch
             // Nothing to do, don't register callback
             return;
         }
-
         foreach ($properties as $propertyName) {
             // HTTP Accepted
             $this->result[$propertyName] = 202;
-
-            $this->propertyUpdateCallbacks[] = [
-                $properties,
-                $callback,
-            ];
+            $this->propertyUpdateCallbacks[] = [$properties, $callback];
         }
     }
-
     /**
      * Sets the result code for one or more properties.
      *
@@ -145,12 +130,10 @@ class PropPatch
         foreach ((array) $properties as $propertyName) {
             $this->result[$propertyName] = $resultCode;
         }
-
         if ($resultCode >= 400) {
-            $this->failed = true;
+            $this->failed = \true;
         }
     }
-
     /**
      * Sets the result code for all properties that did not have a result yet.
      *
@@ -158,12 +141,8 @@ class PropPatch
      */
     public function setRemainingResultCode($resultCode)
     {
-        $this->setResultCode(
-            $this->getRemainingMutations(),
-            $resultCode
-        );
+        $this->setResultCode($this->getRemainingMutations(), $resultCode);
     }
-
     /**
      * Returns the list of properties that don't have a result code yet.
      *
@@ -179,10 +158,8 @@ class PropPatch
                 $remaining[] = $propertyName;
             }
         }
-
         return $remaining;
     }
-
     /**
      * Returns the list of properties that don't have a result code yet.
      *
@@ -198,10 +175,8 @@ class PropPatch
                 $remaining[$propertyName] = $propValue;
             }
         }
-
         return $remaining;
     }
-
     /**
      * Performs the actual update, and calls all callbacks.
      *
@@ -215,11 +190,10 @@ class PropPatch
         // First we validate if every property has a handler
         foreach ($this->mutations as $propertyName => $value) {
             if (!isset($this->result[$propertyName])) {
-                $this->failed = true;
+                $this->failed = \true;
                 $this->result[$propertyName] = 403;
             }
         }
-
         foreach ($this->propertyUpdateCallbacks as $callbackInfo) {
             if ($this->failed) {
                 break;
@@ -230,7 +204,6 @@ class PropPatch
                 $this->doCallbackMultiProp($callbackInfo[0], $callbackInfo[1]);
             }
         }
-
         /*
          * If anywhere in this operation updating a property failed, we must
          * update all other properties accordingly.
@@ -243,10 +216,8 @@ class PropPatch
                 }
             }
         }
-
         return !$this->failed;
     }
-
     /**
      * Executes a property callback with the single-property syntax.
      *
@@ -274,10 +245,9 @@ class PropPatch
         }
         $this->result[$propertyName] = $result;
         if ($result >= 400) {
-            $this->failed = true;
+            $this->failed = \true;
         }
     }
-
     /**
      * Executes a property callback with the multi-property syntax.
      */
@@ -287,9 +257,7 @@ class PropPatch
         foreach ($propertyList as $propertyName) {
             $argument[$propertyName] = $this->mutations[$propertyName];
         }
-
         $result = $callback($argument);
-
         if (is_array($result)) {
             foreach ($propertyList as $propertyName) {
                 if (!isset($result[$propertyName])) {
@@ -298,18 +266,18 @@ class PropPatch
                     $resultCode = $result[$propertyName];
                 }
                 if ($resultCode >= 400) {
-                    $this->failed = true;
+                    $this->failed = \true;
                 }
                 $this->result[$propertyName] = $resultCode;
             }
-        } elseif (true === $result) {
+        } elseif (\true === $result) {
             // Success
             foreach ($argument as $propertyName => $propertyValue) {
                 $this->result[$propertyName] = is_null($propertyValue) ? 204 : 200;
             }
-        } elseif (false === $result) {
+        } elseif (\false === $result) {
             // Fail :(
-            $this->failed = true;
+            $this->failed = \true;
             foreach ($propertyList as $propertyName) {
                 $this->result[$propertyName] = 403;
             }
@@ -317,7 +285,6 @@ class PropPatch
             throw new UnexpectedValueException('A callback sent to handle() did not return an array or a bool');
         }
     }
-
     /**
      * Returns the result of the operation.
      *
@@ -327,7 +294,6 @@ class PropPatch
     {
         return $this->result;
     }
-
     /**
      * Returns the full list of mutations.
      *

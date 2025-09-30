@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * This is the base class for any authentication object.
  *
@@ -46,7 +44,6 @@ interface BackendInterface
      * @return array
      */
     public function check(RequestInterface $request, ResponseInterface $response);
-
     /**
      * This method is called when a user could not be authenticated, and
      * authentication was required for the current request.

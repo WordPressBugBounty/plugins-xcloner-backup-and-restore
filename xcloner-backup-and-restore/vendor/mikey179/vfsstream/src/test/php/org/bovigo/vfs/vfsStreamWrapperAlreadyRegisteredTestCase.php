@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Helper class for the test.
  */
@@ -21,17 +23,16 @@ class TestvfsStreamWrapper extends vfsStreamWrapper
      */
     public static function unregister()
     {
-        if (in_array(vfsStream::SCHEME, stream_get_wrappers()) === true) {
+        if (in_array(vfsStream::SCHEME, stream_get_wrappers()) === \true) {
             stream_wrapper_unregister(vfsStream::SCHEME);
         }
-
-        self::$registered = false;
+        self::$registered = \false;
     }
 }
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
  */
-class vfsStreamWrapperAlreadyRegisteredTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperAlreadyRegisteredTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * set up test environment
@@ -39,10 +40,9 @@ class vfsStreamWrapperAlreadyRegisteredTestCase extends \BC_PHPUnit_Framework_Te
     public function setUp()
     {
         TestvfsStreamWrapper::unregister();
-        $mock = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamWrapper');
+        $mock = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamWrapper');
         stream_wrapper_register(vfsStream::SCHEME, get_class($mock));
     }
-
     /**
      * clean up test environment
      */
@@ -50,7 +50,6 @@ class vfsStreamWrapperAlreadyRegisteredTestCase extends \BC_PHPUnit_Framework_Te
     {
         TestvfsStreamWrapper::unregister();
     }
-
     /**
      * registering the stream wrapper when another stream wrapper is already
      * registered for the vfs scheme should throw an exception

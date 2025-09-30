@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsAssignedAccessProfile class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsAssignedAccessProfile extends Entity
 {
     /**
-    * Gets the appUserModelIds
-    * These are the only Windows Store Apps that will be available to launch from the Start menu.
-    *
-    * @return array|null The appUserModelIds
-    */
+     * Gets the appUserModelIds
+     * These are the only Windows Store Apps that will be available to launch from the Start menu.
+     *
+     * @return array|null The appUserModelIds
+     */
     public function getAppUserModelIds()
     {
         if (array_key_exists("appUserModelIds", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WindowsAssignedAccessProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appUserModelIds
-    * These are the only Windows Store Apps that will be available to launch from the Start menu.
-    *
-    * @param string[] $val The appUserModelIds
-    *
-    * @return WindowsAssignedAccessProfile
-    */
+     * Sets the appUserModelIds
+     * These are the only Windows Store Apps that will be available to launch from the Start menu.
+     *
+     * @param string[] $val The appUserModelIds
+     *
+     * @return WindowsAssignedAccessProfile
+     */
     public function setAppUserModelIds($val)
     {
         $this->_propDict["appUserModelIds"] = $val;
         return $this;
     }
-
     /**
-    * Gets the desktopAppPaths
-    * These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
-    *
-    * @return array|null The desktopAppPaths
-    */
+     * Gets the desktopAppPaths
+     * These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
+     *
+     * @return array|null The desktopAppPaths
+     */
     public function getDesktopAppPaths()
     {
         if (array_key_exists("desktopAppPaths", $this->_propDict)) {
@@ -70,27 +69,25 @@ class WindowsAssignedAccessProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the desktopAppPaths
-    * These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
-    *
-    * @param string[] $val The desktopAppPaths
-    *
-    * @return WindowsAssignedAccessProfile
-    */
+     * Sets the desktopAppPaths
+     * These are the paths of the Desktop Apps that will be available on the Start menu and the only apps the user will be able to launch.
+     *
+     * @param string[] $val The desktopAppPaths
+     *
+     * @return WindowsAssignedAccessProfile
+     */
     public function setDesktopAppPaths($val)
     {
         $this->_propDict["desktopAppPaths"] = $val;
         return $this;
     }
-
     /**
-    * Gets the profileName
-    * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-    *
-    * @return string|null The profileName
-    */
+     * Gets the profileName
+     * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
+     *
+     * @return string|null The profileName
+     */
     public function getProfileName()
     {
         if (array_key_exists("profileName", $this->_propDict)) {
@@ -99,27 +96,25 @@ class WindowsAssignedAccessProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the profileName
-    * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
-    *
-    * @param string $val The profileName
-    *
-    * @return WindowsAssignedAccessProfile
-    */
+     * Sets the profileName
+     * This is a friendly name used to identify a group of applications, the layout of these apps on the start menu and the users to whom this kiosk configuration is assigned.
+     *
+     * @param string $val The profileName
+     *
+     * @return WindowsAssignedAccessProfile
+     */
     public function setProfileName($val)
     {
         $this->_propDict["profileName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the showTaskBar
-    * This setting allows the admin to specify whether the Task Bar is shown or not.
-    *
-    * @return bool|null The showTaskBar
-    */
+     * Gets the showTaskBar
+     * This setting allows the admin to specify whether the Task Bar is shown or not.
+     *
+     * @return bool|null The showTaskBar
+     */
     public function getShowTaskBar()
     {
         if (array_key_exists("showTaskBar", $this->_propDict)) {
@@ -128,60 +123,56 @@ class WindowsAssignedAccessProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showTaskBar
-    * This setting allows the admin to specify whether the Task Bar is shown or not.
-    *
-    * @param bool $val The showTaskBar
-    *
-    * @return WindowsAssignedAccessProfile
-    */
+     * Sets the showTaskBar
+     * This setting allows the admin to specify whether the Task Bar is shown or not.
+     *
+     * @param bool $val The showTaskBar
+     *
+     * @return WindowsAssignedAccessProfile
+     */
     public function setShowTaskBar($val)
     {
         $this->_propDict["showTaskBar"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the startMenuLayoutXml
-    * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The startMenuLayoutXml
-    */
+     * Gets the startMenuLayoutXml
+     * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The startMenuLayoutXml
+     */
     public function getStartMenuLayoutXml()
     {
         if (array_key_exists("startMenuLayoutXml", $this->_propDict)) {
-            if (is_a($this->_propDict["startMenuLayoutXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["startMenuLayoutXml"])) {
+            if (is_a($this->_propDict["startMenuLayoutXml"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["startMenuLayoutXml"])) {
                 return $this->_propDict["startMenuLayoutXml"];
             } else {
-                $this->_propDict["startMenuLayoutXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["startMenuLayoutXml"]);
+                $this->_propDict["startMenuLayoutXml"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["startMenuLayoutXml"]);
                 return $this->_propDict["startMenuLayoutXml"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the startMenuLayoutXml
-    * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The startMenuLayoutXml
-    *
-    * @return WindowsAssignedAccessProfile
-    */
+     * Sets the startMenuLayoutXml
+     * Allows admins to override the default Start layout and prevents the user from changing it. The layout is modified by specifying an XML file based on a layout modification schema. XML needs to be in Binary format.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The startMenuLayoutXml
+     *
+     * @return WindowsAssignedAccessProfile
+     */
     public function setStartMenuLayoutXml($val)
     {
         $this->_propDict["startMenuLayoutXml"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userAccounts
-    * The user accounts that will be locked to this kiosk configuration.
-    *
-    * @return array|null The userAccounts
-    */
+     * Gets the userAccounts
+     * The user accounts that will be locked to this kiosk configuration.
+     *
+     * @return array|null The userAccounts
+     */
     public function getUserAccounts()
     {
         if (array_key_exists("userAccounts", $this->_propDict)) {
@@ -190,19 +181,17 @@ class WindowsAssignedAccessProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userAccounts
-    * The user accounts that will be locked to this kiosk configuration.
-    *
-    * @param string[] $val The userAccounts
-    *
-    * @return WindowsAssignedAccessProfile
-    */
+     * Sets the userAccounts
+     * The user accounts that will be locked to this kiosk configuration.
+     *
+     * @param string[] $val The userAccounts
+     *
+     * @return WindowsAssignedAccessProfile
+     */
     public function setUserAccounts($val)
     {
         $this->_propDict["userAccounts"] = $val;
         return $this;
     }
-
 }

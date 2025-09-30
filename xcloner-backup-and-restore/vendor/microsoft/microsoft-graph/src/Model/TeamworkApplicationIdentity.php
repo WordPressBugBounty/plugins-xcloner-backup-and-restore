@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkApplicationIdentity class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TeamworkApplicationIdentity extends Identity
 {
-
     /**
-    * Gets the applicationIdentityType
-    * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
-    *
-    * @return TeamworkApplicationIdentityType|null The applicationIdentityType
-    */
+     * Gets the applicationIdentityType
+     * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
+     *
+     * @return TeamworkApplicationIdentityType|null The applicationIdentityType
+     */
     public function getApplicationIdentityType()
     {
         if (array_key_exists("applicationIdentityType", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationIdentityType"], "\Microsoft\Graph\Model\TeamworkApplicationIdentityType") || is_null($this->_propDict["applicationIdentityType"])) {
+            if (is_a($this->_propDict["applicationIdentityType"], "XCloner\\Microsoft\\Graph\\Model\\TeamworkApplicationIdentityType") || is_null($this->_propDict["applicationIdentityType"])) {
                 return $this->_propDict["applicationIdentityType"];
             } else {
                 $this->_propDict["applicationIdentityType"] = new TeamworkApplicationIdentityType($this->_propDict["applicationIdentityType"]);
@@ -45,18 +46,17 @@ class TeamworkApplicationIdentity extends Identity
         }
         return null;
     }
-
     /**
-    * Sets the applicationIdentityType
-    * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
-    *
-    * @param TeamworkApplicationIdentityType $val The value to assign to the applicationIdentityType
-    *
-    * @return TeamworkApplicationIdentity The TeamworkApplicationIdentity
-    */
+     * Sets the applicationIdentityType
+     * Type of application that is referenced. Possible values are: aadApplication, bot, tenantBot, office365Connector, outgoingWebhook, and unknownFutureValue.
+     *
+     * @param TeamworkApplicationIdentityType $val The value to assign to the applicationIdentityType
+     *
+     * @return TeamworkApplicationIdentity The TeamworkApplicationIdentity
+     */
     public function setApplicationIdentityType($val)
     {
         $this->_propDict["applicationIdentityType"] = $val;
-         return $this;
+        return $this;
     }
 }

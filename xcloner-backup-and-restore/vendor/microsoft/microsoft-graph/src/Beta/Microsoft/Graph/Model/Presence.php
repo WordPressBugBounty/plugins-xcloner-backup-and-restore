@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Presence class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Presence extends Entity
 {
     /**
-    * Gets the activity
-    * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
-    *
-    * @return string|null The activity
-    */
+     * Gets the activity
+     * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
+     *
+     * @return string|null The activity
+     */
     public function getActivity()
     {
         if (array_key_exists("activity", $this->_propDict)) {
@@ -41,27 +42,25 @@ class Presence extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activity
-    * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
-    *
-    * @param string $val The activity
-    *
-    * @return Presence
-    */
+     * Sets the activity
+     * The supplemental information to a user's availability. Possible values are Available, Away, BeRightBack, Busy, DoNotDisturb, InACall, InAConferenceCall, Inactive,InAMeeting, Offline, OffWork,OutOfOffice, PresenceUnknown,Presenting, UrgentInterruptionsOnly.
+     *
+     * @param string $val The activity
+     *
+     * @return Presence
+     */
     public function setActivity($val)
     {
         $this->_propDict["activity"] = $val;
         return $this;
     }
-
     /**
-    * Gets the availability
-    * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
-    *
-    * @return string|null The availability
-    */
+     * Gets the availability
+     * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
+     *
+     * @return string|null The availability
+     */
     public function getAvailability()
     {
         if (array_key_exists("availability", $this->_propDict)) {
@@ -70,31 +69,29 @@ class Presence extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the availability
-    * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
-    *
-    * @param string $val The availability
-    *
-    * @return Presence
-    */
+     * Sets the availability
+     * The base presence information for a user. Possible values are Available, AvailableIdle,  Away, BeRightBack, Busy, BusyIdle, DoNotDisturb, Offline, PresenceUnknown
+     *
+     * @param string $val The availability
+     *
+     * @return Presence
+     */
     public function setAvailability($val)
     {
         $this->_propDict["availability"] = $val;
         return $this;
     }
-
     /**
-    * Gets the outOfOfficeSettings
-    * The out of office settings for a user.
-    *
-    * @return OutOfOfficeSettings|null The outOfOfficeSettings
-    */
+     * Gets the outOfOfficeSettings
+     * The out of office settings for a user.
+     *
+     * @return OutOfOfficeSettings|null The outOfOfficeSettings
+     */
     public function getOutOfOfficeSettings()
     {
         if (array_key_exists("outOfOfficeSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["outOfOfficeSettings"], "\Beta\Microsoft\Graph\Model\OutOfOfficeSettings") || is_null($this->_propDict["outOfOfficeSettings"])) {
+            if (is_a($this->_propDict["outOfOfficeSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OutOfOfficeSettings") || is_null($this->_propDict["outOfOfficeSettings"])) {
                 return $this->_propDict["outOfOfficeSettings"];
             } else {
                 $this->_propDict["outOfOfficeSettings"] = new OutOfOfficeSettings($this->_propDict["outOfOfficeSettings"]);
@@ -103,19 +100,17 @@ class Presence extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the outOfOfficeSettings
-    * The out of office settings for a user.
-    *
-    * @param OutOfOfficeSettings $val The outOfOfficeSettings
-    *
-    * @return Presence
-    */
+     * Sets the outOfOfficeSettings
+     * The out of office settings for a user.
+     *
+     * @param OutOfOfficeSettings $val The outOfOfficeSettings
+     *
+     * @return Presence
+     */
     public function setOutOfOfficeSettings($val)
     {
         $this->_propDict["outOfOfficeSettings"] = $val;
         return $this;
     }
-
 }

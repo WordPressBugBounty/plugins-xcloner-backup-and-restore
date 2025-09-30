@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedDeviceOverview class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedDeviceOverview extends Entity
 {
     /**
-    * Gets the deviceExchangeAccessStateSummary
-    * Distribution of Exchange Access State in Intune
-    *
-    * @return DeviceExchangeAccessStateSummary|null The deviceExchangeAccessStateSummary
-    */
+     * Gets the deviceExchangeAccessStateSummary
+     * Distribution of Exchange Access State in Intune
+     *
+     * @return DeviceExchangeAccessStateSummary|null The deviceExchangeAccessStateSummary
+     */
     public function getDeviceExchangeAccessStateSummary()
     {
         if (array_key_exists("deviceExchangeAccessStateSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceExchangeAccessStateSummary"], "\Microsoft\Graph\Model\DeviceExchangeAccessStateSummary") || is_null($this->_propDict["deviceExchangeAccessStateSummary"])) {
+            if (is_a($this->_propDict["deviceExchangeAccessStateSummary"], "XCloner\\Microsoft\\Graph\\Model\\DeviceExchangeAccessStateSummary") || is_null($this->_propDict["deviceExchangeAccessStateSummary"])) {
                 return $this->_propDict["deviceExchangeAccessStateSummary"];
             } else {
                 $this->_propDict["deviceExchangeAccessStateSummary"] = new DeviceExchangeAccessStateSummary($this->_propDict["deviceExchangeAccessStateSummary"]);
@@ -45,31 +46,29 @@ class ManagedDeviceOverview extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceExchangeAccessStateSummary
-    * Distribution of Exchange Access State in Intune
-    *
-    * @param DeviceExchangeAccessStateSummary $val The deviceExchangeAccessStateSummary
-    *
-    * @return ManagedDeviceOverview
-    */
+     * Sets the deviceExchangeAccessStateSummary
+     * Distribution of Exchange Access State in Intune
+     *
+     * @param DeviceExchangeAccessStateSummary $val The deviceExchangeAccessStateSummary
+     *
+     * @return ManagedDeviceOverview
+     */
     public function setDeviceExchangeAccessStateSummary($val)
     {
         $this->_propDict["deviceExchangeAccessStateSummary"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceOperatingSystemSummary
-    * Device operating system summary.
-    *
-    * @return DeviceOperatingSystemSummary|null The deviceOperatingSystemSummary
-    */
+     * Gets the deviceOperatingSystemSummary
+     * Device operating system summary.
+     *
+     * @return DeviceOperatingSystemSummary|null The deviceOperatingSystemSummary
+     */
     public function getDeviceOperatingSystemSummary()
     {
         if (array_key_exists("deviceOperatingSystemSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceOperatingSystemSummary"], "\Microsoft\Graph\Model\DeviceOperatingSystemSummary") || is_null($this->_propDict["deviceOperatingSystemSummary"])) {
+            if (is_a($this->_propDict["deviceOperatingSystemSummary"], "XCloner\\Microsoft\\Graph\\Model\\DeviceOperatingSystemSummary") || is_null($this->_propDict["deviceOperatingSystemSummary"])) {
                 return $this->_propDict["deviceOperatingSystemSummary"];
             } else {
                 $this->_propDict["deviceOperatingSystemSummary"] = new DeviceOperatingSystemSummary($this->_propDict["deviceOperatingSystemSummary"]);
@@ -78,27 +77,25 @@ class ManagedDeviceOverview extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceOperatingSystemSummary
-    * Device operating system summary.
-    *
-    * @param DeviceOperatingSystemSummary $val The deviceOperatingSystemSummary
-    *
-    * @return ManagedDeviceOverview
-    */
+     * Sets the deviceOperatingSystemSummary
+     * Device operating system summary.
+     *
+     * @param DeviceOperatingSystemSummary $val The deviceOperatingSystemSummary
+     *
+     * @return ManagedDeviceOverview
+     */
     public function setDeviceOperatingSystemSummary($val)
     {
         $this->_propDict["deviceOperatingSystemSummary"] = $val;
         return $this;
     }
-
     /**
-    * Gets the dualEnrolledDeviceCount
-    * The number of devices enrolled in both MDM and EAS
-    *
-    * @return int|null The dualEnrolledDeviceCount
-    */
+     * Gets the dualEnrolledDeviceCount
+     * The number of devices enrolled in both MDM and EAS
+     *
+     * @return int|null The dualEnrolledDeviceCount
+     */
     public function getDualEnrolledDeviceCount()
     {
         if (array_key_exists("dualEnrolledDeviceCount", $this->_propDict)) {
@@ -107,27 +104,25 @@ class ManagedDeviceOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dualEnrolledDeviceCount
-    * The number of devices enrolled in both MDM and EAS
-    *
-    * @param int $val The dualEnrolledDeviceCount
-    *
-    * @return ManagedDeviceOverview
-    */
+     * Sets the dualEnrolledDeviceCount
+     * The number of devices enrolled in both MDM and EAS
+     *
+     * @param int $val The dualEnrolledDeviceCount
+     *
+     * @return ManagedDeviceOverview
+     */
     public function setDualEnrolledDeviceCount($val)
     {
         $this->_propDict["dualEnrolledDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the enrolledDeviceCount
-    * Total enrolled device count. Does not include PC devices managed via Intune PC Agent
-    *
-    * @return int|null The enrolledDeviceCount
-    */
+     * Gets the enrolledDeviceCount
+     * Total enrolled device count. Does not include PC devices managed via Intune PC Agent
+     *
+     * @return int|null The enrolledDeviceCount
+     */
     public function getEnrolledDeviceCount()
     {
         if (array_key_exists("enrolledDeviceCount", $this->_propDict)) {
@@ -136,27 +131,25 @@ class ManagedDeviceOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enrolledDeviceCount
-    * Total enrolled device count. Does not include PC devices managed via Intune PC Agent
-    *
-    * @param int $val The enrolledDeviceCount
-    *
-    * @return ManagedDeviceOverview
-    */
+     * Sets the enrolledDeviceCount
+     * Total enrolled device count. Does not include PC devices managed via Intune PC Agent
+     *
+     * @param int $val The enrolledDeviceCount
+     *
+     * @return ManagedDeviceOverview
+     */
     public function setEnrolledDeviceCount($val)
     {
         $this->_propDict["enrolledDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the mdmEnrolledCount
-    * The number of devices enrolled in MDM
-    *
-    * @return int|null The mdmEnrolledCount
-    */
+     * Gets the mdmEnrolledCount
+     * The number of devices enrolled in MDM
+     *
+     * @return int|null The mdmEnrolledCount
+     */
     public function getMdmEnrolledCount()
     {
         if (array_key_exists("mdmEnrolledCount", $this->_propDict)) {
@@ -165,19 +158,17 @@ class ManagedDeviceOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mdmEnrolledCount
-    * The number of devices enrolled in MDM
-    *
-    * @param int $val The mdmEnrolledCount
-    *
-    * @return ManagedDeviceOverview
-    */
+     * Sets the mdmEnrolledCount
+     * The number of devices enrolled in MDM
+     *
+     * @param int $val The mdmEnrolledCount
+     *
+     * @return ManagedDeviceOverview
+     */
     public function setMdmEnrolledCount($val)
     {
         $this->_propDict["mdmEnrolledCount"] = intval($val);
         return $this;
     }
-
 }

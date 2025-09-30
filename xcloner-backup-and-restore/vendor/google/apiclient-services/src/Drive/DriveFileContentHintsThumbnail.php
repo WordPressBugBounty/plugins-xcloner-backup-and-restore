@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,52 +15,49 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileContentHintsThumbnail extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $image;
-  /**
-   * @var string
-   */
-  public $mimeType;
-
-  /**
-   * @param string
-   */
-  public function setImage($image)
-  {
-    $this->image = $image;
-  }
-  /**
-   * @return string
-   */
-  public function getImage()
-  {
-    return $this->image;
-  }
-  /**
-   * @param string
-   */
-  public function setMimeType($mimeType)
-  {
-    $this->mimeType = $mimeType;
-  }
-  /**
-   * @return string
-   */
-  public function getMimeType()
-  {
-    return $this->mimeType;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileContentHintsThumbnail extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $image;
+    /**
+     * @var string
+     */
+    public $mimeType;
+    /**
+     * @param string
+     */
+    public function setImage($image)
+    {
+        $this->image = $image;
+    }
+    /**
+     * @return string
+     */
+    public function getImage()
+    {
+        return $this->image;
+    }
+    /**
+     * @param string
+     */
+    public function setMimeType($mimeType)
+    {
+        $this->mimeType = $mimeType;
+    }
+    /**
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->mimeType;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileContentHintsThumbnail::class, 'Google_Service_Drive_DriveFileContentHintsThumbnail');
+class_alias(DriveFileContentHintsThumbnail::class, 'XCloner\Google_Service_Drive_DriveFileContentHintsThumbnail');

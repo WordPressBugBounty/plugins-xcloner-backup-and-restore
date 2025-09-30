@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAppOperation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAppOperation extends Entity
 {
     /**
-    * Gets the displayName
-    * The operation name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The operation name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class ManagedAppOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The operation name.
-    *
-    * @param string $val The displayName
-    *
-    * @return ManagedAppOperation
-    */
+     * Sets the displayName
+     * The operation name.
+     *
+     * @param string $val The displayName
+     *
+     * @return ManagedAppOperation
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The last time the app operation was modified.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The last time the app operation was modified.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -74,27 +73,25 @@ class ManagedAppOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The last time the app operation was modified.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return ManagedAppOperation
-    */
+     * Sets the lastModifiedDateTime
+     * The last time the app operation was modified.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return ManagedAppOperation
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The current state of the operation
-    *
-    * @return string|null The state
-    */
+     * Gets the state
+     * The current state of the operation
+     *
+     * @return string|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
@@ -103,27 +100,25 @@ class ManagedAppOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the state
-    * The current state of the operation
-    *
-    * @param string $val The state
-    *
-    * @return ManagedAppOperation
-    */
+     * Sets the state
+     * The current state of the operation
+     *
+     * @param string $val The state
+     *
+     * @return ManagedAppOperation
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the version
-    * Version of the entity.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * Version of the entity.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -132,19 +127,17 @@ class ManagedAppOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * Version of the entity.
-    *
-    * @param string $val The version
-    *
-    * @return ManagedAppOperation
-    */
+     * Sets the version
+     * Version of the entity.
+     *
+     * @param string $val The version
+     *
+     * @return ManagedAppOperation
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

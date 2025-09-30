@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Browser;
 
-namespace Sabre\DAV\Browser;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\INode;
-use Sabre\DAV\PropFind;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\INode;
+use XCloner\Sabre\DAV\PropFind;
+use XCloner\Sabre\Uri;
 /**
  * GuessContentType plugin.
  *
@@ -41,15 +39,12 @@ class GuessContentType extends DAV\ServerPlugin
         'jpg' => 'image/jpeg',
         'gif' => 'image/gif',
         'png' => 'image/png',
-
         // groupware
         'ics' => 'text/calendar',
         'vcf' => 'text/vcard',
-
         // text
         'txt' => 'text/plain',
     ];
-
     /**
      * Initializes the plugin.
      */
@@ -59,7 +54,6 @@ class GuessContentType extends DAV\ServerPlugin
         // to set the content-type first.
         $server->on('propFind', [$this, 'propFind'], 200);
     }
-
     /**
      * Our PROPFIND handler.
      *
@@ -69,11 +63,9 @@ class GuessContentType extends DAV\ServerPlugin
     {
         $propFind->handle('{DAV:}getcontenttype', function () use ($propFind) {
             list(, $fileName) = Uri\split($propFind->getPath());
-
             return $this->getContentType($fileName);
         });
     }
-
     /**
      * Simple method to return the contenttype.
      *
@@ -90,7 +82,6 @@ class GuessContentType extends DAV\ServerPlugin
                 return $this->extensionMap[$extension];
             }
         }
-
         return 'application/octet-stream';
     }
 }

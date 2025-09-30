@@ -1,10 +1,10 @@
 <?php
 
-namespace splitbrain\PHPArchive;
+namespace XCloner\splitbrain\PHPArchive;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The archive is unreadable
  */

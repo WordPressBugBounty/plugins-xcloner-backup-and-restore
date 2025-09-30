@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Parameter;
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Parameter;
+use XCloner\Sabre\VObject\Property;
 /**
  * URI property.
  *
@@ -26,7 +25,6 @@ class Uri extends Text
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Returns the type of value.
      *
@@ -39,7 +37,6 @@ class Uri extends Text
     {
         return 'URI';
     }
-
     /**
      * Returns an iterable list of children.
      *
@@ -59,10 +56,8 @@ class Uri extends Text
             // See Issue #227 and #235
             $parameters['VALUE'] = new Parameter($this->root, 'VALUE', 'URI');
         }
-
         return $parameters;
     }
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -83,7 +78,7 @@ class Uri extends Text
         // assume that a backslash is always intended as an escape character.
         if ('URL' === $this->name) {
             $regex = '#  (?: (\\\\ (?: \\\\ | : ) ) ) #x';
-            $matches = preg_split($regex, $val, -1, PREG_SPLIT_DELIM_CAPTURE | PREG_SPLIT_NO_EMPTY);
+            $matches = preg_split($regex, $val, -1, \PREG_SPLIT_DELIM_CAPTURE | \PREG_SPLIT_NO_EMPTY);
             $newVal = '';
             foreach ($matches as $match) {
                 switch ($match) {
@@ -100,7 +95,6 @@ class Uri extends Text
             $this->value = strtr($val, ['\,' => ',']);
         }
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -113,7 +107,6 @@ class Uri extends Text
         } else {
             $value = $this->value;
         }
-
         return strtr($value, [',' => '\,']);
     }
 }

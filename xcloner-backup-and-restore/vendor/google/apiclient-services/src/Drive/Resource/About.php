@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,14 +15,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive\Resource;
 
-namespace Google\Service\Drive\Resource;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Google\Service\Drive\About as AboutModel;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Google\Service\Drive\About as AboutModel;
 /**
  * The "about" collection of methods.
  * Typical usage is:
@@ -30,22 +29,21 @@ use Google\Service\Drive\About as AboutModel;
  *   $about = $driveService->about;
  *  </code>
  */
-class About extends \Google\Service\Resource
+class About extends \XCloner\Google\Service\Resource
 {
-  /**
-   * Gets information about the user, the user's Drive, and system capabilities.
-   * (about.get)
-   *
-   * @param array $optParams Optional parameters.
-   * @return AboutModel
-   */
-  public function get($optParams = [])
-  {
-    $params = [];
-    $params = array_merge($params, $optParams);
-    return $this->call('get', [$params], AboutModel::class);
-  }
+    /**
+     * Gets information about the user, the user's Drive, and system capabilities.
+     * (about.get)
+     *
+     * @param array $optParams Optional parameters.
+     * @return AboutModel
+     */
+    public function get($optParams = [])
+    {
+        $params = [];
+        $params = array_merge($params, $optParams);
+        return $this->call('get', [$params], AboutModel::class);
+    }
 }
-
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(About::class, 'Google_Service_Drive_Resource_About');
+class_alias(About::class, 'XCloner\Google_Service_Drive_Resource_About');

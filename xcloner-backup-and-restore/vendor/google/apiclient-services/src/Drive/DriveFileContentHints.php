@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,50 +15,47 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileContentHints extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $indexableText;
-  protected $thumbnailType = DriveFileContentHintsThumbnail::class;
-  protected $thumbnailDataType = '';
-
-  /**
-   * @param string
-   */
-  public function setIndexableText($indexableText)
-  {
-    $this->indexableText = $indexableText;
-  }
-  /**
-   * @return string
-   */
-  public function getIndexableText()
-  {
-    return $this->indexableText;
-  }
-  /**
-   * @param DriveFileContentHintsThumbnail
-   */
-  public function setThumbnail(DriveFileContentHintsThumbnail $thumbnail)
-  {
-    $this->thumbnail = $thumbnail;
-  }
-  /**
-   * @return DriveFileContentHintsThumbnail
-   */
-  public function getThumbnail()
-  {
-    return $this->thumbnail;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileContentHints extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $indexableText;
+    protected $thumbnailType = DriveFileContentHintsThumbnail::class;
+    protected $thumbnailDataType = '';
+    /**
+     * @param string
+     */
+    public function setIndexableText($indexableText)
+    {
+        $this->indexableText = $indexableText;
+    }
+    /**
+     * @return string
+     */
+    public function getIndexableText()
+    {
+        return $this->indexableText;
+    }
+    /**
+     * @param DriveFileContentHintsThumbnail
+     */
+    public function setThumbnail(DriveFileContentHintsThumbnail $thumbnail)
+    {
+        $this->thumbnail = $thumbnail;
+    }
+    /**
+     * @return DriveFileContentHintsThumbnail
+     */
+    public function getThumbnail()
+    {
+        return $this->thumbnail;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileContentHints::class, 'Google_Service_Drive_DriveFileContentHints');
+class_alias(DriveFileContentHints::class, 'XCloner\Google_Service_Drive_DriveFileContentHints');

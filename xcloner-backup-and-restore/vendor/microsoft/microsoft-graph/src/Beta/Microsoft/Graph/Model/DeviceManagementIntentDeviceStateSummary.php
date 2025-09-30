@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementIntentDeviceStateSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementIntentDeviceStateSummary extends Entity
 {
     /**
-    * Gets the conflictCount
-    * Number of devices in conflict
-    *
-    * @return int|null The conflictCount
-    */
+     * Gets the conflictCount
+     * Number of devices in conflict
+     *
+     * @return int|null The conflictCount
+     */
     public function getConflictCount()
     {
         if (array_key_exists("conflictCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceManagementIntentDeviceStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conflictCount
-    * Number of devices in conflict
-    *
-    * @param int $val The conflictCount
-    *
-    * @return DeviceManagementIntentDeviceStateSummary
-    */
+     * Sets the conflictCount
+     * Number of devices in conflict
+     *
+     * @param int $val The conflictCount
+     *
+     * @return DeviceManagementIntentDeviceStateSummary
+     */
     public function setConflictCount($val)
     {
         $this->_propDict["conflictCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the errorCount
-    * Number of error devices
-    *
-    * @return int|null The errorCount
-    */
+     * Gets the errorCount
+     * Number of error devices
+     *
+     * @return int|null The errorCount
+     */
     public function getErrorCount()
     {
         if (array_key_exists("errorCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceManagementIntentDeviceStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorCount
-    * Number of error devices
-    *
-    * @param int $val The errorCount
-    *
-    * @return DeviceManagementIntentDeviceStateSummary
-    */
+     * Sets the errorCount
+     * Number of error devices
+     *
+     * @param int $val The errorCount
+     *
+     * @return DeviceManagementIntentDeviceStateSummary
+     */
     public function setErrorCount($val)
     {
         $this->_propDict["errorCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the failedCount
-    * Number of failed devices
-    *
-    * @return int|null The failedCount
-    */
+     * Gets the failedCount
+     * Number of failed devices
+     *
+     * @return int|null The failedCount
+     */
     public function getFailedCount()
     {
         if (array_key_exists("failedCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class DeviceManagementIntentDeviceStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedCount
-    * Number of failed devices
-    *
-    * @param int $val The failedCount
-    *
-    * @return DeviceManagementIntentDeviceStateSummary
-    */
+     * Sets the failedCount
+     * Number of failed devices
+     *
+     * @param int $val The failedCount
+     *
+     * @return DeviceManagementIntentDeviceStateSummary
+     */
     public function setFailedCount($val)
     {
         $this->_propDict["failedCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicableCount
-    * Number of not applicable devices
-    *
-    * @return int|null The notApplicableCount
-    */
+     * Gets the notApplicableCount
+     * Number of not applicable devices
+     *
+     * @return int|null The notApplicableCount
+     */
     public function getNotApplicableCount()
     {
         if (array_key_exists("notApplicableCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class DeviceManagementIntentDeviceStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicableCount
-    * Number of not applicable devices
-    *
-    * @param int $val The notApplicableCount
-    *
-    * @return DeviceManagementIntentDeviceStateSummary
-    */
+     * Sets the notApplicableCount
+     * Number of not applicable devices
+     *
+     * @param int $val The notApplicableCount
+     *
+     * @return DeviceManagementIntentDeviceStateSummary
+     */
     public function setNotApplicableCount($val)
     {
         $this->_propDict["notApplicableCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicablePlatformCount
-    * Number of not applicable devices due to mismatch platform and policy
-    *
-    * @return int|null The notApplicablePlatformCount
-    */
+     * Gets the notApplicablePlatformCount
+     * Number of not applicable devices due to mismatch platform and policy
+     *
+     * @return int|null The notApplicablePlatformCount
+     */
     public function getNotApplicablePlatformCount()
     {
         if (array_key_exists("notApplicablePlatformCount", $this->_propDict)) {
@@ -157,27 +150,25 @@ class DeviceManagementIntentDeviceStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicablePlatformCount
-    * Number of not applicable devices due to mismatch platform and policy
-    *
-    * @param int $val The notApplicablePlatformCount
-    *
-    * @return DeviceManagementIntentDeviceStateSummary
-    */
+     * Sets the notApplicablePlatformCount
+     * Number of not applicable devices due to mismatch platform and policy
+     *
+     * @param int $val The notApplicablePlatformCount
+     *
+     * @return DeviceManagementIntentDeviceStateSummary
+     */
     public function setNotApplicablePlatformCount($val)
     {
         $this->_propDict["notApplicablePlatformCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the successCount
-    * Number of succeeded devices
-    *
-    * @return int|null The successCount
-    */
+     * Gets the successCount
+     * Number of succeeded devices
+     *
+     * @return int|null The successCount
+     */
     public function getSuccessCount()
     {
         if (array_key_exists("successCount", $this->_propDict)) {
@@ -186,19 +177,17 @@ class DeviceManagementIntentDeviceStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successCount
-    * Number of succeeded devices
-    *
-    * @param int $val The successCount
-    *
-    * @return DeviceManagementIntentDeviceStateSummary
-    */
+     * Sets the successCount
+     * Number of succeeded devices
+     *
+     * @param int $val The successCount
+     *
+     * @return DeviceManagementIntentDeviceStateSummary
+     */
     public function setSuccessCount($val)
     {
         $this->_propDict["successCount"] = intval($val);
         return $this;
     }
-
 }

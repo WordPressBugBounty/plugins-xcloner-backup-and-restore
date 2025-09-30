@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementScriptGroupAssignment class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementScriptGroupAssignment extends Entity
 {
     /**
-    * Gets the targetGroupId
-    * The Id of the Azure Active Directory group we are targeting the script to.
-    *
-    * @return string|null The targetGroupId
-    */
+     * Gets the targetGroupId
+     * The Id of the Azure Active Directory group we are targeting the script to.
+     *
+     * @return string|null The targetGroupId
+     */
     public function getTargetGroupId()
     {
         if (array_key_exists("targetGroupId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DeviceManagementScriptGroupAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetGroupId
-    * The Id of the Azure Active Directory group we are targeting the script to.
-    *
-    * @param string $val The targetGroupId
-    *
-    * @return DeviceManagementScriptGroupAssignment
-    */
+     * Sets the targetGroupId
+     * The Id of the Azure Active Directory group we are targeting the script to.
+     *
+     * @param string $val The targetGroupId
+     *
+     * @return DeviceManagementScriptGroupAssignment
+     */
     public function setTargetGroupId($val)
     {
         $this->_propDict["targetGroupId"] = $val;
         return $this;
     }
-
 }

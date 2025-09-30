@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppLogCollectionDownloadDetails class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppLogCollectionDownloadDetails extends Entity
 {
-
     /**
-    * Gets the appLogDecryptionAlgorithm
-    * DecryptionAlgorithm for Content. Possible values are: aes256.
-    *
-    * @return AppLogDecryptionAlgorithm|null The appLogDecryptionAlgorithm
-    */
+     * Gets the appLogDecryptionAlgorithm
+     * DecryptionAlgorithm for Content. Possible values are: aes256.
+     *
+     * @return AppLogDecryptionAlgorithm|null The appLogDecryptionAlgorithm
+     */
     public function getAppLogDecryptionAlgorithm()
     {
         if (array_key_exists("appLogDecryptionAlgorithm", $this->_propDict)) {
-            if (is_a($this->_propDict["appLogDecryptionAlgorithm"], "\Beta\Microsoft\Graph\Model\AppLogDecryptionAlgorithm") || is_null($this->_propDict["appLogDecryptionAlgorithm"])) {
+            if (is_a($this->_propDict["appLogDecryptionAlgorithm"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppLogDecryptionAlgorithm") || is_null($this->_propDict["appLogDecryptionAlgorithm"])) {
                 return $this->_propDict["appLogDecryptionAlgorithm"];
             } else {
                 $this->_propDict["appLogDecryptionAlgorithm"] = new AppLogDecryptionAlgorithm($this->_propDict["appLogDecryptionAlgorithm"]);
@@ -45,26 +46,25 @@ class AppLogCollectionDownloadDetails extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the appLogDecryptionAlgorithm
-    * DecryptionAlgorithm for Content. Possible values are: aes256.
-    *
-    * @param AppLogDecryptionAlgorithm $val The value to assign to the appLogDecryptionAlgorithm
-    *
-    * @return AppLogCollectionDownloadDetails The AppLogCollectionDownloadDetails
-    */
+     * Sets the appLogDecryptionAlgorithm
+     * DecryptionAlgorithm for Content. Possible values are: aes256.
+     *
+     * @param AppLogDecryptionAlgorithm $val The value to assign to the appLogDecryptionAlgorithm
+     *
+     * @return AppLogCollectionDownloadDetails The AppLogCollectionDownloadDetails
+     */
     public function setAppLogDecryptionAlgorithm($val)
     {
         $this->_propDict["appLogDecryptionAlgorithm"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the decryptionKey
-    * DecryptionKey as string
-    *
-    * @return string|null The decryptionKey
-    */
+     * Gets the decryptionKey
+     * DecryptionKey as string
+     *
+     * @return string|null The decryptionKey
+     */
     public function getDecryptionKey()
     {
         if (array_key_exists("decryptionKey", $this->_propDict)) {
@@ -73,26 +73,25 @@ class AppLogCollectionDownloadDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the decryptionKey
-    * DecryptionKey as string
-    *
-    * @param string $val The value of the decryptionKey
-    *
-    * @return AppLogCollectionDownloadDetails
-    */
+     * Sets the decryptionKey
+     * DecryptionKey as string
+     *
+     * @param string $val The value of the decryptionKey
+     *
+     * @return AppLogCollectionDownloadDetails
+     */
     public function setDecryptionKey($val)
     {
         $this->_propDict["decryptionKey"] = $val;
         return $this;
     }
     /**
-    * Gets the downloadUrl
-    * Download SAS Url for completed AppLogUploadRequest
-    *
-    * @return string|null The downloadUrl
-    */
+     * Gets the downloadUrl
+     * Download SAS Url for completed AppLogUploadRequest
+     *
+     * @return string|null The downloadUrl
+     */
     public function getDownloadUrl()
     {
         if (array_key_exists("downloadUrl", $this->_propDict)) {
@@ -101,15 +100,14 @@ class AppLogCollectionDownloadDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the downloadUrl
-    * Download SAS Url for completed AppLogUploadRequest
-    *
-    * @param string $val The value of the downloadUrl
-    *
-    * @return AppLogCollectionDownloadDetails
-    */
+     * Sets the downloadUrl
+     * Download SAS Url for completed AppLogUploadRequest
+     *
+     * @param string $val The value of the downloadUrl
+     *
+     * @return AppLogCollectionDownloadDetails
+     */
     public function setDownloadUrl($val)
     {
         $this->_propDict["downloadUrl"] = $val;

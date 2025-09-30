@@ -1,11 +1,11 @@
 <?php
-namespace Aws\Crypto\Cipher;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto\Cipher;
 
-
-use Aws\Exception\CryptoException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Exception\CryptoException;
 trait CipherBuilderTrait
 {
     /**
@@ -23,7 +23,6 @@ trait CipherBuilderTrait
     {
         return "aes-{$keySize}-{$cipherName}";
     }
-
     /**
      * Constructs a CipherMethod for the given name, initialized with the other
      * data passed for use in encrypting or decrypting.
@@ -41,15 +40,11 @@ trait CipherBuilderTrait
     {
         switch ($cipherName) {
             case 'cbc':
-                return new Cbc(
-                    $iv,
-                    $keySize
-                );
+                return new Cbc($iv, $keySize);
             default:
                 return null;
         }
     }
-
     /**
      * Performs a reverse lookup to get the openssl_* cipher name from the
      * AESName passed in from the MetadataEnvelope.
@@ -68,8 +63,7 @@ trait CipherBuilderTrait
             case 'AES/CBC/PKCS5Padding':
                 return 'cbc';
             default:
-                throw new CryptoException('Unrecognized or unsupported'
-                    . ' AESName for reverse lookup.');
+                throw new CryptoException('Unrecognized or unsupported' . ' AESName for reverse lookup.');
         }
     }
 }

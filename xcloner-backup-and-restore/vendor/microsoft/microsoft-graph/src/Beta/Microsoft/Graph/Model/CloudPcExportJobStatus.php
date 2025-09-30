@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * CloudPcExportJobStatus class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class CloudPcExportJobStatus extends Enum
 {
     /**
-    * The Enum CloudPcExportJobStatus
-    */
+     * The Enum CloudPcExportJobStatus
+     */
     const NOT_STARTED = "notStarted";
     const IN_PROGRESS = "inProgress";
     const COMPLETED = "completed";

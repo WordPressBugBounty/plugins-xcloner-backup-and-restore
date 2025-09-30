@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\FS;
 
-namespace Sabre\DAVACL\FS;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\Exception\NotFound;
-use Sabre\DAV\FSExt\Directory as BaseCollection;
-use Sabre\DAVACL\ACLTrait;
-use Sabre\DAVACL\IACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\Forbidden;
+use XCloner\Sabre\DAV\Exception\NotFound;
+use XCloner\Sabre\DAV\FSExt\Directory as BaseCollection;
+use XCloner\Sabre\DAVACL\ACLTrait;
+use XCloner\Sabre\DAVACL\IACL;
 /**
  * This is an ACL-enabled collection.
  *
@@ -23,21 +21,18 @@ use Sabre\DAVACL\IACL;
 class Collection extends BaseCollection implements IACL
 {
     use ACLTrait;
-
     /**
      * A list of ACL rules.
      *
      * @var array
      */
     protected $acl;
-
     /**
      * Owner uri, or null for no owner.
      *
      * @var string|null
      */
     protected $owner;
-
     /**
      * Constructor.
      *
@@ -51,7 +46,6 @@ class Collection extends BaseCollection implements IACL
         $this->acl = $acl;
         $this->owner = $owner;
     }
-
     /**
      * Returns a specific child node, referenced by its name.
      *
@@ -66,8 +60,7 @@ class Collection extends BaseCollection implements IACL
      */
     public function getChild($name)
     {
-        $path = $this->path.'/'.$name;
-
+        $path = $this->path . '/' . $name;
         if (!file_exists($path)) {
             throw new NotFound('File could not be located');
         }
@@ -80,7 +73,6 @@ class Collection extends BaseCollection implements IACL
             return new File($path, $this->acl, $this->owner);
         }
     }
-
     /**
      * Returns the owner principal.
      *
@@ -92,7 +84,6 @@ class Collection extends BaseCollection implements IACL
     {
         return $this->owner;
     }
-
     /**
      * Returns a list of ACE's for this node.
      *

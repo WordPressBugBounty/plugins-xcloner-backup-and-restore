@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\DeviceManagementNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\DeviceManagementNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * NotificationChannel class
 *
@@ -24,18 +26,17 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
+class NotificationChannel extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the notificationChannelType
-    *
-    * @return NotificationChannelType|null The notificationChannelType
-    */
+     * Gets the notificationChannelType
+     *
+     * @return NotificationChannelType|null The notificationChannelType
+     */
     public function getNotificationChannelType()
     {
         if (array_key_exists("notificationChannelType", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationChannelType"], "\Beta\Microsoft\Graph\DeviceManagementNamespace\Model\NotificationChannelType") || is_null($this->_propDict["notificationChannelType"])) {
+            if (is_a($this->_propDict["notificationChannelType"], "XCloner\\Beta\\Microsoft\\Graph\\DeviceManagementNamespace\\Model\\NotificationChannelType") || is_null($this->_propDict["notificationChannelType"])) {
                 return $this->_propDict["notificationChannelType"];
             } else {
                 $this->_propDict["notificationChannelType"] = new NotificationChannelType($this->_propDict["notificationChannelType"]);
@@ -44,29 +45,27 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the notificationChannelType
-    *
-    * @param NotificationChannelType $val The value to assign to the notificationChannelType
-    *
-    * @return NotificationChannel The NotificationChannel
-    */
+     * Sets the notificationChannelType
+     *
+     * @param NotificationChannelType $val The value to assign to the notificationChannelType
+     *
+     * @return NotificationChannel The NotificationChannel
+     */
     public function setNotificationChannelType($val)
     {
         $this->_propDict["notificationChannelType"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the notificationReceivers
-    *
-    * @return NotificationReceiver|null The notificationReceivers
-    */
+     * Gets the notificationReceivers
+     *
+     * @return NotificationReceiver|null The notificationReceivers
+     */
     public function getNotificationReceivers()
     {
         if (array_key_exists("notificationReceivers", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationReceivers"], "\Beta\Microsoft\Graph\DeviceManagementNamespace\Model\NotificationReceiver") || is_null($this->_propDict["notificationReceivers"])) {
+            if (is_a($this->_propDict["notificationReceivers"], "XCloner\\Beta\\Microsoft\\Graph\\DeviceManagementNamespace\\Model\\NotificationReceiver") || is_null($this->_propDict["notificationReceivers"])) {
                 return $this->_propDict["notificationReceivers"];
             } else {
                 $this->_propDict["notificationReceivers"] = new NotificationReceiver($this->_propDict["notificationReceivers"]);
@@ -75,24 +74,23 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the notificationReceivers
-    *
-    * @param NotificationReceiver $val The value to assign to the notificationReceivers
-    *
-    * @return NotificationChannel The NotificationChannel
-    */
+     * Sets the notificationReceivers
+     *
+     * @param NotificationReceiver $val The value to assign to the notificationReceivers
+     *
+     * @return NotificationChannel The NotificationChannel
+     */
     public function setNotificationReceivers($val)
     {
         $this->_propDict["notificationReceivers"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the receivers
-    *
-    * @return string|null The receivers
-    */
+     * Gets the receivers
+     *
+     * @return string|null The receivers
+     */
     public function getReceivers()
     {
         if (array_key_exists("receivers", $this->_propDict)) {
@@ -101,14 +99,13 @@ class NotificationChannel extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the receivers
-    *
-    * @param string $val The value of the receivers
-    *
-    * @return NotificationChannel
-    */
+     * Sets the receivers
+     *
+     * @param string $val The value of the receivers
+     *
+     * @return NotificationChannel
+     */
     public function setReceivers($val)
     {
         $this->_propDict["receivers"] = $val;

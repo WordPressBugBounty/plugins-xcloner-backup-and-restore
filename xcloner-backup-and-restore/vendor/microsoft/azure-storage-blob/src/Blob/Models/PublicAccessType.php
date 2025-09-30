@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
 /**
  * Holds public access types for a container.
  *
@@ -41,10 +39,9 @@ use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
  */
 class PublicAccessType
 {
-    const NONE                = null;
-    const BLOBS_ONLY          = 'blob';
+    const NONE = null;
+    const BLOBS_ONLY = 'blob';
     const CONTAINER_AND_BLOBS = 'container';
-
     /**
      * Validates the public access.
      *
@@ -62,9 +59,9 @@ class PublicAccessType
             case self::NONE:
             case self::BLOBS_ONLY:
             case self::CONTAINER_AND_BLOBS:
-                return true;
+                return \true;
             default:
-                return false;
+                return \false;
         }
     }
 }

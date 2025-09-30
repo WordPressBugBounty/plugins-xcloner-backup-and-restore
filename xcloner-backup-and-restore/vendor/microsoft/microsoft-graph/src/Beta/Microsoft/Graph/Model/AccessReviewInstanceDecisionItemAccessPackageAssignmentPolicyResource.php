@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource extends AccessReviewInstanceDecisionItemResource
 {
     /**
-    * Gets the accessPackageDisplayName
-    * Display name of the access package to which access has been granted.
-    *
-    * @return string|null The accessPackageDisplayName
-    */
+     * Gets the accessPackageDisplayName
+     * Display name of the access package to which access has been granted.
+     *
+     * @return string|null The accessPackageDisplayName
+     */
     public function getAccessPackageDisplayName()
     {
         if (array_key_exists("accessPackageDisplayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource exte
             return null;
         }
     }
-
     /**
-    * Sets the accessPackageDisplayName
-    * Display name of the access package to which access has been granted.
-    *
-    * @param string $val The value of the accessPackageDisplayName
-    *
-    * @return AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource
-    */
+     * Sets the accessPackageDisplayName
+     * Display name of the access package to which access has been granted.
+     *
+     * @param string $val The value of the accessPackageDisplayName
+     *
+     * @return AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource
+     */
     public function setAccessPackageDisplayName($val)
     {
         $this->_propDict["accessPackageDisplayName"] = $val;
         return $this;
     }
     /**
-    * Gets the accessPackageId
-    * Identifier of the access package to which access has been granted.
-    *
-    * @return string|null The accessPackageId
-    */
+     * Gets the accessPackageId
+     * Identifier of the access package to which access has been granted.
+     *
+     * @return string|null The accessPackageId
+     */
     public function getAccessPackageId()
     {
         if (array_key_exists("accessPackageId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource exte
             return null;
         }
     }
-
     /**
-    * Sets the accessPackageId
-    * Identifier of the access package to which access has been granted.
-    *
-    * @param string $val The value of the accessPackageId
-    *
-    * @return AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource
-    */
+     * Sets the accessPackageId
+     * Identifier of the access package to which access has been granted.
+     *
+     * @param string $val The value of the accessPackageId
+     *
+     * @return AccessReviewInstanceDecisionItemAccessPackageAssignmentPolicyResource
+     */
     public function setAccessPackageId($val)
     {
         $this->_propDict["accessPackageId"] = $val;

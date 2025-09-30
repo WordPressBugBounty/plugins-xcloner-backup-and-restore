@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VpnProxyServer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VpnProxyServer extends Entity
 {
     /**
-    * Gets the address
-    * Address.
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     * Address.
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -40,26 +42,25 @@ class VpnProxyServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    * Address.
-    *
-    * @param string $val The value of the address
-    *
-    * @return VpnProxyServer
-    */
+     * Sets the address
+     * Address.
+     *
+     * @param string $val The value of the address
+     *
+     * @return VpnProxyServer
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
     /**
-    * Gets the automaticConfigurationScriptUrl
-    * Proxy's automatic configuration script url.
-    *
-    * @return string|null The automaticConfigurationScriptUrl
-    */
+     * Gets the automaticConfigurationScriptUrl
+     * Proxy's automatic configuration script url.
+     *
+     * @return string|null The automaticConfigurationScriptUrl
+     */
     public function getAutomaticConfigurationScriptUrl()
     {
         if (array_key_exists("automaticConfigurationScriptUrl", $this->_propDict)) {
@@ -68,26 +69,25 @@ class VpnProxyServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the automaticConfigurationScriptUrl
-    * Proxy's automatic configuration script url.
-    *
-    * @param string $val The value of the automaticConfigurationScriptUrl
-    *
-    * @return VpnProxyServer
-    */
+     * Sets the automaticConfigurationScriptUrl
+     * Proxy's automatic configuration script url.
+     *
+     * @param string $val The value of the automaticConfigurationScriptUrl
+     *
+     * @return VpnProxyServer
+     */
     public function setAutomaticConfigurationScriptUrl($val)
     {
         $this->_propDict["automaticConfigurationScriptUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the port
-    * Port. Valid values 0 to 65535
-    *
-    * @return int|null The port
-    */
+     * Gets the port
+     * Port. Valid values 0 to 65535
+     *
+     * @return int|null The port
+     */
     public function getPort()
     {
         if (array_key_exists("port", $this->_propDict)) {
@@ -96,15 +96,14 @@ class VpnProxyServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the port
-    * Port. Valid values 0 to 65535
-    *
-    * @param int $val The value of the port
-    *
-    * @return VpnProxyServer
-    */
+     * Sets the port
+     * Port. Valid values 0 to 65535
+     *
+     * @param int $val The value of the port
+     *
+     * @return VpnProxyServer
+     */
     public function setPort($val)
     {
         $this->_propDict["port"] = $val;

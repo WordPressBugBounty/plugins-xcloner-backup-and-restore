@@ -1,19 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Property;
 
-namespace Sabre\DAVACL\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\Browser\HtmlOutput;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Browser\HtmlOutput;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * This class represents the {DAV:}acl property.
  *
@@ -38,7 +36,6 @@ class Acl implements Element, HtmlOutput
      * @var array
      */
     protected $privileges;
-
     /**
      * Whether or not the server base url is required to be prefixed when
      * serializing the property.
@@ -46,7 +43,6 @@ class Acl implements Element, HtmlOutput
      * @var bool
      */
     protected $prefixBaseUrl;
-
     /**
      * Constructor.
      *
@@ -63,12 +59,11 @@ class Acl implements Element, HtmlOutput
      *
      * @param bool $prefixBaseUrl
      */
-    public function __construct(array $privileges, $prefixBaseUrl = true)
+    public function __construct(array $privileges, $prefixBaseUrl = \true)
     {
         $this->privileges = $privileges;
         $this->prefixBaseUrl = $prefixBaseUrl;
     }
-
     /**
      * Returns the list of privileges for this property.
      *
@@ -78,7 +73,6 @@ class Acl implements Element, HtmlOutput
     {
         return $this->privileges;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -101,7 +95,6 @@ class Acl implements Element, HtmlOutput
             $this->serializeAce($writer, $ace);
         }
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -137,10 +130,8 @@ class Acl implements Element, HtmlOutput
             echo '</tr>';
         }
         echo '</table>';
-
         return ob_get_clean();
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -163,25 +154,17 @@ class Acl implements Element, HtmlOutput
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $elementMap = [
-            '{DAV:}ace' => 'Sabre\Xml\Element\KeyValue',
-            '{DAV:}privilege' => 'Sabre\Xml\Element\Elements',
-            '{DAV:}principal' => 'Sabre\DAVACL\Xml\Property\Principal',
-        ];
-
+        $elementMap = ['{DAV:}ace' => 'XCloner\Sabre\Xml\Element\KeyValue', '{DAV:}privilege' => 'XCloner\Sabre\Xml\Element\Elements', '{DAV:}principal' => 'XCloner\Sabre\DAVACL\Xml\Property\Principal'];
         $privileges = [];
-
         foreach ((array) $reader->parseInnerTree($elementMap) as $element) {
             if ('{DAV:}ace' !== $element['name']) {
                 continue;
             }
             $ace = $element['value'];
-
             if (empty($ace['{DAV:}principal'])) {
                 throw new DAV\Exception\BadRequest('Each {DAV:}ace element must have one {DAV:}principal element');
             }
             $principal = $ace['{DAV:}principal'];
-
             switch ($principal->getType()) {
                 case Principal::HREF:
                     $principal = $principal->getHref();
@@ -196,9 +179,7 @@ class Acl implements Element, HtmlOutput
                     $principal = '{DAV:}all';
                     break;
             }
-
             $protected = array_key_exists('{DAV:}protected', $ace);
-
             if (!isset($ace['{DAV:}grant'])) {
                 throw new DAV\Exception\NotImplemented('Every {DAV:}ace element must have a {DAV:}grant element. {DAV:}deny is not yet supported');
             }
@@ -206,27 +187,19 @@ class Acl implements Element, HtmlOutput
                 if ('{DAV:}privilege' !== $elem['name']) {
                     continue;
                 }
-
                 foreach ($elem['value'] as $priv) {
-                    $privileges[] = [
-                        'principal' => $principal,
-                        'protected' => $protected,
-                        'privilege' => $priv,
-                    ];
+                    $privileges[] = ['principal' => $principal, 'protected' => $protected, 'privilege' => $priv];
                 }
             }
         }
-
         return new self($privileges);
     }
-
     /**
      * Serializes a single access control entry.
      */
     private function serializeAce(Writer $writer, array $ace)
     {
         $writer->startElement('{DAV:}ace');
-
         switch ($ace['principal']) {
             case '{DAV:}authenticated':
                 $principal = new Principal(Principal::AUTHENTICATED);
@@ -241,20 +214,18 @@ class Acl implements Element, HtmlOutput
                 $principal = new Principal(Principal::HREF, $ace['principal']);
                 break;
         }
-
         $writer->writeElement('{DAV:}principal', $principal);
         $writer->startElement('{DAV:}grant');
         $writer->startElement('{DAV:}privilege');
-
         $writer->writeElement($ace['privilege']);
-
-        $writer->endElement(); // privilege
-        $writer->endElement(); // grant
-
+        $writer->endElement();
+        // privilege
+        $writer->endElement();
+        // grant
         if (!empty($ace['protected'])) {
             $writer->writeElement('{DAV:}protected');
         }
-
-        $writer->endElement(); // ace
+        $writer->endElement();
+        // ace
     }
 }

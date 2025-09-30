@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use InvalidArgumentException;
-
 /**
  * PHP SAPI.
  *
@@ -44,21 +42,17 @@ class Sapi
     public static function getRequest(): Request
     {
         $serverArr = $_SERVER;
-
-        if ('cli' === PHP_SAPI) {
+        if ('cli' === \PHP_SAPI) {
             // If we're running off the CLI, we're going to set some default
             // settings.
             $serverArr['REQUEST_URI'] = $_SERVER['REQUEST_URI'] ?? '/';
             $serverArr['REQUEST_METHOD'] = $_SERVER['REQUEST_METHOD'] ?? 'CLI';
         }
-
         $r = self::createFromServerArray($serverArr);
         $r->setBody(fopen('php://input', 'r'));
         $r->setPostData($_POST);
-
         return $r;
     }
-
     /**
      * Sends the HTTP response back to a HTTP client.
      *
@@ -66,28 +60,24 @@ class Sapi
      */
     public static function sendResponse(ResponseInterface $response)
     {
-        header('HTTP/'.$response->getHttpVersion().' '.$response->getStatus().' '.$response->getStatusText());
+        header('HTTP/' . $response->getHttpVersion() . ' ' . $response->getStatus() . ' ' . $response->getStatusText());
         foreach ($response->getHeaders() as $key => $value) {
             foreach ($value as $k => $v) {
                 if (0 === $k) {
-                    header($key.': '.$v);
+                    header($key . ': ' . $v);
                 } else {
-                    header($key.': '.$v, false);
+                    header($key . ': ' . $v, \false);
                 }
             }
         }
-
         $body = $response->getBody();
         if (null === $body) {
             return;
         }
-
         if (is_callable($body)) {
             $body();
-
             return;
         }
-
         $contentLength = $response->getHeader('Content-Length');
         if (null !== $contentLength) {
             $output = fopen('php://output', 'wb');
@@ -104,7 +94,7 @@ class Sapi
                     // 4kB should be the default page size on most architectures
                     $pageSize = 4096;
                     $offset = (int) $matches[1];
-                    $delta = ($offset % $pageSize) > 0 ? ($pageSize - $offset % $pageSize) : 0;
+                    $delta = $offset % $pageSize > 0 ? $pageSize - $offset % $pageSize : 0;
                     if ($delta > 0) {
                         $left -= stream_copy_to_stream($body, $output, min($delta, $left));
                     }
@@ -126,12 +116,10 @@ class Sapi
         } else {
             file_put_contents('php://output', $body);
         }
-
         if (is_resource($body)) {
             fclose($body);
         }
     }
-
     /**
      * This static method will create a new Request object, based on a PHP
      * $_SERVER array.
@@ -144,10 +132,8 @@ class Sapi
         $method = null;
         $url = null;
         $httpVersion = '1.1';
-
         $protocol = 'http';
         $hostName = 'localhost';
-
         foreach ($serverArray as $key => $value) {
             $key = (string) $key;
             switch ($key) {
@@ -164,7 +150,6 @@ class Sapi
                 case 'REQUEST_URI':
                     $url = $value;
                     break;
-
                 // These sometimes show up without a HTTP_ prefix
                 case 'CONTENT_TYPE':
                     $headers['Content-Type'] = $value;
@@ -172,48 +157,39 @@ class Sapi
                 case 'CONTENT_LENGTH':
                     $headers['Content-Length'] = $value;
                     break;
-
                 // mod_php on apache will put credentials in these variables.
                 // (fast)cgi does not usually do this, however.
                 case 'PHP_AUTH_USER':
                     if (isset($serverArray['PHP_AUTH_PW'])) {
-                        $headers['Authorization'] = 'Basic '.base64_encode($value.':'.$serverArray['PHP_AUTH_PW']);
+                        $headers['Authorization'] = 'Basic ' . base64_encode($value . ':' . $serverArray['PHP_AUTH_PW']);
                     }
                     break;
-
                 // Similarly, mod_php may also screw around with digest auth.
                 case 'PHP_AUTH_DIGEST':
-                    $headers['Authorization'] = 'Digest '.$value;
+                    $headers['Authorization'] = 'Digest ' . $value;
                     break;
-
                 // Apache may prefix the HTTP_AUTHORIZATION header with
                 // REDIRECT_, if mod_rewrite was used.
                 case 'REDIRECT_HTTP_AUTHORIZATION':
                     $headers['Authorization'] = $value;
                     break;
-
                 case 'HTTP_HOST':
                     $hostName = $value;
                     $headers['Host'] = $value;
                     break;
-
                 case 'HTTPS':
                     if (!empty($value) && 'off' !== $value) {
                         $protocol = 'https';
                     }
                     break;
-
                 default:
                     if ('HTTP_' === substr($key, 0, 5)) {
                         // It's a HTTP header
-
                         // Normalizing it to be prettier
                         $header = strtolower(substr($key, 5));
-
                         // Transforming dashes into spaces, and upper-casing
                         // every first letter.
                         $header = ucwords(str_replace('_', ' ', $header));
-
                         // Turning spaces into dashes.
                         $header = str_replace(' ', '-', $header);
                         $headers[$header] = $value;
@@ -221,19 +197,16 @@ class Sapi
                     break;
             }
         }
-
         if (null === $url) {
             throw new InvalidArgumentException('The _SERVER array must have a REQUEST_URI key');
         }
-
         if (null === $method) {
             throw new InvalidArgumentException('The _SERVER array must have a REQUEST_METHOD key');
         }
         $r = new Request($method, $url, $headers);
         $r->setHttpVersion($httpVersion);
         $r->setRawServerData($serverArray);
-        $r->setAbsoluteUrl($protocol.'://'.$hostName.$url);
-
+        $r->setAbsoluteUrl($protocol . '://' . $hostName . $url);
         return $r;
     }
 }

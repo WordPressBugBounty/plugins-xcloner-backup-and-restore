@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VppTokenRevokeLicensesActionResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class VppTokenRevokeLicensesActionResult extends VppTokenActionResult
 {
-
     /**
-    * Gets the actionFailureReason
-    * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
-    *
-    * @return VppTokenActionFailureReason|null The actionFailureReason
-    */
+     * Gets the actionFailureReason
+     * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     *
+     * @return VppTokenActionFailureReason|null The actionFailureReason
+     */
     public function getActionFailureReason()
     {
         if (array_key_exists("actionFailureReason", $this->_propDict)) {
-            if (is_a($this->_propDict["actionFailureReason"], "\Beta\Microsoft\Graph\Model\VppTokenActionFailureReason") || is_null($this->_propDict["actionFailureReason"])) {
+            if (is_a($this->_propDict["actionFailureReason"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VppTokenActionFailureReason") || is_null($this->_propDict["actionFailureReason"])) {
                 return $this->_propDict["actionFailureReason"];
             } else {
                 $this->_propDict["actionFailureReason"] = new VppTokenActionFailureReason($this->_propDict["actionFailureReason"]);
@@ -45,26 +46,25 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult
         }
         return null;
     }
-
     /**
-    * Sets the actionFailureReason
-    * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
-    *
-    * @param VppTokenActionFailureReason $val The value to assign to the actionFailureReason
-    *
-    * @return VppTokenRevokeLicensesActionResult The VppTokenRevokeLicensesActionResult
-    */
+     * Sets the actionFailureReason
+     * The reason for the revoke licenses action failure. Possible values are: none, appleFailure, internalError, expiredVppToken, expiredApplePushNotificationCertificate.
+     *
+     * @param VppTokenActionFailureReason $val The value to assign to the actionFailureReason
+     *
+     * @return VppTokenRevokeLicensesActionResult The VppTokenRevokeLicensesActionResult
+     */
     public function setActionFailureReason($val)
     {
         $this->_propDict["actionFailureReason"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the failedLicensesCount
-    * A count of the number of licenses that failed to revoke.
-    *
-    * @return int|null The failedLicensesCount
-    */
+     * Gets the failedLicensesCount
+     * A count of the number of licenses that failed to revoke.
+     *
+     * @return int|null The failedLicensesCount
+     */
     public function getFailedLicensesCount()
     {
         if (array_key_exists("failedLicensesCount", $this->_propDict)) {
@@ -73,26 +73,25 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult
             return null;
         }
     }
-
     /**
-    * Sets the failedLicensesCount
-    * A count of the number of licenses that failed to revoke.
-    *
-    * @param int $val The value of the failedLicensesCount
-    *
-    * @return VppTokenRevokeLicensesActionResult
-    */
+     * Sets the failedLicensesCount
+     * A count of the number of licenses that failed to revoke.
+     *
+     * @param int $val The value of the failedLicensesCount
+     *
+     * @return VppTokenRevokeLicensesActionResult
+     */
     public function setFailedLicensesCount($val)
     {
         $this->_propDict["failedLicensesCount"] = $val;
         return $this;
     }
     /**
-    * Gets the totalLicensesCount
-    * A count of the number of licenses that were attempted to revoke.
-    *
-    * @return int|null The totalLicensesCount
-    */
+     * Gets the totalLicensesCount
+     * A count of the number of licenses that were attempted to revoke.
+     *
+     * @return int|null The totalLicensesCount
+     */
     public function getTotalLicensesCount()
     {
         if (array_key_exists("totalLicensesCount", $this->_propDict)) {
@@ -101,15 +100,14 @@ class VppTokenRevokeLicensesActionResult extends VppTokenActionResult
             return null;
         }
     }
-
     /**
-    * Sets the totalLicensesCount
-    * A count of the number of licenses that were attempted to revoke.
-    *
-    * @param int $val The value of the totalLicensesCount
-    *
-    * @return VppTokenRevokeLicensesActionResult
-    */
+     * Sets the totalLicensesCount
+     * A count of the number of licenses that were attempted to revoke.
+     *
+     * @param int $val The value of the totalLicensesCount
+     *
+     * @return VppTokenRevokeLicensesActionResult
+     */
     public function setTotalLicensesCount($val)
     {
         $this->_propDict["totalLicensesCount"] = $val;

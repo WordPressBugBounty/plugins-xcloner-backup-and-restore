@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MatchLocation class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MatchLocation extends Entity
 {
     /**
-    * Gets the length
-    *
-    * @return int|null The length
-    */
+     * Gets the length
+     *
+     * @return int|null The length
+     */
     public function getLength()
     {
         if (array_key_exists("length", $this->_propDict)) {
@@ -39,24 +41,23 @@ class MatchLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the length
-    *
-    * @param int $val The value of the length
-    *
-    * @return MatchLocation
-    */
+     * Sets the length
+     *
+     * @param int $val The value of the length
+     *
+     * @return MatchLocation
+     */
     public function setLength($val)
     {
         $this->_propDict["length"] = $val;
         return $this;
     }
     /**
-    * Gets the offset
-    *
-    * @return int|null The offset
-    */
+     * Gets the offset
+     *
+     * @return int|null The offset
+     */
     public function getOffset()
     {
         if (array_key_exists("offset", $this->_propDict)) {
@@ -65,14 +66,13 @@ class MatchLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the offset
-    *
-    * @param int $val The value of the offset
-    *
-    * @return MatchLocation
-    */
+     * Sets the offset
+     *
+     * @param int $val The value of the offset
+     *
+     * @return MatchLocation
+     */
     public function setOffset($val)
     {
         $this->_propDict["offset"] = $val;

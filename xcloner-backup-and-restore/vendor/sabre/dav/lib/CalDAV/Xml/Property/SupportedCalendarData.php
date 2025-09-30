@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Property;
 
-namespace Sabre\CalDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * Supported-calendar-data property.
  *
@@ -45,16 +43,13 @@ class SupportedCalendarData implements XmlSerializable
      */
     public function xmlSerialize(Writer $writer)
     {
-        $writer->startElement('{'.Plugin::NS_CALDAV.'}calendar-data');
-        $writer->writeAttributes([
-            'content-type' => 'text/calendar',
-            'version' => '2.0',
-        ]);
-        $writer->endElement(); // calendar-data
-        $writer->startElement('{'.Plugin::NS_CALDAV.'}calendar-data');
-        $writer->writeAttributes([
-            'content-type' => 'application/calendar+json',
-        ]);
-        $writer->endElement(); // calendar-data
+        $writer->startElement('{' . Plugin::NS_CALDAV . '}calendar-data');
+        $writer->writeAttributes(['content-type' => 'text/calendar', 'version' => '2.0']);
+        $writer->endElement();
+        // calendar-data
+        $writer->startElement('{' . Plugin::NS_CALDAV . '}calendar-data');
+        $writer->writeAttributes(['content-type' => 'application/calendar+json']);
+        $writer->endElement();
+        // calendar-data
     }
 }

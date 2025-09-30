@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VpnServer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VpnServer extends Entity
 {
     /**
-    * Gets the address
-    * Address (IP address, FQDN or URL)
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     * Address (IP address, FQDN or URL)
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -40,26 +42,25 @@ class VpnServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    * Address (IP address, FQDN or URL)
-    *
-    * @param string $val The value of the address
-    *
-    * @return VpnServer
-    */
+     * Sets the address
+     * Address (IP address, FQDN or URL)
+     *
+     * @param string $val The value of the address
+     *
+     * @return VpnServer
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
     /**
-    * Gets the description
-    * Description.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -68,26 +69,25 @@ class VpnServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description.
-    *
-    * @param string $val The value of the description
-    *
-    * @return VpnServer
-    */
+     * Sets the description
+     * Description.
+     *
+     * @param string $val The value of the description
+     *
+     * @return VpnServer
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the isDefaultServer
-    * Default server.
-    *
-    * @return bool|null The isDefaultServer
-    */
+     * Gets the isDefaultServer
+     * Default server.
+     *
+     * @return bool|null The isDefaultServer
+     */
     public function getIsDefaultServer()
     {
         if (array_key_exists("isDefaultServer", $this->_propDict)) {
@@ -96,15 +96,14 @@ class VpnServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isDefaultServer
-    * Default server.
-    *
-    * @param bool $val The value of the isDefaultServer
-    *
-    * @return VpnServer
-    */
+     * Sets the isDefaultServer
+     * Default server.
+     *
+     * @param bool $val The value of the isDefaultServer
+     *
+     * @return VpnServer
+     */
     public function setIsDefaultServer($val)
     {
         $this->_propDict["isDefaultServer"] = $val;

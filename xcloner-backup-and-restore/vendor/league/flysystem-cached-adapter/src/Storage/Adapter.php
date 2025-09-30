@@ -1,30 +1,26 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use League\Flysystem\AdapterInterface;
-use League\Flysystem\Config;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\League\Flysystem\AdapterInterface;
+use XCloner\League\Flysystem\Config;
 class Adapter extends AbstractCache
 {
     /**
      * @var AdapterInterface An adapter
      */
     protected $adapter;
-
     /**
      * @var string the file to cache to
      */
     protected $file;
-
     /**
      * @var int|null seconds until cache expiration
      */
     protected $expire = null;
-
     /**
      * Constructor.
      *
@@ -38,7 +34,6 @@ class Adapter extends AbstractCache
         $this->file = $file;
         $this->setExpire($expire);
     }
-
     /**
      * Set the expiration time in seconds.
      *
@@ -50,7 +45,6 @@ class Adapter extends AbstractCache
             $this->expire = $this->getTime($expire);
         }
     }
-
     /**
      * Get expiration time in seconds.
      *
@@ -60,24 +54,21 @@ class Adapter extends AbstractCache
      */
     protected function getTime($time = 0)
     {
-        return intval(microtime(true)) + $time;
+        return intval(microtime(\true)) + $time;
     }
-
     /**
      * {@inheritdoc}
      */
     public function setFromStorage($json)
     {
-        list($cache, $complete, $expire) = json_decode($json, true);
-
-        if (! $expire || $expire > $this->getTime()) {
+        list($cache, $complete, $expire) = json_decode($json, \true);
+        if (!$expire || $expire > $this->getTime()) {
             $this->cache = is_array($cache) ? $cache : [];
             $this->complete = is_array($complete) ? $complete : [];
         } else {
             $this->adapter->delete($this->file);
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -90,17 +81,14 @@ class Adapter extends AbstractCache
             }
         }
     }
-
     /**
      * {@inheritdoc}
      */
     public function getForStorage()
     {
         $cleaned = $this->cleanContents($this->cache);
-
         return json_encode([$cleaned, $this->complete, $this->expire]);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -108,7 +96,6 @@ class Adapter extends AbstractCache
     {
         $config = new Config();
         $contents = $this->getForStorage();
-
         if ($this->adapter->has($this->file)) {
             $this->adapter->update($this->file, $contents, $config);
         } else {

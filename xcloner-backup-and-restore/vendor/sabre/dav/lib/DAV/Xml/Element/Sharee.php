@@ -1,21 +1,19 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Element;
 
-namespace Sabre\DAV\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\DAV\Sharing\Plugin;
-use Sabre\DAV\Xml\Property\Href;
-use Sabre\DAV\Xml\Property\ShareAccess;
-use Sabre\Xml\Deserializer;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\DAV\Sharing\Plugin;
+use XCloner\Sabre\DAV\Xml\Property\Href;
+use XCloner\Sabre\DAV\Xml\Property\ShareAccess;
+use XCloner\Sabre\Xml\Deserializer;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * This class represents the {DAV:}sharee element.
  *
@@ -32,7 +30,6 @@ class Sharee implements Element
      * @var string
      */
     public $href;
-
     /**
      * A local principal path. The server will do its best to locate the
      * principal uri based on the given uri. If we could find a local matching
@@ -41,7 +38,6 @@ class Sharee implements Element
      * @var string|null
      */
     public $principal;
-
     /**
      * A list of WebDAV properties that describe the sharee. This might for
      * example contain a {DAV:}displayname with the real name of the user.
@@ -49,7 +45,6 @@ class Sharee implements Element
      * @var array
      */
     public $properties = [];
-
     /**
      * Share access level. One of the Sabre\DAV\Sharing\Plugin::ACCESS
      * constants.
@@ -66,7 +61,6 @@ class Sharee implements Element
      * @var int
      */
     public $access;
-
     /**
      * When a sharee is originally invited to a share, the sharer may add
      * a comment. This will be placed in this property.
@@ -74,7 +68,6 @@ class Sharee implements Element
      * @var string
      */
     public $comment;
-
     /**
      * The status of the invite, should be one of the
      * Sabre\DAV\Sharing\Plugin::INVITE constants.
@@ -82,7 +75,6 @@ class Sharee implements Element
      * @var int
      */
     public $inviteStatus;
-
     /**
      * Creates the object.
      *
@@ -92,13 +84,12 @@ class Sharee implements Element
     {
         foreach ($properties as $k => $v) {
             if (property_exists($this, $k)) {
-                $this->$k = $v;
+                $this->{$k} = $v;
             } else {
-                throw new \InvalidArgumentException('Unknown property: '.$k);
+                throw new \InvalidArgumentException('Unknown property: ' . $k);
             }
         }
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -117,11 +108,7 @@ class Sharee implements Element
      */
     public function xmlSerialize(Writer $writer)
     {
-        $writer->write([
-            new Href($this->href),
-            '{DAV:}prop' => $this->properties,
-            '{DAV:}share-access' => new ShareAccess($this->access),
-        ]);
+        $writer->write([new Href($this->href), '{DAV:}prop' => $this->properties, '{DAV:}share-access' => new ShareAccess($this->access)]);
         switch ($this->inviteStatus) {
             case Plugin::INVITE_NORESPONSE:
                 $writer->writeElement('{DAV:}invite-noresponse');
@@ -137,7 +124,6 @@ class Sharee implements Element
                 break;
         }
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -162,20 +148,16 @@ class Sharee implements Element
     {
         // Temporarily override configuration
         $reader->pushContext();
-        $reader->elementMap['{DAV:}share-access'] = 'Sabre\DAV\Xml\Property\ShareAccess';
-        $reader->elementMap['{DAV:}prop'] = 'Sabre\Xml\Deserializer\keyValue';
-
+        $reader->elementMap['{DAV:}share-access'] = 'XCloner\Sabre\DAV\Xml\Property\ShareAccess';
+        $reader->elementMap['{DAV:}prop'] = 'XCloner\Sabre\Xml\Deserializer\keyValue';
         $elems = Deserializer\keyValue($reader, 'DAV:');
-
         // Restore previous configuration
         $reader->popContext();
-
         $sharee = new self();
         if (!isset($elems['href'])) {
             throw new BadRequest('Every {DAV:}sharee must have a {DAV:}href child-element');
         }
         $sharee->href = $elems['href'];
-
         if (isset($elems['prop'])) {
             $sharee->properties = $elems['prop'];
         }
@@ -186,7 +168,6 @@ class Sharee implements Element
             throw new BadRequest('Every {DAV:}sharee must have a {DAV:}share-access child element');
         }
         $sharee->access = $elems['share-access']->getValue();
-
         return $sharee;
     }
 }

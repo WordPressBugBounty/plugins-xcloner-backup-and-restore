@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event;
 
-namespace Sabre\Event;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Generator;
 use Throwable;
-
 /**
  * Turn asynchronous promise-based code into something that looks synchronous
  * again, through the use of generators.
@@ -61,10 +59,8 @@ function coroutine(callable $gen): Promise
     if (!$generator instanceof Generator) {
         throw new \InvalidArgumentException('You must pass a generator function');
     }
-
     // This is the value we're returning.
     $promise = new Promise();
-
     /**
      * So tempted to use the mythical y-combinator here, but it's not needed in
      * PHP.
@@ -73,16 +69,13 @@ function coroutine(callable $gen): Promise
         while ($generator->valid()) {
             $yieldedValue = $generator->current();
             if ($yieldedValue instanceof Promise) {
-                $yieldedValue->then(
-                    function ($value) use ($generator, &$advanceGenerator) {
-                        $generator->send($value);
-                        $advanceGenerator();
-                    },
-                    function (Throwable $reason) use ($generator, $advanceGenerator) {
-                        $generator->throw($reason);
-                        $advanceGenerator();
-                    }
-                )->otherwise(function (Throwable $reason) use ($promise) {
+                $yieldedValue->then(function ($value) use ($generator, &$advanceGenerator) {
+                    $generator->send($value);
+                    $advanceGenerator();
+                }, function (Throwable $reason) use ($generator, $advanceGenerator) {
+                    $generator->throw($reason);
+                    $advanceGenerator();
+                })->otherwise(function (Throwable $reason) use ($promise) {
                     // This error handler would be called, if something in the
                     // generator throws an exception, and it's not caught
                     // locally.
@@ -96,13 +89,11 @@ function coroutine(callable $gen): Promise
                 $generator->send($yieldedValue);
             }
         }
-
         // If the generator is at the end, and we didn't run into an exception,
         // We're grabbing the "return" value and fulfilling our top-level
         // promise with its value.
         if (!$generator->valid() && Promise::PENDING === $promise->state) {
             $returnValue = $generator->getReturn();
-
             // The return value is a promise.
             if ($returnValue instanceof Promise) {
                 $returnValue->then(function ($value) use ($promise) {
@@ -115,12 +106,10 @@ function coroutine(callable $gen): Promise
             }
         }
     };
-
     try {
         $advanceGenerator();
     } catch (Throwable $e) {
         $promise->reject($e);
     }
-
     return $promise;
 }

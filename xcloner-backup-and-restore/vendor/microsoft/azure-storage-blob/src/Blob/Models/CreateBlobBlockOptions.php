@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Optional parameters for createBlobBlock wrapper
  *
@@ -41,7 +40,6 @@ class CreateBlobBlockOptions extends BlobServiceOptions
 {
     private $_contentMD5;
     private $_numberOfConcurrency;
-
     /**
      * Gets blob contentMD5.
      *
@@ -51,7 +49,6 @@ class CreateBlobBlockOptions extends BlobServiceOptions
     {
         return $this->_contentMD5;
     }
-
     /**
      * Sets blob contentMD5.
      *
@@ -63,7 +60,6 @@ class CreateBlobBlockOptions extends BlobServiceOptions
     {
         $this->_contentMD5 = $contentMD5;
     }
-
     /**
      * Gets number of concurrency for sending a blob.
      *
@@ -73,7 +69,6 @@ class CreateBlobBlockOptions extends BlobServiceOptions
     {
         return $this->_numberOfConcurrency;
     }
-
     /**
      * Sets number of concurrency for sending a blob.
      *
@@ -83,7 +78,6 @@ class CreateBlobBlockOptions extends BlobServiceOptions
     {
         $this->_numberOfConcurrency = $numberOfConcurrency;
     }
-
     /**
      * Construct a CreateBlobBlockOptions object from a createBlobOptions.
      *
@@ -96,9 +90,7 @@ class CreateBlobBlockOptions extends BlobServiceOptions
         $result = new CreateBlobBlockOptions();
         $result->setTimeout($createBlobOptions->getTimeout());
         $result->setLeaseId($createBlobOptions->getLeaseId());
-        $result->setNumberOfConcurrency(
-            $createBlobOptions->getNumberOfConcurrency()
-        );
+        $result->setNumberOfConcurrency($createBlobOptions->getNumberOfConcurrency());
         return $result;
     }
 }

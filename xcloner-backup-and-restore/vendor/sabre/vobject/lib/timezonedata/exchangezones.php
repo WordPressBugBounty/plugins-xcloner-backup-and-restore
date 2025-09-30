@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Microsoft exchange timezones
  * Source:
@@ -25,7 +27,8 @@ return [
     'Paris, Madrid, Brussels, Copenhagen' => 'Europe/Paris',
     'Prague, Central Europe' => 'Europe/Prague',
     'Sarajevo, Skopje, Sofija, Vilnius, Warsaw, Zagreb' => 'Europe/Sarajevo',
-    'West Central Africa' => 'Africa/Luanda', // This was a best guess
+    'West Central Africa' => 'Africa/Luanda',
+    // This was a best guess
     'Athens, Istanbul, Minsk' => 'Europe/Athens',
     'Bucharest' => 'Europe/Bucharest',
     'Cairo' => 'Africa/Cairo',
@@ -37,7 +40,8 @@ return [
     'Moscow, St. Petersburg, Volgograd' => 'Europe/Moscow',
     'East Africa, Nairobi' => 'Africa/Nairobi',
     'Tehran' => 'Asia/Tehran',
-    'Abu Dhabi, Muscat' => 'Asia/Muscat', // Best guess
+    'Abu Dhabi, Muscat' => 'Asia/Muscat',
+    // Best guess
     'Baku, Tbilisi, Yerevan' => 'Asia/Baku',
     'Kabul' => 'Asia/Kabul',
     'Ekaterinburg' => 'Asia/Yekaterinburg',
@@ -72,7 +76,8 @@ return [
     'Azores' => 'Atlantic/Azores',
     'Cape Verde Is.' => 'Atlantic/Cape_Verde',
     'Mid-Atlantic' => 'America/Noronha',
-    'Brasilia' => 'America/Sao_Paulo', // Best guess
+    'Brasilia' => 'America/Sao_Paulo',
+    // Best guess
     'Buenos Aires' => 'America/Argentina/Buenos_Aires',
     'Greenland' => 'America/Godthab',
     'Newfoundland' => 'America/St_Johns',
@@ -87,9 +92,12 @@ return [
     'Mexico City, Tegucigalpa' => 'America/Mexico_City',
     'Saskatchewan' => 'America/Edmonton',
     'Arizona' => 'America/Phoenix',
-    'Mountain Time (US & Canada)' => 'America/Denver', // Best guess
-    'Pacific Time (US & Canada)' => 'America/Los_Angeles', // Best guess
-    'Pacific Time (US & Canada); Tijuana' => 'America/Los_Angeles', // Best guess
+    'Mountain Time (US & Canada)' => 'America/Denver',
+    // Best guess
+    'Pacific Time (US & Canada)' => 'America/Los_Angeles',
+    // Best guess
+    'Pacific Time (US & Canada); Tijuana' => 'America/Los_Angeles',
+    // Best guess
     'Alaska' => 'America/Anchorage',
     'Hawaii' => 'Pacific/Honolulu',
     'Midway Island, Samoa' => 'Pacific/Midway',

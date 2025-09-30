@@ -1,29 +1,25 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Stash\Pool;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Stash\Pool;
 class Stash extends AbstractCache
 {
     /**
      * @var string storage key
      */
     protected $key;
-
     /**
      * @var int|null seconds until cache expiration
      */
     protected $expire;
-
     /**
      * @var \Stash\Pool Stash pool instance
      */
     protected $pool;
-
     /**
      * Constructor.
      *
@@ -37,7 +33,6 @@ class Stash extends AbstractCache
         $this->expire = $expire;
         $this->pool = $pool;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -45,12 +40,10 @@ class Stash extends AbstractCache
     {
         $item = $this->pool->getItem($this->key);
         $contents = $item->get();
-
-        if ($item->isMiss() === false) {
+        if ($item->isMiss() === \false) {
             $this->setFromStorage($contents);
         }
     }
-
     /**
      * {@inheritdoc}
      */

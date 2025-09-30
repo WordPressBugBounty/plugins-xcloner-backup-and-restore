@@ -1,11 +1,11 @@
 <?php
-namespace Aws\SSO;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\SSO;
 
-
-use Aws\AwsClient;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Single Sign-On** service.
  * @method \Aws\Result getRoleCredentials(array $args = [])
@@ -17,4 +17,6 @@ use Aws\AwsClient;
  * @method \Aws\Result logout(array $args = [])
  * @method \GuzzleHttp\Promise\Promise logoutAsync(array $args = [])
  */
-class SSOClient extends AwsClient {}
+class SSOClient extends AwsClient
+{
+}

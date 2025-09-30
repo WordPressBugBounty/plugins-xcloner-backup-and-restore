@@ -1,15 +1,14 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner;
+
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 ?>#!/usr/bin/env php
-<?php
-
-include __DIR__.'/../vendor/autoload.php';
-
-$data = stream_get_contents(STDIN);
-
-$start = microtime(true);
-
+<?php 
+include __DIR__ . '/../vendor/autoload.php';
+$data = \stream_get_contents(\STDIN);
+$start = \microtime(\true);
 $lol = Sabre\VObject\Reader::read($data);
-
-echo 'time: '.(microtime(true) - $start)."\n";
+echo 'time: ' . (\microtime(\true) - $start) . "\n";

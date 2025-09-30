@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,16 +8,17 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for unlink() functionality.
  *
  * @group  unlink
  */
-class UnlinkTestCase extends \BC_PHPUnit_Framework_TestCase
+class UnlinkTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -30,7 +32,6 @@ class UnlinkTestCase extends \BC_PHPUnit_Framework_TestCase
         $root->getChild('test_directory')->getChild('test.file')->chmod(0444);
         $this->assertTrue(@unlink(vfsStream::url('root/test_directory/test.file')));
     }
-
     /**
      * @test
      * @group  issue_51
@@ -43,7 +44,6 @@ class UnlinkTestCase extends \BC_PHPUnit_Framework_TestCase
         $root->getChild('test_directory')->getChild('test.file')->chmod(0777);
         $this->assertFalse(@unlink(vfsStream::url('root/test_directory/test.file')));
     }
-
     /**
      * @test
      * @since  1.4.0
@@ -54,7 +54,7 @@ class UnlinkTestCase extends \BC_PHPUnit_Framework_TestCase
         vfsStream::setup();
         try {
             $this->assertFalse(unlink('vfs://root/foo.txt'));
-        } catch (\PHPUnit_Framework_Error $fe) {
+        } catch (\XCloner\PHPUnit_Framework_Error $fe) {
             $this->assertEquals('unlink(vfs://root/foo.txt): No such file or directory', $fe->getMessage());
         }
     }

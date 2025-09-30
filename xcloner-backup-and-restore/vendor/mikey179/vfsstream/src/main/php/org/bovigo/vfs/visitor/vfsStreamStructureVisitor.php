@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,14 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\visitor;
+namespace XCloner\org\bovigo\vfs\visitor;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\vfsStreamFile;
-use org\bovigo\vfs\vfsStreamBlock;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\vfsStreamDirectory;
+use XCloner\org\bovigo\vfs\vfsStreamFile;
+use XCloner\org\bovigo\vfs\vfsStreamBlock;
 /**
  * Visitor which traverses a content structure recursively to create an array structure from it.
  *
@@ -35,7 +36,6 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
      * @type  array
      */
     protected $current;
-
     /**
      * constructor
      *
@@ -45,7 +45,6 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
     {
         $this->reset();
     }
-
     /**
      * visit a file and process it
      *
@@ -57,7 +56,6 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
         $this->current[$file->getName()] = $file->getContent();
         return $this;
     }
-
     /**
      * visit a block device and process it
      *
@@ -69,7 +67,6 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
         $this->current['[' . $block->getName() . ']'] = $block->getContent();
         return $this;
     }
-
     /**
      * visit a directory and process it
      *
@@ -79,16 +76,14 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
     public function visitDirectory(vfsStreamDirectory $dir)
     {
         $this->current[$dir->getName()] = array();
-        $tmp           =& $this->current;
+        $tmp =& $this->current;
         $this->current =& $tmp[$dir->getName()];
         foreach ($dir as $child) {
             $this->visit($child);
         }
-
         $this->current =& $tmp;
         return $this;
     }
-
     /**
      * returns structure of visited contents
      *
@@ -99,7 +94,6 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
     {
         return $this->structure;
     }
-
     /**
      * resets structure so visitor could be reused
      *
@@ -108,7 +102,7 @@ class vfsStreamStructureVisitor extends vfsStreamAbstractVisitor
     public function reset()
     {
         $this->structure = array();
-        $this->current   =& $this->structure;
+        $this->current =& $this->structure;
         return $this;
     }
 }

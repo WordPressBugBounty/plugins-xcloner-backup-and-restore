@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OcrSettings class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
+class OcrSettings extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the isEnabled
-    * Indicates whether or not OCR is enabled for the case.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Indicates whether or not OCR is enabled for the case.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Indicates whether or not OCR is enabled for the case.
-    *
-    * @param bool $val The value of the isEnabled
-    *
-    * @return OcrSettings
-    */
+     * Sets the isEnabled
+     * Indicates whether or not OCR is enabled for the case.
+     *
+     * @param bool $val The value of the isEnabled
+     *
+     * @return OcrSettings
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the maxImageSize
-    * Maximum image size that will be processed in KB).
-    *
-    * @return int|null The maxImageSize
-    */
+     * Gets the maxImageSize
+     * Maximum image size that will be processed in KB).
+     *
+     * @return int|null The maxImageSize
+     */
     public function getMaxImageSize()
     {
         if (array_key_exists("maxImageSize", $this->_propDict)) {
@@ -68,31 +69,29 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the maxImageSize
-    * Maximum image size that will be processed in KB).
-    *
-    * @param int $val The value of the maxImageSize
-    *
-    * @return OcrSettings
-    */
+     * Sets the maxImageSize
+     * Maximum image size that will be processed in KB).
+     *
+     * @param int $val The value of the maxImageSize
+     *
+     * @return OcrSettings
+     */
     public function setMaxImageSize($val)
     {
         $this->_propDict["maxImageSize"] = $val;
         return $this;
     }
-
     /**
-    * Gets the timeout
-    * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
-    *
-    * @return \DateInterval|null The timeout
-    */
+     * Gets the timeout
+     * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+     *
+     * @return \DateInterval|null The timeout
+     */
     public function getTimeout()
     {
         if (array_key_exists("timeout", $this->_propDict)) {
-            if (is_a($this->_propDict["timeout"], "\DateInterval") || is_null($this->_propDict["timeout"])) {
+            if (is_a($this->_propDict["timeout"], "\\DateInterval") || is_null($this->_propDict["timeout"])) {
                 return $this->_propDict["timeout"];
             } else {
                 $this->_propDict["timeout"] = new \DateInterval($this->_propDict["timeout"]);
@@ -101,18 +100,17 @@ class OcrSettings extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeout
-    * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
-    *
-    * @param \DateInterval $val The value to assign to the timeout
-    *
-    * @return OcrSettings The OcrSettings
-    */
+     * Sets the timeout
+     * The timeout duration for the OCR engine. A longer timeout may increase success of OCR, but may add to the total processing time.
+     *
+     * @param \DateInterval $val The value to assign to the timeout
+     *
+     * @return OcrSettings The OcrSettings
+     */
     public function setTimeout($val)
     {
         $this->_propDict["timeout"] = $val;
-         return $this;
+        return $this;
     }
 }

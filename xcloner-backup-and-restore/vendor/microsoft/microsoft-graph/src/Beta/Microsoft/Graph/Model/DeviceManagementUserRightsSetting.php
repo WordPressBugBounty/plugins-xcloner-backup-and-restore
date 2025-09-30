@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementUserRightsSetting class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementUserRightsSetting extends Entity
 {
-
     /**
-    * Gets the localUsersOrGroups
-    * Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.
-    *
-    * @return DeviceManagementUserRightsLocalUserOrGroup|null The localUsersOrGroups
-    */
+     * Gets the localUsersOrGroups
+     * Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.
+     *
+     * @return DeviceManagementUserRightsLocalUserOrGroup|null The localUsersOrGroups
+     */
     public function getLocalUsersOrGroups()
     {
         if (array_key_exists("localUsersOrGroups", $this->_propDict)) {
-            if (is_a($this->_propDict["localUsersOrGroups"], "\Beta\Microsoft\Graph\Model\DeviceManagementUserRightsLocalUserOrGroup") || is_null($this->_propDict["localUsersOrGroups"])) {
+            if (is_a($this->_propDict["localUsersOrGroups"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementUserRightsLocalUserOrGroup") || is_null($this->_propDict["localUsersOrGroups"])) {
                 return $this->_propDict["localUsersOrGroups"];
             } else {
                 $this->_propDict["localUsersOrGroups"] = new DeviceManagementUserRightsLocalUserOrGroup($this->_propDict["localUsersOrGroups"]);
@@ -45,31 +46,29 @@ class DeviceManagementUserRightsSetting extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the localUsersOrGroups
-    * Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.
-    *
-    * @param DeviceManagementUserRightsLocalUserOrGroup $val The value to assign to the localUsersOrGroups
-    *
-    * @return DeviceManagementUserRightsSetting The DeviceManagementUserRightsSetting
-    */
+     * Sets the localUsersOrGroups
+     * Representing a collection of local users or groups which will be set on device if the state of this setting is Allowed. This collection can contain a maximum of 500 elements.
+     *
+     * @param DeviceManagementUserRightsLocalUserOrGroup $val The value to assign to the localUsersOrGroups
+     *
+     * @return DeviceManagementUserRightsSetting The DeviceManagementUserRightsSetting
+     */
     public function setLocalUsersOrGroups($val)
     {
         $this->_propDict["localUsersOrGroups"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the state
-    * Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
-    *
-    * @return StateManagementSetting|null The state
-    */
+     * Gets the state
+     * Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
+     *
+     * @return StateManagementSetting|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\StateManagementSetting") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\StateManagementSetting") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new StateManagementSetting($this->_propDict["state"]);
@@ -78,18 +77,17 @@ class DeviceManagementUserRightsSetting extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
-    *
-    * @param StateManagementSetting $val The value to assign to the state
-    *
-    * @return DeviceManagementUserRightsSetting The DeviceManagementUserRightsSetting
-    */
+     * Sets the state
+     * Representing the current state of this user rights setting. Possible values are: notConfigured, blocked, allowed.
+     *
+     * @param StateManagementSetting $val The value to assign to the state
+     *
+     * @return DeviceManagementUserRightsSetting The DeviceManagementUserRightsSetting
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
 }

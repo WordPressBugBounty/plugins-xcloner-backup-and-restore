@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookSessionInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookSessionInfo extends Entity
 {
     /**
-    * Gets the id
-    * Id of the workbook session.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * Id of the workbook session.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WorkbookSessionInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * Id of the workbook session.
-    *
-    * @param string $val The value of the id
-    *
-    * @return WorkbookSessionInfo
-    */
+     * Sets the id
+     * Id of the workbook session.
+     *
+     * @param string $val The value of the id
+     *
+     * @return WorkbookSessionInfo
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the persistChanges
-    * true for persistent session. false for non-persistent session (view mode)
-    *
-    * @return bool|null The persistChanges
-    */
+     * Gets the persistChanges
+     * true for persistent session. false for non-persistent session (view mode)
+     *
+     * @return bool|null The persistChanges
+     */
     public function getPersistChanges()
     {
         if (array_key_exists("persistChanges", $this->_propDict)) {
@@ -68,15 +69,14 @@ class WorkbookSessionInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the persistChanges
-    * true for persistent session. false for non-persistent session (view mode)
-    *
-    * @param bool $val The value of the persistChanges
-    *
-    * @return WorkbookSessionInfo
-    */
+     * Sets the persistChanges
+     * true for persistent session. false for non-persistent session (view mode)
+     *
+     * @param bool $val The value of the persistChanges
+     *
+     * @return WorkbookSessionInfo
+     */
     public function setPersistChanges($val)
     {
         $this->_propDict["persistChanges"] = $val;

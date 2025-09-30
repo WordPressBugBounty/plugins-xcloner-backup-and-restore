@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The MessageInterface is the base interface that's used by both
  * the RequestInterface and ResponseInterface.
@@ -26,7 +25,6 @@ interface MessageInterface
      * @return resource
      */
     public function getBodyAsStream();
-
     /**
      * Returns the body as a string.
      *
@@ -34,7 +32,6 @@ interface MessageInterface
      * method could only work correctly the first time.
      */
     public function getBodyAsString(): string;
-
     /**
      * Returns the message body, as its internal representation.
      *
@@ -43,26 +40,22 @@ interface MessageInterface
      * @return resource|string|callable
      */
     public function getBody();
-
     /**
      * Updates the body resource with a new stream.
      *
      * @param resource|string|callable $body
      */
     public function setBody($body);
-
     /**
      * Returns all the HTTP headers as an array.
      *
      * Every header is returned as an array, with one or more values.
      */
     public function getHeaders(): array;
-
     /**
      * Will return true or false, depending on if a HTTP header exists.
      */
     public function hasHeader(string $name): bool;
-
     /**
      * Returns a specific HTTP header, based on its name.
      *
@@ -79,7 +72,6 @@ interface MessageInterface
      * @return string|null
      */
     public function getHeader(string $name);
-
     /**
      * Returns a HTTP header as an array.
      *
@@ -91,7 +83,6 @@ interface MessageInterface
      * @return string[]
      */
     public function getHeaderAsArray(string $name): array;
-
     /**
      * Updates a HTTP header.
      *
@@ -102,7 +93,6 @@ interface MessageInterface
      * @param string|string[] $value
      */
     public function setHeader(string $name, $value);
-
     /**
      * Sets a new set of HTTP headers.
      *
@@ -112,7 +102,6 @@ interface MessageInterface
      * Any header that already existed will be overwritten.
      */
     public function setHeaders(array $headers);
-
     /**
      * Adds a HTTP header.
      *
@@ -123,14 +112,12 @@ interface MessageInterface
      * @param string|string[] $value
      */
     public function addHeader(string $name, $value);
-
     /**
      * Adds a new set of HTTP headers.
      *
      * Any existing headers will not be overwritten.
      */
     public function addHeaders(array $headers);
-
     /**
      * Removes a HTTP header.
      *
@@ -139,14 +126,12 @@ interface MessageInterface
      * and false if the header did not exist.
      */
     public function removeHeader(string $name): bool;
-
     /**
      * Sets the HTTP version.
      *
      * Should be 1.0, 1.1 or 2.0.
      */
     public function setHttpVersion(string $version);
-
     /**
      * Returns the HTTP version.
      */

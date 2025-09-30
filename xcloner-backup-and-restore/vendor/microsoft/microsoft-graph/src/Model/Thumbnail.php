@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Thumbnail class
 *
@@ -26,45 +28,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Thumbnail extends Entity
 {
-
     /**
-    * Gets the content
-    * The content stream for the thumbnail.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The content
-    */
+     * Gets the content
+     * The content stream for the thumbnail.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
+                $this->_propDict["content"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the content
-    * The content stream for the thumbnail.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the content
-    *
-    * @return Thumbnail The Thumbnail
-    */
+     * Sets the content
+     * The content stream for the thumbnail.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the content
+     *
+     * @return Thumbnail The Thumbnail
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the height
-    * The height of the thumbnail, in pixels.
-    *
-    * @return int|null The height
-    */
+     * Gets the height
+     * The height of the thumbnail, in pixels.
+     *
+     * @return int|null The height
+     */
     public function getHeight()
     {
         if (array_key_exists("height", $this->_propDict)) {
@@ -73,26 +73,25 @@ class Thumbnail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the height
-    * The height of the thumbnail, in pixels.
-    *
-    * @param int $val The value of the height
-    *
-    * @return Thumbnail
-    */
+     * Sets the height
+     * The height of the thumbnail, in pixels.
+     *
+     * @param int $val The value of the height
+     *
+     * @return Thumbnail
+     */
     public function setHeight($val)
     {
         $this->_propDict["height"] = $val;
         return $this;
     }
     /**
-    * Gets the sourceItemId
-    * The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
-    *
-    * @return string|null The sourceItemId
-    */
+     * Gets the sourceItemId
+     * The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
+     *
+     * @return string|null The sourceItemId
+     */
     public function getSourceItemId()
     {
         if (array_key_exists("sourceItemId", $this->_propDict)) {
@@ -101,26 +100,25 @@ class Thumbnail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceItemId
-    * The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
-    *
-    * @param string $val The value of the sourceItemId
-    *
-    * @return Thumbnail
-    */
+     * Sets the sourceItemId
+     * The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.
+     *
+     * @param string $val The value of the sourceItemId
+     *
+     * @return Thumbnail
+     */
     public function setSourceItemId($val)
     {
         $this->_propDict["sourceItemId"] = $val;
         return $this;
     }
     /**
-    * Gets the url
-    * The URL used to fetch the thumbnail content.
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * The URL used to fetch the thumbnail content.
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -129,26 +127,25 @@ class Thumbnail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * The URL used to fetch the thumbnail content.
-    *
-    * @param string $val The value of the url
-    *
-    * @return Thumbnail
-    */
+     * Sets the url
+     * The URL used to fetch the thumbnail content.
+     *
+     * @param string $val The value of the url
+     *
+     * @return Thumbnail
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;
         return $this;
     }
     /**
-    * Gets the width
-    * The width of the thumbnail, in pixels.
-    *
-    * @return int|null The width
-    */
+     * Gets the width
+     * The width of the thumbnail, in pixels.
+     *
+     * @return int|null The width
+     */
     public function getWidth()
     {
         if (array_key_exists("width", $this->_propDict)) {
@@ -157,15 +154,14 @@ class Thumbnail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the width
-    * The width of the thumbnail, in pixels.
-    *
-    * @param int $val The value of the width
-    *
-    * @return Thumbnail
-    */
+     * Sets the width
+     * The width of the thumbnail, in pixels.
+     *
+     * @param int $val The value of the width
+     *
+     * @return Thumbnail
+     */
     public function setWidth($val)
     {
         $this->_propDict["width"] = $val;

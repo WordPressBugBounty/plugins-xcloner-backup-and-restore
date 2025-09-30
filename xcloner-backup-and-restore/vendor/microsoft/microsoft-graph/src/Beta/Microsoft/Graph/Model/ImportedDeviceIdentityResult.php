@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ImportedDeviceIdentityResult class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
 {
     /**
-    * Gets the status
-    * Status of imported device identity
-    *
-    * @return bool|null The status
-    */
+     * Gets the status
+     * Status of imported device identity
+     *
+     * @return bool|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
@@ -41,19 +42,17 @@ class ImportedDeviceIdentityResult extends ImportedDeviceIdentity
             return null;
         }
     }
-
     /**
-    * Sets the status
-    * Status of imported device identity
-    *
-    * @param bool $val The status
-    *
-    * @return ImportedDeviceIdentityResult
-    */
+     * Sets the status
+     * Status of imported device identity
+     *
+     * @param bool $val The status
+     *
+     * @return ImportedDeviceIdentityResult
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = boolval($val);
         return $this;
     }
-
 }

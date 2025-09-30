@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InformationProtection class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InformationProtection extends Entity
 {
     /**
-    * Gets the bitlocker
-    *
-    * @return Bitlocker|null The bitlocker
-    */
+     * Gets the bitlocker
+     *
+     * @return Bitlocker|null The bitlocker
+     */
     public function getBitlocker()
     {
         if (array_key_exists("bitlocker", $this->_propDict)) {
-            if (is_a($this->_propDict["bitlocker"], "\Microsoft\Graph\Model\Bitlocker") || is_null($this->_propDict["bitlocker"])) {
+            if (is_a($this->_propDict["bitlocker"], "XCloner\\Microsoft\\Graph\\Model\\Bitlocker") || is_null($this->_propDict["bitlocker"])) {
                 return $this->_propDict["bitlocker"];
             } else {
                 $this->_propDict["bitlocker"] = new Bitlocker($this->_propDict["bitlocker"]);
@@ -44,22 +45,19 @@ class InformationProtection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the bitlocker
-    *
-    * @param Bitlocker $val The bitlocker
-    *
-    * @return InformationProtection
-    */
+     * Sets the bitlocker
+     *
+     * @param Bitlocker $val The bitlocker
+     *
+     * @return InformationProtection
+     */
     public function setBitlocker($val)
     {
         $this->_propDict["bitlocker"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the threatAssessmentRequests
      *
      * @return array|null The threatAssessmentRequests
@@ -67,23 +65,21 @@ class InformationProtection extends Entity
     public function getThreatAssessmentRequests()
     {
         if (array_key_exists("threatAssessmentRequests", $this->_propDict)) {
-           return $this->_propDict["threatAssessmentRequests"];
+            return $this->_propDict["threatAssessmentRequests"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the threatAssessmentRequests
-    *
-    * @param ThreatAssessmentRequest[] $val The threatAssessmentRequests
-    *
-    * @return InformationProtection
-    */
+     * Sets the threatAssessmentRequests
+     *
+     * @param ThreatAssessmentRequest[] $val The threatAssessmentRequests
+     *
+     * @return InformationProtection
+     */
     public function setThreatAssessmentRequests($val)
     {
         $this->_propDict["threatAssessmentRequests"] = $val;
         return $this;
     }
-
 }

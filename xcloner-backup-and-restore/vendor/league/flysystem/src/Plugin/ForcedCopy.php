@@ -1,13 +1,12 @@
 <?php
 
-namespace League\Flysystem\Plugin;
+namespace XCloner\League\Flysystem\Plugin;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use League\Flysystem\FileExistsException;
-use League\Flysystem\FileNotFoundException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\League\Flysystem\FileExistsException;
+use XCloner\League\Flysystem\FileNotFoundException;
 class ForcedCopy extends AbstractPlugin
 {
     /**
@@ -17,7 +16,6 @@ class ForcedCopy extends AbstractPlugin
     {
         return 'forceCopy';
     }
-
     /**
      * Copies a file, overwriting any existing files.
      *
@@ -35,13 +33,11 @@ class ForcedCopy extends AbstractPlugin
             $deleted = $this->filesystem->delete($newpath);
         } catch (FileNotFoundException $e) {
             // The destination path does not exist. That's ok.
-            $deleted = true;
+            $deleted = \true;
         }
-
         if ($deleted) {
             return $this->filesystem->copy($path, $newpath);
         }
-
-        return false;
+        return \false;
     }
 }

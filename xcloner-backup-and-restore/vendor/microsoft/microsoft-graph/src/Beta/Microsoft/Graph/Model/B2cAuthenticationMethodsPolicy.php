@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * B2cAuthenticationMethodsPolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class B2cAuthenticationMethodsPolicy extends Entity
 {
     /**
-    * Gets the isEmailPasswordAuthenticationEnabled
-    * The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
-    *
-    * @return bool|null The isEmailPasswordAuthenticationEnabled
-    */
+     * Gets the isEmailPasswordAuthenticationEnabled
+     * The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
+     *
+     * @return bool|null The isEmailPasswordAuthenticationEnabled
+     */
     public function getIsEmailPasswordAuthenticationEnabled()
     {
         if (array_key_exists("isEmailPasswordAuthenticationEnabled", $this->_propDict)) {
@@ -41,27 +42,25 @@ class B2cAuthenticationMethodsPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEmailPasswordAuthenticationEnabled
-    * The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
-    *
-    * @param bool $val The isEmailPasswordAuthenticationEnabled
-    *
-    * @return B2cAuthenticationMethodsPolicy
-    */
+     * Sets the isEmailPasswordAuthenticationEnabled
+     * The tenant admin can configure local accounts using email if the email and password authentication method is enabled.
+     *
+     * @param bool $val The isEmailPasswordAuthenticationEnabled
+     *
+     * @return B2cAuthenticationMethodsPolicy
+     */
     public function setIsEmailPasswordAuthenticationEnabled($val)
     {
         $this->_propDict["isEmailPasswordAuthenticationEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isPhoneOneTimePasswordAuthenticationEnabled
-    * The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.
-    *
-    * @return bool|null The isPhoneOneTimePasswordAuthenticationEnabled
-    */
+     * Gets the isPhoneOneTimePasswordAuthenticationEnabled
+     * The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.
+     *
+     * @return bool|null The isPhoneOneTimePasswordAuthenticationEnabled
+     */
     public function getIsPhoneOneTimePasswordAuthenticationEnabled()
     {
         if (array_key_exists("isPhoneOneTimePasswordAuthenticationEnabled", $this->_propDict)) {
@@ -70,27 +69,25 @@ class B2cAuthenticationMethodsPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isPhoneOneTimePasswordAuthenticationEnabled
-    * The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.
-    *
-    * @param bool $val The isPhoneOneTimePasswordAuthenticationEnabled
-    *
-    * @return B2cAuthenticationMethodsPolicy
-    */
+     * Sets the isPhoneOneTimePasswordAuthenticationEnabled
+     * The tenant admin can configure local accounts using phone number if the phone number and one-time password authentication method is enabled.
+     *
+     * @param bool $val The isPhoneOneTimePasswordAuthenticationEnabled
+     *
+     * @return B2cAuthenticationMethodsPolicy
+     */
     public function setIsPhoneOneTimePasswordAuthenticationEnabled($val)
     {
         $this->_propDict["isPhoneOneTimePasswordAuthenticationEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isUserNameAuthenticationEnabled
-    * The tenant admin can configure local accounts using username if the username and password authentication method is enabled.
-    *
-    * @return bool|null The isUserNameAuthenticationEnabled
-    */
+     * Gets the isUserNameAuthenticationEnabled
+     * The tenant admin can configure local accounts using username if the username and password authentication method is enabled.
+     *
+     * @return bool|null The isUserNameAuthenticationEnabled
+     */
     public function getIsUserNameAuthenticationEnabled()
     {
         if (array_key_exists("isUserNameAuthenticationEnabled", $this->_propDict)) {
@@ -99,19 +96,17 @@ class B2cAuthenticationMethodsPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isUserNameAuthenticationEnabled
-    * The tenant admin can configure local accounts using username if the username and password authentication method is enabled.
-    *
-    * @param bool $val The isUserNameAuthenticationEnabled
-    *
-    * @return B2cAuthenticationMethodsPolicy
-    */
+     * Sets the isUserNameAuthenticationEnabled
+     * The tenant admin can configure local accounts using username if the username and password authentication method is enabled.
+     *
+     * @param bool $val The isUserNameAuthenticationEnabled
+     *
+     * @return B2cAuthenticationMethodsPolicy
+     */
     public function setIsUserNameAuthenticationEnabled($val)
     {
         $this->_propDict["isUserNameAuthenticationEnabled"] = boolval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeConstraint class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TimeConstraint extends Entity
 {
-
     /**
-    * Gets the activityDomain
-    * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
-    *
-    * @return ActivityDomain|null The activityDomain
-    */
+     * Gets the activityDomain
+     * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
+     *
+     * @return ActivityDomain|null The activityDomain
+     */
     public function getActivityDomain()
     {
         if (array_key_exists("activityDomain", $this->_propDict)) {
-            if (is_a($this->_propDict["activityDomain"], "\Microsoft\Graph\Model\ActivityDomain") || is_null($this->_propDict["activityDomain"])) {
+            if (is_a($this->_propDict["activityDomain"], "XCloner\\Microsoft\\Graph\\Model\\ActivityDomain") || is_null($this->_propDict["activityDomain"])) {
                 return $this->_propDict["activityDomain"];
             } else {
                 $this->_propDict["activityDomain"] = new ActivityDomain($this->_propDict["activityDomain"]);
@@ -45,30 +46,28 @@ class TimeConstraint extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the activityDomain
-    * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
-    *
-    * @param ActivityDomain $val The value to assign to the activityDomain
-    *
-    * @return TimeConstraint The TimeConstraint
-    */
+     * Sets the activityDomain
+     * The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
+     *
+     * @param ActivityDomain $val The value to assign to the activityDomain
+     *
+     * @return TimeConstraint The TimeConstraint
+     */
     public function setActivityDomain($val)
     {
         $this->_propDict["activityDomain"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the timeSlots
-    *
-    * @return TimeSlot|null The timeSlots
-    */
+     * Gets the timeSlots
+     *
+     * @return TimeSlot|null The timeSlots
+     */
     public function getTimeSlots()
     {
         if (array_key_exists("timeSlots", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlots"], "\Microsoft\Graph\Model\TimeSlot") || is_null($this->_propDict["timeSlots"])) {
+            if (is_a($this->_propDict["timeSlots"], "XCloner\\Microsoft\\Graph\\Model\\TimeSlot") || is_null($this->_propDict["timeSlots"])) {
                 return $this->_propDict["timeSlots"];
             } else {
                 $this->_propDict["timeSlots"] = new TimeSlot($this->_propDict["timeSlots"]);
@@ -77,17 +76,16 @@ class TimeConstraint extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeSlots
-    *
-    * @param TimeSlot $val The value to assign to the timeSlots
-    *
-    * @return TimeConstraint The TimeConstraint
-    */
+     * Sets the timeSlots
+     *
+     * @param TimeSlot $val The value to assign to the timeSlots
+     *
+     * @return TimeConstraint The TimeConstraint
+     */
     public function setTimeSlots($val)
     {
         $this->_propDict["timeSlots"] = $val;
-         return $this;
+        return $this;
     }
 }

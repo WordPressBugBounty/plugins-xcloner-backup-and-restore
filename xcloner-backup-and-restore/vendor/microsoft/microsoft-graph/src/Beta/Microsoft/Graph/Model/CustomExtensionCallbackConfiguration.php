@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CustomExtensionCallbackConfiguration class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CustomExtensionCallbackConfiguration extends Entity
 {
-
     /**
-    * Gets the timeoutDuration
-    * Callback time out in ISO 8601 time duration. Accepted time durations are between five minutes to three hours. For example, PT5M for five minutes and PT3H for three hours.
-    *
-    * @return \DateInterval|null The timeoutDuration
-    */
+     * Gets the timeoutDuration
+     * Callback time out in ISO 8601 time duration. Accepted time durations are between five minutes to three hours. For example, PT5M for five minutes and PT3H for three hours.
+     *
+     * @return \DateInterval|null The timeoutDuration
+     */
     public function getTimeoutDuration()
     {
         if (array_key_exists("timeoutDuration", $this->_propDict)) {
-            if (is_a($this->_propDict["timeoutDuration"], "\DateInterval") || is_null($this->_propDict["timeoutDuration"])) {
+            if (is_a($this->_propDict["timeoutDuration"], "\\DateInterval") || is_null($this->_propDict["timeoutDuration"])) {
                 return $this->_propDict["timeoutDuration"];
             } else {
                 $this->_propDict["timeoutDuration"] = new \DateInterval($this->_propDict["timeoutDuration"]);
@@ -45,18 +46,17 @@ class CustomExtensionCallbackConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeoutDuration
-    * Callback time out in ISO 8601 time duration. Accepted time durations are between five minutes to three hours. For example, PT5M for five minutes and PT3H for three hours.
-    *
-    * @param \DateInterval $val The value to assign to the timeoutDuration
-    *
-    * @return CustomExtensionCallbackConfiguration The CustomExtensionCallbackConfiguration
-    */
+     * Sets the timeoutDuration
+     * Callback time out in ISO 8601 time duration. Accepted time durations are between five minutes to three hours. For example, PT5M for five minutes and PT3H for three hours.
+     *
+     * @param \DateInterval $val The value to assign to the timeoutDuration
+     *
+     * @return CustomExtensionCallbackConfiguration The CustomExtensionCallbackConfiguration
+     */
     public function setTimeoutDuration($val)
     {
         $this->_propDict["timeoutDuration"] = $val;
-         return $this;
+        return $this;
     }
 }

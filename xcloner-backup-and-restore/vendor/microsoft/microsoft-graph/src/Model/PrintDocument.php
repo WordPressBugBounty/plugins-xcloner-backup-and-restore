@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintDocument class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintDocument extends Entity
 {
     /**
-    * Gets the contentType
-    * The document's content (MIME) type. Read-only.
-    *
-    * @return string|null The contentType
-    */
+     * Gets the contentType
+     * The document's content (MIME) type. Read-only.
+     *
+     * @return string|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
@@ -41,27 +42,25 @@ class PrintDocument extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentType
-    * The document's content (MIME) type. Read-only.
-    *
-    * @param string $val The contentType
-    *
-    * @return PrintDocument
-    */
+     * Sets the contentType
+     * The document's content (MIME) type. Read-only.
+     *
+     * @param string $val The contentType
+     *
+     * @return PrintDocument
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The document's name. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The document's name. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class PrintDocument extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The document's name. Read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return PrintDocument
-    */
+     * Sets the displayName
+     * The document's name. Read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return PrintDocument
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the size
-    * The document's size in bytes. Read-only.
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     * The document's size in bytes. Read-only.
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -99,19 +96,17 @@ class PrintDocument extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the size
-    * The document's size in bytes. Read-only.
-    *
-    * @param int $val The size
-    *
-    * @return PrintDocument
-    */
+     * Sets the size
+     * The document's size in bytes. Read-only.
+     *
+     * @param int $val The size
+     *
+     * @return PrintDocument
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-
 }

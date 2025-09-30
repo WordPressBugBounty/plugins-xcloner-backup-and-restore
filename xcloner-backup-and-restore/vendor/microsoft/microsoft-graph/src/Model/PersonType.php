@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PersonType class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PersonType extends Entity
 {
     /**
-    * Gets the class
-    * The type of data source, such as Person.
-    *
-    * @return string|null The class
-    */
+     * Gets the class
+     * The type of data source, such as Person.
+     *
+     * @return string|null The class
+     */
     public function getClass()
     {
         if (array_key_exists("class", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PersonType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the class
-    * The type of data source, such as Person.
-    *
-    * @param string $val The value of the class
-    *
-    * @return PersonType
-    */
+     * Sets the class
+     * The type of data source, such as Person.
+     *
+     * @param string $val The value of the class
+     *
+     * @return PersonType
+     */
     public function setClass($val)
     {
         $this->_propDict["class"] = $val;
         return $this;
     }
     /**
-    * Gets the subclass
-    * The secondary type of data source, such as OrganizationUser.
-    *
-    * @return string|null The subclass
-    */
+     * Gets the subclass
+     * The secondary type of data source, such as OrganizationUser.
+     *
+     * @return string|null The subclass
+     */
     public function getSubclass()
     {
         if (array_key_exists("subclass", $this->_propDict)) {
@@ -68,15 +69,14 @@ class PersonType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subclass
-    * The secondary type of data source, such as OrganizationUser.
-    *
-    * @param string $val The value of the subclass
-    *
-    * @return PersonType
-    */
+     * Sets the subclass
+     * The secondary type of data source, such as OrganizationUser.
+     *
+     * @param string $val The value of the subclass
+     *
+     * @return PersonType
+     */
     public function setSubclass($val)
     {
         $this->_propDict["subclass"] = $val;

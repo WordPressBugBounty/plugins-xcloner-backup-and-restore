@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsKioskDesktopApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsKioskDesktopApp extends WindowsKioskAppBase
 {
     /**
-    * Gets the desktopApplicationId
-    * Define the DesktopApplicationID of the app
-    *
-    * @return string|null The desktopApplicationId
-    */
+     * Gets the desktopApplicationId
+     * Define the DesktopApplicationID of the app
+     *
+     * @return string|null The desktopApplicationId
+     */
     public function getDesktopApplicationId()
     {
         if (array_key_exists("desktopApplicationId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the desktopApplicationId
-    * Define the DesktopApplicationID of the app
-    *
-    * @param string $val The value of the desktopApplicationId
-    *
-    * @return WindowsKioskDesktopApp
-    */
+     * Sets the desktopApplicationId
+     * Define the DesktopApplicationID of the app
+     *
+     * @param string $val The value of the desktopApplicationId
+     *
+     * @return WindowsKioskDesktopApp
+     */
     public function setDesktopApplicationId($val)
     {
         $this->_propDict["desktopApplicationId"] = $val;
         return $this;
     }
     /**
-    * Gets the desktopApplicationLinkPath
-    * Define the DesktopApplicationLinkPath of the app
-    *
-    * @return string|null The desktopApplicationLinkPath
-    */
+     * Gets the desktopApplicationLinkPath
+     * Define the DesktopApplicationLinkPath of the app
+     *
+     * @return string|null The desktopApplicationLinkPath
+     */
     public function getDesktopApplicationLinkPath()
     {
         if (array_key_exists("desktopApplicationLinkPath", $this->_propDict)) {
@@ -68,26 +69,25 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the desktopApplicationLinkPath
-    * Define the DesktopApplicationLinkPath of the app
-    *
-    * @param string $val The value of the desktopApplicationLinkPath
-    *
-    * @return WindowsKioskDesktopApp
-    */
+     * Sets the desktopApplicationLinkPath
+     * Define the DesktopApplicationLinkPath of the app
+     *
+     * @param string $val The value of the desktopApplicationLinkPath
+     *
+     * @return WindowsKioskDesktopApp
+     */
     public function setDesktopApplicationLinkPath($val)
     {
         $this->_propDict["desktopApplicationLinkPath"] = $val;
         return $this;
     }
     /**
-    * Gets the path
-    * Define the path of a desktop app
-    *
-    * @return string|null The path
-    */
+     * Gets the path
+     * Define the path of a desktop app
+     *
+     * @return string|null The path
+     */
     public function getPath()
     {
         if (array_key_exists("path", $this->_propDict)) {
@@ -96,15 +96,14 @@ class WindowsKioskDesktopApp extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the path
-    * Define the path of a desktop app
-    *
-    * @param string $val The value of the path
-    *
-    * @return WindowsKioskDesktopApp
-    */
+     * Sets the path
+     * Define the path of a desktop app
+     *
+     * @param string $val The value of the path
+     *
+     * @return WindowsKioskDesktopApp
+     */
     public function setPath($val)
     {
         $this->_propDict["path"] = $val;

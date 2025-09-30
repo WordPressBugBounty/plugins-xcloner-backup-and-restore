@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,43 +15,40 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileImageMediaMetadataLocation extends \Google\Model
-{
-  public $altitude;
-  public $latitude;
-  public $longitude;
-
-  public function setAltitude($altitude)
-  {
-    $this->altitude = $altitude;
-  }
-  public function getAltitude()
-  {
-    return $this->altitude;
-  }
-  public function setLatitude($latitude)
-  {
-    $this->latitude = $latitude;
-  }
-  public function getLatitude()
-  {
-    return $this->latitude;
-  }
-  public function setLongitude($longitude)
-  {
-    $this->longitude = $longitude;
-  }
-  public function getLongitude()
-  {
-    return $this->longitude;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileImageMediaMetadataLocation extends \XCloner\Google\Model
+{
+    public $altitude;
+    public $latitude;
+    public $longitude;
+    public function setAltitude($altitude)
+    {
+        $this->altitude = $altitude;
+    }
+    public function getAltitude()
+    {
+        return $this->altitude;
+    }
+    public function setLatitude($latitude)
+    {
+        $this->latitude = $latitude;
+    }
+    public function getLatitude()
+    {
+        return $this->latitude;
+    }
+    public function setLongitude($longitude)
+    {
+        $this->longitude = $longitude;
+    }
+    public function getLongitude()
+    {
+        return $this->longitude;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileImageMediaMetadataLocation::class, 'Google_Service_Drive_DriveFileImageMediaMetadataLocation');
+class_alias(DriveFileImageMediaMetadataLocation::class, 'XCloner\Google_Service_Drive_DriveFileImageMediaMetadataLocation');

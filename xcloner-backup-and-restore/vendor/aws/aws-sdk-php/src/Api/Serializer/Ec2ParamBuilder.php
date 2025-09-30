@@ -1,12 +1,12 @@
 <?php
-namespace Aws\Api\Serializer;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Api\Serializer;
 
-
-use Aws\Api\Shape;
-use Aws\Api\ListShape;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Api\Shape;
+use XCloner\Aws\Api\ListShape;
 /**
  * @internal
  */
@@ -14,25 +14,17 @@ class Ec2ParamBuilder extends QueryParamBuilder
 {
     protected function queryName(Shape $shape, $default = null)
     {
-        return ($shape['queryName']
-            ?: ucfirst(@$shape['locationName'] ?: ""))
-                ?: $default;
+        return ($shape['queryName'] ?: ucfirst(@$shape['locationName'] ?: "")) ?: $default;
     }
-
     protected function isFlat(Shape $shape)
     {
-        return false;
+        return \false;
     }
-
-    protected function format_list(
-        ListShape $shape,
-        array $value,
-        $prefix,
-        &$query
-    ) {
+    protected function format_list(ListShape $shape, array $value, $prefix, &$query)
+    {
         // Handle empty list serialization
         if (!$value) {
-            $query[$prefix] = false;
+            $query[$prefix] = \false;
         } else {
             $items = $shape->getMember();
             foreach ($value as $k => $v) {

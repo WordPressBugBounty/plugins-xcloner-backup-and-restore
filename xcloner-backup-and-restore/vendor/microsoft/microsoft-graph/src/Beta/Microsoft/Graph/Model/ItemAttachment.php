@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemAttachment class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemAttachment extends Attachment
 {
     /**
-    * Gets the item
-    * The attached contact, message or event. Navigation property.
-    *
-    * @return OutlookItem|null The item
-    */
+     * Gets the item
+     * The attached contact, message or event. Navigation property.
+     *
+     * @return OutlookItem|null The item
+     */
     public function getItem()
     {
         if (array_key_exists("item", $this->_propDict)) {
-            if (is_a($this->_propDict["item"], "\Beta\Microsoft\Graph\Model\OutlookItem") || is_null($this->_propDict["item"])) {
+            if (is_a($this->_propDict["item"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OutlookItem") || is_null($this->_propDict["item"])) {
                 return $this->_propDict["item"];
             } else {
                 $this->_propDict["item"] = new OutlookItem($this->_propDict["item"]);
@@ -45,19 +46,17 @@ class ItemAttachment extends Attachment
         }
         return null;
     }
-
     /**
-    * Sets the item
-    * The attached contact, message or event. Navigation property.
-    *
-    * @param OutlookItem $val The item
-    *
-    * @return ItemAttachment
-    */
+     * Sets the item
+     * The attached contact, message or event. Navigation property.
+     *
+     * @param OutlookItem $val The item
+     *
+     * @return ItemAttachment
+     */
     public function setItem($val)
     {
         $this->_propDict["item"] = $val;
         return $this;
     }
-
 }

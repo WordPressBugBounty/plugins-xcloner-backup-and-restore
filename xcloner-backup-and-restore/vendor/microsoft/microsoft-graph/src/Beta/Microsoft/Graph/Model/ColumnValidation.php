@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ColumnValidation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ColumnValidation extends Entity
 {
     /**
-    * Gets the defaultLanguage
-    * Default BCP 47 language tag for the description.
-    *
-    * @return string|null The defaultLanguage
-    */
+     * Gets the defaultLanguage
+     * Default BCP 47 language tag for the description.
+     *
+     * @return string|null The defaultLanguage
+     */
     public function getDefaultLanguage()
     {
         if (array_key_exists("defaultLanguage", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ColumnValidation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the defaultLanguage
-    * Default BCP 47 language tag for the description.
-    *
-    * @param string $val The value of the defaultLanguage
-    *
-    * @return ColumnValidation
-    */
+     * Sets the defaultLanguage
+     * Default BCP 47 language tag for the description.
+     *
+     * @param string $val The value of the defaultLanguage
+     *
+     * @return ColumnValidation
+     */
     public function setDefaultLanguage($val)
     {
         $this->_propDict["defaultLanguage"] = $val;
         return $this;
     }
-
     /**
-    * Gets the descriptions
-    * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
-    *
-    * @return DisplayNameLocalization|null The descriptions
-    */
+     * Gets the descriptions
+     * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
+     *
+     * @return DisplayNameLocalization|null The descriptions
+     */
     public function getDescriptions()
     {
         if (array_key_exists("descriptions", $this->_propDict)) {
-            if (is_a($this->_propDict["descriptions"], "\Beta\Microsoft\Graph\Model\DisplayNameLocalization") || is_null($this->_propDict["descriptions"])) {
+            if (is_a($this->_propDict["descriptions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DisplayNameLocalization") || is_null($this->_propDict["descriptions"])) {
                 return $this->_propDict["descriptions"];
             } else {
                 $this->_propDict["descriptions"] = new DisplayNameLocalization($this->_propDict["descriptions"]);
@@ -73,26 +73,25 @@ class ColumnValidation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the descriptions
-    * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
-    *
-    * @param DisplayNameLocalization $val The value to assign to the descriptions
-    *
-    * @return ColumnValidation The ColumnValidation
-    */
+     * Sets the descriptions
+     * Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.
+     *
+     * @param DisplayNameLocalization $val The value to assign to the descriptions
+     *
+     * @return ColumnValidation The ColumnValidation
+     */
     public function setDescriptions($val)
     {
         $this->_propDict["descriptions"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the formula
-    * The formula to validate column value. For examples, see Examples of common formulas in lists
-    *
-    * @return string|null The formula
-    */
+     * Gets the formula
+     * The formula to validate column value. For examples, see Examples of common formulas in lists
+     *
+     * @return string|null The formula
+     */
     public function getFormula()
     {
         if (array_key_exists("formula", $this->_propDict)) {
@@ -101,15 +100,14 @@ class ColumnValidation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the formula
-    * The formula to validate column value. For examples, see Examples of common formulas in lists
-    *
-    * @param string $val The value of the formula
-    *
-    * @return ColumnValidation
-    */
+     * Sets the formula
+     * The formula to validate column value. For examples, see Examples of common formulas in lists
+     *
+     * @param string $val The value of the formula
+     *
+     * @return ColumnValidation
+     */
     public function setFormula($val)
     {
         $this->_propDict["formula"] = $val;

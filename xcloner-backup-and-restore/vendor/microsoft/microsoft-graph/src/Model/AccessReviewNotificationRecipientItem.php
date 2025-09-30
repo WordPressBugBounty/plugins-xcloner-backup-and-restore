@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewNotificationRecipientItem class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AccessReviewNotificationRecipientItem extends Entity
 {
-
     /**
-    * Gets the notificationRecipientScope
-    * Determines the recipient of the notification email.
-    *
-    * @return AccessReviewNotificationRecipientScope|null The notificationRecipientScope
-    */
+     * Gets the notificationRecipientScope
+     * Determines the recipient of the notification email.
+     *
+     * @return AccessReviewNotificationRecipientScope|null The notificationRecipientScope
+     */
     public function getNotificationRecipientScope()
     {
         if (array_key_exists("notificationRecipientScope", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationRecipientScope"], "\Microsoft\Graph\Model\AccessReviewNotificationRecipientScope") || is_null($this->_propDict["notificationRecipientScope"])) {
+            if (is_a($this->_propDict["notificationRecipientScope"], "XCloner\\Microsoft\\Graph\\Model\\AccessReviewNotificationRecipientScope") || is_null($this->_propDict["notificationRecipientScope"])) {
                 return $this->_propDict["notificationRecipientScope"];
             } else {
                 $this->_propDict["notificationRecipientScope"] = new AccessReviewNotificationRecipientScope($this->_propDict["notificationRecipientScope"]);
@@ -45,26 +46,25 @@ class AccessReviewNotificationRecipientItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the notificationRecipientScope
-    * Determines the recipient of the notification email.
-    *
-    * @param AccessReviewNotificationRecipientScope $val The value to assign to the notificationRecipientScope
-    *
-    * @return AccessReviewNotificationRecipientItem The AccessReviewNotificationRecipientItem
-    */
+     * Sets the notificationRecipientScope
+     * Determines the recipient of the notification email.
+     *
+     * @param AccessReviewNotificationRecipientScope $val The value to assign to the notificationRecipientScope
+     *
+     * @return AccessReviewNotificationRecipientItem The AccessReviewNotificationRecipientItem
+     */
     public function setNotificationRecipientScope($val)
     {
         $this->_propDict["notificationRecipientScope"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the notificationTemplateType
-    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
-    *
-    * @return string|null The notificationTemplateType
-    */
+     * Gets the notificationTemplateType
+     * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
+     *
+     * @return string|null The notificationTemplateType
+     */
     public function getNotificationTemplateType()
     {
         if (array_key_exists("notificationTemplateType", $this->_propDict)) {
@@ -73,15 +73,14 @@ class AccessReviewNotificationRecipientItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notificationTemplateType
-    * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
-    *
-    * @param string $val The value of the notificationTemplateType
-    *
-    * @return AccessReviewNotificationRecipientItem
-    */
+     * Sets the notificationTemplateType
+     * Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
+     *
+     * @param string $val The value of the notificationTemplateType
+     *
+     * @return AccessReviewNotificationRecipientItem
+     */
     public function setNotificationTemplateType($val)
     {
         $this->_propDict["notificationTemplateType"] = $val;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * FlatText property.
  *
@@ -33,7 +33,6 @@ class FlatText extends Text
      * @var string
      */
     public $delimiter = ',';
-
     /**
      * Sets the value as a quoted-printable encoded string.
      *

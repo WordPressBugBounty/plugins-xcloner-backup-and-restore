@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerRosterMember class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerRosterMember extends Entity
 {
     /**
-    * Gets the roles
-    * Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
-    *
-    * @return array|null The roles
-    */
+     * Gets the roles
+     * Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
+     *
+     * @return array|null The roles
+     */
     public function getRoles()
     {
         if (array_key_exists("roles", $this->_propDict)) {
@@ -41,27 +42,25 @@ class PlannerRosterMember extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roles
-    * Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
-    *
-    * @param string[] $val The roles
-    *
-    * @return PlannerRosterMember
-    */
+     * Sets the roles
+     * Additional roles associated with the PlannerRosterMember, which determines permissions of the member in the plannerRoster. Currently there are no available roles to assign, and every member has full control over the contents of the plannerRoster.
+     *
+     * @param string[] $val The roles
+     *
+     * @return PlannerRosterMember
+     */
     public function setRoles($val)
     {
         $this->_propDict["roles"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class PlannerRosterMember extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
-    *
-    * @param string $val The tenantId
-    *
-    * @return PlannerRosterMember
-    */
+     * Sets the tenantId
+     * Identifier of the tenant the user belongs to. Currently only the users from the same tenant can be added to a plannerRoster.
+     *
+     * @param string $val The tenantId
+     *
+     * @return PlannerRosterMember
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * Identifier of the user.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * Identifier of the user.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -99,19 +96,17 @@ class PlannerRosterMember extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * Identifier of the user.
-    *
-    * @param string $val The userId
-    *
-    * @return PlannerRosterMember
-    */
+     * Sets the userId
+     * Identifier of the user.
+     *
+     * @param string $val The userId
+     *
+     * @return PlannerRosterMember
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

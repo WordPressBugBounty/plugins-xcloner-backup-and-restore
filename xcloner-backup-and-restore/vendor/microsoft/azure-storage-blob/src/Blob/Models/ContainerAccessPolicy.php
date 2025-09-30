@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources;
-use MicrosoftAzure\Storage\Common\Models\AccessPolicy;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources;
+use XCloner\MicrosoftAzure\Storage\Common\Models\AccessPolicy;
 /**
  * Holds access policy elements
  *
@@ -49,11 +47,8 @@ class ContainerAccessPolicy extends AccessPolicy
      */
     public static function getResourceValidPermissions()
     {
-        return BlobResources::ACCESS_PERMISSIONS[
-            BlobResources::RESOURCE_TYPE_CONTAINER
-        ];
+        return BlobResources::ACCESS_PERMISSIONS[BlobResources::RESOURCE_TYPE_CONTAINER];
     }
-
     /**
      * Constructor
      */

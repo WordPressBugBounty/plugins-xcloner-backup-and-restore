@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2020 Google LLC
  *
@@ -14,12 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth;
 
-namespace Google\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Describes a Credentials object which supports updating request metadata
  * (request headers).
@@ -27,7 +27,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 interface UpdateMetadataInterface
 {
     const AUTH_METADATA_KEY = 'authorization';
-
     /**
      * Updates metadata with the authorization token.
      *
@@ -36,9 +35,5 @@ interface UpdateMetadataInterface
      * @param callable $httpHandler callback which delivers psr7 request
      * @return array<mixed> updated metadata hashmap
      */
-    public function updateMetadata(
-        $metadata,
-        $authUri = null,
-        callable $httpHandler = null
-    );
+    public function updateMetadata($metadata, $authUri = null, callable $httpHandler = null);
 }

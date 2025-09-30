@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedTenantExecutionError class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedTenantExecutionError extends ManagedTenantOperationError
 {
     /**
-    * Gets the errorDetails
-    * Additional error information for the exception. Optional. Read-only.
-    *
-    * @return string|null The errorDetails
-    */
+     * Gets the errorDetails
+     * Additional error information for the exception. Optional. Read-only.
+     *
+     * @return string|null The errorDetails
+     */
     public function getErrorDetails()
     {
         if (array_key_exists("errorDetails", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ManagedTenantExecutionError extends ManagedTenantOperationError
             return null;
         }
     }
-
     /**
-    * Sets the errorDetails
-    * Additional error information for the exception. Optional. Read-only.
-    *
-    * @param string $val The value of the errorDetails
-    *
-    * @return ManagedTenantExecutionError
-    */
+     * Sets the errorDetails
+     * Additional error information for the exception. Optional. Read-only.
+     *
+     * @param string $val The value of the errorDetails
+     *
+     * @return ManagedTenantExecutionError
+     */
     public function setErrorDetails($val)
     {
         $this->_propDict["errorDetails"] = $val;
         return $this;
     }
     /**
-    * Gets the nodeId
-    * The node identifier where the exception occurred. Required. Read-only.
-    *
-    * @return int|null The nodeId
-    */
+     * Gets the nodeId
+     * The node identifier where the exception occurred. Required. Read-only.
+     *
+     * @return int|null The nodeId
+     */
     public function getNodeId()
     {
         if (array_key_exists("nodeId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ManagedTenantExecutionError extends ManagedTenantOperationError
             return null;
         }
     }
-
     /**
-    * Sets the nodeId
-    * The node identifier where the exception occurred. Required. Read-only.
-    *
-    * @param int $val The value of the nodeId
-    *
-    * @return ManagedTenantExecutionError
-    */
+     * Sets the nodeId
+     * The node identifier where the exception occurred. Required. Read-only.
+     *
+     * @param int $val The value of the nodeId
+     *
+     * @return ManagedTenantExecutionError
+     */
     public function setNodeId($val)
     {
         $this->_propDict["nodeId"] = $val;
         return $this;
     }
     /**
-    * Gets the rawToken
-    * The token for the exception. Optional. Read-only.
-    *
-    * @return string|null The rawToken
-    */
+     * Gets the rawToken
+     * The token for the exception. Optional. Read-only.
+     *
+     * @return string|null The rawToken
+     */
     public function getRawToken()
     {
         if (array_key_exists("rawToken", $this->_propDict)) {
@@ -96,26 +96,25 @@ class ManagedTenantExecutionError extends ManagedTenantOperationError
             return null;
         }
     }
-
     /**
-    * Sets the rawToken
-    * The token for the exception. Optional. Read-only.
-    *
-    * @param string $val The value of the rawToken
-    *
-    * @return ManagedTenantExecutionError
-    */
+     * Sets the rawToken
+     * The token for the exception. Optional. Read-only.
+     *
+     * @param string $val The value of the rawToken
+     *
+     * @return ManagedTenantExecutionError
+     */
     public function setRawToken($val)
     {
         $this->_propDict["rawToken"] = $val;
         return $this;
     }
     /**
-    * Gets the statementIndex
-    * The statement index for the exception. Required. Read-only.
-    *
-    * @return int|null The statementIndex
-    */
+     * Gets the statementIndex
+     * The statement index for the exception. Required. Read-only.
+     *
+     * @return int|null The statementIndex
+     */
     public function getStatementIndex()
     {
         if (array_key_exists("statementIndex", $this->_propDict)) {
@@ -124,15 +123,14 @@ class ManagedTenantExecutionError extends ManagedTenantOperationError
             return null;
         }
     }
-
     /**
-    * Sets the statementIndex
-    * The statement index for the exception. Required. Read-only.
-    *
-    * @param int $val The value of the statementIndex
-    *
-    * @return ManagedTenantExecutionError
-    */
+     * Sets the statementIndex
+     * The statement index for the exception. Required. Read-only.
+     *
+     * @param int $val The value of the statementIndex
+     *
+     * @return ManagedTenantExecutionError
+     */
     public function setStatementIndex($val)
     {
         $this->_propDict["statementIndex"] = $val;

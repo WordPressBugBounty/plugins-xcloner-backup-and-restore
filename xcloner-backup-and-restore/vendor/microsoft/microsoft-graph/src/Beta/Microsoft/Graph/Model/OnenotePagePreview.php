@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnenotePagePreview class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OnenotePagePreview extends Entity
 {
-
     /**
-    * Gets the links
-    *
-    * @return OnenotePagePreviewLinks|null The links
-    */
+     * Gets the links
+     *
+     * @return OnenotePagePreviewLinks|null The links
+     */
     public function getLinks()
     {
         if (array_key_exists("links", $this->_propDict)) {
-            if (is_a($this->_propDict["links"], "\Beta\Microsoft\Graph\Model\OnenotePagePreviewLinks") || is_null($this->_propDict["links"])) {
+            if (is_a($this->_propDict["links"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OnenotePagePreviewLinks") || is_null($this->_propDict["links"])) {
                 return $this->_propDict["links"];
             } else {
                 $this->_propDict["links"] = new OnenotePagePreviewLinks($this->_propDict["links"]);
@@ -44,24 +45,23 @@ class OnenotePagePreview extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the links
-    *
-    * @param OnenotePagePreviewLinks $val The value to assign to the links
-    *
-    * @return OnenotePagePreview The OnenotePagePreview
-    */
+     * Sets the links
+     *
+     * @param OnenotePagePreviewLinks $val The value to assign to the links
+     *
+     * @return OnenotePagePreview The OnenotePagePreview
+     */
     public function setLinks($val)
     {
         $this->_propDict["links"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the previewText
-    *
-    * @return string|null The previewText
-    */
+     * Gets the previewText
+     *
+     * @return string|null The previewText
+     */
     public function getPreviewText()
     {
         if (array_key_exists("previewText", $this->_propDict)) {
@@ -70,14 +70,13 @@ class OnenotePagePreview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the previewText
-    *
-    * @param string $val The value of the previewText
-    *
-    * @return OnenotePagePreview
-    */
+     * Sets the previewText
+     *
+     * @param string $val The value of the previewText
+     *
+     * @return OnenotePagePreview
+     */
     public function setPreviewText($val)
     {
         $this->_propDict["previewText"] = $val;

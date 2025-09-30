@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PasswordSingleSignOnCredentialSet class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PasswordSingleSignOnCredentialSet extends Entity
 {
-
     /**
-    * Gets the credentials
-    * A list of credential objects that define the complete sign in flow.
-    *
-    * @return Credential|null The credentials
-    */
+     * Gets the credentials
+     * A list of credential objects that define the complete sign in flow.
+     *
+     * @return Credential|null The credentials
+     */
     public function getCredentials()
     {
         if (array_key_exists("credentials", $this->_propDict)) {
-            if (is_a($this->_propDict["credentials"], "\Beta\Microsoft\Graph\Model\Credential") || is_null($this->_propDict["credentials"])) {
+            if (is_a($this->_propDict["credentials"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Credential") || is_null($this->_propDict["credentials"])) {
                 return $this->_propDict["credentials"];
             } else {
                 $this->_propDict["credentials"] = new Credential($this->_propDict["credentials"]);
@@ -45,26 +46,25 @@ class PasswordSingleSignOnCredentialSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the credentials
-    * A list of credential objects that define the complete sign in flow.
-    *
-    * @param Credential $val The value to assign to the credentials
-    *
-    * @return PasswordSingleSignOnCredentialSet The PasswordSingleSignOnCredentialSet
-    */
+     * Sets the credentials
+     * A list of credential objects that define the complete sign in flow.
+     *
+     * @param Credential $val The value to assign to the credentials
+     *
+     * @return PasswordSingleSignOnCredentialSet The PasswordSingleSignOnCredentialSet
+     */
     public function setCredentials($val)
     {
         $this->_propDict["credentials"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the id
-    * The ID of the user or group this credential set belongs to.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The ID of the user or group this credential set belongs to.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -73,15 +73,14 @@ class PasswordSingleSignOnCredentialSet extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The ID of the user or group this credential set belongs to.
-    *
-    * @param string $val The value of the id
-    *
-    * @return PasswordSingleSignOnCredentialSet
-    */
+     * Sets the id
+     * The ID of the user or group this credential set belongs to.
+     *
+     * @param string $val The value of the id
+     *
+     * @return PasswordSingleSignOnCredentialSet
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * AndroidWorkProfileVpnConnectionType class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class AndroidWorkProfileVpnConnectionType extends Enum
 {
     /**
-    * The Enum AndroidWorkProfileVpnConnectionType
-    */
+     * The Enum AndroidWorkProfileVpnConnectionType
+     */
     const CISCO_ANY_CONNECT = "ciscoAnyConnect";
     const PULSE_SECURE = "pulseSecure";
     const F5_EDGE_CLIENT = "f5EdgeClient";

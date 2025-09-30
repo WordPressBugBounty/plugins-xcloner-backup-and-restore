@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SafeguardSettings class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class SafeguardSettings extends \Beta\Microsoft\Graph\Model\Entity
+class SafeguardSettings extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the disabledSafeguardProfiles
-    * List of safeguards to ignore per device.
-    *
-    * @return SafeguardProfile|null The disabledSafeguardProfiles
-    */
+     * Gets the disabledSafeguardProfiles
+     * List of safeguards to ignore per device.
+     *
+     * @return SafeguardProfile|null The disabledSafeguardProfiles
+     */
     public function getDisabledSafeguardProfiles()
     {
         if (array_key_exists("disabledSafeguardProfiles", $this->_propDict)) {
-            if (is_a($this->_propDict["disabledSafeguardProfiles"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\SafeguardProfile") || is_null($this->_propDict["disabledSafeguardProfiles"])) {
+            if (is_a($this->_propDict["disabledSafeguardProfiles"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\SafeguardProfile") || is_null($this->_propDict["disabledSafeguardProfiles"])) {
                 return $this->_propDict["disabledSafeguardProfiles"];
             } else {
                 $this->_propDict["disabledSafeguardProfiles"] = new SafeguardProfile($this->_propDict["disabledSafeguardProfiles"]);
@@ -45,18 +46,17 @@ class SafeguardSettings extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the disabledSafeguardProfiles
-    * List of safeguards to ignore per device.
-    *
-    * @param SafeguardProfile $val The value to assign to the disabledSafeguardProfiles
-    *
-    * @return SafeguardSettings The SafeguardSettings
-    */
+     * Sets the disabledSafeguardProfiles
+     * List of safeguards to ignore per device.
+     *
+     * @param SafeguardProfile $val The value to assign to the disabledSafeguardProfiles
+     *
+     * @return SafeguardSettings The SafeguardSettings
+     */
     public function setDisabledSafeguardProfiles($val)
     {
         $this->_propDict["disabledSafeguardProfiles"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VulnerableManagedDevice class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VulnerableManagedDevice extends Entity
 {
     /**
-    * Gets the displayName
-    * The device name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The device name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class VulnerableManagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The device name.
-    *
-    * @param string $val The displayName
-    *
-    * @return VulnerableManagedDevice
-    */
+     * Sets the displayName
+     * The device name.
+     *
+     * @param string $val The displayName
+     *
+     * @return VulnerableManagedDevice
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastSyncDateTime
-    * The last sync date.
-    *
-    * @return \DateTime|null The lastSyncDateTime
-    */
+     * Gets the lastSyncDateTime
+     * The last sync date.
+     *
+     * @return \DateTime|null The lastSyncDateTime
+     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -74,27 +73,25 @@ class VulnerableManagedDevice extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSyncDateTime
-    * The last sync date.
-    *
-    * @param \DateTime $val The lastSyncDateTime
-    *
-    * @return VulnerableManagedDevice
-    */
+     * Sets the lastSyncDateTime
+     * The last sync date.
+     *
+     * @param \DateTime $val The lastSyncDateTime
+     *
+     * @return VulnerableManagedDevice
+     */
     public function setLastSyncDateTime($val)
     {
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceId
-    * The Intune managed device ID.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * The Intune managed device ID.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -103,19 +100,17 @@ class VulnerableManagedDevice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * The Intune managed device ID.
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return VulnerableManagedDevice
-    */
+     * Sets the managedDeviceId
+     * The Intune managed device ID.
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return VulnerableManagedDevice
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
 }

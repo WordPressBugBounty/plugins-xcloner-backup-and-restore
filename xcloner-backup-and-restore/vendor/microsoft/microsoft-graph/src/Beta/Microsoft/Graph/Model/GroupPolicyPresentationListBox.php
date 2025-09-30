@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationListBox class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation
 {
     /**
-    * Gets the explicitValue
-    * If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
-    *
-    * @return bool|null The explicitValue
-    */
+     * Gets the explicitValue
+     * If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
+     *
+     * @return bool|null The explicitValue
+     */
     public function getExplicitValue()
     {
         if (array_key_exists("explicitValue", $this->_propDict)) {
@@ -41,27 +42,25 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the explicitValue
-    * If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
-    *
-    * @param bool $val The explicitValue
-    *
-    * @return GroupPolicyPresentationListBox
-    */
+     * Sets the explicitValue
+     * If this option is specified true the user must specify the registry subkey value and the registry subkey name. The list box shows two columns, one for the name and one for the data. The default value is false.
+     *
+     * @param bool $val The explicitValue
+     *
+     * @return GroupPolicyPresentationListBox
+     */
     public function setExplicitValue($val)
     {
         $this->_propDict["explicitValue"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the valuePrefix
-    * Not yet documented
-    *
-    * @return string|null The valuePrefix
-    */
+     * Gets the valuePrefix
+     * Not yet documented
+     *
+     * @return string|null The valuePrefix
+     */
     public function getValuePrefix()
     {
         if (array_key_exists("valuePrefix", $this->_propDict)) {
@@ -70,19 +69,17 @@ class GroupPolicyPresentationListBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the valuePrefix
-    * Not yet documented
-    *
-    * @param string $val The valuePrefix
-    *
-    * @return GroupPolicyPresentationListBox
-    */
+     * Sets the valuePrefix
+     * Not yet documented
+     *
+     * @param string $val The valuePrefix
+     *
+     * @return GroupPolicyPresentationListBox
+     */
     public function setValuePrefix($val)
     {
         $this->_propDict["valuePrefix"] = $val;
         return $this;
     }
-
 }

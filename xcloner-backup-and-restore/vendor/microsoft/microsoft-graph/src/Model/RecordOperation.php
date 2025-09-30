@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RecordOperation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RecordOperation extends CommsOperation
 {
     /**
-    * Gets the recordingAccessToken
-    * The access token required to retrieve the recording.
-    *
-    * @return string|null The recordingAccessToken
-    */
+     * Gets the recordingAccessToken
+     * The access token required to retrieve the recording.
+     *
+     * @return string|null The recordingAccessToken
+     */
     public function getRecordingAccessToken()
     {
         if (array_key_exists("recordingAccessToken", $this->_propDict)) {
@@ -41,27 +42,25 @@ class RecordOperation extends CommsOperation
             return null;
         }
     }
-
     /**
-    * Sets the recordingAccessToken
-    * The access token required to retrieve the recording.
-    *
-    * @param string $val The recordingAccessToken
-    *
-    * @return RecordOperation
-    */
+     * Sets the recordingAccessToken
+     * The access token required to retrieve the recording.
+     *
+     * @param string $val The recordingAccessToken
+     *
+     * @return RecordOperation
+     */
     public function setRecordingAccessToken($val)
     {
         $this->_propDict["recordingAccessToken"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recordingLocation
-    * The location where the recording is located.
-    *
-    * @return string|null The recordingLocation
-    */
+     * Gets the recordingLocation
+     * The location where the recording is located.
+     *
+     * @return string|null The recordingLocation
+     */
     public function getRecordingLocation()
     {
         if (array_key_exists("recordingLocation", $this->_propDict)) {
@@ -70,19 +69,17 @@ class RecordOperation extends CommsOperation
             return null;
         }
     }
-
     /**
-    * Sets the recordingLocation
-    * The location where the recording is located.
-    *
-    * @param string $val The recordingLocation
-    *
-    * @return RecordOperation
-    */
+     * Sets the recordingLocation
+     * The location where the recording is located.
+     *
+     * @param string $val The recordingLocation
+     *
+     * @return RecordOperation
+     */
     public function setRecordingLocation($val)
     {
         $this->_propDict["recordingLocation"] = $val;
         return $this;
     }
-
 }

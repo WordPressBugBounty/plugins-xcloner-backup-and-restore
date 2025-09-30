@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Request;
 
-namespace Sabre\DAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Xml\Element\Sharee;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * ShareResource request parser.
  *
@@ -30,7 +28,6 @@ class ShareResource implements XmlDeserializable
      * @var Sharee[]
      */
     public $sharees = [];
-
     /**
      * Constructor.
      *
@@ -40,7 +37,6 @@ class ShareResource implements XmlDeserializable
     {
         $this->sharees = $sharees;
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -63,21 +59,14 @@ class ShareResource implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $elems = $reader->parseInnerTree([
-            '{DAV:}sharee' => 'Sabre\DAV\Xml\Element\Sharee',
-            '{DAV:}share-access' => 'Sabre\DAV\Xml\Property\ShareAccess',
-            '{DAV:}prop' => 'Sabre\Xml\Deserializer\keyValue',
-        ]);
-
+        $elems = $reader->parseInnerTree(['{DAV:}sharee' => 'XCloner\Sabre\DAV\Xml\Element\Sharee', '{DAV:}share-access' => 'XCloner\Sabre\DAV\Xml\Property\ShareAccess', '{DAV:}prop' => 'XCloner\Sabre\Xml\Deserializer\keyValue']);
         $sharees = [];
-
         foreach ($elems as $elem) {
             if ('{DAV:}sharee' !== $elem['name']) {
                 continue;
             }
             $sharees[] = $elem['value'];
         }
-
         return new self($sharees);
     }
 }

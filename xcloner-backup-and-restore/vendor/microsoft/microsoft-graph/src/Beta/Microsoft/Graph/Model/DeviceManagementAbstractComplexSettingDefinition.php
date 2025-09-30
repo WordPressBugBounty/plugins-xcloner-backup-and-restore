@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementAbstractComplexSettingDefinition class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementSettingDefinition
 {
     /**
-    * Gets the implementations
-    * List of definition IDs for all possible implementations of this abstract complex setting
-    *
-    * @return array|null The implementations
-    */
+     * Gets the implementations
+     * List of definition IDs for all possible implementations of this abstract complex setting
+     *
+     * @return array|null The implementations
+     */
     public function getImplementations()
     {
         if (array_key_exists("implementations", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DeviceManagementAbstractComplexSettingDefinition extends DeviceManagementS
             return null;
         }
     }
-
     /**
-    * Sets the implementations
-    * List of definition IDs for all possible implementations of this abstract complex setting
-    *
-    * @param string[] $val The implementations
-    *
-    * @return DeviceManagementAbstractComplexSettingDefinition
-    */
+     * Sets the implementations
+     * List of definition IDs for all possible implementations of this abstract complex setting
+     *
+     * @param string[] $val The implementations
+     *
+     * @return DeviceManagementAbstractComplexSettingDefinition
+     */
     public function setImplementations($val)
     {
         $this->_propDict["implementations"] = $val;
         return $this;
     }
-
 }

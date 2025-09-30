@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnifiedRole class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnifiedRole extends Entity
 {
     /**
-    * Gets the roleDefinitionId
-    * The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource.
-    *
-    * @return string|null The roleDefinitionId
-    */
+     * Gets the roleDefinitionId
+     * The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource.
+     *
+     * @return string|null The roleDefinitionId
+     */
     public function getRoleDefinitionId()
     {
         if (array_key_exists("roleDefinitionId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class UnifiedRole extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleDefinitionId
-    * The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource.
-    *
-    * @param string $val The value of the roleDefinitionId
-    *
-    * @return UnifiedRole
-    */
+     * Sets the roleDefinitionId
+     * The unified role definition ID of the directory role. Refer to unifiedRoleDefinition resource.
+     *
+     * @param string $val The value of the roleDefinitionId
+     *
+     * @return UnifiedRole
+     */
     public function setRoleDefinitionId($val)
     {
         $this->_propDict["roleDefinitionId"] = $val;

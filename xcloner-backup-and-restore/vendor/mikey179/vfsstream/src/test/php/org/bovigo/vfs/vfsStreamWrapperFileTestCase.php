@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 require_once __DIR__ . '/vfsStreamWrapperBaseTestCase.php';
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
@@ -29,7 +31,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(@file_get_contents($this->barURL));
         $this->assertFalse(@file_get_contents($this->fooURL));
     }
-
     /**
      * @test
      * @group  permissions
@@ -39,10 +40,9 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     {
         vfsStreamWrapper::register();
         vfsStreamWrapper::setRoot(new vfsStreamDirectory('root'));
-        vfsStream::newFile('new.txt', 0000)->at(vfsStreamWrapper::getRoot())->withContent('content');
+        vfsStream::newFile('new.txt', 00)->at(vfsStreamWrapper::getRoot())->withContent('content');
         $this->assertEquals('', @file_get_contents(vfsStream::url('root/new.txt')));
     }
-
     /**
      * assert that file_put_contents() delivers correct file contents
      *
@@ -57,7 +57,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(@file_put_contents($this->barURL, 'This does not work.'));
         $this->assertFalse(@file_put_contents($this->fooURL, 'This does not work, too.'));
     }
-
     /**
      * @test
      * @group  permissions
@@ -66,13 +65,11 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     public function file_put_contentsExistingFileNonWritableDirectory()
     {
         vfsStreamWrapper::register();
-        vfsStreamWrapper::setRoot(new vfsStreamDirectory('root', 0000));
+        vfsStreamWrapper::setRoot(new vfsStreamDirectory('root', 00));
         vfsStream::newFile('new.txt')->at(vfsStreamWrapper::getRoot())->withContent('content');
         $this->assertEquals(15, @file_put_contents(vfsStream::url('root/new.txt'), 'This does work.'));
         $this->assertEquals('This does work.', file_get_contents(vfsStream::url('root/new.txt')));
-
     }
-
     /**
      * @test
      * @group  permissions
@@ -86,7 +83,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(@file_put_contents(vfsStream::url('root/new.txt'), 'This does not work.'));
         $this->assertEquals('content', file_get_contents(vfsStream::url('root/new.txt')));
     }
-
     /**
      * assert that file_put_contents() delivers correct file contents
      *
@@ -99,7 +95,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(14, file_put_contents($this->barURL . '/baznot.bar', 'baz is not bar'));
         $this->assertEquals(2, count($this->bar->getChildren()));
     }
-
     /**
      * @test
      * @group  permissions
@@ -108,12 +103,10 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     public function file_put_contentsNonExistingFileNonWritableDirectory()
     {
         vfsStreamWrapper::register();
-        vfsStreamWrapper::setRoot(new vfsStreamDirectory('root', 0000));
+        vfsStreamWrapper::setRoot(new vfsStreamDirectory('root', 00));
         $this->assertFalse(@file_put_contents(vfsStream::url('root/new.txt'), 'This does not work.'));
         $this->assertFalse(file_exists(vfsStream::url('root/new.txt')));
-
     }
-
     /**
      * using a file pointer should work without any problems
      *
@@ -126,9 +119,9 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(feof($fp));
         $this->assertEquals(0, fseek($fp, 2));
         $this->assertEquals(2, ftell($fp));
-        $this->assertEquals(0, fseek($fp, 1, SEEK_CUR));
+        $this->assertEquals(0, fseek($fp, 1, \SEEK_CUR));
         $this->assertEquals(3, ftell($fp));
-        $this->assertEquals(0, fseek($fp, 1, SEEK_END));
+        $this->assertEquals(0, fseek($fp, 1, \SEEK_END));
         $this->assertEquals(6, ftell($fp));
         $this->assertTrue(feof($fp));
         $this->assertEquals(0, fseek($fp, 2));
@@ -140,7 +133,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(5, ftell($fp));
         $this->assertTrue(fclose($fp));
     }
-
     /**
      * assert is_file() returns correct result
      *
@@ -155,7 +147,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(is_file($this->fooURL . '/another'));
         $this->assertFalse(is_file(vfsStream::url('another')));
     }
-
     /**
      * @test
      * @group  issue7
@@ -168,7 +159,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         file_put_contents($vfsFile, 'd');
         $this->assertEquals('d', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  issue7
@@ -183,7 +173,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('testd', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  issue7
@@ -197,7 +186,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('test', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  issue7
@@ -210,7 +198,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(@fopen($vfsFile, 'xb'));
         $this->assertEquals('test', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  issue7
@@ -220,7 +207,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     {
         $this->assertFalse(@fopen(vfsStream::url('foo/doesNotExist.txt'), 'rb'));
     }
-
     /**
      * @test
      * @group  issue7
@@ -230,7 +216,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     {
         $this->assertFalse(@fopen(vfsStream::url('foo/doesNotExist.txt'), 'rb+'));
     }
-
     /**
      * @test
      * @group  issue7
@@ -240,7 +225,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     {
         $this->assertFalse(@fopen($this->baz2URL, 'invalid'));
     }
-
     /**
      * @test
      * @group  issue7
@@ -254,7 +238,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('baz2', file_get_contents($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue7
@@ -270,7 +253,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('foo', file_get_contents($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue7
@@ -286,7 +268,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('baz2foo', file_get_contents($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue7
@@ -303,7 +284,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('foo', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  permissions
@@ -312,12 +292,11 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
     public function canNotRemoveFileFromDirectoryWithoutWritePermissions()
     {
         vfsStreamWrapper::register();
-        vfsStreamWrapper::setRoot(new vfsStreamDirectory('root', 0000));
+        vfsStreamWrapper::setRoot(new vfsStreamDirectory('root', 00));
         vfsStream::newFile('new.txt')->at(vfsStreamWrapper::getRoot());
         $this->assertFalse(unlink(vfsStream::url('root/new.txt')));
         $this->assertTrue(file_exists(vfsStream::url('root/new.txt')));
     }
-
     /**
      * @test
      * @group  issue_30
@@ -330,7 +309,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals('', file_get_contents($vfsFile));
         fclose($fp);
     }
-
     /**
      * @test
      * @group  issue_30
@@ -344,7 +322,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('some content', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  issue_30
@@ -358,7 +335,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         fclose($fp);
         $this->assertEquals('some content', file_get_contents($vfsFile));
     }
-
     /**
      * @test
      * @group  issue_30
@@ -371,7 +347,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals('test', file_get_contents($vfsFile));
         fclose($fp);
     }
-
     /**
      * @test
      * @group  issue_30
@@ -384,7 +359,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(0, ftell($fp));
         fclose($fp);
     }
-
     /**
      * @test
      * @group  issue_30
@@ -397,7 +371,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals('test', file_get_contents($vfsFile));
         fclose($fp);
     }
-
     /**
      * @test
      * @group  issue_30
@@ -410,7 +383,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(0, ftell($fp));
         fclose($fp);
     }
-
     /**
      * @test
      */
@@ -419,7 +391,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->baz1->chmod(0400);
         $this->assertFalse(@fopen($this->baz1URL, 'a'));
     }
-
     /**
      * @test
      */
@@ -428,7 +399,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->baz1->chmod(0400);
         $this->assertFalse(@fopen($this->baz1URL, 'w'));
     }
-
     /**
      * @test
      */
@@ -437,7 +407,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->baz1->chmod(0);
         $this->assertFalse(@fopen($this->baz1URL, 'r'));
     }
-
     /**
      * @test
      */
@@ -446,7 +415,6 @@ class vfsStreamWrapperFileTestCase extends vfsStreamWrapperBaseTestCase
         $this->bar->chmod(0);
         $this->assertFalse(@rename($this->baz2URL, vfsStream::url('foo/bar/baz3')));
     }
-
     /**
      * @test
      * @group issue_38

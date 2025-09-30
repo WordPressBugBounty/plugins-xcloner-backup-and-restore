@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DlpPoliciesJobResult class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DlpPoliciesJobResult extends Entity
 {
     /**
-    * Gets the auditCorrelationId
-    *
-    * @return string|null The auditCorrelationId
-    */
+     * Gets the auditCorrelationId
+     *
+     * @return string|null The auditCorrelationId
+     */
     public function getAuditCorrelationId()
     {
         if (array_key_exists("auditCorrelationId", $this->_propDict)) {
@@ -39,29 +41,27 @@ class DlpPoliciesJobResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the auditCorrelationId
-    *
-    * @param string $val The value of the auditCorrelationId
-    *
-    * @return DlpPoliciesJobResult
-    */
+     * Sets the auditCorrelationId
+     *
+     * @param string $val The value of the auditCorrelationId
+     *
+     * @return DlpPoliciesJobResult
+     */
     public function setAuditCorrelationId($val)
     {
         $this->_propDict["auditCorrelationId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the evaluationDateTime
-    *
-    * @return \DateTime|null The evaluationDateTime
-    */
+     * Gets the evaluationDateTime
+     *
+     * @return \DateTime|null The evaluationDateTime
+     */
     public function getEvaluationDateTime()
     {
         if (array_key_exists("evaluationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationDateTime"], "\DateTime") || is_null($this->_propDict["evaluationDateTime"])) {
+            if (is_a($this->_propDict["evaluationDateTime"], "\\DateTime") || is_null($this->_propDict["evaluationDateTime"])) {
                 return $this->_propDict["evaluationDateTime"];
             } else {
                 $this->_propDict["evaluationDateTime"] = new \DateTime($this->_propDict["evaluationDateTime"]);
@@ -70,29 +70,27 @@ class DlpPoliciesJobResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the evaluationDateTime
-    *
-    * @param \DateTime $val The value to assign to the evaluationDateTime
-    *
-    * @return DlpPoliciesJobResult The DlpPoliciesJobResult
-    */
+     * Sets the evaluationDateTime
+     *
+     * @param \DateTime $val The value to assign to the evaluationDateTime
+     *
+     * @return DlpPoliciesJobResult The DlpPoliciesJobResult
+     */
     public function setEvaluationDateTime($val)
     {
         $this->_propDict["evaluationDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the matchingRules
-    *
-    * @return MatchingDlpRule|null The matchingRules
-    */
+     * Gets the matchingRules
+     *
+     * @return MatchingDlpRule|null The matchingRules
+     */
     public function getMatchingRules()
     {
         if (array_key_exists("matchingRules", $this->_propDict)) {
-            if (is_a($this->_propDict["matchingRules"], "\Beta\Microsoft\Graph\Model\MatchingDlpRule") || is_null($this->_propDict["matchingRules"])) {
+            if (is_a($this->_propDict["matchingRules"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MatchingDlpRule") || is_null($this->_propDict["matchingRules"])) {
                 return $this->_propDict["matchingRules"];
             } else {
                 $this->_propDict["matchingRules"] = new MatchingDlpRule($this->_propDict["matchingRules"]);
@@ -101,17 +99,16 @@ class DlpPoliciesJobResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the matchingRules
-    *
-    * @param MatchingDlpRule $val The value to assign to the matchingRules
-    *
-    * @return DlpPoliciesJobResult The DlpPoliciesJobResult
-    */
+     * Sets the matchingRules
+     *
+     * @param MatchingDlpRule $val The value to assign to the matchingRules
+     *
+     * @return DlpPoliciesJobResult The DlpPoliciesJobResult
+     */
     public function setMatchingRules($val)
     {
         $this->_propDict["matchingRules"] = $val;
-         return $this;
+        return $this;
     }
 }

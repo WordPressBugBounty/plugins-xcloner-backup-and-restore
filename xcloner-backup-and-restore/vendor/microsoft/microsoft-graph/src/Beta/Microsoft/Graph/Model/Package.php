@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Package class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Package extends Entity
 {
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -39,14 +41,13 @@ class Package extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The value of the type
-    *
-    * @return Package
-    */
+     * Sets the type
+     *
+     * @param string $val The value of the type
+     *
+     * @return Package
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

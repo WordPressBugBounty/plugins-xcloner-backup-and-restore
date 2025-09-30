@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * optional parameters for CopyBlobOptions wrapper
  *
@@ -40,12 +39,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CopyBlobFromURLOptions extends BlobServiceOptions
 {
     use AccessTierTrait;
-
     private $sourceLeaseId;
     private $sourceAccessConditions;
     private $metadata;
     private $isIncrementalCopy;
-
     /**
      * Gets source access condition
      *
@@ -55,7 +52,6 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
     {
         return $this->sourceAccessConditions;
     }
-
     /**
      * Sets source access condition
      *
@@ -65,14 +61,12 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
      */
     public function setSourceAccessConditions($sourceAccessConditions)
     {
-        if (!is_null($sourceAccessConditions) &&
-            is_array($sourceAccessConditions)) {
+        if (!is_null($sourceAccessConditions) && is_array($sourceAccessConditions)) {
             $this->sourceAccessConditions = $sourceAccessConditions;
         } else {
             $this->sourceAccessConditions = [$sourceAccessConditions];
         }
     }
-
     /**
      * Gets metadata.
      *
@@ -82,7 +76,6 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
     {
         return $this->metadata;
     }
-
     /**
      * Sets metadata.
      *
@@ -94,7 +87,6 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
     {
         $this->metadata = $metadata;
     }
-
     /**
      * Gets source lease ID.
      *
@@ -104,7 +96,6 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
     {
         return $this->sourceLeaseId;
     }
-
     /**
      * Sets source lease ID.
      *
@@ -116,7 +107,6 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
     {
         $this->sourceLeaseId = $sourceLeaseId;
     }
-
     /**
      * Gets isIncrementalCopy.
      *
@@ -126,7 +116,6 @@ class CopyBlobFromURLOptions extends BlobServiceOptions
     {
         return $this->isIncrementalCopy;
     }
-
     /**
      * Sets isIncrementalCopy.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppMetadata class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppMetadata extends Entity
 {
-
     /**
-    * Gets the data
-    *
-    * @return AppMetadataEntry|null The data
-    */
+     * Gets the data
+     *
+     * @return AppMetadataEntry|null The data
+     */
     public function getData()
     {
         if (array_key_exists("data", $this->_propDict)) {
-            if (is_a($this->_propDict["data"], "\Beta\Microsoft\Graph\Model\AppMetadataEntry") || is_null($this->_propDict["data"])) {
+            if (is_a($this->_propDict["data"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppMetadataEntry") || is_null($this->_propDict["data"])) {
                 return $this->_propDict["data"];
             } else {
                 $this->_propDict["data"] = new AppMetadataEntry($this->_propDict["data"]);
@@ -44,24 +45,23 @@ class AppMetadata extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the data
-    *
-    * @param AppMetadataEntry $val The value to assign to the data
-    *
-    * @return AppMetadata The AppMetadata
-    */
+     * Sets the data
+     *
+     * @param AppMetadataEntry $val The value to assign to the data
+     *
+     * @return AppMetadata The AppMetadata
+     */
     public function setData($val)
     {
         $this->_propDict["data"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the version
-    *
-    * @return int|null The version
-    */
+     * Gets the version
+     *
+     * @return int|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -70,14 +70,13 @@ class AppMetadata extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    *
-    * @param int $val The value of the version
-    *
-    * @return AppMetadata
-    */
+     * Sets the version
+     *
+     * @param int $val The value of the version
+     *
+     * @return AppMetadata
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;

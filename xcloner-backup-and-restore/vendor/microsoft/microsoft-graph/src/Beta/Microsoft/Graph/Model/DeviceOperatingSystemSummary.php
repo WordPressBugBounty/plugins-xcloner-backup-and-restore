@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceOperatingSystemSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceOperatingSystemSummary extends Entity
 {
     /**
-    * Gets the androidCorporateWorkProfileCount
-    * The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
-    *
-    * @return int|null The androidCorporateWorkProfileCount
-    */
+     * Gets the androidCorporateWorkProfileCount
+     * The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+     *
+     * @return int|null The androidCorporateWorkProfileCount
+     */
     public function getAndroidCorporateWorkProfileCount()
     {
         if (array_key_exists("androidCorporateWorkProfileCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidCorporateWorkProfileCount
-    * The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
-    *
-    * @param int $val The value of the androidCorporateWorkProfileCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the androidCorporateWorkProfileCount
+     * The count of Corporate work profile Android devices. Also known as Corporate Owned Personally Enabled (COPE). Valid values -1 to 2147483647
+     *
+     * @param int $val The value of the androidCorporateWorkProfileCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAndroidCorporateWorkProfileCount($val)
     {
         $this->_propDict["androidCorporateWorkProfileCount"] = $val;
         return $this;
     }
     /**
-    * Gets the androidCount
-    * Number of android device count.
-    *
-    * @return int|null The androidCount
-    */
+     * Gets the androidCount
+     * Number of android device count.
+     *
+     * @return int|null The androidCount
+     */
     public function getAndroidCount()
     {
         if (array_key_exists("androidCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidCount
-    * Number of android device count.
-    *
-    * @param int $val The value of the androidCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the androidCount
+     * Number of android device count.
+     *
+     * @param int $val The value of the androidCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAndroidCount($val)
     {
         $this->_propDict["androidCount"] = $val;
         return $this;
     }
     /**
-    * Gets the androidDedicatedCount
-    * Number of dedicated Android devices.
-    *
-    * @return int|null The androidDedicatedCount
-    */
+     * Gets the androidDedicatedCount
+     * Number of dedicated Android devices.
+     *
+     * @return int|null The androidDedicatedCount
+     */
     public function getAndroidDedicatedCount()
     {
         if (array_key_exists("androidDedicatedCount", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidDedicatedCount
-    * Number of dedicated Android devices.
-    *
-    * @param int $val The value of the androidDedicatedCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the androidDedicatedCount
+     * Number of dedicated Android devices.
+     *
+     * @param int $val The value of the androidDedicatedCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAndroidDedicatedCount($val)
     {
         $this->_propDict["androidDedicatedCount"] = $val;
         return $this;
     }
     /**
-    * Gets the androidDeviceAdminCount
-    * Number of device admin Android devices.
-    *
-    * @return int|null The androidDeviceAdminCount
-    */
+     * Gets the androidDeviceAdminCount
+     * Number of device admin Android devices.
+     *
+     * @return int|null The androidDeviceAdminCount
+     */
     public function getAndroidDeviceAdminCount()
     {
         if (array_key_exists("androidDeviceAdminCount", $this->_propDict)) {
@@ -124,26 +123,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidDeviceAdminCount
-    * Number of device admin Android devices.
-    *
-    * @param int $val The value of the androidDeviceAdminCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the androidDeviceAdminCount
+     * Number of device admin Android devices.
+     *
+     * @param int $val The value of the androidDeviceAdminCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAndroidDeviceAdminCount($val)
     {
         $this->_propDict["androidDeviceAdminCount"] = $val;
         return $this;
     }
     /**
-    * Gets the androidFullyManagedCount
-    * Number of fully managed Android devices.
-    *
-    * @return int|null The androidFullyManagedCount
-    */
+     * Gets the androidFullyManagedCount
+     * Number of fully managed Android devices.
+     *
+     * @return int|null The androidFullyManagedCount
+     */
     public function getAndroidFullyManagedCount()
     {
         if (array_key_exists("androidFullyManagedCount", $this->_propDict)) {
@@ -152,26 +150,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidFullyManagedCount
-    * Number of fully managed Android devices.
-    *
-    * @param int $val The value of the androidFullyManagedCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the androidFullyManagedCount
+     * Number of fully managed Android devices.
+     *
+     * @param int $val The value of the androidFullyManagedCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAndroidFullyManagedCount($val)
     {
         $this->_propDict["androidFullyManagedCount"] = $val;
         return $this;
     }
     /**
-    * Gets the androidWorkProfileCount
-    * Number of work profile Android devices.
-    *
-    * @return int|null The androidWorkProfileCount
-    */
+     * Gets the androidWorkProfileCount
+     * Number of work profile Android devices.
+     *
+     * @return int|null The androidWorkProfileCount
+     */
     public function getAndroidWorkProfileCount()
     {
         if (array_key_exists("androidWorkProfileCount", $this->_propDict)) {
@@ -180,26 +177,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidWorkProfileCount
-    * Number of work profile Android devices.
-    *
-    * @param int $val The value of the androidWorkProfileCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the androidWorkProfileCount
+     * Number of work profile Android devices.
+     *
+     * @param int $val The value of the androidWorkProfileCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAndroidWorkProfileCount($val)
     {
         $this->_propDict["androidWorkProfileCount"] = $val;
         return $this;
     }
     /**
-    * Gets the aospUserAssociatedCount
-    * Number of AOSP user-associated Android devices. Valid values 0 to 2147483647
-    *
-    * @return int|null The aospUserAssociatedCount
-    */
+     * Gets the aospUserAssociatedCount
+     * Number of AOSP user-associated Android devices. Valid values 0 to 2147483647
+     *
+     * @return int|null The aospUserAssociatedCount
+     */
     public function getAospUserAssociatedCount()
     {
         if (array_key_exists("aospUserAssociatedCount", $this->_propDict)) {
@@ -208,26 +204,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the aospUserAssociatedCount
-    * Number of AOSP user-associated Android devices. Valid values 0 to 2147483647
-    *
-    * @param int $val The value of the aospUserAssociatedCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the aospUserAssociatedCount
+     * Number of AOSP user-associated Android devices. Valid values 0 to 2147483647
+     *
+     * @param int $val The value of the aospUserAssociatedCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAospUserAssociatedCount($val)
     {
         $this->_propDict["aospUserAssociatedCount"] = $val;
         return $this;
     }
     /**
-    * Gets the aospUserlessCount
-    * Number of AOSP userless Android devices. Valid values 0 to 2147483647
-    *
-    * @return int|null The aospUserlessCount
-    */
+     * Gets the aospUserlessCount
+     * Number of AOSP userless Android devices. Valid values 0 to 2147483647
+     *
+     * @return int|null The aospUserlessCount
+     */
     public function getAospUserlessCount()
     {
         if (array_key_exists("aospUserlessCount", $this->_propDict)) {
@@ -236,26 +231,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the aospUserlessCount
-    * Number of AOSP userless Android devices. Valid values 0 to 2147483647
-    *
-    * @param int $val The value of the aospUserlessCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the aospUserlessCount
+     * Number of AOSP userless Android devices. Valid values 0 to 2147483647
+     *
+     * @param int $val The value of the aospUserlessCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setAospUserlessCount($val)
     {
         $this->_propDict["aospUserlessCount"] = $val;
         return $this;
     }
     /**
-    * Gets the chromeOSCount
-    * Number of Chrome OS devices. Valid values 0 to 2147483647
-    *
-    * @return int|null The chromeOSCount
-    */
+     * Gets the chromeOSCount
+     * Number of Chrome OS devices. Valid values 0 to 2147483647
+     *
+     * @return int|null The chromeOSCount
+     */
     public function getChromeOSCount()
     {
         if (array_key_exists("chromeOSCount", $this->_propDict)) {
@@ -264,26 +258,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the chromeOSCount
-    * Number of Chrome OS devices. Valid values 0 to 2147483647
-    *
-    * @param int $val The value of the chromeOSCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the chromeOSCount
+     * Number of Chrome OS devices. Valid values 0 to 2147483647
+     *
+     * @param int $val The value of the chromeOSCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setChromeOSCount($val)
     {
         $this->_propDict["chromeOSCount"] = $val;
         return $this;
     }
     /**
-    * Gets the configMgrDeviceCount
-    * Number of ConfigMgr managed devices.
-    *
-    * @return int|null The configMgrDeviceCount
-    */
+     * Gets the configMgrDeviceCount
+     * Number of ConfigMgr managed devices.
+     *
+     * @return int|null The configMgrDeviceCount
+     */
     public function getConfigMgrDeviceCount()
     {
         if (array_key_exists("configMgrDeviceCount", $this->_propDict)) {
@@ -292,26 +285,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the configMgrDeviceCount
-    * Number of ConfigMgr managed devices.
-    *
-    * @param int $val The value of the configMgrDeviceCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the configMgrDeviceCount
+     * Number of ConfigMgr managed devices.
+     *
+     * @param int $val The value of the configMgrDeviceCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setConfigMgrDeviceCount($val)
     {
         $this->_propDict["configMgrDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the iosCount
-    * Number of iOS device count.
-    *
-    * @return int|null The iosCount
-    */
+     * Gets the iosCount
+     * Number of iOS device count.
+     *
+     * @return int|null The iosCount
+     */
     public function getIosCount()
     {
         if (array_key_exists("iosCount", $this->_propDict)) {
@@ -320,26 +312,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the iosCount
-    * Number of iOS device count.
-    *
-    * @param int $val The value of the iosCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the iosCount
+     * Number of iOS device count.
+     *
+     * @param int $val The value of the iosCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setIosCount($val)
     {
         $this->_propDict["iosCount"] = $val;
         return $this;
     }
     /**
-    * Gets the linuxCount
-    * Number of Linux OS devices. Valid values 0 to 2147483647
-    *
-    * @return int|null The linuxCount
-    */
+     * Gets the linuxCount
+     * Number of Linux OS devices. Valid values 0 to 2147483647
+     *
+     * @return int|null The linuxCount
+     */
     public function getLinuxCount()
     {
         if (array_key_exists("linuxCount", $this->_propDict)) {
@@ -348,26 +339,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the linuxCount
-    * Number of Linux OS devices. Valid values 0 to 2147483647
-    *
-    * @param int $val The value of the linuxCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the linuxCount
+     * Number of Linux OS devices. Valid values 0 to 2147483647
+     *
+     * @param int $val The value of the linuxCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setLinuxCount($val)
     {
         $this->_propDict["linuxCount"] = $val;
         return $this;
     }
     /**
-    * Gets the macOSCount
-    * Number of Mac OS X device count.
-    *
-    * @return int|null The macOSCount
-    */
+     * Gets the macOSCount
+     * Number of Mac OS X device count.
+     *
+     * @return int|null The macOSCount
+     */
     public function getMacOSCount()
     {
         if (array_key_exists("macOSCount", $this->_propDict)) {
@@ -376,26 +366,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the macOSCount
-    * Number of Mac OS X device count.
-    *
-    * @param int $val The value of the macOSCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the macOSCount
+     * Number of Mac OS X device count.
+     *
+     * @param int $val The value of the macOSCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setMacOSCount($val)
     {
         $this->_propDict["macOSCount"] = $val;
         return $this;
     }
     /**
-    * Gets the unknownCount
-    * Number of unknown device count.
-    *
-    * @return int|null The unknownCount
-    */
+     * Gets the unknownCount
+     * Number of unknown device count.
+     *
+     * @return int|null The unknownCount
+     */
     public function getUnknownCount()
     {
         if (array_key_exists("unknownCount", $this->_propDict)) {
@@ -404,26 +393,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownCount
-    * Number of unknown device count.
-    *
-    * @param int $val The value of the unknownCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the unknownCount
+     * Number of unknown device count.
+     *
+     * @param int $val The value of the unknownCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setUnknownCount($val)
     {
         $this->_propDict["unknownCount"] = $val;
         return $this;
     }
     /**
-    * Gets the windowsCount
-    * Number of Windows device count.
-    *
-    * @return int|null The windowsCount
-    */
+     * Gets the windowsCount
+     * Number of Windows device count.
+     *
+     * @return int|null The windowsCount
+     */
     public function getWindowsCount()
     {
         if (array_key_exists("windowsCount", $this->_propDict)) {
@@ -432,26 +420,25 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the windowsCount
-    * Number of Windows device count.
-    *
-    * @param int $val The value of the windowsCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the windowsCount
+     * Number of Windows device count.
+     *
+     * @param int $val The value of the windowsCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setWindowsCount($val)
     {
         $this->_propDict["windowsCount"] = $val;
         return $this;
     }
     /**
-    * Gets the windowsMobileCount
-    * Number of Windows mobile device count.
-    *
-    * @return int|null The windowsMobileCount
-    */
+     * Gets the windowsMobileCount
+     * Number of Windows mobile device count.
+     *
+     * @return int|null The windowsMobileCount
+     */
     public function getWindowsMobileCount()
     {
         if (array_key_exists("windowsMobileCount", $this->_propDict)) {
@@ -460,15 +447,14 @@ class DeviceOperatingSystemSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the windowsMobileCount
-    * Number of Windows mobile device count.
-    *
-    * @param int $val The value of the windowsMobileCount
-    *
-    * @return DeviceOperatingSystemSummary
-    */
+     * Sets the windowsMobileCount
+     * Number of Windows mobile device count.
+     *
+     * @param int $val The value of the windowsMobileCount
+     *
+     * @return DeviceOperatingSystemSummary
+     */
     public function setWindowsMobileCount($val)
     {
         $this->_propDict["windowsMobileCount"] = $val;

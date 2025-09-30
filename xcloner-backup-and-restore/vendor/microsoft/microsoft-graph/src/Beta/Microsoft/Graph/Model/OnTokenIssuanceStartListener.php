@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnTokenIssuanceStartListener class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OnTokenIssuanceStartListener extends AuthenticationEventListener
 {
     /**
-    * Gets the handler
-    *
-    * @return OnTokenIssuanceStartHandler|null The handler
-    */
+     * Gets the handler
+     *
+     * @return OnTokenIssuanceStartHandler|null The handler
+     */
     public function getHandler()
     {
         if (array_key_exists("handler", $this->_propDict)) {
-            if (is_a($this->_propDict["handler"], "\Beta\Microsoft\Graph\Model\OnTokenIssuanceStartHandler") || is_null($this->_propDict["handler"])) {
+            if (is_a($this->_propDict["handler"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OnTokenIssuanceStartHandler") || is_null($this->_propDict["handler"])) {
                 return $this->_propDict["handler"];
             } else {
                 $this->_propDict["handler"] = new OnTokenIssuanceStartHandler($this->_propDict["handler"]);
@@ -44,18 +45,16 @@ class OnTokenIssuanceStartListener extends AuthenticationEventListener
         }
         return null;
     }
-
     /**
-    * Sets the handler
-    *
-    * @param OnTokenIssuanceStartHandler $val The handler
-    *
-    * @return OnTokenIssuanceStartListener
-    */
+     * Sets the handler
+     *
+     * @param OnTokenIssuanceStartHandler $val The handler
+     *
+     * @return OnTokenIssuanceStartListener
+     */
     public function setHandler($val)
     {
         $this->_propDict["handler"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamBlock.
  */
-class vfsStreamBlockTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamBlockTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * The block device being tested.
@@ -22,12 +24,10 @@ class vfsStreamBlockTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var vfsStreamBlock $block
      */
     protected $block;
-
     public function setUp()
     {
         $this->block = new vfsStreamBlock('foo');
     }
-
     /**
      * test default values and methods
      *
@@ -41,7 +41,6 @@ class vfsStreamBlockTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse($this->block->appliesTo('foo/bar'));
         $this->assertFalse($this->block->appliesTo('bar'));
     }
-
     /**
      * tests how external functions see this object
      *
@@ -53,7 +52,6 @@ class vfsStreamBlockTestCase extends \BC_PHPUnit_Framework_TestCase
         $root->addChild(vfsStream::newBlock('foo'));
         $this->assertEquals('block', filetype(vfsStream::url('root/foo')));
     }
-
     /**
      * tests adding a complex structure
      *
@@ -61,18 +59,10 @@ class vfsStreamBlockTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function addStructure()
     {
-        $structure = array(
-            'topLevel' => array(
-                'thisIsAFile' => 'file contents',
-                '[blockDevice]' => 'block contents'
-            )
-        );
-
+        $structure = array('topLevel' => array('thisIsAFile' => 'file contents', '[blockDevice]' => 'block contents'));
         $root = vfsStream::create($structure);
-
         $this->assertSame('block', filetype(vfsStream::url('root/topLevel/blockDevice')));
     }
-
     /**
      * tests that a blank name for a block device throws an exception
      * @test
@@ -80,13 +70,7 @@ class vfsStreamBlockTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function createWithEmptyName()
     {
-        $structure = array(
-            'topLevel' => array(
-                'thisIsAFile' => 'file contents',
-                '[]' => 'block contents'
-            )
-        );
-
+        $structure = array('topLevel' => array('thisIsAFile' => 'file contents', '[]' => 'block contents'));
         $root = vfsStream::create($structure);
     }
 }

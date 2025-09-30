@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Exceptions;
 
-namespace Carbon\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use BadMethodCallException as BaseBadMethodCallException;
 use Throwable;
-
 class UnknownMethodException extends BaseBadMethodCallException implements BadMethodCallException
 {
     /**
@@ -25,7 +23,6 @@ class UnknownMethodException extends BaseBadMethodCallException implements BadMe
      * @var string
      */
     protected $method;
-
     /**
      * Constructor.
      *
@@ -36,10 +33,8 @@ class UnknownMethodException extends BaseBadMethodCallException implements BadMe
     public function __construct($method, $code = 0, Throwable $previous = null)
     {
         $this->method = $method;
-
-        parent::__construct("Method $method does not exist.", $code, $previous);
+        parent::__construct("Method {$method} does not exist.", $code, $previous);
     }
-
     /**
      * Get the method.
      *

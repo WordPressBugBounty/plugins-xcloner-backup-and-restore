@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationValueList class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class GroupPolicyPresentationValueList extends GroupPolicyPresentationValue
 {
-
-     /**
+    /**
      * Gets the values
-    * A list of pairs for the associated presentation.
+     * A list of pairs for the associated presentation.
      *
      * @return array|null The values
      */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
-           return $this->_propDict["values"];
+            return $this->_propDict["values"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the values
-    * A list of pairs for the associated presentation.
-    *
-    * @param KeyValuePair[] $val The values
-    *
-    * @return GroupPolicyPresentationValueList
-    */
+     * Sets the values
+     * A list of pairs for the associated presentation.
+     *
+     * @param KeyValuePair[] $val The values
+     *
+     * @return GroupPolicyPresentationValueList
+     */
     public function setValues($val)
     {
         $this->_propDict["values"] = $val;
         return $this;
     }
-
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * SimpleFile.
  *
@@ -26,21 +25,18 @@ class SimpleFile extends File
      * @var string
      */
     protected $contents = [];
-
     /**
      * Name of this resource.
      *
      * @var string
      */
     protected $name;
-
     /**
      * A mimetype, such as 'text/plain' or 'text/html'.
      *
      * @var string
      */
     protected $mimeType;
-
     /**
      * Creates this node.
      *
@@ -57,7 +53,6 @@ class SimpleFile extends File
         $this->contents = $contents;
         $this->mimeType = $mimeType;
     }
-
     /**
      * Returns the node name for this file.
      *
@@ -69,7 +64,6 @@ class SimpleFile extends File
     {
         return $this->name;
     }
-
     /**
      * Returns the data.
      *
@@ -81,7 +75,6 @@ class SimpleFile extends File
     {
         return $this->contents;
     }
-
     /**
      * Returns the size of the file, in bytes.
      *
@@ -91,7 +84,6 @@ class SimpleFile extends File
     {
         return strlen($this->contents);
     }
-
     /**
      * Returns the ETag for a file.
      *
@@ -104,9 +96,8 @@ class SimpleFile extends File
      */
     public function getETag()
     {
-        return '"'.sha1($this->contents).'"';
+        return '"' . sha1($this->contents) . '"';
     }
-
     /**
      * Returns the mime-type for a file.
      *

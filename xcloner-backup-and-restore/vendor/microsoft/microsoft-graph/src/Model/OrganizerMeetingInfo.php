@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OrganizerMeetingInfo class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OrganizerMeetingInfo extends MeetingInfo
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.organizerMeetingInfo");
     }
-
-
     /**
-    * Gets the organizer
-    * The organizer Azure Active Directory identity.
-    *
-    * @return IdentitySet|null The organizer
-    */
+     * Gets the organizer
+     * The organizer Azure Active Directory identity.
+     *
+     * @return IdentitySet|null The organizer
+     */
     public function getOrganizer()
     {
         if (array_key_exists("organizer", $this->_propDict)) {
-            if (is_a($this->_propDict["organizer"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["organizer"])) {
+            if (is_a($this->_propDict["organizer"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["organizer"])) {
                 return $this->_propDict["organizer"];
             } else {
                 $this->_propDict["organizer"] = new IdentitySet($this->_propDict["organizer"]);
@@ -56,18 +56,17 @@ class OrganizerMeetingInfo extends MeetingInfo
         }
         return null;
     }
-
     /**
-    * Sets the organizer
-    * The organizer Azure Active Directory identity.
-    *
-    * @param IdentitySet $val The value to assign to the organizer
-    *
-    * @return OrganizerMeetingInfo The OrganizerMeetingInfo
-    */
+     * Sets the organizer
+     * The organizer Azure Active Directory identity.
+     *
+     * @param IdentitySet $val The value to assign to the organizer
+     *
+     * @return OrganizerMeetingInfo The OrganizerMeetingInfo
+     */
     public function setOrganizer($val)
     {
         $this->_propDict["organizer"] = $val;
-         return $this;
+        return $this;
     }
 }

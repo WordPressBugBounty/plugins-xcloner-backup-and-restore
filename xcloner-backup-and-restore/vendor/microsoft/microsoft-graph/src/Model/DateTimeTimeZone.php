@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DateTimeTimeZone class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DateTimeTimeZone extends Entity
 {
     /**
-    * Gets the dateTime
-    * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
-    *
-    * @return string|null The dateTime
-    */
+     * Gets the dateTime
+     * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
+     *
+     * @return string|null The dateTime
+     */
     public function getDateTime()
     {
         if (array_key_exists("dateTime", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DateTimeTimeZone extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dateTime
-    * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
-    *
-    * @param string $val The value of the dateTime
-    *
-    * @return DateTimeTimeZone
-    */
+     * Sets the dateTime
+     * A single point of time in a combined date and time representation ({date}T{time}; for example, 2017-08-29T04:00:00.0000000).
+     *
+     * @param string $val The value of the dateTime
+     *
+     * @return DateTimeTimeZone
+     */
     public function setDateTime($val)
     {
         $this->_propDict["dateTime"] = $val;
         return $this;
     }
     /**
-    * Gets the timeZone
-    * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
-    *
-    * @return string|null The timeZone
-    */
+     * Gets the timeZone
+     * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
+     *
+     * @return string|null The timeZone
+     */
     public function getTimeZone()
     {
         if (array_key_exists("timeZone", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DateTimeTimeZone extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the timeZone
-    * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
-    *
-    * @param string $val The value of the timeZone
-    *
-    * @return DateTimeTimeZone
-    */
+     * Sets the timeZone
+     * Represents a time zone, for example, 'Pacific Standard Time'. See below for more possible values.
+     *
+     * @param string $val The value of the timeZone
+     *
+     * @return DateTimeTimeZone
+     */
     public function setTimeZone($val)
     {
         $this->_propDict["timeZone"] = $val;

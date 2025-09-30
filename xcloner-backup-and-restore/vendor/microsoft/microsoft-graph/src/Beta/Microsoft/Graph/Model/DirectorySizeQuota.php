@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DirectorySizeQuota class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DirectorySizeQuota extends Entity
 {
     /**
-    * Gets the total
-    * Total amount of the directory quota.
-    *
-    * @return int|null The total
-    */
+     * Gets the total
+     * Total amount of the directory quota.
+     *
+     * @return int|null The total
+     */
     public function getTotal()
     {
         if (array_key_exists("total", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DirectorySizeQuota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the total
-    * Total amount of the directory quota.
-    *
-    * @param int $val The value of the total
-    *
-    * @return DirectorySizeQuota
-    */
+     * Sets the total
+     * Total amount of the directory quota.
+     *
+     * @param int $val The value of the total
+     *
+     * @return DirectorySizeQuota
+     */
     public function setTotal($val)
     {
         $this->_propDict["total"] = $val;
         return $this;
     }
     /**
-    * Gets the used
-    * Used amount of the directory quota.
-    *
-    * @return int|null The used
-    */
+     * Gets the used
+     * Used amount of the directory quota.
+     *
+     * @return int|null The used
+     */
     public function getUsed()
     {
         if (array_key_exists("used", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DirectorySizeQuota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the used
-    * Used amount of the directory quota.
-    *
-    * @param int $val The value of the used
-    *
-    * @return DirectorySizeQuota
-    */
+     * Sets the used
+     * Used amount of the directory quota.
+     *
+     * @param int $val The value of the used
+     *
+     * @return DirectorySizeQuota
+     */
     public function setUsed($val)
     {
         $this->_propDict["used"] = $val;

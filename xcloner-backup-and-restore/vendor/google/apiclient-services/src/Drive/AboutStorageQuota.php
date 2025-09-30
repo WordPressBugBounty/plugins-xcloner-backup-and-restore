@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,88 +15,85 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class AboutStorageQuota extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $limit;
-  /**
-   * @var string
-   */
-  public $usage;
-  /**
-   * @var string
-   */
-  public $usageInDrive;
-  /**
-   * @var string
-   */
-  public $usageInDriveTrash;
-
-  /**
-   * @param string
-   */
-  public function setLimit($limit)
-  {
-    $this->limit = $limit;
-  }
-  /**
-   * @return string
-   */
-  public function getLimit()
-  {
-    return $this->limit;
-  }
-  /**
-   * @param string
-   */
-  public function setUsage($usage)
-  {
-    $this->usage = $usage;
-  }
-  /**
-   * @return string
-   */
-  public function getUsage()
-  {
-    return $this->usage;
-  }
-  /**
-   * @param string
-   */
-  public function setUsageInDrive($usageInDrive)
-  {
-    $this->usageInDrive = $usageInDrive;
-  }
-  /**
-   * @return string
-   */
-  public function getUsageInDrive()
-  {
-    return $this->usageInDrive;
-  }
-  /**
-   * @param string
-   */
-  public function setUsageInDriveTrash($usageInDriveTrash)
-  {
-    $this->usageInDriveTrash = $usageInDriveTrash;
-  }
-  /**
-   * @return string
-   */
-  public function getUsageInDriveTrash()
-  {
-    return $this->usageInDriveTrash;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class AboutStorageQuota extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $limit;
+    /**
+     * @var string
+     */
+    public $usage;
+    /**
+     * @var string
+     */
+    public $usageInDrive;
+    /**
+     * @var string
+     */
+    public $usageInDriveTrash;
+    /**
+     * @param string
+     */
+    public function setLimit($limit)
+    {
+        $this->limit = $limit;
+    }
+    /**
+     * @return string
+     */
+    public function getLimit()
+    {
+        return $this->limit;
+    }
+    /**
+     * @param string
+     */
+    public function setUsage($usage)
+    {
+        $this->usage = $usage;
+    }
+    /**
+     * @return string
+     */
+    public function getUsage()
+    {
+        return $this->usage;
+    }
+    /**
+     * @param string
+     */
+    public function setUsageInDrive($usageInDrive)
+    {
+        $this->usageInDrive = $usageInDrive;
+    }
+    /**
+     * @return string
+     */
+    public function getUsageInDrive()
+    {
+        return $this->usageInDrive;
+    }
+    /**
+     * @param string
+     */
+    public function setUsageInDriveTrash($usageInDriveTrash)
+    {
+        $this->usageInDriveTrash = $usageInDriveTrash;
+    }
+    /**
+     * @return string
+     */
+    public function getUsageInDriveTrash()
+    {
+        return $this->usageInDriveTrash;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(AboutStorageQuota::class, 'Google_Service_Drive_AboutStorageQuota');
+class_alias(AboutStorageQuota::class, 'XCloner\Google_Service_Drive_AboutStorageQuota');

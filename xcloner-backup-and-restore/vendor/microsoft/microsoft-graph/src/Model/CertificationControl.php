@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CertificationControl class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CertificationControl extends Entity
 {
     /**
-    * Gets the name
-    * Certification control name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Certification control name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class CertificationControl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Certification control name
-    *
-    * @param string $val The value of the name
-    *
-    * @return CertificationControl
-    */
+     * Sets the name
+     * Certification control name
+     *
+     * @param string $val The value of the name
+     *
+     * @return CertificationControl
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the url
-    * URL for the Microsoft Service Trust Portal
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * URL for the Microsoft Service Trust Portal
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -68,15 +69,14 @@ class CertificationControl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * URL for the Microsoft Service Trust Portal
-    *
-    * @param string $val The value of the url
-    *
-    * @return CertificationControl
-    */
+     * Sets the url
+     * URL for the Microsoft Service Trust Portal
+     *
+     * @param string $val The value of the url
+     *
+     * @return CertificationControl
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;

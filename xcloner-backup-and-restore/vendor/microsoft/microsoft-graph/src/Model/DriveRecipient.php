@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DriveRecipient class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DriveRecipient extends Entity
 {
     /**
-    * Gets the alias
-    * The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
-    *
-    * @return string|null The alias
-    */
+     * Gets the alias
+     * The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
+     *
+     * @return string|null The alias
+     */
     public function getAlias()
     {
         if (array_key_exists("alias", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DriveRecipient extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the alias
-    * The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
-    *
-    * @param string $val The value of the alias
-    *
-    * @return DriveRecipient
-    */
+     * Sets the alias
+     * The alias of the domain object, for cases where an email address is unavailable (e.g. security groups).
+     *
+     * @param string $val The value of the alias
+     *
+     * @return DriveRecipient
+     */
     public function setAlias($val)
     {
         $this->_propDict["alias"] = $val;
         return $this;
     }
     /**
-    * Gets the email
-    * The email address for the recipient, if the recipient has an associated email address.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * The email address for the recipient, if the recipient has an associated email address.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DriveRecipient extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * The email address for the recipient, if the recipient has an associated email address.
-    *
-    * @param string $val The value of the email
-    *
-    * @return DriveRecipient
-    */
+     * Sets the email
+     * The email address for the recipient, if the recipient has an associated email address.
+     *
+     * @param string $val The value of the email
+     *
+     * @return DriveRecipient
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
     /**
-    * Gets the objectId
-    * The unique identifier for the recipient in the directory.
-    *
-    * @return string|null The objectId
-    */
+     * Gets the objectId
+     * The unique identifier for the recipient in the directory.
+     *
+     * @return string|null The objectId
+     */
     public function getObjectId()
     {
         if (array_key_exists("objectId", $this->_propDict)) {
@@ -96,15 +96,14 @@ class DriveRecipient extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the objectId
-    * The unique identifier for the recipient in the directory.
-    *
-    * @param string $val The value of the objectId
-    *
-    * @return DriveRecipient
-    */
+     * Sets the objectId
+     * The unique identifier for the recipient in the directory.
+     *
+     * @param string $val The value of the objectId
+     *
+     * @return DriveRecipient
+     */
     public function setObjectId($val)
     {
         $this->_propDict["objectId"] = $val;

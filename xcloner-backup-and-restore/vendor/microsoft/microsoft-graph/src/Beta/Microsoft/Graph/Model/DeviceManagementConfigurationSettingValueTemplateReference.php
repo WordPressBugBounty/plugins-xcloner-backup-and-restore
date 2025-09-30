@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingValueTemplateReference class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingValueTemplateReference extends Entity
 {
     /**
-    * Gets the settingValueTemplateId
-    * Setting value template id
-    *
-    * @return string|null The settingValueTemplateId
-    */
+     * Gets the settingValueTemplateId
+     * Setting value template id
+     *
+     * @return string|null The settingValueTemplateId
+     */
     public function getSettingValueTemplateId()
     {
         if (array_key_exists("settingValueTemplateId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementConfigurationSettingValueTemplateReference extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingValueTemplateId
-    * Setting value template id
-    *
-    * @param string $val The value of the settingValueTemplateId
-    *
-    * @return DeviceManagementConfigurationSettingValueTemplateReference
-    */
+     * Sets the settingValueTemplateId
+     * Setting value template id
+     *
+     * @param string $val The value of the settingValueTemplateId
+     *
+     * @return DeviceManagementConfigurationSettingValueTemplateReference
+     */
     public function setSettingValueTemplateId($val)
     {
         $this->_propDict["settingValueTemplateId"] = $val;
         return $this;
     }
     /**
-    * Gets the useTemplateDefault
-    * Indicates whether to update policy setting value to match template setting default value
-    *
-    * @return bool|null The useTemplateDefault
-    */
+     * Gets the useTemplateDefault
+     * Indicates whether to update policy setting value to match template setting default value
+     *
+     * @return bool|null The useTemplateDefault
+     */
     public function getUseTemplateDefault()
     {
         if (array_key_exists("useTemplateDefault", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DeviceManagementConfigurationSettingValueTemplateReference extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the useTemplateDefault
-    * Indicates whether to update policy setting value to match template setting default value
-    *
-    * @param bool $val The value of the useTemplateDefault
-    *
-    * @return DeviceManagementConfigurationSettingValueTemplateReference
-    */
+     * Sets the useTemplateDefault
+     * Indicates whether to update policy setting value to match template setting default value
+     *
+     * @param bool $val The value of the useTemplateDefault
+     *
+     * @return DeviceManagementConfigurationSettingValueTemplateReference
+     */
     public function setUseTemplateDefault($val)
     {
         $this->_propDict["useTemplateDefault"] = $val;

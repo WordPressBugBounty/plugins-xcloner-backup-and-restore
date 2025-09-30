@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserConsentRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserConsentRequest extends Request
 {
     /**
-    * Gets the reason
-    * The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
-    *
-    * @return string|null The reason
-    */
+     * Gets the reason
+     * The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
+     *
+     * @return string|null The reason
+     */
     public function getReason()
     {
         if (array_key_exists("reason", $this->_propDict)) {
@@ -41,31 +42,29 @@ class UserConsentRequest extends Request
             return null;
         }
     }
-
     /**
-    * Sets the reason
-    * The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
-    *
-    * @param string $val The reason
-    *
-    * @return UserConsentRequest
-    */
+     * Sets the reason
+     * The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
+     *
+     * @param string $val The reason
+     *
+     * @return UserConsentRequest
+     */
     public function setReason($val)
     {
         $this->_propDict["reason"] = $val;
         return $this;
     }
-
     /**
-    * Gets the approval
-    * Approval decisions associated with a request.
-    *
-    * @return Approval|null The approval
-    */
+     * Gets the approval
+     * Approval decisions associated with a request.
+     *
+     * @return Approval|null The approval
+     */
     public function getApproval()
     {
         if (array_key_exists("approval", $this->_propDict)) {
-            if (is_a($this->_propDict["approval"], "\Beta\Microsoft\Graph\Model\Approval") || is_null($this->_propDict["approval"])) {
+            if (is_a($this->_propDict["approval"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Approval") || is_null($this->_propDict["approval"])) {
                 return $this->_propDict["approval"];
             } else {
                 $this->_propDict["approval"] = new Approval($this->_propDict["approval"]);
@@ -74,19 +73,17 @@ class UserConsentRequest extends Request
         }
         return null;
     }
-
     /**
-    * Sets the approval
-    * Approval decisions associated with a request.
-    *
-    * @param Approval $val The approval
-    *
-    * @return UserConsentRequest
-    */
+     * Sets the approval
+     * Approval decisions associated with a request.
+     *
+     * @param Approval $val The approval
+     *
+     * @return UserConsentRequest
+     */
     public function setApproval($val)
     {
         $this->_propDict["approval"] = $val;
         return $this;
     }
-
 }

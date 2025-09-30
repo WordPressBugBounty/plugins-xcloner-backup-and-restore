@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExternalConnection class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExternalConnection extends Entity
 {
     /**
-    * Gets the configuration
-    *
-    * @return Configuration|null The configuration
-    */
+     * Gets the configuration
+     *
+     * @return Configuration|null The configuration
+     */
     public function getConfiguration()
     {
         if (array_key_exists("configuration", $this->_propDict)) {
-            if (is_a($this->_propDict["configuration"], "\Beta\Microsoft\Graph\Model\Configuration") || is_null($this->_propDict["configuration"])) {
+            if (is_a($this->_propDict["configuration"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Configuration") || is_null($this->_propDict["configuration"])) {
                 return $this->_propDict["configuration"];
             } else {
                 $this->_propDict["configuration"] = new Configuration($this->_propDict["configuration"]);
@@ -44,25 +45,23 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the configuration
-    *
-    * @param Configuration $val The configuration
-    *
-    * @return ExternalConnection
-    */
+     * Sets the configuration
+     *
+     * @param Configuration $val The configuration
+     *
+     * @return ExternalConnection
+     */
     public function setConfiguration($val)
     {
         $this->_propDict["configuration"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -71,25 +70,23 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The description
-    *
-    * @return ExternalConnection
-    */
+     * Sets the description
+     *
+     * @param string $val The description
+     *
+     * @return ExternalConnection
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -98,29 +95,27 @@ class ExternalConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The name
-    *
-    * @return ExternalConnection
-    */
+     * Sets the name
+     *
+     * @param string $val The name
+     *
+     * @return ExternalConnection
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    *
-    * @return ConnectionState|null The state
-    */
+     * Gets the state
+     *
+     * @return ConnectionState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConnectionState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConnectionState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ConnectionState($this->_propDict["state"]);
@@ -129,22 +124,19 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    *
-    * @param ConnectionState $val The state
-    *
-    * @return ExternalConnection
-    */
+     * Sets the state
+     *
+     * @param ConnectionState $val The state
+     *
+     * @return ExternalConnection
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the groups
      *
      * @return array|null The groups
@@ -152,27 +144,24 @@ class ExternalConnection extends Entity
     public function getGroups()
     {
         if (array_key_exists("groups", $this->_propDict)) {
-           return $this->_propDict["groups"];
+            return $this->_propDict["groups"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the groups
-    *
-    * @param ExternalGroup[] $val The groups
-    *
-    * @return ExternalConnection
-    */
+     * Sets the groups
+     *
+     * @param ExternalGroup[] $val The groups
+     *
+     * @return ExternalConnection
+     */
     public function setGroups($val)
     {
         $this->_propDict["groups"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the items
      *
      * @return array|null The items
@@ -180,27 +169,24 @@ class ExternalConnection extends Entity
     public function getItems()
     {
         if (array_key_exists("items", $this->_propDict)) {
-           return $this->_propDict["items"];
+            return $this->_propDict["items"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the items
-    *
-    * @param ExternalItem[] $val The items
-    *
-    * @return ExternalConnection
-    */
+     * Sets the items
+     *
+     * @param ExternalItem[] $val The items
+     *
+     * @return ExternalConnection
+     */
     public function setItems($val)
     {
         $this->_propDict["items"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the operations
      *
      * @return array|null The operations
@@ -208,34 +194,32 @@ class ExternalConnection extends Entity
     public function getOperations()
     {
         if (array_key_exists("operations", $this->_propDict)) {
-           return $this->_propDict["operations"];
+            return $this->_propDict["operations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the operations
-    *
-    * @param ConnectionOperation[] $val The operations
-    *
-    * @return ExternalConnection
-    */
+     * Sets the operations
+     *
+     * @param ConnectionOperation[] $val The operations
+     *
+     * @return ExternalConnection
+     */
     public function setOperations($val)
     {
         $this->_propDict["operations"] = $val;
         return $this;
     }
-
     /**
-    * Gets the schema
-    *
-    * @return Schema|null The schema
-    */
+     * Gets the schema
+     *
+     * @return Schema|null The schema
+     */
     public function getSchema()
     {
         if (array_key_exists("schema", $this->_propDict)) {
-            if (is_a($this->_propDict["schema"], "\Beta\Microsoft\Graph\Model\Schema") || is_null($this->_propDict["schema"])) {
+            if (is_a($this->_propDict["schema"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Schema") || is_null($this->_propDict["schema"])) {
                 return $this->_propDict["schema"];
             } else {
                 $this->_propDict["schema"] = new Schema($this->_propDict["schema"]);
@@ -244,18 +228,16 @@ class ExternalConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the schema
-    *
-    * @param Schema $val The schema
-    *
-    * @return ExternalConnection
-    */
+     * Sets the schema
+     *
+     * @param Schema $val The schema
+     *
+     * @return ExternalConnection
+     */
     public function setSchema($val)
     {
         $this->_propDict["schema"] = $val;
         return $this;
     }
-
 }

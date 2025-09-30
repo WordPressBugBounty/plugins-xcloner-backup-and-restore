@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConfigManagerCollection class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ConfigManagerCollection extends Entity
 {
     /**
-    * Gets the collectionIdentifier
-    * The collection identifier in SCCM.
-    *
-    * @return string|null The collectionIdentifier
-    */
+     * Gets the collectionIdentifier
+     * The collection identifier in SCCM.
+     *
+     * @return string|null The collectionIdentifier
+     */
     public function getCollectionIdentifier()
     {
         if (array_key_exists("collectionIdentifier", $this->_propDict)) {
@@ -41,31 +42,29 @@ class ConfigManagerCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the collectionIdentifier
-    * The collection identifier in SCCM.
-    *
-    * @param string $val The collectionIdentifier
-    *
-    * @return ConfigManagerCollection
-    */
+     * Sets the collectionIdentifier
+     * The collection identifier in SCCM.
+     *
+     * @param string $val The collectionIdentifier
+     *
+     * @return ConfigManagerCollection
+     */
     public function setCollectionIdentifier($val)
     {
         $this->_propDict["collectionIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The created date.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The created date.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -74,27 +73,25 @@ class ConfigManagerCollection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The created date.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return ConfigManagerCollection
-    */
+     * Sets the createdDateTime
+     * The created date.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return ConfigManagerCollection
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The DisplayName.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The DisplayName.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -103,27 +100,25 @@ class ConfigManagerCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The DisplayName.
-    *
-    * @param string $val The displayName
-    *
-    * @return ConfigManagerCollection
-    */
+     * Sets the displayName
+     * The DisplayName.
+     *
+     * @param string $val The displayName
+     *
+     * @return ConfigManagerCollection
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the hierarchyIdentifier
-    * The Hierarchy Identifier.
-    *
-    * @return string|null The hierarchyIdentifier
-    */
+     * Gets the hierarchyIdentifier
+     * The Hierarchy Identifier.
+     *
+     * @return string|null The hierarchyIdentifier
+     */
     public function getHierarchyIdentifier()
     {
         if (array_key_exists("hierarchyIdentifier", $this->_propDict)) {
@@ -132,27 +127,25 @@ class ConfigManagerCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hierarchyIdentifier
-    * The Hierarchy Identifier.
-    *
-    * @param string $val The hierarchyIdentifier
-    *
-    * @return ConfigManagerCollection
-    */
+     * Sets the hierarchyIdentifier
+     * The Hierarchy Identifier.
+     *
+     * @param string $val The hierarchyIdentifier
+     *
+     * @return ConfigManagerCollection
+     */
     public function setHierarchyIdentifier($val)
     {
         $this->_propDict["hierarchyIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the hierarchyName
-    * The HierarchyName.
-    *
-    * @return string|null The hierarchyName
-    */
+     * Gets the hierarchyName
+     * The HierarchyName.
+     *
+     * @return string|null The hierarchyName
+     */
     public function getHierarchyName()
     {
         if (array_key_exists("hierarchyName", $this->_propDict)) {
@@ -161,31 +154,29 @@ class ConfigManagerCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hierarchyName
-    * The HierarchyName.
-    *
-    * @param string $val The hierarchyName
-    *
-    * @return ConfigManagerCollection
-    */
+     * Sets the hierarchyName
+     * The HierarchyName.
+     *
+     * @param string $val The hierarchyName
+     *
+     * @return ConfigManagerCollection
+     */
     public function setHierarchyName($val)
     {
         $this->_propDict["hierarchyName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The last modified date.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The last modified date.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -194,19 +185,17 @@ class ConfigManagerCollection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The last modified date.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return ConfigManagerCollection
-    */
+     * Sets the lastModifiedDateTime
+     * The last modified date.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return ConfigManagerCollection
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
 }

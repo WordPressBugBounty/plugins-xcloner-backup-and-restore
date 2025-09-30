@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamDiscoverySettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamDiscoverySettings extends Entity
 {
     /**
-    * Gets the showInTeamsSearchAndSuggestions
-    * If set to true, the team is visible via search and suggestions from the Teams client.
-    *
-    * @return bool|null The showInTeamsSearchAndSuggestions
-    */
+     * Gets the showInTeamsSearchAndSuggestions
+     * If set to true, the team is visible via search and suggestions from the Teams client.
+     *
+     * @return bool|null The showInTeamsSearchAndSuggestions
+     */
     public function getShowInTeamsSearchAndSuggestions()
     {
         if (array_key_exists("showInTeamsSearchAndSuggestions", $this->_propDict)) {
@@ -40,15 +42,14 @@ class TeamDiscoverySettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showInTeamsSearchAndSuggestions
-    * If set to true, the team is visible via search and suggestions from the Teams client.
-    *
-    * @param bool $val The value of the showInTeamsSearchAndSuggestions
-    *
-    * @return TeamDiscoverySettings
-    */
+     * Sets the showInTeamsSearchAndSuggestions
+     * If set to true, the team is visible via search and suggestions from the Teams client.
+     *
+     * @param bool $val The value of the showInTeamsSearchAndSuggestions
+     *
+     * @return TeamDiscoverySettings
+     */
     public function setShowInTeamsSearchAndSuggestions($val)
     {
         $this->_propDict["showInTeamsSearchAndSuggestions"] = $val;

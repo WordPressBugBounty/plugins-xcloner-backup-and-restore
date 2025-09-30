@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows10VpnProxyServer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows10VpnProxyServer extends VpnProxyServer
 {
     /**
-    * Gets the bypassProxyServerForLocalAddress
-    * Bypass proxy server for local address.
-    *
-    * @return bool|null The bypassProxyServerForLocalAddress
-    */
+     * Gets the bypassProxyServerForLocalAddress
+     * Bypass proxy server for local address.
+     *
+     * @return bool|null The bypassProxyServerForLocalAddress
+     */
     public function getBypassProxyServerForLocalAddress()
     {
         if (array_key_exists("bypassProxyServerForLocalAddress", $this->_propDict)) {
@@ -40,15 +42,14 @@ class Windows10VpnProxyServer extends VpnProxyServer
             return null;
         }
     }
-
     /**
-    * Sets the bypassProxyServerForLocalAddress
-    * Bypass proxy server for local address.
-    *
-    * @param bool $val The value of the bypassProxyServerForLocalAddress
-    *
-    * @return Windows10VpnProxyServer
-    */
+     * Sets the bypassProxyServerForLocalAddress
+     * Bypass proxy server for local address.
+     *
+     * @param bool $val The value of the bypassProxyServerForLocalAddress
+     *
+     * @return Windows10VpnProxyServer
+     */
     public function setBypassProxyServerForLocalAddress($val)
     {
         $this->_propDict["bypassProxyServerForLocalAddress"] = $val;

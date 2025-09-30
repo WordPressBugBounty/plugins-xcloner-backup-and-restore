@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2019 Google LLC
  *
@@ -14,14 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth;
 
-namespace Google\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use phpseclib\Crypt\RSA;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\phpseclib\Crypt\RSA;
 /**
  * Sign a string using a Service Account private key.
  */
@@ -35,17 +34,15 @@ trait ServiceAccountSignerTrait
      *        whether phpseclib is installed. **Defaults to** `false`.
      * @return string
      */
-    public function signBlob($stringToSign, $forceOpenssl = false)
+    public function signBlob($stringToSign, $forceOpenssl = \false)
     {
         $privateKey = $this->auth->getSigningKey();
-
         $signedString = '';
-        if (class_exists('\\phpseclib\\Crypt\\RSA') && !$forceOpenssl) {
+        if (class_exists('XCloner\phpseclib\Crypt\RSA') && !$forceOpenssl) {
             $rsa = new RSA();
             $rsa->loadKey($privateKey);
             $rsa->setSignatureMode(RSA::SIGNATURE_PKCS1);
             $rsa->setHash('sha256');
-
             $signedString = $rsa->sign($stringToSign);
         } elseif (extension_loaded('openssl')) {
             openssl_sign($stringToSign, $signedString, $privateKey, 'sha256WithRSAEncryption');
@@ -54,7 +51,6 @@ trait ServiceAccountSignerTrait
             throw new \RuntimeException('OpenSSL is not installed.');
         }
         // @codeCoverageIgnoreEnd
-
         return base64_encode($signedString);
     }
 }

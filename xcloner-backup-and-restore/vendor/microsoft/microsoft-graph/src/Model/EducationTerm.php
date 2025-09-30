@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationTerm class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationTerm extends Entity
 {
     /**
-    * Gets the displayName
-    * Display name of the term.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the term.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,31 +42,29 @@ class EducationTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the term.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return EducationTerm
-    */
+     * Sets the displayName
+     * Display name of the term.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return EducationTerm
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the endDate
-    * End of the term.
-    *
-    * @return \DateTime|null The endDate
-    */
+     * Gets the endDate
+     * End of the term.
+     *
+     * @return \DateTime|null The endDate
+     */
     public function getEndDate()
     {
         if (array_key_exists("endDate", $this->_propDict)) {
-            if (is_a($this->_propDict["endDate"], "\DateTime") || is_null($this->_propDict["endDate"])) {
+            if (is_a($this->_propDict["endDate"], "\\DateTime") || is_null($this->_propDict["endDate"])) {
                 return $this->_propDict["endDate"];
             } else {
                 $this->_propDict["endDate"] = new \DateTime($this->_propDict["endDate"]);
@@ -73,26 +73,25 @@ class EducationTerm extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDate
-    * End of the term.
-    *
-    * @param \DateTime $val The value to assign to the endDate
-    *
-    * @return EducationTerm The EducationTerm
-    */
+     * Sets the endDate
+     * End of the term.
+     *
+     * @param \DateTime $val The value to assign to the endDate
+     *
+     * @return EducationTerm The EducationTerm
+     */
     public function setEndDate($val)
     {
         $this->_propDict["endDate"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the externalId
-    * ID of term in the syncing system.
-    *
-    * @return string|null The externalId
-    */
+     * Gets the externalId
+     * ID of term in the syncing system.
+     *
+     * @return string|null The externalId
+     */
     public function getExternalId()
     {
         if (array_key_exists("externalId", $this->_propDict)) {
@@ -101,31 +100,29 @@ class EducationTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the externalId
-    * ID of term in the syncing system.
-    *
-    * @param string $val The value of the externalId
-    *
-    * @return EducationTerm
-    */
+     * Sets the externalId
+     * ID of term in the syncing system.
+     *
+     * @param string $val The value of the externalId
+     *
+     * @return EducationTerm
+     */
     public function setExternalId($val)
     {
         $this->_propDict["externalId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDate
-    * Start of the term.
-    *
-    * @return \DateTime|null The startDate
-    */
+     * Gets the startDate
+     * Start of the term.
+     *
+     * @return \DateTime|null The startDate
+     */
     public function getStartDate()
     {
         if (array_key_exists("startDate", $this->_propDict)) {
-            if (is_a($this->_propDict["startDate"], "\DateTime") || is_null($this->_propDict["startDate"])) {
+            if (is_a($this->_propDict["startDate"], "\\DateTime") || is_null($this->_propDict["startDate"])) {
                 return $this->_propDict["startDate"];
             } else {
                 $this->_propDict["startDate"] = new \DateTime($this->_propDict["startDate"]);
@@ -134,18 +131,17 @@ class EducationTerm extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDate
-    * Start of the term.
-    *
-    * @param \DateTime $val The value to assign to the startDate
-    *
-    * @return EducationTerm The EducationTerm
-    */
+     * Sets the startDate
+     * Start of the term.
+     *
+     * @param \DateTime $val The value to assign to the startDate
+     *
+     * @return EducationTerm The EducationTerm
+     */
     public function setStartDate($val)
     {
         $this->_propDict["startDate"] = $val;
-         return $this;
+        return $this;
     }
 }

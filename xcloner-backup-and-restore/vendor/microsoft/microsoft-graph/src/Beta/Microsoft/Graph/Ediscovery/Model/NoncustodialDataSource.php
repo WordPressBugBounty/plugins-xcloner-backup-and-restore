@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * NoncustodialDataSource class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class NoncustodialDataSource extends DataSourceContainer
 {
     /**
-    * Gets the applyHoldToSource
-    * Indicates if hold is applied to non-custodial data source (such as mailbox or site).
-    *
-    * @return bool|null The applyHoldToSource
-    */
+     * Gets the applyHoldToSource
+     * Indicates if hold is applied to non-custodial data source (such as mailbox or site).
+     *
+     * @return bool|null The applyHoldToSource
+     */
     public function getApplyHoldToSource()
     {
         if (array_key_exists("applyHoldToSource", $this->_propDict)) {
@@ -41,31 +42,29 @@ class NoncustodialDataSource extends DataSourceContainer
             return null;
         }
     }
-
     /**
-    * Sets the applyHoldToSource
-    * Indicates if hold is applied to non-custodial data source (such as mailbox or site).
-    *
-    * @param bool $val The applyHoldToSource
-    *
-    * @return NoncustodialDataSource
-    */
+     * Sets the applyHoldToSource
+     * Indicates if hold is applied to non-custodial data source (such as mailbox or site).
+     *
+     * @param bool $val The applyHoldToSource
+     *
+     * @return NoncustodialDataSource
+     */
     public function setApplyHoldToSource($val)
     {
         $this->_propDict["applyHoldToSource"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the dataSource
-    * User source or SharePoint site data source as non-custodial data source.
-    *
-    * @return DataSource|null The dataSource
-    */
+     * Gets the dataSource
+     * User source or SharePoint site data source as non-custodial data source.
+     *
+     * @return DataSource|null The dataSource
+     */
     public function getDataSource()
     {
         if (array_key_exists("dataSource", $this->_propDict)) {
-            if (is_a($this->_propDict["dataSource"], "\Beta\Microsoft\Graph\Ediscovery\Model\DataSource") || is_null($this->_propDict["dataSource"])) {
+            if (is_a($this->_propDict["dataSource"], "XCloner\\Beta\\Microsoft\\Graph\\Ediscovery\\Model\\DataSource") || is_null($this->_propDict["dataSource"])) {
                 return $this->_propDict["dataSource"];
             } else {
                 $this->_propDict["dataSource"] = new DataSource($this->_propDict["dataSource"]);
@@ -74,19 +73,17 @@ class NoncustodialDataSource extends DataSourceContainer
         }
         return null;
     }
-
     /**
-    * Sets the dataSource
-    * User source or SharePoint site data source as non-custodial data source.
-    *
-    * @param DataSource $val The dataSource
-    *
-    * @return NoncustodialDataSource
-    */
+     * Sets the dataSource
+     * User source or SharePoint site data source as non-custodial data source.
+     *
+     * @param DataSource $val The dataSource
+     *
+     * @return NoncustodialDataSource
+     */
     public function setDataSource($val)
     {
         $this->_propDict["dataSource"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EstimateStatisticsOperation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EstimateStatisticsOperation extends CaseOperation
 {
     /**
-    * Gets the indexedItemCount
-    * The estimated count of items for the sourceCollection that matched the content query.
-    *
-    * @return int|null The indexedItemCount
-    */
+     * Gets the indexedItemCount
+     * The estimated count of items for the sourceCollection that matched the content query.
+     *
+     * @return int|null The indexedItemCount
+     */
     public function getIndexedItemCount()
     {
         if (array_key_exists("indexedItemCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class EstimateStatisticsOperation extends CaseOperation
             return null;
         }
     }
-
     /**
-    * Sets the indexedItemCount
-    * The estimated count of items for the sourceCollection that matched the content query.
-    *
-    * @param int $val The indexedItemCount
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the indexedItemCount
+     * The estimated count of items for the sourceCollection that matched the content query.
+     *
+     * @param int $val The indexedItemCount
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setIndexedItemCount($val)
     {
         $this->_propDict["indexedItemCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the indexedItemsSize
-    * The estimated size of items for the sourceCollection that matched the content query.
-    *
-    * @return int|null The indexedItemsSize
-    */
+     * Gets the indexedItemsSize
+     * The estimated size of items for the sourceCollection that matched the content query.
+     *
+     * @return int|null The indexedItemsSize
+     */
     public function getIndexedItemsSize()
     {
         if (array_key_exists("indexedItemsSize", $this->_propDict)) {
@@ -70,27 +69,25 @@ class EstimateStatisticsOperation extends CaseOperation
             return null;
         }
     }
-
     /**
-    * Sets the indexedItemsSize
-    * The estimated size of items for the sourceCollection that matched the content query.
-    *
-    * @param int $val The indexedItemsSize
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the indexedItemsSize
+     * The estimated size of items for the sourceCollection that matched the content query.
+     *
+     * @param int $val The indexedItemsSize
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setIndexedItemsSize($val)
     {
         $this->_propDict["indexedItemsSize"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the mailboxCount
-    * The number of mailboxes that had search hits.
-    *
-    * @return int|null The mailboxCount
-    */
+     * Gets the mailboxCount
+     * The number of mailboxes that had search hits.
+     *
+     * @return int|null The mailboxCount
+     */
     public function getMailboxCount()
     {
         if (array_key_exists("mailboxCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class EstimateStatisticsOperation extends CaseOperation
             return null;
         }
     }
-
     /**
-    * Sets the mailboxCount
-    * The number of mailboxes that had search hits.
-    *
-    * @param int $val The mailboxCount
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the mailboxCount
+     * The number of mailboxes that had search hits.
+     *
+     * @param int $val The mailboxCount
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setMailboxCount($val)
     {
         $this->_propDict["mailboxCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the siteCount
-    * The number of mailboxes that had search hits.
-    *
-    * @return int|null The siteCount
-    */
+     * Gets the siteCount
+     * The number of mailboxes that had search hits.
+     *
+     * @return int|null The siteCount
+     */
     public function getSiteCount()
     {
         if (array_key_exists("siteCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class EstimateStatisticsOperation extends CaseOperation
             return null;
         }
     }
-
     /**
-    * Sets the siteCount
-    * The number of mailboxes that had search hits.
-    *
-    * @param int $val The siteCount
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the siteCount
+     * The number of mailboxes that had search hits.
+     *
+     * @param int $val The siteCount
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setSiteCount($val)
     {
         $this->_propDict["siteCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unindexedItemCount
-    * The estimated count of unindexed items for the collection.
-    *
-    * @return int|null The unindexedItemCount
-    */
+     * Gets the unindexedItemCount
+     * The estimated count of unindexed items for the collection.
+     *
+     * @return int|null The unindexedItemCount
+     */
     public function getUnindexedItemCount()
     {
         if (array_key_exists("unindexedItemCount", $this->_propDict)) {
@@ -157,27 +150,25 @@ class EstimateStatisticsOperation extends CaseOperation
             return null;
         }
     }
-
     /**
-    * Sets the unindexedItemCount
-    * The estimated count of unindexed items for the collection.
-    *
-    * @param int $val The unindexedItemCount
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the unindexedItemCount
+     * The estimated count of unindexed items for the collection.
+     *
+     * @param int $val The unindexedItemCount
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setUnindexedItemCount($val)
     {
         $this->_propDict["unindexedItemCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unindexedItemsSize
-    * The estimated size of unindexed items for the collection.
-    *
-    * @return int|null The unindexedItemsSize
-    */
+     * Gets the unindexedItemsSize
+     * The estimated size of unindexed items for the collection.
+     *
+     * @return int|null The unindexedItemsSize
+     */
     public function getUnindexedItemsSize()
     {
         if (array_key_exists("unindexedItemsSize", $this->_propDict)) {
@@ -186,31 +177,29 @@ class EstimateStatisticsOperation extends CaseOperation
             return null;
         }
     }
-
     /**
-    * Sets the unindexedItemsSize
-    * The estimated size of unindexed items for the collection.
-    *
-    * @param int $val The unindexedItemsSize
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the unindexedItemsSize
+     * The estimated size of unindexed items for the collection.
+     *
+     * @param int $val The unindexedItemsSize
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setUnindexedItemsSize($val)
     {
         $this->_propDict["unindexedItemsSize"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the sourceCollection
-    * eDiscovery collection, commonly known as a search.
-    *
-    * @return SourceCollection|null The sourceCollection
-    */
+     * Gets the sourceCollection
+     * eDiscovery collection, commonly known as a search.
+     *
+     * @return SourceCollection|null The sourceCollection
+     */
     public function getSourceCollection()
     {
         if (array_key_exists("sourceCollection", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceCollection"], "\Beta\Microsoft\Graph\Ediscovery\Model\SourceCollection") || is_null($this->_propDict["sourceCollection"])) {
+            if (is_a($this->_propDict["sourceCollection"], "XCloner\\Beta\\Microsoft\\Graph\\Ediscovery\\Model\\SourceCollection") || is_null($this->_propDict["sourceCollection"])) {
                 return $this->_propDict["sourceCollection"];
             } else {
                 $this->_propDict["sourceCollection"] = new SourceCollection($this->_propDict["sourceCollection"]);
@@ -219,19 +208,17 @@ class EstimateStatisticsOperation extends CaseOperation
         }
         return null;
     }
-
     /**
-    * Sets the sourceCollection
-    * eDiscovery collection, commonly known as a search.
-    *
-    * @param SourceCollection $val The sourceCollection
-    *
-    * @return EstimateStatisticsOperation
-    */
+     * Sets the sourceCollection
+     * eDiscovery collection, commonly known as a search.
+     *
+     * @param SourceCollection $val The sourceCollection
+     *
+     * @return EstimateStatisticsOperation
+     */
     public function setSourceCollection($val)
     {
         $this->_propDict["sourceCollection"] = $val;
         return $this;
     }
-
 }

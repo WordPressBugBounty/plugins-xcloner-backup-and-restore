@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationAssignmentGrade class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EducationAssignmentGrade extends Entity
 {
-
     /**
-    * Gets the gradedBy
-    * User who did the grading.
-    *
-    * @return IdentitySet|null The gradedBy
-    */
+     * Gets the gradedBy
+     * User who did the grading.
+     *
+     * @return IdentitySet|null The gradedBy
+     */
     public function getGradedBy()
     {
         if (array_key_exists("gradedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["gradedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["gradedBy"])) {
+            if (is_a($this->_propDict["gradedBy"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["gradedBy"])) {
                 return $this->_propDict["gradedBy"];
             } else {
                 $this->_propDict["gradedBy"] = new IdentitySet($this->_propDict["gradedBy"]);
@@ -45,31 +46,29 @@ class EducationAssignmentGrade extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the gradedBy
-    * User who did the grading.
-    *
-    * @param IdentitySet $val The value to assign to the gradedBy
-    *
-    * @return EducationAssignmentGrade The EducationAssignmentGrade
-    */
+     * Sets the gradedBy
+     * User who did the grading.
+     *
+     * @param IdentitySet $val The value to assign to the gradedBy
+     *
+     * @return EducationAssignmentGrade The EducationAssignmentGrade
+     */
     public function setGradedBy($val)
     {
         $this->_propDict["gradedBy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the gradedDateTime
-    * Moment in time when the grade was applied to this submission object. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The gradedDateTime
-    */
+     * Gets the gradedDateTime
+     * Moment in time when the grade was applied to this submission object. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The gradedDateTime
+     */
     public function getGradedDateTime()
     {
         if (array_key_exists("gradedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["gradedDateTime"], "\DateTime") || is_null($this->_propDict["gradedDateTime"])) {
+            if (is_a($this->_propDict["gradedDateTime"], "\\DateTime") || is_null($this->_propDict["gradedDateTime"])) {
                 return $this->_propDict["gradedDateTime"];
             } else {
                 $this->_propDict["gradedDateTime"] = new \DateTime($this->_propDict["gradedDateTime"]);
@@ -78,18 +77,17 @@ class EducationAssignmentGrade extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the gradedDateTime
-    * Moment in time when the grade was applied to this submission object. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the gradedDateTime
-    *
-    * @return EducationAssignmentGrade The EducationAssignmentGrade
-    */
+     * Sets the gradedDateTime
+     * Moment in time when the grade was applied to this submission object. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the gradedDateTime
+     *
+     * @return EducationAssignmentGrade The EducationAssignmentGrade
+     */
     public function setGradedDateTime($val)
     {
         $this->_propDict["gradedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResourceAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResourceAction extends Entity
 {
     /**
-    * Gets the allowedResourceActions
-    * Allowed Actions
-    *
-    * @return string|null The allowedResourceActions
-    */
+     * Gets the allowedResourceActions
+     * Allowed Actions
+     *
+     * @return string|null The allowedResourceActions
+     */
     public function getAllowedResourceActions()
     {
         if (array_key_exists("allowedResourceActions", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ResourceAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedResourceActions
-    * Allowed Actions
-    *
-    * @param string $val The value of the allowedResourceActions
-    *
-    * @return ResourceAction
-    */
+     * Sets the allowedResourceActions
+     * Allowed Actions
+     *
+     * @param string $val The value of the allowedResourceActions
+     *
+     * @return ResourceAction
+     */
     public function setAllowedResourceActions($val)
     {
         $this->_propDict["allowedResourceActions"] = $val;
         return $this;
     }
     /**
-    * Gets the notAllowedResourceActions
-    * Not Allowed Actions.
-    *
-    * @return string|null The notAllowedResourceActions
-    */
+     * Gets the notAllowedResourceActions
+     * Not Allowed Actions.
+     *
+     * @return string|null The notAllowedResourceActions
+     */
     public function getNotAllowedResourceActions()
     {
         if (array_key_exists("notAllowedResourceActions", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ResourceAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notAllowedResourceActions
-    * Not Allowed Actions.
-    *
-    * @param string $val The value of the notAllowedResourceActions
-    *
-    * @return ResourceAction
-    */
+     * Sets the notAllowedResourceActions
+     * Not Allowed Actions.
+     *
+     * @param string $val The value of the notAllowedResourceActions
+     *
+     * @return ResourceAction
+     */
     public function setNotAllowedResourceActions($val)
     {
         $this->_propDict["notAllowedResourceActions"] = $val;

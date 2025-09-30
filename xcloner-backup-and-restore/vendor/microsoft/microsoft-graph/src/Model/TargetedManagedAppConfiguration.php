@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TargetedManagedAppConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TargetedManagedAppConfiguration extends ManagedAppConfiguration
 {
     /**
-    * Gets the deployedAppCount
-    * Count of apps to which the current policy is deployed.
-    *
-    * @return int|null The deployedAppCount
-    */
+     * Gets the deployedAppCount
+     * Count of apps to which the current policy is deployed.
+     *
+     * @return int|null The deployedAppCount
+     */
     public function getDeployedAppCount()
     {
         if (array_key_exists("deployedAppCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the deployedAppCount
-    * Count of apps to which the current policy is deployed.
-    *
-    * @param int $val The deployedAppCount
-    *
-    * @return TargetedManagedAppConfiguration
-    */
+     * Sets the deployedAppCount
+     * Count of apps to which the current policy is deployed.
+     *
+     * @param int $val The deployedAppCount
+     *
+     * @return TargetedManagedAppConfiguration
+     */
     public function setDeployedAppCount($val)
     {
         $this->_propDict["deployedAppCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the isAssigned
-    * Indicates if the policy is deployed to any inclusion groups or not.
-    *
-    * @return bool|null The isAssigned
-    */
+     * Gets the isAssigned
+     * Indicates if the policy is deployed to any inclusion groups or not.
+     *
+     * @return bool|null The isAssigned
+     */
     public function getIsAssigned()
     {
         if (array_key_exists("isAssigned", $this->_propDict)) {
@@ -70,91 +69,83 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the isAssigned
-    * Indicates if the policy is deployed to any inclusion groups or not.
-    *
-    * @param bool $val The isAssigned
-    *
-    * @return TargetedManagedAppConfiguration
-    */
+     * Sets the isAssigned
+     * Indicates if the policy is deployed to any inclusion groups or not.
+     *
+     * @param bool $val The isAssigned
+     *
+     * @return TargetedManagedAppConfiguration
+     */
     public function setIsAssigned($val)
     {
         $this->_propDict["isAssigned"] = boolval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the apps
-    * List of apps to which the policy is deployed.
+     * List of apps to which the policy is deployed.
      *
      * @return array|null The apps
      */
     public function getApps()
     {
         if (array_key_exists("apps", $this->_propDict)) {
-           return $this->_propDict["apps"];
+            return $this->_propDict["apps"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the apps
-    * List of apps to which the policy is deployed.
-    *
-    * @param ManagedMobileApp[] $val The apps
-    *
-    * @return TargetedManagedAppConfiguration
-    */
+     * Sets the apps
+     * List of apps to which the policy is deployed.
+     *
+     * @param ManagedMobileApp[] $val The apps
+     *
+     * @return TargetedManagedAppConfiguration
+     */
     public function setApps($val)
     {
         $this->_propDict["apps"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignments
-    * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
      *
      * @return array|null The assignments
      */
     public function getAssignments()
     {
         if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+            return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignments
-    * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-    *
-    * @param TargetedManagedAppPolicyAssignment[] $val The assignments
-    *
-    * @return TargetedManagedAppConfiguration
-    */
+     * Sets the assignments
+     * Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     *
+     * @param TargetedManagedAppPolicyAssignment[] $val The assignments
+     *
+     * @return TargetedManagedAppConfiguration
+     */
     public function setAssignments($val)
     {
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deploymentSummary
-    * Navigation property to deployment summary of the configuration.
-    *
-    * @return ManagedAppPolicyDeploymentSummary|null The deploymentSummary
-    */
+     * Gets the deploymentSummary
+     * Navigation property to deployment summary of the configuration.
+     *
+     * @return ManagedAppPolicyDeploymentSummary|null The deploymentSummary
+     */
     public function getDeploymentSummary()
     {
         if (array_key_exists("deploymentSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["deploymentSummary"], "\Microsoft\Graph\Model\ManagedAppPolicyDeploymentSummary") || is_null($this->_propDict["deploymentSummary"])) {
+            if (is_a($this->_propDict["deploymentSummary"], "XCloner\\Microsoft\\Graph\\Model\\ManagedAppPolicyDeploymentSummary") || is_null($this->_propDict["deploymentSummary"])) {
                 return $this->_propDict["deploymentSummary"];
             } else {
                 $this->_propDict["deploymentSummary"] = new ManagedAppPolicyDeploymentSummary($this->_propDict["deploymentSummary"]);
@@ -163,19 +154,17 @@ class TargetedManagedAppConfiguration extends ManagedAppConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the deploymentSummary
-    * Navigation property to deployment summary of the configuration.
-    *
-    * @param ManagedAppPolicyDeploymentSummary $val The deploymentSummary
-    *
-    * @return TargetedManagedAppConfiguration
-    */
+     * Sets the deploymentSummary
+     * Navigation property to deployment summary of the configuration.
+     *
+     * @param ManagedAppPolicyDeploymentSummary $val The deploymentSummary
+     *
+     * @return TargetedManagedAppConfiguration
+     */
     public function setDeploymentSummary($val)
     {
         $this->_propDict["deploymentSummary"] = $val;
         return $this;
     }
-
 }

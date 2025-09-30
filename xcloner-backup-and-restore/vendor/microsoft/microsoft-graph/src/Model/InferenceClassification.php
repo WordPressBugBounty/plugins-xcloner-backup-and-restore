@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InferenceClassification class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class InferenceClassification extends Entity
 {
-
-     /**
+    /**
      * Gets the overrides
-    * A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.
+     * A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.
      *
      * @return array|null The overrides
      */
     public function getOverrides()
     {
         if (array_key_exists("overrides", $this->_propDict)) {
-           return $this->_propDict["overrides"];
+            return $this->_propDict["overrides"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the overrides
-    * A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.
-    *
-    * @param InferenceClassificationOverride[] $val The overrides
-    *
-    * @return InferenceClassification
-    */
+     * Sets the overrides
+     * A set of overrides for a user to always classify messages from specific senders in certain ways: focused, or other. Read-only. Nullable.
+     *
+     * @param InferenceClassificationOverride[] $val The overrides
+     *
+     * @return InferenceClassification
+     */
     public function setOverrides($val)
     {
         $this->_propDict["overrides"] = $val;
         return $this;
     }
-
 }

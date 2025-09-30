@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttendeeAvailability class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AttendeeAvailability extends Entity
 {
-
     /**
-    * Gets the attendee
-    * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
-    *
-    * @return AttendeeBase|null The attendee
-    */
+     * Gets the attendee
+     * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
+     *
+     * @return AttendeeBase|null The attendee
+     */
     public function getAttendee()
     {
         if (array_key_exists("attendee", $this->_propDict)) {
-            if (is_a($this->_propDict["attendee"], "\Microsoft\Graph\Model\AttendeeBase") || is_null($this->_propDict["attendee"])) {
+            if (is_a($this->_propDict["attendee"], "XCloner\\Microsoft\\Graph\\Model\\AttendeeBase") || is_null($this->_propDict["attendee"])) {
                 return $this->_propDict["attendee"];
             } else {
                 $this->_propDict["attendee"] = new AttendeeBase($this->_propDict["attendee"]);
@@ -45,31 +46,29 @@ class AttendeeAvailability extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attendee
-    * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
-    *
-    * @param AttendeeBase $val The value to assign to the attendee
-    *
-    * @return AttendeeAvailability The AttendeeAvailability
-    */
+     * Sets the attendee
+     * The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.
+     *
+     * @param AttendeeBase $val The value to assign to the attendee
+     *
+     * @return AttendeeAvailability The AttendeeAvailability
+     */
     public function setAttendee($val)
     {
         $this->_propDict["attendee"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the availability
-    * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
-    *
-    * @return FreeBusyStatus|null The availability
-    */
+     * Gets the availability
+     * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     *
+     * @return FreeBusyStatus|null The availability
+     */
     public function getAvailability()
     {
         if (array_key_exists("availability", $this->_propDict)) {
-            if (is_a($this->_propDict["availability"], "\Microsoft\Graph\Model\FreeBusyStatus") || is_null($this->_propDict["availability"])) {
+            if (is_a($this->_propDict["availability"], "XCloner\\Microsoft\\Graph\\Model\\FreeBusyStatus") || is_null($this->_propDict["availability"])) {
                 return $this->_propDict["availability"];
             } else {
                 $this->_propDict["availability"] = new FreeBusyStatus($this->_propDict["availability"]);
@@ -78,18 +77,17 @@ class AttendeeAvailability extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the availability
-    * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
-    *
-    * @param FreeBusyStatus $val The value to assign to the availability
-    *
-    * @return AttendeeAvailability The AttendeeAvailability
-    */
+     * Sets the availability
+     * The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     *
+     * @param FreeBusyStatus $val The value to assign to the availability
+     *
+     * @return AttendeeAvailability The AttendeeAvailability
+     */
     public function setAvailability($val)
     {
         $this->_propDict["availability"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LocateDeviceActionResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class LocateDeviceActionResult extends DeviceActionResult
 {
-
     /**
-    * Gets the deviceLocation
-    * device location
-    *
-    * @return DeviceGeoLocation|null The deviceLocation
-    */
+     * Gets the deviceLocation
+     * device location
+     *
+     * @return DeviceGeoLocation|null The deviceLocation
+     */
     public function getDeviceLocation()
     {
         if (array_key_exists("deviceLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceLocation"], "\Beta\Microsoft\Graph\Model\DeviceGeoLocation") || is_null($this->_propDict["deviceLocation"])) {
+            if (is_a($this->_propDict["deviceLocation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceGeoLocation") || is_null($this->_propDict["deviceLocation"])) {
                 return $this->_propDict["deviceLocation"];
             } else {
                 $this->_propDict["deviceLocation"] = new DeviceGeoLocation($this->_propDict["deviceLocation"]);
@@ -45,18 +46,17 @@ class LocateDeviceActionResult extends DeviceActionResult
         }
         return null;
     }
-
     /**
-    * Sets the deviceLocation
-    * device location
-    *
-    * @param DeviceGeoLocation $val The value to assign to the deviceLocation
-    *
-    * @return LocateDeviceActionResult The LocateDeviceActionResult
-    */
+     * Sets the deviceLocation
+     * device location
+     *
+     * @param DeviceGeoLocation $val The value to assign to the deviceLocation
+     *
+     * @return LocateDeviceActionResult The LocateDeviceActionResult
+     */
     public function setDeviceLocation($val)
     {
         $this->_propDict["deviceLocation"] = $val;
-         return $this;
+        return $this;
     }
 }

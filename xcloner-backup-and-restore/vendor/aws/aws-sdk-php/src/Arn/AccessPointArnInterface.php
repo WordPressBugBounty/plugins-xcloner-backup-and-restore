@@ -1,9 +1,10 @@
 <?php
-namespace Aws\Arn;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * @internal
  */

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnsupportedDeviceConfiguration class
 *
@@ -27,42 +28,39 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class UnsupportedDeviceConfiguration extends DeviceConfiguration
 {
-
-     /**
+    /**
      * Gets the details
-    * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
+     * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
      *
      * @return array|null The details
      */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-           return $this->_propDict["details"];
+            return $this->_propDict["details"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the details
-    * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
-    *
-    * @param UnsupportedDeviceConfigurationDetail[] $val The details
-    *
-    * @return UnsupportedDeviceConfiguration
-    */
+     * Sets the details
+     * Details describing why the entity is unsupported. This collection can contain a maximum of 1000 elements.
+     *
+     * @param UnsupportedDeviceConfigurationDetail[] $val The details
+     *
+     * @return UnsupportedDeviceConfiguration
+     */
     public function setDetails($val)
     {
         $this->_propDict["details"] = $val;
         return $this;
     }
-
     /**
-    * Gets the originalEntityTypeName
-    * The type of entity that would be returned otherwise.
-    *
-    * @return string|null The originalEntityTypeName
-    */
+     * Gets the originalEntityTypeName
+     * The type of entity that would be returned otherwise.
+     *
+     * @return string|null The originalEntityTypeName
+     */
     public function getOriginalEntityTypeName()
     {
         if (array_key_exists("originalEntityTypeName", $this->_propDict)) {
@@ -71,19 +69,17 @@ class UnsupportedDeviceConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the originalEntityTypeName
-    * The type of entity that would be returned otherwise.
-    *
-    * @param string $val The originalEntityTypeName
-    *
-    * @return UnsupportedDeviceConfiguration
-    */
+     * Sets the originalEntityTypeName
+     * The type of entity that would be returned otherwise.
+     *
+     * @param string $val The originalEntityTypeName
+     *
+     * @return UnsupportedDeviceConfiguration
+     */
     public function setOriginalEntityTypeName($val)
     {
         $this->_propDict["originalEntityTypeName"] = $val;
         return $this;
     }
-
 }

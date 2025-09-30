@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SoftwareOathAuthenticationMethod class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SoftwareOathAuthenticationMethod extends AuthenticationMethod
 {
     /**
-    * Gets the secretKey
-    * The secret key of the method. Always returns null.
-    *
-    * @return string|null The secretKey
-    */
+     * Gets the secretKey
+     * The secret key of the method. Always returns null.
+     *
+     * @return string|null The secretKey
+     */
     public function getSecretKey()
     {
         if (array_key_exists("secretKey", $this->_propDict)) {
@@ -41,19 +42,17 @@ class SoftwareOathAuthenticationMethod extends AuthenticationMethod
             return null;
         }
     }
-
     /**
-    * Sets the secretKey
-    * The secret key of the method. Always returns null.
-    *
-    * @param string $val The secretKey
-    *
-    * @return SoftwareOathAuthenticationMethod
-    */
+     * Sets the secretKey
+     * The secret key of the method. Always returns null.
+     *
+     * @param string $val The secretKey
+     *
+     * @return SoftwareOathAuthenticationMethod
+     */
     public function setSecretKey($val)
     {
         $this->_propDict["secretKey"] = $val;
         return $this;
     }
-
 }

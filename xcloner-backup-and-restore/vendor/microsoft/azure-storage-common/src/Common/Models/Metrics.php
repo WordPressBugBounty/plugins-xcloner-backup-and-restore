@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Holds elements of queue properties metrics field.
  *
@@ -45,7 +43,6 @@ class Metrics
     private $_enabled;
     private $_includeAPIs;
     private $_retentionPolicy;
-
     /**
      * Creates object from $parsedResponse.
      *
@@ -60,17 +57,11 @@ class Metrics
         $result->setVersion($parsedResponse['Version']);
         $result->setEnabled(Utilities::toBoolean($parsedResponse['Enabled']));
         if ($result->getEnabled()) {
-            $result->setIncludeAPIs(
-                Utilities::toBoolean($parsedResponse['IncludeAPIs'])
-            );
+            $result->setIncludeAPIs(Utilities::toBoolean($parsedResponse['IncludeAPIs']));
         }
-        $result->setRetentionPolicy(
-            RetentionPolicy::create($parsedResponse['RetentionPolicy'])
-        );
-
+        $result->setRetentionPolicy(RetentionPolicy::create($parsedResponse['RetentionPolicy']));
         return $result;
     }
-
     /**
      * Gets retention policy
      *
@@ -81,7 +72,6 @@ class Metrics
     {
         return $this->_retentionPolicy;
     }
-
     /**
      * Sets retention policy
      *
@@ -93,7 +83,6 @@ class Metrics
     {
         $this->_retentionPolicy = $policy;
     }
-
     /**
      * Gets include APIs.
      *
@@ -103,7 +92,6 @@ class Metrics
     {
         return $this->_includeAPIs;
     }
-
     /**
      * Sets include APIs.
      *
@@ -115,7 +103,6 @@ class Metrics
     {
         $this->_includeAPIs = $includeAPIs;
     }
-
     /**
      * Gets enabled.
      *
@@ -125,7 +112,6 @@ class Metrics
     {
         return $this->_enabled;
     }
-
     /**
      * Sets enabled.
      *
@@ -137,7 +123,6 @@ class Metrics
     {
         $this->_enabled = $enabled;
     }
-
     /**
      * Gets version
      *
@@ -147,7 +132,6 @@ class Metrics
     {
         return $this->_version;
     }
-
     /**
      * Sets version
      *
@@ -159,7 +143,6 @@ class Metrics
     {
         $this->_version = $version;
     }
-
     /**
      * Converts this object to array with XML tags
      *
@@ -168,17 +151,11 @@ class Metrics
      */
     public function toArray()
     {
-        $array = array(
-            'Version' => $this->_version,
-            'Enabled' => Utilities::booleanToString($this->_enabled)
-        );
+        $array = array('Version' => $this->_version, 'Enabled' => Utilities::booleanToString($this->_enabled));
         if ($this->_enabled) {
             $array['IncludeAPIs'] = Utilities::booleanToString($this->_includeAPIs);
         }
-        $array['RetentionPolicy'] = !empty($this->_retentionPolicy)
-            ? $this->_retentionPolicy->toArray()
-            : null;
-
+        $array['RetentionPolicy'] = !empty($this->_retentionPolicy) ? $this->_retentionPolicy->toArray() : null;
         return $array;
     }
 }

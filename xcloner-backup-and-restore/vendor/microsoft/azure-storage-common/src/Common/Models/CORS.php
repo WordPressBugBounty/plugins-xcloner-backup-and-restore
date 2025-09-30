@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Provides functionality and data structure for Cross-Origin Resource Sharing
  * rules.
@@ -48,7 +46,6 @@ class CORS
     private $allowedHeaders;
     private $exposedHeaders;
     private $maxAgeInSeconds;
-
     /**
      * Constructor of the class.
      *
@@ -68,20 +65,14 @@ class CORS
      *                                  browser should cache the preflight
      *                                  OPTIONS request.
      */
-    public function __construct(
-        array $allowedOrigins,
-        array $allowedMethods,
-        array $allowedHeaders,
-        array $exposedHeaders,
-        $maxAgeInSeconds
-    ) {
+    public function __construct(array $allowedOrigins, array $allowedMethods, array $allowedHeaders, array $exposedHeaders, $maxAgeInSeconds)
+    {
         $this->setAllowedOrigins($allowedOrigins);
         $this->setAllowedMethods($allowedMethods);
         $this->setAllowedHeaders($allowedHeaders);
         $this->setExposedHeaders($exposedHeaders);
         $this->setMaxedAgeInSeconds($maxAgeInSeconds);
     }
-
     /**
      * Create an instance with parsed XML response with 'CORS' root.
      *
@@ -93,62 +84,19 @@ class CORS
      */
     public static function create(array $parsedResponse)
     {
-        Validate::hasKey(
-            Resources::XTAG_ALLOWED_ORIGINS,
-            'parsedResponse',
-            $parsedResponse
-        );
-        Validate::hasKey(
-            Resources::XTAG_ALLOWED_METHODS,
-            'parsedResponse',
-            $parsedResponse
-        );
-        Validate::hasKey(
-            Resources::XTAG_ALLOWED_HEADERS,
-            'parsedResponse',
-            $parsedResponse
-        );
-        Validate::hasKey(
-            Resources::XTAG_EXPOSED_HEADERS,
-            'parsedResponse',
-            $parsedResponse
-        );
-        Validate::hasKey(
-            Resources::XTAG_MAX_AGE_IN_SECONDS,
-            'parsedResponse',
-            $parsedResponse
-        );
-
+        Validate::hasKey(Resources::XTAG_ALLOWED_ORIGINS, 'parsedResponse', $parsedResponse);
+        Validate::hasKey(Resources::XTAG_ALLOWED_METHODS, 'parsedResponse', $parsedResponse);
+        Validate::hasKey(Resources::XTAG_ALLOWED_HEADERS, 'parsedResponse', $parsedResponse);
+        Validate::hasKey(Resources::XTAG_EXPOSED_HEADERS, 'parsedResponse', $parsedResponse);
+        Validate::hasKey(Resources::XTAG_MAX_AGE_IN_SECONDS, 'parsedResponse', $parsedResponse);
         // Get the values from the parsed response.
-        $allowedOrigins  = array_filter(explode(
-            ',',
-            $parsedResponse[Resources::XTAG_ALLOWED_ORIGINS]
-        ));
-        $allowedMethods  = array_filter(explode(
-            ',',
-            $parsedResponse[Resources::XTAG_ALLOWED_METHODS]
-        ));
-        $allowedHeaders  = array_filter(explode(
-            ',',
-            $parsedResponse[Resources::XTAG_ALLOWED_HEADERS]
-        ));
-        $exposedHeaders  = array_filter(explode(
-            ',',
-            $parsedResponse[Resources::XTAG_EXPOSED_HEADERS]
-        ));
-        $maxAgeInSeconds = intval(
-            $parsedResponse[Resources::XTAG_MAX_AGE_IN_SECONDS]
-        );
-
-        return new CORS(
-            $allowedOrigins,
-            $allowedMethods,
-            $allowedHeaders,
-            $exposedHeaders,
-            $maxAgeInSeconds
-        );
+        $allowedOrigins = array_filter(explode(',', $parsedResponse[Resources::XTAG_ALLOWED_ORIGINS]));
+        $allowedMethods = array_filter(explode(',', $parsedResponse[Resources::XTAG_ALLOWED_METHODS]));
+        $allowedHeaders = array_filter(explode(',', $parsedResponse[Resources::XTAG_ALLOWED_HEADERS]));
+        $exposedHeaders = array_filter(explode(',', $parsedResponse[Resources::XTAG_EXPOSED_HEADERS]));
+        $maxAgeInSeconds = intval($parsedResponse[Resources::XTAG_MAX_AGE_IN_SECONDS]);
+        return new CORS($allowedOrigins, $allowedMethods, $allowedHeaders, $exposedHeaders, $maxAgeInSeconds);
     }
-
     /**
      * Converts this object to array with XML tags
      *
@@ -156,20 +104,8 @@ class CORS
      */
     public function toArray()
     {
-        return array(
-            Resources::XTAG_ALLOWED_ORIGINS    =>
-                implode(',', $this->getAllowedOrigins()),
-            Resources::XTAG_ALLOWED_METHODS    =>
-                implode(',', $this->getAllowedMethods()),
-            Resources::XTAG_ALLOWED_HEADERS    =>
-                implode(',', $this->getAllowedHeaders()),
-            Resources::XTAG_EXPOSED_HEADERS    =>
-                implode(',', $this->getExposedHeaders()),
-            Resources::XTAG_MAX_AGE_IN_SECONDS =>
-                $this->getMaxedAgeInSeconds()
-        );
+        return array(Resources::XTAG_ALLOWED_ORIGINS => implode(',', $this->getAllowedOrigins()), Resources::XTAG_ALLOWED_METHODS => implode(',', $this->getAllowedMethods()), Resources::XTAG_ALLOWED_HEADERS => implode(',', $this->getAllowedHeaders()), Resources::XTAG_EXPOSED_HEADERS => implode(',', $this->getExposedHeaders()), Resources::XTAG_MAX_AGE_IN_SECONDS => $this->getMaxedAgeInSeconds());
     }
-
     /**
      * Setter for allowedOrigins
      *
@@ -179,7 +115,6 @@ class CORS
     {
         $this->allowedOrigins = $allowedOrigins;
     }
-
     /**
      * Getter for allowedOrigins
      *
@@ -189,7 +124,6 @@ class CORS
     {
         return $this->allowedOrigins;
     }
-
     /**
      * Setter for allowedMethods
      *
@@ -199,7 +133,6 @@ class CORS
     {
         $this->allowedMethods = $allowedMethods;
     }
-
     /**
      * Getter for allowedMethods
      *
@@ -209,7 +142,6 @@ class CORS
     {
         return $this->allowedMethods;
     }
-
     /**
      * Setter for allowedHeaders
      *
@@ -219,7 +151,6 @@ class CORS
     {
         $this->allowedHeaders = $allowedHeaders;
     }
-
     /**
      * Getter for allowedHeaders
      *
@@ -229,7 +160,6 @@ class CORS
     {
         return $this->allowedHeaders;
     }
-
     /**
      * Setter for exposedHeaders
      *
@@ -239,7 +169,6 @@ class CORS
     {
         $this->exposedHeaders = $exposedHeaders;
     }
-
     /**
      * Getter for exposedHeaders
      *
@@ -249,7 +178,6 @@ class CORS
     {
         return $this->exposedHeaders;
     }
-
     /**
      * Setter for maxAgeInSeconds
      *
@@ -259,7 +187,6 @@ class CORS
     {
         $this->maxAgeInSeconds = $maxAgeInSeconds;
     }
-
     /**
      * Getter for maxAgeInSeconds
      *

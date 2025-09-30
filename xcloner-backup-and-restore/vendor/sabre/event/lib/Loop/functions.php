@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event\Loop;
 
-namespace Sabre\Event\Loop;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Executes a function after x seconds.
  */
@@ -14,7 +13,6 @@ function setTimeout(callable $cb, float $timeout)
 {
     instance()->setTimeout($cb, $timeout);
 }
-
 /**
  * Executes a function every x seconds.
  *
@@ -25,7 +23,6 @@ function setInterval(callable $cb, float $timeout): array
 {
     return instance()->setInterval($cb, $timeout);
 }
-
 /**
  * Stops a running interval.
  */
@@ -33,7 +30,6 @@ function clearInterval(array $intervalId)
 {
     instance()->clearInterval($intervalId);
 }
-
 /**
  * Runs a function immediately at the next iteration of the loop.
  */
@@ -41,7 +37,6 @@ function nextTick(callable $cb)
 {
     instance()->nextTick($cb);
 }
-
 /**
  * Adds a read stream.
  *
@@ -57,7 +52,6 @@ function addReadStream($stream, callable $cb)
 {
     instance()->addReadStream($stream, $cb);
 }
-
 /**
  * Adds a write stream.
  *
@@ -73,7 +67,6 @@ function addWriteStream($stream, callable $cb)
 {
     instance()->addWriteStream($stream, $cb);
 }
-
 /**
  * Stop watching a stream for reads.
  *
@@ -83,7 +76,6 @@ function removeReadStream($stream)
 {
     instance()->removeReadStream($stream);
 }
-
 /**
  * Stop watching a stream for writes.
  *
@@ -93,7 +85,6 @@ function removeWriteStream($stream)
 {
     instance()->removeWriteStream($stream);
 }
-
 /**
  * Runs the loop.
  *
@@ -104,7 +95,6 @@ function run()
 {
     instance()->run();
 }
-
 /**
  * Executes all pending events.
  *
@@ -117,11 +107,10 @@ function run()
  * This function will return true if there are _any_ events left in the
  * loop after the tick.
  */
-function tick(bool $block = false): bool
+function tick(bool $block = \false): bool
 {
     return instance()->tick($block);
 }
-
 /**
  * Stops a running eventloop.
  */
@@ -129,7 +118,6 @@ function stop()
 {
     instance()->stop();
 }
-
 /**
  * Retrieves or sets the global Loop object.
  */
@@ -141,6 +129,5 @@ function instance(Loop $newLoop = null): Loop
     } elseif (!$loop) {
         $loop = new Loop();
     }
-
     return $loop;
 }

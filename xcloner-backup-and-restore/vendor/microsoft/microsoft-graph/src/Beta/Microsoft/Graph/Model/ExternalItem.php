@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExternalItem class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ExternalItem extends Entity
 {
-
-     /**
+    /**
      * Gets the acl
      *
      * @return array|null The acl
@@ -36,34 +36,32 @@ class ExternalItem extends Entity
     public function getAcl()
     {
         if (array_key_exists("acl", $this->_propDict)) {
-           return $this->_propDict["acl"];
+            return $this->_propDict["acl"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the acl
-    *
-    * @param Acl[] $val The acl
-    *
-    * @return ExternalItem
-    */
+     * Sets the acl
+     *
+     * @param Acl[] $val The acl
+     *
+     * @return ExternalItem
+     */
     public function setAcl($val)
     {
         $this->_propDict["acl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the content
-    *
-    * @return ExternalItemContent|null The content
-    */
+     * Gets the content
+     *
+     * @return ExternalItemContent|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\Beta\Microsoft\Graph\Model\ExternalItemContent") || is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ExternalItemContent") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
                 $this->_propDict["content"] = new ExternalItemContent($this->_propDict["content"]);
@@ -72,29 +70,27 @@ class ExternalItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the content
-    *
-    * @param ExternalItemContent $val The content
-    *
-    * @return ExternalItem
-    */
+     * Sets the content
+     *
+     * @param ExternalItemContent $val The content
+     *
+     * @return ExternalItem
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
     /**
-    * Gets the externalItemProperties
-    *
-    * @return Properties|null The externalItemProperties
-    */
+     * Gets the externalItemProperties
+     *
+     * @return Properties|null The externalItemProperties
+     */
     public function getExternalItemProperties()
     {
         if (array_key_exists("properties", $this->_propDict)) {
-            if (is_a($this->_propDict["properties"], "\Beta\Microsoft\Graph\Model\Properties") || is_null($this->_propDict["properties"])) {
+            if (is_a($this->_propDict["properties"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Properties") || is_null($this->_propDict["properties"])) {
                 return $this->_propDict["properties"];
             } else {
                 $this->_propDict["properties"] = new Properties($this->_propDict["properties"]);
@@ -103,18 +99,16 @@ class ExternalItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the externalItemProperties
-    *
-    * @param Properties $val The externalItemProperties
-    *
-    * @return ExternalItem
-    */
+     * Sets the externalItemProperties
+     *
+     * @param Properties $val The externalItemProperties
+     *
+     * @return ExternalItem
+     */
     public function setExternalItemProperties($val)
     {
         $this->_propDict["properties"] = $val;
         return $this;
     }
-
 }

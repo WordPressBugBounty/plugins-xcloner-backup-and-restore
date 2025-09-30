@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CompanyDetail class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CompanyDetail extends Entity
 {
-
     /**
-    * Gets the address
-    * Address of the company.
-    *
-    * @return PhysicalAddress|null The address
-    */
+     * Gets the address
+     * Address of the company.
+     *
+     * @return PhysicalAddress|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["address"])) {
+            if (is_a($this->_propDict["address"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PhysicalAddress") || is_null($this->_propDict["address"])) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PhysicalAddress($this->_propDict["address"]);
@@ -45,26 +46,25 @@ class CompanyDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the address
-    * Address of the company.
-    *
-    * @param PhysicalAddress $val The value to assign to the address
-    *
-    * @return CompanyDetail The CompanyDetail
-    */
+     * Sets the address
+     * Address of the company.
+     *
+     * @param PhysicalAddress $val The value to assign to the address
+     *
+     * @return CompanyDetail The CompanyDetail
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the department
-    * Department Name within a company.
-    *
-    * @return string|null The department
-    */
+     * Gets the department
+     * Department Name within a company.
+     *
+     * @return string|null The department
+     */
     public function getDepartment()
     {
         if (array_key_exists("department", $this->_propDict)) {
@@ -73,26 +73,25 @@ class CompanyDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the department
-    * Department Name within a company.
-    *
-    * @param string $val The value of the department
-    *
-    * @return CompanyDetail
-    */
+     * Sets the department
+     * Department Name within a company.
+     *
+     * @param string $val The value of the department
+     *
+     * @return CompanyDetail
+     */
     public function setDepartment($val)
     {
         $this->_propDict["department"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Company name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Company name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -101,26 +100,25 @@ class CompanyDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Company name.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return CompanyDetail
-    */
+     * Sets the displayName
+     * Company name.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return CompanyDetail
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the officeLocation
-    * Office Location of the person referred to.
-    *
-    * @return string|null The officeLocation
-    */
+     * Gets the officeLocation
+     * Office Location of the person referred to.
+     *
+     * @return string|null The officeLocation
+     */
     public function getOfficeLocation()
     {
         if (array_key_exists("officeLocation", $this->_propDict)) {
@@ -129,26 +127,25 @@ class CompanyDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the officeLocation
-    * Office Location of the person referred to.
-    *
-    * @param string $val The value of the officeLocation
-    *
-    * @return CompanyDetail
-    */
+     * Sets the officeLocation
+     * Office Location of the person referred to.
+     *
+     * @param string $val The value of the officeLocation
+     *
+     * @return CompanyDetail
+     */
     public function setOfficeLocation($val)
     {
         $this->_propDict["officeLocation"] = $val;
         return $this;
     }
     /**
-    * Gets the pronunciation
-    * Pronunciation guide for the company name.
-    *
-    * @return string|null The pronunciation
-    */
+     * Gets the pronunciation
+     * Pronunciation guide for the company name.
+     *
+     * @return string|null The pronunciation
+     */
     public function getPronunciation()
     {
         if (array_key_exists("pronunciation", $this->_propDict)) {
@@ -157,26 +154,25 @@ class CompanyDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pronunciation
-    * Pronunciation guide for the company name.
-    *
-    * @param string $val The value of the pronunciation
-    *
-    * @return CompanyDetail
-    */
+     * Sets the pronunciation
+     * Pronunciation guide for the company name.
+     *
+     * @param string $val The value of the pronunciation
+     *
+     * @return CompanyDetail
+     */
     public function setPronunciation($val)
     {
         $this->_propDict["pronunciation"] = $val;
         return $this;
     }
     /**
-    * Gets the webUrl
-    * Link to the company home page.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Link to the company home page.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -185,15 +181,14 @@ class CompanyDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Link to the company home page.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return CompanyDetail
-    */
+     * Sets the webUrl
+     * Link to the company home page.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return CompanyDetail
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

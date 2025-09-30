@@ -1,10 +1,10 @@
 <?php
 
-namespace Psr\Log;
+namespace XCloner\Psr\Log;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Basic Implementation of LoggerAwareInterface.
  */
@@ -16,7 +16,6 @@ trait LoggerAwareTrait
      * @var LoggerInterface|null
      */
     protected $logger;
-
     /**
      * Sets a logger.
      *

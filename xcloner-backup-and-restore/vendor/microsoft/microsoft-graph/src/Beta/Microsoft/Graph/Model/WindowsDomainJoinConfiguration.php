@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDomainJoinConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDomainJoinConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the activeDirectoryDomainName
-    * Active Directory domain name to join.
-    *
-    * @return string|null The activeDirectoryDomainName
-    */
+     * Gets the activeDirectoryDomainName
+     * Active Directory domain name to join.
+     *
+     * @return string|null The activeDirectoryDomainName
+     */
     public function getActiveDirectoryDomainName()
     {
         if (array_key_exists("activeDirectoryDomainName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the activeDirectoryDomainName
-    * Active Directory domain name to join.
-    *
-    * @param string $val The activeDirectoryDomainName
-    *
-    * @return WindowsDomainJoinConfiguration
-    */
+     * Sets the activeDirectoryDomainName
+     * Active Directory domain name to join.
+     *
+     * @param string $val The activeDirectoryDomainName
+     *
+     * @return WindowsDomainJoinConfiguration
+     */
     public function setActiveDirectoryDomainName($val)
     {
         $this->_propDict["activeDirectoryDomainName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the computerNameStaticPrefix
-    * Fixed prefix to be used for computer name.
-    *
-    * @return string|null The computerNameStaticPrefix
-    */
+     * Gets the computerNameStaticPrefix
+     * Fixed prefix to be used for computer name.
+     *
+     * @return string|null The computerNameStaticPrefix
+     */
     public function getComputerNameStaticPrefix()
     {
         if (array_key_exists("computerNameStaticPrefix", $this->_propDict)) {
@@ -70,27 +69,25 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the computerNameStaticPrefix
-    * Fixed prefix to be used for computer name.
-    *
-    * @param string $val The computerNameStaticPrefix
-    *
-    * @return WindowsDomainJoinConfiguration
-    */
+     * Sets the computerNameStaticPrefix
+     * Fixed prefix to be used for computer name.
+     *
+     * @param string $val The computerNameStaticPrefix
+     *
+     * @return WindowsDomainJoinConfiguration
+     */
     public function setComputerNameStaticPrefix($val)
     {
         $this->_propDict["computerNameStaticPrefix"] = $val;
         return $this;
     }
-
     /**
-    * Gets the computerNameSuffixRandomCharCount
-    * Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
-    *
-    * @return int|null The computerNameSuffixRandomCharCount
-    */
+     * Gets the computerNameSuffixRandomCharCount
+     * Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
+     *
+     * @return int|null The computerNameSuffixRandomCharCount
+     */
     public function getComputerNameSuffixRandomCharCount()
     {
         if (array_key_exists("computerNameSuffixRandomCharCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the computerNameSuffixRandomCharCount
-    * Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
-    *
-    * @param int $val The computerNameSuffixRandomCharCount
-    *
-    * @return WindowsDomainJoinConfiguration
-    */
+     * Sets the computerNameSuffixRandomCharCount
+     * Dynamically generated characters used as suffix for computer name. Valid values 3 to 14
+     *
+     * @param int $val The computerNameSuffixRandomCharCount
+     *
+     * @return WindowsDomainJoinConfiguration
+     */
     public function setComputerNameSuffixRandomCharCount($val)
     {
         $this->_propDict["computerNameSuffixRandomCharCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the organizationalUnit
-    * Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
-    *
-    * @return string|null The organizationalUnit
-    */
+     * Gets the organizationalUnit
+     * Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
+     *
+     * @return string|null The organizationalUnit
+     */
     public function getOrganizationalUnit()
     {
         if (array_key_exists("organizationalUnit", $this->_propDict)) {
@@ -128,49 +123,44 @@ class WindowsDomainJoinConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the organizationalUnit
-    * Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
-    *
-    * @param string $val The organizationalUnit
-    *
-    * @return WindowsDomainJoinConfiguration
-    */
+     * Sets the organizationalUnit
+     * Organizational unit (OU) where the computer account will be created. If this parameter is NULL, the well known computer object container will be used as published in the domain.
+     *
+     * @param string $val The organizationalUnit
+     *
+     * @return WindowsDomainJoinConfiguration
+     */
     public function setOrganizationalUnit($val)
     {
         $this->_propDict["organizationalUnit"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the networkAccessConfigurations
-    * Reference to device configurations required for network connectivity
+     * Reference to device configurations required for network connectivity
      *
      * @return array|null The networkAccessConfigurations
      */
     public function getNetworkAccessConfigurations()
     {
         if (array_key_exists("networkAccessConfigurations", $this->_propDict)) {
-           return $this->_propDict["networkAccessConfigurations"];
+            return $this->_propDict["networkAccessConfigurations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the networkAccessConfigurations
-    * Reference to device configurations required for network connectivity
-    *
-    * @param DeviceConfiguration[] $val The networkAccessConfigurations
-    *
-    * @return WindowsDomainJoinConfiguration
-    */
+     * Sets the networkAccessConfigurations
+     * Reference to device configurations required for network connectivity
+     *
+     * @param DeviceConfiguration[] $val The networkAccessConfigurations
+     *
+     * @return WindowsDomainJoinConfiguration
+     */
     public function setNetworkAccessConfigurations($val)
     {
         $this->_propDict["networkAccessConfigurations"] = $val;
         return $this;
     }
-
 }

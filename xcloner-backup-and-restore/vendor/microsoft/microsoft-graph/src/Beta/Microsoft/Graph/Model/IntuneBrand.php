@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IntuneBrand class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class IntuneBrand extends Entity
 {
-
     /**
-    * Gets the companyPortalBlockedActions
-    * Collection of blocked actions on the company portal as per platform and device ownership types.
-    *
-    * @return CompanyPortalBlockedAction|null The companyPortalBlockedActions
-    */
+     * Gets the companyPortalBlockedActions
+     * Collection of blocked actions on the company portal as per platform and device ownership types.
+     *
+     * @return CompanyPortalBlockedAction|null The companyPortalBlockedActions
+     */
     public function getCompanyPortalBlockedActions()
     {
         if (array_key_exists("companyPortalBlockedActions", $this->_propDict)) {
-            if (is_a($this->_propDict["companyPortalBlockedActions"], "\Beta\Microsoft\Graph\Model\CompanyPortalBlockedAction") || is_null($this->_propDict["companyPortalBlockedActions"])) {
+            if (is_a($this->_propDict["companyPortalBlockedActions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CompanyPortalBlockedAction") || is_null($this->_propDict["companyPortalBlockedActions"])) {
                 return $this->_propDict["companyPortalBlockedActions"];
             } else {
                 $this->_propDict["companyPortalBlockedActions"] = new CompanyPortalBlockedAction($this->_propDict["companyPortalBlockedActions"]);
@@ -45,26 +46,25 @@ class IntuneBrand extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the companyPortalBlockedActions
-    * Collection of blocked actions on the company portal as per platform and device ownership types.
-    *
-    * @param CompanyPortalBlockedAction $val The value to assign to the companyPortalBlockedActions
-    *
-    * @return IntuneBrand The IntuneBrand
-    */
+     * Sets the companyPortalBlockedActions
+     * Collection of blocked actions on the company portal as per platform and device ownership types.
+     *
+     * @param CompanyPortalBlockedAction $val The value to assign to the companyPortalBlockedActions
+     *
+     * @return IntuneBrand The IntuneBrand
+     */
     public function setCompanyPortalBlockedActions($val)
     {
         $this->_propDict["companyPortalBlockedActions"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the contactITEmailAddress
-    * Email address of the person/organization responsible for IT support.
-    *
-    * @return string|null The contactITEmailAddress
-    */
+     * Gets the contactITEmailAddress
+     * Email address of the person/organization responsible for IT support.
+     *
+     * @return string|null The contactITEmailAddress
+     */
     public function getContactITEmailAddress()
     {
         if (array_key_exists("contactITEmailAddress", $this->_propDict)) {
@@ -73,26 +73,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contactITEmailAddress
-    * Email address of the person/organization responsible for IT support.
-    *
-    * @param string $val The value of the contactITEmailAddress
-    *
-    * @return IntuneBrand
-    */
+     * Sets the contactITEmailAddress
+     * Email address of the person/organization responsible for IT support.
+     *
+     * @param string $val The value of the contactITEmailAddress
+     *
+     * @return IntuneBrand
+     */
     public function setContactITEmailAddress($val)
     {
         $this->_propDict["contactITEmailAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the contactITName
-    * Name of the person/organization responsible for IT support.
-    *
-    * @return string|null The contactITName
-    */
+     * Gets the contactITName
+     * Name of the person/organization responsible for IT support.
+     *
+     * @return string|null The contactITName
+     */
     public function getContactITName()
     {
         if (array_key_exists("contactITName", $this->_propDict)) {
@@ -101,26 +100,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contactITName
-    * Name of the person/organization responsible for IT support.
-    *
-    * @param string $val The value of the contactITName
-    *
-    * @return IntuneBrand
-    */
+     * Sets the contactITName
+     * Name of the person/organization responsible for IT support.
+     *
+     * @param string $val The value of the contactITName
+     *
+     * @return IntuneBrand
+     */
     public function setContactITName($val)
     {
         $this->_propDict["contactITName"] = $val;
         return $this;
     }
     /**
-    * Gets the contactITNotes
-    * Text comments regarding the person/organization responsible for IT support.
-    *
-    * @return string|null The contactITNotes
-    */
+     * Gets the contactITNotes
+     * Text comments regarding the person/organization responsible for IT support.
+     *
+     * @return string|null The contactITNotes
+     */
     public function getContactITNotes()
     {
         if (array_key_exists("contactITNotes", $this->_propDict)) {
@@ -129,26 +127,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contactITNotes
-    * Text comments regarding the person/organization responsible for IT support.
-    *
-    * @param string $val The value of the contactITNotes
-    *
-    * @return IntuneBrand
-    */
+     * Sets the contactITNotes
+     * Text comments regarding the person/organization responsible for IT support.
+     *
+     * @param string $val The value of the contactITNotes
+     *
+     * @return IntuneBrand
+     */
     public function setContactITNotes($val)
     {
         $this->_propDict["contactITNotes"] = $val;
         return $this;
     }
     /**
-    * Gets the contactITPhoneNumber
-    * Phone number of the person/organization responsible for IT support.
-    *
-    * @return string|null The contactITPhoneNumber
-    */
+     * Gets the contactITPhoneNumber
+     * Phone number of the person/organization responsible for IT support.
+     *
+     * @return string|null The contactITPhoneNumber
+     */
     public function getContactITPhoneNumber()
     {
         if (array_key_exists("contactITPhoneNumber", $this->_propDict)) {
@@ -157,26 +154,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contactITPhoneNumber
-    * Phone number of the person/organization responsible for IT support.
-    *
-    * @param string $val The value of the contactITPhoneNumber
-    *
-    * @return IntuneBrand
-    */
+     * Sets the contactITPhoneNumber
+     * Phone number of the person/organization responsible for IT support.
+     *
+     * @param string $val The value of the contactITPhoneNumber
+     *
+     * @return IntuneBrand
+     */
     public function setContactITPhoneNumber($val)
     {
         $this->_propDict["contactITPhoneNumber"] = $val;
         return $this;
     }
     /**
-    * Gets the customCanSeePrivacyMessage
-    * The custom privacy message used to explain what the organization can see and do on managed devices.
-    *
-    * @return string|null The customCanSeePrivacyMessage
-    */
+     * Gets the customCanSeePrivacyMessage
+     * The custom privacy message used to explain what the organization can see and do on managed devices.
+     *
+     * @return string|null The customCanSeePrivacyMessage
+     */
     public function getCustomCanSeePrivacyMessage()
     {
         if (array_key_exists("customCanSeePrivacyMessage", $this->_propDict)) {
@@ -185,26 +181,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the customCanSeePrivacyMessage
-    * The custom privacy message used to explain what the organization can see and do on managed devices.
-    *
-    * @param string $val The value of the customCanSeePrivacyMessage
-    *
-    * @return IntuneBrand
-    */
+     * Sets the customCanSeePrivacyMessage
+     * The custom privacy message used to explain what the organization can see and do on managed devices.
+     *
+     * @param string $val The value of the customCanSeePrivacyMessage
+     *
+     * @return IntuneBrand
+     */
     public function setCustomCanSeePrivacyMessage($val)
     {
         $this->_propDict["customCanSeePrivacyMessage"] = $val;
         return $this;
     }
     /**
-    * Gets the customCantSeePrivacyMessage
-    * The custom privacy message used to explain what the organization can’t see or do on managed devices.
-    *
-    * @return string|null The customCantSeePrivacyMessage
-    */
+     * Gets the customCantSeePrivacyMessage
+     * The custom privacy message used to explain what the organization can’t see or do on managed devices.
+     *
+     * @return string|null The customCantSeePrivacyMessage
+     */
     public function getCustomCantSeePrivacyMessage()
     {
         if (array_key_exists("customCantSeePrivacyMessage", $this->_propDict)) {
@@ -213,26 +208,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the customCantSeePrivacyMessage
-    * The custom privacy message used to explain what the organization can’t see or do on managed devices.
-    *
-    * @param string $val The value of the customCantSeePrivacyMessage
-    *
-    * @return IntuneBrand
-    */
+     * Sets the customCantSeePrivacyMessage
+     * The custom privacy message used to explain what the organization can’t see or do on managed devices.
+     *
+     * @param string $val The value of the customCantSeePrivacyMessage
+     *
+     * @return IntuneBrand
+     */
     public function setCustomCantSeePrivacyMessage($val)
     {
         $this->_propDict["customCantSeePrivacyMessage"] = $val;
         return $this;
     }
     /**
-    * Gets the customPrivacyMessage
-    * The custom privacy message used to explain what the organization can’t see or do on managed devices.
-    *
-    * @return string|null The customPrivacyMessage
-    */
+     * Gets the customPrivacyMessage
+     * The custom privacy message used to explain what the organization can’t see or do on managed devices.
+     *
+     * @return string|null The customPrivacyMessage
+     */
     public function getCustomPrivacyMessage()
     {
         if (array_key_exists("customPrivacyMessage", $this->_propDict)) {
@@ -241,31 +235,29 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the customPrivacyMessage
-    * The custom privacy message used to explain what the organization can’t see or do on managed devices.
-    *
-    * @param string $val The value of the customPrivacyMessage
-    *
-    * @return IntuneBrand
-    */
+     * Sets the customPrivacyMessage
+     * The custom privacy message used to explain what the organization can’t see or do on managed devices.
+     *
+     * @param string $val The value of the customPrivacyMessage
+     *
+     * @return IntuneBrand
+     */
     public function setCustomPrivacyMessage($val)
     {
         $this->_propDict["customPrivacyMessage"] = $val;
         return $this;
     }
-
     /**
-    * Gets the darkBackgroundLogo
-    * Logo image displayed in Company Portal apps which have a dark background behind the logo.
-    *
-    * @return MimeContent|null The darkBackgroundLogo
-    */
+     * Gets the darkBackgroundLogo
+     * Logo image displayed in Company Portal apps which have a dark background behind the logo.
+     *
+     * @return MimeContent|null The darkBackgroundLogo
+     */
     public function getDarkBackgroundLogo()
     {
         if (array_key_exists("darkBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["darkBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["darkBackgroundLogo"])) {
+            if (is_a($this->_propDict["darkBackgroundLogo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MimeContent") || is_null($this->_propDict["darkBackgroundLogo"])) {
                 return $this->_propDict["darkBackgroundLogo"];
             } else {
                 $this->_propDict["darkBackgroundLogo"] = new MimeContent($this->_propDict["darkBackgroundLogo"]);
@@ -274,26 +266,25 @@ class IntuneBrand extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the darkBackgroundLogo
-    * Logo image displayed in Company Portal apps which have a dark background behind the logo.
-    *
-    * @param MimeContent $val The value to assign to the darkBackgroundLogo
-    *
-    * @return IntuneBrand The IntuneBrand
-    */
+     * Sets the darkBackgroundLogo
+     * Logo image displayed in Company Portal apps which have a dark background behind the logo.
+     *
+     * @param MimeContent $val The value to assign to the darkBackgroundLogo
+     *
+     * @return IntuneBrand The IntuneBrand
+     */
     public function setDarkBackgroundLogo($val)
     {
         $this->_propDict["darkBackgroundLogo"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the disableClientTelemetry
-    * Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
-    *
-    * @return bool|null The disableClientTelemetry
-    */
+     * Gets the disableClientTelemetry
+     * Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
+     *
+     * @return bool|null The disableClientTelemetry
+     */
     public function getDisableClientTelemetry()
     {
         if (array_key_exists("disableClientTelemetry", $this->_propDict)) {
@@ -302,26 +293,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the disableClientTelemetry
-    * Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
-    *
-    * @param bool $val The value of the disableClientTelemetry
-    *
-    * @return IntuneBrand
-    */
+     * Sets the disableClientTelemetry
+     * Applies to telemetry sent from all clients to the Intune service. When disabled, all proactive troubleshooting and issue warnings within the client are turned off, and telemetry settings appear inactive or hidden to the device user.
+     *
+     * @param bool $val The value of the disableClientTelemetry
+     *
+     * @return IntuneBrand
+     */
     public function setDisableClientTelemetry($val)
     {
         $this->_propDict["disableClientTelemetry"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Company/organization name that is displayed to end users.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Company/organization name that is displayed to end users.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -330,31 +320,29 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Company/organization name that is displayed to end users.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return IntuneBrand
-    */
+     * Sets the displayName
+     * Company/organization name that is displayed to end users.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return IntuneBrand
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the enrollmentAvailability
-    * Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
-    *
-    * @return EnrollmentAvailabilityOptions|null The enrollmentAvailability
-    */
+     * Gets the enrollmentAvailability
+     * Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
+     *
+     * @return EnrollmentAvailabilityOptions|null The enrollmentAvailability
+     */
     public function getEnrollmentAvailability()
     {
         if (array_key_exists("enrollmentAvailability", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentAvailability"], "\Beta\Microsoft\Graph\Model\EnrollmentAvailabilityOptions") || is_null($this->_propDict["enrollmentAvailability"])) {
+            if (is_a($this->_propDict["enrollmentAvailability"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EnrollmentAvailabilityOptions") || is_null($this->_propDict["enrollmentAvailability"])) {
                 return $this->_propDict["enrollmentAvailability"];
             } else {
                 $this->_propDict["enrollmentAvailability"] = new EnrollmentAvailabilityOptions($this->_propDict["enrollmentAvailability"]);
@@ -363,26 +351,25 @@ class IntuneBrand extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the enrollmentAvailability
-    * Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
-    *
-    * @param EnrollmentAvailabilityOptions $val The value to assign to the enrollmentAvailability
-    *
-    * @return IntuneBrand The IntuneBrand
-    */
+     * Sets the enrollmentAvailability
+     * Customized device enrollment flow displayed to the end user . Possible values are: availableWithPrompts, availableWithoutPrompts, unavailable.
+     *
+     * @param EnrollmentAvailabilityOptions $val The value to assign to the enrollmentAvailability
+     *
+     * @return IntuneBrand The IntuneBrand
+     */
     public function setEnrollmentAvailability($val)
     {
         $this->_propDict["enrollmentAvailability"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the isFactoryResetDisabled
-    * Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
-    *
-    * @return bool|null The isFactoryResetDisabled
-    */
+     * Gets the isFactoryResetDisabled
+     * Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
+     *
+     * @return bool|null The isFactoryResetDisabled
+     */
     public function getIsFactoryResetDisabled()
     {
         if (array_key_exists("isFactoryResetDisabled", $this->_propDict)) {
@@ -391,26 +378,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isFactoryResetDisabled
-    * Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
-    *
-    * @param bool $val The value of the isFactoryResetDisabled
-    *
-    * @return IntuneBrand
-    */
+     * Sets the isFactoryResetDisabled
+     * Boolean that represents whether the adminsistrator has disabled the 'Factory Reset' action on corporate owned devices.
+     *
+     * @param bool $val The value of the isFactoryResetDisabled
+     *
+     * @return IntuneBrand
+     */
     public function setIsFactoryResetDisabled($val)
     {
         $this->_propDict["isFactoryResetDisabled"] = $val;
         return $this;
     }
     /**
-    * Gets the isRemoveDeviceDisabled
-    * Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
-    *
-    * @return bool|null The isRemoveDeviceDisabled
-    */
+     * Gets the isRemoveDeviceDisabled
+     * Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
+     *
+     * @return bool|null The isRemoveDeviceDisabled
+     */
     public function getIsRemoveDeviceDisabled()
     {
         if (array_key_exists("isRemoveDeviceDisabled", $this->_propDict)) {
@@ -419,31 +405,29 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRemoveDeviceDisabled
-    * Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
-    *
-    * @param bool $val The value of the isRemoveDeviceDisabled
-    *
-    * @return IntuneBrand
-    */
+     * Sets the isRemoveDeviceDisabled
+     * Boolean that represents whether the adminsistrator has disabled the 'Remove Device' action on corporate owned devices.
+     *
+     * @param bool $val The value of the isRemoveDeviceDisabled
+     *
+     * @return IntuneBrand
+     */
     public function setIsRemoveDeviceDisabled($val)
     {
         $this->_propDict["isRemoveDeviceDisabled"] = $val;
         return $this;
     }
-
     /**
-    * Gets the landingPageCustomizedImage
-    * Customized image displayed in Company Portal app landing page
-    *
-    * @return MimeContent|null The landingPageCustomizedImage
-    */
+     * Gets the landingPageCustomizedImage
+     * Customized image displayed in Company Portal app landing page
+     *
+     * @return MimeContent|null The landingPageCustomizedImage
+     */
     public function getLandingPageCustomizedImage()
     {
         if (array_key_exists("landingPageCustomizedImage", $this->_propDict)) {
-            if (is_a($this->_propDict["landingPageCustomizedImage"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["landingPageCustomizedImage"])) {
+            if (is_a($this->_propDict["landingPageCustomizedImage"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MimeContent") || is_null($this->_propDict["landingPageCustomizedImage"])) {
                 return $this->_propDict["landingPageCustomizedImage"];
             } else {
                 $this->_propDict["landingPageCustomizedImage"] = new MimeContent($this->_propDict["landingPageCustomizedImage"]);
@@ -452,31 +436,29 @@ class IntuneBrand extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the landingPageCustomizedImage
-    * Customized image displayed in Company Portal app landing page
-    *
-    * @param MimeContent $val The value to assign to the landingPageCustomizedImage
-    *
-    * @return IntuneBrand The IntuneBrand
-    */
+     * Sets the landingPageCustomizedImage
+     * Customized image displayed in Company Portal app landing page
+     *
+     * @param MimeContent $val The value to assign to the landingPageCustomizedImage
+     *
+     * @return IntuneBrand The IntuneBrand
+     */
     public function setLandingPageCustomizedImage($val)
     {
         $this->_propDict["landingPageCustomizedImage"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lightBackgroundLogo
-    * Logo image displayed in Company Portal apps which have a light background behind the logo.
-    *
-    * @return MimeContent|null The lightBackgroundLogo
-    */
+     * Gets the lightBackgroundLogo
+     * Logo image displayed in Company Portal apps which have a light background behind the logo.
+     *
+     * @return MimeContent|null The lightBackgroundLogo
+     */
     public function getLightBackgroundLogo()
     {
         if (array_key_exists("lightBackgroundLogo", $this->_propDict)) {
-            if (is_a($this->_propDict["lightBackgroundLogo"], "\Beta\Microsoft\Graph\Model\MimeContent") || is_null($this->_propDict["lightBackgroundLogo"])) {
+            if (is_a($this->_propDict["lightBackgroundLogo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MimeContent") || is_null($this->_propDict["lightBackgroundLogo"])) {
                 return $this->_propDict["lightBackgroundLogo"];
             } else {
                 $this->_propDict["lightBackgroundLogo"] = new MimeContent($this->_propDict["lightBackgroundLogo"]);
@@ -485,26 +467,25 @@ class IntuneBrand extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lightBackgroundLogo
-    * Logo image displayed in Company Portal apps which have a light background behind the logo.
-    *
-    * @param MimeContent $val The value to assign to the lightBackgroundLogo
-    *
-    * @return IntuneBrand The IntuneBrand
-    */
+     * Sets the lightBackgroundLogo
+     * Logo image displayed in Company Portal apps which have a light background behind the logo.
+     *
+     * @param MimeContent $val The value to assign to the lightBackgroundLogo
+     *
+     * @return IntuneBrand The IntuneBrand
+     */
     public function setLightBackgroundLogo($val)
     {
         $this->_propDict["lightBackgroundLogo"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the onlineSupportSiteName
-    * Display name of the company/organization’s IT helpdesk site.
-    *
-    * @return string|null The onlineSupportSiteName
-    */
+     * Gets the onlineSupportSiteName
+     * Display name of the company/organization’s IT helpdesk site.
+     *
+     * @return string|null The onlineSupportSiteName
+     */
     public function getOnlineSupportSiteName()
     {
         if (array_key_exists("onlineSupportSiteName", $this->_propDict)) {
@@ -513,26 +494,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the onlineSupportSiteName
-    * Display name of the company/organization’s IT helpdesk site.
-    *
-    * @param string $val The value of the onlineSupportSiteName
-    *
-    * @return IntuneBrand
-    */
+     * Sets the onlineSupportSiteName
+     * Display name of the company/organization’s IT helpdesk site.
+     *
+     * @param string $val The value of the onlineSupportSiteName
+     *
+     * @return IntuneBrand
+     */
     public function setOnlineSupportSiteName($val)
     {
         $this->_propDict["onlineSupportSiteName"] = $val;
         return $this;
     }
     /**
-    * Gets the onlineSupportSiteUrl
-    * URL to the company/organization’s IT helpdesk site.
-    *
-    * @return string|null The onlineSupportSiteUrl
-    */
+     * Gets the onlineSupportSiteUrl
+     * URL to the company/organization’s IT helpdesk site.
+     *
+     * @return string|null The onlineSupportSiteUrl
+     */
     public function getOnlineSupportSiteUrl()
     {
         if (array_key_exists("onlineSupportSiteUrl", $this->_propDict)) {
@@ -541,26 +521,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the onlineSupportSiteUrl
-    * URL to the company/organization’s IT helpdesk site.
-    *
-    * @param string $val The value of the onlineSupportSiteUrl
-    *
-    * @return IntuneBrand
-    */
+     * Sets the onlineSupportSiteUrl
+     * URL to the company/organization’s IT helpdesk site.
+     *
+     * @param string $val The value of the onlineSupportSiteUrl
+     *
+     * @return IntuneBrand
+     */
     public function setOnlineSupportSiteUrl($val)
     {
         $this->_propDict["onlineSupportSiteUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the privacyUrl
-    * URL to the company/organization’s privacy policy.
-    *
-    * @return string|null The privacyUrl
-    */
+     * Gets the privacyUrl
+     * URL to the company/organization’s privacy policy.
+     *
+     * @return string|null The privacyUrl
+     */
     public function getPrivacyUrl()
     {
         if (array_key_exists("privacyUrl", $this->_propDict)) {
@@ -569,26 +548,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the privacyUrl
-    * URL to the company/organization’s privacy policy.
-    *
-    * @param string $val The value of the privacyUrl
-    *
-    * @return IntuneBrand
-    */
+     * Sets the privacyUrl
+     * URL to the company/organization’s privacy policy.
+     *
+     * @param string $val The value of the privacyUrl
+     *
+     * @return IntuneBrand
+     */
     public function setPrivacyUrl($val)
     {
         $this->_propDict["privacyUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the roleScopeTagIds
-    * List of scope tags assigned to the default branding profile
-    *
-    * @return string|null The roleScopeTagIds
-    */
+     * Gets the roleScopeTagIds
+     * List of scope tags assigned to the default branding profile
+     *
+     * @return string|null The roleScopeTagIds
+     */
     public function getRoleScopeTagIds()
     {
         if (array_key_exists("roleScopeTagIds", $this->_propDict)) {
@@ -597,26 +575,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleScopeTagIds
-    * List of scope tags assigned to the default branding profile
-    *
-    * @param string $val The value of the roleScopeTagIds
-    *
-    * @return IntuneBrand
-    */
+     * Sets the roleScopeTagIds
+     * List of scope tags assigned to the default branding profile
+     *
+     * @param string $val The value of the roleScopeTagIds
+     *
+     * @return IntuneBrand
+     */
     public function setRoleScopeTagIds($val)
     {
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
     /**
-    * Gets the sendDeviceOwnershipChangePushNotification
-    * Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-    *
-    * @return bool|null The sendDeviceOwnershipChangePushNotification
-    */
+     * Gets the sendDeviceOwnershipChangePushNotification
+     * Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
+     *
+     * @return bool|null The sendDeviceOwnershipChangePushNotification
+     */
     public function getSendDeviceOwnershipChangePushNotification()
     {
         if (array_key_exists("sendDeviceOwnershipChangePushNotification", $this->_propDict)) {
@@ -625,26 +602,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sendDeviceOwnershipChangePushNotification
-    * Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
-    *
-    * @param bool $val The value of the sendDeviceOwnershipChangePushNotification
-    *
-    * @return IntuneBrand
-    */
+     * Sets the sendDeviceOwnershipChangePushNotification
+     * Boolean that indicates if a push notification is sent to users when their device ownership type changes from personal to corporate
+     *
+     * @param bool $val The value of the sendDeviceOwnershipChangePushNotification
+     *
+     * @return IntuneBrand
+     */
     public function setSendDeviceOwnershipChangePushNotification($val)
     {
         $this->_propDict["sendDeviceOwnershipChangePushNotification"] = $val;
         return $this;
     }
     /**
-    * Gets the showAzureADEnterpriseApps
-    * Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
-    *
-    * @return bool|null The showAzureADEnterpriseApps
-    */
+     * Gets the showAzureADEnterpriseApps
+     * Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
+     *
+     * @return bool|null The showAzureADEnterpriseApps
+     */
     public function getShowAzureADEnterpriseApps()
     {
         if (array_key_exists("showAzureADEnterpriseApps", $this->_propDict)) {
@@ -653,26 +629,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showAzureADEnterpriseApps
-    * Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
-    *
-    * @param bool $val The value of the showAzureADEnterpriseApps
-    *
-    * @return IntuneBrand
-    */
+     * Sets the showAzureADEnterpriseApps
+     * Boolean that indicates if AzureAD Enterprise Apps will be shown in Company Portal
+     *
+     * @param bool $val The value of the showAzureADEnterpriseApps
+     *
+     * @return IntuneBrand
+     */
     public function setShowAzureADEnterpriseApps($val)
     {
         $this->_propDict["showAzureADEnterpriseApps"] = $val;
         return $this;
     }
     /**
-    * Gets the showConfigurationManagerApps
-    * Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
-    *
-    * @return bool|null The showConfigurationManagerApps
-    */
+     * Gets the showConfigurationManagerApps
+     * Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
+     *
+     * @return bool|null The showConfigurationManagerApps
+     */
     public function getShowConfigurationManagerApps()
     {
         if (array_key_exists("showConfigurationManagerApps", $this->_propDict)) {
@@ -681,26 +656,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showConfigurationManagerApps
-    * Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
-    *
-    * @param bool $val The value of the showConfigurationManagerApps
-    *
-    * @return IntuneBrand
-    */
+     * Sets the showConfigurationManagerApps
+     * Boolean that indicates if ConfigurationManagerApps will be shown in Company Portal
+     *
+     * @param bool $val The value of the showConfigurationManagerApps
+     *
+     * @return IntuneBrand
+     */
     public function setShowConfigurationManagerApps($val)
     {
         $this->_propDict["showConfigurationManagerApps"] = $val;
         return $this;
     }
     /**
-    * Gets the showDisplayNameNextToLogo
-    * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
-    *
-    * @return bool|null The showDisplayNameNextToLogo
-    */
+     * Gets the showDisplayNameNextToLogo
+     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
+     *
+     * @return bool|null The showDisplayNameNextToLogo
+     */
     public function getShowDisplayNameNextToLogo()
     {
         if (array_key_exists("showDisplayNameNextToLogo", $this->_propDict)) {
@@ -709,26 +683,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showDisplayNameNextToLogo
-    * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
-    *
-    * @param bool $val The value of the showDisplayNameNextToLogo
-    *
-    * @return IntuneBrand
-    */
+     * Sets the showDisplayNameNextToLogo
+     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
+     *
+     * @param bool $val The value of the showDisplayNameNextToLogo
+     *
+     * @return IntuneBrand
+     */
     public function setShowDisplayNameNextToLogo($val)
     {
         $this->_propDict["showDisplayNameNextToLogo"] = $val;
         return $this;
     }
     /**
-    * Gets the showLogo
-    * Boolean that represents whether the administrator-supplied logo images are shown or not shown.
-    *
-    * @return bool|null The showLogo
-    */
+     * Gets the showLogo
+     * Boolean that represents whether the administrator-supplied logo images are shown or not shown.
+     *
+     * @return bool|null The showLogo
+     */
     public function getShowLogo()
     {
         if (array_key_exists("showLogo", $this->_propDict)) {
@@ -737,26 +710,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showLogo
-    * Boolean that represents whether the administrator-supplied logo images are shown or not shown.
-    *
-    * @param bool $val The value of the showLogo
-    *
-    * @return IntuneBrand
-    */
+     * Sets the showLogo
+     * Boolean that represents whether the administrator-supplied logo images are shown or not shown.
+     *
+     * @param bool $val The value of the showLogo
+     *
+     * @return IntuneBrand
+     */
     public function setShowLogo($val)
     {
         $this->_propDict["showLogo"] = $val;
         return $this;
     }
     /**
-    * Gets the showNameNextToLogo
-    * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
-    *
-    * @return bool|null The showNameNextToLogo
-    */
+     * Gets the showNameNextToLogo
+     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
+     *
+     * @return bool|null The showNameNextToLogo
+     */
     public function getShowNameNextToLogo()
     {
         if (array_key_exists("showNameNextToLogo", $this->_propDict)) {
@@ -765,26 +737,25 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showNameNextToLogo
-    * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
-    *
-    * @param bool $val The value of the showNameNextToLogo
-    *
-    * @return IntuneBrand
-    */
+     * Sets the showNameNextToLogo
+     * Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.
+     *
+     * @param bool $val The value of the showNameNextToLogo
+     *
+     * @return IntuneBrand
+     */
     public function setShowNameNextToLogo($val)
     {
         $this->_propDict["showNameNextToLogo"] = $val;
         return $this;
     }
     /**
-    * Gets the showOfficeWebApps
-    * Boolean that indicates if Office WebApps will be shown in Company Portal
-    *
-    * @return bool|null The showOfficeWebApps
-    */
+     * Gets the showOfficeWebApps
+     * Boolean that indicates if Office WebApps will be shown in Company Portal
+     *
+     * @return bool|null The showOfficeWebApps
+     */
     public function getShowOfficeWebApps()
     {
         if (array_key_exists("showOfficeWebApps", $this->_propDict)) {
@@ -793,31 +764,29 @@ class IntuneBrand extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the showOfficeWebApps
-    * Boolean that indicates if Office WebApps will be shown in Company Portal
-    *
-    * @param bool $val The value of the showOfficeWebApps
-    *
-    * @return IntuneBrand
-    */
+     * Sets the showOfficeWebApps
+     * Boolean that indicates if Office WebApps will be shown in Company Portal
+     *
+     * @param bool $val The value of the showOfficeWebApps
+     *
+     * @return IntuneBrand
+     */
     public function setShowOfficeWebApps($val)
     {
         $this->_propDict["showOfficeWebApps"] = $val;
         return $this;
     }
-
     /**
-    * Gets the themeColor
-    * Primary theme color used in the Company Portal applications and web portal.
-    *
-    * @return RgbColor|null The themeColor
-    */
+     * Gets the themeColor
+     * Primary theme color used in the Company Portal applications and web portal.
+     *
+     * @return RgbColor|null The themeColor
+     */
     public function getThemeColor()
     {
         if (array_key_exists("themeColor", $this->_propDict)) {
-            if (is_a($this->_propDict["themeColor"], "\Beta\Microsoft\Graph\Model\RgbColor") || is_null($this->_propDict["themeColor"])) {
+            if (is_a($this->_propDict["themeColor"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RgbColor") || is_null($this->_propDict["themeColor"])) {
                 return $this->_propDict["themeColor"];
             } else {
                 $this->_propDict["themeColor"] = new RgbColor($this->_propDict["themeColor"]);
@@ -826,18 +795,17 @@ class IntuneBrand extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the themeColor
-    * Primary theme color used in the Company Portal applications and web portal.
-    *
-    * @param RgbColor $val The value to assign to the themeColor
-    *
-    * @return IntuneBrand The IntuneBrand
-    */
+     * Sets the themeColor
+     * Primary theme color used in the Company Portal applications and web portal.
+     *
+     * @param RgbColor $val The value to assign to the themeColor
+     *
+     * @return IntuneBrand The IntuneBrand
+     */
     public function setThemeColor($val)
     {
         $this->_propDict["themeColor"] = $val;
-         return $this;
+        return $this;
     }
 }

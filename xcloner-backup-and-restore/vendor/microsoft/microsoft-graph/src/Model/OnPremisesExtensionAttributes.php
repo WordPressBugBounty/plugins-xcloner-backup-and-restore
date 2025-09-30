@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnPremisesExtensionAttributes class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OnPremisesExtensionAttributes extends Entity
 {
     /**
-    * Gets the extensionAttribute1
-    * First customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute1
-    */
+     * Gets the extensionAttribute1
+     * First customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute1
+     */
     public function getExtensionAttribute1()
     {
         if (array_key_exists("extensionAttribute1", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute1
-    * First customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute1
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute1
+     * First customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute1
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute1($val)
     {
         $this->_propDict["extensionAttribute1"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute10
-    * Tenth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute10
-    */
+     * Gets the extensionAttribute10
+     * Tenth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute10
+     */
     public function getExtensionAttribute10()
     {
         if (array_key_exists("extensionAttribute10", $this->_propDict)) {
@@ -68,26 +69,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute10
-    * Tenth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute10
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute10
+     * Tenth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute10
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute10($val)
     {
         $this->_propDict["extensionAttribute10"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute11
-    * Eleventh customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute11
-    */
+     * Gets the extensionAttribute11
+     * Eleventh customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute11
+     */
     public function getExtensionAttribute11()
     {
         if (array_key_exists("extensionAttribute11", $this->_propDict)) {
@@ -96,26 +96,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute11
-    * Eleventh customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute11
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute11
+     * Eleventh customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute11
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute11($val)
     {
         $this->_propDict["extensionAttribute11"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute12
-    * Twelfth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute12
-    */
+     * Gets the extensionAttribute12
+     * Twelfth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute12
+     */
     public function getExtensionAttribute12()
     {
         if (array_key_exists("extensionAttribute12", $this->_propDict)) {
@@ -124,26 +123,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute12
-    * Twelfth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute12
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute12
+     * Twelfth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute12
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute12($val)
     {
         $this->_propDict["extensionAttribute12"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute13
-    * Thirteenth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute13
-    */
+     * Gets the extensionAttribute13
+     * Thirteenth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute13
+     */
     public function getExtensionAttribute13()
     {
         if (array_key_exists("extensionAttribute13", $this->_propDict)) {
@@ -152,26 +150,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute13
-    * Thirteenth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute13
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute13
+     * Thirteenth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute13
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute13($val)
     {
         $this->_propDict["extensionAttribute13"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute14
-    * Fourteenth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute14
-    */
+     * Gets the extensionAttribute14
+     * Fourteenth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute14
+     */
     public function getExtensionAttribute14()
     {
         if (array_key_exists("extensionAttribute14", $this->_propDict)) {
@@ -180,26 +177,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute14
-    * Fourteenth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute14
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute14
+     * Fourteenth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute14
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute14($val)
     {
         $this->_propDict["extensionAttribute14"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute15
-    * Fifteenth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute15
-    */
+     * Gets the extensionAttribute15
+     * Fifteenth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute15
+     */
     public function getExtensionAttribute15()
     {
         if (array_key_exists("extensionAttribute15", $this->_propDict)) {
@@ -208,26 +204,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute15
-    * Fifteenth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute15
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute15
+     * Fifteenth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute15
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute15($val)
     {
         $this->_propDict["extensionAttribute15"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute2
-    * Second customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute2
-    */
+     * Gets the extensionAttribute2
+     * Second customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute2
+     */
     public function getExtensionAttribute2()
     {
         if (array_key_exists("extensionAttribute2", $this->_propDict)) {
@@ -236,26 +231,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute2
-    * Second customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute2
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute2
+     * Second customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute2
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute2($val)
     {
         $this->_propDict["extensionAttribute2"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute3
-    * Third customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute3
-    */
+     * Gets the extensionAttribute3
+     * Third customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute3
+     */
     public function getExtensionAttribute3()
     {
         if (array_key_exists("extensionAttribute3", $this->_propDict)) {
@@ -264,26 +258,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute3
-    * Third customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute3
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute3
+     * Third customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute3
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute3($val)
     {
         $this->_propDict["extensionAttribute3"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute4
-    * Fourth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute4
-    */
+     * Gets the extensionAttribute4
+     * Fourth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute4
+     */
     public function getExtensionAttribute4()
     {
         if (array_key_exists("extensionAttribute4", $this->_propDict)) {
@@ -292,26 +285,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute4
-    * Fourth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute4
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute4
+     * Fourth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute4
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute4($val)
     {
         $this->_propDict["extensionAttribute4"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute5
-    * Fifth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute5
-    */
+     * Gets the extensionAttribute5
+     * Fifth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute5
+     */
     public function getExtensionAttribute5()
     {
         if (array_key_exists("extensionAttribute5", $this->_propDict)) {
@@ -320,26 +312,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute5
-    * Fifth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute5
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute5
+     * Fifth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute5
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute5($val)
     {
         $this->_propDict["extensionAttribute5"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute6
-    * Sixth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute6
-    */
+     * Gets the extensionAttribute6
+     * Sixth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute6
+     */
     public function getExtensionAttribute6()
     {
         if (array_key_exists("extensionAttribute6", $this->_propDict)) {
@@ -348,26 +339,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute6
-    * Sixth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute6
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute6
+     * Sixth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute6
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute6($val)
     {
         $this->_propDict["extensionAttribute6"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute7
-    * Seventh customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute7
-    */
+     * Gets the extensionAttribute7
+     * Seventh customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute7
+     */
     public function getExtensionAttribute7()
     {
         if (array_key_exists("extensionAttribute7", $this->_propDict)) {
@@ -376,26 +366,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute7
-    * Seventh customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute7
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute7
+     * Seventh customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute7
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute7($val)
     {
         $this->_propDict["extensionAttribute7"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute8
-    * Eighth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute8
-    */
+     * Gets the extensionAttribute8
+     * Eighth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute8
+     */
     public function getExtensionAttribute8()
     {
         if (array_key_exists("extensionAttribute8", $this->_propDict)) {
@@ -404,26 +393,25 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute8
-    * Eighth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute8
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute8
+     * Eighth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute8
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute8($val)
     {
         $this->_propDict["extensionAttribute8"] = $val;
         return $this;
     }
     /**
-    * Gets the extensionAttribute9
-    * Ninth customizable extension attribute.
-    *
-    * @return string|null The extensionAttribute9
-    */
+     * Gets the extensionAttribute9
+     * Ninth customizable extension attribute.
+     *
+     * @return string|null The extensionAttribute9
+     */
     public function getExtensionAttribute9()
     {
         if (array_key_exists("extensionAttribute9", $this->_propDict)) {
@@ -432,15 +420,14 @@ class OnPremisesExtensionAttributes extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensionAttribute9
-    * Ninth customizable extension attribute.
-    *
-    * @param string $val The value of the extensionAttribute9
-    *
-    * @return OnPremisesExtensionAttributes
-    */
+     * Sets the extensionAttribute9
+     * Ninth customizable extension attribute.
+     *
+     * @param string $val The value of the extensionAttribute9
+     *
+     * @return OnPremisesExtensionAttributes
+     */
     public function setExtensionAttribute9($val)
     {
         $this->_propDict["extensionAttribute9"] = $val;

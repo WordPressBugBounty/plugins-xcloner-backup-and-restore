@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SortProperty class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SortProperty extends Entity
 {
     /**
-    * Gets the isDescending
-    * True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
-    *
-    * @return bool|null The isDescending
-    */
+     * Gets the isDescending
+     * True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
+     *
+     * @return bool|null The isDescending
+     */
     public function getIsDescending()
     {
         if (array_key_exists("isDescending", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SortProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isDescending
-    * True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
-    *
-    * @param bool $val The value of the isDescending
-    *
-    * @return SortProperty
-    */
+     * Sets the isDescending
+     * True if the sort order is descending. Default is false, with the sort order as ascending. Optional.
+     *
+     * @param bool $val The value of the isDescending
+     *
+     * @return SortProperty
+     */
     public function setIsDescending($val)
     {
         $this->_propDict["isDescending"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The name of the property to sort on. Required.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the property to sort on. Required.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,15 +69,14 @@ class SortProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the property to sort on. Required.
-    *
-    * @param string $val The value of the name
-    *
-    * @return SortProperty
-    */
+     * Sets the name
+     * The name of the property to sort on. Required.
+     *
+     * @param string $val The value of the name
+     *
+     * @return SortProperty
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceOwnerSilentCertificateAccess class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidDeviceOwnerSilentCertificateAccess extends Entity
 {
     /**
-    * Gets the packageId
-    * Package ID that has the pre-granted access to the certificate.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * Package ID that has the pre-granted access to the certificate.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class AndroidDeviceOwnerSilentCertificateAccess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * Package ID that has the pre-granted access to the certificate.
-    *
-    * @param string $val The value of the packageId
-    *
-    * @return AndroidDeviceOwnerSilentCertificateAccess
-    */
+     * Sets the packageId
+     * Package ID that has the pre-granted access to the certificate.
+     *
+     * @param string $val The value of the packageId
+     *
+     * @return AndroidDeviceOwnerSilentCertificateAccess
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;

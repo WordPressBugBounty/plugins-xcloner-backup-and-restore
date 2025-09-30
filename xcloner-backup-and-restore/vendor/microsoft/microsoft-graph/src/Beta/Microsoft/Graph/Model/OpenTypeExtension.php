@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OpenTypeExtension class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OpenTypeExtension extends Extension
 {
     /**
-    * Gets the extensionName
-    * A unique text identifier for an open type data extension. Required.
-    *
-    * @return string|null The extensionName
-    */
+     * Gets the extensionName
+     * A unique text identifier for an open type data extension. Required.
+     *
+     * @return string|null The extensionName
+     */
     public function getExtensionName()
     {
         if (array_key_exists("extensionName", $this->_propDict)) {
@@ -41,19 +42,17 @@ class OpenTypeExtension extends Extension
             return null;
         }
     }
-
     /**
-    * Sets the extensionName
-    * A unique text identifier for an open type data extension. Required.
-    *
-    * @param string $val The extensionName
-    *
-    * @return OpenTypeExtension
-    */
+     * Sets the extensionName
+     * A unique text identifier for an open type data extension. Required.
+     *
+     * @param string $val The extensionName
+     *
+     * @return OpenTypeExtension
+     */
     public function setExtensionName($val)
     {
         $this->_propDict["extensionName"] = $val;
         return $this;
     }
-
 }

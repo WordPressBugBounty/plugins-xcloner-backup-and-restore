@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TenantInfo class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TenantInfo extends \Beta\Microsoft\Graph\Model\Entity
+class TenantInfo extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Optional.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Optional.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class TenantInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Optional.
-    *
-    * @param string $val The value of the tenantId
-    *
-    * @return TenantInfo
-    */
+     * Sets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Optional.
+     *
+     * @param string $val The value of the tenantId
+     *
+     * @return TenantInfo
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;

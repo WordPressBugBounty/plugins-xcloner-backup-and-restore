@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MeetingRegistrantBase class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MeetingRegistrantBase extends Entity
 {
     /**
-    * Gets the joinWebUrl
-    * A unique web URL for the registrant to join the meeting. Read-only.
-    *
-    * @return string|null The joinWebUrl
-    */
+     * Gets the joinWebUrl
+     * A unique web URL for the registrant to join the meeting. Read-only.
+     *
+     * @return string|null The joinWebUrl
+     */
     public function getJoinWebUrl()
     {
         if (array_key_exists("joinWebUrl", $this->_propDict)) {
@@ -41,19 +42,17 @@ class MeetingRegistrantBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the joinWebUrl
-    * A unique web URL for the registrant to join the meeting. Read-only.
-    *
-    * @param string $val The joinWebUrl
-    *
-    * @return MeetingRegistrantBase
-    */
+     * Sets the joinWebUrl
+     * A unique web URL for the registrant to join the meeting. Read-only.
+     *
+     * @param string $val The joinWebUrl
+     *
+     * @return MeetingRegistrantBase
+     */
     public function setJoinWebUrl($val)
     {
         $this->_propDict["joinWebUrl"] = $val;
         return $this;
     }
-
 }

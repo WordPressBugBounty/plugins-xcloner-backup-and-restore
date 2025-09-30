@@ -21,19 +21,17 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Middlewares;
 
-namespace MicrosoftAzure\Storage\Common\Middlewares;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\Internal\Serialization\MessageSerializer;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Promise\RejectedPromise;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization\MessageSerializer;
+use XCloner\Psr\Http\Message\RequestInterface;
+use XCloner\Psr\Http\Message\ResponseInterface;
+use XCloner\GuzzleHttp\Promise\RejectedPromise;
 /**
  * This class provides the functionality to log the requests/options/responses.
  * Logging large number of entries without providing a file path may exhaust
@@ -54,9 +52,7 @@ class HistoryMiddleware extends MiddlewareBase
     private $history;
     private $path;
     private $count;
-
     const TITLE_LENGTH = 120;
-
     /**
      * Gets the saved paried history.
      *
@@ -66,7 +62,6 @@ class HistoryMiddleware extends MiddlewareBase
     {
         return $this->history;
     }
-
     /**
      * Constructor
      *
@@ -82,7 +77,6 @@ class HistoryMiddleware extends MiddlewareBase
         $this->path = $path;
         $this->count = 0;
     }
-
     /**
      * Add an entry to history
      *
@@ -93,18 +87,11 @@ class HistoryMiddleware extends MiddlewareBase
         if ($this->path !== '') {
             $this->appendNewEntryToPath($entry);
         } else {
-            Validate::isTrue(
-                array_key_exists('request', $entry) &&
-                array_key_exists('options', $entry) &&
-                (array_key_exists('response', $entry) ||
-                array_key_exists('reason', $entry)),
-                'Given history entry not in correct format'
-            );
+            Validate::isTrue(array_key_exists('request', $entry) && array_key_exists('options', $entry) && (array_key_exists('response', $entry) || array_key_exists('reason', $entry)), 'Given history entry not in correct format');
             $this->history[] = $entry;
         }
         ++$this->count;
     }
-
     /**
      * Clear the history
      *
@@ -115,7 +102,6 @@ class HistoryMiddleware extends MiddlewareBase
         $this->history = array();
         $this->count = 0;
     }
-
     /**
      * This function will be invoked after the request is sent, if
      * the promise is fulfilled.
@@ -128,20 +114,11 @@ class HistoryMiddleware extends MiddlewareBase
     protected function onFulfilled(RequestInterface $request, array $options)
     {
         $reflection = $this;
-        return function (ResponseInterface $response) use (
-            $reflection,
-            $request,
-            $options
-        ) {
-            $reflection->addHistory([
-                'request'  => $request,
-                'response' => $response,
-                'options'  => $options
-            ]);
+        return function (ResponseInterface $response) use ($reflection, $request, $options) {
+            $reflection->addHistory(['request' => $request, 'response' => $response, 'options' => $options]);
             return $response;
         };
     }
-
     /**
      * This function will be executed after the request is sent, if
      * the promise is rejected.
@@ -154,20 +131,11 @@ class HistoryMiddleware extends MiddlewareBase
     protected function onRejected(RequestInterface $request, array $options)
     {
         $reflection = $this;
-        return function ($reason) use (
-            $reflection,
-            $request,
-            $options
-        ) {
-            $reflection->addHistory([
-                'request' => $request,
-                'reason'  => $reason,
-                'options' => $options
-            ]);
+        return function ($reason) use ($reflection, $request, $options) {
+            $reflection->addHistory(['request' => $request, 'reason' => $reason, 'options' => $options]);
             return new RejectedPromise($reason);
         };
     }
-
     /**
      * Append the new entry to saved file path.
      *
@@ -178,26 +146,16 @@ class HistoryMiddleware extends MiddlewareBase
     private function appendNewEntryToPath(array $entry)
     {
         $entryNoString = "Entry " . $this->count;
-        $delimiter = str_pad(
-            $entryNoString,
-            self::TITLE_LENGTH,
-            '-',
-            STR_PAD_BOTH
-        ) . PHP_EOL;
+        $delimiter = str_pad($entryNoString, self::TITLE_LENGTH, '-', \STR_PAD_BOTH) . \PHP_EOL;
         $entryString = $delimiter;
-        $entryString .= sprintf(
-            "Time: %s\n",
-            (new \DateTime("now", new \DateTimeZone('UTC')))->format('Y-m-d H:i:s')
-        );
+        $entryString .= sprintf("Time: %s\n", (new \DateTime("now", new \DateTimeZone('UTC')))->format('Y-m-d H:i:s'));
         $entryString .= MessageSerializer::objectSerialize($entry['request']);
         if (array_key_exists('reason', $entry)) {
             $entryString .= MessageSerializer::objectSerialize($entry['reason']);
         } elseif (array_key_exists('response', $entry)) {
             $entryString .= MessageSerializer::objectSerialize($entry['response']);
         }
-
         $entryString .= $delimiter;
-
         Utilities::appendToFile($this->path, $entryString);
     }
 }

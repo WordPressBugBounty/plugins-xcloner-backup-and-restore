@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OsVersionCount class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OsVersionCount extends Entity
 {
     /**
-    * Gets the deviceCount
-    * Count of devices with malware for the OS version
-    *
-    * @return int|null The deviceCount
-    */
+     * Gets the deviceCount
+     * Count of devices with malware for the OS version
+     *
+     * @return int|null The deviceCount
+     */
     public function getDeviceCount()
     {
         if (array_key_exists("deviceCount", $this->_propDict)) {
@@ -40,31 +42,29 @@ class OsVersionCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceCount
-    * Count of devices with malware for the OS version
-    *
-    * @param int $val The value of the deviceCount
-    *
-    * @return OsVersionCount
-    */
+     * Sets the deviceCount
+     * Count of devices with malware for the OS version
+     *
+     * @param int $val The value of the deviceCount
+     *
+     * @return OsVersionCount
+     */
     public function setDeviceCount($val)
     {
         $this->_propDict["deviceCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastUpdateDateTime
-    * The Timestamp of the last update for the device count in UTC
-    *
-    * @return \DateTime|null The lastUpdateDateTime
-    */
+     * Gets the lastUpdateDateTime
+     * The Timestamp of the last update for the device count in UTC
+     *
+     * @return \DateTime|null The lastUpdateDateTime
+     */
     public function getLastUpdateDateTime()
     {
         if (array_key_exists("lastUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdateDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdateDateTime"])) {
+            if (is_a($this->_propDict["lastUpdateDateTime"], "\\DateTime") || is_null($this->_propDict["lastUpdateDateTime"])) {
                 return $this->_propDict["lastUpdateDateTime"];
             } else {
                 $this->_propDict["lastUpdateDateTime"] = new \DateTime($this->_propDict["lastUpdateDateTime"]);
@@ -73,26 +73,25 @@ class OsVersionCount extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastUpdateDateTime
-    * The Timestamp of the last update for the device count in UTC
-    *
-    * @param \DateTime $val The value to assign to the lastUpdateDateTime
-    *
-    * @return OsVersionCount The OsVersionCount
-    */
+     * Sets the lastUpdateDateTime
+     * The Timestamp of the last update for the device count in UTC
+     *
+     * @param \DateTime $val The value to assign to the lastUpdateDateTime
+     *
+     * @return OsVersionCount The OsVersionCount
+     */
     public function setLastUpdateDateTime($val)
     {
         $this->_propDict["lastUpdateDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the osVersion
-    * OS version
-    *
-    * @return string|null The osVersion
-    */
+     * Gets the osVersion
+     * OS version
+     *
+     * @return string|null The osVersion
+     */
     public function getOsVersion()
     {
         if (array_key_exists("osVersion", $this->_propDict)) {
@@ -101,15 +100,14 @@ class OsVersionCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the osVersion
-    * OS version
-    *
-    * @param string $val The value of the osVersion
-    *
-    * @return OsVersionCount
-    */
+     * Sets the osVersion
+     * OS version
+     *
+     * @param string $val The value of the osVersion
+     *
+     * @return OsVersionCount
+     */
     public function setOsVersion($val)
     {
         $this->_propDict["osVersion"] = $val;

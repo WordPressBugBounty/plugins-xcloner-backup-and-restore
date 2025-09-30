@@ -1,10 +1,10 @@
 <?php
 
-namespace GuzzleHttp;
+namespace XCloner\GuzzleHttp;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Debug function used to describe the provided value type and class.
  *
@@ -20,7 +20,6 @@ function describe_type($input): string
 {
     return Utils::describeType($input);
 }
-
 /**
  * Parses an array of header lines into an associative array of headers.
  *
@@ -33,7 +32,6 @@ function headers_from_lines(iterable $lines): array
 {
     return Utils::headersFromLines($lines);
 }
-
 /**
  * Returns a debug stream based on the provided variable.
  *
@@ -47,7 +45,6 @@ function debug_resource($value = null)
 {
     return Utils::debugResource($value);
 }
-
 /**
  * Chooses and creates a default handler to use based on the environment.
  *
@@ -63,7 +60,6 @@ function choose_handler(): callable
 {
     return Utils::chooseHandler();
 }
-
 /**
  * Get the default User-Agent string to use with Guzzle.
  *
@@ -73,7 +69,6 @@ function default_user_agent(): string
 {
     return Utils::defaultUserAgent();
 }
-
 /**
  * Returns the default cacert bundle for the current system.
  *
@@ -93,7 +88,6 @@ function default_ca_bundle(): string
 {
     return Utils::defaultCaBundle();
 }
-
 /**
  * Creates an associative array of lowercase header names to the actual
  * header casing.
@@ -104,7 +98,6 @@ function normalize_header_keys(array $headers): array
 {
     return Utils::normalizeHeaderKeys($headers);
 }
-
 /**
  * Returns true if the provided host matches any of the no proxy areas.
  *
@@ -130,7 +123,6 @@ function is_host_in_noproxy(string $host, array $noProxyArray): bool
 {
     return Utils::isHostInNoProxy($host, $noProxyArray);
 }
-
 /**
  * Wrapper for json_decode that throws when an error occurs.
  *
@@ -147,11 +139,10 @@ function is_host_in_noproxy(string $host, array $noProxyArray): bool
  * @link https://www.php.net/manual/en/function.json-decode.php
  * @deprecated json_decode will be removed in guzzlehttp/guzzle:8.0. Use Utils::jsonDecode instead.
  */
-function json_decode(string $json, bool $assoc = false, int $depth = 512, int $options = 0)
+function json_decode(string $json, bool $assoc = \false, int $depth = 512, int $options = 0)
 {
     return Utils::jsonDecode($json, $assoc, $depth, $options);
 }
-
 /**
  * Wrapper for JSON encoding that throws when an error occurs.
  *

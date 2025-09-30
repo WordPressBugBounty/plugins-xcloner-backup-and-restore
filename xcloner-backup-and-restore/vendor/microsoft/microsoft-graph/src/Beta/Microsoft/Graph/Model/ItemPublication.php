@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemPublication class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemPublication extends ItemFacet
 {
     /**
-    * Gets the description
-    * Description of the publication.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the publication.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the publication.
-    *
-    * @param string $val The description
-    *
-    * @return ItemPublication
-    */
+     * Sets the description
+     * Description of the publication.
+     *
+     * @param string $val The description
+     *
+     * @return ItemPublication
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Title of the publication.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Title of the publication.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,31 +69,29 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Title of the publication.
-    *
-    * @param string $val The displayName
-    *
-    * @return ItemPublication
-    */
+     * Sets the displayName
+     * Title of the publication.
+     *
+     * @param string $val The displayName
+     *
+     * @return ItemPublication
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the publishedDate
-    * The date that the publication was published.
-    *
-    * @return \DateTime|null The publishedDate
-    */
+     * Gets the publishedDate
+     * The date that the publication was published.
+     *
+     * @return \DateTime|null The publishedDate
+     */
     public function getPublishedDate()
     {
         if (array_key_exists("publishedDate", $this->_propDict)) {
-            if (is_a($this->_propDict["publishedDate"], "\DateTime") || is_null($this->_propDict["publishedDate"])) {
+            if (is_a($this->_propDict["publishedDate"], "\\DateTime") || is_null($this->_propDict["publishedDate"])) {
                 return $this->_propDict["publishedDate"];
             } else {
                 $this->_propDict["publishedDate"] = new \DateTime($this->_propDict["publishedDate"]);
@@ -103,27 +100,25 @@ class ItemPublication extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the publishedDate
-    * The date that the publication was published.
-    *
-    * @param \DateTime $val The publishedDate
-    *
-    * @return ItemPublication
-    */
+     * Sets the publishedDate
+     * The date that the publication was published.
+     *
+     * @param \DateTime $val The publishedDate
+     *
+     * @return ItemPublication
+     */
     public function setPublishedDate($val)
     {
         $this->_propDict["publishedDate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the publisher
-    * Publication or publisher for the publication.
-    *
-    * @return string|null The publisher
-    */
+     * Gets the publisher
+     * Publication or publisher for the publication.
+     *
+     * @return string|null The publisher
+     */
     public function getPublisher()
     {
         if (array_key_exists("publisher", $this->_propDict)) {
@@ -132,27 +127,25 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the publisher
-    * Publication or publisher for the publication.
-    *
-    * @param string $val The publisher
-    *
-    * @return ItemPublication
-    */
+     * Sets the publisher
+     * Publication or publisher for the publication.
+     *
+     * @param string $val The publisher
+     *
+     * @return ItemPublication
+     */
     public function setPublisher($val)
     {
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-
     /**
-    * Gets the thumbnailUrl
-    * URL referencing a thumbnail of the publication.
-    *
-    * @return string|null The thumbnailUrl
-    */
+     * Gets the thumbnailUrl
+     * URL referencing a thumbnail of the publication.
+     *
+     * @return string|null The thumbnailUrl
+     */
     public function getThumbnailUrl()
     {
         if (array_key_exists("thumbnailUrl", $this->_propDict)) {
@@ -161,27 +154,25 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the thumbnailUrl
-    * URL referencing a thumbnail of the publication.
-    *
-    * @param string $val The thumbnailUrl
-    *
-    * @return ItemPublication
-    */
+     * Sets the thumbnailUrl
+     * URL referencing a thumbnail of the publication.
+     *
+     * @param string $val The thumbnailUrl
+     *
+     * @return ItemPublication
+     */
     public function setThumbnailUrl($val)
     {
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the webUrl
-    * URL referencing the publication.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * URL referencing the publication.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -190,19 +181,17 @@ class ItemPublication extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * URL referencing the publication.
-    *
-    * @param string $val The webUrl
-    *
-    * @return ItemPublication
-    */
+     * Sets the webUrl
+     * URL referencing the publication.
+     *
+     * @param string $val The webUrl
+     *
+     * @return ItemPublication
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-
 }

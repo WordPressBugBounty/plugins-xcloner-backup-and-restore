@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppleVppTokenTroubleshootingEvent class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingEvent
 {
     /**
-    * Gets the tokenId
-    * Apple Volume Purchase Program Token Identifier.
-    *
-    * @return string|null The tokenId
-    */
+     * Gets the tokenId
+     * Apple Volume Purchase Program Token Identifier.
+     *
+     * @return string|null The tokenId
+     */
     public function getTokenId()
     {
         if (array_key_exists("tokenId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AppleVppTokenTroubleshootingEvent extends DeviceManagementTroubleshootingE
             return null;
         }
     }
-
     /**
-    * Sets the tokenId
-    * Apple Volume Purchase Program Token Identifier.
-    *
-    * @param string $val The tokenId
-    *
-    * @return AppleVppTokenTroubleshootingEvent
-    */
+     * Sets the tokenId
+     * Apple Volume Purchase Program Token Identifier.
+     *
+     * @param string $val The tokenId
+     *
+     * @return AppleVppTokenTroubleshootingEvent
+     */
     public function setTokenId($val)
     {
         $this->_propDict["tokenId"] = $val;
         return $this;
     }
-
 }

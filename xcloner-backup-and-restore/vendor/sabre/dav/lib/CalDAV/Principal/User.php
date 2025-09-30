@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Principal;
 
-namespace Sabre\CalDAV\Principal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
 /**
  * CalDAV principal.
  *
@@ -33,9 +31,8 @@ class User extends DAVACL\Principal implements DAV\ICollection
      */
     public function createFile($name, $data = null)
     {
-        throw new DAV\Exception\Forbidden('Permission denied to create file (filename '.$name.')');
+        throw new DAV\Exception\Forbidden('Permission denied to create file (filename ' . $name . ')');
     }
-
     /**
      * Creates a new subdirectory.
      *
@@ -47,7 +44,6 @@ class User extends DAVACL\Principal implements DAV\ICollection
     {
         throw new DAV\Exception\Forbidden('Permission denied to create directory');
     }
-
     /**
      * Returns a specific child node, referenced by its name.
      *
@@ -57,21 +53,18 @@ class User extends DAVACL\Principal implements DAV\ICollection
      */
     public function getChild($name)
     {
-        $principal = $this->principalBackend->getPrincipalByPath($this->getPrincipalURL().'/'.$name);
+        $principal = $this->principalBackend->getPrincipalByPath($this->getPrincipalURL() . '/' . $name);
         if (!$principal) {
-            throw new DAV\Exception\NotFound('Node with name '.$name.' was not found');
+            throw new DAV\Exception\NotFound('Node with name ' . $name . ' was not found');
         }
         if ('calendar-proxy-read' === $name) {
             return new ProxyRead($this->principalBackend, $this->principalProperties);
         }
-
         if ('calendar-proxy-write' === $name) {
             return new ProxyWrite($this->principalBackend, $this->principalProperties);
         }
-
-        throw new DAV\Exception\NotFound('Node with name '.$name.' was not found');
+        throw new DAV\Exception\NotFound('Node with name ' . $name . ' was not found');
     }
-
     /**
      * Returns an array with all the child nodes.
      *
@@ -80,16 +73,14 @@ class User extends DAVACL\Principal implements DAV\ICollection
     public function getChildren()
     {
         $r = [];
-        if ($this->principalBackend->getPrincipalByPath($this->getPrincipalURL().'/calendar-proxy-read')) {
+        if ($this->principalBackend->getPrincipalByPath($this->getPrincipalURL() . '/calendar-proxy-read')) {
             $r[] = new ProxyRead($this->principalBackend, $this->principalProperties);
         }
-        if ($this->principalBackend->getPrincipalByPath($this->getPrincipalURL().'/calendar-proxy-write')) {
+        if ($this->principalBackend->getPrincipalByPath($this->getPrincipalURL() . '/calendar-proxy-write')) {
             $r[] = new ProxyWrite($this->principalBackend, $this->principalProperties);
         }
-
         return $r;
     }
-
     /**
      * Returns whether or not the child node exists.
      *
@@ -101,13 +92,11 @@ class User extends DAVACL\Principal implements DAV\ICollection
     {
         try {
             $this->getChild($name);
-
-            return true;
+            return \true;
         } catch (DAV\Exception\NotFound $e) {
-            return false;
+            return \false;
         }
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -123,17 +112,8 @@ class User extends DAVACL\Principal implements DAV\ICollection
     public function getACL()
     {
         $acl = parent::getACL();
-        $acl[] = [
-            'privilege' => '{DAV:}read',
-            'principal' => $this->principalProperties['uri'].'/calendar-proxy-read',
-            'protected' => true,
-        ];
-        $acl[] = [
-            'privilege' => '{DAV:}read',
-            'principal' => $this->principalProperties['uri'].'/calendar-proxy-write',
-            'protected' => true,
-        ];
-
+        $acl[] = ['privilege' => '{DAV:}read', 'principal' => $this->principalProperties['uri'] . '/calendar-proxy-read', 'protected' => \true];
+        $acl[] = ['privilege' => '{DAV:}read', 'principal' => $this->principalProperties['uri'] . '/calendar-proxy-write', 'protected' => \true];
         return $acl;
     }
 }

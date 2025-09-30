@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeleconferenceDeviceVideoQuality class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
 {
     /**
-    * Gets the averageInboundBitRate
-    * The average inbound stream video bit rate per second.
-    *
-    * @return float|null The averageInboundBitRate
-    */
+     * Gets the averageInboundBitRate
+     * The average inbound stream video bit rate per second.
+     *
+     * @return float|null The averageInboundBitRate
+     */
     public function getAverageInboundBitRate()
     {
         if (array_key_exists("averageInboundBitRate", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
             return null;
         }
     }
-
     /**
-    * Sets the averageInboundBitRate
-    * The average inbound stream video bit rate per second.
-    *
-    * @param float $val The value of the averageInboundBitRate
-    *
-    * @return TeleconferenceDeviceVideoQuality
-    */
+     * Sets the averageInboundBitRate
+     * The average inbound stream video bit rate per second.
+     *
+     * @param float $val The value of the averageInboundBitRate
+     *
+     * @return TeleconferenceDeviceVideoQuality
+     */
     public function setAverageInboundBitRate($val)
     {
         $this->_propDict["averageInboundBitRate"] = $val;
         return $this;
     }
     /**
-    * Gets the averageInboundFrameRate
-    * The average inbound stream video frame rate per second.
-    *
-    * @return float|null The averageInboundFrameRate
-    */
+     * Gets the averageInboundFrameRate
+     * The average inbound stream video frame rate per second.
+     *
+     * @return float|null The averageInboundFrameRate
+     */
     public function getAverageInboundFrameRate()
     {
         if (array_key_exists("averageInboundFrameRate", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
             return null;
         }
     }
-
     /**
-    * Sets the averageInboundFrameRate
-    * The average inbound stream video frame rate per second.
-    *
-    * @param float $val The value of the averageInboundFrameRate
-    *
-    * @return TeleconferenceDeviceVideoQuality
-    */
+     * Sets the averageInboundFrameRate
+     * The average inbound stream video frame rate per second.
+     *
+     * @param float $val The value of the averageInboundFrameRate
+     *
+     * @return TeleconferenceDeviceVideoQuality
+     */
     public function setAverageInboundFrameRate($val)
     {
         $this->_propDict["averageInboundFrameRate"] = $val;
         return $this;
     }
     /**
-    * Gets the averageOutboundBitRate
-    * The average outbound stream video bit rate per second.
-    *
-    * @return float|null The averageOutboundBitRate
-    */
+     * Gets the averageOutboundBitRate
+     * The average outbound stream video bit rate per second.
+     *
+     * @return float|null The averageOutboundBitRate
+     */
     public function getAverageOutboundBitRate()
     {
         if (array_key_exists("averageOutboundBitRate", $this->_propDict)) {
@@ -96,26 +96,25 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
             return null;
         }
     }
-
     /**
-    * Sets the averageOutboundBitRate
-    * The average outbound stream video bit rate per second.
-    *
-    * @param float $val The value of the averageOutboundBitRate
-    *
-    * @return TeleconferenceDeviceVideoQuality
-    */
+     * Sets the averageOutboundBitRate
+     * The average outbound stream video bit rate per second.
+     *
+     * @param float $val The value of the averageOutboundBitRate
+     *
+     * @return TeleconferenceDeviceVideoQuality
+     */
     public function setAverageOutboundBitRate($val)
     {
         $this->_propDict["averageOutboundBitRate"] = $val;
         return $this;
     }
     /**
-    * Gets the averageOutboundFrameRate
-    * The average outbound stream video frame rate per second.
-    *
-    * @return float|null The averageOutboundFrameRate
-    */
+     * Gets the averageOutboundFrameRate
+     * The average outbound stream video frame rate per second.
+     *
+     * @return float|null The averageOutboundFrameRate
+     */
     public function getAverageOutboundFrameRate()
     {
         if (array_key_exists("averageOutboundFrameRate", $this->_propDict)) {
@@ -124,15 +123,14 @@ class TeleconferenceDeviceVideoQuality extends TeleconferenceDeviceMediaQuality
             return null;
         }
     }
-
     /**
-    * Sets the averageOutboundFrameRate
-    * The average outbound stream video frame rate per second.
-    *
-    * @param float $val The value of the averageOutboundFrameRate
-    *
-    * @return TeleconferenceDeviceVideoQuality
-    */
+     * Sets the averageOutboundFrameRate
+     * The average outbound stream video frame rate per second.
+     *
+     * @param float $val The value of the averageOutboundFrameRate
+     *
+     * @return TeleconferenceDeviceVideoQuality
+     */
     public function setAverageOutboundFrameRate($val)
     {
         $this->_propDict["averageOutboundFrameRate"] = $val;

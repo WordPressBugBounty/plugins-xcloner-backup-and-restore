@@ -1,9 +1,10 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Represents a simple cache interface.
  */
@@ -17,7 +18,6 @@ interface CacheInterface
      * @return mixed|null Returns the value or null if not found.
      */
     public function get($key);
-
     /**
      * Set a cache key value.
      *
@@ -27,7 +27,6 @@ interface CacheInterface
      *                      to 0 to allow an unlimited lifetime.
      */
     public function set($key, $value, $ttl = 0);
-
     /**
      * Remove a cache key.
      *

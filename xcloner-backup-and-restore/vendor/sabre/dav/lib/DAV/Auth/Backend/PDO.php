@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This is an authentication backend that uses a database to manage passwords.
  *
@@ -22,14 +21,12 @@ class PDO extends AbstractDigest
      * @var PDO
      */
     protected $pdo;
-
     /**
      * PDO table name we'll be using.
      *
      * @var string
      */
     public $tableName = 'users';
-
     /**
      * Creates the backend object.
      *
@@ -39,7 +36,6 @@ class PDO extends AbstractDigest
     {
         $this->pdo = $pdo;
     }
-
     /**
      * Returns the digest hash for a user.
      *
@@ -50,9 +46,8 @@ class PDO extends AbstractDigest
      */
     public function getDigestHash($realm, $username)
     {
-        $stmt = $this->pdo->prepare('SELECT digesta1 FROM '.$this->tableName.' WHERE username = ?');
+        $stmt = $this->pdo->prepare('SELECT digesta1 FROM ' . $this->tableName . ' WHERE username = ?');
         $stmt->execute([$username]);
-
         return $stmt->fetchColumn() ?: null;
     }
 }

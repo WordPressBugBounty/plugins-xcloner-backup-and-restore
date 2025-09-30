@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Property;
 
-namespace Sabre\CalDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\DAV;
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Xml\Element\Sharee;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * Invite property.
  *
@@ -34,7 +32,6 @@ class Invite implements XmlSerializable
      * @var Sharee[]
      */
     protected $sharees;
-
     /**
      * Creates the property.
      *
@@ -44,7 +41,6 @@ class Invite implements XmlSerializable
     {
         $this->sharees = $sharees;
     }
-
     /**
      * Returns the list of users, as it was passed to the constructor.
      *
@@ -54,7 +50,6 @@ class Invite implements XmlSerializable
     {
         return $this->sharees;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -73,51 +68,48 @@ class Invite implements XmlSerializable
      */
     public function xmlSerialize(Writer $writer)
     {
-        $cs = '{'.Plugin::NS_CALENDARSERVER.'}';
-
+        $cs = '{' . Plugin::NS_CALENDARSERVER . '}';
         foreach ($this->sharees as $sharee) {
             if (DAV\Sharing\Plugin::ACCESS_SHAREDOWNER === $sharee->access) {
-                $writer->startElement($cs.'organizer');
+                $writer->startElement($cs . 'organizer');
             } else {
-                $writer->startElement($cs.'user');
-
+                $writer->startElement($cs . 'user');
                 switch ($sharee->inviteStatus) {
                     case DAV\Sharing\Plugin::INVITE_ACCEPTED:
-                        $writer->writeElement($cs.'invite-accepted');
+                        $writer->writeElement($cs . 'invite-accepted');
                         break;
                     case DAV\Sharing\Plugin::INVITE_DECLINED:
-                        $writer->writeElement($cs.'invite-declined');
+                        $writer->writeElement($cs . 'invite-declined');
                         break;
                     case DAV\Sharing\Plugin::INVITE_NORESPONSE:
-                        $writer->writeElement($cs.'invite-noresponse');
+                        $writer->writeElement($cs . 'invite-noresponse');
                         break;
                     case DAV\Sharing\Plugin::INVITE_INVALID:
-                        $writer->writeElement($cs.'invite-invalid');
+                        $writer->writeElement($cs . 'invite-invalid');
                         break;
                 }
-
-                $writer->startElement($cs.'access');
+                $writer->startElement($cs . 'access');
                 switch ($sharee->access) {
                     case DAV\Sharing\Plugin::ACCESS_READWRITE:
-                        $writer->writeElement($cs.'read-write');
+                        $writer->writeElement($cs . 'read-write');
                         break;
                     case DAV\Sharing\Plugin::ACCESS_READ:
-                        $writer->writeElement($cs.'read');
+                        $writer->writeElement($cs . 'read');
                         break;
                 }
-                $writer->endElement(); // access
+                $writer->endElement();
+                // access
             }
-
             $href = new DAV\Xml\Property\Href($sharee->href);
             $href->xmlSerialize($writer);
-
             if (isset($sharee->properties['{DAV:}displayname'])) {
-                $writer->writeElement($cs.'common-name', $sharee->properties['{DAV:}displayname']);
+                $writer->writeElement($cs . 'common-name', $sharee->properties['{DAV:}displayname']);
             }
             if ($sharee->comment) {
-                $writer->writeElement($cs.'summary', $sharee->comment);
+                $writer->writeElement($cs . 'summary', $sharee->comment);
             }
-            $writer->endElement(); // organizer or user
+            $writer->endElement();
+            // organizer or user
         }
     }
 }

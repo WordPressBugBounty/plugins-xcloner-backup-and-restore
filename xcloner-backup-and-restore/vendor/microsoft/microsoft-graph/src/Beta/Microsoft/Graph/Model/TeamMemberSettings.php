@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamMemberSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamMemberSettings extends Entity
 {
     /**
-    * Gets the allowAddRemoveApps
-    * If set to true, members can add and remove apps.
-    *
-    * @return bool|null The allowAddRemoveApps
-    */
+     * Gets the allowAddRemoveApps
+     * If set to true, members can add and remove apps.
+     *
+     * @return bool|null The allowAddRemoveApps
+     */
     public function getAllowAddRemoveApps()
     {
         if (array_key_exists("allowAddRemoveApps", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeamMemberSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowAddRemoveApps
-    * If set to true, members can add and remove apps.
-    *
-    * @param bool $val The value of the allowAddRemoveApps
-    *
-    * @return TeamMemberSettings
-    */
+     * Sets the allowAddRemoveApps
+     * If set to true, members can add and remove apps.
+     *
+     * @param bool $val The value of the allowAddRemoveApps
+     *
+     * @return TeamMemberSettings
+     */
     public function setAllowAddRemoveApps($val)
     {
         $this->_propDict["allowAddRemoveApps"] = $val;
         return $this;
     }
     /**
-    * Gets the allowCreatePrivateChannels
-    * If set to true, members can add and update private channels.
-    *
-    * @return bool|null The allowCreatePrivateChannels
-    */
+     * Gets the allowCreatePrivateChannels
+     * If set to true, members can add and update private channels.
+     *
+     * @return bool|null The allowCreatePrivateChannels
+     */
     public function getAllowCreatePrivateChannels()
     {
         if (array_key_exists("allowCreatePrivateChannels", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TeamMemberSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowCreatePrivateChannels
-    * If set to true, members can add and update private channels.
-    *
-    * @param bool $val The value of the allowCreatePrivateChannels
-    *
-    * @return TeamMemberSettings
-    */
+     * Sets the allowCreatePrivateChannels
+     * If set to true, members can add and update private channels.
+     *
+     * @param bool $val The value of the allowCreatePrivateChannels
+     *
+     * @return TeamMemberSettings
+     */
     public function setAllowCreatePrivateChannels($val)
     {
         $this->_propDict["allowCreatePrivateChannels"] = $val;
         return $this;
     }
     /**
-    * Gets the allowCreateUpdateChannels
-    * If set to true, members can add and update any channels.
-    *
-    * @return bool|null The allowCreateUpdateChannels
-    */
+     * Gets the allowCreateUpdateChannels
+     * If set to true, members can add and update any channels.
+     *
+     * @return bool|null The allowCreateUpdateChannels
+     */
     public function getAllowCreateUpdateChannels()
     {
         if (array_key_exists("allowCreateUpdateChannels", $this->_propDict)) {
@@ -96,26 +96,25 @@ class TeamMemberSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowCreateUpdateChannels
-    * If set to true, members can add and update any channels.
-    *
-    * @param bool $val The value of the allowCreateUpdateChannels
-    *
-    * @return TeamMemberSettings
-    */
+     * Sets the allowCreateUpdateChannels
+     * If set to true, members can add and update any channels.
+     *
+     * @param bool $val The value of the allowCreateUpdateChannels
+     *
+     * @return TeamMemberSettings
+     */
     public function setAllowCreateUpdateChannels($val)
     {
         $this->_propDict["allowCreateUpdateChannels"] = $val;
         return $this;
     }
     /**
-    * Gets the allowCreateUpdateRemoveConnectors
-    * If set to true, members can add, update, and remove connectors.
-    *
-    * @return bool|null The allowCreateUpdateRemoveConnectors
-    */
+     * Gets the allowCreateUpdateRemoveConnectors
+     * If set to true, members can add, update, and remove connectors.
+     *
+     * @return bool|null The allowCreateUpdateRemoveConnectors
+     */
     public function getAllowCreateUpdateRemoveConnectors()
     {
         if (array_key_exists("allowCreateUpdateRemoveConnectors", $this->_propDict)) {
@@ -124,26 +123,25 @@ class TeamMemberSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowCreateUpdateRemoveConnectors
-    * If set to true, members can add, update, and remove connectors.
-    *
-    * @param bool $val The value of the allowCreateUpdateRemoveConnectors
-    *
-    * @return TeamMemberSettings
-    */
+     * Sets the allowCreateUpdateRemoveConnectors
+     * If set to true, members can add, update, and remove connectors.
+     *
+     * @param bool $val The value of the allowCreateUpdateRemoveConnectors
+     *
+     * @return TeamMemberSettings
+     */
     public function setAllowCreateUpdateRemoveConnectors($val)
     {
         $this->_propDict["allowCreateUpdateRemoveConnectors"] = $val;
         return $this;
     }
     /**
-    * Gets the allowCreateUpdateRemoveTabs
-    * If set to true, members can add, update, and remove tabs.
-    *
-    * @return bool|null The allowCreateUpdateRemoveTabs
-    */
+     * Gets the allowCreateUpdateRemoveTabs
+     * If set to true, members can add, update, and remove tabs.
+     *
+     * @return bool|null The allowCreateUpdateRemoveTabs
+     */
     public function getAllowCreateUpdateRemoveTabs()
     {
         if (array_key_exists("allowCreateUpdateRemoveTabs", $this->_propDict)) {
@@ -152,26 +150,25 @@ class TeamMemberSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowCreateUpdateRemoveTabs
-    * If set to true, members can add, update, and remove tabs.
-    *
-    * @param bool $val The value of the allowCreateUpdateRemoveTabs
-    *
-    * @return TeamMemberSettings
-    */
+     * Sets the allowCreateUpdateRemoveTabs
+     * If set to true, members can add, update, and remove tabs.
+     *
+     * @param bool $val The value of the allowCreateUpdateRemoveTabs
+     *
+     * @return TeamMemberSettings
+     */
     public function setAllowCreateUpdateRemoveTabs($val)
     {
         $this->_propDict["allowCreateUpdateRemoveTabs"] = $val;
         return $this;
     }
     /**
-    * Gets the allowDeleteChannels
-    * If set to true, members can delete channels.
-    *
-    * @return bool|null The allowDeleteChannels
-    */
+     * Gets the allowDeleteChannels
+     * If set to true, members can delete channels.
+     *
+     * @return bool|null The allowDeleteChannels
+     */
     public function getAllowDeleteChannels()
     {
         if (array_key_exists("allowDeleteChannels", $this->_propDict)) {
@@ -180,15 +177,14 @@ class TeamMemberSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowDeleteChannels
-    * If set to true, members can delete channels.
-    *
-    * @param bool $val The value of the allowDeleteChannels
-    *
-    * @return TeamMemberSettings
-    */
+     * Sets the allowDeleteChannels
+     * If set to true, members can delete channels.
+     *
+     * @param bool $val The value of the allowDeleteChannels
+     *
+     * @return TeamMemberSettings
+     */
     public function setAllowDeleteChannels($val)
     {
         $this->_propDict["allowDeleteChannels"] = $val;

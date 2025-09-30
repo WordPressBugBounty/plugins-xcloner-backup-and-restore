@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IpEvidence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IpEvidence extends AlertEvidence
 {
     /**
-    * Gets the ipAddress
-    * The value of the IP Address, can be either in V4 address or V6 address format.
-    *
-    * @return string|null The ipAddress
-    */
+     * Gets the ipAddress
+     * The value of the IP Address, can be either in V4 address or V6 address format.
+     *
+     * @return string|null The ipAddress
+     */
     public function getIpAddress()
     {
         if (array_key_exists("ipAddress", $this->_propDict)) {
@@ -40,15 +42,14 @@ class IpEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the ipAddress
-    * The value of the IP Address, can be either in V4 address or V6 address format.
-    *
-    * @param string $val The value of the ipAddress
-    *
-    * @return IpEvidence
-    */
+     * Sets the ipAddress
+     * The value of the IP Address, can be either in V4 address or V6 address format.
+     *
+     * @param string $val The value of the ipAddress
+     *
+     * @return IpEvidence
+     */
     public function setIpAddress($val)
     {
         $this->_propDict["ipAddress"] = $val;

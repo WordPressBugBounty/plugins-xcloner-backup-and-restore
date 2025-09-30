@@ -1,20 +1,19 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeZone;
 use InvalidArgumentException;
-use Sabre\VObject\TimezoneGuesser\FindFromOffset;
-use Sabre\VObject\TimezoneGuesser\FindFromTimezoneIdentifier;
-use Sabre\VObject\TimezoneGuesser\FindFromTimezoneMap;
-use Sabre\VObject\TimezoneGuesser\GuessFromLicEntry;
-use Sabre\VObject\TimezoneGuesser\GuessFromMsTzId;
-use Sabre\VObject\TimezoneGuesser\TimezoneFinder;
-use Sabre\VObject\TimezoneGuesser\TimezoneGuesser;
-
+use XCloner\Sabre\VObject\TimezoneGuesser\FindFromOffset;
+use XCloner\Sabre\VObject\TimezoneGuesser\FindFromTimezoneIdentifier;
+use XCloner\Sabre\VObject\TimezoneGuesser\FindFromTimezoneMap;
+use XCloner\Sabre\VObject\TimezoneGuesser\GuessFromLicEntry;
+use XCloner\Sabre\VObject\TimezoneGuesser\GuessFromMsTzId;
+use XCloner\Sabre\VObject\TimezoneGuesser\TimezoneFinder;
+use XCloner\Sabre\VObject\TimezoneGuesser\TimezoneGuesser;
 /**
  * Time zone name translation.
  *
@@ -29,13 +28,10 @@ class TimeZoneUtil
 {
     /** @var self */
     private static $instance = null;
-
     /** @var TimezoneGuesser[] */
     private $timezoneGuessers = [];
-
     /** @var TimezoneFinder[] */
     private $timezoneFinders = [];
-
     private function __construct()
     {
         $this->addGuesser('lic', new GuessFromLicEntry());
@@ -44,26 +40,21 @@ class TimeZoneUtil
         $this->addFinder('tzmap', new FindFromTimezoneMap());
         $this->addFinder('offset', new FindFromOffset());
     }
-
     private static function getInstance(): self
     {
         if (null === self::$instance) {
             self::$instance = new self();
         }
-
         return self::$instance;
     }
-
     private function addGuesser(string $key, TimezoneGuesser $guesser): void
     {
         $this->timezoneGuessers[$key] = $guesser;
     }
-
     private function addFinder(string $key, TimezoneFinder $finder): void
     {
         $this->timezoneFinders[$key] = $finder;
     }
-
     /**
      * This method will try to find out the correct timezone for an iCalendar
      * date-time value.
@@ -78,17 +69,15 @@ class TimeZoneUtil
      * Alternatively, if $failIfUncertain is set to true, it will throw an
      * exception if we cannot accurately determine the timezone.
      */
-    private function findTimeZone(string $tzid, Component $vcalendar = null, bool $failIfUncertain = false): DateTimeZone
+    private function findTimeZone(string $tzid, Component $vcalendar = null, bool $failIfUncertain = \false): DateTimeZone
     {
         foreach ($this->timezoneFinders as $timezoneFinder) {
             $timezone = $timezoneFinder->find($tzid, $failIfUncertain);
             if (!$timezone instanceof DateTimeZone) {
                 continue;
             }
-
             return $timezone;
         }
-
         if ($vcalendar) {
             // If that didn't work, we will scan VTIMEZONE objects
             foreach ($vcalendar->select('VTIMEZONE') as $vtimezone) {
@@ -98,47 +87,39 @@ class TimeZoneUtil
                         if (!$timezone instanceof DateTimeZone) {
                             continue;
                         }
-
                         return $timezone;
                     }
                 }
             }
         }
-
         if ($failIfUncertain) {
-            throw new InvalidArgumentException('We were unable to determine the correct PHP timezone for tzid: '.$tzid);
+            throw new InvalidArgumentException('We were unable to determine the correct PHP timezone for tzid: ' . $tzid);
         }
-
         // If we got all the way here, we default to whatever has been set as the PHP default timezone.
         return new DateTimeZone(date_default_timezone_get());
     }
-
     public static function addTimezoneGuesser(string $key, TimezoneGuesser $guesser): void
     {
         self::getInstance()->addGuesser($key, $guesser);
     }
-
     public static function addTimezoneFinder(string $key, TimezoneFinder $finder): void
     {
         self::getInstance()->addFinder($key, $finder);
     }
-
     /**
      * @param string $tzid
      * @param false  $failIfUncertain
      *
      * @return DateTimeZone
      */
-    public static function getTimeZone($tzid, Component $vcalendar = null, $failIfUncertain = false)
+    public static function getTimeZone($tzid, Component $vcalendar = null, $failIfUncertain = \false)
     {
         return self::getInstance()->findTimeZone($tzid, $vcalendar, $failIfUncertain);
     }
-
     public static function clean(): void
     {
         self::$instance = null;
     }
-
     // Keeping things for backwards compatibility
     /**
      * @var array|null
@@ -146,7 +127,6 @@ class TimeZoneUtil
      * @deprecated
      */
     public static $map = null;
-
     /**
      * List of microsoft exchange timezone ids.
      *
@@ -165,7 +145,8 @@ class TimeZoneUtil
         4 => 'Europe/Berlin',
         6 => 'Europe/Prague',
         3 => 'Europe/Paris',
-        69 => 'Africa/Luanda', // This was a best guess
+        69 => 'Africa/Luanda',
+        // This was a best guess
         7 => 'Europe/Athens',
         5 => 'Europe/Bucharest',
         49 => 'Africa/Cairo',
@@ -177,7 +158,8 @@ class TimeZoneUtil
         51 => 'Europe/Moscow',
         56 => 'Africa/Nairobi',
         25 => 'Asia/Tehran',
-        24 => 'Asia/Muscat', // Best guess
+        24 => 'Asia/Muscat',
+        // Best guess
         54 => 'Asia/Baku',
         48 => 'Asia/Kabul',
         58 => 'Asia/Yekaterinburg',
@@ -212,11 +194,12 @@ class TimeZoneUtil
         29 => 'Atlantic/Azores',
         53 => 'Atlantic/Cape_Verde',
         30 => 'America/Noronha',
-         8 => 'America/Sao_Paulo', // Best guess
+        8 => 'America/Sao_Paulo',
+        // Best guess
         32 => 'America/Argentina/Buenos_Aires',
         60 => 'America/Godthab',
         28 => 'America/St_Johns',
-         9 => 'America/Halifax',
+        9 => 'America/Halifax',
         33 => 'America/Caracas',
         65 => 'America/Santiago',
         35 => 'America/Bogota',
@@ -227,14 +210,15 @@ class TimeZoneUtil
         37 => 'America/Mexico_City',
         36 => 'America/Edmonton',
         38 => 'America/Phoenix',
-        12 => 'America/Denver', // Best guess
-        13 => 'America/Los_Angeles', // Best guess
+        12 => 'America/Denver',
+        // Best guess
+        13 => 'America/Los_Angeles',
+        // Best guess
         14 => 'America/Anchorage',
         15 => 'Pacific/Honolulu',
         16 => 'Pacific/Midway',
         39 => 'Pacific/Kwajalein',
     ];
-
     /**
      * This method will load in all the tz mapping information, if it's not yet
      * done.
@@ -246,15 +230,8 @@ class TimeZoneUtil
         if (!is_null(self::$map)) {
             return;
         }
-
-        self::$map = array_merge(
-            include __DIR__.'/timezonedata/windowszones.php',
-            include __DIR__.'/timezonedata/lotuszones.php',
-            include __DIR__.'/timezonedata/exchangezones.php',
-            include __DIR__.'/timezonedata/php-workaround.php'
-        );
+        self::$map = array_merge(include __DIR__ . '/timezonedata/windowszones.php', include __DIR__ . '/timezonedata/lotuszones.php', include __DIR__ . '/timezonedata/exchangezones.php', include __DIR__ . '/timezonedata/php-workaround.php');
     }
-
     /**
      * This method returns an array of timezone identifiers, that are supported
      * by DateTimeZone(), but not returned by DateTimeZone::listIdentifiers().
@@ -270,6 +247,6 @@ class TimeZoneUtil
      */
     public static function getIdentifiersBC()
     {
-        return include __DIR__.'/timezonedata/php-bc.php';
+        return include __DIR__ . '/timezonedata/php-bc.php';
     }
 }

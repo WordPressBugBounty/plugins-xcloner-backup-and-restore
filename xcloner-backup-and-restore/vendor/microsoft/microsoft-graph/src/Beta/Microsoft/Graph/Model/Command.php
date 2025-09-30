@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Command class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Command extends Entity
 {
     /**
-    * Gets the appServiceName
-    *
-    * @return string|null The appServiceName
-    */
+     * Gets the appServiceName
+     *
+     * @return string|null The appServiceName
+     */
     public function getAppServiceName()
     {
         if (array_key_exists("appServiceName", $this->_propDict)) {
@@ -40,25 +41,23 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appServiceName
-    *
-    * @param string $val The appServiceName
-    *
-    * @return Command
-    */
+     * Sets the appServiceName
+     *
+     * @param string $val The appServiceName
+     *
+     * @return Command
+     */
     public function setAppServiceName($val)
     {
         $this->_propDict["appServiceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the error
-    *
-    * @return string|null The error
-    */
+     * Gets the error
+     *
+     * @return string|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
@@ -67,25 +66,23 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the error
-    *
-    * @param string $val The error
-    *
-    * @return Command
-    */
+     * Sets the error
+     *
+     * @param string $val The error
+     *
+     * @return Command
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
-
     /**
-    * Gets the packageFamilyName
-    *
-    * @return string|null The packageFamilyName
-    */
+     * Gets the packageFamilyName
+     *
+     * @return string|null The packageFamilyName
+     */
     public function getPackageFamilyName()
     {
         if (array_key_exists("packageFamilyName", $this->_propDict)) {
@@ -94,29 +91,27 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the packageFamilyName
-    *
-    * @param string $val The packageFamilyName
-    *
-    * @return Command
-    */
+     * Sets the packageFamilyName
+     *
+     * @param string $val The packageFamilyName
+     *
+     * @return Command
+     */
     public function setPackageFamilyName($val)
     {
         $this->_propDict["packageFamilyName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the payload
-    *
-    * @return PayloadRequest|null The payload
-    */
+     * Gets the payload
+     *
+     * @return PayloadRequest|null The payload
+     */
     public function getPayload()
     {
         if (array_key_exists("payload", $this->_propDict)) {
-            if (is_a($this->_propDict["payload"], "\Beta\Microsoft\Graph\Model\PayloadRequest") || is_null($this->_propDict["payload"])) {
+            if (is_a($this->_propDict["payload"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PayloadRequest") || is_null($this->_propDict["payload"])) {
                 return $this->_propDict["payload"];
             } else {
                 $this->_propDict["payload"] = new PayloadRequest($this->_propDict["payload"]);
@@ -125,25 +120,23 @@ class Command extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the payload
-    *
-    * @param PayloadRequest $val The payload
-    *
-    * @return Command
-    */
+     * Sets the payload
+     *
+     * @param PayloadRequest $val The payload
+     *
+     * @return Command
+     */
     public function setPayload($val)
     {
         $this->_propDict["payload"] = $val;
         return $this;
     }
-
     /**
-    * Gets the permissionTicket
-    *
-    * @return string|null The permissionTicket
-    */
+     * Gets the permissionTicket
+     *
+     * @return string|null The permissionTicket
+     */
     public function getPermissionTicket()
     {
         if (array_key_exists("permissionTicket", $this->_propDict)) {
@@ -152,25 +145,23 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the permissionTicket
-    *
-    * @param string $val The permissionTicket
-    *
-    * @return Command
-    */
+     * Sets the permissionTicket
+     *
+     * @param string $val The permissionTicket
+     *
+     * @return Command
+     */
     public function setPermissionTicket($val)
     {
         $this->_propDict["permissionTicket"] = $val;
         return $this;
     }
-
     /**
-    * Gets the postBackUri
-    *
-    * @return string|null The postBackUri
-    */
+     * Gets the postBackUri
+     *
+     * @return string|null The postBackUri
+     */
     public function getPostBackUri()
     {
         if (array_key_exists("postBackUri", $this->_propDict)) {
@@ -179,25 +170,23 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the postBackUri
-    *
-    * @param string $val The postBackUri
-    *
-    * @return Command
-    */
+     * Sets the postBackUri
+     *
+     * @param string $val The postBackUri
+     *
+     * @return Command
+     */
     public function setPostBackUri($val)
     {
         $this->_propDict["postBackUri"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    *
-    * @return string|null The status
-    */
+     * Gets the status
+     *
+     * @return string|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
@@ -206,25 +195,23 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the status
-    *
-    * @param string $val The status
-    *
-    * @return Command
-    */
+     * Sets the status
+     *
+     * @param string $val The status
+     *
+     * @return Command
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -233,29 +220,27 @@ class Command extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The type
-    *
-    * @return Command
-    */
+     * Sets the type
+     *
+     * @param string $val The type
+     *
+     * @return Command
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
     /**
-    * Gets the responsepayload
-    *
-    * @return PayloadResponse|null The responsepayload
-    */
+     * Gets the responsepayload
+     *
+     * @return PayloadResponse|null The responsepayload
+     */
     public function getResponsepayload()
     {
         if (array_key_exists("responsepayload", $this->_propDict)) {
-            if (is_a($this->_propDict["responsepayload"], "\Beta\Microsoft\Graph\Model\PayloadResponse") || is_null($this->_propDict["responsepayload"])) {
+            if (is_a($this->_propDict["responsepayload"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PayloadResponse") || is_null($this->_propDict["responsepayload"])) {
                 return $this->_propDict["responsepayload"];
             } else {
                 $this->_propDict["responsepayload"] = new PayloadResponse($this->_propDict["responsepayload"]);
@@ -264,18 +249,16 @@ class Command extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the responsepayload
-    *
-    * @param PayloadResponse $val The responsepayload
-    *
-    * @return Command
-    */
+     * Sets the responsepayload
+     *
+     * @param PayloadResponse $val The responsepayload
+     *
+     * @return Command
+     */
     public function setResponsepayload($val)
     {
         $this->_propDict["responsepayload"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmailFileAssessmentRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EmailFileAssessmentRequest extends ThreatAssessmentRequest
 {
     /**
-    * Gets the contentData
-    * Base64 encoded .eml email file content. The file content cannot fetch back because it isn't stored.
-    *
-    * @return string|null The contentData
-    */
+     * Gets the contentData
+     * Base64 encoded .eml email file content. The file content cannot fetch back because it isn't stored.
+     *
+     * @return string|null The contentData
+     */
     public function getContentData()
     {
         if (array_key_exists("contentData", $this->_propDict)) {
@@ -41,31 +42,29 @@ class EmailFileAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-
     /**
-    * Sets the contentData
-    * Base64 encoded .eml email file content. The file content cannot fetch back because it isn't stored.
-    *
-    * @param string $val The contentData
-    *
-    * @return EmailFileAssessmentRequest
-    */
+     * Sets the contentData
+     * Base64 encoded .eml email file content. The file content cannot fetch back because it isn't stored.
+     *
+     * @param string $val The contentData
+     *
+     * @return EmailFileAssessmentRequest
+     */
     public function setContentData($val)
     {
         $this->_propDict["contentData"] = $val;
         return $this;
     }
-
     /**
-    * Gets the destinationRoutingReason
-    * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
-    *
-    * @return MailDestinationRoutingReason|null The destinationRoutingReason
-    */
+     * Gets the destinationRoutingReason
+     * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
+     *
+     * @return MailDestinationRoutingReason|null The destinationRoutingReason
+     */
     public function getDestinationRoutingReason()
     {
         if (array_key_exists("destinationRoutingReason", $this->_propDict)) {
-            if (is_a($this->_propDict["destinationRoutingReason"], "\Microsoft\Graph\Model\MailDestinationRoutingReason") || is_null($this->_propDict["destinationRoutingReason"])) {
+            if (is_a($this->_propDict["destinationRoutingReason"], "XCloner\\Microsoft\\Graph\\Model\\MailDestinationRoutingReason") || is_null($this->_propDict["destinationRoutingReason"])) {
                 return $this->_propDict["destinationRoutingReason"];
             } else {
                 $this->_propDict["destinationRoutingReason"] = new MailDestinationRoutingReason($this->_propDict["destinationRoutingReason"]);
@@ -74,27 +73,25 @@ class EmailFileAssessmentRequest extends ThreatAssessmentRequest
         }
         return null;
     }
-
     /**
-    * Sets the destinationRoutingReason
-    * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
-    *
-    * @param MailDestinationRoutingReason $val The destinationRoutingReason
-    *
-    * @return EmailFileAssessmentRequest
-    */
+     * Sets the destinationRoutingReason
+     * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
+     *
+     * @param MailDestinationRoutingReason $val The destinationRoutingReason
+     *
+     * @return EmailFileAssessmentRequest
+     */
     public function setDestinationRoutingReason($val)
     {
         $this->_propDict["destinationRoutingReason"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recipientEmail
-    * The mail recipient whose policies are used to assess the mail.
-    *
-    * @return string|null The recipientEmail
-    */
+     * Gets the recipientEmail
+     * The mail recipient whose policies are used to assess the mail.
+     *
+     * @return string|null The recipientEmail
+     */
     public function getRecipientEmail()
     {
         if (array_key_exists("recipientEmail", $this->_propDict)) {
@@ -103,19 +100,17 @@ class EmailFileAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-
     /**
-    * Sets the recipientEmail
-    * The mail recipient whose policies are used to assess the mail.
-    *
-    * @param string $val The recipientEmail
-    *
-    * @return EmailFileAssessmentRequest
-    */
+     * Sets the recipientEmail
+     * The mail recipient whose policies are used to assess the mail.
+     *
+     * @param string $val The recipientEmail
+     *
+     * @return EmailFileAssessmentRequest
+     */
     public function setRecipientEmail($val)
     {
         $this->_propDict["recipientEmail"] = $val;
         return $this;
     }
-
 }

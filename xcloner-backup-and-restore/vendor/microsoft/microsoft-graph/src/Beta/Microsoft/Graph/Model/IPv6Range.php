@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IPv6Range class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IPv6Range extends IpRange
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.iPv6Range");
     }
-
     /**
-    * Gets the lowerAddress
-    * Lower address.
-    *
-    * @return string|null The lowerAddress
-    */
+     * Gets the lowerAddress
+     * Lower address.
+     *
+     * @return string|null The lowerAddress
+     */
     public function getLowerAddress()
     {
         if (array_key_exists("lowerAddress", $this->_propDict)) {
@@ -51,26 +52,25 @@ class IPv6Range extends IpRange
             return null;
         }
     }
-
     /**
-    * Sets the lowerAddress
-    * Lower address.
-    *
-    * @param string $val The value of the lowerAddress
-    *
-    * @return IPv6Range
-    */
+     * Sets the lowerAddress
+     * Lower address.
+     *
+     * @param string $val The value of the lowerAddress
+     *
+     * @return IPv6Range
+     */
     public function setLowerAddress($val)
     {
         $this->_propDict["lowerAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the upperAddress
-    * Upper address.
-    *
-    * @return string|null The upperAddress
-    */
+     * Gets the upperAddress
+     * Upper address.
+     *
+     * @return string|null The upperAddress
+     */
     public function getUpperAddress()
     {
         if (array_key_exists("upperAddress", $this->_propDict)) {
@@ -79,15 +79,14 @@ class IPv6Range extends IpRange
             return null;
         }
     }
-
     /**
-    * Sets the upperAddress
-    * Upper address.
-    *
-    * @param string $val The value of the upperAddress
-    *
-    * @return IPv6Range
-    */
+     * Sets the upperAddress
+     * Upper address.
+     *
+     * @param string $val The value of the upperAddress
+     *
+     * @return IPv6Range
+     */
     public function setUpperAddress($val)
     {
         $this->_propDict["upperAddress"] = $val;

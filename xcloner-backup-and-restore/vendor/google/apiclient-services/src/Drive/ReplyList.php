@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,69 +15,66 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class ReplyList extends \Google\Collection
-{
-  protected $collection_key = 'replies';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $nextPageToken;
-  protected $repliesType = Reply::class;
-  protected $repliesDataType = 'array';
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  /**
-   * @param Reply[]
-   */
-  public function setReplies($replies)
-  {
-    $this->replies = $replies;
-  }
-  /**
-   * @return Reply[]
-   */
-  public function getReplies()
-  {
-    return $this->replies;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class ReplyList extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'replies';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $nextPageToken;
+    protected $repliesType = Reply::class;
+    protected $repliesDataType = 'array';
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+    /**
+     * @param Reply[]
+     */
+    public function setReplies($replies)
+    {
+        $this->replies = $replies;
+    }
+    /**
+     * @return Reply[]
+     */
+    public function getReplies()
+    {
+        return $this->replies;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(ReplyList::class, 'Google_Service_Drive_ReplyList');
+class_alias(ReplyList::class, 'XCloner\Google_Service_Drive_ReplyList');

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DataClassificationService class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DataClassificationService extends Entity
 {
-
-     /**
+    /**
      * Gets the exactMatchDataStores
      *
      * @return array|null The exactMatchDataStores
@@ -36,27 +36,24 @@ class DataClassificationService extends Entity
     public function getExactMatchDataStores()
     {
         if (array_key_exists("exactMatchDataStores", $this->_propDict)) {
-           return $this->_propDict["exactMatchDataStores"];
+            return $this->_propDict["exactMatchDataStores"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the exactMatchDataStores
-    *
-    * @param ExactMatchDataStore[] $val The exactMatchDataStores
-    *
-    * @return DataClassificationService
-    */
+     * Sets the exactMatchDataStores
+     *
+     * @param ExactMatchDataStore[] $val The exactMatchDataStores
+     *
+     * @return DataClassificationService
+     */
     public function setExactMatchDataStores($val)
     {
         $this->_propDict["exactMatchDataStores"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the classifyFileJobs
      *
      * @return array|null The classifyFileJobs
@@ -64,27 +61,24 @@ class DataClassificationService extends Entity
     public function getClassifyFileJobs()
     {
         if (array_key_exists("classifyFileJobs", $this->_propDict)) {
-           return $this->_propDict["classifyFileJobs"];
+            return $this->_propDict["classifyFileJobs"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the classifyFileJobs
-    *
-    * @param JobResponseBase[] $val The classifyFileJobs
-    *
-    * @return DataClassificationService
-    */
+     * Sets the classifyFileJobs
+     *
+     * @param JobResponseBase[] $val The classifyFileJobs
+     *
+     * @return DataClassificationService
+     */
     public function setClassifyFileJobs($val)
     {
         $this->_propDict["classifyFileJobs"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the classifyTextJobs
      *
      * @return array|null The classifyTextJobs
@@ -92,27 +86,24 @@ class DataClassificationService extends Entity
     public function getClassifyTextJobs()
     {
         if (array_key_exists("classifyTextJobs", $this->_propDict)) {
-           return $this->_propDict["classifyTextJobs"];
+            return $this->_propDict["classifyTextJobs"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the classifyTextJobs
-    *
-    * @param JobResponseBase[] $val The classifyTextJobs
-    *
-    * @return DataClassificationService
-    */
+     * Sets the classifyTextJobs
+     *
+     * @param JobResponseBase[] $val The classifyTextJobs
+     *
+     * @return DataClassificationService
+     */
     public function setClassifyTextJobs($val)
     {
         $this->_propDict["classifyTextJobs"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the evaluateDlpPoliciesJobs
      *
      * @return array|null The evaluateDlpPoliciesJobs
@@ -120,27 +111,24 @@ class DataClassificationService extends Entity
     public function getEvaluateDlpPoliciesJobs()
     {
         if (array_key_exists("evaluateDlpPoliciesJobs", $this->_propDict)) {
-           return $this->_propDict["evaluateDlpPoliciesJobs"];
+            return $this->_propDict["evaluateDlpPoliciesJobs"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the evaluateDlpPoliciesJobs
-    *
-    * @param JobResponseBase[] $val The evaluateDlpPoliciesJobs
-    *
-    * @return DataClassificationService
-    */
+     * Sets the evaluateDlpPoliciesJobs
+     *
+     * @param JobResponseBase[] $val The evaluateDlpPoliciesJobs
+     *
+     * @return DataClassificationService
+     */
     public function setEvaluateDlpPoliciesJobs($val)
     {
         $this->_propDict["evaluateDlpPoliciesJobs"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the evaluateLabelJobs
      *
      * @return array|null The evaluateLabelJobs
@@ -148,27 +136,24 @@ class DataClassificationService extends Entity
     public function getEvaluateLabelJobs()
     {
         if (array_key_exists("evaluateLabelJobs", $this->_propDict)) {
-           return $this->_propDict["evaluateLabelJobs"];
+            return $this->_propDict["evaluateLabelJobs"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the evaluateLabelJobs
-    *
-    * @param JobResponseBase[] $val The evaluateLabelJobs
-    *
-    * @return DataClassificationService
-    */
+     * Sets the evaluateLabelJobs
+     *
+     * @param JobResponseBase[] $val The evaluateLabelJobs
+     *
+     * @return DataClassificationService
+     */
     public function setEvaluateLabelJobs($val)
     {
         $this->_propDict["evaluateLabelJobs"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the jobs
      *
      * @return array|null The jobs
@@ -176,27 +161,24 @@ class DataClassificationService extends Entity
     public function getJobs()
     {
         if (array_key_exists("jobs", $this->_propDict)) {
-           return $this->_propDict["jobs"];
+            return $this->_propDict["jobs"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the jobs
-    *
-    * @param JobResponseBase[] $val The jobs
-    *
-    * @return DataClassificationService
-    */
+     * Sets the jobs
+     *
+     * @param JobResponseBase[] $val The jobs
+     *
+     * @return DataClassificationService
+     */
     public function setJobs($val)
     {
         $this->_propDict["jobs"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the sensitiveTypes
      *
      * @return array|null The sensitiveTypes
@@ -204,27 +186,24 @@ class DataClassificationService extends Entity
     public function getSensitiveTypes()
     {
         if (array_key_exists("sensitiveTypes", $this->_propDict)) {
-           return $this->_propDict["sensitiveTypes"];
+            return $this->_propDict["sensitiveTypes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the sensitiveTypes
-    *
-    * @param SensitiveType[] $val The sensitiveTypes
-    *
-    * @return DataClassificationService
-    */
+     * Sets the sensitiveTypes
+     *
+     * @param SensitiveType[] $val The sensitiveTypes
+     *
+     * @return DataClassificationService
+     */
     public function setSensitiveTypes($val)
     {
         $this->_propDict["sensitiveTypes"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the sensitivityLabels
      *
      * @return array|null The sensitivityLabels
@@ -232,27 +211,24 @@ class DataClassificationService extends Entity
     public function getSensitivityLabels()
     {
         if (array_key_exists("sensitivityLabels", $this->_propDict)) {
-           return $this->_propDict["sensitivityLabels"];
+            return $this->_propDict["sensitivityLabels"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the sensitivityLabels
-    *
-    * @param SensitivityLabel[] $val The sensitivityLabels
-    *
-    * @return DataClassificationService
-    */
+     * Sets the sensitivityLabels
+     *
+     * @param SensitivityLabel[] $val The sensitivityLabels
+     *
+     * @return DataClassificationService
+     */
     public function setSensitivityLabels($val)
     {
         $this->_propDict["sensitivityLabels"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the exactMatchUploadAgents
      *
      * @return array|null The exactMatchUploadAgents
@@ -260,23 +236,21 @@ class DataClassificationService extends Entity
     public function getExactMatchUploadAgents()
     {
         if (array_key_exists("exactMatchUploadAgents", $this->_propDict)) {
-           return $this->_propDict["exactMatchUploadAgents"];
+            return $this->_propDict["exactMatchUploadAgents"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the exactMatchUploadAgents
-    *
-    * @param ExactMatchUploadAgent[] $val The exactMatchUploadAgents
-    *
-    * @return DataClassificationService
-    */
+     * Sets the exactMatchUploadAgents
+     *
+     * @param ExactMatchUploadAgent[] $val The exactMatchUploadAgents
+     *
+     * @return DataClassificationService
+     */
     public function setExactMatchUploadAgents($val)
     {
         $this->_propDict["exactMatchUploadAgents"] = $val;
         return $this;
     }
-
 }

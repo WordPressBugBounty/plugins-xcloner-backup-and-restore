@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BookingWorkHours class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class BookingWorkHours extends Entity
 {
-
     /**
-    * Gets the day
-    * The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
-    *
-    * @return DayOfWeek|null The day
-    */
+     * Gets the day
+     * The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     *
+     * @return DayOfWeek|null The day
+     */
     public function getDay()
     {
         if (array_key_exists("day", $this->_propDict)) {
-            if (is_a($this->_propDict["day"], "\Beta\Microsoft\Graph\Model\DayOfWeek") || is_null($this->_propDict["day"])) {
+            if (is_a($this->_propDict["day"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DayOfWeek") || is_null($this->_propDict["day"])) {
                 return $this->_propDict["day"];
             } else {
                 $this->_propDict["day"] = new DayOfWeek($this->_propDict["day"]);
@@ -45,31 +46,29 @@ class BookingWorkHours extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the day
-    * The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
-    *
-    * @param DayOfWeek $val The value to assign to the day
-    *
-    * @return BookingWorkHours The BookingWorkHours
-    */
+     * Sets the day
+     * The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.
+     *
+     * @param DayOfWeek $val The value to assign to the day
+     *
+     * @return BookingWorkHours The BookingWorkHours
+     */
     public function setDay($val)
     {
         $this->_propDict["day"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the timeSlots
-    * A list of start/end times during a day.
-    *
-    * @return BookingWorkTimeSlot|null The timeSlots
-    */
+     * Gets the timeSlots
+     * A list of start/end times during a day.
+     *
+     * @return BookingWorkTimeSlot|null The timeSlots
+     */
     public function getTimeSlots()
     {
         if (array_key_exists("timeSlots", $this->_propDict)) {
-            if (is_a($this->_propDict["timeSlots"], "\Beta\Microsoft\Graph\Model\BookingWorkTimeSlot") || is_null($this->_propDict["timeSlots"])) {
+            if (is_a($this->_propDict["timeSlots"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\BookingWorkTimeSlot") || is_null($this->_propDict["timeSlots"])) {
                 return $this->_propDict["timeSlots"];
             } else {
                 $this->_propDict["timeSlots"] = new BookingWorkTimeSlot($this->_propDict["timeSlots"]);
@@ -78,18 +77,17 @@ class BookingWorkHours extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeSlots
-    * A list of start/end times during a day.
-    *
-    * @param BookingWorkTimeSlot $val The value to assign to the timeSlots
-    *
-    * @return BookingWorkHours The BookingWorkHours
-    */
+     * Sets the timeSlots
+     * A list of start/end times during a day.
+     *
+     * @param BookingWorkTimeSlot $val The value to assign to the timeSlots
+     *
+     * @return BookingWorkHours The BookingWorkHours
+     */
     public function setTimeSlots($val)
     {
         $this->_propDict["timeSlots"] = $val;
-         return $this;
+        return $this;
     }
 }

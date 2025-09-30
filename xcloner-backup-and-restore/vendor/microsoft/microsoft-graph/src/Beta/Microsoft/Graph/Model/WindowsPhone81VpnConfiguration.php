@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsPhone81VpnConfiguration class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
 {
     /**
-    * Gets the authenticationMethod
-    * Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
-    *
-    * @return VpnAuthenticationMethod|null The authenticationMethod
-    */
+     * Gets the authenticationMethod
+     * Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     *
+     * @return VpnAuthenticationMethod|null The authenticationMethod
+     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\VpnAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VpnAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new VpnAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -45,27 +46,25 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the authenticationMethod
-    * Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
-    *
-    * @param VpnAuthenticationMethod $val The authenticationMethod
-    *
-    * @return WindowsPhone81VpnConfiguration
-    */
+     * Sets the authenticationMethod
+     * Authentication method. Possible values are: certificate, usernameAndPassword, sharedSecret, derivedCredential, azureAD.
+     *
+     * @param VpnAuthenticationMethod $val The authenticationMethod
+     *
+     * @return WindowsPhone81VpnConfiguration
+     */
     public function setAuthenticationMethod($val)
     {
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
-
     /**
-    * Gets the bypassVpnOnCompanyWifi
-    * Bypass VPN on company Wi-Fi.
-    *
-    * @return bool|null The bypassVpnOnCompanyWifi
-    */
+     * Gets the bypassVpnOnCompanyWifi
+     * Bypass VPN on company Wi-Fi.
+     *
+     * @return bool|null The bypassVpnOnCompanyWifi
+     */
     public function getBypassVpnOnCompanyWifi()
     {
         if (array_key_exists("bypassVpnOnCompanyWifi", $this->_propDict)) {
@@ -74,27 +73,25 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the bypassVpnOnCompanyWifi
-    * Bypass VPN on company Wi-Fi.
-    *
-    * @param bool $val The bypassVpnOnCompanyWifi
-    *
-    * @return WindowsPhone81VpnConfiguration
-    */
+     * Sets the bypassVpnOnCompanyWifi
+     * Bypass VPN on company Wi-Fi.
+     *
+     * @param bool $val The bypassVpnOnCompanyWifi
+     *
+     * @return WindowsPhone81VpnConfiguration
+     */
     public function setBypassVpnOnCompanyWifi($val)
     {
         $this->_propDict["bypassVpnOnCompanyWifi"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the bypassVpnOnHomeWifi
-    * Bypass VPN on home Wi-Fi.
-    *
-    * @return bool|null The bypassVpnOnHomeWifi
-    */
+     * Gets the bypassVpnOnHomeWifi
+     * Bypass VPN on home Wi-Fi.
+     *
+     * @return bool|null The bypassVpnOnHomeWifi
+     */
     public function getBypassVpnOnHomeWifi()
     {
         if (array_key_exists("bypassVpnOnHomeWifi", $this->_propDict)) {
@@ -103,27 +100,25 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the bypassVpnOnHomeWifi
-    * Bypass VPN on home Wi-Fi.
-    *
-    * @param bool $val The bypassVpnOnHomeWifi
-    *
-    * @return WindowsPhone81VpnConfiguration
-    */
+     * Sets the bypassVpnOnHomeWifi
+     * Bypass VPN on home Wi-Fi.
+     *
+     * @param bool $val The bypassVpnOnHomeWifi
+     *
+     * @return WindowsPhone81VpnConfiguration
+     */
     public function setBypassVpnOnHomeWifi($val)
     {
         $this->_propDict["bypassVpnOnHomeWifi"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the dnsSuffixSearchList
-    * DNS suffix search list.
-    *
-    * @return array|null The dnsSuffixSearchList
-    */
+     * Gets the dnsSuffixSearchList
+     * DNS suffix search list.
+     *
+     * @return array|null The dnsSuffixSearchList
+     */
     public function getDnsSuffixSearchList()
     {
         if (array_key_exists("dnsSuffixSearchList", $this->_propDict)) {
@@ -132,27 +127,25 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the dnsSuffixSearchList
-    * DNS suffix search list.
-    *
-    * @param string[] $val The dnsSuffixSearchList
-    *
-    * @return WindowsPhone81VpnConfiguration
-    */
+     * Sets the dnsSuffixSearchList
+     * DNS suffix search list.
+     *
+     * @param string[] $val The dnsSuffixSearchList
+     *
+     * @return WindowsPhone81VpnConfiguration
+     */
     public function setDnsSuffixSearchList($val)
     {
         $this->_propDict["dnsSuffixSearchList"] = $val;
         return $this;
     }
-
     /**
-    * Gets the rememberUserCredentials
-    * Remember user credentials.
-    *
-    * @return bool|null The rememberUserCredentials
-    */
+     * Gets the rememberUserCredentials
+     * Remember user credentials.
+     *
+     * @return bool|null The rememberUserCredentials
+     */
     public function getRememberUserCredentials()
     {
         if (array_key_exists("rememberUserCredentials", $this->_propDict)) {
@@ -161,31 +154,29 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the rememberUserCredentials
-    * Remember user credentials.
-    *
-    * @param bool $val The rememberUserCredentials
-    *
-    * @return WindowsPhone81VpnConfiguration
-    */
+     * Sets the rememberUserCredentials
+     * Remember user credentials.
+     *
+     * @param bool $val The rememberUserCredentials
+     *
+     * @return WindowsPhone81VpnConfiguration
+     */
     public function setRememberUserCredentials($val)
     {
         $this->_propDict["rememberUserCredentials"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the identityCertificate
-    * Identity certificate for client authentication when authentication method is certificate.
-    *
-    * @return WindowsPhone81CertificateProfileBase|null The identityCertificate
-    */
+     * Gets the identityCertificate
+     * Identity certificate for client authentication when authentication method is certificate.
+     *
+     * @return WindowsPhone81CertificateProfileBase|null The identityCertificate
+     */
     public function getIdentityCertificate()
     {
         if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\WindowsPhone81CertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsPhone81CertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new WindowsPhone81CertificateProfileBase($this->_propDict["identityCertificate"]);
@@ -194,19 +185,17 @@ class WindowsPhone81VpnConfiguration extends Windows81VpnConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the identityCertificate
-    * Identity certificate for client authentication when authentication method is certificate.
-    *
-    * @param WindowsPhone81CertificateProfileBase $val The identityCertificate
-    *
-    * @return WindowsPhone81VpnConfiguration
-    */
+     * Sets the identityCertificate
+     * Identity certificate for client authentication when authentication method is certificate.
+     *
+     * @param WindowsPhone81CertificateProfileBase $val The identityCertificate
+     *
+     * @return WindowsPhone81VpnConfiguration
+     */
     public function setIdentityCertificate($val)
     {
         $this->_propDict["identityCertificate"] = $val;
         return $this;
     }
-
 }

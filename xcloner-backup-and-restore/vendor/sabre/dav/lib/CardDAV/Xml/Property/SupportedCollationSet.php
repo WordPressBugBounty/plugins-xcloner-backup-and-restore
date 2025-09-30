@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV\Xml\Property;
 
-namespace Sabre\CardDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * supported-collation-set property.
  *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintUsageByUser class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintUsageByUser extends PrintUsage
 {
     /**
-    * Gets the userPrincipalName
-    * The UPN of the user represented by these statistics.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The UPN of the user represented by these statistics.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -41,19 +42,17 @@ class PrintUsageByUser extends PrintUsage
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The UPN of the user represented by these statistics.
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return PrintUsageByUser
-    */
+     * Sets the userPrincipalName
+     * The UPN of the user represented by these statistics.
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return PrintUsageByUser
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

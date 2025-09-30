@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TrainingEventsContent class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TrainingEventsContent extends Entity
 {
-
     /**
-    * Gets the assignedTrainingsInfos
-    * List of assigned trainings and their information in an attack simulation and training campaign.
-    *
-    * @return AssignedTrainingInfo|null The assignedTrainingsInfos
-    */
+     * Gets the assignedTrainingsInfos
+     * List of assigned trainings and their information in an attack simulation and training campaign.
+     *
+     * @return AssignedTrainingInfo|null The assignedTrainingsInfos
+     */
     public function getAssignedTrainingsInfos()
     {
         if (array_key_exists("assignedTrainingsInfos", $this->_propDict)) {
-            if (is_a($this->_propDict["assignedTrainingsInfos"], "\Beta\Microsoft\Graph\Model\AssignedTrainingInfo") || is_null($this->_propDict["assignedTrainingsInfos"])) {
+            if (is_a($this->_propDict["assignedTrainingsInfos"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AssignedTrainingInfo") || is_null($this->_propDict["assignedTrainingsInfos"])) {
                 return $this->_propDict["assignedTrainingsInfos"];
             } else {
                 $this->_propDict["assignedTrainingsInfos"] = new AssignedTrainingInfo($this->_propDict["assignedTrainingsInfos"]);
@@ -45,26 +46,25 @@ class TrainingEventsContent extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the assignedTrainingsInfos
-    * List of assigned trainings and their information in an attack simulation and training campaign.
-    *
-    * @param AssignedTrainingInfo $val The value to assign to the assignedTrainingsInfos
-    *
-    * @return TrainingEventsContent The TrainingEventsContent
-    */
+     * Sets the assignedTrainingsInfos
+     * List of assigned trainings and their information in an attack simulation and training campaign.
+     *
+     * @param AssignedTrainingInfo $val The value to assign to the assignedTrainingsInfos
+     *
+     * @return TrainingEventsContent The TrainingEventsContent
+     */
     public function setAssignedTrainingsInfos($val)
     {
         $this->_propDict["assignedTrainingsInfos"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the trainingsAssignedUserCount
-    * Number of users who were assigned trainings in an attack simulation and training campaign.
-    *
-    * @return int|null The trainingsAssignedUserCount
-    */
+     * Gets the trainingsAssignedUserCount
+     * Number of users who were assigned trainings in an attack simulation and training campaign.
+     *
+     * @return int|null The trainingsAssignedUserCount
+     */
     public function getTrainingsAssignedUserCount()
     {
         if (array_key_exists("trainingsAssignedUserCount", $this->_propDict)) {
@@ -73,15 +73,14 @@ class TrainingEventsContent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the trainingsAssignedUserCount
-    * Number of users who were assigned trainings in an attack simulation and training campaign.
-    *
-    * @param int $val The value of the trainingsAssignedUserCount
-    *
-    * @return TrainingEventsContent
-    */
+     * Sets the trainingsAssignedUserCount
+     * Number of users who were assigned trainings in an attack simulation and training campaign.
+     *
+     * @param int $val The value of the trainingsAssignedUserCount
+     *
+     * @return TrainingEventsContent
+     */
     public function setTrainingsAssignedUserCount($val)
     {
         $this->_propDict["trainingsAssignedUserCount"] = $val;

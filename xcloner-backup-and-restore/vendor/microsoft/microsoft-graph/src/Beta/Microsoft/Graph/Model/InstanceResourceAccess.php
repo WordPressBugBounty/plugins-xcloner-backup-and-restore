@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InstanceResourceAccess class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class InstanceResourceAccess extends Entity
 {
-
     /**
-    * Gets the permissions
-    *
-    * @return ResourcePermission|null The permissions
-    */
+     * Gets the permissions
+     *
+     * @return ResourcePermission|null The permissions
+     */
     public function getPermissions()
     {
         if (array_key_exists("permissions", $this->_propDict)) {
-            if (is_a($this->_propDict["permissions"], "\Beta\Microsoft\Graph\Model\ResourcePermission") || is_null($this->_propDict["permissions"])) {
+            if (is_a($this->_propDict["permissions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResourcePermission") || is_null($this->_propDict["permissions"])) {
                 return $this->_propDict["permissions"];
             } else {
                 $this->_propDict["permissions"] = new ResourcePermission($this->_propDict["permissions"]);
@@ -44,24 +45,23 @@ class InstanceResourceAccess extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the permissions
-    *
-    * @param ResourcePermission $val The value to assign to the permissions
-    *
-    * @return InstanceResourceAccess The InstanceResourceAccess
-    */
+     * Sets the permissions
+     *
+     * @param ResourcePermission $val The value to assign to the permissions
+     *
+     * @return InstanceResourceAccess The InstanceResourceAccess
+     */
     public function setPermissions($val)
     {
         $this->_propDict["permissions"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the resourceAppId
-    *
-    * @return string|null The resourceAppId
-    */
+     * Gets the resourceAppId
+     *
+     * @return string|null The resourceAppId
+     */
     public function getResourceAppId()
     {
         if (array_key_exists("resourceAppId", $this->_propDict)) {
@@ -70,14 +70,13 @@ class InstanceResourceAccess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceAppId
-    *
-    * @param string $val The value of the resourceAppId
-    *
-    * @return InstanceResourceAccess
-    */
+     * Sets the resourceAppId
+     *
+     * @param string $val The value of the resourceAppId
+     *
+     * @return InstanceResourceAccess
+     */
     public function setResourceAppId($val)
     {
         $this->_propDict["resourceAppId"] = $val;

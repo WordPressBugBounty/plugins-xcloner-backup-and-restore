@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementSettingDependency class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementSettingDependency extends Entity
 {
-
     /**
-    * Gets the constraints
-    * Collection of constraints for the dependency setting value
-    *
-    * @return DeviceManagementConstraint|null The constraints
-    */
+     * Gets the constraints
+     * Collection of constraints for the dependency setting value
+     *
+     * @return DeviceManagementConstraint|null The constraints
+     */
     public function getConstraints()
     {
         if (array_key_exists("constraints", $this->_propDict)) {
-            if (is_a($this->_propDict["constraints"], "\Beta\Microsoft\Graph\Model\DeviceManagementConstraint") || is_null($this->_propDict["constraints"])) {
+            if (is_a($this->_propDict["constraints"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConstraint") || is_null($this->_propDict["constraints"])) {
                 return $this->_propDict["constraints"];
             } else {
                 $this->_propDict["constraints"] = new DeviceManagementConstraint($this->_propDict["constraints"]);
@@ -45,26 +46,25 @@ class DeviceManagementSettingDependency extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the constraints
-    * Collection of constraints for the dependency setting value
-    *
-    * @param DeviceManagementConstraint $val The value to assign to the constraints
-    *
-    * @return DeviceManagementSettingDependency The DeviceManagementSettingDependency
-    */
+     * Sets the constraints
+     * Collection of constraints for the dependency setting value
+     *
+     * @param DeviceManagementConstraint $val The value to assign to the constraints
+     *
+     * @return DeviceManagementSettingDependency The DeviceManagementSettingDependency
+     */
     public function setConstraints($val)
     {
         $this->_propDict["constraints"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the definitionId
-    * The setting definition ID of the setting depended on
-    *
-    * @return string|null The definitionId
-    */
+     * Gets the definitionId
+     * The setting definition ID of the setting depended on
+     *
+     * @return string|null The definitionId
+     */
     public function getDefinitionId()
     {
         if (array_key_exists("definitionId", $this->_propDict)) {
@@ -73,15 +73,14 @@ class DeviceManagementSettingDependency extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the definitionId
-    * The setting definition ID of the setting depended on
-    *
-    * @param string $val The value of the definitionId
-    *
-    * @return DeviceManagementSettingDependency
-    */
+     * Sets the definitionId
+     * The setting definition ID of the setting depended on
+     *
+     * @param string $val The value of the definitionId
+     *
+     * @return DeviceManagementSettingDependency
+     */
     public function setDefinitionId($val)
     {
         $this->_propDict["definitionId"] = $val;

@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The optional parameters for createBlobSnapshot wrapper.
  *
@@ -40,7 +39,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CreateBlobSnapshotOptions extends BlobServiceOptions
 {
     private $_metadata;
-
     /**
      * Gets metadata.
      *
@@ -50,7 +48,6 @@ class CreateBlobSnapshotOptions extends BlobServiceOptions
     {
         return $this->_metadata;
     }
-
     /**
      * Sets metadata.
      *

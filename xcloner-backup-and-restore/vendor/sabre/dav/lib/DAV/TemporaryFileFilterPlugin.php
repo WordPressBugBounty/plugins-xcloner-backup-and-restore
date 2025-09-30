@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
+use XCloner\Sabre\Uri;
 /**
  * Temporary File Filter Plugin.
  *
@@ -44,22 +42,26 @@ class TemporaryFileFilterPlugin extends ServerPlugin
      * @var array
      */
     public $temporaryFilePatterns = [
-        '/^\._(.*)$/',     // OS/X resource forks
-        '/^.DS_Store$/',   // OS/X custom folder settings
-        '/^desktop.ini$/', // Windows custom folder settings
-        '/^Thumbs.db$/',   // Windows thumbnail cache
-        '/^.(.*).swp$/',   // ViM temporary files
-        '/^\.dat(.*)$/',   // Smultron seems to create these
-        '/^~lock.(.*)#$/', // Windows 7 lockfiles
+        '/^\._(.*)$/',
+        // OS/X resource forks
+        '/^.DS_Store$/',
+        // OS/X custom folder settings
+        '/^desktop.ini$/',
+        // Windows custom folder settings
+        '/^Thumbs.db$/',
+        // Windows thumbnail cache
+        '/^.(.*).swp$/',
+        // ViM temporary files
+        '/^\.dat(.*)$/',
+        // Smultron seems to create these
+        '/^~lock.(.*)#$/',
     ];
-
     /**
      * A reference to the main Server class.
      *
      * @var \Sabre\DAV\Server
      */
     protected $server;
-
     /**
      * This is the directory where this plugin
      * will store it's files.
@@ -67,7 +69,6 @@ class TemporaryFileFilterPlugin extends ServerPlugin
      * @var string
      */
     private $dataDir;
-
     /**
      * Creates the plugin.
      *
@@ -80,14 +81,13 @@ class TemporaryFileFilterPlugin extends ServerPlugin
     public function __construct($dataDir = null)
     {
         if (!$dataDir) {
-            $dataDir = ini_get('session.save_path').'/sabredav/';
+            $dataDir = ini_get('session.save_path') . '/sabredav/';
         }
         if (!is_dir($dataDir)) {
             mkdir($dataDir);
         }
         $this->dataDir = $dataDir;
     }
-
     /**
      * Initialize the plugin.
      *
@@ -100,7 +100,6 @@ class TemporaryFileFilterPlugin extends ServerPlugin
         $server->on('beforeMethod:*', [$this, 'beforeMethod']);
         $server->on('beforeCreateFile', [$this, 'beforeCreateFile']);
     }
-
     /**
      * This method is called before any HTTP method handler.
      *
@@ -114,7 +113,6 @@ class TemporaryFileFilterPlugin extends ServerPlugin
         if (!$tempLocation = $this->isTempFile($request->getPath())) {
             return;
         }
-
         switch ($request->getMethod()) {
             case 'GET':
                 return $this->httpGet($request, $response, $tempLocation);
@@ -125,10 +123,8 @@ class TemporaryFileFilterPlugin extends ServerPlugin
             case 'DELETE':
                 return $this->httpDelete($request, $response, $tempLocation);
         }
-
         return;
     }
-
     /**
      * This method is invoked if some subsystem creates a new file.
      *
@@ -148,13 +144,10 @@ class TemporaryFileFilterPlugin extends ServerPlugin
             $hR = $this->server->httpResponse;
             $hR->setHeader('X-Sabre-Temp', 'true');
             file_put_contents($tempPath, $data);
-
-            return false;
+            return \false;
         }
-
         return;
     }
-
     /**
      * This method will check if the url matches the temporary file pattern
      * if it does, it will return an path based on $this->dataDir for the
@@ -168,20 +161,16 @@ class TemporaryFileFilterPlugin extends ServerPlugin
     {
         // We're only interested in the basename.
         list(, $tempPath) = Uri\split($path);
-
         if (null === $tempPath) {
-            return false;
+            return \false;
         }
-
         foreach ($this->temporaryFilePatterns as $tempFile) {
             if (preg_match($tempFile, $tempPath)) {
-                return $this->getDataDir().'/sabredav_'.md5($path).'.tempfile';
+                return $this->getDataDir() . '/sabredav_' . md5($path) . '.tempfile';
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * This method handles the GET method for temporary files.
      * If the file doesn't exist, it will return false which will kick in
@@ -196,16 +185,13 @@ class TemporaryFileFilterPlugin extends ServerPlugin
         if (!file_exists($tempLocation)) {
             return;
         }
-
         $hR->setHeader('Content-Type', 'application/octet-stream');
         $hR->setHeader('Content-Length', filesize($tempLocation));
         $hR->setHeader('X-Sabre-Temp', 'true');
         $hR->setStatus(200);
         $hR->setBody(fopen($tempLocation, 'r'));
-
-        return false;
+        return \false;
     }
-
     /**
      * This method handles the PUT method.
      *
@@ -216,19 +202,14 @@ class TemporaryFileFilterPlugin extends ServerPlugin
     public function httpPut(RequestInterface $request, ResponseInterface $hR, $tempLocation)
     {
         $hR->setHeader('X-Sabre-Temp', 'true');
-
         $newFile = !file_exists($tempLocation);
-
-        if (!$newFile && ($this->server->httpRequest->getHeader('If-None-Match'))) {
+        if (!$newFile && $this->server->httpRequest->getHeader('If-None-Match')) {
             throw new Exception\PreconditionFailed('The resource already exists, and an If-None-Match header was supplied');
         }
-
         file_put_contents($tempLocation, $this->server->httpRequest->getBody());
         $hR->setStatus($newFile ? 201 : 200);
-
-        return false;
+        return \false;
     }
-
     /**
      * This method handles the DELETE method.
      *
@@ -244,14 +225,11 @@ class TemporaryFileFilterPlugin extends ServerPlugin
         if (!file_exists($tempLocation)) {
             return;
         }
-
         unlink($tempLocation);
         $hR->setHeader('X-Sabre-Temp', 'true');
         $hR->setStatus(204);
-
-        return false;
+        return \false;
     }
-
     /**
      * This method handles the PROPFIND method.
      *
@@ -268,27 +246,14 @@ class TemporaryFileFilterPlugin extends ServerPlugin
         if (!file_exists($tempLocation)) {
             return;
         }
-
         $hR->setHeader('X-Sabre-Temp', 'true');
         $hR->setStatus(207);
         $hR->setHeader('Content-Type', 'application/xml; charset=utf-8');
-
-        $properties = [
-            'href' => $request->getPath(),
-            200 => [
-                '{DAV:}getlastmodified' => new Xml\Property\GetLastModified(filemtime($tempLocation)),
-                '{DAV:}getcontentlength' => filesize($tempLocation),
-                '{DAV:}resourcetype' => new Xml\Property\ResourceType(null),
-                '{'.Server::NS_SABREDAV.'}tempFile' => true,
-            ],
-        ];
-
+        $properties = ['href' => $request->getPath(), 200 => ['{DAV:}getlastmodified' => new Xml\Property\GetLastModified(filemtime($tempLocation)), '{DAV:}getcontentlength' => filesize($tempLocation), '{DAV:}resourcetype' => new Xml\Property\ResourceType(null), '{' . Server::NS_SABREDAV . '}tempFile' => \true]];
         $data = $this->server->generateMultiStatus([$properties]);
         $hR->setBody($data);
-
-        return false;
+        return \false;
     }
-
     /**
      * This method returns the directory where the temporary files should be stored.
      *

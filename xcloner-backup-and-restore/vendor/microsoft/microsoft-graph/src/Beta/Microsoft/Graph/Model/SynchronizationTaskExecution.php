@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SynchronizationTaskExecution class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SynchronizationTaskExecution extends Entity
 {
     /**
-    * Gets the activityIdentifier
-    * Identifier of the job run.
-    *
-    * @return string|null The activityIdentifier
-    */
+     * Gets the activityIdentifier
+     * Identifier of the job run.
+     *
+     * @return string|null The activityIdentifier
+     */
     public function getActivityIdentifier()
     {
         if (array_key_exists("activityIdentifier", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activityIdentifier
-    * Identifier of the job run.
-    *
-    * @param string $val The value of the activityIdentifier
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the activityIdentifier
+     * Identifier of the job run.
+     *
+     * @param string $val The value of the activityIdentifier
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setActivityIdentifier($val)
     {
         $this->_propDict["activityIdentifier"] = $val;
         return $this;
     }
     /**
-    * Gets the countEntitled
-    * Count of processed entries that were assigned for this application.
-    *
-    * @return int|null The countEntitled
-    */
+     * Gets the countEntitled
+     * Count of processed entries that were assigned for this application.
+     *
+     * @return int|null The countEntitled
+     */
     public function getCountEntitled()
     {
         if (array_key_exists("countEntitled", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countEntitled
-    * Count of processed entries that were assigned for this application.
-    *
-    * @param int $val The value of the countEntitled
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countEntitled
+     * Count of processed entries that were assigned for this application.
+     *
+     * @param int $val The value of the countEntitled
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountEntitled($val)
     {
         $this->_propDict["countEntitled"] = $val;
         return $this;
     }
     /**
-    * Gets the countEntitledForProvisioning
-    * Count of processed entries that were assigned for provisioning.
-    *
-    * @return int|null The countEntitledForProvisioning
-    */
+     * Gets the countEntitledForProvisioning
+     * Count of processed entries that were assigned for provisioning.
+     *
+     * @return int|null The countEntitledForProvisioning
+     */
     public function getCountEntitledForProvisioning()
     {
         if (array_key_exists("countEntitledForProvisioning", $this->_propDict)) {
@@ -96,26 +96,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countEntitledForProvisioning
-    * Count of processed entries that were assigned for provisioning.
-    *
-    * @param int $val The value of the countEntitledForProvisioning
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countEntitledForProvisioning
+     * Count of processed entries that were assigned for provisioning.
+     *
+     * @param int $val The value of the countEntitledForProvisioning
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountEntitledForProvisioning($val)
     {
         $this->_propDict["countEntitledForProvisioning"] = $val;
         return $this;
     }
     /**
-    * Gets the countEscrowed
-    * Count of entries that were escrowed (errors).
-    *
-    * @return int|null The countEscrowed
-    */
+     * Gets the countEscrowed
+     * Count of entries that were escrowed (errors).
+     *
+     * @return int|null The countEscrowed
+     */
     public function getCountEscrowed()
     {
         if (array_key_exists("countEscrowed", $this->_propDict)) {
@@ -124,26 +123,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countEscrowed
-    * Count of entries that were escrowed (errors).
-    *
-    * @param int $val The value of the countEscrowed
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countEscrowed
+     * Count of entries that were escrowed (errors).
+     *
+     * @param int $val The value of the countEscrowed
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountEscrowed($val)
     {
         $this->_propDict["countEscrowed"] = $val;
         return $this;
     }
     /**
-    * Gets the countEscrowedRaw
-    * Count of entries that were escrowed, including system-generated escrows.
-    *
-    * @return int|null The countEscrowedRaw
-    */
+     * Gets the countEscrowedRaw
+     * Count of entries that were escrowed, including system-generated escrows.
+     *
+     * @return int|null The countEscrowedRaw
+     */
     public function getCountEscrowedRaw()
     {
         if (array_key_exists("countEscrowedRaw", $this->_propDict)) {
@@ -152,26 +150,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countEscrowedRaw
-    * Count of entries that were escrowed, including system-generated escrows.
-    *
-    * @param int $val The value of the countEscrowedRaw
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countEscrowedRaw
+     * Count of entries that were escrowed, including system-generated escrows.
+     *
+     * @param int $val The value of the countEscrowedRaw
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountEscrowedRaw($val)
     {
         $this->_propDict["countEscrowedRaw"] = $val;
         return $this;
     }
     /**
-    * Gets the countExported
-    * Count of exported entries.
-    *
-    * @return int|null The countExported
-    */
+     * Gets the countExported
+     * Count of exported entries.
+     *
+     * @return int|null The countExported
+     */
     public function getCountExported()
     {
         if (array_key_exists("countExported", $this->_propDict)) {
@@ -180,26 +177,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countExported
-    * Count of exported entries.
-    *
-    * @param int $val The value of the countExported
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countExported
+     * Count of exported entries.
+     *
+     * @param int $val The value of the countExported
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountExported($val)
     {
         $this->_propDict["countExported"] = $val;
         return $this;
     }
     /**
-    * Gets the countExports
-    * Count of entries that were expected to be exported.
-    *
-    * @return int|null The countExports
-    */
+     * Gets the countExports
+     * Count of entries that were expected to be exported.
+     *
+     * @return int|null The countExports
+     */
     public function getCountExports()
     {
         if (array_key_exists("countExports", $this->_propDict)) {
@@ -208,26 +204,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countExports
-    * Count of entries that were expected to be exported.
-    *
-    * @param int $val The value of the countExports
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countExports
+     * Count of entries that were expected to be exported.
+     *
+     * @param int $val The value of the countExports
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountExports($val)
     {
         $this->_propDict["countExports"] = $val;
         return $this;
     }
     /**
-    * Gets the countImported
-    * Count of imported entries.
-    *
-    * @return int|null The countImported
-    */
+     * Gets the countImported
+     * Count of imported entries.
+     *
+     * @return int|null The countImported
+     */
     public function getCountImported()
     {
         if (array_key_exists("countImported", $this->_propDict)) {
@@ -236,26 +231,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countImported
-    * Count of imported entries.
-    *
-    * @param int $val The value of the countImported
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countImported
+     * Count of imported entries.
+     *
+     * @param int $val The value of the countImported
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountImported($val)
     {
         $this->_propDict["countImported"] = $val;
         return $this;
     }
     /**
-    * Gets the countImportedDeltas
-    * Count of imported delta-changes.
-    *
-    * @return int|null The countImportedDeltas
-    */
+     * Gets the countImportedDeltas
+     * Count of imported delta-changes.
+     *
+     * @return int|null The countImportedDeltas
+     */
     public function getCountImportedDeltas()
     {
         if (array_key_exists("countImportedDeltas", $this->_propDict)) {
@@ -264,26 +258,25 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countImportedDeltas
-    * Count of imported delta-changes.
-    *
-    * @param int $val The value of the countImportedDeltas
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countImportedDeltas
+     * Count of imported delta-changes.
+     *
+     * @param int $val The value of the countImportedDeltas
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountImportedDeltas($val)
     {
         $this->_propDict["countImportedDeltas"] = $val;
         return $this;
     }
     /**
-    * Gets the countImportedReferenceDeltas
-    * Count of imported delta-changes pertaining to reference changes.
-    *
-    * @return int|null The countImportedReferenceDeltas
-    */
+     * Gets the countImportedReferenceDeltas
+     * Count of imported delta-changes pertaining to reference changes.
+     *
+     * @return int|null The countImportedReferenceDeltas
+     */
     public function getCountImportedReferenceDeltas()
     {
         if (array_key_exists("countImportedReferenceDeltas", $this->_propDict)) {
@@ -292,31 +285,29 @@ class SynchronizationTaskExecution extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countImportedReferenceDeltas
-    * Count of imported delta-changes pertaining to reference changes.
-    *
-    * @param int $val The value of the countImportedReferenceDeltas
-    *
-    * @return SynchronizationTaskExecution
-    */
+     * Sets the countImportedReferenceDeltas
+     * Count of imported delta-changes pertaining to reference changes.
+     *
+     * @param int $val The value of the countImportedReferenceDeltas
+     *
+     * @return SynchronizationTaskExecution
+     */
     public function setCountImportedReferenceDeltas($val)
     {
         $this->_propDict["countImportedReferenceDeltas"] = $val;
         return $this;
     }
-
     /**
-    * Gets the error
-    * If an error was encountered, contains a synchronizationError object with details.
-    *
-    * @return SynchronizationError|null The error
-    */
+     * Gets the error
+     * If an error was encountered, contains a synchronizationError object with details.
+     *
+     * @return SynchronizationError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\SynchronizationError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new SynchronizationError($this->_propDict["error"]);
@@ -325,31 +316,29 @@ class SynchronizationTaskExecution extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the error
-    * If an error was encountered, contains a synchronizationError object with details.
-    *
-    * @param SynchronizationError $val The value to assign to the error
-    *
-    * @return SynchronizationTaskExecution The SynchronizationTaskExecution
-    */
+     * Sets the error
+     * If an error was encountered, contains a synchronizationError object with details.
+     *
+     * @param SynchronizationError $val The value to assign to the error
+     *
+     * @return SynchronizationTaskExecution The SynchronizationTaskExecution
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the state
-    * Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
-    *
-    * @return SynchronizationTaskExecutionResult|null The state
-    */
+     * Gets the state
+     * Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
+     *
+     * @return SynchronizationTaskExecutionResult|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SynchronizationTaskExecutionResult") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationTaskExecutionResult") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SynchronizationTaskExecutionResult($this->_propDict["state"]);
@@ -358,31 +347,29 @@ class SynchronizationTaskExecution extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
-    *
-    * @param SynchronizationTaskExecutionResult $val The value to assign to the state
-    *
-    * @return SynchronizationTaskExecution The SynchronizationTaskExecution
-    */
+     * Sets the state
+     * Code summarizing the result of this run. Possible values are: Succeeded, Failed, EntryLevelErrors.
+     *
+     * @param SynchronizationTaskExecutionResult $val The value to assign to the state
+     *
+     * @return SynchronizationTaskExecution The SynchronizationTaskExecution
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the timeBegan
-    * Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The timeBegan
-    */
+     * Gets the timeBegan
+     * Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The timeBegan
+     */
     public function getTimeBegan()
     {
         if (array_key_exists("timeBegan", $this->_propDict)) {
-            if (is_a($this->_propDict["timeBegan"], "\DateTime") || is_null($this->_propDict["timeBegan"])) {
+            if (is_a($this->_propDict["timeBegan"], "\\DateTime") || is_null($this->_propDict["timeBegan"])) {
                 return $this->_propDict["timeBegan"];
             } else {
                 $this->_propDict["timeBegan"] = new \DateTime($this->_propDict["timeBegan"]);
@@ -391,31 +378,29 @@ class SynchronizationTaskExecution extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeBegan
-    * Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the timeBegan
-    *
-    * @return SynchronizationTaskExecution The SynchronizationTaskExecution
-    */
+     * Sets the timeBegan
+     * Time when this job run began. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the timeBegan
+     *
+     * @return SynchronizationTaskExecution The SynchronizationTaskExecution
+     */
     public function setTimeBegan($val)
     {
         $this->_propDict["timeBegan"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the timeEnded
-    * Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The timeEnded
-    */
+     * Gets the timeEnded
+     * Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The timeEnded
+     */
     public function getTimeEnded()
     {
         if (array_key_exists("timeEnded", $this->_propDict)) {
-            if (is_a($this->_propDict["timeEnded"], "\DateTime") || is_null($this->_propDict["timeEnded"])) {
+            if (is_a($this->_propDict["timeEnded"], "\\DateTime") || is_null($this->_propDict["timeEnded"])) {
                 return $this->_propDict["timeEnded"];
             } else {
                 $this->_propDict["timeEnded"] = new \DateTime($this->_propDict["timeEnded"]);
@@ -424,18 +409,17 @@ class SynchronizationTaskExecution extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the timeEnded
-    * Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the timeEnded
-    *
-    * @return SynchronizationTaskExecution The SynchronizationTaskExecution
-    */
+     * Sets the timeEnded
+     * Time when this job run ended. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the timeEnded
+     *
+     * @return SynchronizationTaskExecution The SynchronizationTaskExecution
+     */
     public function setTimeEnded($val)
     {
         $this->_propDict["timeEnded"] = $val;
-         return $this;
+        return $this;
     }
 }

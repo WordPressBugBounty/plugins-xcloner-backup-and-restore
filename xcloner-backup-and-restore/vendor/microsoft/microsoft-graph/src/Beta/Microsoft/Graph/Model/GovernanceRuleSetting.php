@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GovernanceRuleSetting class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GovernanceRuleSetting extends Entity
 {
     /**
-    * Gets the ruleIdentifier
-    * The id of the rule. For example, ExpirationRule and MfaRule.
-    *
-    * @return string|null The ruleIdentifier
-    */
+     * Gets the ruleIdentifier
+     * The id of the rule. For example, ExpirationRule and MfaRule.
+     *
+     * @return string|null The ruleIdentifier
+     */
     public function getRuleIdentifier()
     {
         if (array_key_exists("ruleIdentifier", $this->_propDict)) {
@@ -40,26 +42,25 @@ class GovernanceRuleSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ruleIdentifier
-    * The id of the rule. For example, ExpirationRule and MfaRule.
-    *
-    * @param string $val The value of the ruleIdentifier
-    *
-    * @return GovernanceRuleSetting
-    */
+     * Sets the ruleIdentifier
+     * The id of the rule. For example, ExpirationRule and MfaRule.
+     *
+     * @param string $val The value of the ruleIdentifier
+     *
+     * @return GovernanceRuleSetting
+     */
     public function setRuleIdentifier($val)
     {
         $this->_propDict["ruleIdentifier"] = $val;
         return $this;
     }
     /**
-    * Gets the setting
-    * The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
-    *
-    * @return string|null The setting
-    */
+     * Gets the setting
+     * The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
+     *
+     * @return string|null The setting
+     */
     public function getSetting()
     {
         if (array_key_exists("setting", $this->_propDict)) {
@@ -68,15 +69,14 @@ class GovernanceRuleSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the setting
-    * The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
-    *
-    * @param string $val The value of the setting
-    *
-    * @return GovernanceRuleSetting
-    */
+     * Sets the setting
+     * The settings of the rule. The value is a JSON string with a list of pairs in the format of Parameter_Name:Parameter_Value. For example, {'permanentAssignment':false,'maximumGrantPeriodInMinutes':129600}
+     *
+     * @param string $val The value of the setting
+     *
+     * @return GovernanceRuleSetting
+     */
     public function setSetting($val)
     {
         $this->_propDict["setting"] = $val;

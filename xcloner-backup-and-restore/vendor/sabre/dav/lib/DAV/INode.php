@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The INode interface is the base interface, and the parent class of both ICollection and IFile.
  *
@@ -20,7 +19,6 @@ interface INode
      * Deleted the current node.
      */
     public function delete();
-
     /**
      * Returns the name of the node.
      *
@@ -29,14 +27,12 @@ interface INode
      * @return string
      */
     public function getName();
-
     /**
      * Renames the node.
      *
      * @param string $name The new name
      */
     public function setName($name);
-
     /**
      * Returns the last modification time, as a unix timestamp. Return null
      * if the information is not available.

@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Browser;
 
-namespace Sabre\DAV\Browser;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\PropFind;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\PropFind;
 /**
  * This class is used by the browser plugin to trick the system in returning
  * every defined property.
@@ -28,7 +26,6 @@ class PropFindAll extends PropFind
     {
         parent::__construct($path, []);
     }
-
     /**
      * Handles a specific property.
      *
@@ -61,7 +58,6 @@ class PropFindAll extends PropFind
             $this->result[$propertyName] = [200, $value];
         }
     }
-
     /**
      * Sets the value of the property.
      *
@@ -79,7 +75,6 @@ class PropFindAll extends PropFind
         }
         $this->result[$propertyName] = [$status, $value];
     }
-
     /**
      * Returns the current value for a property.
      *
@@ -91,7 +86,6 @@ class PropFindAll extends PropFind
     {
         return isset($this->result[$propertyName]) ? $this->result[$propertyName][1] : null;
     }
-
     /**
      * Returns the current status code for a property name.
      *
@@ -106,7 +100,6 @@ class PropFindAll extends PropFind
     {
         return isset($this->result[$propertyName]) ? $this->result[$propertyName][0] : 404;
     }
-
     /**
      * Returns all propertynames that have a 404 status, and thus don't have a
      * value yet.
@@ -125,7 +118,6 @@ class PropFindAll extends PropFind
         if (!$result) {
             $result[] = '{http://sabredav.org/ns}idk';
         }
-
         return $result;
     }
 }

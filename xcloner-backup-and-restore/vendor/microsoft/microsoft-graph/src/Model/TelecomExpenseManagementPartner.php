@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TelecomExpenseManagementPartner class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TelecomExpenseManagementPartner extends Entity
 {
     /**
-    * Gets the appAuthorized
-    * Whether the partner's AAD app has been authorized to access Intune.
-    *
-    * @return bool|null The appAuthorized
-    */
+     * Gets the appAuthorized
+     * Whether the partner's AAD app has been authorized to access Intune.
+     *
+     * @return bool|null The appAuthorized
+     */
     public function getAppAuthorized()
     {
         if (array_key_exists("appAuthorized", $this->_propDict)) {
@@ -41,27 +42,25 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appAuthorized
-    * Whether the partner's AAD app has been authorized to access Intune.
-    *
-    * @param bool $val The appAuthorized
-    *
-    * @return TelecomExpenseManagementPartner
-    */
+     * Sets the appAuthorized
+     * Whether the partner's AAD app has been authorized to access Intune.
+     *
+     * @param bool $val The appAuthorized
+     *
+     * @return TelecomExpenseManagementPartner
+     */
     public function setAppAuthorized($val)
     {
         $this->_propDict["appAuthorized"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Display name of the TEM partner.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the TEM partner.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the TEM partner.
-    *
-    * @param string $val The displayName
-    *
-    * @return TelecomExpenseManagementPartner
-    */
+     * Sets the displayName
+     * Display name of the TEM partner.
+     *
+     * @param string $val The displayName
+     *
+     * @return TelecomExpenseManagementPartner
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the enabled
-    * Whether Intune's connection to the TEM service is currently enabled or disabled.
-    *
-    * @return bool|null The enabled
-    */
+     * Gets the enabled
+     * Whether Intune's connection to the TEM service is currently enabled or disabled.
+     *
+     * @return bool|null The enabled
+     */
     public function getEnabled()
     {
         if (array_key_exists("enabled", $this->_propDict)) {
@@ -99,31 +96,29 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabled
-    * Whether Intune's connection to the TEM service is currently enabled or disabled.
-    *
-    * @param bool $val The enabled
-    *
-    * @return TelecomExpenseManagementPartner
-    */
+     * Sets the enabled
+     * Whether Intune's connection to the TEM service is currently enabled or disabled.
+     *
+     * @param bool $val The enabled
+     *
+     * @return TelecomExpenseManagementPartner
+     */
     public function setEnabled($val)
     {
         $this->_propDict["enabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastConnectionDateTime
-    * Timestamp of the last request sent to Intune by the TEM partner.
-    *
-    * @return \DateTime|null The lastConnectionDateTime
-    */
+     * Gets the lastConnectionDateTime
+     * Timestamp of the last request sent to Intune by the TEM partner.
+     *
+     * @return \DateTime|null The lastConnectionDateTime
+     */
     public function getLastConnectionDateTime()
     {
         if (array_key_exists("lastConnectionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
+            if (is_a($this->_propDict["lastConnectionDateTime"], "\\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
                 return $this->_propDict["lastConnectionDateTime"];
             } else {
                 $this->_propDict["lastConnectionDateTime"] = new \DateTime($this->_propDict["lastConnectionDateTime"]);
@@ -132,27 +127,25 @@ class TelecomExpenseManagementPartner extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastConnectionDateTime
-    * Timestamp of the last request sent to Intune by the TEM partner.
-    *
-    * @param \DateTime $val The lastConnectionDateTime
-    *
-    * @return TelecomExpenseManagementPartner
-    */
+     * Sets the lastConnectionDateTime
+     * Timestamp of the last request sent to Intune by the TEM partner.
+     *
+     * @param \DateTime $val The lastConnectionDateTime
+     *
+     * @return TelecomExpenseManagementPartner
+     */
     public function setLastConnectionDateTime($val)
     {
         $this->_propDict["lastConnectionDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the url
-    * URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -161,19 +154,17 @@ class TelecomExpenseManagementPartner extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
-    *
-    * @param string $val The url
-    *
-    * @return TelecomExpenseManagementPartner
-    */
+     * Sets the url
+     * URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
+     *
+     * @param string $val The url
+     *
+     * @return TelecomExpenseManagementPartner
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;
         return $this;
     }
-
 }

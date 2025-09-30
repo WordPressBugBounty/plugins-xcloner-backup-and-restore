@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,38 +8,34 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
  *
  * @since  0.9.0
  * @group  issue_3
  */
-class vfsStreamWrapperSelectStreamTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperSelectStreamTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * @test
      */
     public function selectStream()
     {
-        if (PHP_VERSION_ID >= 80000)
-        {
+        if (\PHP_VERSION_ID >= 80000) {
             $this->bc_expectException('\ValueError');
-        }
-        else
-        {
+        } else {
             $this->bc_expectException('\PHPUnit_Framework_Error');
         }
-
         $root = vfsStream::setup();
         $file = vfsStream::newFile('foo.txt')->at($root)->withContent('testContent');
-
         $fp = fopen(vfsStream::url('root/foo.txt'), 'rb');
-        $readarray   = array($fp);
-        $writearray  = array();
+        $readarray = array($fp);
+        $writearray = array();
         $exceptarray = array();
         stream_select($readarray, $writearray, $exceptarray, 1);
     }

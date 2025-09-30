@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkTag class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamworkTag extends Entity
 {
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,25 +41,23 @@ class TeamworkTag extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The description
-    *
-    * @return TeamworkTag
-    */
+     * Sets the description
+     *
+     * @param string $val The description
+     *
+     * @return TeamworkTag
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -67,25 +66,23 @@ class TeamworkTag extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return TeamworkTag
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return TeamworkTag
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the memberCount
-    *
-    * @return int|null The memberCount
-    */
+     * Gets the memberCount
+     *
+     * @return int|null The memberCount
+     */
     public function getMemberCount()
     {
         if (array_key_exists("memberCount", $this->_propDict)) {
@@ -94,29 +91,27 @@ class TeamworkTag extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the memberCount
-    *
-    * @param int $val The memberCount
-    *
-    * @return TeamworkTag
-    */
+     * Sets the memberCount
+     *
+     * @param int $val The memberCount
+     *
+     * @return TeamworkTag
+     */
     public function setMemberCount($val)
     {
         $this->_propDict["memberCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the tagType
-    *
-    * @return TeamworkTagType|null The tagType
-    */
+     * Gets the tagType
+     *
+     * @return TeamworkTagType|null The tagType
+     */
     public function getTagType()
     {
         if (array_key_exists("tagType", $this->_propDict)) {
-            if (is_a($this->_propDict["tagType"], "\Microsoft\Graph\Model\TeamworkTagType") || is_null($this->_propDict["tagType"])) {
+            if (is_a($this->_propDict["tagType"], "XCloner\\Microsoft\\Graph\\Model\\TeamworkTagType") || is_null($this->_propDict["tagType"])) {
                 return $this->_propDict["tagType"];
             } else {
                 $this->_propDict["tagType"] = new TeamworkTagType($this->_propDict["tagType"]);
@@ -125,25 +120,23 @@ class TeamworkTag extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the tagType
-    *
-    * @param TeamworkTagType $val The tagType
-    *
-    * @return TeamworkTag
-    */
+     * Sets the tagType
+     *
+     * @param TeamworkTagType $val The tagType
+     *
+     * @return TeamworkTag
+     */
     public function setTagType($val)
     {
         $this->_propDict["tagType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the teamId
-    *
-    * @return string|null The teamId
-    */
+     * Gets the teamId
+     *
+     * @return string|null The teamId
+     */
     public function getTeamId()
     {
         if (array_key_exists("teamId", $this->_propDict)) {
@@ -152,22 +145,19 @@ class TeamworkTag extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the teamId
-    *
-    * @param string $val The teamId
-    *
-    * @return TeamworkTag
-    */
+     * Sets the teamId
+     *
+     * @param string $val The teamId
+     *
+     * @return TeamworkTag
+     */
     public function setTeamId($val)
     {
         $this->_propDict["teamId"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the members
      *
      * @return array|null The members
@@ -175,23 +165,21 @@ class TeamworkTag extends Entity
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
+            return $this->_propDict["members"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the members
-    *
-    * @param TeamworkTagMember[] $val The members
-    *
-    * @return TeamworkTag
-    */
+     * Sets the members
+     *
+     * @param TeamworkTagMember[] $val The members
+     *
+     * @return TeamworkTag
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;
         return $this;
     }
-
 }

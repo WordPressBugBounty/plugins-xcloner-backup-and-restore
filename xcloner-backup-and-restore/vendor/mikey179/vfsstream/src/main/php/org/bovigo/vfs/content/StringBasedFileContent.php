@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\content;
+namespace XCloner\org\bovigo\vfs\content;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Default implementation for file contents based on simple strings.
  *
@@ -24,7 +26,6 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
      * @type  string
      */
     private $content;
-
     /**
      * constructor
      *
@@ -34,7 +35,6 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
     {
         $this->content = $content;
     }
-
     /**
      * returns actual content
      *
@@ -44,7 +44,6 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
     {
         return $this->content;
     }
-
     /**
      * returns size of content
      *
@@ -54,7 +53,6 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
     {
         return strlen($this->content);
     }
-
     /**
      * actual reading of length starting at given offset
      *
@@ -65,7 +63,6 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
     {
         return (string) substr($this->content, $offset, $count);
     }
-
     /**
      * actual writing of data with specified length at given offset
      *
@@ -75,11 +72,8 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
      */
     protected function doWrite($data, $offset, $length)
     {
-        $this->content = substr($this->content, 0, $offset)
-                       . $data
-                       . substr($this->content, $offset + $length);
+        $this->content = substr($this->content, 0, $offset) . $data . substr($this->content, $offset + $length);
     }
-
     /**
      * Truncates a file to a given length
      *
@@ -90,11 +84,10 @@ class StringBasedFileContent extends SeekableFileContent implements FileContent
     {
         if ($size > $this->size()) {
             // Pad with null-chars if we're "truncating up"
-            $this->content .= str_repeat("\0", $size - $this->size());
+            $this->content .= str_repeat("\x00", $size - $this->size());
         } else {
             $this->content = substr($this->content, 0, $size);
         }
-
-        return true;
+        return \true;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DirectorySettingTemplate class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DirectorySettingTemplate extends DirectoryObject
 {
     /**
-    * Gets the description
-    * Description of the template. Read-only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the template. Read-only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DirectorySettingTemplate extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the template. Read-only.
-    *
-    * @param string $val The description
-    *
-    * @return DirectorySettingTemplate
-    */
+     * Sets the description
+     * Description of the template. Read-only.
+     *
+     * @param string $val The description
+     *
+     * @return DirectorySettingTemplate
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Display name of the template. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the template. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,49 +69,44 @@ class DirectorySettingTemplate extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the template. Read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return DirectorySettingTemplate
-    */
+     * Sets the displayName
+     * Display name of the template. Read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return DirectorySettingTemplate
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the values
-    * Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
+     * Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
      *
      * @return array|null The values
      */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
-           return $this->_propDict["values"];
+            return $this->_propDict["values"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the values
-    * Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
-    *
-    * @param SettingTemplateValue[] $val The values
-    *
-    * @return DirectorySettingTemplate
-    */
+     * Sets the values
+     * Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  Read-only.
+     *
+     * @param SettingTemplateValue[] $val The values
+     *
+     * @return DirectorySettingTemplate
+     */
     public function setValues($val)
     {
         $this->_propDict["values"] = $val;
         return $this;
     }
-
 }

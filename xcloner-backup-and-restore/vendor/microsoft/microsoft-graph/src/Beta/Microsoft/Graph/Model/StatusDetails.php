@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * StatusDetails class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class StatusDetails extends StatusBase
 {
     /**
-    * Gets the additionalDetails
-    * Additional details in case of error.
-    *
-    * @return string|null The additionalDetails
-    */
+     * Gets the additionalDetails
+     * Additional details in case of error.
+     *
+     * @return string|null The additionalDetails
+     */
     public function getAdditionalDetails()
     {
         if (array_key_exists("additionalDetails", $this->_propDict)) {
@@ -40,31 +42,29 @@ class StatusDetails extends StatusBase
             return null;
         }
     }
-
     /**
-    * Sets the additionalDetails
-    * Additional details in case of error.
-    *
-    * @param string $val The value of the additionalDetails
-    *
-    * @return StatusDetails
-    */
+     * Sets the additionalDetails
+     * Additional details in case of error.
+     *
+     * @param string $val The value of the additionalDetails
+     *
+     * @return StatusDetails
+     */
     public function setAdditionalDetails($val)
     {
         $this->_propDict["additionalDetails"] = $val;
         return $this;
     }
-
     /**
-    * Gets the errorCategory
-    * Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
-    *
-    * @return ProvisioningStatusErrorCategory|null The errorCategory
-    */
+     * Gets the errorCategory
+     * Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
+     *
+     * @return ProvisioningStatusErrorCategory|null The errorCategory
+     */
     public function getErrorCategory()
     {
         if (array_key_exists("errorCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["errorCategory"], "\Beta\Microsoft\Graph\Model\ProvisioningStatusErrorCategory") || is_null($this->_propDict["errorCategory"])) {
+            if (is_a($this->_propDict["errorCategory"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ProvisioningStatusErrorCategory") || is_null($this->_propDict["errorCategory"])) {
                 return $this->_propDict["errorCategory"];
             } else {
                 $this->_propDict["errorCategory"] = new ProvisioningStatusErrorCategory($this->_propDict["errorCategory"]);
@@ -73,26 +73,25 @@ class StatusDetails extends StatusBase
         }
         return null;
     }
-
     /**
-    * Sets the errorCategory
-    * Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
-    *
-    * @param ProvisioningStatusErrorCategory $val The value to assign to the errorCategory
-    *
-    * @return StatusDetails The StatusDetails
-    */
+     * Sets the errorCategory
+     * Categorizes the error code. Possible values are Failure, NonServiceFailure, Success.
+     *
+     * @param ProvisioningStatusErrorCategory $val The value to assign to the errorCategory
+     *
+     * @return StatusDetails The StatusDetails
+     */
     public function setErrorCategory($val)
     {
         $this->_propDict["errorCategory"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the errorCode
-    * Unique error code if any occurred. Learn more
-    *
-    * @return string|null The errorCode
-    */
+     * Gets the errorCode
+     * Unique error code if any occurred. Learn more
+     *
+     * @return string|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -101,26 +100,25 @@ class StatusDetails extends StatusBase
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * Unique error code if any occurred. Learn more
-    *
-    * @param string $val The value of the errorCode
-    *
-    * @return StatusDetails
-    */
+     * Sets the errorCode
+     * Unique error code if any occurred. Learn more
+     *
+     * @param string $val The value of the errorCode
+     *
+     * @return StatusDetails
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
     /**
-    * Gets the reason
-    * Summarizes the status and describes why the status happened.
-    *
-    * @return string|null The reason
-    */
+     * Gets the reason
+     * Summarizes the status and describes why the status happened.
+     *
+     * @return string|null The reason
+     */
     public function getReason()
     {
         if (array_key_exists("reason", $this->_propDict)) {
@@ -129,26 +127,25 @@ class StatusDetails extends StatusBase
             return null;
         }
     }
-
     /**
-    * Sets the reason
-    * Summarizes the status and describes why the status happened.
-    *
-    * @param string $val The value of the reason
-    *
-    * @return StatusDetails
-    */
+     * Sets the reason
+     * Summarizes the status and describes why the status happened.
+     *
+     * @param string $val The value of the reason
+     *
+     * @return StatusDetails
+     */
     public function setReason($val)
     {
         $this->_propDict["reason"] = $val;
         return $this;
     }
     /**
-    * Gets the recommendedAction
-    * Provides the resolution for the corresponding error.
-    *
-    * @return string|null The recommendedAction
-    */
+     * Gets the recommendedAction
+     * Provides the resolution for the corresponding error.
+     *
+     * @return string|null The recommendedAction
+     */
     public function getRecommendedAction()
     {
         if (array_key_exists("recommendedAction", $this->_propDict)) {
@@ -157,15 +154,14 @@ class StatusDetails extends StatusBase
             return null;
         }
     }
-
     /**
-    * Sets the recommendedAction
-    * Provides the resolution for the corresponding error.
-    *
-    * @param string $val The value of the recommendedAction
-    *
-    * @return StatusDetails
-    */
+     * Sets the recommendedAction
+     * Provides the resolution for the corresponding error.
+     *
+     * @param string $val The value of the recommendedAction
+     *
+     * @return StatusDetails
+     */
     public function setRecommendedAction($val)
     {
         $this->_propDict["recommendedAction"] = $val;

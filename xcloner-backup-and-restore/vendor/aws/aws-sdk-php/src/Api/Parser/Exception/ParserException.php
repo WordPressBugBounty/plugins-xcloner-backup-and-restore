@@ -1,24 +1,20 @@
 <?php
-namespace Aws\Api\Parser\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Api\Parser\Exception;
 
-
-use Aws\HasMonitoringEventsTrait;
-use Aws\MonitoringEventsInterface;
-use Aws\ResponseContainerInterface;
-use Psr\Http\Message\ResponseInterface;
-
-class ParserException extends \RuntimeException implements
-    MonitoringEventsInterface,
-    ResponseContainerInterface
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\HasMonitoringEventsTrait;
+use XCloner\Aws\MonitoringEventsInterface;
+use XCloner\Aws\ResponseContainerInterface;
+use XCloner\Psr\Http\Message\ResponseInterface;
+class ParserException extends \RuntimeException implements MonitoringEventsInterface, ResponseContainerInterface
 {
     use HasMonitoringEventsTrait;
-
     private $errorCode;
     private $requestId;
     private $response;
-
     public function __construct($message = '', $code = 0, $previous = null, array $context = [])
     {
         $this->errorCode = isset($context['error_code']) ? $context['error_code'] : null;
@@ -26,7 +22,6 @@ class ParserException extends \RuntimeException implements
         $this->response = isset($context['response']) ? $context['response'] : null;
         parent::__construct($message, $code, $previous);
     }
-
     /**
      * Get the error code, if any.
      *
@@ -36,7 +31,6 @@ class ParserException extends \RuntimeException implements
     {
         return $this->errorCode;
     }
-
     /**
      * Get the request ID, if any.
      *
@@ -46,7 +40,6 @@ class ParserException extends \RuntimeException implements
     {
         return $this->requestId;
     }
-
     /**
      * Get the received HTTP response if any.
      *

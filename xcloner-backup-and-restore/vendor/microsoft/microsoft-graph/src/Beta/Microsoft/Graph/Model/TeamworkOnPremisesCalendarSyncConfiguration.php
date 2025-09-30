@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkOnPremisesCalendarSyncConfiguration class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamworkOnPremisesCalendarSyncConfiguration extends Entity
 {
     /**
-    * Gets the domain
-    * The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
-    *
-    * @return string|null The domain
-    */
+     * Gets the domain
+     * The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
+     *
+     * @return string|null The domain
+     */
     public function getDomain()
     {
         if (array_key_exists("domain", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeamworkOnPremisesCalendarSyncConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the domain
-    * The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
-    *
-    * @param string $val The value of the domain
-    *
-    * @return TeamworkOnPremisesCalendarSyncConfiguration
-    */
+     * Sets the domain
+     * The fully qualified domain name (FQDN) of the Skype for Business Server. Use the Exchange domain if the Skype for Business SIP domain is different from the Exchange domain of the user.
+     *
+     * @param string $val The value of the domain
+     *
+     * @return TeamworkOnPremisesCalendarSyncConfiguration
+     */
     public function setDomain($val)
     {
         $this->_propDict["domain"] = $val;
         return $this;
     }
     /**
-    * Gets the domainUserName
-    * The domain and username of the console device, for example, Seattle/RanierConf.
-    *
-    * @return string|null The domainUserName
-    */
+     * Gets the domainUserName
+     * The domain and username of the console device, for example, Seattle/RanierConf.
+     *
+     * @return string|null The domainUserName
+     */
     public function getDomainUserName()
     {
         if (array_key_exists("domainUserName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TeamworkOnPremisesCalendarSyncConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the domainUserName
-    * The domain and username of the console device, for example, Seattle/RanierConf.
-    *
-    * @param string $val The value of the domainUserName
-    *
-    * @return TeamworkOnPremisesCalendarSyncConfiguration
-    */
+     * Sets the domainUserName
+     * The domain and username of the console device, for example, Seattle/RanierConf.
+     *
+     * @param string $val The value of the domainUserName
+     *
+     * @return TeamworkOnPremisesCalendarSyncConfiguration
+     */
     public function setDomainUserName($val)
     {
         $this->_propDict["domainUserName"] = $val;
         return $this;
     }
     /**
-    * Gets the smtpAddress
-    * The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
-    *
-    * @return string|null The smtpAddress
-    */
+     * Gets the smtpAddress
+     * The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
+     *
+     * @return string|null The smtpAddress
+     */
     public function getSmtpAddress()
     {
         if (array_key_exists("smtpAddress", $this->_propDict)) {
@@ -96,15 +96,14 @@ class TeamworkOnPremisesCalendarSyncConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the smtpAddress
-    * The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
-    *
-    * @param string $val The value of the smtpAddress
-    *
-    * @return TeamworkOnPremisesCalendarSyncConfiguration
-    */
+     * Sets the smtpAddress
+     * The Simple Mail Transfer Protocol (SMTP) address of the user account. This is only required if a different user principal name (UPN) is used to sign in to Exchange other than Microsoft Teams and Skype for Business. This is a common scenario in a hybrid environment where an on-premises Exchange server is used.
+     *
+     * @param string $val The value of the smtpAddress
+     *
+     * @return TeamworkOnPremisesCalendarSyncConfiguration
+     */
     public function setSmtpAddress($val)
     {
         $this->_propDict["smtpAddress"] = $val;

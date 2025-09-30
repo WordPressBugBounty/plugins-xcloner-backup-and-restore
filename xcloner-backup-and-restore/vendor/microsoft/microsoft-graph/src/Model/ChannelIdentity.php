@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChannelIdentity class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ChannelIdentity extends Entity
 {
     /**
-    * Gets the channelId
-    * The identity of the channel in which the message was posted.
-    *
-    * @return string|null The channelId
-    */
+     * Gets the channelId
+     * The identity of the channel in which the message was posted.
+     *
+     * @return string|null The channelId
+     */
     public function getChannelId()
     {
         if (array_key_exists("channelId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ChannelIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the channelId
-    * The identity of the channel in which the message was posted.
-    *
-    * @param string $val The value of the channelId
-    *
-    * @return ChannelIdentity
-    */
+     * Sets the channelId
+     * The identity of the channel in which the message was posted.
+     *
+     * @param string $val The value of the channelId
+     *
+     * @return ChannelIdentity
+     */
     public function setChannelId($val)
     {
         $this->_propDict["channelId"] = $val;
         return $this;
     }
     /**
-    * Gets the teamId
-    * The identity of the team in which the message was posted.
-    *
-    * @return string|null The teamId
-    */
+     * Gets the teamId
+     * The identity of the team in which the message was posted.
+     *
+     * @return string|null The teamId
+     */
     public function getTeamId()
     {
         if (array_key_exists("teamId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ChannelIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the teamId
-    * The identity of the team in which the message was posted.
-    *
-    * @param string $val The value of the teamId
-    *
-    * @return ChannelIdentity
-    */
+     * Sets the teamId
+     * The identity of the team in which the message was posted.
+     *
+     * @param string $val The value of the teamId
+     *
+     * @return ChannelIdentity
+     */
     public function setTeamId($val)
     {
         $this->_propDict["teamId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BusinessFlow class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BusinessFlow extends Entity
 {
     /**
-    * Gets the customData
-    *
-    * @return string|null The customData
-    */
+     * Gets the customData
+     *
+     * @return string|null The customData
+     */
     public function getCustomData()
     {
         if (array_key_exists("customData", $this->_propDict)) {
@@ -40,25 +41,23 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the customData
-    *
-    * @param string $val The customData
-    *
-    * @return BusinessFlow
-    */
+     * Sets the customData
+     *
+     * @param string $val The customData
+     *
+     * @return BusinessFlow
+     */
     public function setCustomData($val)
     {
         $this->_propDict["customData"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deDuplicationId
-    *
-    * @return string|null The deDuplicationId
-    */
+     * Gets the deDuplicationId
+     *
+     * @return string|null The deDuplicationId
+     */
     public function getDeDuplicationId()
     {
         if (array_key_exists("deDuplicationId", $this->_propDict)) {
@@ -67,25 +66,23 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deDuplicationId
-    *
-    * @param string $val The deDuplicationId
-    *
-    * @return BusinessFlow
-    */
+     * Sets the deDuplicationId
+     *
+     * @param string $val The deDuplicationId
+     *
+     * @return BusinessFlow
+     */
     public function setDeDuplicationId($val)
     {
         $this->_propDict["deDuplicationId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -94,25 +91,23 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The description
-    *
-    * @return BusinessFlow
-    */
+     * Sets the description
+     *
+     * @param string $val The description
+     *
+     * @return BusinessFlow
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -121,29 +116,27 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return BusinessFlow
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return BusinessFlow
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the policy
-    *
-    * @return GovernancePolicy|null The policy
-    */
+     * Gets the policy
+     *
+     * @return GovernancePolicy|null The policy
+     */
     public function getPolicy()
     {
         if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\GovernancePolicy") || is_null($this->_propDict["policy"])) {
+            if (is_a($this->_propDict["policy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernancePolicy") || is_null($this->_propDict["policy"])) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new GovernancePolicy($this->_propDict["policy"]);
@@ -152,25 +145,23 @@ class BusinessFlow extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the policy
-    *
-    * @param GovernancePolicy $val The policy
-    *
-    * @return BusinessFlow
-    */
+     * Sets the policy
+     *
+     * @param GovernancePolicy $val The policy
+     *
+     * @return BusinessFlow
+     */
     public function setPolicy($val)
     {
         $this->_propDict["policy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the policyTemplateId
-    *
-    * @return string|null The policyTemplateId
-    */
+     * Gets the policyTemplateId
+     *
+     * @return string|null The policyTemplateId
+     */
     public function getPolicyTemplateId()
     {
         if (array_key_exists("policyTemplateId", $this->_propDict)) {
@@ -179,25 +170,23 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the policyTemplateId
-    *
-    * @param string $val The policyTemplateId
-    *
-    * @return BusinessFlow
-    */
+     * Sets the policyTemplateId
+     *
+     * @param string $val The policyTemplateId
+     *
+     * @return BusinessFlow
+     */
     public function setPolicyTemplateId($val)
     {
         $this->_propDict["policyTemplateId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recordVersion
-    *
-    * @return string|null The recordVersion
-    */
+     * Gets the recordVersion
+     *
+     * @return string|null The recordVersion
+     */
     public function getRecordVersion()
     {
         if (array_key_exists("recordVersion", $this->_propDict)) {
@@ -206,25 +195,23 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the recordVersion
-    *
-    * @param string $val The recordVersion
-    *
-    * @return BusinessFlow
-    */
+     * Sets the recordVersion
+     *
+     * @param string $val The recordVersion
+     *
+     * @return BusinessFlow
+     */
     public function setRecordVersion($val)
     {
         $this->_propDict["recordVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the schemaId
-    *
-    * @return string|null The schemaId
-    */
+     * Gets the schemaId
+     *
+     * @return string|null The schemaId
+     */
     public function getSchemaId()
     {
         if (array_key_exists("schemaId", $this->_propDict)) {
@@ -233,29 +220,27 @@ class BusinessFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the schemaId
-    *
-    * @param string $val The schemaId
-    *
-    * @return BusinessFlow
-    */
+     * Sets the schemaId
+     *
+     * @param string $val The schemaId
+     *
+     * @return BusinessFlow
+     */
     public function setSchemaId($val)
     {
         $this->_propDict["schemaId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settings
-    *
-    * @return BusinessFlowSettings|null The settings
-    */
+     * Gets the settings
+     *
+     * @return BusinessFlowSettings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\BusinessFlowSettings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\BusinessFlowSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new BusinessFlowSettings($this->_propDict["settings"]);
@@ -264,18 +249,16 @@ class BusinessFlow extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    *
-    * @param BusinessFlowSettings $val The settings
-    *
-    * @return BusinessFlow
-    */
+     * Sets the settings
+     *
+     * @param BusinessFlowSettings $val The settings
+     *
+     * @return BusinessFlow
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

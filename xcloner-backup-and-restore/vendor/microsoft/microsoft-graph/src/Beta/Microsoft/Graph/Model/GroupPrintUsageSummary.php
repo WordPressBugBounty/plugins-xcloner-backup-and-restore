@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPrintUsageSummary class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPrintUsageSummary extends Entity
 {
     /**
-    * Gets the completedJobCount
-    *
-    * @return int|null The completedJobCount
-    */
+     * Gets the completedJobCount
+     *
+     * @return int|null The completedJobCount
+     */
     public function getCompletedJobCount()
     {
         if (array_key_exists("completedJobCount", $this->_propDict)) {
@@ -39,29 +41,27 @@ class GroupPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedJobCount
-    *
-    * @param int $val The value of the completedJobCount
-    *
-    * @return GroupPrintUsageSummary
-    */
+     * Sets the completedJobCount
+     *
+     * @param int $val The value of the completedJobCount
+     *
+     * @return GroupPrintUsageSummary
+     */
     public function setCompletedJobCount($val)
     {
         $this->_propDict["completedJobCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the group
-    *
-    * @return Identity|null The group
-    */
+     * Gets the group
+     *
+     * @return Identity|null The group
+     */
     public function getGroup()
     {
         if (array_key_exists("group", $this->_propDict)) {
-            if (is_a($this->_propDict["group"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["group"])) {
+            if (is_a($this->_propDict["group"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Identity") || is_null($this->_propDict["group"])) {
                 return $this->_propDict["group"];
             } else {
                 $this->_propDict["group"] = new Identity($this->_propDict["group"]);
@@ -70,24 +70,23 @@ class GroupPrintUsageSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the group
-    *
-    * @param Identity $val The value to assign to the group
-    *
-    * @return GroupPrintUsageSummary The GroupPrintUsageSummary
-    */
+     * Sets the group
+     *
+     * @param Identity $val The value to assign to the group
+     *
+     * @return GroupPrintUsageSummary The GroupPrintUsageSummary
+     */
     public function setGroup($val)
     {
         $this->_propDict["group"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the groupDisplayName
-    *
-    * @return string|null The groupDisplayName
-    */
+     * Gets the groupDisplayName
+     *
+     * @return string|null The groupDisplayName
+     */
     public function getGroupDisplayName()
     {
         if (array_key_exists("groupDisplayName", $this->_propDict)) {
@@ -96,24 +95,23 @@ class GroupPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the groupDisplayName
-    *
-    * @param string $val The value of the groupDisplayName
-    *
-    * @return GroupPrintUsageSummary
-    */
+     * Sets the groupDisplayName
+     *
+     * @param string $val The value of the groupDisplayName
+     *
+     * @return GroupPrintUsageSummary
+     */
     public function setGroupDisplayName($val)
     {
         $this->_propDict["groupDisplayName"] = $val;
         return $this;
     }
     /**
-    * Gets the groupMail
-    *
-    * @return string|null The groupMail
-    */
+     * Gets the groupMail
+     *
+     * @return string|null The groupMail
+     */
     public function getGroupMail()
     {
         if (array_key_exists("groupMail", $this->_propDict)) {
@@ -122,24 +120,23 @@ class GroupPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the groupMail
-    *
-    * @param string $val The value of the groupMail
-    *
-    * @return GroupPrintUsageSummary
-    */
+     * Sets the groupMail
+     *
+     * @param string $val The value of the groupMail
+     *
+     * @return GroupPrintUsageSummary
+     */
     public function setGroupMail($val)
     {
         $this->_propDict["groupMail"] = $val;
         return $this;
     }
     /**
-    * Gets the incompleteJobCount
-    *
-    * @return int|null The incompleteJobCount
-    */
+     * Gets the incompleteJobCount
+     *
+     * @return int|null The incompleteJobCount
+     */
     public function getIncompleteJobCount()
     {
         if (array_key_exists("incompleteJobCount", $this->_propDict)) {
@@ -148,14 +145,13 @@ class GroupPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the incompleteJobCount
-    *
-    * @param int $val The value of the incompleteJobCount
-    *
-    * @return GroupPrintUsageSummary
-    */
+     * Sets the incompleteJobCount
+     *
+     * @param int $val The value of the incompleteJobCount
+     *
+     * @return GroupPrintUsageSummary
+     */
     public function setIncompleteJobCount($val)
     {
         $this->_propDict["incompleteJobCount"] = $val;

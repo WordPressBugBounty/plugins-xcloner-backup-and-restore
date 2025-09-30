@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DirectoryRoleTemplate class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DirectoryRoleTemplate extends DirectoryObject
 {
     /**
-    * Gets the description
-    * The description to set for the directory role. Read-only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description to set for the directory role. Read-only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DirectoryRoleTemplate extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description to set for the directory role. Read-only.
-    *
-    * @param string $val The description
-    *
-    * @return DirectoryRoleTemplate
-    */
+     * Sets the description
+     * The description to set for the directory role. Read-only.
+     *
+     * @param string $val The description
+     *
+     * @return DirectoryRoleTemplate
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name to set for the directory role. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name to set for the directory role. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,19 +69,17 @@ class DirectoryRoleTemplate extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name to set for the directory role. Read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return DirectoryRoleTemplate
-    */
+     * Sets the displayName
+     * The display name to set for the directory role. Read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return DirectoryRoleTemplate
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
 }

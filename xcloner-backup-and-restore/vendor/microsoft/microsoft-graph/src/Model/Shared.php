@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Shared class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Shared extends Entity
 {
-
     /**
-    * Gets the owner
-    * The identity of the owner of the shared item. Read-only.
-    *
-    * @return IdentitySet|null The owner
-    */
+     * Gets the owner
+     * The identity of the owner of the shared item. Read-only.
+     *
+     * @return IdentitySet|null The owner
+     */
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
-            if (is_a($this->_propDict["owner"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["owner"])) {
+            if (is_a($this->_propDict["owner"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["owner"])) {
                 return $this->_propDict["owner"];
             } else {
                 $this->_propDict["owner"] = new IdentitySet($this->_propDict["owner"]);
@@ -45,26 +46,25 @@ class Shared extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the owner
-    * The identity of the owner of the shared item. Read-only.
-    *
-    * @param IdentitySet $val The value to assign to the owner
-    *
-    * @return Shared The Shared
-    */
+     * Sets the owner
+     * The identity of the owner of the shared item. Read-only.
+     *
+     * @param IdentitySet $val The value to assign to the owner
+     *
+     * @return Shared The Shared
+     */
     public function setOwner($val)
     {
         $this->_propDict["owner"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the scope
-    * Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.
-    *
-    * @return string|null The scope
-    */
+     * Gets the scope
+     * Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.
+     *
+     * @return string|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
@@ -73,31 +73,29 @@ class Shared extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the scope
-    * Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.
-    *
-    * @param string $val The value of the scope
-    *
-    * @return Shared
-    */
+     * Sets the scope
+     * Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.
+     *
+     * @param string $val The value of the scope
+     *
+     * @return Shared
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sharedBy
-    * The identity of the user who shared the item. Read-only.
-    *
-    * @return IdentitySet|null The sharedBy
-    */
+     * Gets the sharedBy
+     * The identity of the user who shared the item. Read-only.
+     *
+     * @return IdentitySet|null The sharedBy
+     */
     public function getSharedBy()
     {
         if (array_key_exists("sharedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["sharedBy"])) {
+            if (is_a($this->_propDict["sharedBy"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["sharedBy"])) {
                 return $this->_propDict["sharedBy"];
             } else {
                 $this->_propDict["sharedBy"] = new IdentitySet($this->_propDict["sharedBy"]);
@@ -106,31 +104,29 @@ class Shared extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sharedBy
-    * The identity of the user who shared the item. Read-only.
-    *
-    * @param IdentitySet $val The value to assign to the sharedBy
-    *
-    * @return Shared The Shared
-    */
+     * Sets the sharedBy
+     * The identity of the user who shared the item. Read-only.
+     *
+     * @param IdentitySet $val The value to assign to the sharedBy
+     *
+     * @return Shared The Shared
+     */
     public function setSharedBy($val)
     {
         $this->_propDict["sharedBy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the sharedDateTime
-    * The UTC date and time when the item was shared. Read-only.
-    *
-    * @return \DateTime|null The sharedDateTime
-    */
+     * Gets the sharedDateTime
+     * The UTC date and time when the item was shared. Read-only.
+     *
+     * @return \DateTime|null The sharedDateTime
+     */
     public function getSharedDateTime()
     {
         if (array_key_exists("sharedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedDateTime"], "\DateTime") || is_null($this->_propDict["sharedDateTime"])) {
+            if (is_a($this->_propDict["sharedDateTime"], "\\DateTime") || is_null($this->_propDict["sharedDateTime"])) {
                 return $this->_propDict["sharedDateTime"];
             } else {
                 $this->_propDict["sharedDateTime"] = new \DateTime($this->_propDict["sharedDateTime"]);
@@ -139,18 +135,17 @@ class Shared extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sharedDateTime
-    * The UTC date and time when the item was shared. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the sharedDateTime
-    *
-    * @return Shared The Shared
-    */
+     * Sets the sharedDateTime
+     * The UTC date and time when the item was shared. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the sharedDateTime
+     *
+     * @return Shared The Shared
+     */
     public function setSharedDateTime($val)
     {
         $this->_propDict["sharedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

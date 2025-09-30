@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP;
+use XCloner\Sabre\Uri;
 /**
  * SabreDAV DAV client.
  *
@@ -32,7 +30,6 @@ class Client extends HTTP\Client
      * @var mixed
      */
     public $xml;
-
     /**
      * The elementMap.
      *
@@ -44,7 +41,6 @@ class Client extends HTTP\Client
      * @var array
      */
     public $propertyMap = [];
-
     /**
      * Base URI.
      *
@@ -53,49 +49,40 @@ class Client extends HTTP\Client
      * @var string
      */
     protected $baseUri;
-
     /**
      * Basic authentication.
      */
     const AUTH_BASIC = 1;
-
     /**
      * Digest authentication.
      */
     const AUTH_DIGEST = 2;
-
     /**
      * NTLM authentication.
      */
     const AUTH_NTLM = 4;
-
     /**
      * Identity encoding, which basically does not nothing.
      */
     const ENCODING_IDENTITY = 1;
-
     /**
      * Deflate encoding.
      */
     const ENCODING_DEFLATE = 2;
-
     /**
      * Gzip encoding.
      */
     const ENCODING_GZIP = 4;
-
     /**
      * Sends all encoding headers.
      */
     const ENCODING_ALL = 7;
-
     /**
      * Content-encoding.
      *
      * @var int
      */
     protected $encoding = self::ENCODING_IDENTITY;
-
     /**
      * Constructor.
      *
@@ -121,41 +108,33 @@ class Client extends HTTP\Client
         if (!isset($settings['baseUri'])) {
             throw new \InvalidArgumentException('A baseUri must be provided');
         }
-
         parent::__construct();
-
         $this->baseUri = $settings['baseUri'];
-
         if (isset($settings['proxy'])) {
-            $this->addCurlSetting(CURLOPT_PROXY, $settings['proxy']);
+            $this->addCurlSetting(\CURLOPT_PROXY, $settings['proxy']);
         }
-
         if (isset($settings['userName'])) {
             $userName = $settings['userName'];
             $password = isset($settings['password']) ? $settings['password'] : '';
-
             if (isset($settings['authType'])) {
                 $curlType = 0;
                 if ($settings['authType'] & self::AUTH_BASIC) {
-                    $curlType |= CURLAUTH_BASIC;
+                    $curlType |= \CURLAUTH_BASIC;
                 }
                 if ($settings['authType'] & self::AUTH_DIGEST) {
-                    $curlType |= CURLAUTH_DIGEST;
+                    $curlType |= \CURLAUTH_DIGEST;
                 }
                 if ($settings['authType'] & self::AUTH_NTLM) {
-                    $curlType |= CURLAUTH_NTLM;
+                    $curlType |= \CURLAUTH_NTLM;
                 }
             } else {
-                $curlType = CURLAUTH_BASIC | CURLAUTH_DIGEST;
+                $curlType = \CURLAUTH_BASIC | \CURLAUTH_DIGEST;
             }
-
-            $this->addCurlSetting(CURLOPT_HTTPAUTH, $curlType);
-            $this->addCurlSetting(CURLOPT_USERPWD, $userName.':'.$password);
+            $this->addCurlSetting(\CURLOPT_HTTPAUTH, $curlType);
+            $this->addCurlSetting(\CURLOPT_USERPWD, $userName . ':' . $password);
         }
-
         if (isset($settings['encoding'])) {
             $encoding = $settings['encoding'];
-
             $encodings = [];
             if ($encoding & self::ENCODING_IDENTITY) {
                 $encodings[] = 'identity';
@@ -166,16 +145,13 @@ class Client extends HTTP\Client
             if ($encoding & self::ENCODING_GZIP) {
                 $encodings[] = 'gzip';
             }
-            $this->addCurlSetting(CURLOPT_ENCODING, implode(',', $encodings));
+            $this->addCurlSetting(\CURLOPT_ENCODING, implode(',', $encodings));
         }
-
-        $this->addCurlSetting(CURLOPT_USERAGENT, 'sabre-dav/'.Version::VERSION.' (http://sabre.io/)');
-
+        $this->addCurlSetting(\CURLOPT_USERAGENT, 'sabre-dav/' . Version::VERSION . ' (http://sabre.io/)');
         $this->xml = new Xml\Service();
         // BC
-        $this->propertyMap = &$this->xml->elementMap;
+        $this->propertyMap =& $this->xml->elementMap;
     }
-
     /**
      * Does a PROPFIND request.
      *
@@ -200,59 +176,39 @@ class Client extends HTTP\Client
     public function propFind($url, array $properties, $depth = 0)
     {
         $dom = new \DOMDocument('1.0', 'UTF-8');
-        $dom->formatOutput = true;
+        $dom->formatOutput = \true;
         $root = $dom->createElementNS('DAV:', 'd:propfind');
         $prop = $dom->createElement('d:prop');
-
         foreach ($properties as $property) {
-            list(
-                $namespace,
-                $elementName
-            ) = \Sabre\Xml\Service::parseClarkNotation($property);
-
+            list($namespace, $elementName) = \XCloner\Sabre\Xml\Service::parseClarkNotation($property);
             if ('DAV:' === $namespace) {
-                $element = $dom->createElement('d:'.$elementName);
+                $element = $dom->createElement('d:' . $elementName);
             } else {
-                $element = $dom->createElementNS($namespace, 'x:'.$elementName);
+                $element = $dom->createElementNS($namespace, 'x:' . $elementName);
             }
-
             $prop->appendChild($element);
         }
-
         $dom->appendChild($root)->appendChild($prop);
         $body = $dom->saveXML();
-
         $url = $this->getAbsoluteUrl($url);
-
-        $request = new HTTP\Request('PROPFIND', $url, [
-            'Depth' => $depth,
-            'Content-Type' => 'application/xml',
-        ], $body);
-
+        $request = new HTTP\Request('PROPFIND', $url, ['Depth' => $depth, 'Content-Type' => 'application/xml'], $body);
         $response = $this->send($request);
-
         if ((int) $response->getStatus() >= 400) {
             throw new HTTP\ClientHttpException($response);
         }
-
         $result = $this->parseMultiStatus($response->getBodyAsString());
-
         // If depth was 0, we only return the top item
         if (0 === $depth) {
             reset($result);
             $result = current($result);
-
             return isset($result[200]) ? $result[200] : [];
         }
-
         $newResult = [];
         foreach ($result as $href => $statusList) {
             $newResult[$href] = isset($statusList[200]) ? $statusList[200] : [];
         }
-
         return $newResult;
     }
-
     /**
      * Updates a list of properties on the server.
      *
@@ -268,44 +224,33 @@ class Client extends HTTP\Client
     {
         $propPatch = new Xml\Request\PropPatch();
         $propPatch->properties = $properties;
-        $xml = $this->xml->write(
-            '{DAV:}propertyupdate',
-            $propPatch
-        );
-
+        $xml = $this->xml->write('{DAV:}propertyupdate', $propPatch);
         $url = $this->getAbsoluteUrl($url);
-        $request = new HTTP\Request('PROPPATCH', $url, [
-            'Content-Type' => 'application/xml',
-        ], $xml);
+        $request = new HTTP\Request('PROPPATCH', $url, ['Content-Type' => 'application/xml'], $xml);
         $response = $this->send($request);
-
         if ($response->getStatus() >= 400) {
             throw new HTTP\ClientHttpException($response);
         }
-
         if (207 === $response->getStatus()) {
             // If it's a 207, the request could still have failed, but the
             // information is hidden in the response body.
             $result = $this->parseMultiStatus($response->getBodyAsString());
-
             $errorProperties = [];
             foreach ($result as $href => $statusList) {
                 foreach ($statusList as $status => $properties) {
                     if ($status >= 400) {
                         foreach ($properties as $propName => $propValue) {
-                            $errorProperties[] = $propName.' ('.$status.')';
+                            $errorProperties[] = $propName . ' (' . $status . ')';
                         }
                     }
                 }
             }
             if ($errorProperties) {
-                throw new HTTP\ClientException('PROPPATCH failed. The following properties errored: '.implode(', ', $errorProperties));
+                throw new HTTP\ClientException('PROPPATCH failed. The following properties errored: ' . implode(', ', $errorProperties));
             }
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * Performs an HTTP options request.
      *
@@ -319,20 +264,16 @@ class Client extends HTTP\Client
     {
         $request = new HTTP\Request('OPTIONS', $this->getAbsoluteUrl(''));
         $response = $this->send($request);
-
         $dav = $response->getHeader('Dav');
         if (!$dav) {
             return [];
         }
-
         $features = explode(',', $dav);
         foreach ($features as &$v) {
             $v = trim($v);
         }
-
         return $features;
     }
-
     /**
      * Performs an actual HTTP request, and returns the result.
      *
@@ -366,16 +307,9 @@ class Client extends HTTP\Client
     public function request($method, $url = '', $body = null, array $headers = [])
     {
         $url = $this->getAbsoluteUrl($url);
-
         $response = $this->send(new HTTP\Request($method, $url, $headers, $body));
-
-        return [
-            'body' => $response->getBodyAsString(),
-            'statusCode' => (int) $response->getStatus(),
-            'headers' => array_change_key_case($response->getHeaders()),
-        ];
+        return ['body' => $response->getBodyAsString(), 'statusCode' => (int) $response->getStatus(), 'headers' => array_change_key_case($response->getHeaders())];
     }
-
     /**
      * Returns the full url based on the given url (which may be relative). All
      * urls are expanded based on the base url as given by the server.
@@ -386,12 +320,8 @@ class Client extends HTTP\Client
      */
     public function getAbsoluteUrl($url)
     {
-        return Uri\resolve(
-            $this->baseUri,
-            $url
-        );
+        return Uri\resolve($this->baseUri, $url);
     }
-
     /**
      * Parses a WebDAV multistatus response body.
      *
@@ -420,13 +350,10 @@ class Client extends HTTP\Client
     public function parseMultiStatus($body)
     {
         $multistatus = $this->xml->expect('{DAV:}multistatus', $body);
-
         $result = [];
-
         foreach ($multistatus->getResponses() as $response) {
             $result[$response->getHref()] = $response->getResponseProperties();
         }
-
         return $result;
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP\Auth;
 
-namespace Sabre\HTTP\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * HTTP Bearer authentication utility.
  *
@@ -32,25 +31,21 @@ class Bearer extends AbstractAuth
     public function getToken()
     {
         $auth = $this->request->getHeader('Authorization');
-
         if (!$auth) {
             return null;
         }
-
         if ('bearer ' !== strtolower(substr($auth, 0, 7))) {
             return null;
         }
-
         return substr($auth, 7);
     }
-
     /**
      * This method sends the needed HTTP header and status code (401) to force
      * authentication.
      */
     public function requireLogin()
     {
-        $this->response->addHeader('WWW-Authenticate', 'Bearer realm="'.$this->realm.'"');
+        $this->response->addHeader('WWW-Authenticate', 'Bearer realm="' . $this->realm . '"');
         $this->response->setStatus(401);
     }
 }

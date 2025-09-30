@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsPhone81CustomConfiguration class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WindowsPhone81CustomConfiguration extends DeviceConfiguration
 {
-
-     /**
+    /**
      * Gets the omaSettings
-    * OMA settings. This collection can contain a maximum of 1000 elements.
+     * OMA settings. This collection can contain a maximum of 1000 elements.
      *
      * @return array|null The omaSettings
      */
     public function getOmaSettings()
     {
         if (array_key_exists("omaSettings", $this->_propDict)) {
-           return $this->_propDict["omaSettings"];
+            return $this->_propDict["omaSettings"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the omaSettings
-    * OMA settings. This collection can contain a maximum of 1000 elements.
-    *
-    * @param OmaSetting[] $val The omaSettings
-    *
-    * @return WindowsPhone81CustomConfiguration
-    */
+     * Sets the omaSettings
+     * OMA settings. This collection can contain a maximum of 1000 elements.
+     *
+     * @param OmaSetting[] $val The omaSettings
+     *
+     * @return WindowsPhone81CustomConfiguration
+     */
     public function setOmaSettings($val)
     {
         $this->_propDict["omaSettings"] = $val;
         return $this;
     }
-
 }

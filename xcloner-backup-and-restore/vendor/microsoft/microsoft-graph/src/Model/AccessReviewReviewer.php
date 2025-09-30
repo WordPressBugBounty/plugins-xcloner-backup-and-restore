@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewReviewer class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewReviewer extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * The date when the reviewer was added for the access review.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date when the reviewer was added for the access review.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class AccessReviewReviewer extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date when the reviewer was added for the access review.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return AccessReviewReviewer
-    */
+     * Sets the createdDateTime
+     * The date when the reviewer was added for the access review.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return AccessReviewReviewer
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Name of reviewer.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of reviewer.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -74,27 +73,25 @@ class AccessReviewReviewer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of reviewer.
-    *
-    * @param string $val The displayName
-    *
-    * @return AccessReviewReviewer
-    */
+     * Sets the displayName
+     * Name of reviewer.
+     *
+     * @param string $val The displayName
+     *
+     * @return AccessReviewReviewer
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * User principal name of the reviewer.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * User principal name of the reviewer.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -103,19 +100,17 @@ class AccessReviewReviewer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * User principal name of the reviewer.
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return AccessReviewReviewer
-    */
+     * Sets the userPrincipalName
+     * User principal name of the reviewer.
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return AccessReviewReviewer
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

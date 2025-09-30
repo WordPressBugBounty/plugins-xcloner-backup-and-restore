@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MetadataAction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MetadataAction extends InformationProtectionAction
 {
-
     /**
-    * Gets the metadataToAdd
-    * A collection of key-value pairs that should be added to the file.
-    *
-    * @return KeyValuePair|null The metadataToAdd
-    */
+     * Gets the metadataToAdd
+     * A collection of key-value pairs that should be added to the file.
+     *
+     * @return KeyValuePair|null The metadataToAdd
+     */
     public function getMetadataToAdd()
     {
         if (array_key_exists("metadataToAdd", $this->_propDict)) {
-            if (is_a($this->_propDict["metadataToAdd"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\KeyValuePair") || is_null($this->_propDict["metadataToAdd"])) {
+            if (is_a($this->_propDict["metadataToAdd"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\KeyValuePair") || is_null($this->_propDict["metadataToAdd"])) {
                 return $this->_propDict["metadataToAdd"];
             } else {
                 $this->_propDict["metadataToAdd"] = new KeyValuePair($this->_propDict["metadataToAdd"]);
@@ -45,26 +46,25 @@ class MetadataAction extends InformationProtectionAction
         }
         return null;
     }
-
     /**
-    * Sets the metadataToAdd
-    * A collection of key-value pairs that should be added to the file.
-    *
-    * @param KeyValuePair $val The value to assign to the metadataToAdd
-    *
-    * @return MetadataAction The MetadataAction
-    */
+     * Sets the metadataToAdd
+     * A collection of key-value pairs that should be added to the file.
+     *
+     * @param KeyValuePair $val The value to assign to the metadataToAdd
+     *
+     * @return MetadataAction The MetadataAction
+     */
     public function setMetadataToAdd($val)
     {
         $this->_propDict["metadataToAdd"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the metadataToRemove
-    * A collection of strings that indicate which keys to remove from the file metadata.
-    *
-    * @return string|null The metadataToRemove
-    */
+     * Gets the metadataToRemove
+     * A collection of strings that indicate which keys to remove from the file metadata.
+     *
+     * @return string|null The metadataToRemove
+     */
     public function getMetadataToRemove()
     {
         if (array_key_exists("metadataToRemove", $this->_propDict)) {
@@ -73,15 +73,14 @@ class MetadataAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the metadataToRemove
-    * A collection of strings that indicate which keys to remove from the file metadata.
-    *
-    * @param string $val The value of the metadataToRemove
-    *
-    * @return MetadataAction
-    */
+     * Sets the metadataToRemove
+     * A collection of strings that indicate which keys to remove from the file metadata.
+     *
+     * @param string $val The value of the metadataToRemove
+     *
+     * @return MetadataAction
+     */
     public function setMetadataToRemove($val)
     {
         $this->_propDict["metadataToRemove"] = $val;

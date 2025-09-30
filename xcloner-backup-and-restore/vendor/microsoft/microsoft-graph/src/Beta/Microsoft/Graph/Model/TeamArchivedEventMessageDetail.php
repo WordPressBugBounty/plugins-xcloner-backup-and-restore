@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamArchivedEventMessageDetail class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamArchivedEventMessageDetail extends EventMessageDetail
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.teamArchivedEventMessageDetail");
     }
-
-
     /**
-    * Gets the initiator
-    * Initiator of the event.
-    *
-    * @return IdentitySet|null The initiator
-    */
+     * Gets the initiator
+     * Initiator of the event.
+     *
+     * @return IdentitySet|null The initiator
+     */
     public function getInitiator()
     {
         if (array_key_exists("initiator", $this->_propDict)) {
-            if (is_a($this->_propDict["initiator"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["initiator"])) {
+            if (is_a($this->_propDict["initiator"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["initiator"])) {
                 return $this->_propDict["initiator"];
             } else {
                 $this->_propDict["initiator"] = new IdentitySet($this->_propDict["initiator"]);
@@ -56,26 +56,25 @@ class TeamArchivedEventMessageDetail extends EventMessageDetail
         }
         return null;
     }
-
     /**
-    * Sets the initiator
-    * Initiator of the event.
-    *
-    * @param IdentitySet $val The value to assign to the initiator
-    *
-    * @return TeamArchivedEventMessageDetail The TeamArchivedEventMessageDetail
-    */
+     * Sets the initiator
+     * Initiator of the event.
+     *
+     * @param IdentitySet $val The value to assign to the initiator
+     *
+     * @return TeamArchivedEventMessageDetail The TeamArchivedEventMessageDetail
+     */
     public function setInitiator($val)
     {
         $this->_propDict["initiator"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the teamId
-    * Unique identifier of the team.
-    *
-    * @return string|null The teamId
-    */
+     * Gets the teamId
+     * Unique identifier of the team.
+     *
+     * @return string|null The teamId
+     */
     public function getTeamId()
     {
         if (array_key_exists("teamId", $this->_propDict)) {
@@ -84,15 +83,14 @@ class TeamArchivedEventMessageDetail extends EventMessageDetail
             return null;
         }
     }
-
     /**
-    * Sets the teamId
-    * Unique identifier of the team.
-    *
-    * @param string $val The value of the teamId
-    *
-    * @return TeamArchivedEventMessageDetail
-    */
+     * Sets the teamId
+     * Unique identifier of the team.
+     *
+     * @param string $val The value of the teamId
+     *
+     * @return TeamArchivedEventMessageDetail
+     */
     public function setTeamId($val)
     {
         $this->_propDict["teamId"] = $val;

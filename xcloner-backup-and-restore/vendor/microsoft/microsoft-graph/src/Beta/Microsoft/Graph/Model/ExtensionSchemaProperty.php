@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExtensionSchemaProperty class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExtensionSchemaProperty extends Entity
 {
     /**
-    * Gets the name
-    * The name of the strongly typed property defined as part of a schema extension.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the strongly typed property defined as part of a schema extension.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ExtensionSchemaProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the strongly typed property defined as part of a schema extension.
-    *
-    * @param string $val The value of the name
-    *
-    * @return ExtensionSchemaProperty
-    */
+     * Sets the name
+     * The name of the strongly typed property defined as part of a schema extension.
+     *
+     * @param string $val The value of the name
+     *
+     * @return ExtensionSchemaProperty
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * The type of the property that is defined as part of a schema extension.  Allowed values are Binary, Boolean, DateTime, Integer or String. See the table below for more details.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * The type of the property that is defined as part of a schema extension.  Allowed values are Binary, Boolean, DateTime, Integer or String. See the table below for more details.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ExtensionSchemaProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * The type of the property that is defined as part of a schema extension.  Allowed values are Binary, Boolean, DateTime, Integer or String. See the table below for more details.
-    *
-    * @param string $val The value of the type
-    *
-    * @return ExtensionSchemaProperty
-    */
+     * Sets the type
+     * The type of the property that is defined as part of a schema extension.  Allowed values are Binary, Boolean, DateTime, Integer or String. See the table below for more details.
+     *
+     * @param string $val The value of the type
+     *
+     * @return ExtensionSchemaProperty
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

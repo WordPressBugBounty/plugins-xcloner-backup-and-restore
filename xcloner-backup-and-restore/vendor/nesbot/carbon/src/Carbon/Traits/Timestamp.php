@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Traits;
 
-namespace Carbon\Traits;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Trait Timestamp.
  */
@@ -33,7 +32,6 @@ trait Timestamp
     {
         return static::createFromTimestampUTC($timestamp)->setTimezone($tz);
     }
-
     /**
      * Create a Carbon instance from an timestamp keeping the timezone to UTC.
      *
@@ -49,11 +47,9 @@ trait Timestamp
         $delta = floor($decimal / static::MICROSECONDS_PER_SECOND);
         $integer += $delta;
         $decimal -= $delta * static::MICROSECONDS_PER_SECOND;
-        $decimal = str_pad((string) $decimal, 6, '0', STR_PAD_LEFT);
-
-        return static::rawCreateFromFormat('U u', "$integer $decimal");
+        $decimal = str_pad((string) $decimal, 6, '0', \STR_PAD_LEFT);
+        return static::rawCreateFromFormat('U u', "{$integer} {$decimal}");
     }
-
     /**
      * Create a Carbon instance from a timestamp in milliseconds.
      *
@@ -66,18 +62,16 @@ trait Timestamp
     public static function createFromTimestampMsUTC($timestamp)
     {
         [$milliseconds, $microseconds] = self::getIntegerAndDecimalParts($timestamp, 3);
-        $sign = $milliseconds < 0 || ($milliseconds === 0.0 && $microseconds < 0) ? -1 : 1;
+        $sign = $milliseconds < 0 || $milliseconds === 0.0 && $microseconds < 0 ? -1 : 1;
         $milliseconds = abs($milliseconds);
         $microseconds = $sign * abs($microseconds) + static::MICROSECONDS_PER_MILLISECOND * ($milliseconds % static::MILLISECONDS_PER_SECOND);
         $seconds = $sign * floor($milliseconds / static::MILLISECONDS_PER_SECOND);
         $delta = floor($microseconds / static::MICROSECONDS_PER_SECOND);
         $seconds += $delta;
         $microseconds -= $delta * static::MICROSECONDS_PER_SECOND;
-        $microseconds = str_pad($microseconds, 6, '0', STR_PAD_LEFT);
-
-        return static::rawCreateFromFormat('U u', "$seconds $microseconds");
+        $microseconds = str_pad($microseconds, 6, '0', \STR_PAD_LEFT);
+        return static::rawCreateFromFormat('U u', "{$seconds} {$microseconds}");
     }
-
     /**
      * Create a Carbon instance from a timestamp in milliseconds.
      *
@@ -90,10 +84,8 @@ trait Timestamp
      */
     public static function createFromTimestampMs($timestamp, $tz = null)
     {
-        return static::createFromTimestampMsUTC($timestamp)
-            ->setTimezone($tz);
+        return static::createFromTimestampMsUTC($timestamp)->setTimezone($tz);
     }
-
     /**
      * Set the instance's timestamp.
      *
@@ -107,7 +99,6 @@ trait Timestamp
     {
         return $this->setTimestamp($unixTimestamp);
     }
-
     /**
      * Returns a timestamp rounded with the given precision (6 by default).
      *
@@ -128,9 +119,8 @@ trait Timestamp
      */
     public function getPreciseTimestamp($precision = 6)
     {
-        return round(((float) $this->rawFormat('Uu')) / pow(10, 6 - $precision));
+        return round((float) $this->rawFormat('Uu') / pow(10, 6 - $precision));
     }
-
     /**
      * Returns the milliseconds timestamps used amongst other by Date javascript objects.
      *
@@ -140,7 +130,6 @@ trait Timestamp
     {
         return $this->getPreciseTimestamp(3);
     }
-
     /**
      * Returns the timestamp with millisecond precision.
      *
@@ -150,7 +139,6 @@ trait Timestamp
     {
         return (int) $this->getPreciseTimestamp(3);
     }
-
     /**
      * @alias getTimestamp
      *
@@ -162,7 +150,6 @@ trait Timestamp
     {
         return $this->getTimestamp();
     }
-
     /**
      * Return an array with integer part digits and decimals digits split from one or more positive numbers
      * (such as timestamps) as string with the given number of decimals (6 by default).
@@ -180,22 +167,17 @@ trait Timestamp
         if (\is_int($numbers) || \is_float($numbers)) {
             $numbers = number_format($numbers, $decimals, '.', '');
         }
-
         $sign = str_starts_with($numbers, '-') ? -1 : 1;
         $integer = 0;
         $decimal = 0;
-
         foreach (preg_split('`[^\d.]+`', $numbers) as $chunk) {
-            [$integerPart, $decimalPart] = explode('.', "$chunk.");
-
+            [$integerPart, $decimalPart] = explode('.', "{$chunk}.");
             $integer += (int) $integerPart;
-            $decimal += (float) ("0.$decimalPart");
+            $decimal += (float) "0.{$decimalPart}";
         }
-
         $overflow = floor($decimal);
         $integer += $overflow;
         $decimal -= $overflow;
-
         return [$sign * $integer, $decimal === 0.0 ? 0.0 : $sign * round($decimal * pow(10, $decimals))];
     }
 }

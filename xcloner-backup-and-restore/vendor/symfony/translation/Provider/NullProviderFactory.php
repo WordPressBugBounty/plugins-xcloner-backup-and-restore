@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Provider;
 
-namespace Symfony\Component\Translation\Provider;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\Exception\UnsupportedSchemeException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\Exception\UnsupportedSchemeException;
 /**
  * @author Mathieu Santostefano <msantostefano@protonmail.com>
  */
@@ -26,10 +24,8 @@ final class NullProviderFactory extends AbstractProviderFactory
         if ('null' === $dsn->getScheme()) {
             return new NullProvider();
         }
-
         throw new UnsupportedSchemeException($dsn, 'null', $this->getSupportedSchemes());
     }
-
     protected function getSupportedSchemes(): array
     {
         return ['null'];

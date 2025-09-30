@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * KeyStorageProviderOption class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class KeyStorageProviderOption extends Enum
 {
     /**
-    * The Enum KeyStorageProviderOption
-    */
+     * The Enum KeyStorageProviderOption
+     */
     const USE_TPM_KSP_OTHERWISE_USE_SOFTWARE_KSP = "useTpmKspOtherwiseUseSoftwareKsp";
     const USE_TPM_KSP_OTHERWISE_FAIL = "useTpmKspOtherwiseFail";
     const USE_PASSPORT_FOR_WORK_KSP_OTHERWISE_FAIL = "usePassportForWorkKspOtherwiseFail";

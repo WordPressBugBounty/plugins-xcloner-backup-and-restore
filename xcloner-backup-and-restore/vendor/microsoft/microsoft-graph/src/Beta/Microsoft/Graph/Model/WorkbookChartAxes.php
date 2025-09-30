@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookChartAxes class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookChartAxes extends Entity
 {
     /**
-    * Gets the categoryAxis
-    * Represents the category axis in a chart. Read-only.
-    *
-    * @return WorkbookChartAxis|null The categoryAxis
-    */
+     * Gets the categoryAxis
+     * Represents the category axis in a chart. Read-only.
+     *
+     * @return WorkbookChartAxis|null The categoryAxis
+     */
     public function getCategoryAxis()
     {
         if (array_key_exists("categoryAxis", $this->_propDict)) {
-            if (is_a($this->_propDict["categoryAxis"], "\Beta\Microsoft\Graph\Model\WorkbookChartAxis") || is_null($this->_propDict["categoryAxis"])) {
+            if (is_a($this->_propDict["categoryAxis"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookChartAxis") || is_null($this->_propDict["categoryAxis"])) {
                 return $this->_propDict["categoryAxis"];
             } else {
                 $this->_propDict["categoryAxis"] = new WorkbookChartAxis($this->_propDict["categoryAxis"]);
@@ -45,31 +46,29 @@ class WorkbookChartAxes extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the categoryAxis
-    * Represents the category axis in a chart. Read-only.
-    *
-    * @param WorkbookChartAxis $val The categoryAxis
-    *
-    * @return WorkbookChartAxes
-    */
+     * Sets the categoryAxis
+     * Represents the category axis in a chart. Read-only.
+     *
+     * @param WorkbookChartAxis $val The categoryAxis
+     *
+     * @return WorkbookChartAxes
+     */
     public function setCategoryAxis($val)
     {
         $this->_propDict["categoryAxis"] = $val;
         return $this;
     }
-
     /**
-    * Gets the seriesAxis
-    * Represents the series axis of a 3-dimensional chart. Read-only.
-    *
-    * @return WorkbookChartAxis|null The seriesAxis
-    */
+     * Gets the seriesAxis
+     * Represents the series axis of a 3-dimensional chart. Read-only.
+     *
+     * @return WorkbookChartAxis|null The seriesAxis
+     */
     public function getSeriesAxis()
     {
         if (array_key_exists("seriesAxis", $this->_propDict)) {
-            if (is_a($this->_propDict["seriesAxis"], "\Beta\Microsoft\Graph\Model\WorkbookChartAxis") || is_null($this->_propDict["seriesAxis"])) {
+            if (is_a($this->_propDict["seriesAxis"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookChartAxis") || is_null($this->_propDict["seriesAxis"])) {
                 return $this->_propDict["seriesAxis"];
             } else {
                 $this->_propDict["seriesAxis"] = new WorkbookChartAxis($this->_propDict["seriesAxis"]);
@@ -78,31 +77,29 @@ class WorkbookChartAxes extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the seriesAxis
-    * Represents the series axis of a 3-dimensional chart. Read-only.
-    *
-    * @param WorkbookChartAxis $val The seriesAxis
-    *
-    * @return WorkbookChartAxes
-    */
+     * Sets the seriesAxis
+     * Represents the series axis of a 3-dimensional chart. Read-only.
+     *
+     * @param WorkbookChartAxis $val The seriesAxis
+     *
+     * @return WorkbookChartAxes
+     */
     public function setSeriesAxis($val)
     {
         $this->_propDict["seriesAxis"] = $val;
         return $this;
     }
-
     /**
-    * Gets the valueAxis
-    * Represents the value axis in an axis. Read-only.
-    *
-    * @return WorkbookChartAxis|null The valueAxis
-    */
+     * Gets the valueAxis
+     * Represents the value axis in an axis. Read-only.
+     *
+     * @return WorkbookChartAxis|null The valueAxis
+     */
     public function getValueAxis()
     {
         if (array_key_exists("valueAxis", $this->_propDict)) {
-            if (is_a($this->_propDict["valueAxis"], "\Beta\Microsoft\Graph\Model\WorkbookChartAxis") || is_null($this->_propDict["valueAxis"])) {
+            if (is_a($this->_propDict["valueAxis"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookChartAxis") || is_null($this->_propDict["valueAxis"])) {
                 return $this->_propDict["valueAxis"];
             } else {
                 $this->_propDict["valueAxis"] = new WorkbookChartAxis($this->_propDict["valueAxis"]);
@@ -111,19 +108,17 @@ class WorkbookChartAxes extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the valueAxis
-    * Represents the value axis in an axis. Read-only.
-    *
-    * @param WorkbookChartAxis $val The valueAxis
-    *
-    * @return WorkbookChartAxes
-    */
+     * Sets the valueAxis
+     * Represents the value axis in an axis. Read-only.
+     *
+     * @param WorkbookChartAxis $val The valueAxis
+     *
+     * @return WorkbookChartAxes
+     */
     public function setValueAxis($val)
     {
         $this->_propDict["valueAxis"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AddWatermarkAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AddWatermarkAction extends InformationProtectionAction
 {
     /**
-    * Gets the fontColor
-    * Color of the font to use for the watermark.
-    *
-    * @return string|null The fontColor
-    */
+     * Gets the fontColor
+     * Color of the font to use for the watermark.
+     *
+     * @return string|null The fontColor
+     */
     public function getFontColor()
     {
         if (array_key_exists("fontColor", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AddWatermarkAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the fontColor
-    * Color of the font to use for the watermark.
-    *
-    * @param string $val The value of the fontColor
-    *
-    * @return AddWatermarkAction
-    */
+     * Sets the fontColor
+     * Color of the font to use for the watermark.
+     *
+     * @param string $val The value of the fontColor
+     *
+     * @return AddWatermarkAction
+     */
     public function setFontColor($val)
     {
         $this->_propDict["fontColor"] = $val;
         return $this;
     }
     /**
-    * Gets the fontName
-    * Name of the font to use for the watermark.
-    *
-    * @return string|null The fontName
-    */
+     * Gets the fontName
+     * Name of the font to use for the watermark.
+     *
+     * @return string|null The fontName
+     */
     public function getFontName()
     {
         if (array_key_exists("fontName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AddWatermarkAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the fontName
-    * Name of the font to use for the watermark.
-    *
-    * @param string $val The value of the fontName
-    *
-    * @return AddWatermarkAction
-    */
+     * Sets the fontName
+     * Name of the font to use for the watermark.
+     *
+     * @param string $val The value of the fontName
+     *
+     * @return AddWatermarkAction
+     */
     public function setFontName($val)
     {
         $this->_propDict["fontName"] = $val;
         return $this;
     }
     /**
-    * Gets the fontSize
-    * Font size to use for the watermark.
-    *
-    * @return int|null The fontSize
-    */
+     * Gets the fontSize
+     * Font size to use for the watermark.
+     *
+     * @return int|null The fontSize
+     */
     public function getFontSize()
     {
         if (array_key_exists("fontSize", $this->_propDict)) {
@@ -96,31 +96,29 @@ class AddWatermarkAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the fontSize
-    * Font size to use for the watermark.
-    *
-    * @param int $val The value of the fontSize
-    *
-    * @return AddWatermarkAction
-    */
+     * Sets the fontSize
+     * Font size to use for the watermark.
+     *
+     * @param int $val The value of the fontSize
+     *
+     * @return AddWatermarkAction
+     */
     public function setFontSize($val)
     {
         $this->_propDict["fontSize"] = $val;
         return $this;
     }
-
     /**
-    * Gets the layout
-    * Possible values are: horizontal, diagonal.
-    *
-    * @return WatermarkLayout|null The layout
-    */
+     * Gets the layout
+     * Possible values are: horizontal, diagonal.
+     *
+     * @return WatermarkLayout|null The layout
+     */
     public function getLayout()
     {
         if (array_key_exists("layout", $this->_propDict)) {
-            if (is_a($this->_propDict["layout"], "\Beta\Microsoft\Graph\Model\WatermarkLayout") || is_null($this->_propDict["layout"])) {
+            if (is_a($this->_propDict["layout"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WatermarkLayout") || is_null($this->_propDict["layout"])) {
                 return $this->_propDict["layout"];
             } else {
                 $this->_propDict["layout"] = new WatermarkLayout($this->_propDict["layout"]);
@@ -129,26 +127,25 @@ class AddWatermarkAction extends InformationProtectionAction
         }
         return null;
     }
-
     /**
-    * Sets the layout
-    * Possible values are: horizontal, diagonal.
-    *
-    * @param WatermarkLayout $val The value to assign to the layout
-    *
-    * @return AddWatermarkAction The AddWatermarkAction
-    */
+     * Sets the layout
+     * Possible values are: horizontal, diagonal.
+     *
+     * @param WatermarkLayout $val The value to assign to the layout
+     *
+     * @return AddWatermarkAction The AddWatermarkAction
+     */
     public function setLayout($val)
     {
         $this->_propDict["layout"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the text
-    * The contents of the watermark itself.
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     * The contents of the watermark itself.
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -157,26 +154,25 @@ class AddWatermarkAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the text
-    * The contents of the watermark itself.
-    *
-    * @param string $val The value of the text
-    *
-    * @return AddWatermarkAction
-    */
+     * Sets the text
+     * The contents of the watermark itself.
+     *
+     * @param string $val The value of the text
+     *
+     * @return AddWatermarkAction
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;
         return $this;
     }
     /**
-    * Gets the uiElementName
-    * The name of the UI element where the watermark should be placed.
-    *
-    * @return string|null The uiElementName
-    */
+     * Gets the uiElementName
+     * The name of the UI element where the watermark should be placed.
+     *
+     * @return string|null The uiElementName
+     */
     public function getUiElementName()
     {
         if (array_key_exists("uiElementName", $this->_propDict)) {
@@ -185,15 +181,14 @@ class AddWatermarkAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the uiElementName
-    * The name of the UI element where the watermark should be placed.
-    *
-    * @param string $val The value of the uiElementName
-    *
-    * @return AddWatermarkAction
-    */
+     * Sets the uiElementName
+     * The name of the UI element where the watermark should be placed.
+     *
+     * @param string $val The value of the uiElementName
+     *
+     * @return AddWatermarkAction
+     */
     public function setUiElementName($val)
     {
         $this->_propDict["uiElementName"] = $val;

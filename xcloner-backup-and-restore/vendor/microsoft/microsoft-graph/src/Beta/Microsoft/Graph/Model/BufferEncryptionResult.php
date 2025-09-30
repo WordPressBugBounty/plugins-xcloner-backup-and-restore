@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BufferEncryptionResult class
 *
@@ -26,66 +28,62 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class BufferEncryptionResult extends Entity
 {
-
     /**
-    * Gets the encryptedBuffer
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The encryptedBuffer
-    */
+     * Gets the encryptedBuffer
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The encryptedBuffer
+     */
     public function getEncryptedBuffer()
     {
         if (array_key_exists("encryptedBuffer", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptedBuffer"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["encryptedBuffer"])) {
+            if (is_a($this->_propDict["encryptedBuffer"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["encryptedBuffer"])) {
                 return $this->_propDict["encryptedBuffer"];
             } else {
-                $this->_propDict["encryptedBuffer"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["encryptedBuffer"]);
+                $this->_propDict["encryptedBuffer"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["encryptedBuffer"]);
                 return $this->_propDict["encryptedBuffer"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the encryptedBuffer
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the encryptedBuffer
-    *
-    * @return BufferEncryptionResult The BufferEncryptionResult
-    */
+     * Sets the encryptedBuffer
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the encryptedBuffer
+     *
+     * @return BufferEncryptionResult The BufferEncryptionResult
+     */
     public function setEncryptedBuffer($val)
     {
         $this->_propDict["encryptedBuffer"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the publishingLicense
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The publishingLicense
-    */
+     * Gets the publishingLicense
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The publishingLicense
+     */
     public function getPublishingLicense()
     {
         if (array_key_exists("publishingLicense", $this->_propDict)) {
-            if (is_a($this->_propDict["publishingLicense"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["publishingLicense"])) {
+            if (is_a($this->_propDict["publishingLicense"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["publishingLicense"])) {
                 return $this->_propDict["publishingLicense"];
             } else {
-                $this->_propDict["publishingLicense"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["publishingLicense"]);
+                $this->_propDict["publishingLicense"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["publishingLicense"]);
                 return $this->_propDict["publishingLicense"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the publishingLicense
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the publishingLicense
-    *
-    * @return BufferEncryptionResult The BufferEncryptionResult
-    */
+     * Sets the publishingLicense
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the publishingLicense
+     *
+     * @return BufferEncryptionResult The BufferEncryptionResult
+     */
     public function setPublishingLicense($val)
     {
         $this->_propDict["publishingLicense"] = $val;
-         return $this;
+        return $this;
     }
 }

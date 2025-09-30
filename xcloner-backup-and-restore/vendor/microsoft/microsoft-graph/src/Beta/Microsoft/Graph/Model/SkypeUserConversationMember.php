@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SkypeUserConversationMember class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SkypeUserConversationMember extends ConversationMember
 {
     /**
-    * Gets the skypeId
-    * Skype ID of the user.
-    *
-    * @return string|null The skypeId
-    */
+     * Gets the skypeId
+     * Skype ID of the user.
+     *
+     * @return string|null The skypeId
+     */
     public function getSkypeId()
     {
         if (array_key_exists("skypeId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class SkypeUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the skypeId
-    * Skype ID of the user.
-    *
-    * @param string $val The skypeId
-    *
-    * @return SkypeUserConversationMember
-    */
+     * Sets the skypeId
+     * Skype ID of the user.
+     *
+     * @param string $val The skypeId
+     *
+     * @return SkypeUserConversationMember
+     */
     public function setSkypeId($val)
     {
         $this->_propDict["skypeId"] = $val;
         return $this;
     }
-
 }

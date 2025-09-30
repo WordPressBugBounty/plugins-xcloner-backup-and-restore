@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationFlowsPolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AuthenticationFlowsPolicy extends Entity
 {
     /**
-    * Gets the description
-    * Inherited property. A description of the policy. Optional. Read-only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Inherited property. A description of the policy. Optional. Read-only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AuthenticationFlowsPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Inherited property. A description of the policy. Optional. Read-only.
-    *
-    * @param string $val The description
-    *
-    * @return AuthenticationFlowsPolicy
-    */
+     * Sets the description
+     * Inherited property. A description of the policy. Optional. Read-only.
+     *
+     * @param string $val The description
+     *
+     * @return AuthenticationFlowsPolicy
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Inherited property. The human-readable name of the policy. Optional. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Inherited property. The human-readable name of the policy. Optional. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,31 +69,29 @@ class AuthenticationFlowsPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Inherited property. The human-readable name of the policy. Optional. Read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return AuthenticationFlowsPolicy
-    */
+     * Sets the displayName
+     * Inherited property. The human-readable name of the policy. Optional. Read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return AuthenticationFlowsPolicy
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the selfServiceSignUp
-    * Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
-    *
-    * @return SelfServiceSignUpAuthenticationFlowConfiguration|null The selfServiceSignUp
-    */
+     * Gets the selfServiceSignUp
+     * Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
+     *
+     * @return SelfServiceSignUpAuthenticationFlowConfiguration|null The selfServiceSignUp
+     */
     public function getSelfServiceSignUp()
     {
         if (array_key_exists("selfServiceSignUp", $this->_propDict)) {
-            if (is_a($this->_propDict["selfServiceSignUp"], "\Microsoft\Graph\Model\SelfServiceSignUpAuthenticationFlowConfiguration") || is_null($this->_propDict["selfServiceSignUp"])) {
+            if (is_a($this->_propDict["selfServiceSignUp"], "XCloner\\Microsoft\\Graph\\Model\\SelfServiceSignUpAuthenticationFlowConfiguration") || is_null($this->_propDict["selfServiceSignUp"])) {
                 return $this->_propDict["selfServiceSignUp"];
             } else {
                 $this->_propDict["selfServiceSignUp"] = new SelfServiceSignUpAuthenticationFlowConfiguration($this->_propDict["selfServiceSignUp"]);
@@ -103,19 +100,17 @@ class AuthenticationFlowsPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the selfServiceSignUp
-    * Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
-    *
-    * @param SelfServiceSignUpAuthenticationFlowConfiguration $val The selfServiceSignUp
-    *
-    * @return AuthenticationFlowsPolicy
-    */
+     * Sets the selfServiceSignUp
+     * Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
+     *
+     * @param SelfServiceSignUpAuthenticationFlowConfiguration $val The selfServiceSignUp
+     *
+     * @return AuthenticationFlowsPolicy
+     */
     public function setSelfServiceSignUp($val)
     {
         $this->_propDict["selfServiceSignUp"] = $val;
         return $this;
     }
-
 }

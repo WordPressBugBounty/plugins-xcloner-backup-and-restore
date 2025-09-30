@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * PHPUnit Assertions.
  *
@@ -51,28 +51,15 @@ trait PHPUnitAssertions
             if ($input instanceof Component\VCalendar && 'GREGORIAN' === (string) $input->CALSCALE) {
                 unset($input->CALSCALE);
             }
-
             return $input;
         };
-
         $expected = $getObj($expected)->serialize();
         $actual = $getObj($actual)->serialize();
-
         // Finding wildcards in expected.
-        preg_match_all('|^([A-Z]+):\\*\\*ANY\\*\\*\r$|m', $expected, $matches, PREG_SET_ORDER);
-
+        preg_match_all('|^([A-Z]+):\*\*ANY\*\*\r$|m', $expected, $matches, \PREG_SET_ORDER);
         foreach ($matches as $match) {
-            $actual = preg_replace(
-                '|^'.preg_quote($match[1], '|').':(.*)\r$|m',
-                $match[1].':**ANY**'."\r",
-                $actual
-            );
+            $actual = preg_replace('|^' . preg_quote($match[1], '|') . ':(.*)\r$|m', $match[1] . ':**ANY**' . "\r", $actual);
         }
-
-        $this->assertEquals(
-            $expected,
-            $actual,
-            $message
-        );
+        $this->assertEquals($expected, $actual, $message);
     }
 }

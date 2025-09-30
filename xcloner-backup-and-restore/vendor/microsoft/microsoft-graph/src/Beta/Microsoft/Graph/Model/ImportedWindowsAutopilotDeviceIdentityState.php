@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ImportedWindowsAutopilotDeviceIdentityState class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ImportedWindowsAutopilotDeviceIdentityState extends Entity
 {
     /**
-    * Gets the deviceErrorCode
-    * Device error code reported by Device Directory Service(DDS).
-    *
-    * @return int|null The deviceErrorCode
-    */
+     * Gets the deviceErrorCode
+     * Device error code reported by Device Directory Service(DDS).
+     *
+     * @return int|null The deviceErrorCode
+     */
     public function getDeviceErrorCode()
     {
         if (array_key_exists("deviceErrorCode", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ImportedWindowsAutopilotDeviceIdentityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceErrorCode
-    * Device error code reported by Device Directory Service(DDS).
-    *
-    * @param int $val The value of the deviceErrorCode
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityState
-    */
+     * Sets the deviceErrorCode
+     * Device error code reported by Device Directory Service(DDS).
+     *
+     * @param int $val The value of the deviceErrorCode
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityState
+     */
     public function setDeviceErrorCode($val)
     {
         $this->_propDict["deviceErrorCode"] = $val;
         return $this;
     }
     /**
-    * Gets the deviceErrorName
-    * Device error name reported by Device Directory Service(DDS).
-    *
-    * @return string|null The deviceErrorName
-    */
+     * Gets the deviceErrorName
+     * Device error name reported by Device Directory Service(DDS).
+     *
+     * @return string|null The deviceErrorName
+     */
     public function getDeviceErrorName()
     {
         if (array_key_exists("deviceErrorName", $this->_propDict)) {
@@ -68,31 +69,29 @@ class ImportedWindowsAutopilotDeviceIdentityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceErrorName
-    * Device error name reported by Device Directory Service(DDS).
-    *
-    * @param string $val The value of the deviceErrorName
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityState
-    */
+     * Sets the deviceErrorName
+     * Device error name reported by Device Directory Service(DDS).
+     *
+     * @param string $val The value of the deviceErrorName
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityState
+     */
     public function setDeviceErrorName($val)
     {
         $this->_propDict["deviceErrorName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceImportStatus
-    * Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityImportStatus|null The deviceImportStatus
-    */
+     * Gets the deviceImportStatus
+     * Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityImportStatus|null The deviceImportStatus
+     */
     public function getDeviceImportStatus()
     {
         if (array_key_exists("deviceImportStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceImportStatus"], "\Beta\Microsoft\Graph\Model\ImportedWindowsAutopilotDeviceIdentityImportStatus") || is_null($this->_propDict["deviceImportStatus"])) {
+            if (is_a($this->_propDict["deviceImportStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ImportedWindowsAutopilotDeviceIdentityImportStatus") || is_null($this->_propDict["deviceImportStatus"])) {
                 return $this->_propDict["deviceImportStatus"];
             } else {
                 $this->_propDict["deviceImportStatus"] = new ImportedWindowsAutopilotDeviceIdentityImportStatus($this->_propDict["deviceImportStatus"]);
@@ -101,26 +100,25 @@ class ImportedWindowsAutopilotDeviceIdentityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceImportStatus
-    * Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
-    *
-    * @param ImportedWindowsAutopilotDeviceIdentityImportStatus $val The value to assign to the deviceImportStatus
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityState The ImportedWindowsAutopilotDeviceIdentityState
-    */
+     * Sets the deviceImportStatus
+     * Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.
+     *
+     * @param ImportedWindowsAutopilotDeviceIdentityImportStatus $val The value to assign to the deviceImportStatus
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityState The ImportedWindowsAutopilotDeviceIdentityState
+     */
     public function setDeviceImportStatus($val)
     {
         $this->_propDict["deviceImportStatus"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the deviceRegistrationId
-    * Device Registration ID for successfully added device reported by Device Directory Service(DDS).
-    *
-    * @return string|null The deviceRegistrationId
-    */
+     * Gets the deviceRegistrationId
+     * Device Registration ID for successfully added device reported by Device Directory Service(DDS).
+     *
+     * @return string|null The deviceRegistrationId
+     */
     public function getDeviceRegistrationId()
     {
         if (array_key_exists("deviceRegistrationId", $this->_propDict)) {
@@ -129,15 +127,14 @@ class ImportedWindowsAutopilotDeviceIdentityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceRegistrationId
-    * Device Registration ID for successfully added device reported by Device Directory Service(DDS).
-    *
-    * @param string $val The value of the deviceRegistrationId
-    *
-    * @return ImportedWindowsAutopilotDeviceIdentityState
-    */
+     * Sets the deviceRegistrationId
+     * Device Registration ID for successfully added device reported by Device Directory Service(DDS).
+     *
+     * @param string $val The value of the deviceRegistrationId
+     *
+     * @return ImportedWindowsAutopilotDeviceIdentityState
+     */
     public function setDeviceRegistrationId($val)
     {
         $this->_propDict["deviceRegistrationId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidManagedStoreApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidManagedStoreApp extends MobileApp
 {
     /**
-    * Gets the appIdentifier
-    * The Identity Name.
-    *
-    * @return string|null The appIdentifier
-    */
+     * Gets the appIdentifier
+     * The Identity Name.
+     *
+     * @return string|null The appIdentifier
+     */
     public function getAppIdentifier()
     {
         if (array_key_exists("appIdentifier", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appIdentifier
-    * The Identity Name.
-    *
-    * @param string $val The appIdentifier
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the appIdentifier
+     * The Identity Name.
+     *
+     * @param string $val The appIdentifier
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setAppIdentifier($val)
     {
         $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appStoreUrl
-    * The Play for Work Store app URL.
-    *
-    * @return string|null The appStoreUrl
-    */
+     * Gets the appStoreUrl
+     * The Play for Work Store app URL.
+     *
+     * @return string|null The appStoreUrl
+     */
     public function getAppStoreUrl()
     {
         if (array_key_exists("appStoreUrl", $this->_propDict)) {
@@ -70,57 +69,52 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appStoreUrl
-    * The Play for Work Store app URL.
-    *
-    * @param string $val The appStoreUrl
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the appStoreUrl
+     * The Play for Work Store app URL.
+     *
+     * @param string $val The appStoreUrl
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setAppStoreUrl($val)
     {
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the appTracks
-    * The tracks that are visible to this enterprise.
+     * The tracks that are visible to this enterprise.
      *
      * @return array|null The appTracks
      */
     public function getAppTracks()
     {
         if (array_key_exists("appTracks", $this->_propDict)) {
-           return $this->_propDict["appTracks"];
+            return $this->_propDict["appTracks"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the appTracks
-    * The tracks that are visible to this enterprise.
-    *
-    * @param AndroidManagedStoreAppTrack[] $val The appTracks
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the appTracks
+     * The tracks that are visible to this enterprise.
+     *
+     * @param AndroidManagedStoreAppTrack[] $val The appTracks
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setAppTracks($val)
     {
         $this->_propDict["appTracks"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isPrivate
-    * Indicates whether the app is only available to a given enterprise's users.
-    *
-    * @return bool|null The isPrivate
-    */
+     * Gets the isPrivate
+     * Indicates whether the app is only available to a given enterprise's users.
+     *
+     * @return bool|null The isPrivate
+     */
     public function getIsPrivate()
     {
         if (array_key_exists("isPrivate", $this->_propDict)) {
@@ -129,27 +123,25 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the isPrivate
-    * Indicates whether the app is only available to a given enterprise's users.
-    *
-    * @param bool $val The isPrivate
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the isPrivate
+     * Indicates whether the app is only available to a given enterprise's users.
+     *
+     * @param bool $val The isPrivate
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setIsPrivate($val)
     {
         $this->_propDict["isPrivate"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isSystemApp
-    * Indicates whether the app is a preinstalled system app.
-    *
-    * @return bool|null The isSystemApp
-    */
+     * Gets the isSystemApp
+     * Indicates whether the app is a preinstalled system app.
+     *
+     * @return bool|null The isSystemApp
+     */
     public function getIsSystemApp()
     {
         if (array_key_exists("isSystemApp", $this->_propDict)) {
@@ -158,27 +150,25 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the isSystemApp
-    * Indicates whether the app is a preinstalled system app.
-    *
-    * @param bool $val The isSystemApp
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the isSystemApp
+     * Indicates whether the app is a preinstalled system app.
+     *
+     * @param bool $val The isSystemApp
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setIsSystemApp($val)
     {
         $this->_propDict["isSystemApp"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the packageId
-    * The package identifier.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * The package identifier.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -187,27 +177,25 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * The package identifier.
-    *
-    * @param string $val The packageId
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the packageId
+     * The package identifier.
+     *
+     * @param string $val The packageId
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the supportsOemConfig
-    * Whether this app supports OEMConfig policy.
-    *
-    * @return bool|null The supportsOemConfig
-    */
+     * Gets the supportsOemConfig
+     * Whether this app supports OEMConfig policy.
+     *
+     * @return bool|null The supportsOemConfig
+     */
     public function getSupportsOemConfig()
     {
         if (array_key_exists("supportsOemConfig", $this->_propDict)) {
@@ -216,27 +204,25 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the supportsOemConfig
-    * Whether this app supports OEMConfig policy.
-    *
-    * @param bool $val The supportsOemConfig
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the supportsOemConfig
+     * Whether this app supports OEMConfig policy.
+     *
+     * @param bool $val The supportsOemConfig
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setSupportsOemConfig($val)
     {
         $this->_propDict["supportsOemConfig"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the totalLicenseCount
-    * The total number of VPP licenses.
-    *
-    * @return int|null The totalLicenseCount
-    */
+     * Gets the totalLicenseCount
+     * The total number of VPP licenses.
+     *
+     * @return int|null The totalLicenseCount
+     */
     public function getTotalLicenseCount()
     {
         if (array_key_exists("totalLicenseCount", $this->_propDict)) {
@@ -245,27 +231,25 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the totalLicenseCount
-    * The total number of VPP licenses.
-    *
-    * @param int $val The totalLicenseCount
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the totalLicenseCount
+     * The total number of VPP licenses.
+     *
+     * @param int $val The totalLicenseCount
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setTotalLicenseCount($val)
     {
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @return int|null The usedLicenseCount
-    */
+     * Gets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @return int|null The usedLicenseCount
+     */
     public function getUsedLicenseCount()
     {
         if (array_key_exists("usedLicenseCount", $this->_propDict)) {
@@ -274,19 +258,17 @@ class AndroidManagedStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @param int $val The usedLicenseCount
-    *
-    * @return AndroidManagedStoreApp
-    */
+     * Sets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @param int $val The usedLicenseCount
+     *
+     * @return AndroidManagedStoreApp
+     */
     public function setUsedLicenseCount($val)
     {
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-
 }

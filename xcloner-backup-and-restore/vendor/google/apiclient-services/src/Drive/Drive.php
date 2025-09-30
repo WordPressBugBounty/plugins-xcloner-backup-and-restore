@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,226 +15,223 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class Drive extends \Google\Model
-{
-  protected $backgroundImageFileType = DriveBackgroundImageFile::class;
-  protected $backgroundImageFileDataType = '';
-  /**
-   * @var string
-   */
-  public $backgroundImageLink;
-  protected $capabilitiesType = DriveCapabilities::class;
-  protected $capabilitiesDataType = '';
-  /**
-   * @var string
-   */
-  public $colorRgb;
-  /**
-   * @var string
-   */
-  public $createdTime;
-  /**
-   * @var bool
-   */
-  public $hidden;
-  /**
-   * @var string
-   */
-  public $id;
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $name;
-  /**
-   * @var string
-   */
-  public $orgUnitId;
-  protected $restrictionsType = DriveRestrictions::class;
-  protected $restrictionsDataType = '';
-  /**
-   * @var string
-   */
-  public $themeId;
-
-  /**
-   * @param DriveBackgroundImageFile
-   */
-  public function setBackgroundImageFile(DriveBackgroundImageFile $backgroundImageFile)
-  {
-    $this->backgroundImageFile = $backgroundImageFile;
-  }
-  /**
-   * @return DriveBackgroundImageFile
-   */
-  public function getBackgroundImageFile()
-  {
-    return $this->backgroundImageFile;
-  }
-  /**
-   * @param string
-   */
-  public function setBackgroundImageLink($backgroundImageLink)
-  {
-    $this->backgroundImageLink = $backgroundImageLink;
-  }
-  /**
-   * @return string
-   */
-  public function getBackgroundImageLink()
-  {
-    return $this->backgroundImageLink;
-  }
-  /**
-   * @param DriveCapabilities
-   */
-  public function setCapabilities(DriveCapabilities $capabilities)
-  {
-    $this->capabilities = $capabilities;
-  }
-  /**
-   * @return DriveCapabilities
-   */
-  public function getCapabilities()
-  {
-    return $this->capabilities;
-  }
-  /**
-   * @param string
-   */
-  public function setColorRgb($colorRgb)
-  {
-    $this->colorRgb = $colorRgb;
-  }
-  /**
-   * @return string
-   */
-  public function getColorRgb()
-  {
-    return $this->colorRgb;
-  }
-  /**
-   * @param string
-   */
-  public function setCreatedTime($createdTime)
-  {
-    $this->createdTime = $createdTime;
-  }
-  /**
-   * @return string
-   */
-  public function getCreatedTime()
-  {
-    return $this->createdTime;
-  }
-  /**
-   * @param bool
-   */
-  public function setHidden($hidden)
-  {
-    $this->hidden = $hidden;
-  }
-  /**
-   * @return bool
-   */
-  public function getHidden()
-  {
-    return $this->hidden;
-  }
-  /**
-   * @param string
-   */
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  /**
-   * @return string
-   */
-  public function getId()
-  {
-    return $this->id;
-  }
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setName($name)
-  {
-    $this->name = $name;
-  }
-  /**
-   * @return string
-   */
-  public function getName()
-  {
-    return $this->name;
-  }
-  /**
-   * @param string
-   */
-  public function setOrgUnitId($orgUnitId)
-  {
-    $this->orgUnitId = $orgUnitId;
-  }
-  /**
-   * @return string
-   */
-  public function getOrgUnitId()
-  {
-    return $this->orgUnitId;
-  }
-  /**
-   * @param DriveRestrictions
-   */
-  public function setRestrictions(DriveRestrictions $restrictions)
-  {
-    $this->restrictions = $restrictions;
-  }
-  /**
-   * @return DriveRestrictions
-   */
-  public function getRestrictions()
-  {
-    return $this->restrictions;
-  }
-  /**
-   * @param string
-   */
-  public function setThemeId($themeId)
-  {
-    $this->themeId = $themeId;
-  }
-  /**
-   * @return string
-   */
-  public function getThemeId()
-  {
-    return $this->themeId;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class Drive extends \XCloner\Google\Model
+{
+    protected $backgroundImageFileType = DriveBackgroundImageFile::class;
+    protected $backgroundImageFileDataType = '';
+    /**
+     * @var string
+     */
+    public $backgroundImageLink;
+    protected $capabilitiesType = DriveCapabilities::class;
+    protected $capabilitiesDataType = '';
+    /**
+     * @var string
+     */
+    public $colorRgb;
+    /**
+     * @var string
+     */
+    public $createdTime;
+    /**
+     * @var bool
+     */
+    public $hidden;
+    /**
+     * @var string
+     */
+    public $id;
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $name;
+    /**
+     * @var string
+     */
+    public $orgUnitId;
+    protected $restrictionsType = DriveRestrictions::class;
+    protected $restrictionsDataType = '';
+    /**
+     * @var string
+     */
+    public $themeId;
+    /**
+     * @param DriveBackgroundImageFile
+     */
+    public function setBackgroundImageFile(DriveBackgroundImageFile $backgroundImageFile)
+    {
+        $this->backgroundImageFile = $backgroundImageFile;
+    }
+    /**
+     * @return DriveBackgroundImageFile
+     */
+    public function getBackgroundImageFile()
+    {
+        return $this->backgroundImageFile;
+    }
+    /**
+     * @param string
+     */
+    public function setBackgroundImageLink($backgroundImageLink)
+    {
+        $this->backgroundImageLink = $backgroundImageLink;
+    }
+    /**
+     * @return string
+     */
+    public function getBackgroundImageLink()
+    {
+        return $this->backgroundImageLink;
+    }
+    /**
+     * @param DriveCapabilities
+     */
+    public function setCapabilities(DriveCapabilities $capabilities)
+    {
+        $this->capabilities = $capabilities;
+    }
+    /**
+     * @return DriveCapabilities
+     */
+    public function getCapabilities()
+    {
+        return $this->capabilities;
+    }
+    /**
+     * @param string
+     */
+    public function setColorRgb($colorRgb)
+    {
+        $this->colorRgb = $colorRgb;
+    }
+    /**
+     * @return string
+     */
+    public function getColorRgb()
+    {
+        return $this->colorRgb;
+    }
+    /**
+     * @param string
+     */
+    public function setCreatedTime($createdTime)
+    {
+        $this->createdTime = $createdTime;
+    }
+    /**
+     * @return string
+     */
+    public function getCreatedTime()
+    {
+        return $this->createdTime;
+    }
+    /**
+     * @param bool
+     */
+    public function setHidden($hidden)
+    {
+        $this->hidden = $hidden;
+    }
+    /**
+     * @return bool
+     */
+    public function getHidden()
+    {
+        return $this->hidden;
+    }
+    /**
+     * @param string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+    /**
+     * @param string
+     */
+    public function setOrgUnitId($orgUnitId)
+    {
+        $this->orgUnitId = $orgUnitId;
+    }
+    /**
+     * @return string
+     */
+    public function getOrgUnitId()
+    {
+        return $this->orgUnitId;
+    }
+    /**
+     * @param DriveRestrictions
+     */
+    public function setRestrictions(DriveRestrictions $restrictions)
+    {
+        $this->restrictions = $restrictions;
+    }
+    /**
+     * @return DriveRestrictions
+     */
+    public function getRestrictions()
+    {
+        return $this->restrictions;
+    }
+    /**
+     * @param string
+     */
+    public function setThemeId($themeId)
+    {
+        $this->themeId = $themeId;
+    }
+    /**
+     * @return string
+     */
+    public function getThemeId()
+    {
+        return $this->themeId;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(Drive::class, 'Google_Service_Drive_Drive');
+class_alias(Drive::class, 'XCloner\Google_Service_Drive_Drive');

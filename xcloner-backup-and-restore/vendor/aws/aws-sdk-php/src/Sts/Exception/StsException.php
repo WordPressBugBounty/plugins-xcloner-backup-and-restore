@@ -1,12 +1,14 @@
 <?php
-namespace Aws\Sts\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Sts\Exception;
 
-
-use Aws\Exception\AwsException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Exception\AwsException;
 /**
  * AWS Security Token Service exception.
  */
-class StsException extends AwsException {}
+class StsException extends AwsException
+{
+}

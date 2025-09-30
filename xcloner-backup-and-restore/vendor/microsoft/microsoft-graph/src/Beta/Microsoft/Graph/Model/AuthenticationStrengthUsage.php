@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationStrengthUsage class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AuthenticationStrengthUsage extends Entity
 {
-
     /**
-    * Gets the mfa
-    *
-    * @return ConditionalAccessPolicy|null The mfa
-    */
+     * Gets the mfa
+     *
+     * @return ConditionalAccessPolicy|null The mfa
+     */
     public function getMfa()
     {
         if (array_key_exists("mfa", $this->_propDict)) {
-            if (is_a($this->_propDict["mfa"], "\Beta\Microsoft\Graph\Model\ConditionalAccessPolicy") || is_null($this->_propDict["mfa"])) {
+            if (is_a($this->_propDict["mfa"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessPolicy") || is_null($this->_propDict["mfa"])) {
                 return $this->_propDict["mfa"];
             } else {
                 $this->_propDict["mfa"] = new ConditionalAccessPolicy($this->_propDict["mfa"]);
@@ -44,29 +45,27 @@ class AuthenticationStrengthUsage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mfa
-    *
-    * @param ConditionalAccessPolicy $val The value to assign to the mfa
-    *
-    * @return AuthenticationStrengthUsage The AuthenticationStrengthUsage
-    */
+     * Sets the mfa
+     *
+     * @param ConditionalAccessPolicy $val The value to assign to the mfa
+     *
+     * @return AuthenticationStrengthUsage The AuthenticationStrengthUsage
+     */
     public function setMfa($val)
     {
         $this->_propDict["mfa"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the none
-    *
-    * @return ConditionalAccessPolicy|null The none
-    */
+     * Gets the none
+     *
+     * @return ConditionalAccessPolicy|null The none
+     */
     public function getNone()
     {
         if (array_key_exists("none", $this->_propDict)) {
-            if (is_a($this->_propDict["none"], "\Beta\Microsoft\Graph\Model\ConditionalAccessPolicy") || is_null($this->_propDict["none"])) {
+            if (is_a($this->_propDict["none"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessPolicy") || is_null($this->_propDict["none"])) {
                 return $this->_propDict["none"];
             } else {
                 $this->_propDict["none"] = new ConditionalAccessPolicy($this->_propDict["none"]);
@@ -75,17 +74,16 @@ class AuthenticationStrengthUsage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the none
-    *
-    * @param ConditionalAccessPolicy $val The value to assign to the none
-    *
-    * @return AuthenticationStrengthUsage The AuthenticationStrengthUsage
-    */
+     * Sets the none
+     *
+     * @param ConditionalAccessPolicy $val The value to assign to the none
+     *
+     * @return AuthenticationStrengthUsage The AuthenticationStrengthUsage
+     */
     public function setNone($val)
     {
         $this->_propDict["none"] = $val;
-         return $this;
+        return $this;
     }
 }

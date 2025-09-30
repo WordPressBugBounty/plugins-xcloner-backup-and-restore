@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV\Xml\Request;
 
-namespace Sabre\CardDAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CardDAV\Plugin;
-use Sabre\Uri;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CardDAV\Plugin;
+use XCloner\Sabre\Uri;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * AddressBookMultiGetReport request parser.
  *
@@ -32,14 +30,12 @@ class AddressBookMultiGetReport implements XmlDeserializable
      * @var array
      */
     public $properties;
-
     /**
      * This is an array with the urls that are being requested.
      *
      * @var array
      */
     public $hrefs;
-
     /**
      * The mimetype of the content that should be returend. Usually
      * text/vcard.
@@ -47,7 +43,6 @@ class AddressBookMultiGetReport implements XmlDeserializable
      * @var string
      */
     public $contentType = null;
-
     /**
      * The version of vcard data that should be returned. Usually 3.0,
      * referring to vCard 3.0.
@@ -55,7 +50,6 @@ class AddressBookMultiGetReport implements XmlDeserializable
      * @var string
      */
     public $version = null;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -78,22 +72,14 @@ class AddressBookMultiGetReport implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $elems = $reader->parseInnerTree([
-            '{urn:ietf:params:xml:ns:carddav}address-data' => 'Sabre\\CardDAV\\Xml\\Filter\\AddressData',
-            '{DAV:}prop' => 'Sabre\\Xml\\Element\\KeyValue',
-        ]);
-
-        $newProps = [
-            'hrefs' => [],
-            'properties' => [],
-        ];
-
+        $elems = $reader->parseInnerTree(['{urn:ietf:params:xml:ns:carddav}address-data' => 'XCloner\Sabre\CardDAV\Xml\Filter\AddressData', '{DAV:}prop' => 'XCloner\Sabre\Xml\Element\KeyValue']);
+        $newProps = ['hrefs' => [], 'properties' => []];
         foreach ($elems as $elem) {
             switch ($elem['name']) {
                 case '{DAV:}prop':
                     $newProps['properties'] = array_keys($elem['value']);
-                    if (isset($elem['value']['{'.Plugin::NS_CARDDAV.'}address-data'])) {
-                        $newProps += $elem['value']['{'.Plugin::NS_CARDDAV.'}address-data'];
+                    if (isset($elem['value']['{' . Plugin::NS_CARDDAV . '}address-data'])) {
+                        $newProps += $elem['value']['{' . Plugin::NS_CARDDAV . '}address-data'];
                     }
                     break;
                 case '{DAV:}href':
@@ -101,12 +87,10 @@ class AddressBookMultiGetReport implements XmlDeserializable
                     break;
             }
         }
-
         $obj = new self();
         foreach ($newProps as $key => $value) {
-            $obj->$key = $value;
+            $obj->{$key} = $value;
         }
-
         return $obj;
     }
 }

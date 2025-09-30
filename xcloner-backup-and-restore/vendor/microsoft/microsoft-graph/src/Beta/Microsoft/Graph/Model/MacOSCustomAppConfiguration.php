@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSCustomAppConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSCustomAppConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the bundleId
-    * Bundle id for targeting.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * Bundle id for targeting.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -41,60 +42,56 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * Bundle id for targeting.
-    *
-    * @param string $val The bundleId
-    *
-    * @return MacOSCustomAppConfiguration
-    */
+     * Sets the bundleId
+     * Bundle id for targeting.
+     *
+     * @param string $val The bundleId
+     *
+     * @return MacOSCustomAppConfiguration
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the configurationXml
-    * Configuration xml. (UTF8 encoded byte array)
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The configurationXml
-    */
+     * Gets the configurationXml
+     * Configuration xml. (UTF8 encoded byte array)
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The configurationXml
+     */
     public function getConfigurationXml()
     {
         if (array_key_exists("configurationXml", $this->_propDict)) {
-            if (is_a($this->_propDict["configurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["configurationXml"])) {
+            if (is_a($this->_propDict["configurationXml"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["configurationXml"])) {
                 return $this->_propDict["configurationXml"];
             } else {
-                $this->_propDict["configurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["configurationXml"]);
+                $this->_propDict["configurationXml"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["configurationXml"]);
                 return $this->_propDict["configurationXml"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the configurationXml
-    * Configuration xml. (UTF8 encoded byte array)
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The configurationXml
-    *
-    * @return MacOSCustomAppConfiguration
-    */
+     * Sets the configurationXml
+     * Configuration xml. (UTF8 encoded byte array)
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The configurationXml
+     *
+     * @return MacOSCustomAppConfiguration
+     */
     public function setConfigurationXml($val)
     {
         $this->_propDict["configurationXml"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fileName
-    * Configuration file name (.plist
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * Configuration file name (.plist
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -103,19 +100,17 @@ class MacOSCustomAppConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * Configuration file name (.plist
-    *
-    * @param string $val The fileName
-    *
-    * @return MacOSCustomAppConfiguration
-    */
+     * Sets the fileName
+     * Configuration file name (.plist
+     *
+     * @param string $val The fileName
+     *
+     * @return MacOSCustomAppConfiguration
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
-
 }

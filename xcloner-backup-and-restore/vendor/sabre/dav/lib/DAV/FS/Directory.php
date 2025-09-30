@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\FS;
 
-namespace Sabre\DAV\FS;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * Directory class.
  *
@@ -45,11 +43,10 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
      */
     public function createFile($name, $data = null)
     {
-        $newPath = $this->path.'/'.$name;
+        $newPath = $this->path . '/' . $name;
         file_put_contents($newPath, $data);
-        clearstatcache(true, $newPath);
+        clearstatcache(\true, $newPath);
     }
-
     /**
      * Creates a new subdirectory.
      *
@@ -57,11 +54,10 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
      */
     public function createDirectory($name)
     {
-        $newPath = $this->path.'/'.$name;
+        $newPath = $this->path . '/' . $name;
         mkdir($newPath);
-        clearstatcache(true, $newPath);
+        clearstatcache(\true, $newPath);
     }
-
     /**
      * Returns a specific child node, referenced by its name.
      *
@@ -76,10 +72,9 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
      */
     public function getChild($name)
     {
-        $path = $this->path.'/'.$name;
-
+        $path = $this->path . '/' . $name;
         if (!file_exists($path)) {
-            throw new DAV\Exception\NotFound('File with name '.$path.' could not be located');
+            throw new DAV\Exception\NotFound('File with name ' . $path . ' could not be located');
         }
         if (is_dir($path)) {
             return new self($path);
@@ -87,7 +82,6 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
             return new File($path);
         }
     }
-
     /**
      * Returns an array with all the child nodes.
      *
@@ -96,18 +90,12 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
     public function getChildren()
     {
         $nodes = [];
-        $iterator = new \FilesystemIterator(
-            $this->path,
-            \FilesystemIterator::CURRENT_AS_SELF
-          | \FilesystemIterator::SKIP_DOTS
-        );
+        $iterator = new \FilesystemIterator($this->path, \FilesystemIterator::CURRENT_AS_SELF | \FilesystemIterator::SKIP_DOTS);
         foreach ($iterator as $entry) {
             $nodes[] = $this->getChild($entry->getFilename());
         }
-
         return $nodes;
     }
-
     /**
      * Checks if a child exists.
      *
@@ -117,11 +105,9 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
      */
     public function childExists($name)
     {
-        $path = $this->path.'/'.$name;
-
+        $path = $this->path . '/' . $name;
         return file_exists($path);
     }
-
     /**
      * Deletes all files in this directory, and then itself.
      */
@@ -132,7 +118,6 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
         }
         rmdir($this->path);
     }
-
     /**
      * Returns available diskspace information.
      *
@@ -141,10 +126,6 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota
     public function getQuotaInfo()
     {
         $absolute = realpath($this->path);
-
-        return [
-            disk_total_space($absolute) - disk_free_space($absolute),
-            disk_free_space($absolute),
-        ];
+        return [disk_total_space($absolute) - disk_free_space($absolute), disk_free_space($absolute)];
     }
 }

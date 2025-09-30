@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupMembershipGovernanceCriteria class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupMembershipGovernanceCriteria extends GovernanceCriteria
 {
     /**
-    * Gets the groupId
-    *
-    * @return string|null The groupId
-    */
+     * Gets the groupId
+     *
+     * @return string|null The groupId
+     */
     public function getGroupId()
     {
         if (array_key_exists("groupId", $this->_propDict)) {
@@ -39,14 +41,13 @@ class GroupMembershipGovernanceCriteria extends GovernanceCriteria
             return null;
         }
     }
-
     /**
-    * Sets the groupId
-    *
-    * @param string $val The value of the groupId
-    *
-    * @return GroupMembershipGovernanceCriteria
-    */
+     * Sets the groupId
+     *
+     * @param string $val The value of the groupId
+     *
+     * @return GroupMembershipGovernanceCriteria
+     */
     public function setGroupId($val)
     {
         $this->_propDict["groupId"] = $val;

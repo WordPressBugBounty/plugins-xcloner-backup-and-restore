@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows81TrustedRootCertificate class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows81TrustedRootCertificate extends DeviceConfiguration
 {
     /**
-    * Gets the certFileName
-    * File name to display in UI.
-    *
-    * @return string|null The certFileName
-    */
+     * Gets the certFileName
+     * File name to display in UI.
+     *
+     * @return string|null The certFileName
+     */
     public function getCertFileName()
     {
         if (array_key_exists("certFileName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the certFileName
-    * File name to display in UI.
-    *
-    * @param string $val The certFileName
-    *
-    * @return Windows81TrustedRootCertificate
-    */
+     * Sets the certFileName
+     * File name to display in UI.
+     *
+     * @param string $val The certFileName
+     *
+     * @return Windows81TrustedRootCertificate
+     */
     public function setCertFileName($val)
     {
         $this->_propDict["certFileName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the destinationStore
-    * Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
-    *
-    * @return CertificateDestinationStore|null The destinationStore
-    */
+     * Gets the destinationStore
+     * Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
+     *
+     * @return CertificateDestinationStore|null The destinationStore
+     */
     public function getDestinationStore()
     {
         if (array_key_exists("destinationStore", $this->_propDict)) {
-            if (is_a($this->_propDict["destinationStore"], "\Beta\Microsoft\Graph\Model\CertificateDestinationStore") || is_null($this->_propDict["destinationStore"])) {
+            if (is_a($this->_propDict["destinationStore"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CertificateDestinationStore") || is_null($this->_propDict["destinationStore"])) {
                 return $this->_propDict["destinationStore"];
             } else {
                 $this->_propDict["destinationStore"] = new CertificateDestinationStore($this->_propDict["destinationStore"]);
@@ -74,52 +73,48 @@ class Windows81TrustedRootCertificate extends DeviceConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the destinationStore
-    * Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
-    *
-    * @param CertificateDestinationStore $val The destinationStore
-    *
-    * @return Windows81TrustedRootCertificate
-    */
+     * Sets the destinationStore
+     * Destination store location for the Trusted Root Certificate. Possible values are: computerCertStoreRoot, computerCertStoreIntermediate, userCertStoreIntermediate.
+     *
+     * @param CertificateDestinationStore $val The destinationStore
+     *
+     * @return Windows81TrustedRootCertificate
+     */
     public function setDestinationStore($val)
     {
         $this->_propDict["destinationStore"] = $val;
         return $this;
     }
-
     /**
-    * Gets the trustedRootCertificate
-    * Trusted Root Certificate
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The trustedRootCertificate
-    */
+     * Gets the trustedRootCertificate
+     * Trusted Root Certificate
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The trustedRootCertificate
+     */
     public function getTrustedRootCertificate()
     {
         if (array_key_exists("trustedRootCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["trustedRootCertificate"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["trustedRootCertificate"])) {
+            if (is_a($this->_propDict["trustedRootCertificate"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["trustedRootCertificate"])) {
                 return $this->_propDict["trustedRootCertificate"];
             } else {
-                $this->_propDict["trustedRootCertificate"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["trustedRootCertificate"]);
+                $this->_propDict["trustedRootCertificate"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["trustedRootCertificate"]);
                 return $this->_propDict["trustedRootCertificate"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the trustedRootCertificate
-    * Trusted Root Certificate
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The trustedRootCertificate
-    *
-    * @return Windows81TrustedRootCertificate
-    */
+     * Sets the trustedRootCertificate
+     * Trusted Root Certificate
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The trustedRootCertificate
+     *
+     * @return Windows81TrustedRootCertificate
+     */
     public function setTrustedRootCertificate($val)
     {
         $this->_propDict["trustedRootCertificate"] = $val;
         return $this;
     }
-
 }

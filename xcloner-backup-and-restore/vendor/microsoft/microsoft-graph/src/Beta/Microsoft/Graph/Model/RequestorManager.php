@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RequestorManager class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RequestorManager extends UserSet
 {
     /**
-    * Gets the managerLevel
-    * The hierarchical level of the manager with respect to the requestor. For example, the direct manager of a requestor would have a managerLevel of 1, while the manager of the requestor's manager would have a managerLevel of 2. Default value for managerLevel is 1. Possible values for this property range from 1 to 2.
-    *
-    * @return int|null The managerLevel
-    */
+     * Gets the managerLevel
+     * The hierarchical level of the manager with respect to the requestor. For example, the direct manager of a requestor would have a managerLevel of 1, while the manager of the requestor's manager would have a managerLevel of 2. Default value for managerLevel is 1. Possible values for this property range from 1 to 2.
+     *
+     * @return int|null The managerLevel
+     */
     public function getManagerLevel()
     {
         if (array_key_exists("managerLevel", $this->_propDict)) {
@@ -40,15 +42,14 @@ class RequestorManager extends UserSet
             return null;
         }
     }
-
     /**
-    * Sets the managerLevel
-    * The hierarchical level of the manager with respect to the requestor. For example, the direct manager of a requestor would have a managerLevel of 1, while the manager of the requestor's manager would have a managerLevel of 2. Default value for managerLevel is 1. Possible values for this property range from 1 to 2.
-    *
-    * @param int $val The value of the managerLevel
-    *
-    * @return RequestorManager
-    */
+     * Sets the managerLevel
+     * The hierarchical level of the manager with respect to the requestor. For example, the direct manager of a requestor would have a managerLevel of 1, while the manager of the requestor's manager would have a managerLevel of 2. Default value for managerLevel is 1. Possible values for this property range from 1 to 2.
+     *
+     * @param int $val The value of the managerLevel
+     *
+     * @return RequestorManager
+     */
     public function setManagerLevel($val)
     {
         $this->_propDict["managerLevel"] = $val;

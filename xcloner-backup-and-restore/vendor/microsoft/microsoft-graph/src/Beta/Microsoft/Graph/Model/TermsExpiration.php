@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TermsExpiration class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TermsExpiration extends Entity
 {
-
     /**
-    * Gets the frequency
-    * Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.
-    *
-    * @return \DateInterval|null The frequency
-    */
+     * Gets the frequency
+     * Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.
+     *
+     * @return \DateInterval|null The frequency
+     */
     public function getFrequency()
     {
         if (array_key_exists("frequency", $this->_propDict)) {
-            if (is_a($this->_propDict["frequency"], "\DateInterval") || is_null($this->_propDict["frequency"])) {
+            if (is_a($this->_propDict["frequency"], "\\DateInterval") || is_null($this->_propDict["frequency"])) {
                 return $this->_propDict["frequency"];
             } else {
                 $this->_propDict["frequency"] = new \DateInterval($this->_propDict["frequency"]);
@@ -45,31 +46,29 @@ class TermsExpiration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the frequency
-    * Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.
-    *
-    * @param \DateInterval $val The value to assign to the frequency
-    *
-    * @return TermsExpiration The TermsExpiration
-    */
+     * Sets the frequency
+     * Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.
+     *
+     * @param \DateInterval $val The value to assign to the frequency
+     *
+     * @return TermsExpiration The TermsExpiration
+     */
     public function setFrequency($val)
     {
         $this->_propDict["frequency"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * The DateTime when the agreement is set to expire for all users. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * The DateTime when the agreement is set to expire for all users. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -78,18 +77,17 @@ class TermsExpiration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * The DateTime when the agreement is set to expire for all users. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the startDateTime
-    *
-    * @return TermsExpiration The TermsExpiration
-    */
+     * Sets the startDateTime
+     * The DateTime when the agreement is set to expire for all users. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the startDateTime
+     *
+     * @return TermsExpiration The TermsExpiration
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

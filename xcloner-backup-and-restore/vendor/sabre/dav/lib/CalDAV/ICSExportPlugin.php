@@ -1,20 +1,18 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV;
 
-namespace Sabre\CalDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTime;
 use DateTimeZone;
-use Sabre\DAV;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-use Sabre\VObject;
-
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
+use XCloner\Sabre\VObject;
 /**
  * ICS Exporter.
  *
@@ -57,7 +55,6 @@ class ICSExportPlugin extends DAV\ServerPlugin
      * @var \Sabre\DAV\Server
      */
     protected $server;
-
     /**
      * Initializes the plugin and registers event handlers.
      *
@@ -69,11 +66,10 @@ class ICSExportPlugin extends DAV\ServerPlugin
         $server->on('method:GET', [$this, 'httpGet'], 90);
         $server->on('browserButtonActions', function ($path, $node, &$actions) {
             if ($node instanceof ICalendar) {
-                $actions .= '<a href="'.htmlspecialchars($path, ENT_QUOTES, 'UTF-8').'?export"><span class="oi" data-glyph="calendar"></span></a>';
+                $actions .= '<a href="' . htmlspecialchars($path, \ENT_QUOTES, 'UTF-8') . '?export"><span class="oi" data-glyph="calendar"></span></a>';
             }
         });
     }
-
     /**
      * Intercepts GET requests on calendar urls ending with ?export.
      *
@@ -89,29 +85,18 @@ class ICSExportPlugin extends DAV\ServerPlugin
         if (!array_key_exists('export', $queryParams)) {
             return;
         }
-
         $path = $request->getPath();
-
-        $node = $this->server->getProperties($path, [
-            '{DAV:}resourcetype',
-            '{DAV:}displayname',
-            '{http://sabredav.org/ns}sync-token',
-            '{DAV:}sync-token',
-            '{http://apple.com/ns/ical/}calendar-color',
-        ]);
-
-        if (!isset($node['{DAV:}resourcetype']) || !$node['{DAV:}resourcetype']->is('{'.Plugin::NS_CALDAV.'}calendar')) {
+        $node = $this->server->getProperties($path, ['{DAV:}resourcetype', '{DAV:}displayname', '{http://sabredav.org/ns}sync-token', '{DAV:}sync-token', '{http://apple.com/ns/ical/}calendar-color']);
+        if (!isset($node['{DAV:}resourcetype']) || !$node['{DAV:}resourcetype']->is('{' . Plugin::NS_CALDAV . '}calendar')) {
             return;
         }
         // Marking the transactionType, for logging purposes.
         $this->server->transactionType = 'get-calendar-export';
-
         $properties = $node;
-
         $start = null;
         $end = null;
-        $expand = false;
-        $componentType = false;
+        $expand = \false;
+        $componentType = \false;
         if (isset($queryParams['start'])) {
             if (!ctype_digit($queryParams['start'])) {
                 throw new BadRequest('The start= parameter must contain a unix timestamp');
@@ -128,24 +113,16 @@ class ICSExportPlugin extends DAV\ServerPlugin
             if (!$start || !$end) {
                 throw new BadRequest('If you\'d like to expand recurrences, you must specify both a start= and end= parameter.');
             }
-            $expand = true;
+            $expand = \true;
             $componentType = 'VEVENT';
         }
         if (isset($queryParams['componentType'])) {
             if (!in_array($queryParams['componentType'], ['VEVENT', 'VTODO', 'VJOURNAL'])) {
-                throw new BadRequest('You are not allowed to search for components of type: '.$queryParams['componentType'].' here');
+                throw new BadRequest('You are not allowed to search for components of type: ' . $queryParams['componentType'] . ' here');
             }
             $componentType = $queryParams['componentType'];
         }
-
-        $format = \Sabre\HTTP\negotiateContentType(
-            $request->getHeader('Accept'),
-            [
-                'text/calendar',
-                'application/calendar+json',
-            ]
-        );
-
+        $format = \XCloner\Sabre\HTTP\negotiateContentType($request->getHeader('Accept'), ['text/calendar', 'application/calendar+json']);
         if (isset($queryParams['accept'])) {
             if ('application/calendar+json' === $queryParams['accept'] || 'jcal' === $queryParams['accept']) {
                 $format = 'application/calendar+json';
@@ -154,13 +131,10 @@ class ICSExportPlugin extends DAV\ServerPlugin
         if (!$format) {
             $format = 'text/calendar';
         }
-
         $this->generateResponse($path, $start, $end, $expand, $componentType, $format, $properties, $response);
-
         // Returning false to break the event chain
-        return false;
+        return \false;
     }
-
     /**
      * This method is responsible for generating the actual, full response.
      *
@@ -177,46 +151,23 @@ class ICSExportPlugin extends DAV\ServerPlugin
      */
     protected function generateResponse($path, $start, $end, $expand, $componentType, $format, $properties, ResponseInterface $response)
     {
-        $calDataProp = '{'.Plugin::NS_CALDAV.'}calendar-data';
+        $calDataProp = '{' . Plugin::NS_CALDAV . '}calendar-data';
         $calendarNode = $this->server->tree->getNodeForPath($path);
-
         $blobs = [];
         if ($start || $end || $componentType) {
             // If there was a start or end filter, we need to enlist
             // calendarQuery for speed.
-            $queryResult = $calendarNode->calendarQuery([
-                'name' => 'VCALENDAR',
-                'comp-filters' => [
-                    [
-                        'name' => $componentType,
-                        'comp-filters' => [],
-                        'prop-filters' => [],
-                        'is-not-defined' => false,
-                        'time-range' => [
-                            'start' => $start,
-                            'end' => $end,
-                        ],
-                    ],
-                ],
-                'prop-filters' => [],
-                'is-not-defined' => false,
-                'time-range' => null,
-            ]);
-
+            $queryResult = $calendarNode->calendarQuery(['name' => 'VCALENDAR', 'comp-filters' => [['name' => $componentType, 'comp-filters' => [], 'prop-filters' => [], 'is-not-defined' => \false, 'time-range' => ['start' => $start, 'end' => $end]]], 'prop-filters' => [], 'is-not-defined' => \false, 'time-range' => null]);
             // queryResult is just a list of base urls. We need to prefix the
             // calendar path.
-            $queryResult = array_map(
-                function ($item) use ($path) {
-                    return $path.'/'.$item;
-                },
-                $queryResult
-            );
+            $queryResult = array_map(function ($item) use ($path) {
+                return $path . '/' . $item;
+            }, $queryResult);
             $nodes = $this->server->getPropertiesForMultiplePaths($queryResult, [$calDataProp]);
             unset($queryResult);
         } else {
             $nodes = $this->server->getPropertiesForPath($path, [$calDataProp], 1);
         }
-
         // Flattening the arrays
         foreach ($nodes as $node) {
             if (isset($node[200][$calDataProp])) {
@@ -224,17 +175,12 @@ class ICSExportPlugin extends DAV\ServerPlugin
             }
         }
         unset($nodes);
-
-        $mergedCalendar = $this->mergeObjects(
-            $properties,
-            $blobs
-        );
-
+        $mergedCalendar = $this->mergeObjects($properties, $blobs);
         if ($expand) {
             $calendarTimeZone = null;
             // We're expanding, and for that we need to figure out the
             // calendar's timezone.
-            $tzProp = '{'.Plugin::NS_CALDAV.'}calendar-timezone';
+            $tzProp = '{' . Plugin::NS_CALDAV . '}calendar-timezone';
             $tzResult = $this->server->getProperties($path, [$tzProp]);
             if (isset($tzResult[$tzProp])) {
                 // This property contains a VCALENDAR with a single
@@ -248,12 +194,9 @@ class ICSExportPlugin extends DAV\ServerPlugin
                 // Defaulting to UTC.
                 $calendarTimeZone = new DateTimeZone('UTC');
             }
-
             $mergedCalendar = $mergedCalendar->expand($start, $end, $calendarTimeZone);
         }
-
         $filenameExtension = '.ics';
-
         switch ($format) {
             case 'text/calendar':
                 $mergedCalendar = $mergedCalendar->serialize();
@@ -264,21 +207,13 @@ class ICSExportPlugin extends DAV\ServerPlugin
                 $filenameExtension = '.json';
                 break;
         }
-
-        $filename = preg_replace(
-            '/[^a-zA-Z0-9-_ ]/um',
-            '',
-            $calendarNode->getName()
-        );
-        $filename .= '-'.date('Y-m-d').$filenameExtension;
-
-        $response->setHeader('Content-Disposition', 'attachment; filename="'.$filename.'"');
+        $filename = preg_replace('/[^a-zA-Z0-9-_ ]/um', '', $calendarNode->getName());
+        $filename .= '-' . date('Y-m-d') . $filenameExtension;
+        $response->setHeader('Content-Disposition', 'attachment; filename="' . $filename . '"');
         $response->setHeader('Content-Type', $format);
-
         $response->setStatus(200);
         $response->setBody($mergedCalendar);
     }
-
     /**
      * Merges all calendar objects, and builds one big iCalendar blob.
      *
@@ -291,7 +226,7 @@ class ICSExportPlugin extends DAV\ServerPlugin
         $calendar = new VObject\Component\VCalendar();
         $calendar->VERSION = '2.0';
         if (DAV\Server::$exposeVersion) {
-            $calendar->PRODID = '-//SabreDAV//SabreDAV '.DAV\Version::VERSION.'//EN';
+            $calendar->PRODID = '-//SabreDAV//SabreDAV ' . DAV\Version::VERSION . '//EN';
         } else {
             $calendar->PRODID = '-//SabreDAV//SabreDAV//EN';
         }
@@ -301,15 +236,11 @@ class ICSExportPlugin extends DAV\ServerPlugin
         if (isset($properties['{http://apple.com/ns/ical/}calendar-color'])) {
             $calendar->{'X-APPLE-CALENDAR-COLOR'} = $properties['{http://apple.com/ns/ical/}calendar-color'];
         }
-
         $collectedTimezones = [];
-
         $timezones = [];
         $objects = [];
-
         foreach ($inputObjects as $href => $inputObject) {
             $nodeComp = VObject\Reader::read($inputObject);
-
             foreach ($nodeComp->children() as $child) {
                 switch ($child->name) {
                     case 'VEVENT':
@@ -317,14 +248,12 @@ class ICSExportPlugin extends DAV\ServerPlugin
                     case 'VJOURNAL':
                         $objects[] = clone $child;
                         break;
-
                     // VTIMEZONE is special, because we need to filter out the duplicates
                     case 'VTIMEZONE':
                         // Naively just checking tzid.
                         if (in_array((string) $child->TZID, $collectedTimezones)) {
                             break;
                         }
-
                         $timezones[] = clone $child;
                         $collectedTimezones[] = $child->TZID;
                         break;
@@ -334,17 +263,14 @@ class ICSExportPlugin extends DAV\ServerPlugin
             $nodeComp->destroy();
             unset($nodeComp);
         }
-
         foreach ($timezones as $tz) {
             $calendar->add($tz);
         }
         foreach ($objects as $obj) {
             $calendar->add($obj);
         }
-
         return $calendar;
     }
-
     /**
      * Returns a plugin name.
      *
@@ -357,7 +283,6 @@ class ICSExportPlugin extends DAV\ServerPlugin
     {
         return 'ics-export';
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -371,10 +296,6 @@ class ICSExportPlugin extends DAV\ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'Adds the ability to export CalDAV calendars as a single iCalendar file.',
-            'link' => 'http://sabre.io/dav/ics-export-plugin/',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'Adds the ability to export CalDAV calendars as a single iCalendar file.', 'link' => 'http://sabre.io/dav/ics-export-plugin/'];
     }
 }

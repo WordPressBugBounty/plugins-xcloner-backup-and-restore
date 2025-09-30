@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * BrowserSyncSetting class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class BrowserSyncSetting extends Enum
 {
     /**
-    * The Enum BrowserSyncSetting
-    */
+     * The Enum BrowserSyncSetting
+     */
     const NOT_CONFIGURED = "notConfigured";
     const BLOCKED_WITH_USER_OVERRIDE = "blockedWithUserOverride";
     const BLOCKED = "blocked";

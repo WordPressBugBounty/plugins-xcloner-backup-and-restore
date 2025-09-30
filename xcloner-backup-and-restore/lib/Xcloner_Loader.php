@@ -1,6 +1,6 @@
 <?php
 
-namespace Watchfulli\XClonerCore;
+namespace XCloner\Watchfulli\XClonerCore;
 
 /**
  * XCloner - Backup and Restore backup plugin for Wordpress
@@ -28,8 +28,6 @@ namespace Watchfulli\XClonerCore;
  * @modified 7/25/18 1:46 PM
  *
  */
-
-
 /**
  * Register all actions and filters for the plugin.
  *
@@ -43,7 +41,6 @@ namespace Watchfulli\XClonerCore;
  */
 class Xcloner_Loader
 {
-
     /**
      * The array of actions registered with WordPress.
      *
@@ -52,7 +49,6 @@ class Xcloner_Loader
      * @var      array $actions The actions registered with WordPress to fire when the plugin loads.
      */
     protected $actions;
-
     /**
      * The array of filters registered with WordPress.
      *
@@ -61,13 +57,10 @@ class Xcloner_Loader
      * @var      array $filters The filters registered with WordPress to fire when the plugin loads.
      */
     protected $filters;
-
     /**
      * @var Xcloner
      */
     private $xcloner_container;
-
-
     /**
      * Initialize the collections used to maintain the actions and filters.
      *
@@ -76,14 +69,10 @@ class Xcloner_Loader
      */
     public function __construct(Xcloner $xcloner_container)
     {
-
         $this->actions = array();
         $this->filters = array();
-
         $this->xcloner_container = $xcloner_container;
-
     }
-
     /**
      * Add a new action to the collection to be registered with WordPress.
      *
@@ -97,7 +86,6 @@ class Xcloner_Loader
     {
         $this->actions = $this->add($this->actions, $hook, $callback[0], $callback[1], $priority, $accepted_args);
     }
-
     /**
      * Add a new filter to the collection to be registered with WordPress.
      *
@@ -112,7 +100,6 @@ class Xcloner_Loader
     {
         $this->filters = $this->add($this->filters, $hook, $component, $callback, $priority, $accepted_args);
     }
-
     /**
      * A utility function that is used to register the actions and hooks into a single
      * collection.
@@ -129,19 +116,9 @@ class Xcloner_Loader
      */
     private function add($hooks, $hook, $component, $callback, $priority, $accepted_args)
     {
-
-        $hooks[] = array(
-            'hook' => $hook,
-            'component' => $component,
-            'callback' => $callback,
-            'priority' => $priority,
-            'accepted_args' => $accepted_args
-        );
-
+        $hooks[] = array('hook' => $hook, 'component' => $component, 'callback' => $callback, 'priority' => $priority, 'accepted_args' => $accepted_args);
         return $hooks;
-
     }
-
     /**
      * Register the filters and actions with WordPress.
      *
@@ -152,11 +129,8 @@ class Xcloner_Loader
         foreach ($this->filters as $hook) {
             add_filter($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
         }
-
         foreach ($this->actions as $hook) {
             add_action($hook['hook'], array($hook['component'], $hook['callback']), $hook['priority'], $hook['accepted_args']);
         }
-
     }
-
 }

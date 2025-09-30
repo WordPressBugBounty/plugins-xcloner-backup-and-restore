@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MatchingLabel class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MatchingLabel extends Entity
 {
-
     /**
-    * Gets the applicationMode
-    *
-    * @return ApplicationMode|null The applicationMode
-    */
+     * Gets the applicationMode
+     *
+     * @return ApplicationMode|null The applicationMode
+     */
     public function getApplicationMode()
     {
         if (array_key_exists("applicationMode", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationMode"], "\Beta\Microsoft\Graph\Model\ApplicationMode") || is_null($this->_propDict["applicationMode"])) {
+            if (is_a($this->_propDict["applicationMode"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ApplicationMode") || is_null($this->_propDict["applicationMode"])) {
                 return $this->_propDict["applicationMode"];
             } else {
                 $this->_propDict["applicationMode"] = new ApplicationMode($this->_propDict["applicationMode"]);
@@ -44,24 +45,23 @@ class MatchingLabel extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the applicationMode
-    *
-    * @param ApplicationMode $val The value to assign to the applicationMode
-    *
-    * @return MatchingLabel The MatchingLabel
-    */
+     * Sets the applicationMode
+     *
+     * @param ApplicationMode $val The value to assign to the applicationMode
+     *
+     * @return MatchingLabel The MatchingLabel
+     */
     public function setApplicationMode($val)
     {
         $this->_propDict["applicationMode"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -70,24 +70,23 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The value of the description
-    *
-    * @return MatchingLabel
-    */
+     * Sets the description
+     *
+     * @param string $val The value of the description
+     *
+     * @return MatchingLabel
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -96,24 +95,23 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return MatchingLabel
-    */
+     * Sets the displayName
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return MatchingLabel
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -122,24 +120,23 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return MatchingLabel
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return MatchingLabel
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the isEndpointProtectionEnabled
-    *
-    * @return bool|null The isEndpointProtectionEnabled
-    */
+     * Gets the isEndpointProtectionEnabled
+     *
+     * @return bool|null The isEndpointProtectionEnabled
+     */
     public function getIsEndpointProtectionEnabled()
     {
         if (array_key_exists("isEndpointProtectionEnabled", $this->_propDict)) {
@@ -148,29 +145,27 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEndpointProtectionEnabled
-    *
-    * @param bool $val The value of the isEndpointProtectionEnabled
-    *
-    * @return MatchingLabel
-    */
+     * Sets the isEndpointProtectionEnabled
+     *
+     * @param bool $val The value of the isEndpointProtectionEnabled
+     *
+     * @return MatchingLabel
+     */
     public function setIsEndpointProtectionEnabled($val)
     {
         $this->_propDict["isEndpointProtectionEnabled"] = $val;
         return $this;
     }
-
     /**
-    * Gets the labelActions
-    *
-    * @return LabelActionBase|null The labelActions
-    */
+     * Gets the labelActions
+     *
+     * @return LabelActionBase|null The labelActions
+     */
     public function getLabelActions()
     {
         if (array_key_exists("labelActions", $this->_propDict)) {
-            if (is_a($this->_propDict["labelActions"], "\Beta\Microsoft\Graph\Model\LabelActionBase") || is_null($this->_propDict["labelActions"])) {
+            if (is_a($this->_propDict["labelActions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LabelActionBase") || is_null($this->_propDict["labelActions"])) {
                 return $this->_propDict["labelActions"];
             } else {
                 $this->_propDict["labelActions"] = new LabelActionBase($this->_propDict["labelActions"]);
@@ -179,24 +174,23 @@ class MatchingLabel extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the labelActions
-    *
-    * @param LabelActionBase $val The value to assign to the labelActions
-    *
-    * @return MatchingLabel The MatchingLabel
-    */
+     * Sets the labelActions
+     *
+     * @param LabelActionBase $val The value to assign to the labelActions
+     *
+     * @return MatchingLabel The MatchingLabel
+     */
     public function setLabelActions($val)
     {
         $this->_propDict["labelActions"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -205,24 +199,23 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return MatchingLabel
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return MatchingLabel
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the policyTip
-    *
-    * @return string|null The policyTip
-    */
+     * Gets the policyTip
+     *
+     * @return string|null The policyTip
+     */
     public function getPolicyTip()
     {
         if (array_key_exists("policyTip", $this->_propDict)) {
@@ -231,24 +224,23 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the policyTip
-    *
-    * @param string $val The value of the policyTip
-    *
-    * @return MatchingLabel
-    */
+     * Sets the policyTip
+     *
+     * @param string $val The value of the policyTip
+     *
+     * @return MatchingLabel
+     */
     public function setPolicyTip($val)
     {
         $this->_propDict["policyTip"] = $val;
         return $this;
     }
     /**
-    * Gets the priority
-    *
-    * @return int|null The priority
-    */
+     * Gets the priority
+     *
+     * @return int|null The priority
+     */
     public function getPriority()
     {
         if (array_key_exists("priority", $this->_propDict)) {
@@ -257,24 +249,23 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the priority
-    *
-    * @param int $val The value of the priority
-    *
-    * @return MatchingLabel
-    */
+     * Sets the priority
+     *
+     * @param int $val The value of the priority
+     *
+     * @return MatchingLabel
+     */
     public function setPriority($val)
     {
         $this->_propDict["priority"] = $val;
         return $this;
     }
     /**
-    * Gets the toolTip
-    *
-    * @return string|null The toolTip
-    */
+     * Gets the toolTip
+     *
+     * @return string|null The toolTip
+     */
     public function getToolTip()
     {
         if (array_key_exists("toolTip", $this->_propDict)) {
@@ -283,14 +274,13 @@ class MatchingLabel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the toolTip
-    *
-    * @param string $val The value of the toolTip
-    *
-    * @return MatchingLabel
-    */
+     * Sets the toolTip
+     *
+     * @param string $val The value of the toolTip
+     *
+     * @return MatchingLabel
+     */
     public function setToolTip($val)
     {
         $this->_propDict["toolTip"] = $val;

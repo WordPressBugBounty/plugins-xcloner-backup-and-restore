@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidPkcsCertificateProfile class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase
 {
     /**
-    * Gets the certificateTemplateName
-    * PKCS Certificate Template Name
-    *
-    * @return string|null The certificateTemplateName
-    */
+     * Gets the certificateTemplateName
+     * PKCS Certificate Template Name
+     *
+     * @return string|null The certificateTemplateName
+     */
     public function getCertificateTemplateName()
     {
         if (array_key_exists("certificateTemplateName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase
             return null;
         }
     }
-
     /**
-    * Sets the certificateTemplateName
-    * PKCS Certificate Template Name
-    *
-    * @param string $val The certificateTemplateName
-    *
-    * @return AndroidPkcsCertificateProfile
-    */
+     * Sets the certificateTemplateName
+     * PKCS Certificate Template Name
+     *
+     * @param string $val The certificateTemplateName
+     *
+     * @return AndroidPkcsCertificateProfile
+     */
     public function setCertificateTemplateName($val)
     {
         $this->_propDict["certificateTemplateName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the certificationAuthority
-    * PKCS Certification Authority
-    *
-    * @return string|null The certificationAuthority
-    */
+     * Gets the certificationAuthority
+     * PKCS Certification Authority
+     *
+     * @return string|null The certificationAuthority
+     */
     public function getCertificationAuthority()
     {
         if (array_key_exists("certificationAuthority", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase
             return null;
         }
     }
-
     /**
-    * Sets the certificationAuthority
-    * PKCS Certification Authority
-    *
-    * @param string $val The certificationAuthority
-    *
-    * @return AndroidPkcsCertificateProfile
-    */
+     * Sets the certificationAuthority
+     * PKCS Certification Authority
+     *
+     * @param string $val The certificationAuthority
+     *
+     * @return AndroidPkcsCertificateProfile
+     */
     public function setCertificationAuthority($val)
     {
         $this->_propDict["certificationAuthority"] = $val;
         return $this;
     }
-
     /**
-    * Gets the certificationAuthorityName
-    * PKCS Certification Authority Name
-    *
-    * @return string|null The certificationAuthorityName
-    */
+     * Gets the certificationAuthorityName
+     * PKCS Certification Authority Name
+     *
+     * @return string|null The certificationAuthorityName
+     */
     public function getCertificationAuthorityName()
     {
         if (array_key_exists("certificationAuthorityName", $this->_propDict)) {
@@ -99,27 +96,25 @@ class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase
             return null;
         }
     }
-
     /**
-    * Sets the certificationAuthorityName
-    * PKCS Certification Authority Name
-    *
-    * @param string $val The certificationAuthorityName
-    *
-    * @return AndroidPkcsCertificateProfile
-    */
+     * Sets the certificationAuthorityName
+     * PKCS Certification Authority Name
+     *
+     * @param string $val The certificationAuthorityName
+     *
+     * @return AndroidPkcsCertificateProfile
+     */
     public function setCertificationAuthorityName($val)
     {
         $this->_propDict["certificationAuthorityName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the subjectAlternativeNameFormatString
-    * Custom String that defines the AAD Attribute.
-    *
-    * @return string|null The subjectAlternativeNameFormatString
-    */
+     * Gets the subjectAlternativeNameFormatString
+     * Custom String that defines the AAD Attribute.
+     *
+     * @return string|null The subjectAlternativeNameFormatString
+     */
     public function getSubjectAlternativeNameFormatString()
     {
         if (array_key_exists("subjectAlternativeNameFormatString", $this->_propDict)) {
@@ -128,49 +123,44 @@ class AndroidPkcsCertificateProfile extends AndroidCertificateProfileBase
             return null;
         }
     }
-
     /**
-    * Sets the subjectAlternativeNameFormatString
-    * Custom String that defines the AAD Attribute.
-    *
-    * @param string $val The subjectAlternativeNameFormatString
-    *
-    * @return AndroidPkcsCertificateProfile
-    */
+     * Sets the subjectAlternativeNameFormatString
+     * Custom String that defines the AAD Attribute.
+     *
+     * @param string $val The subjectAlternativeNameFormatString
+     *
+     * @return AndroidPkcsCertificateProfile
+     */
     public function setSubjectAlternativeNameFormatString($val)
     {
         $this->_propDict["subjectAlternativeNameFormatString"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the managedDeviceCertificateStates
-    * Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
+     * Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
      *
      * @return array|null The managedDeviceCertificateStates
      */
     public function getManagedDeviceCertificateStates()
     {
         if (array_key_exists("managedDeviceCertificateStates", $this->_propDict)) {
-           return $this->_propDict["managedDeviceCertificateStates"];
+            return $this->_propDict["managedDeviceCertificateStates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceCertificateStates
-    * Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
-    *
-    * @param ManagedDeviceCertificateState[] $val The managedDeviceCertificateStates
-    *
-    * @return AndroidPkcsCertificateProfile
-    */
+     * Sets the managedDeviceCertificateStates
+     * Certificate state for devices. This collection can contain a maximum of 2147483647 elements.
+     *
+     * @param ManagedDeviceCertificateState[] $val The managedDeviceCertificateStates
+     *
+     * @return AndroidPkcsCertificateProfile
+     */
     public function setManagedDeviceCertificateStates($val)
     {
         $this->_propDict["managedDeviceCertificateStates"] = $val;
         return $this;
     }
-
 }

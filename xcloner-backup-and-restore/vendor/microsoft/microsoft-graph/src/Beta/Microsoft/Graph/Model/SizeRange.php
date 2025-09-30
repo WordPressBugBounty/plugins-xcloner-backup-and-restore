@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SizeRange class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SizeRange extends Entity
 {
     /**
-    * Gets the maximumSize
-    * The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
-    *
-    * @return int|null The maximumSize
-    */
+     * Gets the maximumSize
+     * The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
+     *
+     * @return int|null The maximumSize
+     */
     public function getMaximumSize()
     {
         if (array_key_exists("maximumSize", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SizeRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maximumSize
-    * The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
-    *
-    * @param int $val The value of the maximumSize
-    *
-    * @return SizeRange
-    */
+     * Sets the maximumSize
+     * The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
+     *
+     * @param int $val The value of the maximumSize
+     *
+     * @return SizeRange
+     */
     public function setMaximumSize($val)
     {
         $this->_propDict["maximumSize"] = $val;
         return $this;
     }
     /**
-    * Gets the minimumSize
-    * The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
-    *
-    * @return int|null The minimumSize
-    */
+     * Gets the minimumSize
+     * The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
+     *
+     * @return int|null The minimumSize
+     */
     public function getMinimumSize()
     {
         if (array_key_exists("minimumSize", $this->_propDict)) {
@@ -68,15 +69,14 @@ class SizeRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the minimumSize
-    * The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
-    *
-    * @param int $val The value of the minimumSize
-    *
-    * @return SizeRange
-    */
+     * Sets the minimumSize
+     * The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.
+     *
+     * @param int $val The value of the minimumSize
+     *
+     * @return SizeRange
+     */
     public function setMinimumSize($val)
     {
         $this->_propDict["minimumSize"] = $val;

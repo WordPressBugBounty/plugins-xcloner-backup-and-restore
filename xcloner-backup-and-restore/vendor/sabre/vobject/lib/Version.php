@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class contains the version number for the VObject package.
  *

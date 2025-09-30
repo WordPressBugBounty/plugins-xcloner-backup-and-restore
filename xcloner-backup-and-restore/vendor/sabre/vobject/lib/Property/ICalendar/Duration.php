@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Property\ICalendar;
+namespace XCloner\Sabre\VObject\Property\ICalendar;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\DateTimeParser;
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\VObject\Property;
 /**
  * Duration property.
  *
@@ -28,7 +27,6 @@ class Duration extends Property
      * @var string
      */
     public $delimiter = ',';
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -41,7 +39,6 @@ class Duration extends Property
     {
         $this->setValue(explode($this->delimiter, $val));
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -51,7 +48,6 @@ class Duration extends Property
     {
         return implode($this->delimiter, $this->getParts());
     }
-
     /**
      * Returns the type of value.
      *
@@ -64,7 +60,6 @@ class Duration extends Property
     {
         return 'DURATION';
     }
-
     /**
      * Returns a DateInterval representation of the Duration property.
      *
@@ -76,7 +71,6 @@ class Duration extends Property
     {
         $parts = $this->getParts();
         $value = $parts[0];
-
         return DateTimeParser::parseDuration($value);
     }
 }

@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Request;
 
-namespace Sabre\DAVACL\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * PrincipalSearchPropertySetReport request parser.
  *
@@ -31,14 +29,12 @@ class PrincipalPropertySearchReport implements XmlDeserializable
      * @var array|null
      */
     public $properties;
-
     /**
      * searchProperties.
      *
      * @var array
      */
     public $searchProperties = [];
-
     /**
      * By default the property search will be conducted on the url of the http
      * request. If this is set to true, it will be applied to the principal
@@ -46,8 +42,7 @@ class PrincipalPropertySearchReport implements XmlDeserializable
      *
      * @var bool
      */
-    public $applyToPrincipalCollectionSet = false;
-
+    public $applyToPrincipalCollectionSet = \false;
     /**
      * Search for principals matching ANY of the properties (OR) or a ALL of
      * the properties (AND).
@@ -57,7 +52,6 @@ class PrincipalPropertySearchReport implements XmlDeserializable
      * @var string
      */
     public $test;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -81,25 +75,19 @@ class PrincipalPropertySearchReport implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $self = new self();
-
-        $foundSearchProp = false;
+        $foundSearchProp = \false;
         $self->test = 'allof';
         if ('anyof' === $reader->getAttribute('test')) {
             $self->test = 'anyof';
         }
-
-        $elemMap = [
-            '{DAV:}property-search' => 'Sabre\\Xml\\Element\\KeyValue',
-            '{DAV:}prop' => 'Sabre\\Xml\\Element\\KeyValue',
-        ];
-
+        $elemMap = ['{DAV:}property-search' => 'XCloner\Sabre\Xml\Element\KeyValue', '{DAV:}prop' => 'XCloner\Sabre\Xml\Element\KeyValue'];
         foreach ($reader->parseInnerTree($elemMap) as $elem) {
             switch ($elem['name']) {
                 case '{DAV:}prop':
                     $self->properties = array_keys($elem['value']);
                     break;
                 case '{DAV:}property-search':
-                    $foundSearchProp = true;
+                    $foundSearchProp = \true;
                     // This property has two sub-elements:
                     //   {DAV:}prop - The property to be searched on. This may
                     //                also be more than one
@@ -112,14 +100,13 @@ class PrincipalPropertySearchReport implements XmlDeserializable
                     }
                     break;
                 case '{DAV:}apply-to-principal-collection-set':
-                    $self->applyToPrincipalCollectionSet = true;
+                    $self->applyToPrincipalCollectionSet = \true;
                     break;
             }
         }
         if (!$foundSearchProp) {
             throw new BadRequest('The {DAV:}principal-property-search report must contain at least 1 {DAV:}property-search element');
         }
-
         return $self;
     }
 }

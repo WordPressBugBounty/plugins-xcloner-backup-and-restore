@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookPivotTable class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookPivotTable extends Entity
 {
     /**
-    * Gets the name
-    * Name of the PivotTable.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the PivotTable.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -41,31 +42,29 @@ class WorkbookPivotTable extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the PivotTable.
-    *
-    * @param string $val The name
-    *
-    * @return WorkbookPivotTable
-    */
+     * Sets the name
+     * Name of the PivotTable.
+     *
+     * @param string $val The name
+     *
+     * @return WorkbookPivotTable
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the worksheet
-    * The worksheet containing the current PivotTable. Read-only.
-    *
-    * @return WorkbookWorksheet|null The worksheet
-    */
+     * Gets the worksheet
+     * The worksheet containing the current PivotTable. Read-only.
+     *
+     * @return WorkbookWorksheet|null The worksheet
+     */
     public function getWorksheet()
     {
         if (array_key_exists("worksheet", $this->_propDict)) {
-            if (is_a($this->_propDict["worksheet"], "\Beta\Microsoft\Graph\Model\WorkbookWorksheet") || is_null($this->_propDict["worksheet"])) {
+            if (is_a($this->_propDict["worksheet"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookWorksheet") || is_null($this->_propDict["worksheet"])) {
                 return $this->_propDict["worksheet"];
             } else {
                 $this->_propDict["worksheet"] = new WorkbookWorksheet($this->_propDict["worksheet"]);
@@ -74,19 +73,17 @@ class WorkbookPivotTable extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the worksheet
-    * The worksheet containing the current PivotTable. Read-only.
-    *
-    * @param WorkbookWorksheet $val The worksheet
-    *
-    * @return WorkbookPivotTable
-    */
+     * Sets the worksheet
+     * The worksheet containing the current PivotTable. Read-only.
+     *
+     * @param WorkbookWorksheet $val The worksheet
+     *
+     * @return WorkbookPivotTable
+     */
     public function setWorksheet($val)
     {
         $this->_propDict["worksheet"] = $val;
         return $this;
     }
-
 }

@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP;
 /**
  * LocalHref property.
  *
@@ -41,11 +39,8 @@ class LocalHref extends Href
      */
     public function __construct($hrefs)
     {
-        parent::__construct(array_map(
-            function ($href) {
-                return \Sabre\HTTP\encodePath($href);
-            },
-            (array) $hrefs
-        ));
+        parent::__construct(array_map(function ($href) {
+            return \XCloner\Sabre\HTTP\encodePath($href);
+        }, (array) $hrefs));
     }
 }

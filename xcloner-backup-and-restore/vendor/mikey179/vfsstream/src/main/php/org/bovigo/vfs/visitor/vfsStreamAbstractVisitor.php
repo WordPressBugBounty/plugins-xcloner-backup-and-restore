@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,13 +8,13 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\visitor;
+namespace XCloner\org\bovigo\vfs\visitor;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\vfsStreamContent;
-use org\bovigo\vfs\vfsStreamBlock;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\vfsStreamContent;
+use XCloner\org\bovigo\vfs\vfsStreamBlock;
 /**
  * Abstract base class providing an implementation for the visit() method.
  *
@@ -35,25 +36,19 @@ abstract class vfsStreamAbstractVisitor implements vfsStreamVisitor
             case vfsStreamContent::TYPE_BLOCK:
                 $this->visitBlockDevice($content);
                 break;
-
             case vfsStreamContent::TYPE_FILE:
                 $this->visitFile($content);
                 break;
-
             case vfsStreamContent::TYPE_DIR:
                 if (!$content->isDot()) {
                     $this->visitDirectory($content);
                 }
-
                 break;
-
             default:
                 throw new \InvalidArgumentException('Unknown content type ' . $content->getType() . ' for ' . $content->getName());
         }
-
         return $this;
     }
-
     /**
      * visit a block device and process it
      *

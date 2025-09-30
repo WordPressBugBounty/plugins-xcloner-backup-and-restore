@@ -21,18 +21,16 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\LocationMode;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Middlewares\MiddlewareStack;
-use MicrosoftAzure\Storage\Common\Middlewares\IMiddleware;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\LocationMode;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Middlewares\MiddlewareStack;
+use XCloner\MicrosoftAzure\Storage\Common\Middlewares\IMiddleware;
 /**
  * This class provides the base structure of service options, granting user to
  * send with different options for each individual API call.
@@ -51,43 +49,36 @@ class ServiceOptions
      * @internal
      */
     protected $middlewares;
-
     /**
      * The middleware stack used for the operation.
      * @internal
      */
     protected $middlewareStack;
-
     /**
      * The number of concurrency when performing concurrent requests.
      * @internal
      */
     protected $numberOfConcurrency;
-
     /**
      * If streamming is used for the operation.
      * @internal
      */
     protected $isStreaming;
-
     /**
      * The location mode of the operation.
      * @internal
      */
     protected $locationMode;
-
     /**
      * If to decode the content of the response body.
      * @internal
      */
     protected $decodeContent;
-
     /**
      * The timeout of the operation
      * @internal
      */
     protected $timeout;
-
     /**
      * Initialize the properties to default value.
      */
@@ -96,8 +87,8 @@ class ServiceOptions
         if ($options == null) {
             $this->setNumberOfConcurrency(Resources::NUMBER_OF_CONCURRENCY);
             $this->setLocationMode(LocationMode::PRIMARY_ONLY);
-            $this->setIsStreaming(false);
-            $this->setDecodeContent(false);
+            $this->setIsStreaming(\false);
+            $this->setDecodeContent(\false);
             $this->middlewares = array();
             $this->middlewareStack = null;
         } else {
@@ -109,7 +100,6 @@ class ServiceOptions
             $this->middlewareStack = $options->getMiddlewareStack();
         }
     }
-
     /**
      * Push a middleware into the middlewares.
      * @param  callable|IMiddleware $middleware middleware to be pushed.
@@ -121,7 +111,6 @@ class ServiceOptions
         self::validateIsMiddleware($middleware);
         $this->middlewares[] = $middleware;
     }
-
     /**
      * Gets the middlewares.
      *
@@ -131,7 +120,6 @@ class ServiceOptions
     {
         return $this->middlewares;
     }
-
     /**
      * Sets middlewares.
      *
@@ -146,7 +134,6 @@ class ServiceOptions
         }
         $this->middlewares = $middlewares;
     }
-
     /**
      * Gets the middleware stack
      *
@@ -156,7 +143,6 @@ class ServiceOptions
     {
         return $this->middlewareStack;
     }
-
     /**
      * Sets the middleware stack.
      *
@@ -168,7 +154,6 @@ class ServiceOptions
     {
         $this->middlewareStack = $middlewareStack;
     }
-
     /**
      * Gets the number of concurrency value
      *
@@ -178,7 +163,6 @@ class ServiceOptions
     {
         return $this->numberOfConcurrency;
     }
-
     /**
      * Sets number of concurrency.
      *
@@ -190,7 +174,6 @@ class ServiceOptions
     {
         $this->numberOfConcurrency = $numberOfConcurrency;
     }
-
     /**
      * Gets the isStreaming value
      *
@@ -200,7 +183,6 @@ class ServiceOptions
     {
         return $this->isStreaming;
     }
-
     /**
      * Sets isStreaming.
      *
@@ -212,7 +194,6 @@ class ServiceOptions
     {
         $this->isStreaming = $isStreaming;
     }
-
     /**
      * Gets the locationMode value
      *
@@ -222,7 +203,6 @@ class ServiceOptions
     {
         return $this->locationMode;
     }
-
     /**
      * Sets locationMode.
      *
@@ -234,7 +214,6 @@ class ServiceOptions
     {
         $this->locationMode = $locationMode;
     }
-
     /**
      * Gets the decodeContent value
      *
@@ -244,7 +223,6 @@ class ServiceOptions
     {
         return $this->decodeContent;
     }
-
     /**
      * Sets decodeContent.
      *
@@ -256,7 +234,6 @@ class ServiceOptions
     {
         $this->decodeContent = $decodeContent;
     }
-
     /**
      * Gets the timeout value
      *
@@ -266,7 +243,6 @@ class ServiceOptions
     {
         return $this->timeout;
     }
-
     /**
      * Sets timeout.
      *
@@ -278,7 +254,6 @@ class ServiceOptions
     {
         $this->timeout = $timeout;
     }
-
     /**
      * Generate request options using the input options and saved properties.
      *
@@ -289,10 +264,8 @@ class ServiceOptions
     public function generateRequestOptions(array $options)
     {
         $result = array();
-
         return $result;
     }
-
     /**
      * Validate if the given middleware is of callable or IMiddleware.
      *
@@ -303,10 +276,7 @@ class ServiceOptions
     private static function validateIsMiddleware($middleware)
     {
         if (!(is_callable($middleware) || $middleware instanceof IMiddleware)) {
-            Validate::isTrue(
-                false,
-                Resources::INVALID_TYPE_MSG . 'callable or IMiddleware'
-            );
+            Validate::isTrue(\false, Resources::INVALID_TYPE_MSG . 'callable or IMiddleware');
         }
     }
 }

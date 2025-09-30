@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Formatter;
 
-namespace Monolog\Formatter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Interface for formatters
  *
@@ -28,7 +27,6 @@ interface FormatterInterface
      * @return mixed The formatted record
      */
     public function format(array $record);
-
     /**
      * Formats a set of log records.
      *

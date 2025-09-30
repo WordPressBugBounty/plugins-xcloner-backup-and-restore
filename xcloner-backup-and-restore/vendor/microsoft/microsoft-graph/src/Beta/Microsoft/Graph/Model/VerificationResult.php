@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VerificationResult class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VerificationResult extends Entity
 {
     /**
-    * Gets the signatureValid
-    *
-    * @return bool|null The signatureValid
-    */
+     * Gets the signatureValid
+     *
+     * @return bool|null The signatureValid
+     */
     public function getSignatureValid()
     {
         if (array_key_exists("signatureValid", $this->_propDict)) {
@@ -39,14 +41,13 @@ class VerificationResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the signatureValid
-    *
-    * @param bool $val The value of the signatureValid
-    *
-    * @return VerificationResult
-    */
+     * Sets the signatureValid
+     *
+     * @param bool $val The value of the signatureValid
+     *
+     * @return VerificationResult
+     */
     public function setSignatureValid($val)
     {
         $this->_propDict["signatureValid"] = $val;

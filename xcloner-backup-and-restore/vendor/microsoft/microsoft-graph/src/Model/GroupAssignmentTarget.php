@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupAssignmentTarget class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.groupAssignmentTarget");
     }
-
     /**
-    * Gets the groupId
-    * The group Id that is the target of the assignment.
-    *
-    * @return string|null The groupId
-    */
+     * Gets the groupId
+     * The group Id that is the target of the assignment.
+     *
+     * @return string|null The groupId
+     */
     public function getGroupId()
     {
         if (array_key_exists("groupId", $this->_propDict)) {
@@ -51,15 +52,14 @@ class GroupAssignmentTarget extends DeviceAndAppManagementAssignmentTarget
             return null;
         }
     }
-
     /**
-    * Sets the groupId
-    * The group Id that is the target of the assignment.
-    *
-    * @param string $val The value of the groupId
-    *
-    * @return GroupAssignmentTarget
-    */
+     * Sets the groupId
+     * The group Id that is the target of the assignment.
+     *
+     * @param string $val The value of the groupId
+     *
+     * @return GroupAssignmentTarget
+     */
     public function setGroupId($val)
     {
         $this->_propDict["groupId"] = $val;

@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob;
 
-namespace MicrosoftAzure\Storage\Blob;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\SharedAccessSignatureHelper;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\SharedAccessSignatureHelper;
 /**
  * Provides methods to generate Azure Storage Shared Access Signature
  *
@@ -55,7 +53,6 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
     {
         parent::__construct($accountName, $accountKey);
     }
-
     /**
      * Generates Blob service shared access signature.
      *
@@ -87,45 +84,17 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
      * https://docs.microsoft.com/en-us/rest/api/storageservices/constructing-a-service-sas
      * @return string
      */
-    public function generateBlobServiceSharedAccessSignatureToken(
-        $signedResource,
-        $resourceName,
-        $signedPermissions,
-        $signedExpiry,
-        $signedStart = "",
-        $signedIP = "",
-        $signedProtocol = "",
-        $signedIdentifier = "",
-        $cacheControl = "",
-        $contentDisposition = "",
-        $contentEncoding = "",
-        $contentLanguage = "",
-        $contentType = ""
-    )
+    public function generateBlobServiceSharedAccessSignatureToken($signedResource, $resourceName, $signedPermissions, $signedExpiry, $signedStart = "", $signedIP = "", $signedProtocol = "", $signedIdentifier = "", $cacheControl = "", $contentDisposition = "", $contentEncoding = "", $contentLanguage = "", $contentType = "")
     {
         // check that the resource name is valid.
         Validate::canCastAsString($signedResource, 'signedResource');
         Validate::notNullOrEmpty($signedResource, 'signedResource');
-        Validate::isTrue(
-            $signedResource == Resources::RESOURCE_TYPE_BLOB ||
-            $signedResource == Resources::RESOURCE_TYPE_CONTAINER,
-            \sprintf(
-                Resources::INVALID_VALUE_MSG,
-                '$signedResource',
-                'Can only be \'b\' or \'c\'.'
-            )
-        );
-
+        Validate::isTrue($signedResource == Resources::RESOURCE_TYPE_BLOB || $signedResource == Resources::RESOURCE_TYPE_CONTAINER, \sprintf(Resources::INVALID_VALUE_MSG, '$signedResource', 'Can only be \'b\' or \'c\'.'));
         // check that the resource name is valid.
         Validate::notNullOrEmpty($resourceName, 'resourceName');
         Validate::canCastAsString($resourceName, 'resourceName');
-
         // validate and sanitize signed permissions
-        $signedPermissions = $this->validateAndSanitizeStringWithArray(
-            strtolower($signedPermissions),
-            Resources::ACCESS_PERMISSIONS[$signedResource]
-        );
-
+        $signedPermissions = $this->validateAndSanitizeStringWithArray(strtolower($signedPermissions), Resources::ACCESS_PERMISSIONS[$signedResource]);
         // check that expiry is valid
         if ($signedExpiry instanceof \Datetime) {
             $signedExpiry = Utilities::isoDate($signedExpiry);
@@ -133,7 +102,6 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
         Validate::notNullOrEmpty($signedExpiry, 'signedExpiry');
         Validate::canCastAsString($signedExpiry, 'signedExpiry');
         Validate::isDateString($signedExpiry, 'signedExpiry');
-
         // check that signed start is valid
         if ($signedStart instanceof \Datetime) {
             $signedStart = Utilities::isoDate($signedStart);
@@ -142,36 +110,24 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
         if (strlen($signedStart) > 0) {
             Validate::isDateString($signedStart, 'signedStart');
         }
-
         // check that signed IP is valid
         Validate::canCastAsString($signedIP, 'signedIP');
-
         // validate and sanitize signed protocol
         $signedProtocol = $this->validateAndSanitizeSignedProtocol($signedProtocol);
-
         // check that signed identifier is valid
         Validate::canCastAsString($signedIdentifier, 'signedIdentifier');
-        Validate::isTrue(
-            strlen($signedIdentifier) <= 64,
-            sprintf(Resources::INVALID_STRING_LENGTH, 'signedIdentifier', 'maximum 64')
-        );
-
+        Validate::isTrue(strlen($signedIdentifier) <= 64, sprintf(Resources::INVALID_STRING_LENGTH, 'signedIdentifier', 'maximum 64'));
         Validate::canCastAsString($cacheControl, 'cacheControl');
         Validate::canCastAsString($contentDisposition, 'contentDisposition');
         Validate::canCastAsString($contentEncoding, 'contentEncoding');
         Validate::canCastAsString($contentLanguage, 'contentLanguage');
         Validate::canCastAsString($contentType, 'contentType');
-
         // construct an array with the parameters to generate the shared access signature at the account level
         $parameters = array();
         $parameters[] = $signedPermissions;
         $parameters[] = $signedStart;
         $parameters[] = $signedExpiry;
-        $parameters[] = static::generateCanonicalResource(
-            $this->accountName,
-            Resources::RESOURCE_TYPE_BLOB,
-            $resourceName
-        );
+        $parameters[] = static::generateCanonicalResource($this->accountName, Resources::RESOURCE_TYPE_BLOB, $resourceName);
         $parameters[] = $signedIdentifier;
         $parameters[] = $signedIP;
         $parameters[] = $signedProtocol;
@@ -181,16 +137,14 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
         $parameters[] = $contentEncoding;
         $parameters[] = $contentLanguage;
         $parameters[] = $contentType;
-
         // implode the parameters into a string
         $stringToSign = implode("\n", $parameters);
         // decode the account key from base64
         $decodedAccountKey = base64_decode($this->accountKey);
         // create the signature with hmac sha256
-        $signature = hash_hmac("sha256", $stringToSign, $decodedAccountKey, true);
+        $signature = hash_hmac("sha256", $stringToSign, $decodedAccountKey, \true);
         // encode the signature as base64
         $sig = urlencode(base64_encode($signature));
-
         $buildOptQueryStr = function ($string, $abrv) {
             return $string === '' ? '' : $abrv . $string;
         };
@@ -202,7 +156,6 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
         $sas .= $buildOptQueryStr($contentEncoding, '&rsce=');
         $sas .= $buildOptQueryStr($contentLanguage, '&rscl=');
         $sas .= $buildOptQueryStr($contentType, '&rsct=');
-
         $sas .= $buildOptQueryStr($signedStart, '&st=');
         $sas .= '&se=' . $signedExpiry;
         $sas .= '&sp=' . $signedPermissions;
@@ -210,7 +163,6 @@ class BlobSharedAccessSignatureHelper extends SharedAccessSignatureHelper
         $sas .= $buildOptQueryStr($signedProtocol, '&spr=');
         $sas .= $buildOptQueryStr($signedIdentifier, '&si=');
         $sas .= '&sig=' . $sig;
-
         return $sas;
     }
 }

@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * optional parameters for CopyBlobOptions wrapper
  *
@@ -40,7 +39,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CopyBlobOptions extends CopyBlobFromURLOptions
 {
     private $sourceSnapshot;
-
     /**
      * Gets source snapshot.
      *
@@ -50,7 +48,6 @@ class CopyBlobOptions extends CopyBlobFromURLOptions
     {
         return $this->sourceSnapshot;
     }
-
     /**
      * Sets source snapshot.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrinterCreateOperation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrinterCreateOperation extends PrintOperation
 {
     /**
-    * Gets the certificate
-    * The signed certificate created during the registration process. Read-only.
-    *
-    * @return string|null The certificate
-    */
+     * Gets the certificate
+     * The signed certificate created during the registration process. Read-only.
+     *
+     * @return string|null The certificate
+     */
     public function getCertificate()
     {
         if (array_key_exists("certificate", $this->_propDict)) {
@@ -41,30 +42,28 @@ class PrinterCreateOperation extends PrintOperation
             return null;
         }
     }
-
     /**
-    * Sets the certificate
-    * The signed certificate created during the registration process. Read-only.
-    *
-    * @param string $val The certificate
-    *
-    * @return PrinterCreateOperation
-    */
+     * Sets the certificate
+     * The signed certificate created during the registration process. Read-only.
+     *
+     * @param string $val The certificate
+     *
+     * @return PrinterCreateOperation
+     */
     public function setCertificate($val)
     {
         $this->_propDict["certificate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the printer
-    *
-    * @return Printer|null The printer
-    */
+     * Gets the printer
+     *
+     * @return Printer|null The printer
+     */
     public function getPrinter()
     {
         if (array_key_exists("printer", $this->_propDict)) {
-            if (is_a($this->_propDict["printer"], "\Beta\Microsoft\Graph\Model\Printer") || is_null($this->_propDict["printer"])) {
+            if (is_a($this->_propDict["printer"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Printer") || is_null($this->_propDict["printer"])) {
                 return $this->_propDict["printer"];
             } else {
                 $this->_propDict["printer"] = new Printer($this->_propDict["printer"]);
@@ -73,18 +72,16 @@ class PrinterCreateOperation extends PrintOperation
         }
         return null;
     }
-
     /**
-    * Sets the printer
-    *
-    * @param Printer $val The printer
-    *
-    * @return PrinterCreateOperation
-    */
+     * Sets the printer
+     *
+     * @param Printer $val The printer
+     *
+     * @return PrinterCreateOperation
+     */
     public function setPrinter($val)
     {
         $this->_propDict["printer"] = $val;
         return $this;
     }
-
 }

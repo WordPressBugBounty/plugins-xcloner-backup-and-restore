@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml;
 
-namespace Sabre\Xml;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use LibXMLError;
 use Throwable;
-
 /**
  * This exception is thrown when the Reader runs into a parsing error.
  *
@@ -27,7 +25,6 @@ class LibXMLException extends ParseException
      * @var \LibXMLError[]
      */
     protected $errors;
-
     /**
      * Creates the exception.
      *
@@ -39,9 +36,8 @@ class LibXMLException extends ParseException
     public function __construct(array $errors, int $code = 0, Throwable $previousException = null)
     {
         $this->errors = $errors;
-        parent::__construct($errors[0]->message.' on line '.$errors[0]->line.', column '.$errors[0]->column, $code, $previousException);
+        parent::__construct($errors[0]->message . ' on line ' . $errors[0]->line . ', column ' . $errors[0]->column, $code, $previousException);
     }
-
     /**
      * Returns the LibXML errors.
      */

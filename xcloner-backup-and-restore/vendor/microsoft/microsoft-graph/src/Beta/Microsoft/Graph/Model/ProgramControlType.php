@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProgramControlType class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProgramControlType extends Entity
 {
     /**
-    * Gets the controlTypeGroupId
-    *
-    * @return string|null The controlTypeGroupId
-    */
+     * Gets the controlTypeGroupId
+     *
+     * @return string|null The controlTypeGroupId
+     */
     public function getControlTypeGroupId()
     {
         if (array_key_exists("controlTypeGroupId", $this->_propDict)) {
@@ -40,26 +41,24 @@ class ProgramControlType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the controlTypeGroupId
-    *
-    * @param string $val The controlTypeGroupId
-    *
-    * @return ProgramControlType
-    */
+     * Sets the controlTypeGroupId
+     *
+     * @param string $val The controlTypeGroupId
+     *
+     * @return ProgramControlType
+     */
     public function setControlTypeGroupId($val)
     {
         $this->_propDict["controlTypeGroupId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the program control type
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the program control type
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,19 +67,17 @@ class ProgramControlType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the program control type
-    *
-    * @param string $val The displayName
-    *
-    * @return ProgramControlType
-    */
+     * Sets the displayName
+     * The name of the program control type
+     *
+     * @param string $val The displayName
+     *
+     * @return ProgramControlType
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
 }

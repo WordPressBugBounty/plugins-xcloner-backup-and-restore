@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcSubscription class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CloudPcSubscription extends Entity
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.cloudPcSubscription");
     }
-
     /**
-    * Gets the subscriptionId
-    * The ID of the subscription.
-    *
-    * @return string|null The subscriptionId
-    */
+     * Gets the subscriptionId
+     * The ID of the subscription.
+     *
+     * @return string|null The subscriptionId
+     */
     public function getSubscriptionId()
     {
         if (array_key_exists("subscriptionId", $this->_propDict)) {
@@ -51,26 +52,25 @@ class CloudPcSubscription extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subscriptionId
-    * The ID of the subscription.
-    *
-    * @param string $val The value of the subscriptionId
-    *
-    * @return CloudPcSubscription
-    */
+     * Sets the subscriptionId
+     * The ID of the subscription.
+     *
+     * @param string $val The value of the subscriptionId
+     *
+     * @return CloudPcSubscription
+     */
     public function setSubscriptionId($val)
     {
         $this->_propDict["subscriptionId"] = $val;
         return $this;
     }
     /**
-    * Gets the subscriptionName
-    * The name of the subscription.
-    *
-    * @return string|null The subscriptionName
-    */
+     * Gets the subscriptionName
+     * The name of the subscription.
+     *
+     * @return string|null The subscriptionName
+     */
     public function getSubscriptionName()
     {
         if (array_key_exists("subscriptionName", $this->_propDict)) {
@@ -79,15 +79,14 @@ class CloudPcSubscription extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subscriptionName
-    * The name of the subscription.
-    *
-    * @param string $val The value of the subscriptionName
-    *
-    * @return CloudPcSubscription
-    */
+     * Sets the subscriptionName
+     * The name of the subscription.
+     *
+     * @param string $val The value of the subscriptionName
+     *
+     * @return CloudPcSubscription
+     */
     public function setSubscriptionName($val)
     {
         $this->_propDict["subscriptionName"] = $val;

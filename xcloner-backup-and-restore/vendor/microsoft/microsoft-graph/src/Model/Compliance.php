@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Compliance class
 *
@@ -28,41 +29,38 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Compliance implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new Compliance
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new Compliance
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the Compliance
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the Compliance
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -70,36 +68,34 @@ class Compliance implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return Compliance
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return Compliance
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

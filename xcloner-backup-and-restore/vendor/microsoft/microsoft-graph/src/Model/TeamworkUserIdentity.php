@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkUserIdentity class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TeamworkUserIdentity extends Identity
 {
-
     /**
-    * Gets the userIdentityType
-    * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
-    *
-    * @return TeamworkUserIdentityType|null The userIdentityType
-    */
+     * Gets the userIdentityType
+     * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
+     *
+     * @return TeamworkUserIdentityType|null The userIdentityType
+     */
     public function getUserIdentityType()
     {
         if (array_key_exists("userIdentityType", $this->_propDict)) {
-            if (is_a($this->_propDict["userIdentityType"], "\Microsoft\Graph\Model\TeamworkUserIdentityType") || is_null($this->_propDict["userIdentityType"])) {
+            if (is_a($this->_propDict["userIdentityType"], "XCloner\\Microsoft\\Graph\\Model\\TeamworkUserIdentityType") || is_null($this->_propDict["userIdentityType"])) {
                 return $this->_propDict["userIdentityType"];
             } else {
                 $this->_propDict["userIdentityType"] = new TeamworkUserIdentityType($this->_propDict["userIdentityType"]);
@@ -45,18 +46,17 @@ class TeamworkUserIdentity extends Identity
         }
         return null;
     }
-
     /**
-    * Sets the userIdentityType
-    * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
-    *
-    * @param TeamworkUserIdentityType $val The value to assign to the userIdentityType
-    *
-    * @return TeamworkUserIdentity The TeamworkUserIdentity
-    */
+     * Sets the userIdentityType
+     * Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
+     *
+     * @param TeamworkUserIdentityType $val The value to assign to the userIdentityType
+     *
+     * @return TeamworkUserIdentity The TeamworkUserIdentity
+     */
     public function setUserIdentityType($val)
     {
         $this->_propDict["userIdentityType"] = $val;
-         return $this;
+        return $this;
     }
 }

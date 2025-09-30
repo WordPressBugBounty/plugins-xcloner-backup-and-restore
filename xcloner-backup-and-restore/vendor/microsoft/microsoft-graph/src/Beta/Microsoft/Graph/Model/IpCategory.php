@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IpCategory class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IpCategory extends Entity
 {
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -39,24 +41,23 @@ class IpCategory extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The value of the description
-    *
-    * @return IpCategory
-    */
+     * Sets the description
+     *
+     * @param string $val The value of the description
+     *
+     * @return IpCategory
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -65,24 +66,23 @@ class IpCategory extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return IpCategory
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return IpCategory
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the vendor
-    *
-    * @return string|null The vendor
-    */
+     * Gets the vendor
+     *
+     * @return string|null The vendor
+     */
     public function getVendor()
     {
         if (array_key_exists("vendor", $this->_propDict)) {
@@ -91,14 +91,13 @@ class IpCategory extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the vendor
-    *
-    * @param string $val The value of the vendor
-    *
-    * @return IpCategory
-    */
+     * Sets the vendor
+     *
+     * @param string $val The value of the vendor
+     *
+     * @return IpCategory
+     */
     public function setVendor($val)
     {
         $this->_propDict["vendor"] = $val;

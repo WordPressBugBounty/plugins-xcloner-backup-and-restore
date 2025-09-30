@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,33 +15,30 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileLabelInfo extends \Google\Collection
-{
-  protected $collection_key = 'labels';
-  protected $labelsType = Label::class;
-  protected $labelsDataType = 'array';
-
-  /**
-   * @param Label[]
-   */
-  public function setLabels($labels)
-  {
-    $this->labels = $labels;
-  }
-  /**
-   * @return Label[]
-   */
-  public function getLabels()
-  {
-    return $this->labels;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileLabelInfo extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'labels';
+    protected $labelsType = Label::class;
+    protected $labelsDataType = 'array';
+    /**
+     * @param Label[]
+     */
+    public function setLabels($labels)
+    {
+        $this->labels = $labels;
+    }
+    /**
+     * @return Label[]
+     */
+    public function getLabels()
+    {
+        return $this->labels;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileLabelInfo::class, 'Google_Service_Drive_DriveFileLabelInfo');
+class_alias(DriveFileLabelInfo::class, 'XCloner\Google_Service_Drive_DriveFileLabelInfo');

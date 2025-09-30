@@ -1,8 +1,14 @@
 {
-    "name": "microsoft/azure-storage-blob",
+    "name": "microsoft\/azure-storage-blob",
     "version": "1.5.4",
     "description": "This project provides a set of PHP client libraries that make it easy to access Microsoft Azure Storage Blob APIs.",
-    "keywords": [ "php", "azure", "storage", "sdk", "blob" ],
+    "keywords": [
+        "php",
+        "azure",
+        "storage",
+        "sdk",
+        "blob"
+    ],
     "license": "MIT",
     "authors": [
         {
@@ -12,11 +18,11 @@
     ],
     "require": {
         "php": ">=5.6.0",
-        "microsoft/azure-storage-common": "~1.5"
+        "microsoft\/azure-storage-common": "~1.5"
     },
     "autoload": {
         "psr-4": {
-            "MicrosoftAzure\\Storage\\Blob\\": "src/Blob"
+            "XCloner\\MicrosoftAzure\\Storage\\Blob\\": "src\/Blob"
         }
     }
 }

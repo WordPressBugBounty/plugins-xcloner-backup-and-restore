@@ -22,12 +22,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal;
 
-namespace MicrosoftAzure\Storage\Common\Internal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Base class for all REST services settings.
  *
@@ -61,11 +60,8 @@ abstract class ServiceSettings
      */
     protected static function noMatch($connectionString)
     {
-        throw new \RuntimeException(
-            sprintf(Resources::MISSING_CONNECTION_STRING_SETTINGS, $connectionString)
-        );
+        throw new \RuntimeException(sprintf(Resources::MISSING_CONNECTION_STRING_SETTINGS, $connectionString));
     }
-
     /**
      * Parses the connection string and then validate that the parsed keys belong to
      * the $validSettingKeys
@@ -81,30 +77,17 @@ abstract class ServiceSettings
         // Initialize the static values if they are not initialized yet.
         if (!static::$isInitialized) {
             static::init();
-            static::$isInitialized = true;
+            static::$isInitialized = \true;
         }
-
-        $tokenizedSettings = ConnectionStringParser::parseConnectionString(
-            'connectionString',
-            $connectionString
-        );
-
+        $tokenizedSettings = ConnectionStringParser::parseConnectionString('connectionString', $connectionString);
         // Assure that all given keys are valid.
         foreach ($tokenizedSettings as $key => $value) {
             if (!Utilities::inArrayInsensitive($key, static::$validSettingKeys)) {
-                throw new \RuntimeException(
-                    sprintf(
-                        Resources::INVALID_CONNECTION_STRING_SETTING_KEY,
-                        $key,
-                        implode("\n", static::$validSettingKeys)
-                    )
-                );
+                throw new \RuntimeException(sprintf(Resources::INVALID_CONNECTION_STRING_SETTING_KEY, $key, implode("\n", static::$validSettingKeys)));
             }
         }
-
         return $tokenizedSettings;
     }
-
     /**
      * Creates an anonymous function that acts as predicate.
      *
@@ -116,38 +99,28 @@ abstract class ServiceSettings
      *
      * @return callable
      */
-    protected static function getValidator(
-        array $requirements,
-        $isRequired,
-        $atLeastOne
-    ) {
+    protected static function getValidator(array $requirements, $isRequired, $atLeastOne)
+    {
         // @codingStandardsIgnoreStart
-
         return function ($userSettings) use ($requirements, $isRequired, $atLeastOne) {
-            $oneFound = false;
-            $result   = array_change_key_case($userSettings);
+            $oneFound = \false;
+            $result = array_change_key_case($userSettings);
             foreach ($requirements as $requirement) {
                 $settingName = strtolower($requirement[Resources::SETTING_NAME]);
-
                 // Check if the setting name exists in the provided user settings.
                 if (array_key_exists($settingName, $result)) {
                     // Check if the provided user setting value is valid.
                     $validationFunc = $requirement[Resources::SETTING_CONSTRAINT];
-                    $isValid        = $validationFunc($result[$settingName]);
-
+                    $isValid = $validationFunc($result[$settingName]);
                     if ($isValid) {
                         // Remove the setting as indicator for successful validation.
                         unset($result[$settingName]);
-                        $oneFound = true;
+                        $oneFound = \true;
                     }
-                } else {
-                    // If required then fail because the setting does not exist
-                    if ($isRequired) {
-                        return null;
-                    }
+                } else if ($isRequired) {
+                    return null;
                 }
             }
-
             if ($atLeastOne) {
                 // At least one requirement must succeed, otherwise fail.
                 return $oneFound ? $result : null;
@@ -155,10 +128,8 @@ abstract class ServiceSettings
                 return $result;
             }
         };
-
         // @codingStandardsIgnoreEnd
     }
-
     /**
      * Creates at lease one succeed predicate for the provided list of requirements.
      *
@@ -167,9 +138,8 @@ abstract class ServiceSettings
     protected static function atLeastOne()
     {
         $allSettings = func_get_args();
-        return self::getValidator($allSettings, false, true);
+        return self::getValidator($allSettings, \false, \true);
     }
-
     /**
      * Creates an optional predicate for the provided list of requirements.
      *
@@ -178,9 +148,8 @@ abstract class ServiceSettings
     protected static function optional()
     {
         $optionalSettings = func_get_args();
-        return self::getValidator($optionalSettings, false, false);
+        return self::getValidator($optionalSettings, \false, \false);
     }
-
     /**
      * Creates an required predicate for the provided list of requirements.
      *
@@ -189,9 +158,8 @@ abstract class ServiceSettings
     protected static function allRequired()
     {
         $requiredSettings = func_get_args();
-        return self::getValidator($requiredSettings, true, false);
+        return self::getValidator($requiredSettings, \true, \false);
     }
-
     /**
      * Creates a setting value condition using the passed predicate.
      *
@@ -202,13 +170,11 @@ abstract class ServiceSettings
      */
     protected static function settingWithFunc($name, $predicate)
     {
-        $requirement                                = array();
-        $requirement[Resources::SETTING_NAME]       = $name;
+        $requirement = array();
+        $requirement[Resources::SETTING_NAME] = $name;
         $requirement[Resources::SETTING_CONSTRAINT] = $predicate;
-
         return $requirement;
     }
-
     /**
      * Creates a setting value condition that validates it is one of the
      * passed valid values.
@@ -220,43 +186,29 @@ abstract class ServiceSettings
     protected static function setting($name)
     {
         $validValues = func_get_args();
-
         // Remove $name argument.
         unset($validValues[0]);
-
         $validValuesCount = func_num_args();
-
         $predicate = function ($settingValue) use ($validValuesCount, $validValues) {
             if (empty($validValues)) {
                 // No restrictions, succeed,
-                return true;
+                return \true;
             }
-
             // Check to find if the $settingValue is valid or not. The index must
             // start from 1 as unset deletes the value but does not update the array
             // indecies.
             for ($index = 1; $index < $validValuesCount; $index++) {
                 if ($settingValue == $validValues[$index]) {
                     // $settingValue is found in valid values set, succeed.
-                    return true;
+                    return \true;
                 }
             }
-
-            throw new \RuntimeException(
-                sprintf(
-                    Resources::INVALID_CONFIG_VALUE,
-                    $settingValue,
-                    implode("\n", $validValues)
-                )
-            );
-
+            throw new \RuntimeException(sprintf(Resources::INVALID_CONFIG_VALUE, $settingValue, implode("\n", $validValues)));
             // $settingValue is missing in valid values set, fail.
-            return false;
+            return \false;
         };
-
         return self::settingWithFunc($name, $predicate);
     }
-
     /**
      * Tests to see if a given list of settings matches a set of filters exactly.
      *
@@ -268,24 +220,19 @@ abstract class ServiceSettings
     protected static function matchedSpecification(array $settings)
     {
         $constraints = func_get_args();
-
         // Remove first element which corresponds to $settings
         unset($constraints[0]);
-
         foreach ($constraints as $constraint) {
             $remainingSettings = $constraint($settings);
-
             if (is_null($remainingSettings)) {
-                return false;
+                return \false;
             } else {
                 $settings = $remainingSettings;
             }
         }
-
         if (empty($settings)) {
-            return true;
+            return \true;
         }
-
-        return false;
+        return \false;
     }
 }

@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Authentication;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Authentication;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\Psr7\Request;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Psr7\Request;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Azure authentication scheme for token credential.
  *
@@ -48,7 +46,6 @@ class TokenAuthScheme implements IAuthScheme
      * The authentication token
      */
     protected $tokenRef;
-
     /**
      * Constructor.
      *
@@ -58,7 +55,6 @@ class TokenAuthScheme implements IAuthScheme
     {
         $this->tokenRef =& $token;
     }
-
     /**
      * Adds authentication header to the request headers.
      *
@@ -70,7 +66,7 @@ class TokenAuthScheme implements IAuthScheme
      */
     public function signRequest(Request $request)
     {
-        $bearerToken = "Bearer ". $this->tokenRef;
+        $bearerToken = "Bearer " . $this->tokenRef;
         return $request->withHeader(Resources::AUTHENTICATION, $bearerToken);
     }
 }

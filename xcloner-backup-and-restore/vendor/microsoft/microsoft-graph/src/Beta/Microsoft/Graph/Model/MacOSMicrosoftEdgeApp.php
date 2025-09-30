@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSMicrosoftEdgeApp class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSMicrosoftEdgeApp extends MobileApp
 {
     /**
-    * Gets the channel
-    * The channel to install on target devices. Possible values are: dev, beta, stable.
-    *
-    * @return MicrosoftEdgeChannel|null The channel
-    */
+     * Gets the channel
+     * The channel to install on target devices. Possible values are: dev, beta, stable.
+     *
+     * @return MicrosoftEdgeChannel|null The channel
+     */
     public function getChannel()
     {
         if (array_key_exists("channel", $this->_propDict)) {
-            if (is_a($this->_propDict["channel"], "\Beta\Microsoft\Graph\Model\MicrosoftEdgeChannel") || is_null($this->_propDict["channel"])) {
+            if (is_a($this->_propDict["channel"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MicrosoftEdgeChannel") || is_null($this->_propDict["channel"])) {
                 return $this->_propDict["channel"];
             } else {
                 $this->_propDict["channel"] = new MicrosoftEdgeChannel($this->_propDict["channel"]);
@@ -45,19 +46,17 @@ class MacOSMicrosoftEdgeApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the channel
-    * The channel to install on target devices. Possible values are: dev, beta, stable.
-    *
-    * @param MicrosoftEdgeChannel $val The channel
-    *
-    * @return MacOSMicrosoftEdgeApp
-    */
+     * Sets the channel
+     * The channel to install on target devices. Possible values are: dev, beta, stable.
+     *
+     * @param MicrosoftEdgeChannel $val The channel
+     *
+     * @return MacOSMicrosoftEdgeApp
+     */
     public function setChannel($val)
     {
         $this->_propDict["channel"] = $val;
         return $this;
     }
-
 }

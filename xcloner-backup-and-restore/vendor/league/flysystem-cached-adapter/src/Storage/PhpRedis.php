@@ -1,29 +1,25 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Redis;
-
 class PhpRedis extends AbstractCache
 {
     /**
      * @var Redis PhpRedis Client
      */
     protected $client;
-
     /**
      * @var string storage key
      */
     protected $key;
-
     /**
      * @var int|null seconds until cache expiration
      */
     protected $expire;
-
     /**
      * Constructor.
      *
@@ -37,19 +33,16 @@ class PhpRedis extends AbstractCache
         $this->key = $key;
         $this->expire = $expire;
     }
-
     /**
      * {@inheritdoc}
      */
     public function load()
     {
         $contents = $this->client->get($this->key);
-
-        if ($contents !== false) {
+        if ($contents !== \false) {
             $this->setFromStorage($contents);
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -57,7 +50,6 @@ class PhpRedis extends AbstractCache
     {
         $contents = $this->getForStorage();
         $this->client->set($this->key, $contents);
-
         if ($this->expire !== null) {
             $this->client->expire($this->key, $this->expire);
         }

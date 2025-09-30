@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DataStoreField class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DataStoreField extends Entity
 {
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -39,24 +41,23 @@ class DataStoreField extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return DataStoreField
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return DataStoreField
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the searchable
-    *
-    * @return bool|null The searchable
-    */
+     * Gets the searchable
+     *
+     * @return bool|null The searchable
+     */
     public function getSearchable()
     {
         if (array_key_exists("searchable", $this->_propDict)) {
@@ -65,24 +66,23 @@ class DataStoreField extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the searchable
-    *
-    * @param bool $val The value of the searchable
-    *
-    * @return DataStoreField
-    */
+     * Sets the searchable
+     *
+     * @param bool $val The value of the searchable
+     *
+     * @return DataStoreField
+     */
     public function setSearchable($val)
     {
         $this->_propDict["searchable"] = $val;
         return $this;
     }
     /**
-    * Gets the unique
-    *
-    * @return bool|null The unique
-    */
+     * Gets the unique
+     *
+     * @return bool|null The unique
+     */
     public function getUnique()
     {
         if (array_key_exists("unique", $this->_propDict)) {
@@ -91,14 +91,13 @@ class DataStoreField extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unique
-    *
-    * @param bool $val The value of the unique
-    *
-    * @return DataStoreField
-    */
+     * Sets the unique
+     *
+     * @param bool $val The value of the unique
+     *
+     * @return DataStoreField
+     */
     public function setUnique($val)
     {
         $this->_propDict["unique"] = $val;

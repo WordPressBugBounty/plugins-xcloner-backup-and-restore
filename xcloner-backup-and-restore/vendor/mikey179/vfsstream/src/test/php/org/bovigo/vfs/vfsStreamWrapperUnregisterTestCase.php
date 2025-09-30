@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,17 +8,16 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
  */
-class vfsStreamWrapperUnregisterTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperUnregisterTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
-
     /**
      * Unregistering a registered URL wrapper.
      *
@@ -29,7 +29,6 @@ class vfsStreamWrapperUnregisterTestCase extends \BC_PHPUnit_Framework_TestCase
         vfsStreamWrapper::unregister();
         $this->assertNotContains(vfsStream::SCHEME, stream_get_wrappers());
     }
-
     /**
      * Unregistering a third party wrapper for vfs:// fails.
      *
@@ -41,13 +40,10 @@ class vfsStreamWrapperUnregisterTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         // Unregister possible registered URL wrapper.
         vfsStreamWrapper::unregister();
-
-        $mock = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamWrapper');
+        $mock = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamWrapper');
         stream_wrapper_register(vfsStream::SCHEME, get_class($mock));
-
         vfsStreamWrapper::unregister();
     }
-
     /**
      * Unregistering when not in registered state will fail.
      *
@@ -61,7 +57,6 @@ class vfsStreamWrapperUnregisterTestCase extends \BC_PHPUnit_Framework_TestCase
         stream_wrapper_unregister(vfsStream::SCHEME);
         vfsStreamWrapper::unregister();
     }
-
     /**
      * Unregistering while not registers won't fail.
      *
@@ -71,7 +66,6 @@ class vfsStreamWrapperUnregisterTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         // Unregister possible registered URL wrapper.
         vfsStreamWrapper::unregister();
-
         $this->assertNotContains(vfsStream::SCHEME, stream_get_wrappers());
         vfsStreamWrapper::unregister();
     }

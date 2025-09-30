@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSSystemExtension class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSSystemExtension extends Entity
 {
     /**
-    * Gets the bundleId
-    * Gets or sets the bundle identifier of the system extension.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * Gets or sets the bundle identifier of the system extension.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MacOSSystemExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * Gets or sets the bundle identifier of the system extension.
-    *
-    * @param string $val The value of the bundleId
-    *
-    * @return MacOSSystemExtension
-    */
+     * Sets the bundleId
+     * Gets or sets the bundle identifier of the system extension.
+     *
+     * @param string $val The value of the bundleId
+     *
+     * @return MacOSSystemExtension
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
     /**
-    * Gets the teamIdentifier
-    * Gets or sets the team identifier that was used to sign the system extension.
-    *
-    * @return string|null The teamIdentifier
-    */
+     * Gets the teamIdentifier
+     * Gets or sets the team identifier that was used to sign the system extension.
+     *
+     * @return string|null The teamIdentifier
+     */
     public function getTeamIdentifier()
     {
         if (array_key_exists("teamIdentifier", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MacOSSystemExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the teamIdentifier
-    * Gets or sets the team identifier that was used to sign the system extension.
-    *
-    * @param string $val The value of the teamIdentifier
-    *
-    * @return MacOSSystemExtension
-    */
+     * Sets the teamIdentifier
+     * Gets or sets the team identifier that was used to sign the system extension.
+     *
+     * @param string $val The value of the teamIdentifier
+     *
+     * @return MacOSSystemExtension
+     */
     public function setTeamIdentifier($val)
     {
         $this->_propDict["teamIdentifier"] = $val;

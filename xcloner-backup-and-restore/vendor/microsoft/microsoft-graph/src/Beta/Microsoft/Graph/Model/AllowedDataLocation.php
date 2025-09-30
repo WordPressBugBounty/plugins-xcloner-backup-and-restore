@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AllowedDataLocation class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AllowedDataLocation extends Entity
 {
     /**
-    * Gets the appId
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -40,25 +41,23 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    *
-    * @param string $val The appId
-    *
-    * @return AllowedDataLocation
-    */
+     * Sets the appId
+     *
+     * @param string $val The appId
+     *
+     * @return AllowedDataLocation
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the domain
-    *
-    * @return string|null The domain
-    */
+     * Gets the domain
+     *
+     * @return string|null The domain
+     */
     public function getDomain()
     {
         if (array_key_exists("domain", $this->_propDict)) {
@@ -67,25 +66,23 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the domain
-    *
-    * @param string $val The domain
-    *
-    * @return AllowedDataLocation
-    */
+     * Sets the domain
+     *
+     * @param string $val The domain
+     *
+     * @return AllowedDataLocation
+     */
     public function setDomain($val)
     {
         $this->_propDict["domain"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isDefault
-    *
-    * @return bool|null The isDefault
-    */
+     * Gets the isDefault
+     *
+     * @return bool|null The isDefault
+     */
     public function getIsDefault()
     {
         if (array_key_exists("isDefault", $this->_propDict)) {
@@ -94,25 +91,23 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isDefault
-    *
-    * @param bool $val The isDefault
-    *
-    * @return AllowedDataLocation
-    */
+     * Sets the isDefault
+     *
+     * @param bool $val The isDefault
+     *
+     * @return AllowedDataLocation
+     */
     public function setIsDefault($val)
     {
         $this->_propDict["isDefault"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the location
-    *
-    * @return string|null The location
-    */
+     * Gets the location
+     *
+     * @return string|null The location
+     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
@@ -121,18 +116,16 @@ class AllowedDataLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the location
-    *
-    * @param string $val The location
-    *
-    * @return AllowedDataLocation
-    */
+     * Sets the location
+     *
+     * @param string $val The location
+     *
+     * @return AllowedDataLocation
+     */
     public function setLocation($val)
     {
         $this->_propDict["location"] = $val;
         return $this;
     }
-
 }

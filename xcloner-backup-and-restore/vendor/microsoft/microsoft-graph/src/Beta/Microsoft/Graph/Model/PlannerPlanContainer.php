@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerPlanContainer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerPlanContainer extends Entity
 {
     /**
-    * Gets the containerId
-    * The identifier of the resource that contains the plan.
-    *
-    * @return string|null The containerId
-    */
+     * Gets the containerId
+     * The identifier of the resource that contains the plan.
+     *
+     * @return string|null The containerId
+     */
     public function getContainerId()
     {
         if (array_key_exists("containerId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PlannerPlanContainer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the containerId
-    * The identifier of the resource that contains the plan.
-    *
-    * @param string $val The value of the containerId
-    *
-    * @return PlannerPlanContainer
-    */
+     * Sets the containerId
+     * The identifier of the resource that contains the plan.
+     *
+     * @param string $val The value of the containerId
+     *
+     * @return PlannerPlanContainer
+     */
     public function setContainerId($val)
     {
         $this->_propDict["containerId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
-    *
-    * @return PlannerContainerType|null The type
-    */
+     * Gets the type
+     * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     *
+     * @return PlannerContainerType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PlannerContainerType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PlannerContainerType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PlannerContainerType($this->_propDict["type"]);
@@ -73,26 +73,25 @@ class PlannerPlanContainer extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
-    *
-    * @param PlannerContainerType $val The value to assign to the type
-    *
-    * @return PlannerPlanContainer The PlannerPlanContainer
-    */
+     * Sets the type
+     * The type of the resource that contains the plan. See the previous table for supported types. Possible values are: group, unknownFutureValue, roster. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: roster.
+     *
+     * @param PlannerContainerType $val The value to assign to the type
+     *
+     * @return PlannerPlanContainer The PlannerPlanContainer
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the url
-    * The full canonical URL of the container.
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * The full canonical URL of the container.
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -101,15 +100,14 @@ class PlannerPlanContainer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * The full canonical URL of the container.
-    *
-    * @param string $val The value of the url
-    *
-    * @return PlannerPlanContainer
-    */
+     * Sets the url
+     * The full canonical URL of the container.
+     *
+     * @param string $val The value of the url
+     *
+     * @return PlannerPlanContainer
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;

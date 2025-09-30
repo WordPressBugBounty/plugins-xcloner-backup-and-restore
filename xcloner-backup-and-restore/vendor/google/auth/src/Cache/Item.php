@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2016 Google Inc.
  *
@@ -14,18 +15,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth\Cache;
 
-namespace Google\Auth\Cache;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTime;
 use DateTimeInterface;
 use DateTimeZone;
-use Psr\Cache\CacheItemInterface;
+use XCloner\Psr\Cache\CacheItemInterface;
 use TypeError;
-
 /**
  * A cache item.
  *
@@ -39,22 +38,18 @@ final class Item implements CacheItemInterface
      * @var string
      */
     private $key;
-
     /**
      * @var mixed
      */
     private $value;
-
     /**
      * @var DateTimeInterface|null
      */
     private $expiration;
-
     /**
      * @var bool
      */
-    private $isHit = false;
-
+    private $isHit = \false;
     /**
      * @param string $key
      */
@@ -62,7 +57,6 @@ final class Item implements CacheItemInterface
     {
         $this->key = $key;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -70,7 +64,6 @@ final class Item implements CacheItemInterface
     {
         return $this->key;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -78,34 +71,28 @@ final class Item implements CacheItemInterface
     {
         return $this->isHit() ? $this->value : null;
     }
-
     /**
      * {@inheritdoc}
      */
     public function isHit()
     {
         if (!$this->isHit) {
-            return false;
+            return \false;
         }
-
         if ($this->expiration === null) {
-            return true;
+            return \true;
         }
-
         return $this->currentTime()->getTimestamp() < $this->expiration->getTimestamp();
     }
-
     /**
      * {@inheritdoc}
      */
     public function set($value)
     {
-        $this->isHit = true;
+        $this->isHit = \true;
         $this->value = $value;
-
         return $this;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -113,19 +100,11 @@ final class Item implements CacheItemInterface
     {
         if ($this->isValidExpiration($expiration)) {
             $this->expiration = $expiration;
-
             return $this;
         }
-
-        $error = sprintf(
-            'Argument 1 passed to %s::expiresAt() must implement interface DateTimeInterface, %s given',
-            get_class($this),
-            gettype($expiration)
-        );
-
+        $error = sprintf('Argument 1 passed to %s::expiresAt() must implement interface DateTimeInterface, %s given', get_class($this), gettype($expiration));
         throw new TypeError($error);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -138,16 +117,12 @@ final class Item implements CacheItemInterface
         } elseif ($time === null) {
             $this->expiration = $time;
         } else {
-            $message = 'Argument 1 passed to %s::expiresAfter() must be an ' .
-                       'instance of DateInterval or of the type integer, %s given';
+            $message = 'Argument 1 passed to %s::expiresAfter() must be an ' . 'instance of DateInterval or of the type integer, %s given';
             $error = sprintf($message, get_class($this), gettype($time));
-
             throw new TypeError($error);
         }
-
         return $this;
     }
-
     /**
      * Determines if an expiration is valid based on the rules defined by PSR6.
      *
@@ -157,16 +132,13 @@ final class Item implements CacheItemInterface
     private function isValidExpiration($expiration)
     {
         if ($expiration === null) {
-            return true;
+            return \true;
         }
-
         if ($expiration instanceof DateTimeInterface) {
-            return true;
+            return \true;
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * @return DateTime
      */

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DecisionItemPrincipalResourceMembership class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DecisionItemPrincipalResourceMembership extends Entity
 {
-
     /**
-    * Gets the membershipType
-    * Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
-    *
-    * @return DecisionItemPrincipalResourceMembershipType|null The membershipType
-    */
+     * Gets the membershipType
+     * Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
+     *
+     * @return DecisionItemPrincipalResourceMembershipType|null The membershipType
+     */
     public function getMembershipType()
     {
         if (array_key_exists("membershipType", $this->_propDict)) {
-            if (is_a($this->_propDict["membershipType"], "\Beta\Microsoft\Graph\Model\DecisionItemPrincipalResourceMembershipType") || is_null($this->_propDict["membershipType"])) {
+            if (is_a($this->_propDict["membershipType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DecisionItemPrincipalResourceMembershipType") || is_null($this->_propDict["membershipType"])) {
                 return $this->_propDict["membershipType"];
             } else {
                 $this->_propDict["membershipType"] = new DecisionItemPrincipalResourceMembershipType($this->_propDict["membershipType"]);
@@ -45,18 +46,17 @@ class DecisionItemPrincipalResourceMembership extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the membershipType
-    * Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
-    *
-    * @param DecisionItemPrincipalResourceMembershipType $val The value to assign to the membershipType
-    *
-    * @return DecisionItemPrincipalResourceMembership The DecisionItemPrincipalResourceMembership
-    */
+     * Sets the membershipType
+     * Type of membership that the principal has to the resource. Multi-valued. The possible values are: direct, indirect, unknownFutureValue.
+     *
+     * @param DecisionItemPrincipalResourceMembershipType $val The value to assign to the membershipType
+     *
+     * @return DecisionItemPrincipalResourceMembership The DecisionItemPrincipalResourceMembership
+     */
     public function setMembershipType($val)
     {
         $this->_propDict["membershipType"] = $val;
-         return $this;
+        return $this;
     }
 }

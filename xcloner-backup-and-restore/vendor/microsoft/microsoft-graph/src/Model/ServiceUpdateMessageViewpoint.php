@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ServiceUpdateMessageViewpoint class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ServiceUpdateMessageViewpoint extends Entity
 {
     /**
-    * Gets the isArchived
-    * Indicates whether the user archived the message.
-    *
-    * @return bool|null The isArchived
-    */
+     * Gets the isArchived
+     * Indicates whether the user archived the message.
+     *
+     * @return bool|null The isArchived
+     */
     public function getIsArchived()
     {
         if (array_key_exists("isArchived", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ServiceUpdateMessageViewpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isArchived
-    * Indicates whether the user archived the message.
-    *
-    * @param bool $val The value of the isArchived
-    *
-    * @return ServiceUpdateMessageViewpoint
-    */
+     * Sets the isArchived
+     * Indicates whether the user archived the message.
+     *
+     * @param bool $val The value of the isArchived
+     *
+     * @return ServiceUpdateMessageViewpoint
+     */
     public function setIsArchived($val)
     {
         $this->_propDict["isArchived"] = $val;
         return $this;
     }
     /**
-    * Gets the isFavorited
-    * Indicates whether the user marked the message as favorite.
-    *
-    * @return bool|null The isFavorited
-    */
+     * Gets the isFavorited
+     * Indicates whether the user marked the message as favorite.
+     *
+     * @return bool|null The isFavorited
+     */
     public function getIsFavorited()
     {
         if (array_key_exists("isFavorited", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ServiceUpdateMessageViewpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isFavorited
-    * Indicates whether the user marked the message as favorite.
-    *
-    * @param bool $val The value of the isFavorited
-    *
-    * @return ServiceUpdateMessageViewpoint
-    */
+     * Sets the isFavorited
+     * Indicates whether the user marked the message as favorite.
+     *
+     * @param bool $val The value of the isFavorited
+     *
+     * @return ServiceUpdateMessageViewpoint
+     */
     public function setIsFavorited($val)
     {
         $this->_propDict["isFavorited"] = $val;
         return $this;
     }
     /**
-    * Gets the isRead
-    * Indicates whether the user read the message.
-    *
-    * @return bool|null The isRead
-    */
+     * Gets the isRead
+     * Indicates whether the user read the message.
+     *
+     * @return bool|null The isRead
+     */
     public function getIsRead()
     {
         if (array_key_exists("isRead", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ServiceUpdateMessageViewpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRead
-    * Indicates whether the user read the message.
-    *
-    * @param bool $val The value of the isRead
-    *
-    * @return ServiceUpdateMessageViewpoint
-    */
+     * Sets the isRead
+     * Indicates whether the user read the message.
+     *
+     * @param bool $val The value of the isRead
+     *
+     * @return ServiceUpdateMessageViewpoint
+     */
     public function setIsRead($val)
     {
         $this->_propDict["isRead"] = $val;

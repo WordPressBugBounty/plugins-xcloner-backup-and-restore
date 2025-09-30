@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosHomeScreenPage class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosHomeScreenPage extends Entity
 {
     /**
-    * Gets the displayName
-    * Name of the page
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the page
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,31 +42,29 @@ class IosHomeScreenPage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the page
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return IosHomeScreenPage
-    */
+     * Sets the displayName
+     * Name of the page
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return IosHomeScreenPage
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the icons
-    * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
-    *
-    * @return IosHomeScreenItem|null The icons
-    */
+     * Gets the icons
+     * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
+     *
+     * @return IosHomeScreenItem|null The icons
+     */
     public function getIcons()
     {
         if (array_key_exists("icons", $this->_propDict)) {
-            if (is_a($this->_propDict["icons"], "\Beta\Microsoft\Graph\Model\IosHomeScreenItem") || is_null($this->_propDict["icons"])) {
+            if (is_a($this->_propDict["icons"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IosHomeScreenItem") || is_null($this->_propDict["icons"])) {
                 return $this->_propDict["icons"];
             } else {
                 $this->_propDict["icons"] = new IosHomeScreenItem($this->_propDict["icons"]);
@@ -73,18 +73,17 @@ class IosHomeScreenPage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the icons
-    * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
-    *
-    * @param IosHomeScreenItem $val The value to assign to the icons
-    *
-    * @return IosHomeScreenPage The IosHomeScreenPage
-    */
+     * Sets the icons
+     * A list of apps, folders, and web clips to appear on a page. This collection can contain a maximum of 500 elements.
+     *
+     * @param IosHomeScreenItem $val The value to assign to the icons
+     *
+     * @return IosHomeScreenPage The IosHomeScreenPage
+     */
     public function setIcons($val)
     {
         $this->_propDict["icons"] = $val;
-         return $this;
+        return $this;
     }
 }

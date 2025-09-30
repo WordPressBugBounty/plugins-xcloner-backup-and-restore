@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml;
 
-namespace Sabre\DAV\Xml;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * XML service for WebDAV.
  *
@@ -14,7 +13,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-class Service extends \Sabre\Xml\Service
+class Service extends \XCloner\Sabre\Xml\Service
 {
     /**
      * This is a list of XML elements that we automatically map to PHP classes.
@@ -23,18 +22,15 @@ class Service extends \Sabre\Xml\Service
      * be mapped to Sabre\DAV\Xml\Request\PropFind
      */
     public $elementMap = [
-        '{DAV:}multistatus' => 'Sabre\\DAV\\Xml\\Response\\MultiStatus',
-        '{DAV:}response' => 'Sabre\\DAV\\Xml\\Element\\Response',
-
+        '{DAV:}multistatus' => 'XCloner\Sabre\DAV\Xml\Response\MultiStatus',
+        '{DAV:}response' => 'XCloner\Sabre\DAV\Xml\Element\Response',
         // Requests
-        '{DAV:}propfind' => 'Sabre\\DAV\\Xml\\Request\\PropFind',
-        '{DAV:}propertyupdate' => 'Sabre\\DAV\\Xml\\Request\\PropPatch',
-        '{DAV:}mkcol' => 'Sabre\\DAV\\Xml\\Request\\MkCol',
-
+        '{DAV:}propfind' => 'XCloner\Sabre\DAV\Xml\Request\PropFind',
+        '{DAV:}propertyupdate' => 'XCloner\Sabre\DAV\Xml\Request\PropPatch',
+        '{DAV:}mkcol' => 'XCloner\Sabre\DAV\Xml\Request\MkCol',
         // Properties
-        '{DAV:}resourcetype' => 'Sabre\\DAV\\Xml\\Property\\ResourceType',
+        '{DAV:}resourcetype' => 'XCloner\Sabre\DAV\Xml\Property\ResourceType',
     ];
-
     /**
      * This is a default list of namespaces.
      *
@@ -43,8 +39,5 @@ class Service extends \Sabre\Xml\Service
      *
      * @var array
      */
-    public $namespaceMap = [
-        'DAV:' => 'd',
-        'http://sabredav.org/ns' => 's',
-    ];
+    public $namespaceMap = ['DAV:' => 'd', 'http://sabredav.org/ns' => 's'];
 }

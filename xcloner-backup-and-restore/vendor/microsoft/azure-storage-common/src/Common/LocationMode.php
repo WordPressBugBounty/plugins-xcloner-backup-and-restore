@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common;
 
-namespace MicrosoftAzure\Storage\Common;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Location mode for the service.
  *
@@ -41,15 +40,12 @@ class LocationMode
 {
     //Request will only be sent to primary endpoint, except for
     //getServiceStats APIs.
-    const PRIMARY_ONLY           = 'PrimaryOnly';
-
+    const PRIMARY_ONLY = 'PrimaryOnly';
     //Request will only be sent to secondary endpoint.
-    const SECONDARY_ONLY         = 'SecondaryOnly';
-
+    const SECONDARY_ONLY = 'SecondaryOnly';
     //Request will be sent to primary endpoint first, and retry for secondary
     //endpoint.
     const PRIMARY_THEN_SECONDARY = 'PrimaryThenSecondary';
-
     //Request will be sent to secondary endpoint first, and retry for primary
     //endpoint.
     const SECONDARY_THEN_PRIMARY = 'SecondaryThenPrimary';

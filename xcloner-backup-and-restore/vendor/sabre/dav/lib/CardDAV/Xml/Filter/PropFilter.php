@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV\Xml\Filter;
 
-namespace Sabre\CardDAV\Xml\Filter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CardDAV\Plugin;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CardDAV\Plugin;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * PropFilter parser.
  *
@@ -50,49 +48,32 @@ class PropFilter implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $result = [
-            'name' => null,
-            'test' => 'anyof',
-            'is-not-defined' => false,
-            'param-filters' => [],
-            'text-matches' => [],
-        ];
-
+        $result = ['name' => null, 'test' => 'anyof', 'is-not-defined' => \false, 'param-filters' => [], 'text-matches' => []];
         $att = $reader->parseAttributes();
         $result['name'] = $att['name'];
-
         if (isset($att['test']) && 'allof' === $att['test']) {
             $result['test'] = 'allof';
         }
-
         $elems = $reader->parseInnerTree();
-
         if (is_array($elems)) {
             foreach ($elems as $elem) {
                 switch ($elem['name']) {
-                case '{'.Plugin::NS_CARDDAV.'}param-filter':
-                    $result['param-filters'][] = $elem['value'];
-                    break;
-                case '{'.Plugin::NS_CARDDAV.'}is-not-defined':
-                    $result['is-not-defined'] = true;
-                    break;
-                case '{'.Plugin::NS_CARDDAV.'}text-match':
-                    $matchType = isset($elem['attributes']['match-type']) ? $elem['attributes']['match-type'] : 'contains';
-
-                    if (!in_array($matchType, ['contains', 'equals', 'starts-with', 'ends-with'])) {
-                        throw new BadRequest('Unknown match-type: '.$matchType);
-                    }
-                    $result['text-matches'][] = [
-                        'negate-condition' => isset($elem['attributes']['negate-condition']) && 'yes' === $elem['attributes']['negate-condition'],
-                        'collation' => isset($elem['attributes']['collation']) ? $elem['attributes']['collation'] : 'i;unicode-casemap',
-                        'value' => $elem['value'],
-                        'match-type' => $matchType,
-                    ];
-                    break;
-            }
+                    case '{' . Plugin::NS_CARDDAV . '}param-filter':
+                        $result['param-filters'][] = $elem['value'];
+                        break;
+                    case '{' . Plugin::NS_CARDDAV . '}is-not-defined':
+                        $result['is-not-defined'] = \true;
+                        break;
+                    case '{' . Plugin::NS_CARDDAV . '}text-match':
+                        $matchType = isset($elem['attributes']['match-type']) ? $elem['attributes']['match-type'] : 'contains';
+                        if (!in_array($matchType, ['contains', 'equals', 'starts-with', 'ends-with'])) {
+                            throw new BadRequest('Unknown match-type: ' . $matchType);
+                        }
+                        $result['text-matches'][] = ['negate-condition' => isset($elem['attributes']['negate-condition']) && 'yes' === $elem['attributes']['negate-condition'], 'collation' => isset($elem['attributes']['collation']) ? $elem['attributes']['collation'] : 'i;unicode-casemap', 'value' => $elem['value'], 'match-type' => $matchType];
+                        break;
+                }
             }
         }
-
         return $result;
     }
 }

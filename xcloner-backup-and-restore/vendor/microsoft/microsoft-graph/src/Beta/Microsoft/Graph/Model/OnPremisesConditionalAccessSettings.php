@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnPremisesConditionalAccessSettings class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OnPremisesConditionalAccessSettings extends Entity
 {
     /**
-    * Gets the enabled
-    * Indicates if on premises conditional access is enabled for this organization
-    *
-    * @return bool|null The enabled
-    */
+     * Gets the enabled
+     * Indicates if on premises conditional access is enabled for this organization
+     *
+     * @return bool|null The enabled
+     */
     public function getEnabled()
     {
         if (array_key_exists("enabled", $this->_propDict)) {
@@ -41,27 +42,25 @@ class OnPremisesConditionalAccessSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabled
-    * Indicates if on premises conditional access is enabled for this organization
-    *
-    * @param bool $val The enabled
-    *
-    * @return OnPremisesConditionalAccessSettings
-    */
+     * Sets the enabled
+     * Indicates if on premises conditional access is enabled for this organization
+     *
+     * @param bool $val The enabled
+     *
+     * @return OnPremisesConditionalAccessSettings
+     */
     public function setEnabled($val)
     {
         $this->_propDict["enabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the excludedGroups
-    * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
-    *
-    * @return array|null The excludedGroups
-    */
+     * Gets the excludedGroups
+     * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
+     *
+     * @return array|null The excludedGroups
+     */
     public function getExcludedGroups()
     {
         if (array_key_exists("excludedGroups", $this->_propDict)) {
@@ -70,27 +69,25 @@ class OnPremisesConditionalAccessSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludedGroups
-    * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
-    *
-    * @param string[] $val The excludedGroups
-    *
-    * @return OnPremisesConditionalAccessSettings
-    */
+     * Sets the excludedGroups
+     * User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.
+     *
+     * @param string[] $val The excludedGroups
+     *
+     * @return OnPremisesConditionalAccessSettings
+     */
     public function setExcludedGroups($val)
     {
         $this->_propDict["excludedGroups"] = $val;
         return $this;
     }
-
     /**
-    * Gets the includedGroups
-    * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-    *
-    * @return array|null The includedGroups
-    */
+     * Gets the includedGroups
+     * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+     *
+     * @return array|null The includedGroups
+     */
     public function getIncludedGroups()
     {
         if (array_key_exists("includedGroups", $this->_propDict)) {
@@ -99,27 +96,25 @@ class OnPremisesConditionalAccessSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includedGroups
-    * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
-    *
-    * @param string[] $val The includedGroups
-    *
-    * @return OnPremisesConditionalAccessSettings
-    */
+     * Sets the includedGroups
+     * User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.
+     *
+     * @param string[] $val The includedGroups
+     *
+     * @return OnPremisesConditionalAccessSettings
+     */
     public function setIncludedGroups($val)
     {
         $this->_propDict["includedGroups"] = $val;
         return $this;
     }
-
     /**
-    * Gets the overrideDefaultRule
-    * Override the default access rule when allowing a device to ensure access is granted.
-    *
-    * @return bool|null The overrideDefaultRule
-    */
+     * Gets the overrideDefaultRule
+     * Override the default access rule when allowing a device to ensure access is granted.
+     *
+     * @return bool|null The overrideDefaultRule
+     */
     public function getOverrideDefaultRule()
     {
         if (array_key_exists("overrideDefaultRule", $this->_propDict)) {
@@ -128,19 +123,17 @@ class OnPremisesConditionalAccessSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the overrideDefaultRule
-    * Override the default access rule when allowing a device to ensure access is granted.
-    *
-    * @param bool $val The overrideDefaultRule
-    *
-    * @return OnPremisesConditionalAccessSettings
-    */
+     * Sets the overrideDefaultRule
+     * Override the default access rule when allowing a device to ensure access is granted.
+     *
+     * @param bool $val The overrideDefaultRule
+     *
+     * @return OnPremisesConditionalAccessSettings
+     */
     public function setOverrideDefaultRule($val)
     {
         $this->_propDict["overrideDefaultRule"] = boolval($val);
         return $this;
     }
-
 }

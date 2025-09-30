@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SignInStatus class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SignInStatus extends Entity
 {
     /**
-    * Gets the additionalDetails
-    * Provides additional details on the sign-in activity
-    *
-    * @return string|null The additionalDetails
-    */
+     * Gets the additionalDetails
+     * Provides additional details on the sign-in activity
+     *
+     * @return string|null The additionalDetails
+     */
     public function getAdditionalDetails()
     {
         if (array_key_exists("additionalDetails", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SignInStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the additionalDetails
-    * Provides additional details on the sign-in activity
-    *
-    * @param string $val The value of the additionalDetails
-    *
-    * @return SignInStatus
-    */
+     * Sets the additionalDetails
+     * Provides additional details on the sign-in activity
+     *
+     * @param string $val The value of the additionalDetails
+     *
+     * @return SignInStatus
+     */
     public function setAdditionalDetails($val)
     {
         $this->_propDict["additionalDetails"] = $val;
         return $this;
     }
     /**
-    * Gets the errorCode
-    * Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
-    *
-    * @return int|null The errorCode
-    */
+     * Gets the errorCode
+     * Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
+     *
+     * @return int|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SignInStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
-    *
-    * @param int $val The value of the errorCode
-    *
-    * @return SignInStatus
-    */
+     * Sets the errorCode
+     * Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.
+     *
+     * @param int $val The value of the errorCode
+     *
+     * @return SignInStatus
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
     /**
-    * Gets the failureReason
-    * Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.
-    *
-    * @return string|null The failureReason
-    */
+     * Gets the failureReason
+     * Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.
+     *
+     * @return string|null The failureReason
+     */
     public function getFailureReason()
     {
         if (array_key_exists("failureReason", $this->_propDict)) {
@@ -96,15 +96,14 @@ class SignInStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failureReason
-    * Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.
-    *
-    * @param string $val The value of the failureReason
-    *
-    * @return SignInStatus
-    */
+     * Sets the failureReason
+     * Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.
+     *
+     * @param string $val The value of the failureReason
+     *
+     * @return SignInStatus
+     */
     public function setFailureReason($val)
     {
         $this->_propDict["failureReason"] = $val;

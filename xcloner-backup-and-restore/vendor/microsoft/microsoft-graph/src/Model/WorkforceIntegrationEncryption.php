@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkforceIntegrationEncryption class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WorkforceIntegrationEncryption extends Entity
 {
-
     /**
-    * Gets the protocol
-    * Possible values are: sharedSecret, unknownFutureValue.
-    *
-    * @return WorkforceIntegrationEncryptionProtocol|null The protocol
-    */
+     * Gets the protocol
+     * Possible values are: sharedSecret, unknownFutureValue.
+     *
+     * @return WorkforceIntegrationEncryptionProtocol|null The protocol
+     */
     public function getProtocol()
     {
         if (array_key_exists("protocol", $this->_propDict)) {
-            if (is_a($this->_propDict["protocol"], "\Microsoft\Graph\Model\WorkforceIntegrationEncryptionProtocol") || is_null($this->_propDict["protocol"])) {
+            if (is_a($this->_propDict["protocol"], "XCloner\\Microsoft\\Graph\\Model\\WorkforceIntegrationEncryptionProtocol") || is_null($this->_propDict["protocol"])) {
                 return $this->_propDict["protocol"];
             } else {
                 $this->_propDict["protocol"] = new WorkforceIntegrationEncryptionProtocol($this->_propDict["protocol"]);
@@ -45,26 +46,25 @@ class WorkforceIntegrationEncryption extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the protocol
-    * Possible values are: sharedSecret, unknownFutureValue.
-    *
-    * @param WorkforceIntegrationEncryptionProtocol $val The value to assign to the protocol
-    *
-    * @return WorkforceIntegrationEncryption The WorkforceIntegrationEncryption
-    */
+     * Sets the protocol
+     * Possible values are: sharedSecret, unknownFutureValue.
+     *
+     * @param WorkforceIntegrationEncryptionProtocol $val The value to assign to the protocol
+     *
+     * @return WorkforceIntegrationEncryption The WorkforceIntegrationEncryption
+     */
     public function setProtocol($val)
     {
         $this->_propDict["protocol"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the secret
-    * Encryption shared secret.
-    *
-    * @return string|null The secret
-    */
+     * Gets the secret
+     * Encryption shared secret.
+     *
+     * @return string|null The secret
+     */
     public function getSecret()
     {
         if (array_key_exists("secret", $this->_propDict)) {
@@ -73,15 +73,14 @@ class WorkforceIntegrationEncryption extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the secret
-    * Encryption shared secret.
-    *
-    * @param string $val The value of the secret
-    *
-    * @return WorkforceIntegrationEncryption
-    */
+     * Sets the secret
+     * Encryption shared secret.
+     *
+     * @param string $val The value of the secret
+     *
+     * @return WorkforceIntegrationEncryption
+     */
     public function setSecret($val)
     {
         $this->_propDict["secret"] = $val;

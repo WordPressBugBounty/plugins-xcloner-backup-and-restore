@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcUserRoleScopeTagInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CloudPcUserRoleScopeTagInfo extends Entity
 {
     /**
-    * Gets the displayName
-    * Scope tag display name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Scope tag display name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class CloudPcUserRoleScopeTagInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Scope tag display name.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return CloudPcUserRoleScopeTagInfo
-    */
+     * Sets the displayName
+     * Scope tag display name.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return CloudPcUserRoleScopeTagInfo
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the roleScopeTagId
-    * Scope tag ID.
-    *
-    * @return string|null The roleScopeTagId
-    */
+     * Gets the roleScopeTagId
+     * Scope tag ID.
+     *
+     * @return string|null The roleScopeTagId
+     */
     public function getRoleScopeTagId()
     {
         if (array_key_exists("roleScopeTagId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class CloudPcUserRoleScopeTagInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleScopeTagId
-    * Scope tag ID.
-    *
-    * @param string $val The value of the roleScopeTagId
-    *
-    * @return CloudPcUserRoleScopeTagInfo
-    */
+     * Sets the roleScopeTagId
+     * Scope tag ID.
+     *
+     * @param string $val The value of the roleScopeTagId
+     *
+     * @return CloudPcUserRoleScopeTagInfo
+     */
     public function setRoleScopeTagId($val)
     {
         $this->_propDict["roleScopeTagId"] = $val;

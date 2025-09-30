@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\Parser;
+namespace XCloner\Sabre\VObject\Parser;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Abstract parser.
  *
@@ -24,20 +24,17 @@ abstract class Parser
      * attempt to fix Microsoft vCard 2.1's broken line folding.
      */
     const OPTION_FORGIVING = 1;
-
     /**
      * If this option is turned on, any lines we cannot parse will be ignored
      * by the reader.
      */
     const OPTION_IGNORE_INVALID_LINES = 2;
-
     /**
      * Bitmask of parser options.
      *
      * @var int
      */
     protected $options;
-
     /**
      * Creates the parser.
      *
@@ -53,7 +50,6 @@ abstract class Parser
         }
         $this->options = $options;
     }
-
     /**
      * This method starts the parsing process.
      *
@@ -68,7 +64,6 @@ abstract class Parser
      * @return array
      */
     abstract public function parse($input = null, $options = 0);
-
     /**
      * Sets the input data.
      *

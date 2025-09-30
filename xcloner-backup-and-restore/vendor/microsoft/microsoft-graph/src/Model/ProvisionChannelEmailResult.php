@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProvisionChannelEmailResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProvisionChannelEmailResult extends Entity
 {
     /**
-    * Gets the email
-    * Represents the provisioned email address.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * Represents the provisioned email address.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ProvisionChannelEmailResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * Represents the provisioned email address.
-    *
-    * @param string $val The value of the email
-    *
-    * @return ProvisionChannelEmailResult
-    */
+     * Sets the email
+     * Represents the provisioned email address.
+     *
+     * @param string $val The value of the email
+     *
+     * @return ProvisionChannelEmailResult
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;

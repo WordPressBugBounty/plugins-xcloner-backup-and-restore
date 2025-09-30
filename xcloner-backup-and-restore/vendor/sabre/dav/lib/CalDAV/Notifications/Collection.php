@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Notifications;
 
-namespace Sabre\CalDAV\Notifications;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV;
-use Sabre\DAV;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV;
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
 /**
  * This node represents a list of notifications.
  *
@@ -28,21 +26,18 @@ use Sabre\DAVACL;
 class Collection extends DAV\Collection implements ICollection, DAVACL\IACL
 {
     use DAVACL\ACLTrait;
-
     /**
      * The notification backend.
      *
      * @var CalDAV\Backend\NotificationSupport
      */
     protected $caldavBackend;
-
     /**
      * Principal uri.
      *
      * @var string
      */
     protected $principalUri;
-
     /**
      * Constructor.
      *
@@ -53,7 +48,6 @@ class Collection extends DAV\Collection implements ICollection, DAVACL\IACL
         $this->caldavBackend = $caldavBackend;
         $this->principalUri = $principalUri;
     }
-
     /**
      * Returns all notifications for a principal.
      *
@@ -63,18 +57,11 @@ class Collection extends DAV\Collection implements ICollection, DAVACL\IACL
     {
         $children = [];
         $notifications = $this->caldavBackend->getNotificationsForPrincipal($this->principalUri);
-
         foreach ($notifications as $notification) {
-            $children[] = new Node(
-                $this->caldavBackend,
-                $this->principalUri,
-                $notification
-            );
+            $children[] = new Node($this->caldavBackend, $this->principalUri, $notification);
         }
-
         return $children;
     }
-
     /**
      * Returns the name of this object.
      *
@@ -84,7 +71,6 @@ class Collection extends DAV\Collection implements ICollection, DAVACL\IACL
     {
         return 'notifications';
     }
-
     /**
      * Returns the owner principal.
      *

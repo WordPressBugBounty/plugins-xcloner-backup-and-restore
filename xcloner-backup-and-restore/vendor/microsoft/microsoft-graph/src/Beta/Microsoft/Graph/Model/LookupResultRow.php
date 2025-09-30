@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LookupResultRow class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LookupResultRow extends Entity
 {
     /**
-    * Gets the row
-    *
-    * @return string|null The row
-    */
+     * Gets the row
+     *
+     * @return string|null The row
+     */
     public function getRow()
     {
         if (array_key_exists("row", $this->_propDict)) {
@@ -40,18 +41,16 @@ class LookupResultRow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the row
-    *
-    * @param string $val The row
-    *
-    * @return LookupResultRow
-    */
+     * Sets the row
+     *
+     * @param string $val The row
+     *
+     * @return LookupResultRow
+     */
     public function setRow($val)
     {
         $this->_propDict["row"] = $val;
         return $this;
     }
-
 }

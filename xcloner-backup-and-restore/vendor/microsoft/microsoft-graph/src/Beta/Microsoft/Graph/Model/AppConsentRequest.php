@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppConsentRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppConsentRequest extends Entity
 {
     /**
-    * Gets the appDisplayName
-    * The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
-    *
-    * @return string|null The appDisplayName
-    */
+     * Gets the appDisplayName
+     * The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
+     *
+     * @return string|null The appDisplayName
+     */
     public function getAppDisplayName()
     {
         if (array_key_exists("appDisplayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appDisplayName
-    * The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
-    *
-    * @param string $val The appDisplayName
-    *
-    * @return AppConsentRequest
-    */
+     * Sets the appDisplayName
+     * The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
+     *
+     * @param string $val The appDisplayName
+     *
+     * @return AppConsentRequest
+     */
     public function setAppDisplayName($val)
     {
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appId
-    * The identifier of the application. Required. Supports $filter (eq only) and $orderby.
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * The identifier of the application. Required. Supports $filter (eq only) and $orderby.
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * The identifier of the application. Required. Supports $filter (eq only) and $orderby.
-    *
-    * @param string $val The appId
-    *
-    * @return AppConsentRequest
-    */
+     * Sets the appId
+     * The identifier of the application. Required. Supports $filter (eq only) and $orderby.
+     *
+     * @param string $val The appId
+     *
+     * @return AppConsentRequest
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the consentType
-    * The consent type of the request. Possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
-    *
-    * @return string|null The consentType
-    */
+     * Gets the consentType
+     * The consent type of the request. Possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
+     *
+     * @return string|null The consentType
+     */
     public function getConsentType()
     {
         if (array_key_exists("consentType", $this->_propDict)) {
@@ -99,79 +96,71 @@ class AppConsentRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the consentType
-    * The consent type of the request. Possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
-    *
-    * @param string $val The consentType
-    *
-    * @return AppConsentRequest
-    */
+     * Sets the consentType
+     * The consent type of the request. Possible values are: Static and Dynamic. These represent static and dynamic permissions, respectively, requested in the consent workflow. Supports $filter (eq only) and $orderby. Required.
+     *
+     * @param string $val The consentType
+     *
+     * @return AppConsentRequest
+     */
     public function setConsentType($val)
     {
         $this->_propDict["consentType"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the pendingScopes
-    * A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
      *
      * @return array|null The pendingScopes
      */
     public function getPendingScopes()
     {
         if (array_key_exists("pendingScopes", $this->_propDict)) {
-           return $this->_propDict["pendingScopes"];
+            return $this->_propDict["pendingScopes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the pendingScopes
-    * A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
-    *
-    * @param AppConsentRequestScope[] $val The pendingScopes
-    *
-    * @return AppConsentRequest
-    */
+     * Sets the pendingScopes
+     * A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     *
+     * @param AppConsentRequestScope[] $val The pendingScopes
+     *
+     * @return AppConsentRequest
+     */
     public function setPendingScopes($val)
     {
         $this->_propDict["pendingScopes"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the userConsentRequests
-    * A list of pending user consent requests. Supports $filter (eq).
+     * A list of pending user consent requests. Supports $filter (eq).
      *
      * @return array|null The userConsentRequests
      */
     public function getUserConsentRequests()
     {
         if (array_key_exists("userConsentRequests", $this->_propDict)) {
-           return $this->_propDict["userConsentRequests"];
+            return $this->_propDict["userConsentRequests"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the userConsentRequests
-    * A list of pending user consent requests. Supports $filter (eq).
-    *
-    * @param UserConsentRequest[] $val The userConsentRequests
-    *
-    * @return AppConsentRequest
-    */
+     * Sets the userConsentRequests
+     * A list of pending user consent requests. Supports $filter (eq).
+     *
+     * @param UserConsentRequest[] $val The userConsentRequests
+     *
+     * @return AppConsentRequest
+     */
     public function setUserConsentRequests($val)
     {
         $this->_propDict["userConsentRequests"] = $val;
         return $this;
     }
-
 }

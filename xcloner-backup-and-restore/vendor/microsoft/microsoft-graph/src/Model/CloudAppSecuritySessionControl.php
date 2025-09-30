@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudAppSecuritySessionControl class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl
 {
-
     /**
-    * Gets the cloudAppSecurityType
-    * Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
-    *
-    * @return CloudAppSecuritySessionControlType|null The cloudAppSecurityType
-    */
+     * Gets the cloudAppSecurityType
+     * Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
+     *
+     * @return CloudAppSecuritySessionControlType|null The cloudAppSecurityType
+     */
     public function getCloudAppSecurityType()
     {
         if (array_key_exists("cloudAppSecurityType", $this->_propDict)) {
-            if (is_a($this->_propDict["cloudAppSecurityType"], "\Microsoft\Graph\Model\CloudAppSecuritySessionControlType") || is_null($this->_propDict["cloudAppSecurityType"])) {
+            if (is_a($this->_propDict["cloudAppSecurityType"], "XCloner\\Microsoft\\Graph\\Model\\CloudAppSecuritySessionControlType") || is_null($this->_propDict["cloudAppSecurityType"])) {
                 return $this->_propDict["cloudAppSecurityType"];
             } else {
                 $this->_propDict["cloudAppSecurityType"] = new CloudAppSecuritySessionControlType($this->_propDict["cloudAppSecurityType"]);
@@ -45,18 +46,17 @@ class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl
         }
         return null;
     }
-
     /**
-    * Sets the cloudAppSecurityType
-    * Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
-    *
-    * @param CloudAppSecuritySessionControlType $val The value to assign to the cloudAppSecurityType
-    *
-    * @return CloudAppSecuritySessionControl The CloudAppSecuritySessionControl
-    */
+     * Sets the cloudAppSecurityType
+     * Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
+     *
+     * @param CloudAppSecuritySessionControlType $val The value to assign to the cloudAppSecurityType
+     *
+     * @return CloudAppSecuritySessionControl The CloudAppSecuritySessionControl
+     */
     public function setCloudAppSecurityType($val)
     {
         $this->_propDict["cloudAppSecurityType"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingInstanceTemplate class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingInstanceTemplate extends Entity
 {
     /**
-    * Gets the isRequired
-    * Indicates if a policy must specify this setting.
-    *
-    * @return bool|null The isRequired
-    */
+     * Gets the isRequired
+     * Indicates if a policy must specify this setting.
+     *
+     * @return bool|null The isRequired
+     */
     public function getIsRequired()
     {
         if (array_key_exists("isRequired", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementConfigurationSettingInstanceTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRequired
-    * Indicates if a policy must specify this setting.
-    *
-    * @param bool $val The value of the isRequired
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplate
-    */
+     * Sets the isRequired
+     * Indicates if a policy must specify this setting.
+     *
+     * @param bool $val The value of the isRequired
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplate
+     */
     public function setIsRequired($val)
     {
         $this->_propDict["isRequired"] = $val;
         return $this;
     }
     /**
-    * Gets the settingDefinitionId
-    * Setting Definition Id
-    *
-    * @return string|null The settingDefinitionId
-    */
+     * Gets the settingDefinitionId
+     * Setting Definition Id
+     *
+     * @return string|null The settingDefinitionId
+     */
     public function getSettingDefinitionId()
     {
         if (array_key_exists("settingDefinitionId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceManagementConfigurationSettingInstanceTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingDefinitionId
-    * Setting Definition Id
-    *
-    * @param string $val The value of the settingDefinitionId
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplate
-    */
+     * Sets the settingDefinitionId
+     * Setting Definition Id
+     *
+     * @param string $val The value of the settingDefinitionId
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplate
+     */
     public function setSettingDefinitionId($val)
     {
         $this->_propDict["settingDefinitionId"] = $val;
         return $this;
     }
     /**
-    * Gets the settingInstanceTemplateId
-    * Setting Instance Template Id
-    *
-    * @return string|null The settingInstanceTemplateId
-    */
+     * Gets the settingInstanceTemplateId
+     * Setting Instance Template Id
+     *
+     * @return string|null The settingInstanceTemplateId
+     */
     public function getSettingInstanceTemplateId()
     {
         if (array_key_exists("settingInstanceTemplateId", $this->_propDict)) {
@@ -96,15 +96,14 @@ class DeviceManagementConfigurationSettingInstanceTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingInstanceTemplateId
-    * Setting Instance Template Id
-    *
-    * @param string $val The value of the settingInstanceTemplateId
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplate
-    */
+     * Sets the settingInstanceTemplateId
+     * Setting Instance Template Id
+     *
+     * @param string $val The value of the settingInstanceTemplateId
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplate
+     */
     public function setSettingInstanceTemplateId($val)
     {
         $this->_propDict["settingInstanceTemplateId"] = $val;

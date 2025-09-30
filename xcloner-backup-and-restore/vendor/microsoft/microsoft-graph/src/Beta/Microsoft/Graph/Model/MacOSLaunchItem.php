@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSLaunchItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSLaunchItem extends Entity
 {
     /**
-    * Gets the hide
-    * Whether or not to hide the item from the Users and Groups List.
-    *
-    * @return bool|null The hide
-    */
+     * Gets the hide
+     * Whether or not to hide the item from the Users and Groups List.
+     *
+     * @return bool|null The hide
+     */
     public function getHide()
     {
         if (array_key_exists("hide", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MacOSLaunchItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hide
-    * Whether or not to hide the item from the Users and Groups List.
-    *
-    * @param bool $val The value of the hide
-    *
-    * @return MacOSLaunchItem
-    */
+     * Sets the hide
+     * Whether or not to hide the item from the Users and Groups List.
+     *
+     * @param bool $val The value of the hide
+     *
+     * @return MacOSLaunchItem
+     */
     public function setHide($val)
     {
         $this->_propDict["hide"] = $val;
         return $this;
     }
     /**
-    * Gets the path
-    * Path to the launch item.
-    *
-    * @return string|null The path
-    */
+     * Gets the path
+     * Path to the launch item.
+     *
+     * @return string|null The path
+     */
     public function getPath()
     {
         if (array_key_exists("path", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MacOSLaunchItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the path
-    * Path to the launch item.
-    *
-    * @param string $val The value of the path
-    *
-    * @return MacOSLaunchItem
-    */
+     * Sets the path
+     * Path to the launch item.
+     *
+     * @param string $val The value of the path
+     *
+     * @return MacOSLaunchItem
+     */
     public function setPath($val)
     {
         $this->_propDict["path"] = $val;

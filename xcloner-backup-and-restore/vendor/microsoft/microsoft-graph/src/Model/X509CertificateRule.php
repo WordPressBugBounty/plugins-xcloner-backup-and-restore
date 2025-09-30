@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * X509CertificateRule class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class X509CertificateRule extends Entity
 {
     /**
-    * Gets the identifier
-    *
-    * @return string|null The identifier
-    */
+     * Gets the identifier
+     *
+     * @return string|null The identifier
+     */
     public function getIdentifier()
     {
         if (array_key_exists("identifier", $this->_propDict)) {
@@ -39,29 +41,27 @@ class X509CertificateRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the identifier
-    *
-    * @param string $val The value of the identifier
-    *
-    * @return X509CertificateRule
-    */
+     * Sets the identifier
+     *
+     * @param string $val The value of the identifier
+     *
+     * @return X509CertificateRule
+     */
     public function setIdentifier($val)
     {
         $this->_propDict["identifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the x509CertificateAuthenticationMode
-    *
-    * @return X509CertificateAuthenticationMode|null The x509CertificateAuthenticationMode
-    */
+     * Gets the x509CertificateAuthenticationMode
+     *
+     * @return X509CertificateAuthenticationMode|null The x509CertificateAuthenticationMode
+     */
     public function getX509CertificateAuthenticationMode()
     {
         if (array_key_exists("x509CertificateAuthenticationMode", $this->_propDict)) {
-            if (is_a($this->_propDict["x509CertificateAuthenticationMode"], "\Microsoft\Graph\Model\X509CertificateAuthenticationMode") || is_null($this->_propDict["x509CertificateAuthenticationMode"])) {
+            if (is_a($this->_propDict["x509CertificateAuthenticationMode"], "XCloner\\Microsoft\\Graph\\ModelP9CertificateAuthenticationMode") || is_null($this->_propDict["x509CertificateAuthenticationMode"])) {
                 return $this->_propDict["x509CertificateAuthenticationMode"];
             } else {
                 $this->_propDict["x509CertificateAuthenticationMode"] = new X509CertificateAuthenticationMode($this->_propDict["x509CertificateAuthenticationMode"]);
@@ -70,29 +70,27 @@ class X509CertificateRule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the x509CertificateAuthenticationMode
-    *
-    * @param X509CertificateAuthenticationMode $val The value to assign to the x509CertificateAuthenticationMode
-    *
-    * @return X509CertificateRule The X509CertificateRule
-    */
+     * Sets the x509CertificateAuthenticationMode
+     *
+     * @param X509CertificateAuthenticationMode $val The value to assign to the x509CertificateAuthenticationMode
+     *
+     * @return X509CertificateRule The X509CertificateRule
+     */
     public function setX509CertificateAuthenticationMode($val)
     {
         $this->_propDict["x509CertificateAuthenticationMode"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the x509CertificateRuleType
-    *
-    * @return X509CertificateRuleType|null The x509CertificateRuleType
-    */
+     * Gets the x509CertificateRuleType
+     *
+     * @return X509CertificateRuleType|null The x509CertificateRuleType
+     */
     public function getX509CertificateRuleType()
     {
         if (array_key_exists("x509CertificateRuleType", $this->_propDict)) {
-            if (is_a($this->_propDict["x509CertificateRuleType"], "\Microsoft\Graph\Model\X509CertificateRuleType") || is_null($this->_propDict["x509CertificateRuleType"])) {
+            if (is_a($this->_propDict["x509CertificateRuleType"], "XCloner\\Microsoft\\Graph\\ModelP9CertificateRuleType") || is_null($this->_propDict["x509CertificateRuleType"])) {
                 return $this->_propDict["x509CertificateRuleType"];
             } else {
                 $this->_propDict["x509CertificateRuleType"] = new X509CertificateRuleType($this->_propDict["x509CertificateRuleType"]);
@@ -101,17 +99,16 @@ class X509CertificateRule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the x509CertificateRuleType
-    *
-    * @param X509CertificateRuleType $val The value to assign to the x509CertificateRuleType
-    *
-    * @return X509CertificateRule The X509CertificateRule
-    */
+     * Sets the x509CertificateRuleType
+     *
+     * @param X509CertificateRuleType $val The value to assign to the x509CertificateRuleType
+     *
+     * @return X509CertificateRule The X509CertificateRule
+     */
     public function setX509CertificateRuleType($val)
     {
         $this->_propDict["x509CertificateRuleType"] = $val;
-         return $this;
+        return $this;
     }
 }

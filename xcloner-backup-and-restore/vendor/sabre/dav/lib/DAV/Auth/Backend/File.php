@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * This is an authentication backend that uses a file to manage passwords.
  *
@@ -26,7 +24,6 @@ class File extends AbstractDigest
      * @var array
      */
     protected $users = [];
-
     /**
      * Creates the backend object.
      *
@@ -40,7 +37,6 @@ class File extends AbstractDigest
             $this->loadFile($filename);
         }
     }
-
     /**
      * Loads an htdigest-formatted file. This method can be called multiple times if
      * more than 1 file is used.
@@ -49,19 +45,17 @@ class File extends AbstractDigest
      */
     public function loadFile($filename)
     {
-        foreach (file($filename, FILE_IGNORE_NEW_LINES) as $line) {
+        foreach (file($filename, \FILE_IGNORE_NEW_LINES) as $line) {
             if (2 !== substr_count($line, ':')) {
                 throw new DAV\Exception('Malformed htdigest file. Every line should contain 2 colons');
             }
             list($username, $realm, $A1) = explode(':', $line);
-
             if (!preg_match('/^[a-zA-Z0-9]{32}$/', $A1)) {
                 throw new DAV\Exception('Malformed htdigest file. Invalid md5 hash');
             }
-            $this->users[$realm.':'.$username] = $A1;
+            $this->users[$realm . ':' . $username] = $A1;
         }
     }
-
     /**
      * Returns a users' information.
      *
@@ -72,6 +66,6 @@ class File extends AbstractDigest
      */
     public function getDigestHash($realm, $username)
     {
-        return isset($this->users[$realm.':'.$username]) ? $this->users[$realm.':'.$username] : false;
+        return isset($this->users[$realm . ':' . $username]) ? $this->users[$realm . ':' . $username] : \false;
     }
 }

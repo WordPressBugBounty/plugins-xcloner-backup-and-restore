@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ListItemVersion class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ListItemVersion extends BaseItemVersion
 {
     /**
-    * Gets the fields
-    * A collection of the fields and values for this version of the list item.
-    *
-    * @return FieldValueSet|null The fields
-    */
+     * Gets the fields
+     * A collection of the fields and values for this version of the list item.
+     *
+     * @return FieldValueSet|null The fields
+     */
     public function getFields()
     {
         if (array_key_exists("fields", $this->_propDict)) {
-            if (is_a($this->_propDict["fields"], "\Beta\Microsoft\Graph\Model\FieldValueSet") || is_null($this->_propDict["fields"])) {
+            if (is_a($this->_propDict["fields"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\FieldValueSet") || is_null($this->_propDict["fields"])) {
                 return $this->_propDict["fields"];
             } else {
                 $this->_propDict["fields"] = new FieldValueSet($this->_propDict["fields"]);
@@ -45,19 +46,17 @@ class ListItemVersion extends BaseItemVersion
         }
         return null;
     }
-
     /**
-    * Sets the fields
-    * A collection of the fields and values for this version of the list item.
-    *
-    * @param FieldValueSet $val The fields
-    *
-    * @return ListItemVersion
-    */
+     * Sets the fields
+     * A collection of the fields and values for this version of the list item.
+     *
+     * @param FieldValueSet $val The fields
+     *
+     * @return ListItemVersion
+     */
     public function setFields($val)
     {
         $this->_propDict["fields"] = $val;
         return $this;
     }
-
 }

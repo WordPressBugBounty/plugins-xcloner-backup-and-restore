@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResourcePermission class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResourcePermission extends Entity
 {
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ResourcePermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The value of the type
-    *
-    * @return ResourcePermission
-    */
+     * Sets the type
+     *
+     * @param string $val The value of the type
+     *
+     * @return ResourcePermission
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -65,14 +66,13 @@ class ResourcePermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    *
-    * @param string $val The value of the value
-    *
-    * @return ResourcePermission
-    */
+     * Sets the value
+     *
+     * @param string $val The value of the value
+     *
+     * @return ResourcePermission
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

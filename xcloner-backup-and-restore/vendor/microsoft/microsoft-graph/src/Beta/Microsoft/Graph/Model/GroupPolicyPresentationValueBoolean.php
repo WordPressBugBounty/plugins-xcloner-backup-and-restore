@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationValueBoolean class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue
 {
     /**
-    * Gets the value
-    * An boolean value for the associated presentation.
-    *
-    * @return bool|null The value
-    */
+     * Gets the value
+     * An boolean value for the associated presentation.
+     *
+     * @return bool|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -41,19 +42,17 @@ class GroupPolicyPresentationValueBoolean extends GroupPolicyPresentationValue
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * An boolean value for the associated presentation.
-    *
-    * @param bool $val The value
-    *
-    * @return GroupPolicyPresentationValueBoolean
-    */
+     * Sets the value
+     * An boolean value for the associated presentation.
+     *
+     * @param bool $val The value
+     *
+     * @return GroupPolicyPresentationValueBoolean
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = boolval($val);
         return $this;
     }
-
 }

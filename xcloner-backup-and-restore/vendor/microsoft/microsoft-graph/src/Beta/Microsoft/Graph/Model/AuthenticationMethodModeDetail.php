@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationMethodModeDetail class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AuthenticationMethodModeDetail extends Entity
 {
     /**
-    * Gets the authenticationMethod
-    *
-    * @return BaseAuthenticationMethod|null The authenticationMethod
-    */
+     * Gets the authenticationMethod
+     *
+     * @return BaseAuthenticationMethod|null The authenticationMethod
+     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethod"], "\Beta\Microsoft\Graph\Model\BaseAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
+            if (is_a($this->_propDict["authenticationMethod"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\BaseAuthenticationMethod") || is_null($this->_propDict["authenticationMethod"])) {
                 return $this->_propDict["authenticationMethod"];
             } else {
                 $this->_propDict["authenticationMethod"] = new BaseAuthenticationMethod($this->_propDict["authenticationMethod"]);
@@ -44,25 +45,23 @@ class AuthenticationMethodModeDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the authenticationMethod
-    *
-    * @param BaseAuthenticationMethod $val The authenticationMethod
-    *
-    * @return AuthenticationMethodModeDetail
-    */
+     * Sets the authenticationMethod
+     *
+     * @param BaseAuthenticationMethod $val The authenticationMethod
+     *
+     * @return AuthenticationMethodModeDetail
+     */
     public function setAuthenticationMethod($val)
     {
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -71,18 +70,16 @@ class AuthenticationMethodModeDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return AuthenticationMethodModeDetail
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return AuthenticationMethodModeDetail
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
 }

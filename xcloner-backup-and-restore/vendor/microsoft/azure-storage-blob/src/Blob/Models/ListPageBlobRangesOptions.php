@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Models\Range;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Models\Range;
 /**
  * Optional parameters for listPageBlobRanges wrapper
  *
@@ -46,7 +44,6 @@ class ListPageBlobRangesOptions extends BlobServiceOptions
     private $range;
     private $_rangeStart;
     private $_rangeEnd;
-
     /**
      * Gets blob snapshot.
      *
@@ -56,7 +53,6 @@ class ListPageBlobRangesOptions extends BlobServiceOptions
     {
         return $this->snapshot;
     }
-
     /**
      * Sets blob snapshot.
      *
@@ -68,7 +64,6 @@ class ListPageBlobRangesOptions extends BlobServiceOptions
     {
         $this->snapshot = $snapshot;
     }
-
     /**
      * Gets Blob range.
      *
@@ -78,7 +73,6 @@ class ListPageBlobRangesOptions extends BlobServiceOptions
     {
         return $this->range;
     }
-
     /**
      * Sets Blob range.
      *

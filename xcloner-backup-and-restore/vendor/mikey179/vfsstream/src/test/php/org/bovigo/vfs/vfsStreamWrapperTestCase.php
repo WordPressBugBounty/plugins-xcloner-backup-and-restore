@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 require_once __DIR__ . '/vfsStreamWrapperBaseTestCase.php';
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
@@ -30,7 +32,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         vfsStreamWrapper::register();
         $this->assertNull(vfsStreamWrapper::getRoot());
     }
-
     /**
      * @test
      * @since  0.11.0
@@ -41,7 +42,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $root = vfsStream::newDirectory('root');
         $this->assertSame($root, vfsStreamWrapper::setRoot($root));
     }
-
     /**
      * assure that filesize is returned correct
      *
@@ -56,7 +56,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(4, filesize($this->baz2URL));
         $this->assertEquals(5, filesize($this->baz1URL));
     }
-
     /**
      * assert that file_exists() delivers correct result
      *
@@ -73,7 +72,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFalse(file_exists($this->fooURL . '/another'));
         $this->assertFalse(file_exists(vfsStream::url('another')));
     }
-
     /**
      * assert that filemtime() delivers correct result
      *
@@ -88,7 +86,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(300, filemtime($this->baz1URL));
         $this->assertEquals(400, filemtime($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue_23
@@ -96,13 +93,13 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
     public function unlinkRemovesFilesOnly()
     {
         $this->assertTrue(unlink($this->baz2URL));
-        $this->assertFalse(file_exists($this->baz2URL)); // make sure statcache was cleared
+        $this->assertFalse(file_exists($this->baz2URL));
+        // make sure statcache was cleared
         $this->assertEquals(array($this->bar), $this->foo->getChildren());
         $this->assertFalse(@unlink($this->fooURL . '/another'));
         $this->assertFalse(@unlink(vfsStream::url('another')));
         $this->assertEquals(array($this->bar), $this->foo->getChildren());
     }
-
     /**
      * @test
      * @group  issue_49
@@ -112,7 +109,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         vfsStream::setup()->addChild(vfsStream::newFile('foo.blubb'));
         $this->assertFalse(@unlink(vfsStream::url('foo.blubb2')));
     }
-
     /**
      * @test
      * @group  issue_49
@@ -122,7 +118,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         vfsStream::setup()->addChild(vfsStream::newFile('foo.blubb'));
         $this->assertFalse(@unlink(vfsStream::url('foo.blubb')));
     }
-
     /**
      * assert dirname() returns correct directory name
      *
@@ -137,7 +132,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         # call the stream wrapper
         #$this->assertEquals(dirname(vfsStream::url('doesNotExist')), '.');
     }
-
     /**
      * assert basename() returns correct file name
      *
@@ -149,7 +143,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals('baz1', basename($this->baz1URL));
         $this->assertEquals('doesNotExist', basename(vfsStream::url('doesNotExist')));
     }
-
     /**
      * assert is_readable() works correct
      *
@@ -165,14 +158,11 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertTrue(is_readable($this->baz2URL));
         $this->assertFalse(is_readable($this->fooURL . '/another'));
         $this->assertFalse(is_readable(vfsStream::url('another')));
-
         $this->foo->chmod(0222);
         $this->assertFalse(is_readable($this->fooURL));
-
         $this->baz1->chmod(0222);
         $this->assertFalse(is_readable($this->baz1URL));
     }
-
     /**
      * assert is_writable() works correct
      *
@@ -188,14 +178,11 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertTrue(is_writable($this->baz2URL));
         $this->assertFalse(is_writable($this->fooURL . '/another'));
         $this->assertFalse(is_writable(vfsStream::url('another')));
-
         $this->foo->chmod(0444);
         $this->assertFalse(is_writable($this->fooURL));
-
         $this->baz1->chmod(0444);
         $this->assertFalse(is_writable($this->baz1URL));
     }
-
     /**
      * assert is_executable() works correct
      *
@@ -208,7 +195,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertTrue(is_executable($this->baz1URL));
         $this->assertFalse(is_executable($this->baz2URL));
     }
-
     /**
      * assert is_executable() works correct
      *
@@ -218,7 +204,7 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
     {
         // Inconsistent behavior has been fixed in 7.3
         // see https://github.com/php/php-src/commit/94b4abdbc4d
-        if (PHP_VERSION_ID >= 70300) {
+        if (\PHP_VERSION_ID >= 70300) {
             $this->assertTrue(is_executable($this->fooURL));
             $this->assertTrue(is_executable($this->fooURL . '/.'));
             $this->assertTrue(is_executable($this->barURL));
@@ -229,11 +215,9 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
             $this->assertFalse(is_executable($this->barURL));
             $this->assertFalse(is_executable($this->barURL . '/.'));
         }
-
         $this->assertFalse(is_executable($this->fooURL . '/another'));
         $this->assertFalse(is_executable(vfsStream::url('another')));
     }
-
     /**
      * file permissions
      *
@@ -248,7 +232,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(40777, decoct(fileperms($this->barURL . '/.')));
         $this->assertEquals(100666, decoct(fileperms($this->baz1URL)));
         $this->assertEquals(100666, decoct(fileperms($this->baz2URL)));
-
         $this->foo->chmod(0755);
         $this->bar->chmod(0700);
         $this->baz1->chmod(0644);
@@ -260,7 +243,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(100644, decoct(fileperms($this->baz1URL)));
         $this->assertEquals(100600, decoct(fileperms($this->baz2URL)));
     }
-
     /**
      * @test
      * @group  issue_11
@@ -288,7 +270,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
             $this->assertEquals(100664, decoct(fileperms($this->baz2URL)));
         }
     }
-
     /**
      * @test
      * @group  permissions
@@ -302,7 +283,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(vfsStream::getCurrentUser(), fileowner($this->baz1URL));
         $this->assertEquals(vfsStream::getCurrentUser(), fileowner($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue_11
@@ -321,7 +301,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
             chown($this->baz1URL, vfsStream::OWNER_USER_2);
             chown($this->baz2URL, vfsStream::OWNER_USER_2);
         }
-
         $this->assertEquals(vfsStream::OWNER_USER_1, fileowner($this->fooURL));
         $this->assertEquals(vfsStream::OWNER_USER_1, fileowner($this->fooURL . '/.'));
         $this->assertEquals(vfsStream::OWNER_USER_1, fileowner($this->barURL));
@@ -329,7 +308,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(vfsStream::OWNER_USER_2, fileowner($this->baz1URL));
         $this->assertEquals(vfsStream::OWNER_USER_2, fileowner($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue_11
@@ -342,7 +320,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
             $this->assertEquals(vfsStream::getCurrentUser(), fileowner($this->fooURL));
         }
     }
-
     /**
      * @test
      * @group  issue_11
@@ -357,7 +334,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(vfsStream::getCurrentGroup(), filegroup($this->baz1URL));
         $this->assertEquals(vfsStream::getCurrentGroup(), filegroup($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue_11
@@ -376,7 +352,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
             chgrp($this->baz1URL, vfsStream::GROUP_USER_2);
             chgrp($this->baz2URL, vfsStream::GROUP_USER_2);
         }
-
         $this->assertEquals(vfsStream::GROUP_USER_1, filegroup($this->fooURL));
         $this->assertEquals(vfsStream::GROUP_USER_1, filegroup($this->fooURL . '/.'));
         $this->assertEquals(vfsStream::GROUP_USER_1, filegroup($this->barURL));
@@ -384,7 +359,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(vfsStream::GROUP_USER_2, filegroup($this->baz1URL));
         $this->assertEquals(vfsStream::GROUP_USER_2, filegroup($this->baz2URL));
     }
-
     /**
      * @test
      * @group  issue_11
@@ -397,7 +371,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
             $this->assertEquals(vfsStream::getCurrentGroup(), filegroup($this->fooURL));
         }
     }
-
     /**
      * @test
      * @author  Benoit Aubuchon
@@ -410,7 +383,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFileExists($baz3URL);
         $this->assertFileNotExists($this->barURL);
     }
-
     /**
      * @test
      */
@@ -422,7 +394,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFileExists($baz3URL);
         $this->assertFileNotExists($this->barURL);
     }
-
     /**
      * @test
      * @group  issue_9
@@ -436,7 +407,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFileExists($baz3URL);
         $this->assertFileNotExists($this->barURL);
     }
-
     /**
      * @test
      * @author  Benoit Aubuchon
@@ -448,7 +418,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFileExists(vfsStream::url('foo/baz2/baz1'));
         $this->assertFileNotExists($this->barURL);
     }
-
     /**
      * @test
      * @expectedException  PHPUnit_Framework_Error
@@ -461,7 +430,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFileExists($baz3URL);
         $this->assertFileNotExists($this->baz1URL);
     }
-
     /**
      * @test
      * @author  Benoit Aubuchon
@@ -475,7 +443,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertFileExists($baz3URL);
         $this->assertFileNotExists($this->baz1URL);
     }
-
     /**
      * assert that trying to rename from a non existing file trigger a warning
      *
@@ -488,7 +455,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
     }
     /**
      * assert that trying to rename to a directory that is not found trigger a warning
-
      * @expectedException PHPUnit_Framework_Error
      * @test
      */
@@ -504,12 +470,9 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
     public function statAndFstatReturnSameResult()
     {
         $fp = fopen($this->baz2URL, 'r');
-        $this->assertEquals(stat($this->baz2URL),
-                            fstat($fp)
-        );
+        $this->assertEquals(stat($this->baz2URL), fstat($fp));
         fclose($fp);
     }
-
     /**
      * stat() returns full data
      *
@@ -517,109 +480,22 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
      */
     public function statReturnsFullDataForFiles()
     {
-        $this->assertEquals(array(0         => 0,
-                                  1         => 0,
-                                  2         => 0100666,
-                                  3         => 0,
-                                  4         => vfsStream::getCurrentUser(),
-                                  5         => vfsStream::getCurrentGroup(),
-                                  6         => 0,
-                                  7         => 4,
-                                  8         => 400,
-                                  9         => 400,
-                                  10        => 400,
-                                  11        => -1,
-                                  12        => -1,
-                                  'dev'     => 0,
-                                  'ino'     => 0,
-                                  'mode'    => 0100666,
-                                  'nlink'   => 0,
-                                  'uid'     => vfsStream::getCurrentUser(),
-                                  'gid'     => vfsStream::getCurrentGroup(),
-                                  'rdev'    => 0,
-                                  'size'    => 4,
-                                  'atime'   => 400,
-                                  'mtime'   => 400,
-                                  'ctime'   => 400,
-                                  'blksize' => -1,
-                                  'blocks'  => -1
-                            ),
-                            stat($this->baz2URL)
-        );
+        $this->assertEquals(array(0 => 0, 1 => 0, 2 => 0100666, 3 => 0, 4 => vfsStream::getCurrentUser(), 5 => vfsStream::getCurrentGroup(), 6 => 0, 7 => 4, 8 => 400, 9 => 400, 10 => 400, 11 => -1, 12 => -1, 'dev' => 0, 'ino' => 0, 'mode' => 0100666, 'nlink' => 0, 'uid' => vfsStream::getCurrentUser(), 'gid' => vfsStream::getCurrentGroup(), 'rdev' => 0, 'size' => 4, 'atime' => 400, 'mtime' => 400, 'ctime' => 400, 'blksize' => -1, 'blocks' => -1), stat($this->baz2URL));
     }
-
     /**
      * @test
      */
     public function statReturnsFullDataForDirectories()
     {
-        $this->assertEquals(array(0         => 0,
-                                  1         => 0,
-                                  2         => 0040777,
-                                  3         => 0,
-                                  4         => vfsStream::getCurrentUser(),
-                                  5         => vfsStream::getCurrentGroup(),
-                                  6         => 0,
-                                  7         => 0,
-                                  8         => 100,
-                                  9         => 100,
-                                  10        => 100,
-                                  11        => -1,
-                                  12        => -1,
-                                  'dev'     => 0,
-                                  'ino'     => 0,
-                                  'mode'    => 0040777,
-                                  'nlink'   => 0,
-                                  'uid'     => vfsStream::getCurrentUser(),
-                                  'gid'     => vfsStream::getCurrentGroup(),
-                                  'rdev'    => 0,
-                                  'size'    => 0,
-                                  'atime'   => 100,
-                                  'mtime'   => 100,
-                                  'ctime'   => 100,
-                                  'blksize' => -1,
-                                  'blocks'  => -1
-                            ),
-                            stat($this->fooURL)
-        );
+        $this->assertEquals(array(0 => 0, 1 => 0, 2 => 040777, 3 => 0, 4 => vfsStream::getCurrentUser(), 5 => vfsStream::getCurrentGroup(), 6 => 0, 7 => 0, 8 => 100, 9 => 100, 10 => 100, 11 => -1, 12 => -1, 'dev' => 0, 'ino' => 0, 'mode' => 040777, 'nlink' => 0, 'uid' => vfsStream::getCurrentUser(), 'gid' => vfsStream::getCurrentGroup(), 'rdev' => 0, 'size' => 0, 'atime' => 100, 'mtime' => 100, 'ctime' => 100, 'blksize' => -1, 'blocks' => -1), stat($this->fooURL));
     }
-
     /**
      * @test
      */
     public function statReturnsFullDataForDirectoriesWithDot()
     {
-        $this->assertEquals(array(0         => 0,
-                                  1         => 0,
-                                  2         => 0040777,
-                                  3         => 0,
-                                  4         => vfsStream::getCurrentUser(),
-                                  5         => vfsStream::getCurrentGroup(),
-                                  6         => 0,
-                                  7         => 0,
-                                  8         => 100,
-                                  9         => 100,
-                                  10        => 100,
-                                  11        => -1,
-                                  12        => -1,
-                                  'dev'     => 0,
-                                  'ino'     => 0,
-                                  'mode'    => 0040777,
-                                  'nlink'   => 0,
-                                  'uid'     => vfsStream::getCurrentUser(),
-                                  'gid'     => vfsStream::getCurrentGroup(),
-                                  'rdev'    => 0,
-                                  'size'    => 0,
-                                  'atime'   => 100,
-                                  'mtime'   => 100,
-                                  'ctime'   => 100,
-                                  'blksize' => -1,
-                                  'blocks'  => -1
-                            ),
-                            stat($this->fooURL . '/.')
-        );
+        $this->assertEquals(array(0 => 0, 1 => 0, 2 => 040777, 3 => 0, 4 => vfsStream::getCurrentUser(), 5 => vfsStream::getCurrentGroup(), 6 => 0, 7 => 0, 8 => 100, 9 => 100, 10 => 100, 11 => -1, 12 => -1, 'dev' => 0, 'ino' => 0, 'mode' => 040777, 'nlink' => 0, 'uid' => vfsStream::getCurrentUser(), 'gid' => vfsStream::getCurrentGroup(), 'rdev' => 0, 'size' => 0, 'atime' => 100, 'mtime' => 100, 'ctime' => 100, 'blksize' => -1, 'blocks' => -1), stat($this->fooURL . '/.'));
     }
-
     /**
      * @test
      * @expectedException PHPUnit_Framework_Error
@@ -629,7 +505,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         vfsStreamWrapper::register();
         $this->assertFalse(file_get_contents(vfsStream::url('file.txt')));
     }
-
     /**
      * @test
      * @group     issue_33
@@ -638,17 +513,15 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
      */
     public function truncateRemovesSuperflouosContent()
     {
-        if (strstr(PHP_VERSION, 'hiphop') !== false) {
+        if (strstr(\PHP_VERSION, 'hiphop') !== \false) {
             $this->markTestSkipped('Not supported on hhvm');
         }
-
         $handle = fopen($this->baz1URL, "r+");
         $this->assertTrue(ftruncate($handle, 0));
         $this->assertEquals(0, filesize($this->baz1URL));
         $this->assertEquals('', file_get_contents($this->baz1URL));
         fclose($handle);
     }
-
     /**
      * @test
      * @group     issue_33
@@ -657,18 +530,15 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
      */
     public function truncateToGreaterSizeAddsZeroBytes()
     {
-        if (strstr(PHP_VERSION, 'hiphop') !== false) {
+        if (strstr(\PHP_VERSION, 'hiphop') !== \false) {
             $this->markTestSkipped('Not supported on hhvm');
         }
-
         $handle = fopen($this->baz1URL, "r+");
         $this->assertTrue(ftruncate($handle, 25));
         $this->assertEquals(25, filesize($this->baz1URL));
-        $this->assertEquals("baz 1\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                            file_get_contents($this->baz1URL));
+        $this->assertEquals("baz 1\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", file_get_contents($this->baz1URL));
         fclose($handle);
     }
-
     /**
      * @test
      * @group     issue_11
@@ -679,7 +549,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertTrue(touch($this->fooURL . '/new.txt'));
         $this->assertTrue($this->foo->hasChild('new.txt'));
     }
-
     /**
      * @test
      * @group     issue_11
@@ -691,7 +560,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(303, $this->baz1->filemtime());
         $this->assertEquals(313, $this->baz1->fileatime());
     }
-
     /**
      * @test
      * @group     issue_11
@@ -704,7 +572,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(time(), $this->baz1->filemtime(), '', 1);
         $this->assertEquals(time(), $this->baz1->fileatime(), '', 1);
     }
-
     /**
      * @test
      * @group     issue_11
@@ -716,7 +583,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(303, $this->baz1->filemtime());
         $this->assertEquals(303, $this->baz1->fileatime());
     }
-
     /**
      * @test
      * @group     issue_11
@@ -728,7 +594,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(303, $this->foo->filemtime());
         $this->assertEquals(313, $this->foo->fileatime());
     }
-
     /**
      * @test
      * @group  issue_34
@@ -741,7 +606,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals(vfsStream::path($this->baz1URL), $this->baz1->path());
         $this->assertEquals(vfsStream::path($this->baz2URL), $this->baz2->path());
     }
-
     /**
      * @test
      * @group  issue_34
@@ -754,7 +618,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertEquals($this->baz1URL, $this->baz1->url());
         $this->assertEquals($this->baz2URL, $this->baz2->url());
     }
-
     /**
      * @test
      * @group  issue_34
@@ -767,7 +630,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertTrue(rename($this->baz1URL, $baz3URL));
         $this->assertEquals(vfsStream::path($baz3URL), $this->baz1->path());
     }
-
     /**
      * @test
      * @group  issue_34
@@ -780,7 +642,6 @@ class vfsStreamWrapperTestCase extends vfsStreamWrapperBaseTestCase
         $this->assertTrue(rename($this->baz1URL, $baz3URL));
         $this->assertEquals($baz3URL, $this->baz1->url());
     }
-
     /**
      * @test
      */

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintServiceEndpoint class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintServiceEndpoint extends Entity
 {
     /**
-    * Gets the displayName
-    * A human-readable display name for the endpoint.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * A human-readable display name for the endpoint.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class PrintServiceEndpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * A human-readable display name for the endpoint.
-    *
-    * @param string $val The displayName
-    *
-    * @return PrintServiceEndpoint
-    */
+     * Sets the displayName
+     * A human-readable display name for the endpoint.
+     *
+     * @param string $val The displayName
+     *
+     * @return PrintServiceEndpoint
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the uri
-    * The URI that can be used to access the service.
-    *
-    * @return string|null The uri
-    */
+     * Gets the uri
+     * The URI that can be used to access the service.
+     *
+     * @return string|null The uri
+     */
     public function getUri()
     {
         if (array_key_exists("uri", $this->_propDict)) {
@@ -70,19 +69,17 @@ class PrintServiceEndpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the uri
-    * The URI that can be used to access the service.
-    *
-    * @param string $val The uri
-    *
-    * @return PrintServiceEndpoint
-    */
+     * Sets the uri
+     * The URI that can be used to access the service.
+     *
+     * @param string $val The uri
+     *
+     * @return PrintServiceEndpoint
+     */
     public function setUri($val)
     {
         $this->_propDict["uri"] = $val;
         return $this;
     }
-
 }

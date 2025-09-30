@@ -1,10 +1,10 @@
 <?php
 
-namespace Srmklive\Dropbox;
+namespace XCloner\Srmklive\Dropbox;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 trait GetMimeType
 {
     /**
@@ -12,6 +12,6 @@ trait GetMimeType
      */
     public function getMimetype($path)
     {
-        return ['mimetype' => \League\Flysystem\Util\MimeType::detectByFilename($path)];
+        return ['mimetype' => \XCloner\League\Flysystem\Util\MimeType::detectByFilename($path)];
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSLobChildApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSLobChildApp extends Entity
 {
     /**
-    * Gets the buildNumber
-    * The build number of MacOS Line of Business (LoB) app.
-    *
-    * @return string|null The buildNumber
-    */
+     * Gets the buildNumber
+     * The build number of MacOS Line of Business (LoB) app.
+     *
+     * @return string|null The buildNumber
+     */
     public function getBuildNumber()
     {
         if (array_key_exists("buildNumber", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MacOSLobChildApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the buildNumber
-    * The build number of MacOS Line of Business (LoB) app.
-    *
-    * @param string $val The value of the buildNumber
-    *
-    * @return MacOSLobChildApp
-    */
+     * Sets the buildNumber
+     * The build number of MacOS Line of Business (LoB) app.
+     *
+     * @param string $val The value of the buildNumber
+     *
+     * @return MacOSLobChildApp
+     */
     public function setBuildNumber($val)
     {
         $this->_propDict["buildNumber"] = $val;
         return $this;
     }
     /**
-    * Gets the bundleId
-    * The Identity Name.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * The Identity Name.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class MacOSLobChildApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * The Identity Name.
-    *
-    * @param string $val The value of the bundleId
-    *
-    * @return MacOSLobChildApp
-    */
+     * Sets the bundleId
+     * The Identity Name.
+     *
+     * @param string $val The value of the bundleId
+     *
+     * @return MacOSLobChildApp
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
     /**
-    * Gets the versionNumber
-    * The version number of MacOS Line of Business (LoB) app.
-    *
-    * @return string|null The versionNumber
-    */
+     * Gets the versionNumber
+     * The version number of MacOS Line of Business (LoB) app.
+     *
+     * @return string|null The versionNumber
+     */
     public function getVersionNumber()
     {
         if (array_key_exists("versionNumber", $this->_propDict)) {
@@ -96,15 +96,14 @@ class MacOSLobChildApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the versionNumber
-    * The version number of MacOS Line of Business (LoB) app.
-    *
-    * @param string $val The value of the versionNumber
-    *
-    * @return MacOSLobChildApp
-    */
+     * Sets the versionNumber
+     * The version number of MacOS Line of Business (LoB) app.
+     *
+     * @param string $val The value of the versionNumber
+     *
+     * @return MacOSLobChildApp
+     */
     public function setVersionNumber($val)
     {
         $this->_propDict["versionNumber"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Win32LobAppMsiInformation class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Win32LobAppMsiInformation extends Entity
 {
-
     /**
-    * Gets the packageType
-    * The MSI package type. Possible values are: perMachine, perUser, dualPurpose.
-    *
-    * @return Win32LobAppMsiPackageType|null The packageType
-    */
+     * Gets the packageType
+     * The MSI package type. Possible values are: perMachine, perUser, dualPurpose.
+     *
+     * @return Win32LobAppMsiPackageType|null The packageType
+     */
     public function getPackageType()
     {
         if (array_key_exists("packageType", $this->_propDict)) {
-            if (is_a($this->_propDict["packageType"], "\Beta\Microsoft\Graph\Model\Win32LobAppMsiPackageType") || is_null($this->_propDict["packageType"])) {
+            if (is_a($this->_propDict["packageType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Win32LobAppMsiPackageType") || is_null($this->_propDict["packageType"])) {
                 return $this->_propDict["packageType"];
             } else {
                 $this->_propDict["packageType"] = new Win32LobAppMsiPackageType($this->_propDict["packageType"]);
@@ -45,26 +46,25 @@ class Win32LobAppMsiInformation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the packageType
-    * The MSI package type. Possible values are: perMachine, perUser, dualPurpose.
-    *
-    * @param Win32LobAppMsiPackageType $val The value to assign to the packageType
-    *
-    * @return Win32LobAppMsiInformation The Win32LobAppMsiInformation
-    */
+     * Sets the packageType
+     * The MSI package type. Possible values are: perMachine, perUser, dualPurpose.
+     *
+     * @param Win32LobAppMsiPackageType $val The value to assign to the packageType
+     *
+     * @return Win32LobAppMsiInformation The Win32LobAppMsiInformation
+     */
     public function setPackageType($val)
     {
         $this->_propDict["packageType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the productCode
-    * The MSI product code.
-    *
-    * @return string|null The productCode
-    */
+     * Gets the productCode
+     * The MSI product code.
+     *
+     * @return string|null The productCode
+     */
     public function getProductCode()
     {
         if (array_key_exists("productCode", $this->_propDict)) {
@@ -73,26 +73,25 @@ class Win32LobAppMsiInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the productCode
-    * The MSI product code.
-    *
-    * @param string $val The value of the productCode
-    *
-    * @return Win32LobAppMsiInformation
-    */
+     * Sets the productCode
+     * The MSI product code.
+     *
+     * @param string $val The value of the productCode
+     *
+     * @return Win32LobAppMsiInformation
+     */
     public function setProductCode($val)
     {
         $this->_propDict["productCode"] = $val;
         return $this;
     }
     /**
-    * Gets the productName
-    * The MSI product name.
-    *
-    * @return string|null The productName
-    */
+     * Gets the productName
+     * The MSI product name.
+     *
+     * @return string|null The productName
+     */
     public function getProductName()
     {
         if (array_key_exists("productName", $this->_propDict)) {
@@ -101,26 +100,25 @@ class Win32LobAppMsiInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the productName
-    * The MSI product name.
-    *
-    * @param string $val The value of the productName
-    *
-    * @return Win32LobAppMsiInformation
-    */
+     * Sets the productName
+     * The MSI product name.
+     *
+     * @param string $val The value of the productName
+     *
+     * @return Win32LobAppMsiInformation
+     */
     public function setProductName($val)
     {
         $this->_propDict["productName"] = $val;
         return $this;
     }
     /**
-    * Gets the productVersion
-    * The MSI product version.
-    *
-    * @return string|null The productVersion
-    */
+     * Gets the productVersion
+     * The MSI product version.
+     *
+     * @return string|null The productVersion
+     */
     public function getProductVersion()
     {
         if (array_key_exists("productVersion", $this->_propDict)) {
@@ -129,26 +127,25 @@ class Win32LobAppMsiInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the productVersion
-    * The MSI product version.
-    *
-    * @param string $val The value of the productVersion
-    *
-    * @return Win32LobAppMsiInformation
-    */
+     * Sets the productVersion
+     * The MSI product version.
+     *
+     * @param string $val The value of the productVersion
+     *
+     * @return Win32LobAppMsiInformation
+     */
     public function setProductVersion($val)
     {
         $this->_propDict["productVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the publisher
-    * The MSI publisher.
-    *
-    * @return string|null The publisher
-    */
+     * Gets the publisher
+     * The MSI publisher.
+     *
+     * @return string|null The publisher
+     */
     public function getPublisher()
     {
         if (array_key_exists("publisher", $this->_propDict)) {
@@ -157,26 +154,25 @@ class Win32LobAppMsiInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the publisher
-    * The MSI publisher.
-    *
-    * @param string $val The value of the publisher
-    *
-    * @return Win32LobAppMsiInformation
-    */
+     * Sets the publisher
+     * The MSI publisher.
+     *
+     * @param string $val The value of the publisher
+     *
+     * @return Win32LobAppMsiInformation
+     */
     public function setPublisher($val)
     {
         $this->_propDict["publisher"] = $val;
         return $this;
     }
     /**
-    * Gets the requiresReboot
-    * Whether the MSI app requires the machine to reboot to complete installation.
-    *
-    * @return bool|null The requiresReboot
-    */
+     * Gets the requiresReboot
+     * Whether the MSI app requires the machine to reboot to complete installation.
+     *
+     * @return bool|null The requiresReboot
+     */
     public function getRequiresReboot()
     {
         if (array_key_exists("requiresReboot", $this->_propDict)) {
@@ -185,26 +181,25 @@ class Win32LobAppMsiInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the requiresReboot
-    * Whether the MSI app requires the machine to reboot to complete installation.
-    *
-    * @param bool $val The value of the requiresReboot
-    *
-    * @return Win32LobAppMsiInformation
-    */
+     * Sets the requiresReboot
+     * Whether the MSI app requires the machine to reboot to complete installation.
+     *
+     * @param bool $val The value of the requiresReboot
+     *
+     * @return Win32LobAppMsiInformation
+     */
     public function setRequiresReboot($val)
     {
         $this->_propDict["requiresReboot"] = $val;
         return $this;
     }
     /**
-    * Gets the upgradeCode
-    * The MSI upgrade code.
-    *
-    * @return string|null The upgradeCode
-    */
+     * Gets the upgradeCode
+     * The MSI upgrade code.
+     *
+     * @return string|null The upgradeCode
+     */
     public function getUpgradeCode()
     {
         if (array_key_exists("upgradeCode", $this->_propDict)) {
@@ -213,15 +208,14 @@ class Win32LobAppMsiInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the upgradeCode
-    * The MSI upgrade code.
-    *
-    * @param string $val The value of the upgradeCode
-    *
-    * @return Win32LobAppMsiInformation
-    */
+     * Sets the upgradeCode
+     * The MSI upgrade code.
+     *
+     * @param string $val The value of the upgradeCode
+     *
+     * @return Win32LobAppMsiInformation
+     */
     public function setUpgradeCode($val)
     {
         $this->_propDict["upgradeCode"] = $val;

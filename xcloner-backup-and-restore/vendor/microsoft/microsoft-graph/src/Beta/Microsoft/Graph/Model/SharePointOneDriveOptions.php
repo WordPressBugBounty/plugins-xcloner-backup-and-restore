@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SharePointOneDriveOptions class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class SharePointOneDriveOptions extends Entity
 {
-
     /**
-    * Gets the includeContent
-    *
-    * @return SearchContent|null The includeContent
-    */
+     * Gets the includeContent
+     *
+     * @return SearchContent|null The includeContent
+     */
     public function getIncludeContent()
     {
         if (array_key_exists("includeContent", $this->_propDict)) {
-            if (is_a($this->_propDict["includeContent"], "\Beta\Microsoft\Graph\Model\SearchContent") || is_null($this->_propDict["includeContent"])) {
+            if (is_a($this->_propDict["includeContent"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SearchContent") || is_null($this->_propDict["includeContent"])) {
                 return $this->_propDict["includeContent"];
             } else {
                 $this->_propDict["includeContent"] = new SearchContent($this->_propDict["includeContent"]);
@@ -44,17 +45,16 @@ class SharePointOneDriveOptions extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the includeContent
-    *
-    * @param SearchContent $val The value to assign to the includeContent
-    *
-    * @return SharePointOneDriveOptions The SharePointOneDriveOptions
-    */
+     * Sets the includeContent
+     *
+     * @param SearchContent $val The value to assign to the includeContent
+     *
+     * @return SharePointOneDriveOptions The SharePointOneDriveOptions
+     */
     public function setIncludeContent($val)
     {
         $this->_propDict["includeContent"] = $val;
-         return $this;
+        return $this;
     }
 }

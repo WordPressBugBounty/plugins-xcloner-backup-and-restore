@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Request;
 
-namespace Sabre\DAVACL\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * ExpandProperty request parser.
  *
@@ -36,7 +34,6 @@ class ExpandPropertyReport implements XmlDeserializable
      * @var array
      */
     public $properties;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -60,13 +57,10 @@ class ExpandPropertyReport implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $elems = $reader->parseInnerTree();
-
         $obj = new self();
         $obj->properties = self::traverse($elems);
-
         return $obj;
     }
-
     /**
      * This method is used by deserializeXml, to recursively parse the
      * {DAV:}property elements.
@@ -78,26 +72,18 @@ class ExpandPropertyReport implements XmlDeserializable
     private static function traverse($elems)
     {
         $result = [];
-
         foreach ($elems as $elem) {
             if ('{DAV:}property' !== $elem['name']) {
                 continue;
             }
-
-            $namespace = isset($elem['attributes']['namespace']) ?
-                $elem['attributes']['namespace'] :
-                'DAV:';
-
-            $propName = '{'.$namespace.'}'.$elem['attributes']['name'];
-
+            $namespace = isset($elem['attributes']['namespace']) ? $elem['attributes']['namespace'] : 'DAV:';
+            $propName = '{' . $namespace . '}' . $elem['attributes']['name'];
             $value = null;
             if (is_array($elem['value'])) {
                 $value = self::traverse($elem['value']);
             }
-
             $result[$propName] = $value;
         }
-
         return $result;
     }
 }

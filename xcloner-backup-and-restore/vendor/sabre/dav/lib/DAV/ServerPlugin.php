@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The baseclass for all server plugins.
  *
@@ -27,7 +26,6 @@ abstract class ServerPlugin
      * This method should set up the required event subscriptions.
      */
     abstract public function initialize(Server $server);
-
     /**
      * This method should return a list of server-features.
      *
@@ -40,7 +38,6 @@ abstract class ServerPlugin
     {
         return [];
     }
-
     /**
      * Use this method to tell the server this plugin defines additional
      * HTTP methods.
@@ -56,7 +53,6 @@ abstract class ServerPlugin
     {
         return [];
     }
-
     /**
      * Returns a plugin name.
      *
@@ -69,7 +65,6 @@ abstract class ServerPlugin
     {
         return get_class($this);
     }
-
     /**
      * Returns a list of reports this plugin supports.
      *
@@ -85,7 +80,6 @@ abstract class ServerPlugin
     {
         return [];
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -99,10 +93,6 @@ abstract class ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => null,
-            'link' => null,
-        ];
+        return ['name' => $this->getPluginName(), 'description' => null, 'link' => null];
     }
 }

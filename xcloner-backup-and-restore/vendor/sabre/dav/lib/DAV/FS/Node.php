@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\FS;
 
-namespace Sabre\DAV\FS;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\Forbidden;
-use Sabre\DAV\INode;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\Forbidden;
+use XCloner\Sabre\DAV\INode;
+use XCloner\Sabre\Uri;
 /**
  * Base node-class.
  *
@@ -28,14 +26,12 @@ abstract class Node implements INode
      * @var string
      */
     protected $path;
-
     /**
      * The overridden name of the node.
      *
      * @var string
      */
     protected $overrideName;
-
     /**
      * Sets up the node, expects a full path name.
      *
@@ -50,7 +46,6 @@ abstract class Node implements INode
         $this->path = $path;
         $this->overrideName = $overrideName;
     }
-
     /**
      * Returns the name of the node.
      *
@@ -61,12 +56,9 @@ abstract class Node implements INode
         if ($this->overrideName) {
             return $this->overrideName;
         }
-
         list(, $name) = Uri\split($this->path);
-
         return $name;
     }
-
     /**
      * Renames the node.
      *
@@ -77,16 +69,12 @@ abstract class Node implements INode
         if ($this->overrideName) {
             throw new Forbidden('This node cannot be renamed');
         }
-
         list($parentPath) = Uri\split($this->path);
         list(, $newName) = Uri\split($name);
-
-        $newPath = $parentPath.'/'.$newName;
+        $newPath = $parentPath . '/' . $newName;
         rename($this->path, $newPath);
-
         $this->path = $newPath;
     }
-
     /**
      * Returns the last modification time, as a unix timestamp.
      *

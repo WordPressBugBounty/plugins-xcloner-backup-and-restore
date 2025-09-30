@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WellKnownTaskList class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WellKnownTaskList extends BaseTaskList
 {
     /**
-    * Gets the wellKnownListName
-    * Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
-    *
-    * @return WellKnownListName_v2|null The wellKnownListName
-    */
+     * Gets the wellKnownListName
+     * Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     *
+     * @return WellKnownListName_v2|null The wellKnownListName
+     */
     public function getWellKnownListName()
     {
         if (array_key_exists("wellKnownListName", $this->_propDict)) {
-            if (is_a($this->_propDict["wellKnownListName"], "\Beta\Microsoft\Graph\Model\WellKnownListName_v2") || is_null($this->_propDict["wellKnownListName"])) {
+            if (is_a($this->_propDict["wellKnownListName"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WellKnownListName_v2") || is_null($this->_propDict["wellKnownListName"])) {
                 return $this->_propDict["wellKnownListName"];
             } else {
                 $this->_propDict["wellKnownListName"] = new WellKnownListName_v2($this->_propDict["wellKnownListName"]);
@@ -45,19 +46,17 @@ class WellKnownTaskList extends BaseTaskList
         }
         return null;
     }
-
     /**
-    * Sets the wellKnownListName
-    * Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
-    *
-    * @param WellKnownListName_v2 $val The wellKnownListName
-    *
-    * @return WellKnownTaskList
-    */
+     * Sets the wellKnownListName
+     * Property indicating the list name if the given list is a well-known list.. The possible values are: none, defaultList, flaggedEmails, unknownFutureValue.
+     *
+     * @param WellKnownListName_v2 $val The wellKnownListName
+     *
+     * @return WellKnownTaskList
+     */
     public function setWellKnownListName($val)
     {
         $this->_propDict["wellKnownListName"] = $val;
         return $this;
     }
-
 }

@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Used for testing purposes.
  *
@@ -70,36 +69,30 @@ class TestHandler extends AbstractProcessingHandler
 {
     protected $records = array();
     protected $recordsByLevel = array();
-    private $skipReset = false;
-
+    private $skipReset = \false;
     public function getRecords()
     {
         return $this->records;
     }
-
     public function clear()
     {
         $this->records = array();
         $this->recordsByLevel = array();
     }
-
     public function reset()
     {
         if (!$this->skipReset) {
             $this->clear();
         }
     }
-
     public function setSkipReset($skipReset)
     {
         $this->skipReset = $skipReset;
     }
-
     public function hasRecords($level)
     {
         return isset($this->recordsByLevel[$level]);
     }
-
     /**
      * @param string|array $record Either a message string or an array containing message and optionally context keys that will be checked against all records
      * @param int          $level  Logger::LEVEL constant value
@@ -109,51 +102,43 @@ class TestHandler extends AbstractProcessingHandler
         if (is_string($record)) {
             $record = array('message' => $record);
         }
-
         return $this->hasRecordThatPasses(function ($rec) use ($record) {
             if ($rec['message'] !== $record['message']) {
-                return false;
+                return \false;
             }
             if (isset($record['context']) && $rec['context'] !== $record['context']) {
-                return false;
+                return \false;
             }
-            return true;
+            return \true;
         }, $level);
     }
-
     public function hasRecordThatContains($message, $level)
     {
         return $this->hasRecordThatPasses(function ($rec) use ($message) {
-            return strpos($rec['message'], $message) !== false;
+            return strpos($rec['message'], $message) !== \false;
         }, $level);
     }
-
     public function hasRecordThatMatches($regex, $level)
     {
         return $this->hasRecordThatPasses(function ($rec) use ($regex) {
             return preg_match($regex, $rec['message']) > 0;
         }, $level);
     }
-
     public function hasRecordThatPasses($predicate, $level)
     {
         if (!is_callable($predicate)) {
             throw new \InvalidArgumentException("Expected a callable for hasRecordThatSucceeds");
         }
-
         if (!isset($this->recordsByLevel[$level])) {
-            return false;
+            return \false;
         }
-
         foreach ($this->recordsByLevel[$level] as $i => $rec) {
             if (call_user_func($predicate, $rec, $i)) {
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -162,7 +147,6 @@ class TestHandler extends AbstractProcessingHandler
         $this->recordsByLevel[$record['level']][] = $record;
         $this->records[] = $record;
     }
-
     public function __call($method, $args)
     {
         if (preg_match('/(.*)(Debug|Info|Notice|Warning|Error|Critical|Alert|Emergency)(.*)/', $method, $matches) > 0) {
@@ -170,11 +154,9 @@ class TestHandler extends AbstractProcessingHandler
             $level = constant('Monolog\Logger::' . strtoupper($matches[2]));
             if (method_exists($this, $genericMethod)) {
                 $args[] = $level;
-
                 return call_user_func_array(array($this, $genericMethod), $args);
             }
         }
-
         throw new \BadMethodCallException('Call to undefined method ' . get_class($this) . '::' . $method . '()');
     }
 }

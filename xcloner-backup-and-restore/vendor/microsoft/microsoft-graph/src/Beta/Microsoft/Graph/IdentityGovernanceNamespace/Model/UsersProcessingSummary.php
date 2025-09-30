@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UsersProcessingSummary class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
+class UsersProcessingSummary extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the failedTasks
-    * Numerical count of failed tasks for users processed by a workflow.
-    *
-    * @return int|null The failedTasks
-    */
+     * Gets the failedTasks
+     * Numerical count of failed tasks for users processed by a workflow.
+     *
+     * @return int|null The failedTasks
+     */
     public function getFailedTasks()
     {
         if (array_key_exists("failedTasks", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedTasks
-    * Numerical count of failed tasks for users processed by a workflow.
-    *
-    * @param int $val The value of the failedTasks
-    *
-    * @return UsersProcessingSummary
-    */
+     * Sets the failedTasks
+     * Numerical count of failed tasks for users processed by a workflow.
+     *
+     * @param int $val The value of the failedTasks
+     *
+     * @return UsersProcessingSummary
+     */
     public function setFailedTasks($val)
     {
         $this->_propDict["failedTasks"] = $val;
         return $this;
     }
     /**
-    * Gets the failedUsers
-    * Numerical count of failed users processed by a workflow.
-    *
-    * @return int|null The failedUsers
-    */
+     * Gets the failedUsers
+     * Numerical count of failed users processed by a workflow.
+     *
+     * @return int|null The failedUsers
+     */
     public function getFailedUsers()
     {
         if (array_key_exists("failedUsers", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedUsers
-    * Numerical count of failed users processed by a workflow.
-    *
-    * @param int $val The value of the failedUsers
-    *
-    * @return UsersProcessingSummary
-    */
+     * Sets the failedUsers
+     * Numerical count of failed users processed by a workflow.
+     *
+     * @param int $val The value of the failedUsers
+     *
+     * @return UsersProcessingSummary
+     */
     public function setFailedUsers($val)
     {
         $this->_propDict["failedUsers"] = $val;
         return $this;
     }
     /**
-    * Gets the successfulUsers
-    * Numerical count of successful users processed by a workflow.
-    *
-    * @return int|null The successfulUsers
-    */
+     * Gets the successfulUsers
+     * Numerical count of successful users processed by a workflow.
+     *
+     * @return int|null The successfulUsers
+     */
     public function getSuccessfulUsers()
     {
         if (array_key_exists("successfulUsers", $this->_propDict)) {
@@ -96,26 +96,25 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the successfulUsers
-    * Numerical count of successful users processed by a workflow.
-    *
-    * @param int $val The value of the successfulUsers
-    *
-    * @return UsersProcessingSummary
-    */
+     * Sets the successfulUsers
+     * Numerical count of successful users processed by a workflow.
+     *
+     * @param int $val The value of the successfulUsers
+     *
+     * @return UsersProcessingSummary
+     */
     public function setSuccessfulUsers($val)
     {
         $this->_propDict["successfulUsers"] = $val;
         return $this;
     }
     /**
-    * Gets the totalTasks
-    * Numerical count of total tasks for users processed by a workflow.
-    *
-    * @return int|null The totalTasks
-    */
+     * Gets the totalTasks
+     * Numerical count of total tasks for users processed by a workflow.
+     *
+     * @return int|null The totalTasks
+     */
     public function getTotalTasks()
     {
         if (array_key_exists("totalTasks", $this->_propDict)) {
@@ -124,26 +123,25 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalTasks
-    * Numerical count of total tasks for users processed by a workflow.
-    *
-    * @param int $val The value of the totalTasks
-    *
-    * @return UsersProcessingSummary
-    */
+     * Sets the totalTasks
+     * Numerical count of total tasks for users processed by a workflow.
+     *
+     * @param int $val The value of the totalTasks
+     *
+     * @return UsersProcessingSummary
+     */
     public function setTotalTasks($val)
     {
         $this->_propDict["totalTasks"] = $val;
         return $this;
     }
     /**
-    * Gets the totalUsers
-    * Numerical count of total users processed by a workflow.
-    *
-    * @return int|null The totalUsers
-    */
+     * Gets the totalUsers
+     * Numerical count of total users processed by a workflow.
+     *
+     * @return int|null The totalUsers
+     */
     public function getTotalUsers()
     {
         if (array_key_exists("totalUsers", $this->_propDict)) {
@@ -152,15 +150,14 @@ class UsersProcessingSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalUsers
-    * Numerical count of total users processed by a workflow.
-    *
-    * @param int $val The value of the totalUsers
-    *
-    * @return UsersProcessingSummary
-    */
+     * Sets the totalUsers
+     * Numerical count of total users processed by a workflow.
+     *
+     * @param int $val The value of the totalUsers
+     *
+     * @return UsersProcessingSummary
+     */
     public function setTotalUsers($val)
     {
         $this->_propDict["totalUsers"] = $val;

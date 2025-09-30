@@ -8,13 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon;
 
-namespace Carbon;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-if (!class_exists(LazyTranslator::class, false)) {
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+if (!class_exists(LazyTranslator::class, \false)) {
     class LazyTranslator extends AbstractTranslator
     {
         /**

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResultTemplateOption class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResultTemplateOption extends Entity
 {
     /**
-    * Gets the enableResultTemplate
-    * Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional.
-    *
-    * @return bool|null The enableResultTemplate
-    */
+     * Gets the enableResultTemplate
+     * Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional.
+     *
+     * @return bool|null The enableResultTemplate
+     */
     public function getEnableResultTemplate()
     {
         if (array_key_exists("enableResultTemplate", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ResultTemplateOption extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enableResultTemplate
-    * Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional.
-    *
-    * @param bool $val The value of the enableResultTemplate
-    *
-    * @return ResultTemplateOption
-    */
+     * Sets the enableResultTemplate
+     * Indicates whether search display layouts are enabled. If enabled, the user will get the result template to render the search results content in the resultTemplates property of the response. The result template is based on Adaptive Cards. Optional.
+     *
+     * @param bool $val The value of the enableResultTemplate
+     *
+     * @return ResultTemplateOption
+     */
     public function setEnableResultTemplate($val)
     {
         $this->_propDict["enableResultTemplate"] = $val;

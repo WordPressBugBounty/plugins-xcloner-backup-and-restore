@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DiscoveredSensitiveType class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DiscoveredSensitiveType extends Entity
 {
-
     /**
-    * Gets the classificationAttributes
-    *
-    * @return ClassificationAttribute|null The classificationAttributes
-    */
+     * Gets the classificationAttributes
+     *
+     * @return ClassificationAttribute|null The classificationAttributes
+     */
     public function getClassificationAttributes()
     {
         if (array_key_exists("classificationAttributes", $this->_propDict)) {
-            if (is_a($this->_propDict["classificationAttributes"], "\Beta\Microsoft\Graph\Model\ClassificationAttribute") || is_null($this->_propDict["classificationAttributes"])) {
+            if (is_a($this->_propDict["classificationAttributes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ClassificationAttribute") || is_null($this->_propDict["classificationAttributes"])) {
                 return $this->_propDict["classificationAttributes"];
             } else {
                 $this->_propDict["classificationAttributes"] = new ClassificationAttribute($this->_propDict["classificationAttributes"]);
@@ -44,24 +45,23 @@ class DiscoveredSensitiveType extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the classificationAttributes
-    *
-    * @param ClassificationAttribute $val The value to assign to the classificationAttributes
-    *
-    * @return DiscoveredSensitiveType The DiscoveredSensitiveType
-    */
+     * Sets the classificationAttributes
+     *
+     * @param ClassificationAttribute $val The value to assign to the classificationAttributes
+     *
+     * @return DiscoveredSensitiveType The DiscoveredSensitiveType
+     */
     public function setClassificationAttributes($val)
     {
         $this->_propDict["classificationAttributes"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the confidence
-    *
-    * @return int|null The confidence
-    */
+     * Gets the confidence
+     *
+     * @return int|null The confidence
+     */
     public function getConfidence()
     {
         if (array_key_exists("confidence", $this->_propDict)) {
@@ -70,24 +70,23 @@ class DiscoveredSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the confidence
-    *
-    * @param int $val The value of the confidence
-    *
-    * @return DiscoveredSensitiveType
-    */
+     * Sets the confidence
+     *
+     * @param int $val The value of the confidence
+     *
+     * @return DiscoveredSensitiveType
+     */
     public function setConfidence($val)
     {
         $this->_propDict["confidence"] = $val;
         return $this;
     }
     /**
-    * Gets the count
-    *
-    * @return int|null The count
-    */
+     * Gets the count
+     *
+     * @return int|null The count
+     */
     public function getCount()
     {
         if (array_key_exists("count", $this->_propDict)) {
@@ -96,24 +95,23 @@ class DiscoveredSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the count
-    *
-    * @param int $val The value of the count
-    *
-    * @return DiscoveredSensitiveType
-    */
+     * Sets the count
+     *
+     * @param int $val The value of the count
+     *
+     * @return DiscoveredSensitiveType
+     */
     public function setCount($val)
     {
         $this->_propDict["count"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -122,14 +120,13 @@ class DiscoveredSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return DiscoveredSensitiveType
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return DiscoveredSensitiveType
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;

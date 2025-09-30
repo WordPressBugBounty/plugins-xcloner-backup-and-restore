@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV;
 
-namespace Sabre\CardDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAVACL;
 /**
  * AddressBook rootnode.
  *
@@ -26,14 +24,12 @@ class AddressBookRoot extends DAVACL\AbstractPrincipalCollection
      * @var DAVACL\PrincipalBackend\BackendInterface
      */
     protected $principalBackend;
-
     /**
      * CardDAV backend.
      *
      * @var Backend\BackendInterface
      */
     protected $carddavBackend;
-
     /**
      * Constructor.
      *
@@ -51,7 +47,6 @@ class AddressBookRoot extends DAVACL\AbstractPrincipalCollection
         $this->carddavBackend = $carddavBackend;
         parent::__construct($principalBackend, $principalPrefix);
     }
-
     /**
      * Returns the name of the node.
      *
@@ -61,7 +56,6 @@ class AddressBookRoot extends DAVACL\AbstractPrincipalCollection
     {
         return Plugin::ADDRESSBOOK_ROOT;
     }
-
     /**
      * This method returns a node for a principal.
      *

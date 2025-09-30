@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PublicClientApplication class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PublicClientApplication extends Entity
 {
     /**
-    * Gets the redirectUris
-    * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-    *
-    * @return string|null The redirectUris
-    */
+     * Gets the redirectUris
+     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     *
+     * @return string|null The redirectUris
+     */
     public function getRedirectUris()
     {
         if (array_key_exists("redirectUris", $this->_propDict)) {
@@ -40,15 +42,14 @@ class PublicClientApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the redirectUris
-    * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
-    *
-    * @param string $val The value of the redirectUris
-    *
-    * @return PublicClientApplication
-    */
+     * Sets the redirectUris
+     * Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.
+     *
+     * @param string $val The value of the redirectUris
+     *
+     * @return PublicClientApplication
+     */
     public function setRedirectUris($val)
     {
         $this->_propDict["redirectUris"] = $val;

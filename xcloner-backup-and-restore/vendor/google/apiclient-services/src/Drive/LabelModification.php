@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,87 +15,84 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class LabelModification extends \Google\Collection
-{
-  protected $collection_key = 'fieldModifications';
-  protected $fieldModificationsType = LabelFieldModification::class;
-  protected $fieldModificationsDataType = 'array';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $labelId;
-  /**
-   * @var bool
-   */
-  public $removeLabel;
-
-  /**
-   * @param LabelFieldModification[]
-   */
-  public function setFieldModifications($fieldModifications)
-  {
-    $this->fieldModifications = $fieldModifications;
-  }
-  /**
-   * @return LabelFieldModification[]
-   */
-  public function getFieldModifications()
-  {
-    return $this->fieldModifications;
-  }
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setLabelId($labelId)
-  {
-    $this->labelId = $labelId;
-  }
-  /**
-   * @return string
-   */
-  public function getLabelId()
-  {
-    return $this->labelId;
-  }
-  /**
-   * @param bool
-   */
-  public function setRemoveLabel($removeLabel)
-  {
-    $this->removeLabel = $removeLabel;
-  }
-  /**
-   * @return bool
-   */
-  public function getRemoveLabel()
-  {
-    return $this->removeLabel;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class LabelModification extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'fieldModifications';
+    protected $fieldModificationsType = LabelFieldModification::class;
+    protected $fieldModificationsDataType = 'array';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $labelId;
+    /**
+     * @var bool
+     */
+    public $removeLabel;
+    /**
+     * @param LabelFieldModification[]
+     */
+    public function setFieldModifications($fieldModifications)
+    {
+        $this->fieldModifications = $fieldModifications;
+    }
+    /**
+     * @return LabelFieldModification[]
+     */
+    public function getFieldModifications()
+    {
+        return $this->fieldModifications;
+    }
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setLabelId($labelId)
+    {
+        $this->labelId = $labelId;
+    }
+    /**
+     * @return string
+     */
+    public function getLabelId()
+    {
+        return $this->labelId;
+    }
+    /**
+     * @param bool
+     */
+    public function setRemoveLabel($removeLabel)
+    {
+        $this->removeLabel = $removeLabel;
+    }
+    /**
+     * @return bool
+     */
+    public function getRemoveLabel()
+    {
+        return $this->removeLabel;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(LabelModification::class, 'Google_Service_Drive_LabelModification');
+class_alias(LabelModification::class, 'XCloner\Google_Service_Drive_LabelModification');

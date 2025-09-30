@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FeatureRolloutPolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FeatureRolloutPolicy extends Entity
 {
     /**
-    * Gets the description
-    * A description for this feature rollout policy.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * A description for this feature rollout policy.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * A description for this feature rollout policy.
-    *
-    * @param string $val The description
-    *
-    * @return FeatureRolloutPolicy
-    */
+     * Sets the description
+     * A description for this feature rollout policy.
+     *
+     * @param string $val The description
+     *
+     * @return FeatureRolloutPolicy
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name for this  feature rollout policy.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name for this  feature rollout policy.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,31 +69,29 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name for this  feature rollout policy.
-    *
-    * @param string $val The displayName
-    *
-    * @return FeatureRolloutPolicy
-    */
+     * Sets the displayName
+     * The display name for this  feature rollout policy.
+     *
+     * @param string $val The displayName
+     *
+     * @return FeatureRolloutPolicy
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the feature
-    * Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
-    *
-    * @return StagedFeatureName|null The feature
-    */
+     * Gets the feature
+     * Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
+     *
+     * @return StagedFeatureName|null The feature
+     */
     public function getFeature()
     {
         if (array_key_exists("feature", $this->_propDict)) {
-            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\StagedFeatureName") || is_null($this->_propDict["feature"])) {
+            if (is_a($this->_propDict["feature"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\StagedFeatureName") || is_null($this->_propDict["feature"])) {
                 return $this->_propDict["feature"];
             } else {
                 $this->_propDict["feature"] = new StagedFeatureName($this->_propDict["feature"]);
@@ -103,27 +100,25 @@ class FeatureRolloutPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the feature
-    * Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
-    *
-    * @param StagedFeatureName $val The feature
-    *
-    * @return FeatureRolloutPolicy
-    */
+     * Sets the feature
+     * Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.
+     *
+     * @param StagedFeatureName $val The feature
+     *
+     * @return FeatureRolloutPolicy
+     */
     public function setFeature($val)
     {
         $this->_propDict["feature"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isAppliedToOrganization
-    * Indicates whether this feature rollout policy should be applied to the entire organization.
-    *
-    * @return bool|null The isAppliedToOrganization
-    */
+     * Gets the isAppliedToOrganization
+     * Indicates whether this feature rollout policy should be applied to the entire organization.
+     *
+     * @return bool|null The isAppliedToOrganization
+     */
     public function getIsAppliedToOrganization()
     {
         if (array_key_exists("isAppliedToOrganization", $this->_propDict)) {
@@ -132,27 +127,25 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isAppliedToOrganization
-    * Indicates whether this feature rollout policy should be applied to the entire organization.
-    *
-    * @param bool $val The isAppliedToOrganization
-    *
-    * @return FeatureRolloutPolicy
-    */
+     * Sets the isAppliedToOrganization
+     * Indicates whether this feature rollout policy should be applied to the entire organization.
+     *
+     * @param bool $val The isAppliedToOrganization
+     *
+     * @return FeatureRolloutPolicy
+     */
     public function setIsAppliedToOrganization($val)
     {
         $this->_propDict["isAppliedToOrganization"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isEnabled
-    * Indicates whether the feature rollout is enabled.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Indicates whether the feature rollout is enabled.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -161,49 +154,44 @@ class FeatureRolloutPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Indicates whether the feature rollout is enabled.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return FeatureRolloutPolicy
-    */
+     * Sets the isEnabled
+     * Indicates whether the feature rollout is enabled.
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return FeatureRolloutPolicy
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the appliesTo
-    * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+     * Nullable. Specifies a list of directoryObjects that feature is enabled for.
      *
      * @return array|null The appliesTo
      */
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-           return $this->_propDict["appliesTo"];
+            return $this->_propDict["appliesTo"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the appliesTo
-    * Nullable. Specifies a list of directoryObjects that feature is enabled for.
-    *
-    * @param DirectoryObject[] $val The appliesTo
-    *
-    * @return FeatureRolloutPolicy
-    */
+     * Sets the appliesTo
+     * Nullable. Specifies a list of directoryObjects that feature is enabled for.
+     *
+     * @param DirectoryObject[] $val The appliesTo
+     *
+     * @return FeatureRolloutPolicy
+     */
     public function setAppliesTo($val)
     {
         $this->_propDict["appliesTo"] = $val;
         return $this;
     }
-
 }

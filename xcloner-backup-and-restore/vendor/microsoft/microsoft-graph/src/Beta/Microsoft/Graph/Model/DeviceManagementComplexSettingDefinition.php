@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementComplexSettingDefinition class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDefinition
 {
     /**
-    * Gets the propertyDefinitionIds
-    * The definitions of each property of the complex setting
-    *
-    * @return array|null The propertyDefinitionIds
-    */
+     * Gets the propertyDefinitionIds
+     * The definitions of each property of the complex setting
+     *
+     * @return array|null The propertyDefinitionIds
+     */
     public function getPropertyDefinitionIds()
     {
         if (array_key_exists("propertyDefinitionIds", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DeviceManagementComplexSettingDefinition extends DeviceManagementSettingDe
             return null;
         }
     }
-
     /**
-    * Sets the propertyDefinitionIds
-    * The definitions of each property of the complex setting
-    *
-    * @param string[] $val The propertyDefinitionIds
-    *
-    * @return DeviceManagementComplexSettingDefinition
-    */
+     * Sets the propertyDefinitionIds
+     * The definitions of each property of the complex setting
+     *
+     * @param string[] $val The propertyDefinitionIds
+     *
+     * @return DeviceManagementComplexSettingDefinition
+     */
     public function setPropertyDefinitionIds($val)
     {
         $this->_propDict["propertyDefinitionIds"] = $val;
         return $this;
     }
-
 }

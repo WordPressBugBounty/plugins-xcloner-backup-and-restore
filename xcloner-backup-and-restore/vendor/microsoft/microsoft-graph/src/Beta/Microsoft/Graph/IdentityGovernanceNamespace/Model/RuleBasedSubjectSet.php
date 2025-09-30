@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RuleBasedSubjectSet class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class RuleBasedSubjectSet extends \Beta\Microsoft\Graph\Model\SubjectSet
+class RuleBasedSubjectSet extends \XCloner\Beta\Microsoft\Graph\Model\SubjectSet
 {
     /**
-    * Gets the rule
-    * The rule for the subject set.
-    *
-    * @return string|null The rule
-    */
+     * Gets the rule
+     * The rule for the subject set.
+     *
+     * @return string|null The rule
+     */
     public function getRule()
     {
         if (array_key_exists("rule", $this->_propDict)) {
@@ -40,15 +42,14 @@ class RuleBasedSubjectSet extends \Beta\Microsoft\Graph\Model\SubjectSet
             return null;
         }
     }
-
     /**
-    * Sets the rule
-    * The rule for the subject set.
-    *
-    * @param string $val The value of the rule
-    *
-    * @return RuleBasedSubjectSet
-    */
+     * Sets the rule
+     * The rule for the subject set.
+     *
+     * @param string $val The value of the rule
+     *
+     * @return RuleBasedSubjectSet
+     */
     public function setRule($val)
     {
         $this->_propDict["rule"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EncryptWithTemplate class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EncryptWithTemplate extends EncryptContent
 {
     /**
-    * Gets the availableForEncryption
-    *
-    * @return bool|null The availableForEncryption
-    */
+     * Gets the availableForEncryption
+     *
+     * @return bool|null The availableForEncryption
+     */
     public function getAvailableForEncryption()
     {
         if (array_key_exists("availableForEncryption", $this->_propDict)) {
@@ -39,24 +41,23 @@ class EncryptWithTemplate extends EncryptContent
             return null;
         }
     }
-
     /**
-    * Sets the availableForEncryption
-    *
-    * @param bool $val The value of the availableForEncryption
-    *
-    * @return EncryptWithTemplate
-    */
+     * Sets the availableForEncryption
+     *
+     * @param bool $val The value of the availableForEncryption
+     *
+     * @return EncryptWithTemplate
+     */
     public function setAvailableForEncryption($val)
     {
         $this->_propDict["availableForEncryption"] = $val;
         return $this;
     }
     /**
-    * Gets the templateId
-    *
-    * @return string|null The templateId
-    */
+     * Gets the templateId
+     *
+     * @return string|null The templateId
+     */
     public function getTemplateId()
     {
         if (array_key_exists("templateId", $this->_propDict)) {
@@ -65,14 +66,13 @@ class EncryptWithTemplate extends EncryptContent
             return null;
         }
     }
-
     /**
-    * Sets the templateId
-    *
-    * @param string $val The value of the templateId
-    *
-    * @return EncryptWithTemplate
-    */
+     * Sets the templateId
+     *
+     * @param string $val The value of the templateId
+     *
+     * @return EncryptWithTemplate
+     */
     public function setTemplateId($val)
     {
         $this->_propDict["templateId"] = $val;

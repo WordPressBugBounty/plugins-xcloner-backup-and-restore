@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * KeyValue class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class KeyValue extends Entity
 {
     /**
-    * Gets the key
-    * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
-    *
-    * @return string|null The key
-    */
+     * Gets the key
+     * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     *
+     * @return string|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
@@ -40,26 +42,25 @@ class KeyValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the key
-    * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
-    *
-    * @param string $val The value of the key
-    *
-    * @return KeyValue
-    */
+     * Sets the key
+     * Contains the name of the field that a value is associated with. When a sign in or domain hint is included in the sign-in request, corresponding fields are included as key-value pairs. Possible keys: Login hint present, Domain hint present.
+     *
+     * @param string $val The value of the key
+     *
+     * @return KeyValue
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -68,15 +69,14 @@ class KeyValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
-    *
-    * @param string $val The value of the value
-    *
-    * @return KeyValue
-    */
+     * Sets the value
+     * Contains the corresponding value for the specified key. The value is true if a sign in hint was included in the sign-in request; otherwise false. The value is true if a domain hint was included in the sign-in request; otherwise false.
+     *
+     * @param string $val The value of the value
+     *
+     * @return KeyValue
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

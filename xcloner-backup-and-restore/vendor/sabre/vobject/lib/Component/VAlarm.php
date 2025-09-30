@@ -1,15 +1,14 @@
 <?php
 
-namespace Sabre\VObject\Component;
+namespace XCloner\Sabre\VObject\Component;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeImmutable;
 use DateTimeInterface;
-use Sabre\VObject;
-use Sabre\VObject\InvalidDataException;
-
+use XCloner\Sabre\VObject;
+use XCloner\Sabre\VObject\InvalidDataException;
 /**
  * VAlarm component.
  *
@@ -33,8 +32,7 @@ class VAlarm extends VObject\Component
         $trigger = $this->TRIGGER;
         if (!isset($trigger['VALUE']) || 'DURATION' === strtoupper($trigger['VALUE'])) {
             $triggerDuration = VObject\DateTimeParser::parseDuration($this->TRIGGER);
-            $related = (isset($trigger['RELATED']) && 'END' == strtoupper($trigger['RELATED'])) ? 'END' : 'START';
-
+            $related = isset($trigger['RELATED']) && 'END' == strtoupper($trigger['RELATED']) ? 'END' : 'START';
             $parentComponent = $this->parent;
             if ('START' === $related) {
                 if ('VTODO' === $parentComponent->name) {
@@ -42,8 +40,7 @@ class VAlarm extends VObject\Component
                 } else {
                     $propName = 'DTSTART';
                 }
-
-                $effectiveTrigger = $parentComponent->$propName->getDateTime();
+                $effectiveTrigger = $parentComponent->{$propName}->getDateTime();
                 $effectiveTrigger = $effectiveTrigger->add($triggerDuration);
             } else {
                 if ('VTODO' === $parentComponent->name) {
@@ -53,9 +50,8 @@ class VAlarm extends VObject\Component
                 } else {
                     throw new InvalidDataException('time-range filters on VALARM components are only supported when they are a child of VTODO or VEVENT');
                 }
-
-                if (isset($parentComponent->$endProp)) {
-                    $effectiveTrigger = $parentComponent->$endProp->getDateTime();
+                if (isset($parentComponent->{$endProp})) {
+                    $effectiveTrigger = $parentComponent->{$endProp}->getDateTime();
                     $effectiveTrigger = $effectiveTrigger->add($triggerDuration);
                 } elseif (isset($parentComponent->DURATION)) {
                     $effectiveTrigger = $parentComponent->DTSTART->getDateTime();
@@ -70,10 +66,8 @@ class VAlarm extends VObject\Component
         } else {
             $effectiveTrigger = $trigger->getDateTime();
         }
-
         return $effectiveTrigger;
     }
-
     /**
      * Returns true or false depending on if the event falls in the specified
      * time-range. This is used for filtering purposes.
@@ -89,28 +83,23 @@ class VAlarm extends VObject\Component
     public function isInTimeRange(DateTimeInterface $start, DateTimeInterface $end)
     {
         $effectiveTrigger = $this->getEffectiveTriggerTime();
-
         if (isset($this->DURATION)) {
             $duration = VObject\DateTimeParser::parseDuration($this->DURATION);
             $repeat = (string) $this->REPEAT;
             if (!$repeat) {
                 $repeat = 1;
             }
-
             $period = new \DatePeriod($effectiveTrigger, $duration, (int) $repeat);
-
             foreach ($period as $occurrence) {
                 if ($start <= $occurrence && $end > $occurrence) {
-                    return true;
+                    return \true;
                 }
             }
-
-            return false;
+            return \false;
         } else {
             return $start <= $effectiveTrigger && $end > $effectiveTrigger;
         }
     }
-
     /**
      * A simple list of validation rules.
      *
@@ -128,14 +117,6 @@ class VAlarm extends VObject\Component
      */
     public function getValidationRules()
     {
-        return [
-            'ACTION' => 1,
-            'TRIGGER' => 1,
-
-            'DURATION' => '?',
-            'REPEAT' => '?',
-
-            'ATTACH' => '?',
-        ];
+        return ['ACTION' => 1, 'TRIGGER' => 1, 'DURATION' => '?', 'REPEAT' => '?', 'ATTACH' => '?'];
     }
 }

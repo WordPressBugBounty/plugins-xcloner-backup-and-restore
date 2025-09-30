@@ -1,21 +1,18 @@
 <?php
 
-namespace splitbrain\PHPArchive;
+namespace XCloner\splitbrain\PHPArchive;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 abstract class Archive
 {
-
     const COMPRESS_AUTO = -1;
     const COMPRESS_NONE = 0;
     const COMPRESS_GZIP = 1;
     const COMPRESS_BZIP = 2;
-
     /** @var callable */
     protected $callback;
-
     /**
      * Set the compression level and type
      *
@@ -24,7 +21,6 @@ abstract class Archive
      * @throws ArchiveIllegalCompressionException
      */
     abstract public function setCompression($level = 9, $type = Archive::COMPRESS_AUTO);
-
     /**
      * Open an existing archive file for reading
      *
@@ -32,7 +28,6 @@ abstract class Archive
      * @throws ArchiveIOException
      */
     abstract public function open($file);
-
     /**
      * Read the contents of an archive
      *
@@ -44,7 +39,6 @@ abstract class Archive
      * @return FileInfo[]
      */
     abstract public function contents();
-
     /**
      * Extract an existing archive
      *
@@ -70,7 +64,6 @@ abstract class Archive
      * @return array
      */
     abstract public function extract($outdir, $strip = '', $exclude = '', $include = '');
-
     /**
      * Create a new archive file
      *
@@ -79,7 +72,6 @@ abstract class Archive
      * @param string $file
      */
     abstract public function create($file = '');
-
     /**
      * Add a file to the current archive using an existing file in the filesystem
      *
@@ -88,7 +80,6 @@ abstract class Archive
      * @throws ArchiveIOException
      */
     abstract public function addFile($file, $fileinfo = '');
-
     /**
      * Add a file to the current archive using the given $data as content
      *
@@ -97,7 +88,6 @@ abstract class Archive
      * @throws ArchiveIOException
      */
     abstract public function addData($fileinfo, $data);
-
     /**
      * Close the archive, close all file handles
      *
@@ -105,14 +95,12 @@ abstract class Archive
      * read access no reading is allowed anymore
      */
     abstract public function close();
-
     /**
      * Returns the created in-memory archive data
      *
      * This implicitly calls close() on the Archive
      */
     abstract public function getArchive();
-
     /**
      * Save the created in-memory archive data
      *
@@ -122,7 +110,6 @@ abstract class Archive
      * @param string $file
      */
     abstract public function save($file);
-
     /**
      * Set a callback function to be called whenever a file is added or extracted.
      *

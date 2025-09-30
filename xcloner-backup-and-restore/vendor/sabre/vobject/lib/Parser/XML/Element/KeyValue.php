@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Parser\XML\Element;
+namespace XCloner\Sabre\VObject\Parser\XML\Element;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml as SabreXml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml as SabreXml;
 /**
  * Our own sabre/xml key-value element.
  *
@@ -45,13 +44,10 @@ class KeyValue extends SabreXml\Element\KeyValue
         // If there's no children, we don't do anything.
         if ($reader->isEmptyElement) {
             $reader->next();
-
             return [];
         }
-
         $values = [];
         $reader->read();
-
         do {
             if (SabreXml\Reader::ELEMENT === $reader->nodeType) {
                 $name = $reader->localName;
@@ -60,9 +56,7 @@ class KeyValue extends SabreXml\Element\KeyValue
                 $reader->read();
             }
         } while (SabreXml\Reader::END_ELEMENT !== $reader->nodeType);
-
         $reader->read();
-
         return $values;
     }
 }

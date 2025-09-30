@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * UtcOffset property.
  *
@@ -23,7 +23,6 @@ class UtcOffset extends Text
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Returns the type of value.
      *
@@ -36,7 +35,6 @@ class UtcOffset extends Text
     {
         return 'UTC-OFFSET';
     }
-
     /**
      * Sets the JSON value, as it would appear in a jCard or jCal object.
      *
@@ -44,15 +42,11 @@ class UtcOffset extends Text
      */
     public function setJsonValue(array $value)
     {
-        $value = array_map(
-            function ($value) {
-                return str_replace(':', '', $value);
-            },
-            $value
-        );
+        $value = array_map(function ($value) {
+            return str_replace(':', '', $value);
+        }, $value);
         parent::setJsonValue($value);
     }
-
     /**
      * Returns the value, in the format it should be encoded for JSON.
      *
@@ -62,12 +56,8 @@ class UtcOffset extends Text
      */
     public function getJsonValue()
     {
-        return array_map(
-            function ($value) {
-                return substr($value, 0, -2).':'.
-                       substr($value, -2);
-            },
-            parent::getJsonValue()
-        );
+        return array_map(function ($value) {
+            return substr($value, 0, -2) . ':' . substr($value, -2);
+        }, parent::getJsonValue());
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AadUserConversationMember class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AadUserConversationMember extends ConversationMember
 {
     /**
-    * Gets the email
-    * The email address of the user.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * The email address of the user.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AadUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * The email address of the user.
-    *
-    * @param string $val The email
-    *
-    * @return AadUserConversationMember
-    */
+     * Sets the email
+     * The email address of the user.
+     *
+     * @param string $val The email
+     *
+     * @return AadUserConversationMember
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * TenantId which the Azure AD user belongs to.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * TenantId which the Azure AD user belongs to.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AadUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * TenantId which the Azure AD user belongs to.
-    *
-    * @param string $val The tenantId
-    *
-    * @return AadUserConversationMember
-    */
+     * Sets the tenantId
+     * TenantId which the Azure AD user belongs to.
+     *
+     * @param string $val The tenantId
+     *
+     * @return AadUserConversationMember
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * The GUID of the user.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The GUID of the user.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -99,30 +96,28 @@ class AadUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The GUID of the user.
-    *
-    * @param string $val The userId
-    *
-    * @return AadUserConversationMember
-    */
+     * Sets the userId
+     * The GUID of the user.
+     *
+     * @param string $val The userId
+     *
+     * @return AadUserConversationMember
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the user
-    *
-    * @return User|null The user
-    */
+     * Gets the user
+     *
+     * @return User|null The user
+     */
     public function getUser()
     {
         if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\User") || is_null($this->_propDict["user"])) {
+            if (is_a($this->_propDict["user"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\User") || is_null($this->_propDict["user"])) {
                 return $this->_propDict["user"];
             } else {
                 $this->_propDict["user"] = new User($this->_propDict["user"]);
@@ -131,18 +126,16 @@ class AadUserConversationMember extends ConversationMember
         }
         return null;
     }
-
     /**
-    * Sets the user
-    *
-    * @param User $val The user
-    *
-    * @return AadUserConversationMember
-    */
+     * Sets the user
+     *
+     * @param User $val The user
+     *
+     * @return AadUserConversationMember
+     */
     public function setUser($val)
     {
         $this->_propDict["user"] = $val;
         return $this;
     }
-
 }

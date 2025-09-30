@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationCourse class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationCourse extends Entity
 {
     /**
-    * Gets the courseNumber
-    * Unique identifier for the course.
-    *
-    * @return string|null The courseNumber
-    */
+     * Gets the courseNumber
+     * Unique identifier for the course.
+     *
+     * @return string|null The courseNumber
+     */
     public function getCourseNumber()
     {
         if (array_key_exists("courseNumber", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EducationCourse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the courseNumber
-    * Unique identifier for the course.
-    *
-    * @param string $val The value of the courseNumber
-    *
-    * @return EducationCourse
-    */
+     * Sets the courseNumber
+     * Unique identifier for the course.
+     *
+     * @param string $val The value of the courseNumber
+     *
+     * @return EducationCourse
+     */
     public function setCourseNumber($val)
     {
         $this->_propDict["courseNumber"] = $val;
         return $this;
     }
     /**
-    * Gets the description
-    * Description of the course.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the course.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -68,26 +69,25 @@ class EducationCourse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the course.
-    *
-    * @param string $val The value of the description
-    *
-    * @return EducationCourse
-    */
+     * Sets the description
+     * Description of the course.
+     *
+     * @param string $val The value of the description
+     *
+     * @return EducationCourse
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Name of the course.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the course.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -96,26 +96,25 @@ class EducationCourse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the course.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return EducationCourse
-    */
+     * Sets the displayName
+     * Name of the course.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return EducationCourse
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the externalId
-    * ID of the course from the syncing system.
-    *
-    * @return string|null The externalId
-    */
+     * Gets the externalId
+     * ID of the course from the syncing system.
+     *
+     * @return string|null The externalId
+     */
     public function getExternalId()
     {
         if (array_key_exists("externalId", $this->_propDict)) {
@@ -124,26 +123,25 @@ class EducationCourse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the externalId
-    * ID of the course from the syncing system.
-    *
-    * @param string $val The value of the externalId
-    *
-    * @return EducationCourse
-    */
+     * Sets the externalId
+     * ID of the course from the syncing system.
+     *
+     * @param string $val The value of the externalId
+     *
+     * @return EducationCourse
+     */
     public function setExternalId($val)
     {
         $this->_propDict["externalId"] = $val;
         return $this;
     }
     /**
-    * Gets the subject
-    * Subject of the course.
-    *
-    * @return string|null The subject
-    */
+     * Gets the subject
+     * Subject of the course.
+     *
+     * @return string|null The subject
+     */
     public function getSubject()
     {
         if (array_key_exists("subject", $this->_propDict)) {
@@ -152,15 +150,14 @@ class EducationCourse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subject
-    * Subject of the course.
-    *
-    * @param string $val The value of the subject
-    *
-    * @return EducationCourse
-    */
+     * Sets the subject
+     * Subject of the course.
+     *
+     * @param string $val The value of the subject
+     *
+     * @return EducationCourse
+     */
     public function setSubject($val)
     {
         $this->_propDict["subject"] = $val;

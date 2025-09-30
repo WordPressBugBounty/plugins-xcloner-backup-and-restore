@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessRoot class
 *
@@ -27,94 +28,85 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessRoot extends Entity
 {
-
-     /**
+    /**
      * Gets the authenticationContextClassReferences
-    * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
      *
      * @return array|null The authenticationContextClassReferences
      */
     public function getAuthenticationContextClassReferences()
     {
         if (array_key_exists("authenticationContextClassReferences", $this->_propDict)) {
-           return $this->_propDict["authenticationContextClassReferences"];
+            return $this->_propDict["authenticationContextClassReferences"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the authenticationContextClassReferences
-    * Read-only. Nullable. Returns a collection of the specified authentication context class references.
-    *
-    * @param AuthenticationContextClassReference[] $val The authenticationContextClassReferences
-    *
-    * @return ConditionalAccessRoot
-    */
+     * Sets the authenticationContextClassReferences
+     * Read-only. Nullable. Returns a collection of the specified authentication context class references.
+     *
+     * @param AuthenticationContextClassReference[] $val The authenticationContextClassReferences
+     *
+     * @return ConditionalAccessRoot
+     */
     public function setAuthenticationContextClassReferences($val)
     {
         $this->_propDict["authenticationContextClassReferences"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the namedLocations
-    * Read-only. Nullable. Returns a collection of the specified named locations.
+     * Read-only. Nullable. Returns a collection of the specified named locations.
      *
      * @return array|null The namedLocations
      */
     public function getNamedLocations()
     {
         if (array_key_exists("namedLocations", $this->_propDict)) {
-           return $this->_propDict["namedLocations"];
+            return $this->_propDict["namedLocations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the namedLocations
-    * Read-only. Nullable. Returns a collection of the specified named locations.
-    *
-    * @param NamedLocation[] $val The namedLocations
-    *
-    * @return ConditionalAccessRoot
-    */
+     * Sets the namedLocations
+     * Read-only. Nullable. Returns a collection of the specified named locations.
+     *
+     * @param NamedLocation[] $val The namedLocations
+     *
+     * @return ConditionalAccessRoot
+     */
     public function setNamedLocations($val)
     {
         $this->_propDict["namedLocations"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the policies
-    * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+     * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
      *
      * @return array|null The policies
      */
     public function getPolicies()
     {
         if (array_key_exists("policies", $this->_propDict)) {
-           return $this->_propDict["policies"];
+            return $this->_propDict["policies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the policies
-    * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
-    *
-    * @param ConditionalAccessPolicy[] $val The policies
-    *
-    * @return ConditionalAccessRoot
-    */
+     * Sets the policies
+     * Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
+     *
+     * @param ConditionalAccessPolicy[] $val The policies
+     *
+     * @return ConditionalAccessRoot
+     */
     public function setPolicies($val)
     {
         $this->_propDict["policies"] = $val;
         return $this;
     }
-
 }

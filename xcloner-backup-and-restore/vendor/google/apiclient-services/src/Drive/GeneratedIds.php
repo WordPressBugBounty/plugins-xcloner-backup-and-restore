@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,71 +15,68 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class GeneratedIds extends \Google\Collection
-{
-  protected $collection_key = 'ids';
-  /**
-   * @var string[]
-   */
-  public $ids;
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $space;
-
-  /**
-   * @param string[]
-   */
-  public function setIds($ids)
-  {
-    $this->ids = $ids;
-  }
-  /**
-   * @return string[]
-   */
-  public function getIds()
-  {
-    return $this->ids;
-  }
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setSpace($space)
-  {
-    $this->space = $space;
-  }
-  /**
-   * @return string
-   */
-  public function getSpace()
-  {
-    return $this->space;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class GeneratedIds extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'ids';
+    /**
+     * @var string[]
+     */
+    public $ids;
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $space;
+    /**
+     * @param string[]
+     */
+    public function setIds($ids)
+    {
+        $this->ids = $ids;
+    }
+    /**
+     * @return string[]
+     */
+    public function getIds()
+    {
+        return $this->ids;
+    }
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setSpace($space)
+    {
+        $this->space = $space;
+    }
+    /**
+     * @return string
+     */
+    public function getSpace()
+    {
+        return $this->space;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(GeneratedIds::class, 'Google_Service_Drive_GeneratedIds');
+class_alias(GeneratedIds::class, 'XCloner\Google_Service_Drive_GeneratedIds');

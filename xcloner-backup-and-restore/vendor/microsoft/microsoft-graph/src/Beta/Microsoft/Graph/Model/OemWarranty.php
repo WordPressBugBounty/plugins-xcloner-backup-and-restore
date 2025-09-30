@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OemWarranty class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OemWarranty extends Entity
 {
-
     /**
-    * Gets the additionalWarranties
-    * List of additional warranty offers. This collection can contain a maximum of 100 elements.
-    *
-    * @return WarrantyOffer|null The additionalWarranties
-    */
+     * Gets the additionalWarranties
+     * List of additional warranty offers. This collection can contain a maximum of 100 elements.
+     *
+     * @return WarrantyOffer|null The additionalWarranties
+     */
     public function getAdditionalWarranties()
     {
         if (array_key_exists("additionalWarranties", $this->_propDict)) {
-            if (is_a($this->_propDict["additionalWarranties"], "\Beta\Microsoft\Graph\Model\WarrantyOffer") || is_null($this->_propDict["additionalWarranties"])) {
+            if (is_a($this->_propDict["additionalWarranties"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WarrantyOffer") || is_null($this->_propDict["additionalWarranties"])) {
                 return $this->_propDict["additionalWarranties"];
             } else {
                 $this->_propDict["additionalWarranties"] = new WarrantyOffer($this->_propDict["additionalWarranties"]);
@@ -45,31 +46,29 @@ class OemWarranty extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the additionalWarranties
-    * List of additional warranty offers. This collection can contain a maximum of 100 elements.
-    *
-    * @param WarrantyOffer $val The value to assign to the additionalWarranties
-    *
-    * @return OemWarranty The OemWarranty
-    */
+     * Sets the additionalWarranties
+     * List of additional warranty offers. This collection can contain a maximum of 100 elements.
+     *
+     * @param WarrantyOffer $val The value to assign to the additionalWarranties
+     *
+     * @return OemWarranty The OemWarranty
+     */
     public function setAdditionalWarranties($val)
     {
         $this->_propDict["additionalWarranties"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the baseWarranties
-    * List of base warranty offers. This collection can contain a maximum of 100 elements.
-    *
-    * @return WarrantyOffer|null The baseWarranties
-    */
+     * Gets the baseWarranties
+     * List of base warranty offers. This collection can contain a maximum of 100 elements.
+     *
+     * @return WarrantyOffer|null The baseWarranties
+     */
     public function getBaseWarranties()
     {
         if (array_key_exists("baseWarranties", $this->_propDict)) {
-            if (is_a($this->_propDict["baseWarranties"], "\Beta\Microsoft\Graph\Model\WarrantyOffer") || is_null($this->_propDict["baseWarranties"])) {
+            if (is_a($this->_propDict["baseWarranties"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WarrantyOffer") || is_null($this->_propDict["baseWarranties"])) {
                 return $this->_propDict["baseWarranties"];
             } else {
                 $this->_propDict["baseWarranties"] = new WarrantyOffer($this->_propDict["baseWarranties"]);
@@ -78,26 +77,25 @@ class OemWarranty extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the baseWarranties
-    * List of base warranty offers. This collection can contain a maximum of 100 elements.
-    *
-    * @param WarrantyOffer $val The value to assign to the baseWarranties
-    *
-    * @return OemWarranty The OemWarranty
-    */
+     * Sets the baseWarranties
+     * List of base warranty offers. This collection can contain a maximum of 100 elements.
+     *
+     * @param WarrantyOffer $val The value to assign to the baseWarranties
+     *
+     * @return OemWarranty The OemWarranty
+     */
     public function setBaseWarranties($val)
     {
         $this->_propDict["baseWarranties"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the deviceConfigurationUrl
-    * Device configuration page URL
-    *
-    * @return string|null The deviceConfigurationUrl
-    */
+     * Gets the deviceConfigurationUrl
+     * Device configuration page URL
+     *
+     * @return string|null The deviceConfigurationUrl
+     */
     public function getDeviceConfigurationUrl()
     {
         if (array_key_exists("deviceConfigurationUrl", $this->_propDict)) {
@@ -106,26 +104,25 @@ class OemWarranty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceConfigurationUrl
-    * Device configuration page URL
-    *
-    * @param string $val The value of the deviceConfigurationUrl
-    *
-    * @return OemWarranty
-    */
+     * Sets the deviceConfigurationUrl
+     * Device configuration page URL
+     *
+     * @param string $val The value of the deviceConfigurationUrl
+     *
+     * @return OemWarranty
+     */
     public function setDeviceConfigurationUrl($val)
     {
         $this->_propDict["deviceConfigurationUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the deviceWarrantyUrl
-    * Device warranty page URL
-    *
-    * @return string|null The deviceWarrantyUrl
-    */
+     * Gets the deviceWarrantyUrl
+     * Device warranty page URL
+     *
+     * @return string|null The deviceWarrantyUrl
+     */
     public function getDeviceWarrantyUrl()
     {
         if (array_key_exists("deviceWarrantyUrl", $this->_propDict)) {
@@ -134,15 +131,14 @@ class OemWarranty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceWarrantyUrl
-    * Device warranty page URL
-    *
-    * @param string $val The value of the deviceWarrantyUrl
-    *
-    * @return OemWarranty
-    */
+     * Sets the deviceWarrantyUrl
+     * Device warranty page URL
+     *
+     * @param string $val The value of the deviceWarrantyUrl
+     *
+     * @return OemWarranty
+     */
     public function setDeviceWarrantyUrl($val)
     {
         $this->_propDict["deviceWarrantyUrl"] = $val;

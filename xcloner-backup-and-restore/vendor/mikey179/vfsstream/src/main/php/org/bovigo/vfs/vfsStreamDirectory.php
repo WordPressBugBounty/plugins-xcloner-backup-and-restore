@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Directory container.
  *
@@ -24,7 +26,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
      * @type  vfsStreamContent[]
      */
     protected $children = array();
-
     /**
      * constructor
      *
@@ -34,14 +35,12 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
      */
     public function __construct($name, $permissions = null)
     {
-        if (strstr($name, '/') !== false) {
+        if (strstr($name, '/') !== \false) {
             throw new vfsStreamException('Directory name can not contain /.');
         }
-
         $this->type = vfsStreamContent::TYPE_DIR;
         parent::__construct($name, $permissions);
     }
-
     /**
      * returns default permissions for concrete implementation
      *
@@ -52,7 +51,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
     {
         return 0777;
     }
-
     /**
      * returns size of directory
      *
@@ -65,7 +63,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
     {
         return 0;
     }
-
     /**
      * returns summarized size of directory and its children
      *
@@ -81,10 +78,8 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
                 $size += $child->size();
             }
         }
-
         return $size;
     }
-
     /**
      * renames the content
      *
@@ -93,14 +88,11 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
      */
     public function rename($newName)
     {
-        if (strstr($newName, '/') !== false) {
+        if (strstr($newName, '/') !== \false) {
             throw new vfsStreamException('Directory name can not contain /.');
         }
-
         parent::rename($newName);
     }
-
-
     /**
      * sets parent path
      *
@@ -115,7 +107,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
             $child->setParentPath($this->path());
         }
     }
-
     /**
      * adds child to the directory
      *
@@ -127,7 +118,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
         $this->children[$child->getName()] = $child;
         $this->updateModifications();
     }
-
     /**
      * removes child from the directory
      *
@@ -141,13 +131,11 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
                 $child->setParentPath(null);
                 unset($this->children[$key]);
                 $this->updateModifications();
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * updates internal timestamps
      */
@@ -155,9 +143,8 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
     {
         $time = time();
         $this->lastAttributeModified = $time;
-        $this->lastModified          = $time;
+        $this->lastModified = $time;
     }
-
     /**
      * checks whether the container contains a child with the given name
      *
@@ -166,9 +153,8 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
      */
     public function hasChild($name)
     {
-        return ($this->getChild($name) !== null);
+        return $this->getChild($name) !== null;
     }
-
     /**
      * returns the child with the given name
      *
@@ -182,15 +168,12 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
             if ($child->getName() === $childName) {
                 return $child;
             }
-
-            if ($child->appliesTo($childName) === true && $child->hasChild($childName) === true) {
+            if ($child->appliesTo($childName) === \true && $child->hasChild($childName) === \true) {
                 return $child->getChild($childName);
             }
         }
-
         return null;
     }
-
     /**
      * helper method to detect the real child name
      *
@@ -199,13 +182,11 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
      */
     protected function getRealChildName($name)
     {
-        if ($this->appliesTo($name) === true) {
+        if ($this->appliesTo($name) === \true) {
             return self::getChildName($name, $this->name);
         }
-
         return $name;
     }
-
     /**
      * helper method to calculate the child name
      *
@@ -218,10 +199,8 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
         if ($name === $ownName) {
             return $name;
         }
-
         return substr($name, strlen($ownName) + 1);
     }
-
     /**
      * checks whether directory contains any children
      *
@@ -230,9 +209,8 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
      */
     public function hasChildren()
     {
-        return (count($this->children) > 0);
+        return count($this->children) > 0;
     }
-
     /**
      * returns a list of children for this directory
      *
@@ -242,7 +220,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
     {
         return array_values($this->children);
     }
-
     /**
      * returns iterator for the children
      *
@@ -253,7 +230,6 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
     {
         return new vfsStreamContainerIterator($this->children);
     }
-
     /**
      * checks whether dir is a dot dir
      *
@@ -262,9 +238,8 @@ class vfsStreamDirectory extends vfsStreamAbstractContent implements vfsStreamCo
     public function isDot()
     {
         if ('.' === $this->name || '..' === $this->name) {
-            return true;
+            return \true;
         }
-
-        return false;
+        return \false;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsInformationProtectionProxiedDomainCollection class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsInformationProtectionProxiedDomainCollection extends Entity
 {
     /**
-    * Gets the displayName
-    * Display name
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,31 +42,29 @@ class WindowsInformationProtectionProxiedDomainCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return WindowsInformationProtectionProxiedDomainCollection
-    */
+     * Sets the displayName
+     * Display name
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return WindowsInformationProtectionProxiedDomainCollection
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the proxiedDomains
-    * Collection of proxied domains
-    *
-    * @return ProxiedDomain|null The proxiedDomains
-    */
+     * Gets the proxiedDomains
+     * Collection of proxied domains
+     *
+     * @return ProxiedDomain|null The proxiedDomains
+     */
     public function getProxiedDomains()
     {
         if (array_key_exists("proxiedDomains", $this->_propDict)) {
-            if (is_a($this->_propDict["proxiedDomains"], "\Beta\Microsoft\Graph\Model\ProxiedDomain") || is_null($this->_propDict["proxiedDomains"])) {
+            if (is_a($this->_propDict["proxiedDomains"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ProxiedDomain") || is_null($this->_propDict["proxiedDomains"])) {
                 return $this->_propDict["proxiedDomains"];
             } else {
                 $this->_propDict["proxiedDomains"] = new ProxiedDomain($this->_propDict["proxiedDomains"]);
@@ -73,18 +73,17 @@ class WindowsInformationProtectionProxiedDomainCollection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the proxiedDomains
-    * Collection of proxied domains
-    *
-    * @param ProxiedDomain $val The value to assign to the proxiedDomains
-    *
-    * @return WindowsInformationProtectionProxiedDomainCollection The WindowsInformationProtectionProxiedDomainCollection
-    */
+     * Sets the proxiedDomains
+     * Collection of proxied domains
+     *
+     * @param ProxiedDomain $val The value to assign to the proxiedDomains
+     *
+     * @return WindowsInformationProtectionProxiedDomainCollection The WindowsInformationProtectionProxiedDomainCollection
+     */
     public function setProxiedDomains($val)
     {
         $this->_propDict["proxiedDomains"] = $val;
-         return $this;
+        return $this;
     }
 }

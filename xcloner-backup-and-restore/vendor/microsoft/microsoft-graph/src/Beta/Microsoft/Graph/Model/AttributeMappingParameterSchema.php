@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttributeMappingParameterSchema class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AttributeMappingParameterSchema extends Entity
 {
     /**
-    * Gets the allowMultipleOccurrences
-    * The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
-    *
-    * @return bool|null The allowMultipleOccurrences
-    */
+     * Gets the allowMultipleOccurrences
+     * The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
+     *
+     * @return bool|null The allowMultipleOccurrences
+     */
     public function getAllowMultipleOccurrences()
     {
         if (array_key_exists("allowMultipleOccurrences", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AttributeMappingParameterSchema extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowMultipleOccurrences
-    * The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
-    *
-    * @param bool $val The value of the allowMultipleOccurrences
-    *
-    * @return AttributeMappingParameterSchema
-    */
+     * Sets the allowMultipleOccurrences
+     * The given parameter can be provided multiple times (for example, multiple input strings in the Concatenate(string,string,...) function).
+     *
+     * @param bool $val The value of the allowMultipleOccurrences
+     *
+     * @return AttributeMappingParameterSchema
+     */
     public function setAllowMultipleOccurrences($val)
     {
         $this->_propDict["allowMultipleOccurrences"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * Parameter name.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Parameter name.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AttributeMappingParameterSchema extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Parameter name.
-    *
-    * @param string $val The value of the name
-    *
-    * @return AttributeMappingParameterSchema
-    */
+     * Sets the name
+     * Parameter name.
+     *
+     * @param string $val The value of the name
+     *
+     * @return AttributeMappingParameterSchema
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the required
-    * true if the parameter is required; otherwise false.
-    *
-    * @return bool|null The required
-    */
+     * Gets the required
+     * true if the parameter is required; otherwise false.
+     *
+     * @return bool|null The required
+     */
     public function getRequired()
     {
         if (array_key_exists("required", $this->_propDict)) {
@@ -96,31 +96,29 @@ class AttributeMappingParameterSchema extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the required
-    * true if the parameter is required; otherwise false.
-    *
-    * @param bool $val The value of the required
-    *
-    * @return AttributeMappingParameterSchema
-    */
+     * Sets the required
+     * true if the parameter is required; otherwise false.
+     *
+     * @param bool $val The value of the required
+     *
+     * @return AttributeMappingParameterSchema
+     */
     public function setRequired($val)
     {
         $this->_propDict["required"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
-    *
-    * @return AttributeType|null The type
-    */
+     * Gets the type
+     * Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+     *
+     * @return AttributeType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\AttributeType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AttributeType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new AttributeType($this->_propDict["type"]);
@@ -129,18 +127,17 @@ class AttributeMappingParameterSchema extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
-    *
-    * @param AttributeType $val The value to assign to the type
-    *
-    * @return AttributeMappingParameterSchema The AttributeMappingParameterSchema
-    */
+     * Sets the type
+     * Possible values are: Boolean, Binary, Reference, Integer, String. Default is String.
+     *
+     * @param AttributeType $val The value to assign to the type
+     *
+     * @return AttributeMappingParameterSchema The AttributeMappingParameterSchema
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

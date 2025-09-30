@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WebApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WebApp extends MobileApp
 {
     /**
-    * Gets the appUrl
-    * The web app URL. This property cannot be PATCHed.
-    *
-    * @return string|null The appUrl
-    */
+     * Gets the appUrl
+     * The web app URL. This property cannot be PATCHed.
+     *
+     * @return string|null The appUrl
+     */
     public function getAppUrl()
     {
         if (array_key_exists("appUrl", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WebApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appUrl
-    * The web app URL. This property cannot be PATCHed.
-    *
-    * @param string $val The appUrl
-    *
-    * @return WebApp
-    */
+     * Sets the appUrl
+     * The web app URL. This property cannot be PATCHed.
+     *
+     * @param string $val The appUrl
+     *
+     * @return WebApp
+     */
     public function setAppUrl($val)
     {
         $this->_propDict["appUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the useManagedBrowser
-    * Whether or not to use managed browser. This property is only applicable for Android and IOS.
-    *
-    * @return bool|null The useManagedBrowser
-    */
+     * Gets the useManagedBrowser
+     * Whether or not to use managed browser. This property is only applicable for Android and IOS.
+     *
+     * @return bool|null The useManagedBrowser
+     */
     public function getUseManagedBrowser()
     {
         if (array_key_exists("useManagedBrowser", $this->_propDict)) {
@@ -70,19 +69,17 @@ class WebApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the useManagedBrowser
-    * Whether or not to use managed browser. This property is only applicable for Android and IOS.
-    *
-    * @param bool $val The useManagedBrowser
-    *
-    * @return WebApp
-    */
+     * Sets the useManagedBrowser
+     * Whether or not to use managed browser. This property is only applicable for Android and IOS.
+     *
+     * @param bool $val The useManagedBrowser
+     *
+     * @return WebApp
+     */
     public function setUseManagedBrowser($val)
     {
         $this->_propDict["useManagedBrowser"] = boolval($val);
         return $this;
     }
-
 }

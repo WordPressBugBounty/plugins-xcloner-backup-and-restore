@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DomainSecurityProfile class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DomainSecurityProfile extends Entity
 {
     /**
-    * Gets the activityGroupNames
-    *
-    * @return array|null The activityGroupNames
-    */
+     * Gets the activityGroupNames
+     *
+     * @return array|null The activityGroupNames
+     */
     public function getActivityGroupNames()
     {
         if (array_key_exists("activityGroupNames", $this->_propDict)) {
@@ -40,25 +41,23 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activityGroupNames
-    *
-    * @param string[] $val The activityGroupNames
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the activityGroupNames
+     *
+     * @param string[] $val The activityGroupNames
+     *
+     * @return DomainSecurityProfile
+     */
     public function setActivityGroupNames($val)
     {
         $this->_propDict["activityGroupNames"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureSubscriptionId
-    *
-    * @return string|null The azureSubscriptionId
-    */
+     * Gets the azureSubscriptionId
+     *
+     * @return string|null The azureSubscriptionId
+     */
     public function getAzureSubscriptionId()
     {
         if (array_key_exists("azureSubscriptionId", $this->_propDict)) {
@@ -67,25 +66,23 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureSubscriptionId
-    *
-    * @param string $val The azureSubscriptionId
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the azureSubscriptionId
+     *
+     * @param string $val The azureSubscriptionId
+     *
+     * @return DomainSecurityProfile
+     */
     public function setAzureSubscriptionId($val)
     {
         $this->_propDict["azureSubscriptionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureTenantId
-    *
-    * @return string|null The azureTenantId
-    */
+     * Gets the azureTenantId
+     *
+     * @return string|null The azureTenantId
+     */
     public function getAzureTenantId()
     {
         if (array_key_exists("azureTenantId", $this->_propDict)) {
@@ -94,25 +91,23 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureTenantId
-    *
-    * @param string $val The azureTenantId
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the azureTenantId
+     *
+     * @param string $val The azureTenantId
+     *
+     * @return DomainSecurityProfile
+     */
     public function setAzureTenantId($val)
     {
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the countHits
-    *
-    * @return int|null The countHits
-    */
+     * Gets the countHits
+     *
+     * @return int|null The countHits
+     */
     public function getCountHits()
     {
         if (array_key_exists("countHits", $this->_propDict)) {
@@ -121,25 +116,23 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countHits
-    *
-    * @param int $val The countHits
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the countHits
+     *
+     * @param int $val The countHits
+     *
+     * @return DomainSecurityProfile
+     */
     public function setCountHits($val)
     {
         $this->_propDict["countHits"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the countInOrg
-    *
-    * @return int|null The countInOrg
-    */
+     * Gets the countInOrg
+     *
+     * @return int|null The countInOrg
+     */
     public function getCountInOrg()
     {
         if (array_key_exists("countInOrg", $this->_propDict)) {
@@ -148,22 +141,19 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countInOrg
-    *
-    * @param int $val The countInOrg
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the countInOrg
+     *
+     * @param int $val The countInOrg
+     *
+     * @return DomainSecurityProfile
+     */
     public function setCountInOrg($val)
     {
         $this->_propDict["countInOrg"] = intval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the domainCategories
      *
      * @return array|null The domainCategories
@@ -171,34 +161,32 @@ class DomainSecurityProfile extends Entity
     public function getDomainCategories()
     {
         if (array_key_exists("domainCategories", $this->_propDict)) {
-           return $this->_propDict["domainCategories"];
+            return $this->_propDict["domainCategories"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the domainCategories
-    *
-    * @param ReputationCategory[] $val The domainCategories
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the domainCategories
+     *
+     * @param ReputationCategory[] $val The domainCategories
+     *
+     * @return DomainSecurityProfile
+     */
     public function setDomainCategories($val)
     {
         $this->_propDict["domainCategories"] = $val;
         return $this;
     }
-
     /**
-    * Gets the domainRegisteredDateTime
-    *
-    * @return \DateTime|null The domainRegisteredDateTime
-    */
+     * Gets the domainRegisteredDateTime
+     *
+     * @return \DateTime|null The domainRegisteredDateTime
+     */
     public function getDomainRegisteredDateTime()
     {
         if (array_key_exists("domainRegisteredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["domainRegisteredDateTime"], "\DateTime") || is_null($this->_propDict["domainRegisteredDateTime"])) {
+            if (is_a($this->_propDict["domainRegisteredDateTime"], "\\DateTime") || is_null($this->_propDict["domainRegisteredDateTime"])) {
                 return $this->_propDict["domainRegisteredDateTime"];
             } else {
                 $this->_propDict["domainRegisteredDateTime"] = new \DateTime($this->_propDict["domainRegisteredDateTime"]);
@@ -207,29 +195,27 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the domainRegisteredDateTime
-    *
-    * @param \DateTime $val The domainRegisteredDateTime
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the domainRegisteredDateTime
+     *
+     * @param \DateTime $val The domainRegisteredDateTime
+     *
+     * @return DomainSecurityProfile
+     */
     public function setDomainRegisteredDateTime($val)
     {
         $this->_propDict["domainRegisteredDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the firstSeenDateTime
-    *
-    * @return \DateTime|null The firstSeenDateTime
-    */
+     * Gets the firstSeenDateTime
+     *
+     * @return \DateTime|null The firstSeenDateTime
+     */
     public function getFirstSeenDateTime()
     {
         if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+            if (is_a($this->_propDict["firstSeenDateTime"], "\\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -238,29 +224,27 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the firstSeenDateTime
-    *
-    * @param \DateTime $val The firstSeenDateTime
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the firstSeenDateTime
+     *
+     * @param \DateTime $val The firstSeenDateTime
+     *
+     * @return DomainSecurityProfile
+     */
     public function setFirstSeenDateTime($val)
     {
         $this->_propDict["firstSeenDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastSeenDateTime
-    *
-    * @return \DateTime|null The lastSeenDateTime
-    */
+     * Gets the lastSeenDateTime
+     *
+     * @return \DateTime|null The lastSeenDateTime
+     */
     public function getLastSeenDateTime()
     {
         if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -269,25 +253,23 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSeenDateTime
-    *
-    * @param \DateTime $val The lastSeenDateTime
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the lastSeenDateTime
+     *
+     * @param \DateTime $val The lastSeenDateTime
+     *
+     * @return DomainSecurityProfile
+     */
     public function setLastSeenDateTime($val)
     {
         $this->_propDict["lastSeenDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -296,29 +278,27 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The name
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the name
+     *
+     * @param string $val The name
+     *
+     * @return DomainSecurityProfile
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the registrant
-    *
-    * @return DomainRegistrant|null The registrant
-    */
+     * Gets the registrant
+     *
+     * @return DomainRegistrant|null The registrant
+     */
     public function getRegistrant()
     {
         if (array_key_exists("registrant", $this->_propDict)) {
-            if (is_a($this->_propDict["registrant"], "\Beta\Microsoft\Graph\Model\DomainRegistrant") || is_null($this->_propDict["registrant"])) {
+            if (is_a($this->_propDict["registrant"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DomainRegistrant") || is_null($this->_propDict["registrant"])) {
                 return $this->_propDict["registrant"];
             } else {
                 $this->_propDict["registrant"] = new DomainRegistrant($this->_propDict["registrant"]);
@@ -327,25 +307,23 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the registrant
-    *
-    * @param DomainRegistrant $val The registrant
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the registrant
+     *
+     * @param DomainRegistrant $val The registrant
+     *
+     * @return DomainSecurityProfile
+     */
     public function setRegistrant($val)
     {
         $this->_propDict["registrant"] = $val;
         return $this;
     }
-
     /**
-    * Gets the riskScore
-    *
-    * @return string|null The riskScore
-    */
+     * Gets the riskScore
+     *
+     * @return string|null The riskScore
+     */
     public function getRiskScore()
     {
         if (array_key_exists("riskScore", $this->_propDict)) {
@@ -354,25 +332,23 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskScore
-    *
-    * @param string $val The riskScore
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the riskScore
+     *
+     * @param string $val The riskScore
+     *
+     * @return DomainSecurityProfile
+     */
     public function setRiskScore($val)
     {
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tags
-    *
-    * @return array|null The tags
-    */
+     * Gets the tags
+     *
+     * @return array|null The tags
+     */
     public function getTags()
     {
         if (array_key_exists("tags", $this->_propDict)) {
@@ -381,29 +357,27 @@ class DomainSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tags
-    *
-    * @param string[] $val The tags
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the tags
+     *
+     * @param string[] $val The tags
+     *
+     * @return DomainSecurityProfile
+     */
     public function setTags($val)
     {
         $this->_propDict["tags"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vendorInformation
-    *
-    * @return SecurityVendorInformation|null The vendorInformation
-    */
+     * Gets the vendorInformation
+     *
+     * @return SecurityVendorInformation|null The vendorInformation
+     */
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);
@@ -412,18 +386,16 @@ class DomainSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the vendorInformation
-    *
-    * @param SecurityVendorInformation $val The vendorInformation
-    *
-    * @return DomainSecurityProfile
-    */
+     * Sets the vendorInformation
+     *
+     * @param SecurityVendorInformation $val The vendorInformation
+     *
+     * @return DomainSecurityProfile
+     */
     public function setVendorInformation($val)
     {
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-
 }

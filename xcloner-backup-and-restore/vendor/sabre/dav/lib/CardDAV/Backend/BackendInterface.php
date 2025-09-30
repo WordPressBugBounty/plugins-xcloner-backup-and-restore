@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV\Backend;
 
-namespace Sabre\CardDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * CardDAV Backend Interface.
  *
@@ -41,7 +40,6 @@ interface BackendInterface
      * @return array
      */
     public function getAddressBooksForUser($principalUri);
-
     /**
      * Updates properties for an address book.
      *
@@ -56,8 +54,7 @@ interface BackendInterface
      *
      * @param string $addressBookId
      */
-    public function updateAddressBook($addressBookId, \Sabre\DAV\PropPatch $propPatch);
-
+    public function updateAddressBook($addressBookId, \XCloner\Sabre\DAV\PropPatch $propPatch);
     /**
      * Creates a new address book.
      *
@@ -70,14 +67,12 @@ interface BackendInterface
      * @return mixed
      */
     public function createAddressBook($principalUri, $url, array $properties);
-
     /**
      * Deletes an entire addressbook and all its contents.
      *
      * @param mixed $addressBookId
      */
     public function deleteAddressBook($addressBookId);
-
     /**
      * Returns all cards for a specific addressbook id.
      *
@@ -99,7 +94,6 @@ interface BackendInterface
      * @return array
      */
     public function getCards($addressbookId);
-
     /**
      * Returns a specfic card.
      *
@@ -114,7 +108,6 @@ interface BackendInterface
      * @return array
      */
     public function getCard($addressBookId, $cardUri);
-
     /**
      * Returns a list of cards.
      *
@@ -128,7 +121,6 @@ interface BackendInterface
      * @return array
      */
     public function getMultipleCards($addressBookId, array $uris);
-
     /**
      * Creates a new card.
      *
@@ -156,7 +148,6 @@ interface BackendInterface
      * @return string|null
      */
     public function createCard($addressBookId, $cardUri, $cardData);
-
     /**
      * Updates a card.
      *
@@ -184,7 +175,6 @@ interface BackendInterface
      * @return string|null
      */
     public function updateCard($addressBookId, $cardUri, $cardData);
-
     /**
      * Deletes a card.
      *

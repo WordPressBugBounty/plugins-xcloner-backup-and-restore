@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ShareAction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ShareAction extends Entity
 {
-
     /**
-    * Gets the recipients
-    * The identities the item was shared with in this action.
-    *
-    * @return IdentitySet|null The recipients
-    */
+     * Gets the recipients
+     * The identities the item was shared with in this action.
+     *
+     * @return IdentitySet|null The recipients
+     */
     public function getRecipients()
     {
         if (array_key_exists("recipients", $this->_propDict)) {
-            if (is_a($this->_propDict["recipients"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["recipients"])) {
+            if (is_a($this->_propDict["recipients"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["recipients"])) {
                 return $this->_propDict["recipients"];
             } else {
                 $this->_propDict["recipients"] = new IdentitySet($this->_propDict["recipients"]);
@@ -45,18 +46,17 @@ class ShareAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the recipients
-    * The identities the item was shared with in this action.
-    *
-    * @param IdentitySet $val The value to assign to the recipients
-    *
-    * @return ShareAction The ShareAction
-    */
+     * Sets the recipients
+     * The identities the item was shared with in this action.
+     *
+     * @param IdentitySet $val The value to assign to the recipients
+     *
+     * @return ShareAction The ShareAction
+     */
     public function setRecipients($val)
     {
         $this->_propDict["recipients"] = $val;
-         return $this;
+        return $this;
     }
 }

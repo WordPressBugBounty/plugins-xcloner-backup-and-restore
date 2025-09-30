@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Formatter\FormatterInterface;
-use Monolog\ResettableInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Formatter\FormatterInterface;
+use XCloner\Monolog\ResettableInterface;
 /**
  * Forwards records to multiple handlers
  *
@@ -25,23 +23,20 @@ use Monolog\ResettableInterface;
 class GroupHandler extends AbstractHandler
 {
     protected $handlers;
-
     /**
      * @param array $handlers Array of Handlers.
      * @param bool  $bubble   Whether the messages that are handled can bubble up the stack or not
      */
-    public function __construct(array $handlers, $bubble = true)
+    public function __construct(array $handlers, $bubble = \true)
     {
         foreach ($handlers as $handler) {
             if (!$handler instanceof HandlerInterface) {
                 throw new \InvalidArgumentException('The first argument of the GroupHandler must be an array of HandlerInterface instances.');
             }
         }
-
         $this->handlers = $handlers;
         $this->bubble = $bubble;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -49,13 +44,11 @@ class GroupHandler extends AbstractHandler
     {
         foreach ($this->handlers as $handler) {
             if ($handler->isHandling($record)) {
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -66,14 +59,11 @@ class GroupHandler extends AbstractHandler
                 $record = call_user_func($processor, $record);
             }
         }
-
         foreach ($this->handlers as $handler) {
             $handler->handle($record);
         }
-
-        return false === $this->bubble;
+        return \false === $this->bubble;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -89,23 +79,19 @@ class GroupHandler extends AbstractHandler
             }
             $records = $processed;
         }
-
         foreach ($this->handlers as $handler) {
             $handler->handleBatch($records);
         }
     }
-
     public function reset()
     {
         parent::reset();
-
         foreach ($this->handlers as $handler) {
             if ($handler instanceof ResettableInterface) {
                 $handler->reset();
             }
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -114,7 +100,6 @@ class GroupHandler extends AbstractHandler
         foreach ($this->handlers as $handler) {
             $handler->setFormatter($formatter);
         }
-
         return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InsightValueInt class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InsightValueInt extends UserExperienceAnalyticsInsightValue
 {
     /**
-    * Gets the value
-    * Not yet documented
-    *
-    * @return int|null The value
-    */
+     * Gets the value
+     * Not yet documented
+     *
+     * @return int|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -40,15 +42,14 @@ class InsightValueInt extends UserExperienceAnalyticsInsightValue
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Not yet documented
-    *
-    * @param int $val The value of the value
-    *
-    * @return InsightValueInt
-    */
+     * Sets the value
+     * Not yet documented
+     *
+     * @param int $val The value of the value
+     *
+     * @return InsightValueInt
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

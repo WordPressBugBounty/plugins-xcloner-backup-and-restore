@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OpenShiftChangeRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OpenShiftChangeRequest extends ScheduleChangeRequest
 {
     /**
-    * Gets the openShiftId
-    * ID for the open shift.
-    *
-    * @return string|null The openShiftId
-    */
+     * Gets the openShiftId
+     * ID for the open shift.
+     *
+     * @return string|null The openShiftId
+     */
     public function getOpenShiftId()
     {
         if (array_key_exists("openShiftId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class OpenShiftChangeRequest extends ScheduleChangeRequest
             return null;
         }
     }
-
     /**
-    * Sets the openShiftId
-    * ID for the open shift.
-    *
-    * @param string $val The openShiftId
-    *
-    * @return OpenShiftChangeRequest
-    */
+     * Sets the openShiftId
+     * ID for the open shift.
+     *
+     * @param string $val The openShiftId
+     *
+     * @return OpenShiftChangeRequest
+     */
     public function setOpenShiftId($val)
     {
         $this->_propDict["openShiftId"] = $val;
         return $this;
     }
-
 }

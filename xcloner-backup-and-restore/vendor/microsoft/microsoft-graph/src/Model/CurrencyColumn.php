@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CurrencyColumn class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CurrencyColumn extends Entity
 {
     /**
-    * Gets the locale
-    * Specifies the locale from which to infer the currency symbol.
-    *
-    * @return string|null The locale
-    */
+     * Gets the locale
+     * Specifies the locale from which to infer the currency symbol.
+     *
+     * @return string|null The locale
+     */
     public function getLocale()
     {
         if (array_key_exists("locale", $this->_propDict)) {
@@ -40,15 +42,14 @@ class CurrencyColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the locale
-    * Specifies the locale from which to infer the currency symbol.
-    *
-    * @param string $val The value of the locale
-    *
-    * @return CurrencyColumn
-    */
+     * Sets the locale
+     * Specifies the locale from which to infer the currency symbol.
+     *
+     * @param string $val The value of the locale
+     *
+     * @return CurrencyColumn
+     */
     public function setLocale($val)
     {
         $this->_propDict["locale"] = $val;

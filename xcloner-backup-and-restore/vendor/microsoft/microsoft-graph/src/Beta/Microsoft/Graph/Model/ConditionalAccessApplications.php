@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessApplications class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessApplications extends Entity
 {
-
     /**
-    * Gets the applicationFilter
-    *
-    * @return ConditionalAccessFilter|null The applicationFilter
-    */
+     * Gets the applicationFilter
+     *
+     * @return ConditionalAccessFilter|null The applicationFilter
+     */
     public function getApplicationFilter()
     {
         if (array_key_exists("applicationFilter", $this->_propDict)) {
-            if (is_a($this->_propDict["applicationFilter"], "\Beta\Microsoft\Graph\Model\ConditionalAccessFilter") || is_null($this->_propDict["applicationFilter"])) {
+            if (is_a($this->_propDict["applicationFilter"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessFilter") || is_null($this->_propDict["applicationFilter"])) {
                 return $this->_propDict["applicationFilter"];
             } else {
                 $this->_propDict["applicationFilter"] = new ConditionalAccessFilter($this->_propDict["applicationFilter"]);
@@ -44,25 +45,24 @@ class ConditionalAccessApplications extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the applicationFilter
-    *
-    * @param ConditionalAccessFilter $val The value to assign to the applicationFilter
-    *
-    * @return ConditionalAccessApplications The ConditionalAccessApplications
-    */
+     * Sets the applicationFilter
+     *
+     * @param ConditionalAccessFilter $val The value to assign to the applicationFilter
+     *
+     * @return ConditionalAccessApplications The ConditionalAccessApplications
+     */
     public function setApplicationFilter($val)
     {
         $this->_propDict["applicationFilter"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the excludeApplications
-    * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-    *
-    * @return string|null The excludeApplications
-    */
+     * Gets the excludeApplications
+     * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
+     *
+     * @return string|null The excludeApplications
+     */
     public function getExcludeApplications()
     {
         if (array_key_exists("excludeApplications", $this->_propDict)) {
@@ -71,26 +71,25 @@ class ConditionalAccessApplications extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludeApplications
-    * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-    *
-    * @param string $val The value of the excludeApplications
-    *
-    * @return ConditionalAccessApplications
-    */
+     * Sets the excludeApplications
+     * Can be one of the following:  The list of client IDs (appId) explicitly excluded from the policy. Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
+     *
+     * @param string $val The value of the excludeApplications
+     *
+     * @return ConditionalAccessApplications
+     */
     public function setExcludeApplications($val)
     {
         $this->_propDict["excludeApplications"] = $val;
         return $this;
     }
     /**
-    * Gets the includeApplications
-    * Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-    *
-    * @return string|null The includeApplications
-    */
+     * Gets the includeApplications
+     * Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
+     *
+     * @return string|null The includeApplications
+     */
     public function getIncludeApplications()
     {
         if (array_key_exists("includeApplications", $this->_propDict)) {
@@ -99,26 +98,25 @@ class ConditionalAccessApplications extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeApplications
-    * Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
-    *
-    * @param string $val The value of the includeApplications
-    *
-    * @return ConditionalAccessApplications
-    */
+     * Sets the includeApplications
+     * Can be one of the following:  The list of client IDs (appId) the policy applies to, unless explicitly excluded (in excludeApplications)  All  Office365 - For the list of apps included in Office365, see Conditional Access target apps: Office 365
+     *
+     * @param string $val The value of the includeApplications
+     *
+     * @return ConditionalAccessApplications
+     */
     public function setIncludeApplications($val)
     {
         $this->_propDict["includeApplications"] = $val;
         return $this;
     }
     /**
-    * Gets the includeAuthenticationContextClassReferences
-    * Authentication context class references include. Supported values are c1 through c25.
-    *
-    * @return string|null The includeAuthenticationContextClassReferences
-    */
+     * Gets the includeAuthenticationContextClassReferences
+     * Authentication context class references include. Supported values are c1 through c25.
+     *
+     * @return string|null The includeAuthenticationContextClassReferences
+     */
     public function getIncludeAuthenticationContextClassReferences()
     {
         if (array_key_exists("includeAuthenticationContextClassReferences", $this->_propDict)) {
@@ -127,26 +125,25 @@ class ConditionalAccessApplications extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeAuthenticationContextClassReferences
-    * Authentication context class references include. Supported values are c1 through c25.
-    *
-    * @param string $val The value of the includeAuthenticationContextClassReferences
-    *
-    * @return ConditionalAccessApplications
-    */
+     * Sets the includeAuthenticationContextClassReferences
+     * Authentication context class references include. Supported values are c1 through c25.
+     *
+     * @param string $val The value of the includeAuthenticationContextClassReferences
+     *
+     * @return ConditionalAccessApplications
+     */
     public function setIncludeAuthenticationContextClassReferences($val)
     {
         $this->_propDict["includeAuthenticationContextClassReferences"] = $val;
         return $this;
     }
     /**
-    * Gets the includeUserActions
-    * User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
-    *
-    * @return string|null The includeUserActions
-    */
+     * Gets the includeUserActions
+     * User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
+     *
+     * @return string|null The includeUserActions
+     */
     public function getIncludeUserActions()
     {
         if (array_key_exists("includeUserActions", $this->_propDict)) {
@@ -155,15 +152,14 @@ class ConditionalAccessApplications extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeUserActions
-    * User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
-    *
-    * @param string $val The value of the includeUserActions
-    *
-    * @return ConditionalAccessApplications
-    */
+     * Sets the includeUserActions
+     * User actions to include. Supported values are urn:user:registersecurityinfo and urn:user:registerdevice
+     *
+     * @param string $val The value of the includeUserActions
+     *
+     * @return ConditionalAccessApplications
+     */
     public function setIncludeUserActions($val)
     {
         $this->_propDict["includeUserActions"] = $val;

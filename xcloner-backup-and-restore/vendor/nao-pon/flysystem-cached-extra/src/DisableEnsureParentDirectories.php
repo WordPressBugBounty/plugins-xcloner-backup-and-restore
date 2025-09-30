@@ -1,10 +1,10 @@
 <?php
 
-namespace Hypweb\Flysystem\Cached\Extra;
+namespace XCloner\Hypweb\Flysystem\Cached\Extra;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 trait DisableEnsureParentDirectories
 {
     /**
@@ -12,5 +12,7 @@ trait DisableEnsureParentDirectories
      *
      * @param string $path object path
      */
-    public function ensureParentDirectories($path) {}
+    public function ensureParentDirectories($path)
+    {
+    }
 }

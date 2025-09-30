@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidPermissionAction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AndroidPermissionAction extends Entity
 {
-
     /**
-    * Gets the action
-    * Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
-    *
-    * @return AndroidPermissionActionType|null The action
-    */
+     * Gets the action
+     * Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
+     *
+     * @return AndroidPermissionActionType|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\AndroidPermissionActionType") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AndroidPermissionActionType") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new AndroidPermissionActionType($this->_propDict["action"]);
@@ -45,26 +46,25 @@ class AndroidPermissionAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    * Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
-    *
-    * @param AndroidPermissionActionType $val The value to assign to the action
-    *
-    * @return AndroidPermissionAction The AndroidPermissionAction
-    */
+     * Sets the action
+     * Type of Android permission action. Possible values are: prompt, autoGrant, autoDeny.
+     *
+     * @param AndroidPermissionActionType $val The value to assign to the action
+     *
+     * @return AndroidPermissionAction The AndroidPermissionAction
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the permission
-    * Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
-    *
-    * @return string|null The permission
-    */
+     * Gets the permission
+     * Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
+     *
+     * @return string|null The permission
+     */
     public function getPermission()
     {
         if (array_key_exists("permission", $this->_propDict)) {
@@ -73,15 +73,14 @@ class AndroidPermissionAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the permission
-    * Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
-    *
-    * @param string $val The value of the permission
-    *
-    * @return AndroidPermissionAction
-    */
+     * Sets the permission
+     * Android permission string, defined in the official Android documentation.  Example 'android.permission.READ_CONTACTS'.
+     *
+     * @param string $val The value of the permission
+     *
+     * @return AndroidPermissionAction
+     */
     public function setPermission($val)
     {
         $this->_propDict["permission"] = $val;

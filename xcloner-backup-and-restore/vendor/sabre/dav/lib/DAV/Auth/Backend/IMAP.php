@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\DAV\Auth\Backend;
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This is an authentication backend that uses imap.
  *
@@ -24,7 +24,6 @@ class IMAP extends AbstractBasic
      * @var string
      */
     protected $mailbox;
-
     /**
      * Creates the backend object.
      *
@@ -34,7 +33,6 @@ class IMAP extends AbstractBasic
     {
         $this->mailbox = $mailbox;
     }
-
     /**
      * Connects to an IMAP server and tries to authenticate.
      *
@@ -45,31 +43,26 @@ class IMAP extends AbstractBasic
      */
     protected function imapOpen($username, $password)
     {
-        $success = false;
-
+        $success = \false;
         try {
-            $imap = imap_open($this->mailbox, $username, $password, OP_HALFOPEN | OP_READONLY, 1);
+            $imap = imap_open($this->mailbox, $username, $password, \OP_HALFOPEN | \OP_READONLY, 1);
             if ($imap) {
-                $success = true;
+                $success = \true;
             }
         } catch (\ErrorException $e) {
             error_log($e->getMessage());
         }
-
         $errors = imap_errors();
         if ($errors) {
             foreach ($errors as $error) {
                 error_log($error);
             }
         }
-
         if (isset($imap) && $imap) {
             imap_close($imap);
         }
-
         return $success;
     }
-
     /**
      * Validates a username and password by trying to authenticate against IMAP.
      *

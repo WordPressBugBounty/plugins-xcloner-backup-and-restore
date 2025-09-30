@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This example demonstrates the ability for clients to work asynchronously.
  *
@@ -13,37 +15,27 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-use Sabre\HTTP\Client;
-use Sabre\HTTP\Request;
-
+use XCloner\Sabre\HTTP\Client;
+use XCloner\Sabre\HTTP\Request;
 // Find the autoloader
-$paths = [
-    __DIR__.'/../vendor/autoload.php',
-    __DIR__.'/../../../autoload.php',
-    __DIR__.'/vendor/autoload.php',
-];
-
+$paths = [__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php', __DIR__ . '/vendor/autoload.php'];
 foreach ($paths as $path) {
-    if (file_exists($path)) {
+    if (\file_exists($path)) {
         include $path;
         break;
     }
 }
-
 // This is the request we're repeating 1000 times.
 $request = new Request('GET', 'http://localhost/');
 $client = new Client();
-
 for ($i = 0; $i < 1000; ++$i) {
-    echo "$i sending\n";
+    echo "{$i} sending\n";
     $client->sendAsync(
         $request,
-
         // This is the 'success' callback
         function ($response) use ($i) {
-            echo "$i -> ".$response->getStatus()."\n";
+            echo "{$i} -> " . $response->getStatus() . "\n";
         },
-
         // This is the 'error' callback. It is called for general connection
         // problems (such as not being able to connect to a host, dns errors,
         // etc.) and also cases where a response was returned, but it had a
@@ -51,15 +43,14 @@ for ($i = 0; $i < 1000; ++$i) {
         function ($error) use ($i) {
             if (Client::STATUS_CURLERROR === $error['status']) {
                 // Curl errors
-                echo "$i -> curl error: ".$error['curl_errmsg']."\n";
+                echo "{$i} -> curl error: " . $error['curl_errmsg'] . "\n";
             } else {
                 // HTTP errors
-                echo "$i -> ".$error['response']->getStatus()."\n";
+                echo "{$i} -> " . $error['response']->getStatus() . "\n";
             }
         }
     );
 }
-
 // After everything is done, we call 'wait'. This causes the client to wait for
 // all outstanding http requests to complete.
 $client->wait();

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,70 +15,67 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileVideoMediaMetadata extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $durationMillis;
-  /**
-   * @var int
-   */
-  public $height;
-  /**
-   * @var int
-   */
-  public $width;
-
-  /**
-   * @param string
-   */
-  public function setDurationMillis($durationMillis)
-  {
-    $this->durationMillis = $durationMillis;
-  }
-  /**
-   * @return string
-   */
-  public function getDurationMillis()
-  {
-    return $this->durationMillis;
-  }
-  /**
-   * @param int
-   */
-  public function setHeight($height)
-  {
-    $this->height = $height;
-  }
-  /**
-   * @return int
-   */
-  public function getHeight()
-  {
-    return $this->height;
-  }
-  /**
-   * @param int
-   */
-  public function setWidth($width)
-  {
-    $this->width = $width;
-  }
-  /**
-   * @return int
-   */
-  public function getWidth()
-  {
-    return $this->width;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileVideoMediaMetadata extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $durationMillis;
+    /**
+     * @var int
+     */
+    public $height;
+    /**
+     * @var int
+     */
+    public $width;
+    /**
+     * @param string
+     */
+    public function setDurationMillis($durationMillis)
+    {
+        $this->durationMillis = $durationMillis;
+    }
+    /**
+     * @return string
+     */
+    public function getDurationMillis()
+    {
+        return $this->durationMillis;
+    }
+    /**
+     * @param int
+     */
+    public function setHeight($height)
+    {
+        $this->height = $height;
+    }
+    /**
+     * @return int
+     */
+    public function getHeight()
+    {
+        return $this->height;
+    }
+    /**
+     * @param int
+     */
+    public function setWidth($width)
+    {
+        $this->width = $width;
+    }
+    /**
+     * @return int
+     */
+    public function getWidth()
+    {
+        return $this->width;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileVideoMediaMetadata::class, 'Google_Service_Drive_DriveFileVideoMediaMetadata');
+class_alias(DriveFileVideoMediaMetadata::class, 'XCloner\Google_Service_Drive_DriveFileVideoMediaMetadata');

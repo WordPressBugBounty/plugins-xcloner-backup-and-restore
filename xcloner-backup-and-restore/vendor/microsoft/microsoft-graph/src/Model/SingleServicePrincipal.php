@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SingleServicePrincipal class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SingleServicePrincipal extends SubjectSet
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.singleServicePrincipal");
     }
-
     /**
-    * Gets the description
-    * Description of this service principal.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of this service principal.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -51,26 +52,25 @@ class SingleServicePrincipal extends SubjectSet
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of this service principal.
-    *
-    * @param string $val The value of the description
-    *
-    * @return SingleServicePrincipal
-    */
+     * Sets the description
+     * Description of this service principal.
+     *
+     * @param string $val The value of the description
+     *
+     * @return SingleServicePrincipal
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the servicePrincipalId
-    * ID of the servicePrincipal.
-    *
-    * @return string|null The servicePrincipalId
-    */
+     * Gets the servicePrincipalId
+     * ID of the servicePrincipal.
+     *
+     * @return string|null The servicePrincipalId
+     */
     public function getServicePrincipalId()
     {
         if (array_key_exists("servicePrincipalId", $this->_propDict)) {
@@ -79,15 +79,14 @@ class SingleServicePrincipal extends SubjectSet
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalId
-    * ID of the servicePrincipal.
-    *
-    * @param string $val The value of the servicePrincipalId
-    *
-    * @return SingleServicePrincipal
-    */
+     * Sets the servicePrincipalId
+     * ID of the servicePrincipal.
+     *
+     * @param string $val The value of the servicePrincipalId
+     *
+     * @return SingleServicePrincipal
+     */
     public function setServicePrincipalId($val)
     {
         $this->_propDict["servicePrincipalId"] = $val;

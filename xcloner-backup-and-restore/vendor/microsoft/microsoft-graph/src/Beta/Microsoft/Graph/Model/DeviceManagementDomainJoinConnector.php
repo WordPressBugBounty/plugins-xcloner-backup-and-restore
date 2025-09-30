@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementDomainJoinConnector class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementDomainJoinConnector extends Entity
 {
     /**
-    * Gets the displayName
-    * The connector display name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The connector display name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class DeviceManagementDomainJoinConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The connector display name.
-    *
-    * @param string $val The displayName
-    *
-    * @return DeviceManagementDomainJoinConnector
-    */
+     * Sets the displayName
+     * The connector display name.
+     *
+     * @param string $val The displayName
+     *
+     * @return DeviceManagementDomainJoinConnector
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastConnectionDateTime
-    * Last time connector contacted Intune.
-    *
-    * @return \DateTime|null The lastConnectionDateTime
-    */
+     * Gets the lastConnectionDateTime
+     * Last time connector contacted Intune.
+     *
+     * @return \DateTime|null The lastConnectionDateTime
+     */
     public function getLastConnectionDateTime()
     {
         if (array_key_exists("lastConnectionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionDateTime"], "\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
+            if (is_a($this->_propDict["lastConnectionDateTime"], "\\DateTime") || is_null($this->_propDict["lastConnectionDateTime"])) {
                 return $this->_propDict["lastConnectionDateTime"];
             } else {
                 $this->_propDict["lastConnectionDateTime"] = new \DateTime($this->_propDict["lastConnectionDateTime"]);
@@ -74,31 +73,29 @@ class DeviceManagementDomainJoinConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastConnectionDateTime
-    * Last time connector contacted Intune.
-    *
-    * @param \DateTime $val The lastConnectionDateTime
-    *
-    * @return DeviceManagementDomainJoinConnector
-    */
+     * Sets the lastConnectionDateTime
+     * Last time connector contacted Intune.
+     *
+     * @param \DateTime $val The lastConnectionDateTime
+     *
+     * @return DeviceManagementDomainJoinConnector
+     */
     public function setLastConnectionDateTime($val)
     {
         $this->_propDict["lastConnectionDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The connector state. Possible values are: active, error, inactive.
-    *
-    * @return DeviceManagementDomainJoinConnectorState|null The state
-    */
+     * Gets the state
+     * The connector state. Possible values are: active, error, inactive.
+     *
+     * @return DeviceManagementDomainJoinConnectorState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\DeviceManagementDomainJoinConnectorState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementDomainJoinConnectorState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new DeviceManagementDomainJoinConnectorState($this->_propDict["state"]);
@@ -107,27 +104,25 @@ class DeviceManagementDomainJoinConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The connector state. Possible values are: active, error, inactive.
-    *
-    * @param DeviceManagementDomainJoinConnectorState $val The state
-    *
-    * @return DeviceManagementDomainJoinConnector
-    */
+     * Sets the state
+     * The connector state. Possible values are: active, error, inactive.
+     *
+     * @param DeviceManagementDomainJoinConnectorState $val The state
+     *
+     * @return DeviceManagementDomainJoinConnector
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the version
-    * The version of the connector.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * The version of the connector.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -136,19 +131,17 @@ class DeviceManagementDomainJoinConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * The version of the connector.
-    *
-    * @param string $val The version
-    *
-    * @return DeviceManagementDomainJoinConnector
-    */
+     * Sets the version
+     * The version of the connector.
+     *
+     * @param string $val The version
+     *
+     * @return DeviceManagementDomainJoinConnector
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

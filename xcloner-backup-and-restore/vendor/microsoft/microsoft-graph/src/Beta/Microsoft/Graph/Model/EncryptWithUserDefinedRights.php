@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EncryptWithUserDefinedRights class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EncryptWithUserDefinedRights extends EncryptContent
 {
     /**
-    * Gets the allowAdHocPermissions
-    *
-    * @return bool|null The allowAdHocPermissions
-    */
+     * Gets the allowAdHocPermissions
+     *
+     * @return bool|null The allowAdHocPermissions
+     */
     public function getAllowAdHocPermissions()
     {
         if (array_key_exists("allowAdHocPermissions", $this->_propDict)) {
@@ -39,24 +41,23 @@ class EncryptWithUserDefinedRights extends EncryptContent
             return null;
         }
     }
-
     /**
-    * Sets the allowAdHocPermissions
-    *
-    * @param bool $val The value of the allowAdHocPermissions
-    *
-    * @return EncryptWithUserDefinedRights
-    */
+     * Sets the allowAdHocPermissions
+     *
+     * @param bool $val The value of the allowAdHocPermissions
+     *
+     * @return EncryptWithUserDefinedRights
+     */
     public function setAllowAdHocPermissions($val)
     {
         $this->_propDict["allowAdHocPermissions"] = $val;
         return $this;
     }
     /**
-    * Gets the allowMailForwarding
-    *
-    * @return bool|null The allowMailForwarding
-    */
+     * Gets the allowMailForwarding
+     *
+     * @return bool|null The allowMailForwarding
+     */
     public function getAllowMailForwarding()
     {
         if (array_key_exists("allowMailForwarding", $this->_propDict)) {
@@ -65,24 +66,23 @@ class EncryptWithUserDefinedRights extends EncryptContent
             return null;
         }
     }
-
     /**
-    * Sets the allowMailForwarding
-    *
-    * @param bool $val The value of the allowMailForwarding
-    *
-    * @return EncryptWithUserDefinedRights
-    */
+     * Sets the allowMailForwarding
+     *
+     * @param bool $val The value of the allowMailForwarding
+     *
+     * @return EncryptWithUserDefinedRights
+     */
     public function setAllowMailForwarding($val)
     {
         $this->_propDict["allowMailForwarding"] = $val;
         return $this;
     }
     /**
-    * Gets the decryptionRightsManagementTemplateId
-    *
-    * @return string|null The decryptionRightsManagementTemplateId
-    */
+     * Gets the decryptionRightsManagementTemplateId
+     *
+     * @return string|null The decryptionRightsManagementTemplateId
+     */
     public function getDecryptionRightsManagementTemplateId()
     {
         if (array_key_exists("decryptionRightsManagementTemplateId", $this->_propDict)) {
@@ -91,14 +91,13 @@ class EncryptWithUserDefinedRights extends EncryptContent
             return null;
         }
     }
-
     /**
-    * Sets the decryptionRightsManagementTemplateId
-    *
-    * @param string $val The value of the decryptionRightsManagementTemplateId
-    *
-    * @return EncryptWithUserDefinedRights
-    */
+     * Sets the decryptionRightsManagementTemplateId
+     *
+     * @param string $val The value of the decryptionRightsManagementTemplateId
+     *
+     * @return EncryptWithUserDefinedRights
+     */
     public function setDecryptionRightsManagementTemplateId($val)
     {
         $this->_propDict["decryptionRightsManagementTemplateId"] = $val;

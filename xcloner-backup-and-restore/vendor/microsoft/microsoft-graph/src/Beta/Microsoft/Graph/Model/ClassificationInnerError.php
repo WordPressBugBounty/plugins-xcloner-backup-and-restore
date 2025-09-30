@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ClassificationInnerError class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ClassificationInnerError extends Entity
 {
     /**
-    * Gets the activityId
-    *
-    * @return string|null The activityId
-    */
+     * Gets the activityId
+     *
+     * @return string|null The activityId
+     */
     public function getActivityId()
     {
         if (array_key_exists("activityId", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ClassificationInnerError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activityId
-    *
-    * @param string $val The value of the activityId
-    *
-    * @return ClassificationInnerError
-    */
+     * Sets the activityId
+     *
+     * @param string $val The value of the activityId
+     *
+     * @return ClassificationInnerError
+     */
     public function setActivityId($val)
     {
         $this->_propDict["activityId"] = $val;
         return $this;
     }
     /**
-    * Gets the clientRequestId
-    *
-    * @return string|null The clientRequestId
-    */
+     * Gets the clientRequestId
+     *
+     * @return string|null The clientRequestId
+     */
     public function getClientRequestId()
     {
         if (array_key_exists("clientRequestId", $this->_propDict)) {
@@ -65,24 +66,23 @@ class ClassificationInnerError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the clientRequestId
-    *
-    * @param string $val The value of the clientRequestId
-    *
-    * @return ClassificationInnerError
-    */
+     * Sets the clientRequestId
+     *
+     * @param string $val The value of the clientRequestId
+     *
+     * @return ClassificationInnerError
+     */
     public function setClientRequestId($val)
     {
         $this->_propDict["clientRequestId"] = $val;
         return $this;
     }
     /**
-    * Gets the code
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -91,29 +91,27 @@ class ClassificationInnerError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    *
-    * @param string $val The value of the code
-    *
-    * @return ClassificationInnerError
-    */
+     * Sets the code
+     *
+     * @param string $val The value of the code
+     *
+     * @return ClassificationInnerError
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
-
     /**
-    * Gets the errorDateTime
-    *
-    * @return \DateTime|null The errorDateTime
-    */
+     * Gets the errorDateTime
+     *
+     * @return \DateTime|null The errorDateTime
+     */
     public function getErrorDateTime()
     {
         if (array_key_exists("errorDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["errorDateTime"], "\DateTime") || is_null($this->_propDict["errorDateTime"])) {
+            if (is_a($this->_propDict["errorDateTime"], "\\DateTime") || is_null($this->_propDict["errorDateTime"])) {
                 return $this->_propDict["errorDateTime"];
             } else {
                 $this->_propDict["errorDateTime"] = new \DateTime($this->_propDict["errorDateTime"]);
@@ -122,17 +120,16 @@ class ClassificationInnerError extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the errorDateTime
-    *
-    * @param \DateTime $val The value to assign to the errorDateTime
-    *
-    * @return ClassificationInnerError The ClassificationInnerError
-    */
+     * Sets the errorDateTime
+     *
+     * @param \DateTime $val The value to assign to the errorDateTime
+     *
+     * @return ClassificationInnerError The ClassificationInnerError
+     */
     public function setErrorDateTime($val)
     {
         $this->_propDict["errorDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,20 +1,20 @@
 {
-    "name": "components/jquery",
+    "name": "components\/jquery",
     "description": "jQuery JavaScript Library",
     "type": "component",
-    "homepage": "http://jquery.com",
+    "homepage": "http:\/\/jquery.com",
     "license": "MIT",
     "support": {
-        "irc": "irc://irc.freenode.org/jquery",
-        "issues": "https://github.com/jquery/jquery/issues",
-        "forum": "http://forum.jquery.com",
-        "wiki": "http://docs.jquery.com/",
-        "source": "https://github.com/jquery/jquery"
+        "irc": "irc:\/\/irc.freenode.org\/jquery",
+        "issues": "https:\/\/github.com\/jquery\/jquery\/issues",
+        "forum": "http:\/\/forum.jquery.com",
+        "wiki": "http:\/\/docs.jquery.com\/",
+        "source": "https:\/\/github.com\/jquery\/jquery"
     },
     "authors": [
         {
             "name": "JS Foundation and other contributors",
-            "url": "https://github.com/jquery/jquery/blob/master/AUTHORS.txt"
+            "url": "https:\/\/github.com\/jquery\/jquery\/blob\/master\/AUTHORS.txt"
         }
     ],
     "extra": {

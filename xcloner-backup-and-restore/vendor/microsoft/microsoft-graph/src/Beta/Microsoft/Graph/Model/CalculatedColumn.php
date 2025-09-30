@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CalculatedColumn class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CalculatedColumn extends Entity
 {
     /**
-    * Gets the format
-    * For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
-    *
-    * @return string|null The format
-    */
+     * Gets the format
+     * For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
+     *
+     * @return string|null The format
+     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
@@ -40,26 +42,25 @@ class CalculatedColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the format
-    * For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
-    *
-    * @param string $val The value of the format
-    *
-    * @return CalculatedColumn
-    */
+     * Sets the format
+     * For dateTime output types, the format of the value. Must be one of dateOnly or dateTime.
+     *
+     * @param string $val The value of the format
+     *
+     * @return CalculatedColumn
+     */
     public function setFormat($val)
     {
         $this->_propDict["format"] = $val;
         return $this;
     }
     /**
-    * Gets the formula
-    * The formula used to compute the value for this column.
-    *
-    * @return string|null The formula
-    */
+     * Gets the formula
+     * The formula used to compute the value for this column.
+     *
+     * @return string|null The formula
+     */
     public function getFormula()
     {
         if (array_key_exists("formula", $this->_propDict)) {
@@ -68,26 +69,25 @@ class CalculatedColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the formula
-    * The formula used to compute the value for this column.
-    *
-    * @param string $val The value of the formula
-    *
-    * @return CalculatedColumn
-    */
+     * Sets the formula
+     * The formula used to compute the value for this column.
+     *
+     * @param string $val The value of the formula
+     *
+     * @return CalculatedColumn
+     */
     public function setFormula($val)
     {
         $this->_propDict["formula"] = $val;
         return $this;
     }
     /**
-    * Gets the outputType
-    * The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
-    *
-    * @return string|null The outputType
-    */
+     * Gets the outputType
+     * The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
+     *
+     * @return string|null The outputType
+     */
     public function getOutputType()
     {
         if (array_key_exists("outputType", $this->_propDict)) {
@@ -96,15 +96,14 @@ class CalculatedColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the outputType
-    * The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
-    *
-    * @param string $val The value of the outputType
-    *
-    * @return CalculatedColumn
-    */
+     * Sets the outputType
+     * The output type used to format values in this column. Must be one of boolean, currency, dateTime, number, or text.
+     *
+     * @param string $val The value of the outputType
+     *
+     * @return CalculatedColumn
+     */
     public function setOutputType($val)
     {
         $this->_propDict["outputType"] = $val;

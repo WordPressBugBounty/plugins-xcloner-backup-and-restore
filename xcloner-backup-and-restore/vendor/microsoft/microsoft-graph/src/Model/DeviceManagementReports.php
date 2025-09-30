@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementReports class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementReports extends Entity
 {
-
-     /**
+    /**
      * Gets the exportJobs
-    * Entity representing a job to export a report
+     * Entity representing a job to export a report
      *
      * @return array|null The exportJobs
      */
     public function getExportJobs()
     {
         if (array_key_exists("exportJobs", $this->_propDict)) {
-           return $this->_propDict["exportJobs"];
+            return $this->_propDict["exportJobs"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the exportJobs
-    * Entity representing a job to export a report
-    *
-    * @param DeviceManagementExportJob[] $val The exportJobs
-    *
-    * @return DeviceManagementReports
-    */
+     * Sets the exportJobs
+     * Entity representing a job to export a report
+     *
+     * @param DeviceManagementExportJob[] $val The exportJobs
+     *
+     * @return DeviceManagementReports
+     */
     public function setExportJobs($val)
     {
         $this->_propDict["exportJobs"] = $val;
         return $this;
     }
-
 }

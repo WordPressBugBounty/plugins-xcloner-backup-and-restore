@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV;
 
-namespace Sabre\CalDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The CalendarObject represents a single VEVENT or VTODO within a Calendar.
  *
@@ -14,31 +13,27 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\DAVACL\IACL
+class CalendarObject extends \XCloner\Sabre\DAV\File implements ICalendarObject, \XCloner\Sabre\DAVACL\IACL
 {
-    use \Sabre\DAVACL\ACLTrait;
-
+    use \XCloner\Sabre\DAVACL\ACLTrait;
     /**
      * Sabre\CalDAV\Backend\BackendInterface.
      *
      * @var Backend\AbstractBackend
      */
     protected $caldavBackend;
-
     /**
      * Array with information about this CalendarObject.
      *
      * @var array
      */
     protected $objectData;
-
     /**
      * Array with information about the containing calendar.
      *
      * @var array
      */
     protected $calendarInfo;
-
     /**
      * Constructor.
      *
@@ -56,15 +51,12 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
     public function __construct(Backend\BackendInterface $caldavBackend, array $calendarInfo, array $objectData)
     {
         $this->caldavBackend = $caldavBackend;
-
         if (!isset($objectData['uri'])) {
             throw new \InvalidArgumentException('The objectData argument must contain an \'uri\' property');
         }
-
         $this->calendarInfo = $calendarInfo;
         $this->objectData = $objectData;
     }
-
     /**
      * Returns the uri for this object.
      *
@@ -74,7 +66,6 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
     {
         return $this->objectData['uri'];
     }
-
     /**
      * Returns the ICalendar-formatted object.
      *
@@ -87,10 +78,8 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
         if (!isset($this->objectData['calendardata'])) {
             $this->objectData = $this->caldavBackend->getCalendarObject($this->calendarInfo['id'], $this->objectData['uri']);
         }
-
         return $this->objectData['calendardata'];
     }
-
     /**
      * Updates the ICalendar-formatted object.
      *
@@ -106,10 +95,8 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
         $etag = $this->caldavBackend->updateCalendarObject($this->calendarInfo['id'], $this->objectData['uri'], $calendarData);
         $this->objectData['calendardata'] = $calendarData;
         $this->objectData['etag'] = $etag;
-
         return $etag;
     }
-
     /**
      * Deletes the calendar object.
      */
@@ -117,7 +104,6 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
     {
         $this->caldavBackend->deleteCalendarObject($this->calendarInfo['id'], $this->objectData['uri']);
     }
-
     /**
      * Returns the mime content-type.
      *
@@ -127,12 +113,10 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
     {
         $mime = 'text/calendar; charset=utf-8';
         if (isset($this->objectData['component']) && $this->objectData['component']) {
-            $mime .= '; component='.$this->objectData['component'];
+            $mime .= '; component=' . $this->objectData['component'];
         }
-
         return $mime;
     }
-
     /**
      * Returns an ETag for this object.
      *
@@ -145,10 +129,9 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
         if (isset($this->objectData['etag'])) {
             return $this->objectData['etag'];
         } else {
-            return '"'.md5($this->get()).'"';
+            return '"' . md5($this->get()) . '"';
         }
     }
-
     /**
      * Returns the last modification date as a unix timestamp.
      *
@@ -158,7 +141,6 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
     {
         return $this->objectData['lastmodified'];
     }
-
     /**
      * Returns the size of this object in bytes.
      *
@@ -172,7 +154,6 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
             return strlen($this->get());
         }
     }
-
     /**
      * Returns the owner principal.
      *
@@ -184,7 +165,6 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
     {
         return $this->calendarInfo['principaluri'];
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -203,24 +183,7 @@ class CalendarObject extends \Sabre\DAV\File implements ICalendarObject, \Sabre\
         if (isset($this->objectData['acl'])) {
             return $this->objectData['acl'];
         }
-
         // The default ACL
-        return [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->calendarInfo['principaluri'],
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->calendarInfo['principaluri'].'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->calendarInfo['principaluri'].'/calendar-proxy-read',
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}all', 'principal' => $this->calendarInfo['principaluri'], 'protected' => \true], ['privilege' => '{DAV:}all', 'principal' => $this->calendarInfo['principaluri'] . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->calendarInfo['principaluri'] . '/calendar-proxy-read', 'protected' => \true]];
     }
 }

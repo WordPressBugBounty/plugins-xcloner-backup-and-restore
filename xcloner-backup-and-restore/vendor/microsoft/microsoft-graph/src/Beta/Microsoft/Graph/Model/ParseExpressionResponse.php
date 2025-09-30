@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ParseExpressionResponse class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ParseExpressionResponse extends Entity
 {
-
     /**
-    * Gets the error
-    * Error details, if expression evaluation resulted in an error.
-    *
-    * @return PublicError|null The error
-    */
+     * Gets the error
+     * Error details, if expression evaluation resulted in an error.
+     *
+     * @return PublicError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PublicError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new PublicError($this->_propDict["error"]);
@@ -45,26 +46,25 @@ class ParseExpressionResponse extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the error
-    * Error details, if expression evaluation resulted in an error.
-    *
-    * @param PublicError $val The value to assign to the error
-    *
-    * @return ParseExpressionResponse The ParseExpressionResponse
-    */
+     * Sets the error
+     * Error details, if expression evaluation resulted in an error.
+     *
+     * @param PublicError $val The value to assign to the error
+     *
+     * @return ParseExpressionResponse The ParseExpressionResponse
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the evaluationResult
-    * A collection of values produced by the evaluation of the expression.
-    *
-    * @return string|null The evaluationResult
-    */
+     * Gets the evaluationResult
+     * A collection of values produced by the evaluation of the expression.
+     *
+     * @return string|null The evaluationResult
+     */
     public function getEvaluationResult()
     {
         if (array_key_exists("evaluationResult", $this->_propDict)) {
@@ -73,26 +73,25 @@ class ParseExpressionResponse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the evaluationResult
-    * A collection of values produced by the evaluation of the expression.
-    *
-    * @param string $val The value of the evaluationResult
-    *
-    * @return ParseExpressionResponse
-    */
+     * Sets the evaluationResult
+     * A collection of values produced by the evaluation of the expression.
+     *
+     * @param string $val The value of the evaluationResult
+     *
+     * @return ParseExpressionResponse
+     */
     public function setEvaluationResult($val)
     {
         $this->_propDict["evaluationResult"] = $val;
         return $this;
     }
     /**
-    * Gets the evaluationSucceeded
-    * true if the evaluation was successful.
-    *
-    * @return bool|null The evaluationSucceeded
-    */
+     * Gets the evaluationSucceeded
+     * true if the evaluation was successful.
+     *
+     * @return bool|null The evaluationSucceeded
+     */
     public function getEvaluationSucceeded()
     {
         if (array_key_exists("evaluationSucceeded", $this->_propDict)) {
@@ -101,31 +100,29 @@ class ParseExpressionResponse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the evaluationSucceeded
-    * true if the evaluation was successful.
-    *
-    * @param bool $val The value of the evaluationSucceeded
-    *
-    * @return ParseExpressionResponse
-    */
+     * Sets the evaluationSucceeded
+     * true if the evaluation was successful.
+     *
+     * @param bool $val The value of the evaluationSucceeded
+     *
+     * @return ParseExpressionResponse
+     */
     public function setEvaluationSucceeded($val)
     {
         $this->_propDict["evaluationSucceeded"] = $val;
         return $this;
     }
-
     /**
-    * Gets the parsedExpression
-    * An attributeMappingSource object representing the parsed expression.
-    *
-    * @return AttributeMappingSource|null The parsedExpression
-    */
+     * Gets the parsedExpression
+     * An attributeMappingSource object representing the parsed expression.
+     *
+     * @return AttributeMappingSource|null The parsedExpression
+     */
     public function getParsedExpression()
     {
         if (array_key_exists("parsedExpression", $this->_propDict)) {
-            if (is_a($this->_propDict["parsedExpression"], "\Beta\Microsoft\Graph\Model\AttributeMappingSource") || is_null($this->_propDict["parsedExpression"])) {
+            if (is_a($this->_propDict["parsedExpression"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AttributeMappingSource") || is_null($this->_propDict["parsedExpression"])) {
                 return $this->_propDict["parsedExpression"];
             } else {
                 $this->_propDict["parsedExpression"] = new AttributeMappingSource($this->_propDict["parsedExpression"]);
@@ -134,26 +131,25 @@ class ParseExpressionResponse extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the parsedExpression
-    * An attributeMappingSource object representing the parsed expression.
-    *
-    * @param AttributeMappingSource $val The value to assign to the parsedExpression
-    *
-    * @return ParseExpressionResponse The ParseExpressionResponse
-    */
+     * Sets the parsedExpression
+     * An attributeMappingSource object representing the parsed expression.
+     *
+     * @param AttributeMappingSource $val The value to assign to the parsedExpression
+     *
+     * @return ParseExpressionResponse The ParseExpressionResponse
+     */
     public function setParsedExpression($val)
     {
         $this->_propDict["parsedExpression"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the parsingSucceeded
-    * true if the expression was parsed successfully.
-    *
-    * @return bool|null The parsingSucceeded
-    */
+     * Gets the parsingSucceeded
+     * true if the expression was parsed successfully.
+     *
+     * @return bool|null The parsingSucceeded
+     */
     public function getParsingSucceeded()
     {
         if (array_key_exists("parsingSucceeded", $this->_propDict)) {
@@ -162,15 +158,14 @@ class ParseExpressionResponse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the parsingSucceeded
-    * true if the expression was parsed successfully.
-    *
-    * @param bool $val The value of the parsingSucceeded
-    *
-    * @return ParseExpressionResponse
-    */
+     * Sets the parsingSucceeded
+     * true if the expression was parsed successfully.
+     *
+     * @param bool $val The value of the parsingSucceeded
+     *
+     * @return ParseExpressionResponse
+     */
     public function setParsingSucceeded($val)
     {
         $this->_propDict["parsingSucceeded"] = $val;

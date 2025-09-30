@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RestrictedAppsViolation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RestrictedAppsViolation extends Entity
 {
     /**
-    * Gets the deviceConfigurationId
-    * Device configuration profile unique identifier, must be Guid
-    *
-    * @return string|null The deviceConfigurationId
-    */
+     * Gets the deviceConfigurationId
+     * Device configuration profile unique identifier, must be Guid
+     *
+     * @return string|null The deviceConfigurationId
+     */
     public function getDeviceConfigurationId()
     {
         if (array_key_exists("deviceConfigurationId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class RestrictedAppsViolation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceConfigurationId
-    * Device configuration profile unique identifier, must be Guid
-    *
-    * @param string $val The deviceConfigurationId
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the deviceConfigurationId
+     * Device configuration profile unique identifier, must be Guid
+     *
+     * @param string $val The deviceConfigurationId
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setDeviceConfigurationId($val)
     {
         $this->_propDict["deviceConfigurationId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceConfigurationName
-    * Device configuration profile name
-    *
-    * @return string|null The deviceConfigurationName
-    */
+     * Gets the deviceConfigurationName
+     * Device configuration profile name
+     *
+     * @return string|null The deviceConfigurationName
+     */
     public function getDeviceConfigurationName()
     {
         if (array_key_exists("deviceConfigurationName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class RestrictedAppsViolation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceConfigurationName
-    * Device configuration profile name
-    *
-    * @param string $val The deviceConfigurationName
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the deviceConfigurationName
+     * Device configuration profile name
+     *
+     * @param string $val The deviceConfigurationName
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setDeviceConfigurationName($val)
     {
         $this->_propDict["deviceConfigurationName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceName
-    * Device name
-    *
-    * @return string|null The deviceName
-    */
+     * Gets the deviceName
+     * Device name
+     *
+     * @return string|null The deviceName
+     */
     public function getDeviceName()
     {
         if (array_key_exists("deviceName", $this->_propDict)) {
@@ -99,27 +96,25 @@ class RestrictedAppsViolation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceName
-    * Device name
-    *
-    * @param string $val The deviceName
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the deviceName
+     * Device name
+     *
+     * @param string $val The deviceName
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setDeviceName($val)
     {
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceId
-    * Managed device unique identifier, must be Guid
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * Managed device unique identifier, must be Guid
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -128,31 +123,29 @@ class RestrictedAppsViolation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * Managed device unique identifier, must be Guid
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the managedDeviceId
+     * Managed device unique identifier, must be Guid
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the platformType
-    * Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
-    *
-    * @return PolicyPlatformType|null The platformType
-    */
+     * Gets the platformType
+     * Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     *
+     * @return PolicyPlatformType|null The platformType
+     */
     public function getPlatformType()
     {
         if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
+            if (is_a($this->_propDict["platformType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PolicyPlatformType") || is_null($this->_propDict["platformType"])) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new PolicyPlatformType($this->_propDict["platformType"]);
@@ -161,61 +154,56 @@ class RestrictedAppsViolation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the platformType
-    * Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
-    *
-    * @param PolicyPlatformType $val The platformType
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the platformType
+     * Platform type. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     *
+     * @param PolicyPlatformType $val The platformType
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setPlatformType($val)
     {
         $this->_propDict["platformType"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the restrictedApps
-    * List of violated restricted apps
+     * List of violated restricted apps
      *
      * @return array|null The restrictedApps
      */
     public function getRestrictedApps()
     {
         if (array_key_exists("restrictedApps", $this->_propDict)) {
-           return $this->_propDict["restrictedApps"];
+            return $this->_propDict["restrictedApps"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the restrictedApps
-    * List of violated restricted apps
-    *
-    * @param ManagedDeviceReportedApp[] $val The restrictedApps
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the restrictedApps
+     * List of violated restricted apps
+     *
+     * @param ManagedDeviceReportedApp[] $val The restrictedApps
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setRestrictedApps($val)
     {
         $this->_propDict["restrictedApps"] = $val;
         return $this;
     }
-
     /**
-    * Gets the restrictedAppsState
-    * Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
-    *
-    * @return RestrictedAppsState|null The restrictedAppsState
-    */
+     * Gets the restrictedAppsState
+     * Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
+     *
+     * @return RestrictedAppsState|null The restrictedAppsState
+     */
     public function getRestrictedAppsState()
     {
         if (array_key_exists("restrictedAppsState", $this->_propDict)) {
-            if (is_a($this->_propDict["restrictedAppsState"], "\Beta\Microsoft\Graph\Model\RestrictedAppsState") || is_null($this->_propDict["restrictedAppsState"])) {
+            if (is_a($this->_propDict["restrictedAppsState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RestrictedAppsState") || is_null($this->_propDict["restrictedAppsState"])) {
                 return $this->_propDict["restrictedAppsState"];
             } else {
                 $this->_propDict["restrictedAppsState"] = new RestrictedAppsState($this->_propDict["restrictedAppsState"]);
@@ -224,27 +212,25 @@ class RestrictedAppsViolation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the restrictedAppsState
-    * Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
-    *
-    * @param RestrictedAppsState $val The restrictedAppsState
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the restrictedAppsState
+     * Restricted apps state. Possible values are: prohibitedApps, notApprovedApps.
+     *
+     * @param RestrictedAppsState $val The restrictedAppsState
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setRestrictedAppsState($val)
     {
         $this->_propDict["restrictedAppsState"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * User unique identifier, must be Guid
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * User unique identifier, must be Guid
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -253,27 +239,25 @@ class RestrictedAppsViolation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * User unique identifier, must be Guid
-    *
-    * @param string $val The userId
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the userId
+     * User unique identifier, must be Guid
+     *
+     * @param string $val The userId
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userName
-    * User name
-    *
-    * @return string|null The userName
-    */
+     * Gets the userName
+     * User name
+     *
+     * @return string|null The userName
+     */
     public function getUserName()
     {
         if (array_key_exists("userName", $this->_propDict)) {
@@ -282,19 +266,17 @@ class RestrictedAppsViolation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userName
-    * User name
-    *
-    * @param string $val The userName
-    *
-    * @return RestrictedAppsViolation
-    */
+     * Sets the userName
+     * User name
+     *
+     * @param string $val The userName
+     *
+     * @return RestrictedAppsViolation
+     */
     public function setUserName($val)
     {
         $this->_propDict["userName"] = $val;
         return $this;
     }
-
 }

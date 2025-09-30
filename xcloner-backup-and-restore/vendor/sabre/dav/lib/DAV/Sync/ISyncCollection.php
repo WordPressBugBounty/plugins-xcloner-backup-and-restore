@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Sync;
 
-namespace Sabre\DAV\Sync;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * If a class extends ISyncCollection, it supports WebDAV-sync.
  *
@@ -32,7 +30,6 @@ interface ISyncCollection extends DAV\ICollection
      * @return string|null
      */
     public function getSyncToken();
-
     /**
      * The getChanges method returns all the changes that have happened, since
      * the specified syncToken and the current collection.

@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
+use XCloner\Sabre\Xml;
 /**
  * Float property.
  *
@@ -27,7 +26,6 @@ class FloatValue extends Property
      * @var string
      */
     public $delimiter = ';';
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -44,7 +42,6 @@ class FloatValue extends Property
         }
         $this->setParts($val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -52,12 +49,8 @@ class FloatValue extends Property
      */
     public function getRawMimeDirValue()
     {
-        return implode(
-            $this->delimiter,
-            $this->getParts()
-        );
+        return implode($this->delimiter, $this->getParts());
     }
-
     /**
      * Returns the type of value.
      *
@@ -70,7 +63,6 @@ class FloatValue extends Property
     {
         return 'FLOAT';
     }
-
     /**
      * Returns the value, in the format it should be encoded for JSON.
      *
@@ -81,7 +73,6 @@ class FloatValue extends Property
     public function getJsonValue()
     {
         $val = array_map('floatval', $this->getParts());
-
         // Special-casing the GEO property.
         //
         // See:
@@ -89,10 +80,8 @@ class FloatValue extends Property
         if ('GEO' === $this->name) {
             return [$val];
         }
-
         return $val;
     }
-
     /**
      * Hydrate data from a XML subtree, as it would appear in a xCard or xCal
      * object.
@@ -102,7 +91,6 @@ class FloatValue extends Property
         $value = array_map('floatval', $value);
         parent::setXmlValue($value);
     }
-
     /**
      * This method serializes only the value of a property. This is used to
      * create xCard or xCal documents.
@@ -117,7 +105,6 @@ class FloatValue extends Property
         // http://tools.ietf.org/html/rfc6321#section-3.4.1.2
         if ('GEO' === $this->name) {
             $value = array_map('floatval', $this->getParts());
-
             $writer->writeElement('latitude', $value[0]);
             $writer->writeElement('longitude', $value[1]);
         } else {

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosDerivedCredentialAuthenticationConfiguration class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the derivedCredentialSettings
-    * Tenant level settings for the Derived Credentials to be used for authentication.
-    *
-    * @return DeviceManagementDerivedCredentialSettings|null The derivedCredentialSettings
-    */
+     * Gets the derivedCredentialSettings
+     * Tenant level settings for the Derived Credentials to be used for authentication.
+     *
+     * @return DeviceManagementDerivedCredentialSettings|null The derivedCredentialSettings
+     */
     public function getDerivedCredentialSettings()
     {
         if (array_key_exists("derivedCredentialSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["derivedCredentialSettings"], "\Beta\Microsoft\Graph\Model\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
+            if (is_a($this->_propDict["derivedCredentialSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementDerivedCredentialSettings") || is_null($this->_propDict["derivedCredentialSettings"])) {
                 return $this->_propDict["derivedCredentialSettings"];
             } else {
                 $this->_propDict["derivedCredentialSettings"] = new DeviceManagementDerivedCredentialSettings($this->_propDict["derivedCredentialSettings"]);
@@ -45,19 +46,17 @@ class IosDerivedCredentialAuthenticationConfiguration extends DeviceConfiguratio
         }
         return null;
     }
-
     /**
-    * Sets the derivedCredentialSettings
-    * Tenant level settings for the Derived Credentials to be used for authentication.
-    *
-    * @param DeviceManagementDerivedCredentialSettings $val The derivedCredentialSettings
-    *
-    * @return IosDerivedCredentialAuthenticationConfiguration
-    */
+     * Sets the derivedCredentialSettings
+     * Tenant level settings for the Derived Credentials to be used for authentication.
+     *
+     * @param DeviceManagementDerivedCredentialSettings $val The derivedCredentialSettings
+     *
+     * @return IosDerivedCredentialAuthenticationConfiguration
+     */
     public function setDerivedCredentialSettings($val)
     {
         $this->_propDict["derivedCredentialSettings"] = $val;
         return $this;
     }
-
 }

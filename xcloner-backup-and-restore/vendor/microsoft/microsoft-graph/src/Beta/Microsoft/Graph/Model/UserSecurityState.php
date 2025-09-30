@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserSecurityState class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserSecurityState extends Entity
 {
     /**
-    * Gets the aadUserId
-    * AAD User object identifier (GUID) - represents the physical/multi-account user entity.
-    *
-    * @return string|null The aadUserId
-    */
+     * Gets the aadUserId
+     * AAD User object identifier (GUID) - represents the physical/multi-account user entity.
+     *
+     * @return string|null The aadUserId
+     */
     public function getAadUserId()
     {
         if (array_key_exists("aadUserId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the aadUserId
-    * AAD User object identifier (GUID) - represents the physical/multi-account user entity.
-    *
-    * @param string $val The value of the aadUserId
-    *
-    * @return UserSecurityState
-    */
+     * Sets the aadUserId
+     * AAD User object identifier (GUID) - represents the physical/multi-account user entity.
+     *
+     * @param string $val The value of the aadUserId
+     *
+     * @return UserSecurityState
+     */
     public function setAadUserId($val)
     {
         $this->_propDict["aadUserId"] = $val;
         return $this;
     }
     /**
-    * Gets the accountName
-    * Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
-    *
-    * @return string|null The accountName
-    */
+     * Gets the accountName
+     * Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
+     *
+     * @return string|null The accountName
+     */
     public function getAccountName()
     {
         if (array_key_exists("accountName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the accountName
-    * Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
-    *
-    * @param string $val The value of the accountName
-    *
-    * @return UserSecurityState
-    */
+     * Sets the accountName
+     * Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
+     *
+     * @param string $val The value of the accountName
+     *
+     * @return UserSecurityState
+     */
     public function setAccountName($val)
     {
         $this->_propDict["accountName"] = $val;
         return $this;
     }
     /**
-    * Gets the domainName
-    * NetBIOS/Active Directory domain of user account (that is, domain/account format).
-    *
-    * @return string|null The domainName
-    */
+     * Gets the domainName
+     * NetBIOS/Active Directory domain of user account (that is, domain/account format).
+     *
+     * @return string|null The domainName
+     */
     public function getDomainName()
     {
         if (array_key_exists("domainName", $this->_propDict)) {
@@ -96,31 +96,29 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the domainName
-    * NetBIOS/Active Directory domain of user account (that is, domain/account format).
-    *
-    * @param string $val The value of the domainName
-    *
-    * @return UserSecurityState
-    */
+     * Sets the domainName
+     * NetBIOS/Active Directory domain of user account (that is, domain/account format).
+     *
+     * @param string $val The value of the domainName
+     *
+     * @return UserSecurityState
+     */
     public function setDomainName($val)
     {
         $this->_propDict["domainName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the emailRole
-    * For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
-    *
-    * @return EmailRole|null The emailRole
-    */
+     * Gets the emailRole
+     * For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
+     *
+     * @return EmailRole|null The emailRole
+     */
     public function getEmailRole()
     {
         if (array_key_exists("emailRole", $this->_propDict)) {
-            if (is_a($this->_propDict["emailRole"], "\Beta\Microsoft\Graph\Model\EmailRole") || is_null($this->_propDict["emailRole"])) {
+            if (is_a($this->_propDict["emailRole"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EmailRole") || is_null($this->_propDict["emailRole"])) {
                 return $this->_propDict["emailRole"];
             } else {
                 $this->_propDict["emailRole"] = new EmailRole($this->_propDict["emailRole"]);
@@ -129,26 +127,25 @@ class UserSecurityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the emailRole
-    * For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
-    *
-    * @param EmailRole $val The value to assign to the emailRole
-    *
-    * @return UserSecurityState The UserSecurityState
-    */
+     * Sets the emailRole
+     * For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
+     *
+     * @param EmailRole $val The value to assign to the emailRole
+     *
+     * @return UserSecurityState The UserSecurityState
+     */
     public function setEmailRole($val)
     {
         $this->_propDict["emailRole"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the isVpn
-    * Indicates whether the user logged on through a VPN.
-    *
-    * @return bool|null The isVpn
-    */
+     * Gets the isVpn
+     * Indicates whether the user logged on through a VPN.
+     *
+     * @return bool|null The isVpn
+     */
     public function getIsVpn()
     {
         if (array_key_exists("isVpn", $this->_propDict)) {
@@ -157,31 +154,29 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isVpn
-    * Indicates whether the user logged on through a VPN.
-    *
-    * @param bool $val The value of the isVpn
-    *
-    * @return UserSecurityState
-    */
+     * Sets the isVpn
+     * Indicates whether the user logged on through a VPN.
+     *
+     * @param bool $val The value of the isVpn
+     *
+     * @return UserSecurityState
+     */
     public function setIsVpn($val)
     {
         $this->_propDict["isVpn"] = $val;
         return $this;
     }
-
     /**
-    * Gets the logonDateTime
-    * Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The logonDateTime
-    */
+     * Gets the logonDateTime
+     * Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The logonDateTime
+     */
     public function getLogonDateTime()
     {
         if (array_key_exists("logonDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["logonDateTime"], "\DateTime") || is_null($this->_propDict["logonDateTime"])) {
+            if (is_a($this->_propDict["logonDateTime"], "\\DateTime") || is_null($this->_propDict["logonDateTime"])) {
                 return $this->_propDict["logonDateTime"];
             } else {
                 $this->_propDict["logonDateTime"] = new \DateTime($this->_propDict["logonDateTime"]);
@@ -190,26 +185,25 @@ class UserSecurityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the logonDateTime
-    * Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the logonDateTime
-    *
-    * @return UserSecurityState The UserSecurityState
-    */
+     * Sets the logonDateTime
+     * Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the logonDateTime
+     *
+     * @return UserSecurityState The UserSecurityState
+     */
     public function setLogonDateTime($val)
     {
         $this->_propDict["logonDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the logonId
-    * User sign-in ID.
-    *
-    * @return string|null The logonId
-    */
+     * Gets the logonId
+     * User sign-in ID.
+     *
+     * @return string|null The logonId
+     */
     public function getLogonId()
     {
         if (array_key_exists("logonId", $this->_propDict)) {
@@ -218,26 +212,25 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the logonId
-    * User sign-in ID.
-    *
-    * @param string $val The value of the logonId
-    *
-    * @return UserSecurityState
-    */
+     * Sets the logonId
+     * User sign-in ID.
+     *
+     * @param string $val The value of the logonId
+     *
+     * @return UserSecurityState
+     */
     public function setLogonId($val)
     {
         $this->_propDict["logonId"] = $val;
         return $this;
     }
     /**
-    * Gets the logonIp
-    * IP Address the sign-in request originated from.
-    *
-    * @return string|null The logonIp
-    */
+     * Gets the logonIp
+     * IP Address the sign-in request originated from.
+     *
+     * @return string|null The logonIp
+     */
     public function getLogonIp()
     {
         if (array_key_exists("logonIp", $this->_propDict)) {
@@ -246,26 +239,25 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the logonIp
-    * IP Address the sign-in request originated from.
-    *
-    * @param string $val The value of the logonIp
-    *
-    * @return UserSecurityState
-    */
+     * Sets the logonIp
+     * IP Address the sign-in request originated from.
+     *
+     * @param string $val The value of the logonIp
+     *
+     * @return UserSecurityState
+     */
     public function setLogonIp($val)
     {
         $this->_propDict["logonIp"] = $val;
         return $this;
     }
     /**
-    * Gets the logonLocation
-    * Location (by IP address mapping) associated with a user sign-in event by this user.
-    *
-    * @return string|null The logonLocation
-    */
+     * Gets the logonLocation
+     * Location (by IP address mapping) associated with a user sign-in event by this user.
+     *
+     * @return string|null The logonLocation
+     */
     public function getLogonLocation()
     {
         if (array_key_exists("logonLocation", $this->_propDict)) {
@@ -274,31 +266,29 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the logonLocation
-    * Location (by IP address mapping) associated with a user sign-in event by this user.
-    *
-    * @param string $val The value of the logonLocation
-    *
-    * @return UserSecurityState
-    */
+     * Sets the logonLocation
+     * Location (by IP address mapping) associated with a user sign-in event by this user.
+     *
+     * @param string $val The value of the logonLocation
+     *
+     * @return UserSecurityState
+     */
     public function setLogonLocation($val)
     {
         $this->_propDict["logonLocation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the logonType
-    * Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-    *
-    * @return LogonType|null The logonType
-    */
+     * Gets the logonType
+     * Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
+     *
+     * @return LogonType|null The logonType
+     */
     public function getLogonType()
     {
         if (array_key_exists("logonType", $this->_propDict)) {
-            if (is_a($this->_propDict["logonType"], "\Beta\Microsoft\Graph\Model\LogonType") || is_null($this->_propDict["logonType"])) {
+            if (is_a($this->_propDict["logonType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LogonType") || is_null($this->_propDict["logonType"])) {
                 return $this->_propDict["logonType"];
             } else {
                 $this->_propDict["logonType"] = new LogonType($this->_propDict["logonType"]);
@@ -307,26 +297,25 @@ class UserSecurityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the logonType
-    * Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-    *
-    * @param LogonType $val The value to assign to the logonType
-    *
-    * @return UserSecurityState The UserSecurityState
-    */
+     * Sets the logonType
+     * Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
+     *
+     * @param LogonType $val The value to assign to the logonType
+     *
+     * @return UserSecurityState The UserSecurityState
+     */
     public function setLogonType($val)
     {
         $this->_propDict["logonType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the onPremisesSecurityIdentifier
-    * Active Directory (on-premises) Security Identifier (SID) of the user.
-    *
-    * @return string|null The onPremisesSecurityIdentifier
-    */
+     * Gets the onPremisesSecurityIdentifier
+     * Active Directory (on-premises) Security Identifier (SID) of the user.
+     *
+     * @return string|null The onPremisesSecurityIdentifier
+     */
     public function getOnPremisesSecurityIdentifier()
     {
         if (array_key_exists("onPremisesSecurityIdentifier", $this->_propDict)) {
@@ -335,26 +324,25 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the onPremisesSecurityIdentifier
-    * Active Directory (on-premises) Security Identifier (SID) of the user.
-    *
-    * @param string $val The value of the onPremisesSecurityIdentifier
-    *
-    * @return UserSecurityState
-    */
+     * Sets the onPremisesSecurityIdentifier
+     * Active Directory (on-premises) Security Identifier (SID) of the user.
+     *
+     * @param string $val The value of the onPremisesSecurityIdentifier
+     *
+     * @return UserSecurityState
+     */
     public function setOnPremisesSecurityIdentifier($val)
     {
         $this->_propDict["onPremisesSecurityIdentifier"] = $val;
         return $this;
     }
     /**
-    * Gets the riskScore
-    * Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
-    *
-    * @return string|null The riskScore
-    */
+     * Gets the riskScore
+     * Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
+     *
+     * @return string|null The riskScore
+     */
     public function getRiskScore()
     {
         if (array_key_exists("riskScore", $this->_propDict)) {
@@ -363,31 +351,29 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskScore
-    * Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
-    *
-    * @param string $val The value of the riskScore
-    *
-    * @return UserSecurityState
-    */
+     * Sets the riskScore
+     * Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
+     *
+     * @param string $val The value of the riskScore
+     *
+     * @return UserSecurityState
+     */
     public function setRiskScore($val)
     {
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userAccountType
-    * User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
-    *
-    * @return UserAccountSecurityType|null The userAccountType
-    */
+     * Gets the userAccountType
+     * User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
+     *
+     * @return UserAccountSecurityType|null The userAccountType
+     */
     public function getUserAccountType()
     {
         if (array_key_exists("userAccountType", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccountType"], "\Beta\Microsoft\Graph\Model\UserAccountSecurityType") || is_null($this->_propDict["userAccountType"])) {
+            if (is_a($this->_propDict["userAccountType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\UserAccountSecurityType") || is_null($this->_propDict["userAccountType"])) {
                 return $this->_propDict["userAccountType"];
             } else {
                 $this->_propDict["userAccountType"] = new UserAccountSecurityType($this->_propDict["userAccountType"]);
@@ -396,26 +382,25 @@ class UserSecurityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the userAccountType
-    * User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
-    *
-    * @param UserAccountSecurityType $val The value to assign to the userAccountType
-    *
-    * @return UserSecurityState The UserSecurityState
-    */
+     * Sets the userAccountType
+     * User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
+     *
+     * @param UserAccountSecurityType $val The value to assign to the userAccountType
+     *
+     * @return UserSecurityState The UserSecurityState
+     */
     public function setUserAccountType($val)
     {
         $this->_propDict["userAccountType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the userPrincipalName
-    * User sign-in name - internet format: (user account name)@(user account DNS domain name).
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * User sign-in name - internet format: (user account name)@(user account DNS domain name).
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -424,15 +409,14 @@ class UserSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * User sign-in name - internet format: (user account name)@(user account DNS domain name).
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return UserSecurityState
-    */
+     * Sets the userPrincipalName
+     * User sign-in name - internet format: (user account name)@(user account DNS domain name).
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return UserSecurityState
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

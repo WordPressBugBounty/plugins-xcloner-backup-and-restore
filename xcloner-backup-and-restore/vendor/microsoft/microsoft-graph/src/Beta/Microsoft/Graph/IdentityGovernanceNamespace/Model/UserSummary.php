@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserSummary class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class UserSummary extends \Beta\Microsoft\Graph\Model\Entity
+class UserSummary extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the failedTasks
-    * The number of failed tasks for users in a user summary.
-    *
-    * @return int|null The failedTasks
-    */
+     * Gets the failedTasks
+     * The number of failed tasks for users in a user summary.
+     *
+     * @return int|null The failedTasks
+     */
     public function getFailedTasks()
     {
         if (array_key_exists("failedTasks", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedTasks
-    * The number of failed tasks for users in a user summary.
-    *
-    * @param int $val The value of the failedTasks
-    *
-    * @return UserSummary
-    */
+     * Sets the failedTasks
+     * The number of failed tasks for users in a user summary.
+     *
+     * @param int $val The value of the failedTasks
+     *
+     * @return UserSummary
+     */
     public function setFailedTasks($val)
     {
         $this->_propDict["failedTasks"] = $val;
         return $this;
     }
     /**
-    * Gets the failedUsers
-    * The number of failed users in a user summary.
-    *
-    * @return int|null The failedUsers
-    */
+     * Gets the failedUsers
+     * The number of failed users in a user summary.
+     *
+     * @return int|null The failedUsers
+     */
     public function getFailedUsers()
     {
         if (array_key_exists("failedUsers", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UserSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedUsers
-    * The number of failed users in a user summary.
-    *
-    * @param int $val The value of the failedUsers
-    *
-    * @return UserSummary
-    */
+     * Sets the failedUsers
+     * The number of failed users in a user summary.
+     *
+     * @param int $val The value of the failedUsers
+     *
+     * @return UserSummary
+     */
     public function setFailedUsers($val)
     {
         $this->_propDict["failedUsers"] = $val;
         return $this;
     }
     /**
-    * Gets the successfulUsers
-    * The number of successful users in a user summary.
-    *
-    * @return int|null The successfulUsers
-    */
+     * Gets the successfulUsers
+     * The number of successful users in a user summary.
+     *
+     * @return int|null The successfulUsers
+     */
     public function getSuccessfulUsers()
     {
         if (array_key_exists("successfulUsers", $this->_propDict)) {
@@ -96,26 +96,25 @@ class UserSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the successfulUsers
-    * The number of successful users in a user summary.
-    *
-    * @param int $val The value of the successfulUsers
-    *
-    * @return UserSummary
-    */
+     * Sets the successfulUsers
+     * The number of successful users in a user summary.
+     *
+     * @param int $val The value of the successfulUsers
+     *
+     * @return UserSummary
+     */
     public function setSuccessfulUsers($val)
     {
         $this->_propDict["successfulUsers"] = $val;
         return $this;
     }
     /**
-    * Gets the totalTasks
-    * The total tasks of users in a user summary.
-    *
-    * @return int|null The totalTasks
-    */
+     * Gets the totalTasks
+     * The total tasks of users in a user summary.
+     *
+     * @return int|null The totalTasks
+     */
     public function getTotalTasks()
     {
         if (array_key_exists("totalTasks", $this->_propDict)) {
@@ -124,26 +123,25 @@ class UserSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalTasks
-    * The total tasks of users in a user summary.
-    *
-    * @param int $val The value of the totalTasks
-    *
-    * @return UserSummary
-    */
+     * Sets the totalTasks
+     * The total tasks of users in a user summary.
+     *
+     * @param int $val The value of the totalTasks
+     *
+     * @return UserSummary
+     */
     public function setTotalTasks($val)
     {
         $this->_propDict["totalTasks"] = $val;
         return $this;
     }
     /**
-    * Gets the totalUsers
-    * The total number of users in a user summary
-    *
-    * @return int|null The totalUsers
-    */
+     * Gets the totalUsers
+     * The total number of users in a user summary
+     *
+     * @return int|null The totalUsers
+     */
     public function getTotalUsers()
     {
         if (array_key_exists("totalUsers", $this->_propDict)) {
@@ -152,15 +150,14 @@ class UserSummary extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalUsers
-    * The total number of users in a user summary
-    *
-    * @param int $val The value of the totalUsers
-    *
-    * @return UserSummary
-    */
+     * Sets the totalUsers
+     * The total number of users in a user summary
+     *
+     * @param int $val The value of the totalUsers
+     *
+     * @return UserSummary
+     */
     public function setTotalUsers($val)
     {
         $this->_propDict["totalUsers"] = $val;

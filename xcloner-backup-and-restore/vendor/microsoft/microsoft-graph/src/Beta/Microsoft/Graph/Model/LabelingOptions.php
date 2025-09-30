@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LabelingOptions class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class LabelingOptions extends Entity
 {
-
     /**
-    * Gets the assignmentMethod
-    * Possible values are: standard, privileged, auto.
-    *
-    * @return AssignmentMethod|null The assignmentMethod
-    */
+     * Gets the assignmentMethod
+     * Possible values are: standard, privileged, auto.
+     *
+     * @return AssignmentMethod|null The assignmentMethod
+     */
     public function getAssignmentMethod()
     {
         if (array_key_exists("assignmentMethod", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentMethod"], "\Beta\Microsoft\Graph\Model\AssignmentMethod") || is_null($this->_propDict["assignmentMethod"])) {
+            if (is_a($this->_propDict["assignmentMethod"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AssignmentMethod") || is_null($this->_propDict["assignmentMethod"])) {
                 return $this->_propDict["assignmentMethod"];
             } else {
                 $this->_propDict["assignmentMethod"] = new AssignmentMethod($this->_propDict["assignmentMethod"]);
@@ -45,31 +46,29 @@ class LabelingOptions extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the assignmentMethod
-    * Possible values are: standard, privileged, auto.
-    *
-    * @param AssignmentMethod $val The value to assign to the assignmentMethod
-    *
-    * @return LabelingOptions The LabelingOptions
-    */
+     * Sets the assignmentMethod
+     * Possible values are: standard, privileged, auto.
+     *
+     * @param AssignmentMethod $val The value to assign to the assignmentMethod
+     *
+     * @return LabelingOptions The LabelingOptions
+     */
     public function setAssignmentMethod($val)
     {
         $this->_propDict["assignmentMethod"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the downgradeJustification
-    * The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
-    *
-    * @return DowngradeJustification|null The downgradeJustification
-    */
+     * Gets the downgradeJustification
+     * The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
+     *
+     * @return DowngradeJustification|null The downgradeJustification
+     */
     public function getDowngradeJustification()
     {
         if (array_key_exists("downgradeJustification", $this->_propDict)) {
-            if (is_a($this->_propDict["downgradeJustification"], "\Beta\Microsoft\Graph\Model\DowngradeJustification") || is_null($this->_propDict["downgradeJustification"])) {
+            if (is_a($this->_propDict["downgradeJustification"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DowngradeJustification") || is_null($this->_propDict["downgradeJustification"])) {
                 return $this->_propDict["downgradeJustification"];
             } else {
                 $this->_propDict["downgradeJustification"] = new DowngradeJustification($this->_propDict["downgradeJustification"]);
@@ -78,31 +77,29 @@ class LabelingOptions extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the downgradeJustification
-    * The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
-    *
-    * @param DowngradeJustification $val The value to assign to the downgradeJustification
-    *
-    * @return LabelingOptions The LabelingOptions
-    */
+     * Sets the downgradeJustification
+     * The downgrade justification object that indicates if downgrade was justified and, if so, the reason.
+     *
+     * @param DowngradeJustification $val The value to assign to the downgradeJustification
+     *
+     * @return LabelingOptions The LabelingOptions
+     */
     public function setDowngradeJustification($val)
     {
         $this->_propDict["downgradeJustification"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the extendedProperties
-    * Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
-    *
-    * @return KeyValuePair|null The extendedProperties
-    */
+     * Gets the extendedProperties
+     * Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
+     *
+     * @return KeyValuePair|null The extendedProperties
+     */
     public function getExtendedProperties()
     {
         if (array_key_exists("extendedProperties", $this->_propDict)) {
-            if (is_a($this->_propDict["extendedProperties"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["extendedProperties"])) {
+            if (is_a($this->_propDict["extendedProperties"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\KeyValuePair") || is_null($this->_propDict["extendedProperties"])) {
                 return $this->_propDict["extendedProperties"];
             } else {
                 $this->_propDict["extendedProperties"] = new KeyValuePair($this->_propDict["extendedProperties"]);
@@ -111,26 +108,25 @@ class LabelingOptions extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the extendedProperties
-    * Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
-    *
-    * @param KeyValuePair $val The value to assign to the extendedProperties
-    *
-    * @return LabelingOptions The LabelingOptions
-    */
+     * Sets the extendedProperties
+     * Extended properties will be parsed and returned in the standard MIP labeled metadata format as part of the label information.
+     *
+     * @param KeyValuePair $val The value to assign to the extendedProperties
+     *
+     * @return LabelingOptions The LabelingOptions
+     */
     public function setExtendedProperties($val)
     {
         $this->_propDict["extendedProperties"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the labelId
-    * The GUID of the label that should be applied to the information.
-    *
-    * @return string|null The labelId
-    */
+     * Gets the labelId
+     * The GUID of the label that should be applied to the information.
+     *
+     * @return string|null The labelId
+     */
     public function getLabelId()
     {
         if (array_key_exists("labelId", $this->_propDict)) {
@@ -139,15 +135,14 @@ class LabelingOptions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the labelId
-    * The GUID of the label that should be applied to the information.
-    *
-    * @param string $val The value of the labelId
-    *
-    * @return LabelingOptions
-    */
+     * Sets the labelId
+     * The GUID of the label that should be applied to the information.
+     *
+     * @param string $val The value of the labelId
+     *
+     * @return LabelingOptions
+     */
     public function setLabelId($val)
     {
         $this->_propDict["labelId"] = $val;

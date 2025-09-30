@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\FSExt;
 
-namespace Sabre\DAV\FSExt;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\FS\Node;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\FS\Node;
 /**
  * Directory class.
  *
@@ -50,17 +48,11 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         if ('.' == $name || '..' == $name) {
             throw new DAV\Exception\Forbidden('Permission denied to . and ..');
         }
-        $newPath = $this->path.'/'.$name;
+        $newPath = $this->path . '/' . $name;
         file_put_contents($newPath, $data);
-        clearstatcache(true, $newPath);
-
-        return '"'.sha1(
-            fileinode($newPath).
-            filesize($newPath).
-            filemtime($newPath)
-        ).'"';
+        clearstatcache(\true, $newPath);
+        return '"' . sha1(fileinode($newPath) . filesize($newPath) . filemtime($newPath)) . '"';
     }
-
     /**
      * Creates a new subdirectory.
      *
@@ -72,11 +64,10 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         if ('.' == $name || '..' == $name) {
             throw new DAV\Exception\Forbidden('Permission denied to . and ..');
         }
-        $newPath = $this->path.'/'.$name;
+        $newPath = $this->path . '/' . $name;
         mkdir($newPath);
-        clearstatcache(true, $newPath);
+        clearstatcache(\true, $newPath);
     }
-
     /**
      * Returns a specific child node, referenced by its name.
      *
@@ -91,8 +82,7 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
      */
     public function getChild($name)
     {
-        $path = $this->path.'/'.$name;
-
+        $path = $this->path . '/' . $name;
         if (!file_exists($path)) {
             throw new DAV\Exception\NotFound('File could not be located');
         }
@@ -105,7 +95,6 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
             return new File($path);
         }
     }
-
     /**
      * Checks if a child exists.
      *
@@ -118,11 +107,9 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         if ('.' == $name || '..' == $name) {
             throw new DAV\Exception\Forbidden('Permission denied to . and ..');
         }
-        $path = $this->path.'/'.$name;
-
+        $path = $this->path . '/' . $name;
         return file_exists($path);
     }
-
     /**
      * Returns an array with all the child nodes.
      *
@@ -131,19 +118,12 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
     public function getChildren()
     {
         $nodes = [];
-        $iterator = new \FilesystemIterator(
-            $this->path,
-            \FilesystemIterator::CURRENT_AS_SELF
-          | \FilesystemIterator::SKIP_DOTS
-        );
-
+        $iterator = new \FilesystemIterator($this->path, \FilesystemIterator::CURRENT_AS_SELF | \FilesystemIterator::SKIP_DOTS);
         foreach ($iterator as $entry) {
             $nodes[] = $this->getChild($entry->getFilename());
         }
-
         return $nodes;
     }
-
     /**
      * Deletes all files in this directory, and then itself.
      *
@@ -155,13 +135,10 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         foreach ($this->getChildren() as $child) {
             $child->delete();
         }
-
         // Removing the directory itself
         rmdir($this->path);
-
-        return true;
+        return \true;
     }
-
     /**
      * Returns available diskspace information.
      *
@@ -171,13 +148,8 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
     {
         $total = disk_total_space(realpath($this->path));
         $free = disk_free_space(realpath($this->path));
-
-        return [
-            $total - $free,
-            $free,
-        ];
+        return [$total - $free, $free];
     }
-
     /**
      * Moves a node into this collection.
      *
@@ -204,12 +176,11 @@ class Directory extends Node implements DAV\ICollection, DAV\IQuota, DAV\IMoveTa
         // We only support FSExt\Directory or FSExt\File objects, so
         // anything else we want to quickly reject.
         if (!$sourceNode instanceof self && !$sourceNode instanceof File) {
-            return false;
+            return \false;
         }
-
         // PHP allows us to access protected properties from other objects, as
         // long as they are defined in a class that has a shared inheritance
         // with the current class.
-        return rename($sourceNode->path, $this->path.'/'.$targetName);
+        return rename($sourceNode->path, $this->path . '/' . $targetName);
     }
 }

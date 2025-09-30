@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudAppSecurityProfile class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CloudAppSecurityProfile extends Entity
 {
     /**
-    * Gets the azureSubscriptionId
-    *
-    * @return string|null The azureSubscriptionId
-    */
+     * Gets the azureSubscriptionId
+     *
+     * @return string|null The azureSubscriptionId
+     */
     public function getAzureSubscriptionId()
     {
         if (array_key_exists("azureSubscriptionId", $this->_propDict)) {
@@ -40,25 +41,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureSubscriptionId
-    *
-    * @param string $val The azureSubscriptionId
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the azureSubscriptionId
+     *
+     * @param string $val The azureSubscriptionId
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setAzureSubscriptionId($val)
     {
         $this->_propDict["azureSubscriptionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureTenantId
-    *
-    * @return string|null The azureTenantId
-    */
+     * Gets the azureTenantId
+     *
+     * @return string|null The azureTenantId
+     */
     public function getAzureTenantId()
     {
         if (array_key_exists("azureTenantId", $this->_propDict)) {
@@ -67,29 +66,27 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureTenantId
-    *
-    * @param string $val The azureTenantId
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the azureTenantId
+     *
+     * @param string $val The azureTenantId
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setAzureTenantId($val)
     {
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -98,25 +95,23 @@ class CloudAppSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the createdDateTime
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deploymentPackageUrl
-    *
-    * @return string|null The deploymentPackageUrl
-    */
+     * Gets the deploymentPackageUrl
+     *
+     * @return string|null The deploymentPackageUrl
+     */
     public function getDeploymentPackageUrl()
     {
         if (array_key_exists("deploymentPackageUrl", $this->_propDict)) {
@@ -125,25 +120,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deploymentPackageUrl
-    *
-    * @param string $val The deploymentPackageUrl
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the deploymentPackageUrl
+     *
+     * @param string $val The deploymentPackageUrl
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setDeploymentPackageUrl($val)
     {
         $this->_propDict["deploymentPackageUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the destinationServiceName
-    *
-    * @return string|null The destinationServiceName
-    */
+     * Gets the destinationServiceName
+     *
+     * @return string|null The destinationServiceName
+     */
     public function getDestinationServiceName()
     {
         if (array_key_exists("destinationServiceName", $this->_propDict)) {
@@ -152,25 +145,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationServiceName
-    *
-    * @param string $val The destinationServiceName
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the destinationServiceName
+     *
+     * @param string $val The destinationServiceName
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setDestinationServiceName($val)
     {
         $this->_propDict["destinationServiceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isSigned
-    *
-    * @return bool|null The isSigned
-    */
+     * Gets the isSigned
+     *
+     * @return bool|null The isSigned
+     */
     public function getIsSigned()
     {
         if (array_key_exists("isSigned", $this->_propDict)) {
@@ -179,29 +170,27 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isSigned
-    *
-    * @param bool $val The isSigned
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the isSigned
+     *
+     * @param bool $val The isSigned
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setIsSigned($val)
     {
         $this->_propDict["isSigned"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -210,25 +199,23 @@ class CloudAppSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the manifest
-    *
-    * @return string|null The manifest
-    */
+     * Gets the manifest
+     *
+     * @return string|null The manifest
+     */
     public function getManifest()
     {
         if (array_key_exists("manifest", $this->_propDict)) {
@@ -237,25 +224,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the manifest
-    *
-    * @param string $val The manifest
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the manifest
+     *
+     * @param string $val The manifest
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setManifest($val)
     {
         $this->_propDict["manifest"] = $val;
         return $this;
     }
-
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -264,29 +249,27 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The name
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the name
+     *
+     * @param string $val The name
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the permissionsRequired
-    *
-    * @return ApplicationPermissionsRequired|null The permissionsRequired
-    */
+     * Gets the permissionsRequired
+     *
+     * @return ApplicationPermissionsRequired|null The permissionsRequired
+     */
     public function getPermissionsRequired()
     {
         if (array_key_exists("permissionsRequired", $this->_propDict)) {
-            if (is_a($this->_propDict["permissionsRequired"], "\Beta\Microsoft\Graph\Model\ApplicationPermissionsRequired") || is_null($this->_propDict["permissionsRequired"])) {
+            if (is_a($this->_propDict["permissionsRequired"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ApplicationPermissionsRequired") || is_null($this->_propDict["permissionsRequired"])) {
                 return $this->_propDict["permissionsRequired"];
             } else {
                 $this->_propDict["permissionsRequired"] = new ApplicationPermissionsRequired($this->_propDict["permissionsRequired"]);
@@ -295,25 +278,23 @@ class CloudAppSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the permissionsRequired
-    *
-    * @param ApplicationPermissionsRequired $val The permissionsRequired
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the permissionsRequired
+     *
+     * @param ApplicationPermissionsRequired $val The permissionsRequired
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setPermissionsRequired($val)
     {
         $this->_propDict["permissionsRequired"] = $val;
         return $this;
     }
-
     /**
-    * Gets the platform
-    *
-    * @return string|null The platform
-    */
+     * Gets the platform
+     *
+     * @return string|null The platform
+     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
@@ -322,25 +303,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the platform
-    *
-    * @param string $val The platform
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the platform
+     *
+     * @param string $val The platform
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setPlatform($val)
     {
         $this->_propDict["platform"] = $val;
         return $this;
     }
-
     /**
-    * Gets the policyName
-    *
-    * @return string|null The policyName
-    */
+     * Gets the policyName
+     *
+     * @return string|null The policyName
+     */
     public function getPolicyName()
     {
         if (array_key_exists("policyName", $this->_propDict)) {
@@ -349,25 +328,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the policyName
-    *
-    * @param string $val The policyName
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the policyName
+     *
+     * @param string $val The policyName
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setPolicyName($val)
     {
         $this->_propDict["policyName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the publisher
-    *
-    * @return string|null The publisher
-    */
+     * Gets the publisher
+     *
+     * @return string|null The publisher
+     */
     public function getPublisher()
     {
         if (array_key_exists("publisher", $this->_propDict)) {
@@ -376,25 +353,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the publisher
-    *
-    * @param string $val The publisher
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the publisher
+     *
+     * @param string $val The publisher
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setPublisher($val)
     {
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-
     /**
-    * Gets the riskScore
-    *
-    * @return string|null The riskScore
-    */
+     * Gets the riskScore
+     *
+     * @return string|null The riskScore
+     */
     public function getRiskScore()
     {
         if (array_key_exists("riskScore", $this->_propDict)) {
@@ -403,25 +378,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskScore
-    *
-    * @param string $val The riskScore
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the riskScore
+     *
+     * @param string $val The riskScore
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setRiskScore($val)
     {
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tags
-    *
-    * @return array|null The tags
-    */
+     * Gets the tags
+     *
+     * @return array|null The tags
+     */
     public function getTags()
     {
         if (array_key_exists("tags", $this->_propDict)) {
@@ -430,25 +403,23 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tags
-    *
-    * @param string[] $val The tags
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the tags
+     *
+     * @param string[] $val The tags
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setTags($val)
     {
         $this->_propDict["tags"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -457,29 +428,27 @@ class CloudAppSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The type
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the type
+     *
+     * @param string $val The type
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vendorInformation
-    *
-    * @return SecurityVendorInformation|null The vendorInformation
-    */
+     * Gets the vendorInformation
+     *
+     * @return SecurityVendorInformation|null The vendorInformation
+     */
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);
@@ -488,18 +457,16 @@ class CloudAppSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the vendorInformation
-    *
-    * @param SecurityVendorInformation $val The vendorInformation
-    *
-    * @return CloudAppSecurityProfile
-    */
+     * Sets the vendorInformation
+     *
+     * @param SecurityVendorInformation $val The vendorInformation
+     *
+     * @return CloudAppSecurityProfile
+     */
     public function setVendorInformation($val)
     {
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-
 }

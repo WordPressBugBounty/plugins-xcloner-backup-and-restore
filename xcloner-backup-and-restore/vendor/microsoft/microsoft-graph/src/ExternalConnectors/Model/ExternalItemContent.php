@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\ExternalConnectors\Model;
+namespace XCloner\Microsoft\Graph\ExternalConnectors\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExternalItemContent class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ExternalItemContent extends \Microsoft\Graph\Model\Entity
+class ExternalItemContent extends \XCloner\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the type
-    * The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
-    *
-    * @return ExternalItemContentType|null The type
-    */
+     * Gets the type
+     * The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
+     *
+     * @return ExternalItemContentType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Microsoft\Graph\ExternalConnectors\Model\ExternalItemContentType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Microsoft\\Graph\\ExternalConnectors\\Model\\ExternalItemContentType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new ExternalItemContentType($this->_propDict["type"]);
@@ -45,26 +46,25 @@ class ExternalItemContent extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
-    *
-    * @param ExternalItemContentType $val The value to assign to the type
-    *
-    * @return ExternalItemContent The ExternalItemContent
-    */
+     * Sets the type
+     * The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
+     *
+     * @param ExternalItemContentType $val The value to assign to the type
+     *
+     * @return ExternalItemContent The ExternalItemContent
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the value
-    * The content for the externalItem. Required.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * The content for the externalItem. Required.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -73,15 +73,14 @@ class ExternalItemContent extends \Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The content for the externalItem. Required.
-    *
-    * @param string $val The value of the value
-    *
-    * @return ExternalItemContent
-    */
+     * Sets the value
+     * The content for the externalItem. Required.
+     *
+     * @param string $val The value of the value
+     *
+     * @return ExternalItemContent
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

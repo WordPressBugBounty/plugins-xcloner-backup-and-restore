@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkLoginStatus class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TeamworkLoginStatus extends Entity
 {
-
     /**
-    * Gets the exchangeConnection
-    * Information about the Exchange connection.
-    *
-    * @return TeamworkConnection|null The exchangeConnection
-    */
+     * Gets the exchangeConnection
+     * Information about the Exchange connection.
+     *
+     * @return TeamworkConnection|null The exchangeConnection
+     */
     public function getExchangeConnection()
     {
         if (array_key_exists("exchangeConnection", $this->_propDict)) {
-            if (is_a($this->_propDict["exchangeConnection"], "\Beta\Microsoft\Graph\Model\TeamworkConnection") || is_null($this->_propDict["exchangeConnection"])) {
+            if (is_a($this->_propDict["exchangeConnection"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TeamworkConnection") || is_null($this->_propDict["exchangeConnection"])) {
                 return $this->_propDict["exchangeConnection"];
             } else {
                 $this->_propDict["exchangeConnection"] = new TeamworkConnection($this->_propDict["exchangeConnection"]);
@@ -45,31 +46,29 @@ class TeamworkLoginStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the exchangeConnection
-    * Information about the Exchange connection.
-    *
-    * @param TeamworkConnection $val The value to assign to the exchangeConnection
-    *
-    * @return TeamworkLoginStatus The TeamworkLoginStatus
-    */
+     * Sets the exchangeConnection
+     * Information about the Exchange connection.
+     *
+     * @param TeamworkConnection $val The value to assign to the exchangeConnection
+     *
+     * @return TeamworkLoginStatus The TeamworkLoginStatus
+     */
     public function setExchangeConnection($val)
     {
         $this->_propDict["exchangeConnection"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the skypeConnection
-    * Information about the Skype for Business connection.
-    *
-    * @return TeamworkConnection|null The skypeConnection
-    */
+     * Gets the skypeConnection
+     * Information about the Skype for Business connection.
+     *
+     * @return TeamworkConnection|null The skypeConnection
+     */
     public function getSkypeConnection()
     {
         if (array_key_exists("skypeConnection", $this->_propDict)) {
-            if (is_a($this->_propDict["skypeConnection"], "\Beta\Microsoft\Graph\Model\TeamworkConnection") || is_null($this->_propDict["skypeConnection"])) {
+            if (is_a($this->_propDict["skypeConnection"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TeamworkConnection") || is_null($this->_propDict["skypeConnection"])) {
                 return $this->_propDict["skypeConnection"];
             } else {
                 $this->_propDict["skypeConnection"] = new TeamworkConnection($this->_propDict["skypeConnection"]);
@@ -78,31 +77,29 @@ class TeamworkLoginStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the skypeConnection
-    * Information about the Skype for Business connection.
-    *
-    * @param TeamworkConnection $val The value to assign to the skypeConnection
-    *
-    * @return TeamworkLoginStatus The TeamworkLoginStatus
-    */
+     * Sets the skypeConnection
+     * Information about the Skype for Business connection.
+     *
+     * @param TeamworkConnection $val The value to assign to the skypeConnection
+     *
+     * @return TeamworkLoginStatus The TeamworkLoginStatus
+     */
     public function setSkypeConnection($val)
     {
         $this->_propDict["skypeConnection"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the teamsConnection
-    * Information about the Teams connection.
-    *
-    * @return TeamworkConnection|null The teamsConnection
-    */
+     * Gets the teamsConnection
+     * Information about the Teams connection.
+     *
+     * @return TeamworkConnection|null The teamsConnection
+     */
     public function getTeamsConnection()
     {
         if (array_key_exists("teamsConnection", $this->_propDict)) {
-            if (is_a($this->_propDict["teamsConnection"], "\Beta\Microsoft\Graph\Model\TeamworkConnection") || is_null($this->_propDict["teamsConnection"])) {
+            if (is_a($this->_propDict["teamsConnection"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TeamworkConnection") || is_null($this->_propDict["teamsConnection"])) {
                 return $this->_propDict["teamsConnection"];
             } else {
                 $this->_propDict["teamsConnection"] = new TeamworkConnection($this->_propDict["teamsConnection"]);
@@ -111,18 +108,17 @@ class TeamworkLoginStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the teamsConnection
-    * Information about the Teams connection.
-    *
-    * @param TeamworkConnection $val The value to assign to the teamsConnection
-    *
-    * @return TeamworkLoginStatus The TeamworkLoginStatus
-    */
+     * Sets the teamsConnection
+     * Information about the Teams connection.
+     *
+     * @param TeamworkConnection $val The value to assign to the teamsConnection
+     *
+     * @return TeamworkLoginStatus The TeamworkLoginStatus
+     */
     public function setTeamsConnection($val)
     {
         $this->_propDict["teamsConnection"] = $val;
-         return $this;
+        return $this;
     }
 }

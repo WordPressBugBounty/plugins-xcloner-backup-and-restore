@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
-use MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
+use XCloner\MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
 /**
  * Hold result of calliing listBlobs wrapper.
  *
@@ -45,7 +43,6 @@ use MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
 class ListBlobsResult
 {
     use MarkerContinuationTokenTrait;
-
     private $blobPrefixes;
     private $blobs;
     private $delimiter;
@@ -53,7 +50,6 @@ class ListBlobsResult
     private $marker;
     private $maxResults;
     private $containerName;
-
     /**
      * Creates ListBlobsResult object from parsed XML response.
      *
@@ -67,93 +63,46 @@ class ListBlobsResult
      */
     public static function create(array $parsed, $location = '')
     {
-        $result                 = new ListBlobsResult();
-        $serviceEndpoint        = Utilities::tryGetKeysChainValue(
-            $parsed,
-            Resources::XTAG_ATTRIBUTES,
-            Resources::XTAG_SERVICE_ENDPOINT
-        );
-        $containerName          = Utilities::tryGetKeysChainValue(
-            $parsed,
-            Resources::XTAG_ATTRIBUTES,
-            Resources::XTAG_CONTAINER_NAME
-        );
+        $result = new ListBlobsResult();
+        $serviceEndpoint = Utilities::tryGetKeysChainValue($parsed, Resources::XTAG_ATTRIBUTES, Resources::XTAG_SERVICE_ENDPOINT);
+        $containerName = Utilities::tryGetKeysChainValue($parsed, Resources::XTAG_ATTRIBUTES, Resources::XTAG_CONTAINER_NAME);
         $result->setContainerName($containerName);
-        $result->setPrefix(Utilities::tryGetValue(
-            $parsed,
-            Resources::QP_PREFIX
-        ));
-        $result->setMarker(Utilities::tryGetValue(
-            $parsed,
-            Resources::QP_MARKER
-        ));
-
-        $nextMarker =
-            Utilities::tryGetValue($parsed, Resources::QP_NEXT_MARKER);
-
+        $result->setPrefix(Utilities::tryGetValue($parsed, Resources::QP_PREFIX));
+        $result->setMarker(Utilities::tryGetValue($parsed, Resources::QP_MARKER));
+        $nextMarker = Utilities::tryGetValue($parsed, Resources::QP_NEXT_MARKER);
         if ($nextMarker != null) {
-            $result->setContinuationToken(
-                new MarkerContinuationToken(
-                    $nextMarker,
-                    $location
-                )
-            );
+            $result->setContinuationToken(new MarkerContinuationToken($nextMarker, $location));
         }
-
-        $result->setMaxResults(intval(
-            Utilities::tryGetValue($parsed, Resources::QP_MAX_RESULTS, 0)
-        ));
-        $result->setDelimiter(Utilities::tryGetValue(
-            $parsed,
-            Resources::QP_DELIMITER
-        ));
-        $blobs           = array();
-        $blobPrefixes    = array();
-        $rawBlobs        = array();
+        $result->setMaxResults(intval(Utilities::tryGetValue($parsed, Resources::QP_MAX_RESULTS, 0)));
+        $result->setDelimiter(Utilities::tryGetValue($parsed, Resources::QP_DELIMITER));
+        $blobs = array();
+        $blobPrefixes = array();
+        $rawBlobs = array();
         $rawBlobPrefixes = array();
-
-        if (is_array($parsed['Blobs'])
-            && array_key_exists('Blob', $parsed['Blobs'])
-        ) {
+        if (is_array($parsed['Blobs']) && array_key_exists('Blob', $parsed['Blobs'])) {
             $rawBlobs = Utilities::getArray($parsed['Blobs']['Blob']);
         }
-
         foreach ($rawBlobs as $value) {
             $blob = new Blob();
             $blob->setName($value['Name']);
             $blob->setUrl($serviceEndpoint . $containerName . '/' . $value['Name']);
             $blob->setSnapshot(Utilities::tryGetValue($value, 'Snapshot'));
-            $blob->setProperties(
-                BlobProperties::createFromXml(
-                    Utilities::tryGetValue($value, 'Properties')
-                )
-            );
-            $blob->setMetadata(
-                Utilities::tryGetValue($value, Resources::QP_METADATA, array())
-            );
-
+            $blob->setProperties(BlobProperties::createFromXml(Utilities::tryGetValue($value, 'Properties')));
+            $blob->setMetadata(Utilities::tryGetValue($value, Resources::QP_METADATA, array()));
             $blobs[] = $blob;
         }
-
-        if (is_array($parsed['Blobs'])
-            && array_key_exists('BlobPrefix', $parsed['Blobs'])
-        ) {
+        if (is_array($parsed['Blobs']) && array_key_exists('BlobPrefix', $parsed['Blobs'])) {
             $rawBlobPrefixes = Utilities::getArray($parsed['Blobs']['BlobPrefix']);
         }
-
         foreach ($rawBlobPrefixes as $value) {
             $blobPrefix = new BlobPrefix();
             $blobPrefix->setName($value['Name']);
-
             $blobPrefixes[] = $blobPrefix;
         }
-
         $result->setBlobs($blobs);
         $result->setBlobPrefixes($blobPrefixes);
-
         return $result;
     }
-
     /**
      * Gets blobs.
      *
@@ -163,7 +112,6 @@ class ListBlobsResult
     {
         return $this->blobs;
     }
-
     /**
      * Sets blobs.
      *
@@ -178,7 +126,6 @@ class ListBlobsResult
             $this->blobs[] = clone $blob;
         }
     }
-
     /**
      * Gets blobPrefixes.
      *
@@ -188,7 +135,6 @@ class ListBlobsResult
     {
         return $this->blobPrefixes;
     }
-
     /**
      * Sets blobPrefixes.
      *
@@ -203,7 +149,6 @@ class ListBlobsResult
             $this->blobPrefixes[] = clone $blob;
         }
     }
-
     /**
      * Gets prefix.
      *
@@ -213,7 +158,6 @@ class ListBlobsResult
     {
         return $this->prefix;
     }
-
     /**
      * Sets prefix.
      *
@@ -225,7 +169,6 @@ class ListBlobsResult
     {
         $this->prefix = $prefix;
     }
-
     /**
      * Gets prefix.
      *
@@ -235,7 +178,6 @@ class ListBlobsResult
     {
         return $this->delimiter;
     }
-
     /**
      * Sets prefix.
      *
@@ -247,7 +189,6 @@ class ListBlobsResult
     {
         $this->delimiter = $delimiter;
     }
-
     /**
      * Gets marker.
      *
@@ -257,7 +198,6 @@ class ListBlobsResult
     {
         return $this->marker;
     }
-
     /**
      * Sets marker.
      *
@@ -269,7 +209,6 @@ class ListBlobsResult
     {
         $this->marker = $marker;
     }
-
     /**
      * Gets max results.
      *
@@ -279,7 +218,6 @@ class ListBlobsResult
     {
         return $this->maxResults;
     }
-
     /**
      * Sets max results.
      *
@@ -291,7 +229,6 @@ class ListBlobsResult
     {
         $this->maxResults = $maxResults;
     }
-
     /**
      * Gets container name.
      *
@@ -301,7 +238,6 @@ class ListBlobsResult
     {
         return $this->containerName;
     }
-
     /**
      * Sets container name.
      *

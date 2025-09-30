@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Win32LobAppReturnCode class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Win32LobAppReturnCode extends Entity
 {
     /**
-    * Gets the returnCode
-    * Return code.
-    *
-    * @return int|null The returnCode
-    */
+     * Gets the returnCode
+     * Return code.
+     *
+     * @return int|null The returnCode
+     */
     public function getReturnCode()
     {
         if (array_key_exists("returnCode", $this->_propDict)) {
@@ -40,31 +42,29 @@ class Win32LobAppReturnCode extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the returnCode
-    * Return code.
-    *
-    * @param int $val The value of the returnCode
-    *
-    * @return Win32LobAppReturnCode
-    */
+     * Sets the returnCode
+     * Return code.
+     *
+     * @param int $val The value of the returnCode
+     *
+     * @return Win32LobAppReturnCode
+     */
     public function setReturnCode($val)
     {
         $this->_propDict["returnCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
-    *
-    * @return Win32LobAppReturnCodeType|null The type
-    */
+     * Gets the type
+     * The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
+     *
+     * @return Win32LobAppReturnCodeType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Microsoft\Graph\Model\Win32LobAppReturnCodeType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Microsoft\\Graph\\Model\\Win32LobAppReturnCodeType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new Win32LobAppReturnCodeType($this->_propDict["type"]);
@@ -73,18 +73,17 @@ class Win32LobAppReturnCode extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
-    *
-    * @param Win32LobAppReturnCodeType $val The value to assign to the type
-    *
-    * @return Win32LobAppReturnCode The Win32LobAppReturnCode
-    */
+     * Sets the type
+     * The type of return code. Possible values are: failed, success, softReboot, hardReboot, retry.
+     *
+     * @param Win32LobAppReturnCodeType $val The value to assign to the type
+     *
+     * @return Win32LobAppReturnCode The Win32LobAppReturnCode
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

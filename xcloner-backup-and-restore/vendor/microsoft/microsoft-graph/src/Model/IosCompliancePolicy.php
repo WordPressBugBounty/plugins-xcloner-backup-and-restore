@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosCompliancePolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosCompliancePolicy extends DeviceCompliancePolicy
 {
     /**
-    * Gets the deviceThreatProtectionEnabled
-    * Require that devices have enabled device threat protection .
-    *
-    * @return bool|null The deviceThreatProtectionEnabled
-    */
+     * Gets the deviceThreatProtectionEnabled
+     * Require that devices have enabled device threat protection .
+     *
+     * @return bool|null The deviceThreatProtectionEnabled
+     */
     public function getDeviceThreatProtectionEnabled()
     {
         if (array_key_exists("deviceThreatProtectionEnabled", $this->_propDict)) {
@@ -41,31 +42,29 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the deviceThreatProtectionEnabled
-    * Require that devices have enabled device threat protection .
-    *
-    * @param bool $val The deviceThreatProtectionEnabled
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the deviceThreatProtectionEnabled
+     * Require that devices have enabled device threat protection .
+     *
+     * @param bool $val The deviceThreatProtectionEnabled
+     *
+     * @return IosCompliancePolicy
+     */
     public function setDeviceThreatProtectionEnabled($val)
     {
         $this->_propDict["deviceThreatProtectionEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the deviceThreatProtectionRequiredSecurityLevel
-    * Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-    *
-    * @return DeviceThreatProtectionLevel|null The deviceThreatProtectionRequiredSecurityLevel
-    */
+     * Gets the deviceThreatProtectionRequiredSecurityLevel
+     * Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     *
+     * @return DeviceThreatProtectionLevel|null The deviceThreatProtectionRequiredSecurityLevel
+     */
     public function getDeviceThreatProtectionRequiredSecurityLevel()
     {
         if (array_key_exists("deviceThreatProtectionRequiredSecurityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "\Microsoft\Graph\Model\DeviceThreatProtectionLevel") || is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
+            if (is_a($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"], "XCloner\\Microsoft\\Graph\\Model\\DeviceThreatProtectionLevel") || is_null($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"])) {
                 return $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"];
             } else {
                 $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"] = new DeviceThreatProtectionLevel($this->_propDict["deviceThreatProtectionRequiredSecurityLevel"]);
@@ -74,27 +73,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
         }
         return null;
     }
-
     /**
-    * Sets the deviceThreatProtectionRequiredSecurityLevel
-    * Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
-    *
-    * @param DeviceThreatProtectionLevel $val The deviceThreatProtectionRequiredSecurityLevel
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the deviceThreatProtectionRequiredSecurityLevel
+     * Require Mobile Threat Protection minimum risk level to report noncompliance. Possible values are: unavailable, secured, low, medium, high, notSet.
+     *
+     * @param DeviceThreatProtectionLevel $val The deviceThreatProtectionRequiredSecurityLevel
+     *
+     * @return IosCompliancePolicy
+     */
     public function setDeviceThreatProtectionRequiredSecurityLevel($val)
     {
         $this->_propDict["deviceThreatProtectionRequiredSecurityLevel"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedEmailProfileRequired
-    * Indicates whether or not to require a managed email profile.
-    *
-    * @return bool|null The managedEmailProfileRequired
-    */
+     * Gets the managedEmailProfileRequired
+     * Indicates whether or not to require a managed email profile.
+     *
+     * @return bool|null The managedEmailProfileRequired
+     */
     public function getManagedEmailProfileRequired()
     {
         if (array_key_exists("managedEmailProfileRequired", $this->_propDict)) {
@@ -103,27 +100,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the managedEmailProfileRequired
-    * Indicates whether or not to require a managed email profile.
-    *
-    * @param bool $val The managedEmailProfileRequired
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the managedEmailProfileRequired
+     * Indicates whether or not to require a managed email profile.
+     *
+     * @param bool $val The managedEmailProfileRequired
+     *
+     * @return IosCompliancePolicy
+     */
     public function setManagedEmailProfileRequired($val)
     {
         $this->_propDict["managedEmailProfileRequired"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the osMaximumVersion
-    * Maximum IOS version.
-    *
-    * @return string|null The osMaximumVersion
-    */
+     * Gets the osMaximumVersion
+     * Maximum IOS version.
+     *
+     * @return string|null The osMaximumVersion
+     */
     public function getOsMaximumVersion()
     {
         if (array_key_exists("osMaximumVersion", $this->_propDict)) {
@@ -132,27 +127,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the osMaximumVersion
-    * Maximum IOS version.
-    *
-    * @param string $val The osMaximumVersion
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the osMaximumVersion
+     * Maximum IOS version.
+     *
+     * @param string $val The osMaximumVersion
+     *
+     * @return IosCompliancePolicy
+     */
     public function setOsMaximumVersion($val)
     {
         $this->_propDict["osMaximumVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the osMinimumVersion
-    * Minimum IOS version.
-    *
-    * @return string|null The osMinimumVersion
-    */
+     * Gets the osMinimumVersion
+     * Minimum IOS version.
+     *
+     * @return string|null The osMinimumVersion
+     */
     public function getOsMinimumVersion()
     {
         if (array_key_exists("osMinimumVersion", $this->_propDict)) {
@@ -161,27 +154,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the osMinimumVersion
-    * Minimum IOS version.
-    *
-    * @param string $val The osMinimumVersion
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the osMinimumVersion
+     * Minimum IOS version.
+     *
+     * @param string $val The osMinimumVersion
+     *
+     * @return IosCompliancePolicy
+     */
     public function setOsMinimumVersion($val)
     {
         $this->_propDict["osMinimumVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the passcodeBlockSimple
-    * Indicates whether or not to block simple passcodes.
-    *
-    * @return bool|null The passcodeBlockSimple
-    */
+     * Gets the passcodeBlockSimple
+     * Indicates whether or not to block simple passcodes.
+     *
+     * @return bool|null The passcodeBlockSimple
+     */
     public function getPasscodeBlockSimple()
     {
         if (array_key_exists("passcodeBlockSimple", $this->_propDict)) {
@@ -190,27 +181,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodeBlockSimple
-    * Indicates whether or not to block simple passcodes.
-    *
-    * @param bool $val The passcodeBlockSimple
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeBlockSimple
+     * Indicates whether or not to block simple passcodes.
+     *
+     * @param bool $val The passcodeBlockSimple
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeBlockSimple($val)
     {
         $this->_propDict["passcodeBlockSimple"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodeExpirationDays
-    * Number of days before the passcode expires. Valid values 1 to 65535
-    *
-    * @return int|null The passcodeExpirationDays
-    */
+     * Gets the passcodeExpirationDays
+     * Number of days before the passcode expires. Valid values 1 to 65535
+     *
+     * @return int|null The passcodeExpirationDays
+     */
     public function getPasscodeExpirationDays()
     {
         if (array_key_exists("passcodeExpirationDays", $this->_propDict)) {
@@ -219,27 +208,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodeExpirationDays
-    * Number of days before the passcode expires. Valid values 1 to 65535
-    *
-    * @param int $val The passcodeExpirationDays
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeExpirationDays
+     * Number of days before the passcode expires. Valid values 1 to 65535
+     *
+     * @param int $val The passcodeExpirationDays
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeExpirationDays($val)
     {
         $this->_propDict["passcodeExpirationDays"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodeMinimumCharacterSetCount
-    * The number of character sets required in the password.
-    *
-    * @return int|null The passcodeMinimumCharacterSetCount
-    */
+     * Gets the passcodeMinimumCharacterSetCount
+     * The number of character sets required in the password.
+     *
+     * @return int|null The passcodeMinimumCharacterSetCount
+     */
     public function getPasscodeMinimumCharacterSetCount()
     {
         if (array_key_exists("passcodeMinimumCharacterSetCount", $this->_propDict)) {
@@ -248,27 +235,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodeMinimumCharacterSetCount
-    * The number of character sets required in the password.
-    *
-    * @param int $val The passcodeMinimumCharacterSetCount
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeMinimumCharacterSetCount
+     * The number of character sets required in the password.
+     *
+     * @param int $val The passcodeMinimumCharacterSetCount
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeMinimumCharacterSetCount($val)
     {
         $this->_propDict["passcodeMinimumCharacterSetCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodeMinimumLength
-    * Minimum length of passcode. Valid values 4 to 14
-    *
-    * @return int|null The passcodeMinimumLength
-    */
+     * Gets the passcodeMinimumLength
+     * Minimum length of passcode. Valid values 4 to 14
+     *
+     * @return int|null The passcodeMinimumLength
+     */
     public function getPasscodeMinimumLength()
     {
         if (array_key_exists("passcodeMinimumLength", $this->_propDict)) {
@@ -277,27 +262,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodeMinimumLength
-    * Minimum length of passcode. Valid values 4 to 14
-    *
-    * @param int $val The passcodeMinimumLength
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeMinimumLength
+     * Minimum length of passcode. Valid values 4 to 14
+     *
+     * @param int $val The passcodeMinimumLength
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeMinimumLength($val)
     {
         $this->_propDict["passcodeMinimumLength"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodeMinutesOfInactivityBeforeLock
-    * Minutes of inactivity before a passcode is required.
-    *
-    * @return int|null The passcodeMinutesOfInactivityBeforeLock
-    */
+     * Gets the passcodeMinutesOfInactivityBeforeLock
+     * Minutes of inactivity before a passcode is required.
+     *
+     * @return int|null The passcodeMinutesOfInactivityBeforeLock
+     */
     public function getPasscodeMinutesOfInactivityBeforeLock()
     {
         if (array_key_exists("passcodeMinutesOfInactivityBeforeLock", $this->_propDict)) {
@@ -306,27 +289,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodeMinutesOfInactivityBeforeLock
-    * Minutes of inactivity before a passcode is required.
-    *
-    * @param int $val The passcodeMinutesOfInactivityBeforeLock
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeMinutesOfInactivityBeforeLock
+     * Minutes of inactivity before a passcode is required.
+     *
+     * @param int $val The passcodeMinutesOfInactivityBeforeLock
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeMinutesOfInactivityBeforeLock($val)
     {
         $this->_propDict["passcodeMinutesOfInactivityBeforeLock"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodePreviousPasscodeBlockCount
-    * Number of previous passcodes to block. Valid values 1 to 24
-    *
-    * @return int|null The passcodePreviousPasscodeBlockCount
-    */
+     * Gets the passcodePreviousPasscodeBlockCount
+     * Number of previous passcodes to block. Valid values 1 to 24
+     *
+     * @return int|null The passcodePreviousPasscodeBlockCount
+     */
     public function getPasscodePreviousPasscodeBlockCount()
     {
         if (array_key_exists("passcodePreviousPasscodeBlockCount", $this->_propDict)) {
@@ -335,27 +316,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodePreviousPasscodeBlockCount
-    * Number of previous passcodes to block. Valid values 1 to 24
-    *
-    * @param int $val The passcodePreviousPasscodeBlockCount
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodePreviousPasscodeBlockCount
+     * Number of previous passcodes to block. Valid values 1 to 24
+     *
+     * @param int $val The passcodePreviousPasscodeBlockCount
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodePreviousPasscodeBlockCount($val)
     {
         $this->_propDict["passcodePreviousPasscodeBlockCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodeRequired
-    * Indicates whether or not to require a passcode.
-    *
-    * @return bool|null The passcodeRequired
-    */
+     * Gets the passcodeRequired
+     * Indicates whether or not to require a passcode.
+     *
+     * @return bool|null The passcodeRequired
+     */
     public function getPasscodeRequired()
     {
         if (array_key_exists("passcodeRequired", $this->_propDict)) {
@@ -364,31 +343,29 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the passcodeRequired
-    * Indicates whether or not to require a passcode.
-    *
-    * @param bool $val The passcodeRequired
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeRequired
+     * Indicates whether or not to require a passcode.
+     *
+     * @param bool $val The passcodeRequired
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeRequired($val)
     {
         $this->_propDict["passcodeRequired"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the passcodeRequiredType
-    * The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
-    *
-    * @return RequiredPasswordType|null The passcodeRequiredType
-    */
+     * Gets the passcodeRequiredType
+     * The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
+     *
+     * @return RequiredPasswordType|null The passcodeRequiredType
+     */
     public function getPasscodeRequiredType()
     {
         if (array_key_exists("passcodeRequiredType", $this->_propDict)) {
-            if (is_a($this->_propDict["passcodeRequiredType"], "\Microsoft\Graph\Model\RequiredPasswordType") || is_null($this->_propDict["passcodeRequiredType"])) {
+            if (is_a($this->_propDict["passcodeRequiredType"], "XCloner\\Microsoft\\Graph\\Model\\RequiredPasswordType") || is_null($this->_propDict["passcodeRequiredType"])) {
                 return $this->_propDict["passcodeRequiredType"];
             } else {
                 $this->_propDict["passcodeRequiredType"] = new RequiredPasswordType($this->_propDict["passcodeRequiredType"]);
@@ -397,27 +374,25 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
         }
         return null;
     }
-
     /**
-    * Sets the passcodeRequiredType
-    * The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
-    *
-    * @param RequiredPasswordType $val The passcodeRequiredType
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the passcodeRequiredType
+     * The required passcode type. Possible values are: deviceDefault, alphanumeric, numeric.
+     *
+     * @param RequiredPasswordType $val The passcodeRequiredType
+     *
+     * @return IosCompliancePolicy
+     */
     public function setPasscodeRequiredType($val)
     {
         $this->_propDict["passcodeRequiredType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the securityBlockJailbrokenDevices
-    * Devices must not be jailbroken or rooted.
-    *
-    * @return bool|null The securityBlockJailbrokenDevices
-    */
+     * Gets the securityBlockJailbrokenDevices
+     * Devices must not be jailbroken or rooted.
+     *
+     * @return bool|null The securityBlockJailbrokenDevices
+     */
     public function getSecurityBlockJailbrokenDevices()
     {
         if (array_key_exists("securityBlockJailbrokenDevices", $this->_propDict)) {
@@ -426,19 +401,17 @@ class IosCompliancePolicy extends DeviceCompliancePolicy
             return null;
         }
     }
-
     /**
-    * Sets the securityBlockJailbrokenDevices
-    * Devices must not be jailbroken or rooted.
-    *
-    * @param bool $val The securityBlockJailbrokenDevices
-    *
-    * @return IosCompliancePolicy
-    */
+     * Sets the securityBlockJailbrokenDevices
+     * Devices must not be jailbroken or rooted.
+     *
+     * @param bool $val The securityBlockJailbrokenDevices
+     *
+     * @return IosCompliancePolicy
+     */
     public function setSecurityBlockJailbrokenDevices($val)
     {
         $this->_propDict["securityBlockJailbrokenDevices"] = boolval($val);
         return $this;
     }
-
 }

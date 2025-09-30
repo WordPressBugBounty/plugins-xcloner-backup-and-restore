@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AgreementFileLocalization class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AgreementFileLocalization extends AgreementFileProperties
 {
-
-     /**
+    /**
      * Gets the versions
-    * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
+     * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
      *
      * @return array|null The versions
      */
     public function getVersions()
     {
         if (array_key_exists("versions", $this->_propDict)) {
-           return $this->_propDict["versions"];
+            return $this->_propDict["versions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the versions
-    * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
-    *
-    * @param AgreementFileVersion[] $val The versions
-    *
-    * @return AgreementFileLocalization
-    */
+     * Sets the versions
+     * Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.
+     *
+     * @param AgreementFileVersion[] $val The versions
+     *
+     * @return AgreementFileLocalization
+     */
     public function setVersions($val)
     {
         $this->_propDict["versions"] = $val;
         return $this;
     }
-
 }

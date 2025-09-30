@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\content;
+namespace XCloner\org\bovigo\vfs\content;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Interface for actual file contents.
  *
@@ -24,14 +26,12 @@ interface FileContent
      * @return  string
      */
     public function content();
-
     /**
      * returns size of content
      *
      * @return  int
      */
     public function size();
-
     /**
      * reads the given amount of bytes from content
      *
@@ -39,7 +39,6 @@ interface FileContent
      * @return  string
      */
     public function read($count);
-
     /**
      * seeks to the given offset
      *
@@ -48,14 +47,12 @@ interface FileContent
      * @return  bool
      */
     public function seek($offset, $whence);
-
     /**
      * checks whether pointer is at end of file
      *
      * @return  bool
      */
     public function eof();
-
     /**
      * writes an amount of data
      *
@@ -63,7 +60,6 @@ interface FileContent
      * @return  int amount of written bytes
      */
     public function write($data);
-
     /**
      * Truncates a file to a given length
      *

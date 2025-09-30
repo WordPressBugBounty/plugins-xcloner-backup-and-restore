@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MessageRecipient class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MessageRecipient extends Entity
 {
     /**
-    * Gets the deliveryStatus
-    *
-    * @return MessageStatus|null The deliveryStatus
-    */
+     * Gets the deliveryStatus
+     *
+     * @return MessageStatus|null The deliveryStatus
+     */
     public function getDeliveryStatus()
     {
         if (array_key_exists("deliveryStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["deliveryStatus"], "\Beta\Microsoft\Graph\Model\MessageStatus") || is_null($this->_propDict["deliveryStatus"])) {
+            if (is_a($this->_propDict["deliveryStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MessageStatus") || is_null($this->_propDict["deliveryStatus"])) {
                 return $this->_propDict["deliveryStatus"];
             } else {
                 $this->_propDict["deliveryStatus"] = new MessageStatus($this->_propDict["deliveryStatus"]);
@@ -44,25 +45,23 @@ class MessageRecipient extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deliveryStatus
-    *
-    * @param MessageStatus $val The deliveryStatus
-    *
-    * @return MessageRecipient
-    */
+     * Sets the deliveryStatus
+     *
+     * @param MessageStatus $val The deliveryStatus
+     *
+     * @return MessageRecipient
+     */
     public function setDeliveryStatus($val)
     {
         $this->_propDict["deliveryStatus"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recipientEmail
-    *
-    * @return string|null The recipientEmail
-    */
+     * Gets the recipientEmail
+     *
+     * @return string|null The recipientEmail
+     */
     public function getRecipientEmail()
     {
         if (array_key_exists("recipientEmail", $this->_propDict)) {
@@ -71,22 +70,19 @@ class MessageRecipient extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the recipientEmail
-    *
-    * @param string $val The recipientEmail
-    *
-    * @return MessageRecipient
-    */
+     * Sets the recipientEmail
+     *
+     * @param string $val The recipientEmail
+     *
+     * @return MessageRecipient
+     */
     public function setRecipientEmail($val)
     {
         $this->_propDict["recipientEmail"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the events
      *
      * @return array|null The events
@@ -94,23 +90,21 @@ class MessageRecipient extends Entity
     public function getEvents()
     {
         if (array_key_exists("events", $this->_propDict)) {
-           return $this->_propDict["events"];
+            return $this->_propDict["events"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the events
-    *
-    * @param MessageEvent[] $val The events
-    *
-    * @return MessageRecipient
-    */
+     * Sets the events
+     *
+     * @param MessageEvent[] $val The events
+     *
+     * @return MessageRecipient
+     */
     public function setEvents($val)
     {
         $this->_propDict["events"] = $val;
         return $this;
     }
-
 }

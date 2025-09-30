@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ServiceAnnouncementAttachment class
 *
@@ -28,43 +29,41 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ServiceAnnouncementAttachment extends Entity
 {
     /**
-    * Gets the content
-    * The attachment content.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The content
-    */
+     * Gets the content
+     * The attachment content.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
+                $this->_propDict["content"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the content
-    * The attachment content.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The content
-    *
-    * @return ServiceAnnouncementAttachment
-    */
+     * Sets the content
+     * The attachment content.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The content
+     *
+     * @return ServiceAnnouncementAttachment
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentType
-    *
-    * @return string|null The contentType
-    */
+     * Gets the contentType
+     *
+     * @return string|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
@@ -73,29 +72,27 @@ class ServiceAnnouncementAttachment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentType
-    *
-    * @param string $val The contentType
-    *
-    * @return ServiceAnnouncementAttachment
-    */
+     * Sets the contentType
+     *
+     * @param string $val The contentType
+     *
+     * @return ServiceAnnouncementAttachment
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -104,25 +101,23 @@ class ServiceAnnouncementAttachment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return ServiceAnnouncementAttachment
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return ServiceAnnouncementAttachment
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -131,25 +126,23 @@ class ServiceAnnouncementAttachment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The name
-    *
-    * @return ServiceAnnouncementAttachment
-    */
+     * Sets the name
+     *
+     * @param string $val The name
+     *
+     * @return ServiceAnnouncementAttachment
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the size
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -158,18 +151,16 @@ class ServiceAnnouncementAttachment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the size
-    *
-    * @param int $val The size
-    *
-    * @return ServiceAnnouncementAttachment
-    */
+     * Sets the size
+     *
+     * @param int $val The size
+     *
+     * @return ServiceAnnouncementAttachment
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-
 }

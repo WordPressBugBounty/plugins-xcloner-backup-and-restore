@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Plugin;
+namespace XCloner\League\Flysystem\Plugin;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class EmptyDir extends AbstractPlugin
 {
     /**
@@ -16,7 +16,6 @@ class EmptyDir extends AbstractPlugin
     {
         return 'emptyDir';
     }
-
     /**
      * Empty a directory's contents.
      *
@@ -24,8 +23,7 @@ class EmptyDir extends AbstractPlugin
      */
     public function handle($dirname)
     {
-        $listing = $this->filesystem->listContents($dirname, false);
-
+        $listing = $this->filesystem->listContents($dirname, \false);
         foreach ($listing as $item) {
             if ($item['type'] === 'dir') {
                 $this->filesystem->deleteDir($item['path']);

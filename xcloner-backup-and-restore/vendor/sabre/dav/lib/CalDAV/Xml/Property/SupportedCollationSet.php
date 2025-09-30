@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Property;
 
-namespace Sabre\CalDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * supported-collation-set property.
  *
@@ -44,14 +42,9 @@ class SupportedCollationSet implements XmlSerializable
      */
     public function xmlSerialize(Writer $writer)
     {
-        $collations = [
-            'i;ascii-casemap',
-            'i;octet',
-            'i;unicode-casemap',
-        ];
-
+        $collations = ['i;ascii-casemap', 'i;octet', 'i;unicode-casemap'];
         foreach ($collations as $collation) {
-            $writer->writeElement('{'.Plugin::NS_CALDAV.'}supported-collation', $collation);
+            $writer->writeElement('{' . Plugin::NS_CALDAV . '}supported-collation', $collation);
         }
     }
 }

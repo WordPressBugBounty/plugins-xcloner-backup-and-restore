@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptParameter class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceHealthScriptParameter extends Entity
 {
     /**
-    * Gets the applyDefaultValueWhenNotAssigned
-    * Whether Apply DefaultValue When Not Assigned
-    *
-    * @return bool|null The applyDefaultValueWhenNotAssigned
-    */
+     * Gets the applyDefaultValueWhenNotAssigned
+     * Whether Apply DefaultValue When Not Assigned
+     *
+     * @return bool|null The applyDefaultValueWhenNotAssigned
+     */
     public function getApplyDefaultValueWhenNotAssigned()
     {
         if (array_key_exists("applyDefaultValueWhenNotAssigned", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceHealthScriptParameter extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the applyDefaultValueWhenNotAssigned
-    * Whether Apply DefaultValue When Not Assigned
-    *
-    * @param bool $val The value of the applyDefaultValueWhenNotAssigned
-    *
-    * @return DeviceHealthScriptParameter
-    */
+     * Sets the applyDefaultValueWhenNotAssigned
+     * Whether Apply DefaultValue When Not Assigned
+     *
+     * @param bool $val The value of the applyDefaultValueWhenNotAssigned
+     *
+     * @return DeviceHealthScriptParameter
+     */
     public function setApplyDefaultValueWhenNotAssigned($val)
     {
         $this->_propDict["applyDefaultValueWhenNotAssigned"] = $val;
         return $this;
     }
     /**
-    * Gets the description
-    * The description of the param
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the param
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceHealthScriptParameter extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the param
-    *
-    * @param string $val The value of the description
-    *
-    * @return DeviceHealthScriptParameter
-    */
+     * Sets the description
+     * The description of the param
+     *
+     * @param string $val The value of the description
+     *
+     * @return DeviceHealthScriptParameter
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the isRequired
-    * Whether the param is required
-    *
-    * @return bool|null The isRequired
-    */
+     * Gets the isRequired
+     * Whether the param is required
+     *
+     * @return bool|null The isRequired
+     */
     public function getIsRequired()
     {
         if (array_key_exists("isRequired", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DeviceHealthScriptParameter extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRequired
-    * Whether the param is required
-    *
-    * @param bool $val The value of the isRequired
-    *
-    * @return DeviceHealthScriptParameter
-    */
+     * Sets the isRequired
+     * Whether the param is required
+     *
+     * @param bool $val The value of the isRequired
+     *
+     * @return DeviceHealthScriptParameter
+     */
     public function setIsRequired($val)
     {
         $this->_propDict["isRequired"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The name of the param
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the param
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -124,15 +123,14 @@ class DeviceHealthScriptParameter extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the param
-    *
-    * @param string $val The value of the name
-    *
-    * @return DeviceHealthScriptParameter
-    */
+     * Sets the name
+     * The name of the param
+     *
+     * @param string $val The value of the name
+     *
+     * @return DeviceHealthScriptParameter
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

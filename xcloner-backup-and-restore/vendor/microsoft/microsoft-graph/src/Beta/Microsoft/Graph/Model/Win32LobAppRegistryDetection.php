@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Win32LobAppRegistryDetection class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Win32LobAppRegistryDetection extends Win32LobAppDetection
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.win32LobAppRegistryDetection");
     }
-
     /**
-    * Gets the check32BitOn64System
-    * A value indicating whether this registry path is for checking 32-bit app on 64-bit system
-    *
-    * @return bool|null The check32BitOn64System
-    */
+     * Gets the check32BitOn64System
+     * A value indicating whether this registry path is for checking 32-bit app on 64-bit system
+     *
+     * @return bool|null The check32BitOn64System
+     */
     public function getCheck32BitOn64System()
     {
         if (array_key_exists("check32BitOn64System", $this->_propDict)) {
@@ -51,31 +52,29 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection
             return null;
         }
     }
-
     /**
-    * Sets the check32BitOn64System
-    * A value indicating whether this registry path is for checking 32-bit app on 64-bit system
-    *
-    * @param bool $val The value of the check32BitOn64System
-    *
-    * @return Win32LobAppRegistryDetection
-    */
+     * Sets the check32BitOn64System
+     * A value indicating whether this registry path is for checking 32-bit app on 64-bit system
+     *
+     * @param bool $val The value of the check32BitOn64System
+     *
+     * @return Win32LobAppRegistryDetection
+     */
     public function setCheck32BitOn64System($val)
     {
         $this->_propDict["check32BitOn64System"] = $val;
         return $this;
     }
-
     /**
-    * Gets the detectionType
-    * The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
-    *
-    * @return Win32LobAppRegistryDetectionType|null The detectionType
-    */
+     * Gets the detectionType
+     * The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     *
+     * @return Win32LobAppRegistryDetectionType|null The detectionType
+     */
     public function getDetectionType()
     {
         if (array_key_exists("detectionType", $this->_propDict)) {
-            if (is_a($this->_propDict["detectionType"], "\Beta\Microsoft\Graph\Model\Win32LobAppRegistryDetectionType") || is_null($this->_propDict["detectionType"])) {
+            if (is_a($this->_propDict["detectionType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Win32LobAppRegistryDetectionType") || is_null($this->_propDict["detectionType"])) {
                 return $this->_propDict["detectionType"];
             } else {
                 $this->_propDict["detectionType"] = new Win32LobAppRegistryDetectionType($this->_propDict["detectionType"]);
@@ -84,26 +83,25 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection
         }
         return null;
     }
-
     /**
-    * Sets the detectionType
-    * The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
-    *
-    * @param Win32LobAppRegistryDetectionType $val The value to assign to the detectionType
-    *
-    * @return Win32LobAppRegistryDetection The Win32LobAppRegistryDetection
-    */
+     * Sets the detectionType
+     * The registry data detection type. Possible values are: notConfigured, exists, doesNotExist, string, integer, version.
+     *
+     * @param Win32LobAppRegistryDetectionType $val The value to assign to the detectionType
+     *
+     * @return Win32LobAppRegistryDetection The Win32LobAppRegistryDetection
+     */
     public function setDetectionType($val)
     {
         $this->_propDict["detectionType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the detectionValue
-    * The registry detection value
-    *
-    * @return string|null The detectionValue
-    */
+     * Gets the detectionValue
+     * The registry detection value
+     *
+     * @return string|null The detectionValue
+     */
     public function getDetectionValue()
     {
         if (array_key_exists("detectionValue", $this->_propDict)) {
@@ -112,26 +110,25 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection
             return null;
         }
     }
-
     /**
-    * Sets the detectionValue
-    * The registry detection value
-    *
-    * @param string $val The value of the detectionValue
-    *
-    * @return Win32LobAppRegistryDetection
-    */
+     * Sets the detectionValue
+     * The registry detection value
+     *
+     * @param string $val The value of the detectionValue
+     *
+     * @return Win32LobAppRegistryDetection
+     */
     public function setDetectionValue($val)
     {
         $this->_propDict["detectionValue"] = $val;
         return $this;
     }
     /**
-    * Gets the keyPath
-    * The registry key path to detect Win32 Line of Business (LoB) app
-    *
-    * @return string|null The keyPath
-    */
+     * Gets the keyPath
+     * The registry key path to detect Win32 Line of Business (LoB) app
+     *
+     * @return string|null The keyPath
+     */
     public function getKeyPath()
     {
         if (array_key_exists("keyPath", $this->_propDict)) {
@@ -140,31 +137,29 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection
             return null;
         }
     }
-
     /**
-    * Sets the keyPath
-    * The registry key path to detect Win32 Line of Business (LoB) app
-    *
-    * @param string $val The value of the keyPath
-    *
-    * @return Win32LobAppRegistryDetection
-    */
+     * Sets the keyPath
+     * The registry key path to detect Win32 Line of Business (LoB) app
+     *
+     * @param string $val The value of the keyPath
+     *
+     * @return Win32LobAppRegistryDetection
+     */
     public function setKeyPath($val)
     {
         $this->_propDict["keyPath"] = $val;
         return $this;
     }
-
     /**
-    * Gets the operator
-    * The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
-    *
-    * @return Win32LobAppDetectionOperator|null The operator
-    */
+     * Gets the operator
+     * The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     *
+     * @return Win32LobAppDetectionOperator|null The operator
+     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\Model\Win32LobAppDetectionOperator") || is_null($this->_propDict["operator"])) {
+            if (is_a($this->_propDict["operator"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Win32LobAppDetectionOperator") || is_null($this->_propDict["operator"])) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new Win32LobAppDetectionOperator($this->_propDict["operator"]);
@@ -173,26 +168,25 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection
         }
         return null;
     }
-
     /**
-    * Sets the operator
-    * The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
-    *
-    * @param Win32LobAppDetectionOperator $val The value to assign to the operator
-    *
-    * @return Win32LobAppRegistryDetection The Win32LobAppRegistryDetection
-    */
+     * Sets the operator
+     * The operator for registry data detection. Possible values are: notConfigured, equal, notEqual, greaterThan, greaterThanOrEqual, lessThan, lessThanOrEqual.
+     *
+     * @param Win32LobAppDetectionOperator $val The value to assign to the operator
+     *
+     * @return Win32LobAppRegistryDetection The Win32LobAppRegistryDetection
+     */
     public function setOperator($val)
     {
         $this->_propDict["operator"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the valueName
-    * The registry value name
-    *
-    * @return string|null The valueName
-    */
+     * Gets the valueName
+     * The registry value name
+     *
+     * @return string|null The valueName
+     */
     public function getValueName()
     {
         if (array_key_exists("valueName", $this->_propDict)) {
@@ -201,15 +195,14 @@ class Win32LobAppRegistryDetection extends Win32LobAppDetection
             return null;
         }
     }
-
     /**
-    * Sets the valueName
-    * The registry value name
-    *
-    * @param string $val The value of the valueName
-    *
-    * @return Win32LobAppRegistryDetection
-    */
+     * Sets the valueName
+     * The registry value name
+     *
+     * @param string $val The value of the valueName
+     *
+     * @return Win32LobAppRegistryDetection
+     */
     public function setValueName($val)
     {
         $this->_propDict["valueName"] = $val;

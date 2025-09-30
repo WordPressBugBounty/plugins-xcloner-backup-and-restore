@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,15 +15,13 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive\Resource;
 
-namespace Google\Service\Drive\Resource;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Google\Service\Drive\Reply;
-use Google\Service\Drive\ReplyList;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Google\Service\Drive\Reply;
+use XCloner\Google\Service\Drive\ReplyList;
 /**
  * The "replies" collection of methods.
  * Typical usage is:
@@ -31,93 +30,92 @@ use Google\Service\Drive\ReplyList;
  *   $replies = $driveService->replies;
  *  </code>
  */
-class Replies extends \Google\Service\Resource
+class Replies extends \XCloner\Google\Service\Resource
 {
-  /**
-   * Creates a new reply to a comment. (replies.create)
-   *
-   * @param string $fileId The ID of the file.
-   * @param string $commentId The ID of the comment.
-   * @param Reply $postBody
-   * @param array $optParams Optional parameters.
-   * @return Reply
-   */
-  public function create($fileId, $commentId, Reply $postBody, $optParams = [])
-  {
-    $params = ['fileId' => $fileId, 'commentId' => $commentId, 'postBody' => $postBody];
-    $params = array_merge($params, $optParams);
-    return $this->call('create', [$params], Reply::class);
-  }
-  /**
-   * Deletes a reply. (replies.delete)
-   *
-   * @param string $fileId The ID of the file.
-   * @param string $commentId The ID of the comment.
-   * @param string $replyId The ID of the reply.
-   * @param array $optParams Optional parameters.
-   */
-  public function delete($fileId, $commentId, $replyId, $optParams = [])
-  {
-    $params = ['fileId' => $fileId, 'commentId' => $commentId, 'replyId' => $replyId];
-    $params = array_merge($params, $optParams);
-    return $this->call('delete', [$params]);
-  }
-  /**
-   * Gets a reply by ID. (replies.get)
-   *
-   * @param string $fileId The ID of the file.
-   * @param string $commentId The ID of the comment.
-   * @param string $replyId The ID of the reply.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param bool includeDeleted Whether to return deleted replies. Deleted
-   * replies will not include their original content.
-   * @return Reply
-   */
-  public function get($fileId, $commentId, $replyId, $optParams = [])
-  {
-    $params = ['fileId' => $fileId, 'commentId' => $commentId, 'replyId' => $replyId];
-    $params = array_merge($params, $optParams);
-    return $this->call('get', [$params], Reply::class);
-  }
-  /**
-   * Lists a comment's replies. (replies.listReplies)
-   *
-   * @param string $fileId The ID of the file.
-   * @param string $commentId The ID of the comment.
-   * @param array $optParams Optional parameters.
-   *
-   * @opt_param bool includeDeleted Whether to include deleted replies. Deleted
-   * replies will not include their original content.
-   * @opt_param int pageSize The maximum number of replies to return per page.
-   * @opt_param string pageToken The token for continuing a previous list request
-   * on the next page. This should be set to the value of 'nextPageToken' from the
-   * previous response.
-   * @return ReplyList
-   */
-  public function listReplies($fileId, $commentId, $optParams = [])
-  {
-    $params = ['fileId' => $fileId, 'commentId' => $commentId];
-    $params = array_merge($params, $optParams);
-    return $this->call('list', [$params], ReplyList::class);
-  }
-  /**
-   * Updates a reply with patch semantics. (replies.update)
-   *
-   * @param string $fileId The ID of the file.
-   * @param string $commentId The ID of the comment.
-   * @param string $replyId The ID of the reply.
-   * @param Reply $postBody
-   * @param array $optParams Optional parameters.
-   * @return Reply
-   */
-  public function update($fileId, $commentId, $replyId, Reply $postBody, $optParams = [])
-  {
-    $params = ['fileId' => $fileId, 'commentId' => $commentId, 'replyId' => $replyId, 'postBody' => $postBody];
-    $params = array_merge($params, $optParams);
-    return $this->call('update', [$params], Reply::class);
-  }
+    /**
+     * Creates a new reply to a comment. (replies.create)
+     *
+     * @param string $fileId The ID of the file.
+     * @param string $commentId The ID of the comment.
+     * @param Reply $postBody
+     * @param array $optParams Optional parameters.
+     * @return Reply
+     */
+    public function create($fileId, $commentId, Reply $postBody, $optParams = [])
+    {
+        $params = ['fileId' => $fileId, 'commentId' => $commentId, 'postBody' => $postBody];
+        $params = array_merge($params, $optParams);
+        return $this->call('create', [$params], Reply::class);
+    }
+    /**
+     * Deletes a reply. (replies.delete)
+     *
+     * @param string $fileId The ID of the file.
+     * @param string $commentId The ID of the comment.
+     * @param string $replyId The ID of the reply.
+     * @param array $optParams Optional parameters.
+     */
+    public function delete($fileId, $commentId, $replyId, $optParams = [])
+    {
+        $params = ['fileId' => $fileId, 'commentId' => $commentId, 'replyId' => $replyId];
+        $params = array_merge($params, $optParams);
+        return $this->call('delete', [$params]);
+    }
+    /**
+     * Gets a reply by ID. (replies.get)
+     *
+     * @param string $fileId The ID of the file.
+     * @param string $commentId The ID of the comment.
+     * @param string $replyId The ID of the reply.
+     * @param array $optParams Optional parameters.
+     *
+     * @opt_param bool includeDeleted Whether to return deleted replies. Deleted
+     * replies will not include their original content.
+     * @return Reply
+     */
+    public function get($fileId, $commentId, $replyId, $optParams = [])
+    {
+        $params = ['fileId' => $fileId, 'commentId' => $commentId, 'replyId' => $replyId];
+        $params = array_merge($params, $optParams);
+        return $this->call('get', [$params], Reply::class);
+    }
+    /**
+     * Lists a comment's replies. (replies.listReplies)
+     *
+     * @param string $fileId The ID of the file.
+     * @param string $commentId The ID of the comment.
+     * @param array $optParams Optional parameters.
+     *
+     * @opt_param bool includeDeleted Whether to include deleted replies. Deleted
+     * replies will not include their original content.
+     * @opt_param int pageSize The maximum number of replies to return per page.
+     * @opt_param string pageToken The token for continuing a previous list request
+     * on the next page. This should be set to the value of 'nextPageToken' from the
+     * previous response.
+     * @return ReplyList
+     */
+    public function listReplies($fileId, $commentId, $optParams = [])
+    {
+        $params = ['fileId' => $fileId, 'commentId' => $commentId];
+        $params = array_merge($params, $optParams);
+        return $this->call('list', [$params], ReplyList::class);
+    }
+    /**
+     * Updates a reply with patch semantics. (replies.update)
+     *
+     * @param string $fileId The ID of the file.
+     * @param string $commentId The ID of the comment.
+     * @param string $replyId The ID of the reply.
+     * @param Reply $postBody
+     * @param array $optParams Optional parameters.
+     * @return Reply
+     */
+    public function update($fileId, $commentId, $replyId, Reply $postBody, $optParams = [])
+    {
+        $params = ['fileId' => $fileId, 'commentId' => $commentId, 'replyId' => $replyId, 'postBody' => $postBody];
+        $params = array_merge($params, $optParams);
+        return $this->call('update', [$params], Reply::class);
+    }
 }
-
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(Replies::class, 'Google_Service_Drive_Resource_Replies');
+class_alias(Replies::class, 'XCloner\Google_Service_Drive_Resource_Replies');

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DefaultUserRoleOverride class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DefaultUserRoleOverride extends Entity
 {
     /**
-    * Gets the isDefault
-    *
-    * @return bool|null The isDefault
-    */
+     * Gets the isDefault
+     *
+     * @return bool|null The isDefault
+     */
     public function getIsDefault()
     {
         if (array_key_exists("isDefault", $this->_propDict)) {
@@ -40,22 +41,19 @@ class DefaultUserRoleOverride extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isDefault
-    *
-    * @param bool $val The isDefault
-    *
-    * @return DefaultUserRoleOverride
-    */
+     * Sets the isDefault
+     *
+     * @param bool $val The isDefault
+     *
+     * @return DefaultUserRoleOverride
+     */
     public function setIsDefault($val)
     {
         $this->_propDict["isDefault"] = boolval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the rolePermissions
      *
      * @return array|null The rolePermissions
@@ -63,23 +61,21 @@ class DefaultUserRoleOverride extends Entity
     public function getRolePermissions()
     {
         if (array_key_exists("rolePermissions", $this->_propDict)) {
-           return $this->_propDict["rolePermissions"];
+            return $this->_propDict["rolePermissions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the rolePermissions
-    *
-    * @param UnifiedRolePermission[] $val The rolePermissions
-    *
-    * @return DefaultUserRoleOverride
-    */
+     * Sets the rolePermissions
+     *
+     * @param UnifiedRolePermission[] $val The rolePermissions
+     *
+     * @return DefaultUserRoleOverride
+     */
     public function setRolePermissions($val)
     {
         $this->_propDict["rolePermissions"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ZebraFotaConnector class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ZebraFotaConnector extends Entity
 {
     /**
-    * Gets the enrollmentAuthorizationUrl
-    * Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
-    *
-    * @return string|null The enrollmentAuthorizationUrl
-    */
+     * Gets the enrollmentAuthorizationUrl
+     * Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
+     *
+     * @return string|null The enrollmentAuthorizationUrl
+     */
     public function getEnrollmentAuthorizationUrl()
     {
         if (array_key_exists("enrollmentAuthorizationUrl", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ZebraFotaConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enrollmentAuthorizationUrl
-    * Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
-    *
-    * @param string $val The enrollmentAuthorizationUrl
-    *
-    * @return ZebraFotaConnector
-    */
+     * Sets the enrollmentAuthorizationUrl
+     * Complete account enrollment authorization URL. This corresponds to verification_uri_complete in the Zebra API documentations.
+     *
+     * @param string $val The enrollmentAuthorizationUrl
+     *
+     * @return ZebraFotaConnector
+     */
     public function setEnrollmentAuthorizationUrl($val)
     {
         $this->_propDict["enrollmentAuthorizationUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the enrollmentToken
-    * Tenant enrollment token from Zebra. The token is used to enroll Zebra devices in the FOTA Service via app config.
-    *
-    * @return string|null The enrollmentToken
-    */
+     * Gets the enrollmentToken
+     * Tenant enrollment token from Zebra. The token is used to enroll Zebra devices in the FOTA Service via app config.
+     *
+     * @return string|null The enrollmentToken
+     */
     public function getEnrollmentToken()
     {
         if (array_key_exists("enrollmentToken", $this->_propDict)) {
@@ -70,27 +69,25 @@ class ZebraFotaConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enrollmentToken
-    * Tenant enrollment token from Zebra. The token is used to enroll Zebra devices in the FOTA Service via app config.
-    *
-    * @param string $val The enrollmentToken
-    *
-    * @return ZebraFotaConnector
-    */
+     * Sets the enrollmentToken
+     * Tenant enrollment token from Zebra. The token is used to enroll Zebra devices in the FOTA Service via app config.
+     *
+     * @param string $val The enrollmentToken
+     *
+     * @return ZebraFotaConnector
+     */
     public function setEnrollmentToken($val)
     {
         $this->_propDict["enrollmentToken"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fotaAppsApproved
-    * Flag indicating if required Firmware Over-the-Air (FOTA) Apps have been approved.
-    *
-    * @return bool|null The fotaAppsApproved
-    */
+     * Gets the fotaAppsApproved
+     * Flag indicating if required Firmware Over-the-Air (FOTA) Apps have been approved.
+     *
+     * @return bool|null The fotaAppsApproved
+     */
     public function getFotaAppsApproved()
     {
         if (array_key_exists("fotaAppsApproved", $this->_propDict)) {
@@ -99,31 +96,29 @@ class ZebraFotaConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fotaAppsApproved
-    * Flag indicating if required Firmware Over-the-Air (FOTA) Apps have been approved.
-    *
-    * @param bool $val The fotaAppsApproved
-    *
-    * @return ZebraFotaConnector
-    */
+     * Sets the fotaAppsApproved
+     * Flag indicating if required Firmware Over-the-Air (FOTA) Apps have been approved.
+     *
+     * @param bool $val The fotaAppsApproved
+     *
+     * @return ZebraFotaConnector
+     */
     public function setFotaAppsApproved($val)
     {
         $this->_propDict["fotaAppsApproved"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastSyncDateTime
-    * Date and time when the account was last synched with Zebra
-    *
-    * @return \DateTime|null The lastSyncDateTime
-    */
+     * Gets the lastSyncDateTime
+     * Date and time when the account was last synched with Zebra
+     *
+     * @return \DateTime|null The lastSyncDateTime
+     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -132,31 +127,29 @@ class ZebraFotaConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSyncDateTime
-    * Date and time when the account was last synched with Zebra
-    *
-    * @param \DateTime $val The lastSyncDateTime
-    *
-    * @return ZebraFotaConnector
-    */
+     * Sets the lastSyncDateTime
+     * Date and time when the account was last synched with Zebra
+     *
+     * @param \DateTime $val The lastSyncDateTime
+     *
+     * @return ZebraFotaConnector
+     */
     public function setLastSyncDateTime($val)
     {
         $this->_propDict["lastSyncDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
-    *
-    * @return ZebraFotaConnectorState|null The state
-    */
+     * Gets the state
+     * The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+     *
+     * @return ZebraFotaConnectorState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ZebraFotaConnectorState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ZebraFotaConnectorState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ZebraFotaConnectorState($this->_propDict["state"]);
@@ -165,19 +158,17 @@ class ZebraFotaConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
-    *
-    * @param ZebraFotaConnectorState $val The state
-    *
-    * @return ZebraFotaConnector
-    */
+     * Sets the state
+     * The Zebra connector state. Possible values are: none, connected, disconnected, unknownFutureValue.
+     *
+     * @param ZebraFotaConnectorState $val The state
+     *
+     * @return ZebraFotaConnector
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
 }

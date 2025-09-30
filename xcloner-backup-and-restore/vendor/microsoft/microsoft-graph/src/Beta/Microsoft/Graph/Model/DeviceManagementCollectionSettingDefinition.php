@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementCollectionSettingDefinition class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettingDefinition
 {
     /**
-    * Gets the elementDefinitionId
-    * The Setting Definition ID that describes what each element of the collection looks like
-    *
-    * @return string|null The elementDefinitionId
-    */
+     * Gets the elementDefinitionId
+     * The Setting Definition ID that describes what each element of the collection looks like
+     *
+     * @return string|null The elementDefinitionId
+     */
     public function getElementDefinitionId()
     {
         if (array_key_exists("elementDefinitionId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DeviceManagementCollectionSettingDefinition extends DeviceManagementSettin
             return null;
         }
     }
-
     /**
-    * Sets the elementDefinitionId
-    * The Setting Definition ID that describes what each element of the collection looks like
-    *
-    * @param string $val The elementDefinitionId
-    *
-    * @return DeviceManagementCollectionSettingDefinition
-    */
+     * Sets the elementDefinitionId
+     * The Setting Definition ID that describes what each element of the collection looks like
+     *
+     * @param string $val The elementDefinitionId
+     *
+     * @return DeviceManagementCollectionSettingDefinition
+     */
     public function setElementDefinitionId($val)
     {
         $this->_propDict["elementDefinitionId"] = $val;
         return $this;
     }
-
 }

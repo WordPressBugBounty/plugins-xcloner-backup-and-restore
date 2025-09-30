@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagementActionTenantDeploymentStatus class
 *
@@ -25,44 +26,41 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model\Entity
+class ManagementActionTenantDeploymentStatus extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the statuses
-    * The collection of deployment status for each instance of a management action. Optional.
+     * The collection of deployment status for each instance of a management action. Optional.
      *
      * @return array|null The statuses
      */
     public function getStatuses()
     {
         if (array_key_exists("statuses", $this->_propDict)) {
-           return $this->_propDict["statuses"];
+            return $this->_propDict["statuses"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the statuses
-    * The collection of deployment status for each instance of a management action. Optional.
-    *
-    * @param ManagementActionDeploymentStatus[] $val The statuses
-    *
-    * @return ManagementActionTenantDeploymentStatus
-    */
+     * Sets the statuses
+     * The collection of deployment status for each instance of a management action. Optional.
+     *
+     * @param ManagementActionDeploymentStatus[] $val The statuses
+     *
+     * @return ManagementActionTenantDeploymentStatus
+     */
     public function setStatuses($val)
     {
         $this->_propDict["statuses"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantGroupId
-    * The identifier for the tenant group that is associated with the management action. Required. Read-only.
-    *
-    * @return string|null The tenantGroupId
-    */
+     * Gets the tenantGroupId
+     * The identifier for the tenant group that is associated with the management action. Required. Read-only.
+     *
+     * @return string|null The tenantGroupId
+     */
     public function getTenantGroupId()
     {
         if (array_key_exists("tenantGroupId", $this->_propDict)) {
@@ -71,27 +69,25 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
             return null;
         }
     }
-
     /**
-    * Sets the tenantGroupId
-    * The identifier for the tenant group that is associated with the management action. Required. Read-only.
-    *
-    * @param string $val The tenantGroupId
-    *
-    * @return ManagementActionTenantDeploymentStatus
-    */
+     * Sets the tenantGroupId
+     * The identifier for the tenant group that is associated with the management action. Required. Read-only.
+     *
+     * @param string $val The tenantGroupId
+     *
+     * @return ManagementActionTenantDeploymentStatus
+     */
     public function setTenantGroupId($val)
     {
         $this->_propDict["tenantGroupId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -100,19 +96,17 @@ class ManagementActionTenantDeploymentStatus extends \Beta\Microsoft\Graph\Model
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    *
-    * @param string $val The tenantId
-    *
-    * @return ManagementActionTenantDeploymentStatus
-    */
+     * Sets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+     *
+     * @param string $val The tenantId
+     *
+     * @return ManagementActionTenantDeploymentStatus
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
 }

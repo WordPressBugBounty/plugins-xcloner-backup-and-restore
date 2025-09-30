@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosStoreAppAssignmentSettings class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.iosStoreAppAssignmentSettings");
     }
-
     /**
-    * Gets the isRemovable
-    * Whether or not the app can be removed by the user.
-    *
-    * @return bool|null The isRemovable
-    */
+     * Gets the isRemovable
+     * Whether or not the app can be removed by the user.
+     *
+     * @return bool|null The isRemovable
+     */
     public function getIsRemovable()
     {
         if (array_key_exists("isRemovable", $this->_propDict)) {
@@ -51,26 +52,25 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
             return null;
         }
     }
-
     /**
-    * Sets the isRemovable
-    * Whether or not the app can be removed by the user.
-    *
-    * @param bool $val The value of the isRemovable
-    *
-    * @return IosStoreAppAssignmentSettings
-    */
+     * Sets the isRemovable
+     * Whether or not the app can be removed by the user.
+     *
+     * @param bool $val The value of the isRemovable
+     *
+     * @return IosStoreAppAssignmentSettings
+     */
     public function setIsRemovable($val)
     {
         $this->_propDict["isRemovable"] = $val;
         return $this;
     }
     /**
-    * Gets the uninstallOnDeviceRemoval
-    * Whether or not to uninstall the app when device is removed from Intune.
-    *
-    * @return bool|null The uninstallOnDeviceRemoval
-    */
+     * Gets the uninstallOnDeviceRemoval
+     * Whether or not to uninstall the app when device is removed from Intune.
+     *
+     * @return bool|null The uninstallOnDeviceRemoval
+     */
     public function getUninstallOnDeviceRemoval()
     {
         if (array_key_exists("uninstallOnDeviceRemoval", $this->_propDict)) {
@@ -79,26 +79,25 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
             return null;
         }
     }
-
     /**
-    * Sets the uninstallOnDeviceRemoval
-    * Whether or not to uninstall the app when device is removed from Intune.
-    *
-    * @param bool $val The value of the uninstallOnDeviceRemoval
-    *
-    * @return IosStoreAppAssignmentSettings
-    */
+     * Sets the uninstallOnDeviceRemoval
+     * Whether or not to uninstall the app when device is removed from Intune.
+     *
+     * @param bool $val The value of the uninstallOnDeviceRemoval
+     *
+     * @return IosStoreAppAssignmentSettings
+     */
     public function setUninstallOnDeviceRemoval($val)
     {
         $this->_propDict["uninstallOnDeviceRemoval"] = $val;
         return $this;
     }
     /**
-    * Gets the vpnConfigurationId
-    * The VPN Configuration Id to apply for this app.
-    *
-    * @return string|null The vpnConfigurationId
-    */
+     * Gets the vpnConfigurationId
+     * The VPN Configuration Id to apply for this app.
+     *
+     * @return string|null The vpnConfigurationId
+     */
     public function getVpnConfigurationId()
     {
         if (array_key_exists("vpnConfigurationId", $this->_propDict)) {
@@ -107,15 +106,14 @@ class IosStoreAppAssignmentSettings extends MobileAppAssignmentSettings
             return null;
         }
     }
-
     /**
-    * Sets the vpnConfigurationId
-    * The VPN Configuration Id to apply for this app.
-    *
-    * @param string $val The value of the vpnConfigurationId
-    *
-    * @return IosStoreAppAssignmentSettings
-    */
+     * Sets the vpnConfigurationId
+     * The VPN Configuration Id to apply for this app.
+     *
+     * @param string $val The value of the vpnConfigurationId
+     *
+     * @return IosStoreAppAssignmentSettings
+     */
     public function setVpnConfigurationId($val)
     {
         $this->_propDict["vpnConfigurationId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PasswordProfile class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PasswordProfile extends Entity
 {
     /**
-    * Gets the forceChangePasswordNextSignIn
-    * true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
-    *
-    * @return bool|null The forceChangePasswordNextSignIn
-    */
+     * Gets the forceChangePasswordNextSignIn
+     * true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
+     *
+     * @return bool|null The forceChangePasswordNextSignIn
+     */
     public function getForceChangePasswordNextSignIn()
     {
         if (array_key_exists("forceChangePasswordNextSignIn", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PasswordProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the forceChangePasswordNextSignIn
-    * true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
-    *
-    * @param bool $val The value of the forceChangePasswordNextSignIn
-    *
-    * @return PasswordProfile
-    */
+     * Sets the forceChangePasswordNextSignIn
+     * true if the user must change her password on the next login; otherwise false. If not set, default is false. NOTE:  For Azure B2C tenants, set to false and instead use custom policies and user flows to force password reset at first sign in. See Force password reset at first logon.
+     *
+     * @param bool $val The value of the forceChangePasswordNextSignIn
+     *
+     * @return PasswordProfile
+     */
     public function setForceChangePasswordNextSignIn($val)
     {
         $this->_propDict["forceChangePasswordNextSignIn"] = $val;
         return $this;
     }
     /**
-    * Gets the forceChangePasswordNextSignInWithMfa
-    * If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false.
-    *
-    * @return bool|null The forceChangePasswordNextSignInWithMfa
-    */
+     * Gets the forceChangePasswordNextSignInWithMfa
+     * If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false.
+     *
+     * @return bool|null The forceChangePasswordNextSignInWithMfa
+     */
     public function getForceChangePasswordNextSignInWithMfa()
     {
         if (array_key_exists("forceChangePasswordNextSignInWithMfa", $this->_propDict)) {
@@ -68,26 +69,25 @@ class PasswordProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the forceChangePasswordNextSignInWithMfa
-    * If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false.
-    *
-    * @param bool $val The value of the forceChangePasswordNextSignInWithMfa
-    *
-    * @return PasswordProfile
-    */
+     * Sets the forceChangePasswordNextSignInWithMfa
+     * If true, at next sign-in, the user must perform a multi-factor authentication (MFA) before being forced to change their password. The behavior is identical to forceChangePasswordNextSignIn except that the user is required to first perform a multi-factor authentication before password change. After a password change, this property will be automatically reset to false. If not set, default is false.
+     *
+     * @param bool $val The value of the forceChangePasswordNextSignInWithMfa
+     *
+     * @return PasswordProfile
+     */
     public function setForceChangePasswordNextSignInWithMfa($val)
     {
         $this->_propDict["forceChangePasswordNextSignInWithMfa"] = $val;
         return $this;
     }
     /**
-    * Gets the password
-    * The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required.
-    *
-    * @return string|null The password
-    */
+     * Gets the password
+     * The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required.
+     *
+     * @return string|null The password
+     */
     public function getPassword()
     {
         if (array_key_exists("password", $this->_propDict)) {
@@ -96,15 +96,14 @@ class PasswordProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the password
-    * The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required.
-    *
-    * @param string $val The value of the password
-    *
-    * @return PasswordProfile
-    */
+     * Sets the password
+     * The password for the user. This property is required when a user is created. It can be updated, but the user will be required to change the password on the next login. The password must satisfy minimum requirements as specified by the user’s passwordPolicies property. By default, a strong password is required.
+     *
+     * @param string $val The value of the password
+     *
+     * @return PasswordProfile
+     */
     public function setPassword($val)
     {
         $this->_propDict["password"] = $val;

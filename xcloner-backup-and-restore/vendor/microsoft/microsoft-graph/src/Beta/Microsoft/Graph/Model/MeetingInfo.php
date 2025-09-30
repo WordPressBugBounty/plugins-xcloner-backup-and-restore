@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MeetingInfo class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MeetingInfo extends Entity
 {
     /**
-    * Gets the allowConversationWithoutHost
-    *
-    * @return bool|null The allowConversationWithoutHost
-    */
+     * Gets the allowConversationWithoutHost
+     *
+     * @return bool|null The allowConversationWithoutHost
+     */
     public function getAllowConversationWithoutHost()
     {
         if (array_key_exists("allowConversationWithoutHost", $this->_propDict)) {
@@ -39,14 +41,13 @@ class MeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowConversationWithoutHost
-    *
-    * @param bool $val The value of the allowConversationWithoutHost
-    *
-    * @return MeetingInfo
-    */
+     * Sets the allowConversationWithoutHost
+     *
+     * @param bool $val The value of the allowConversationWithoutHost
+     *
+     * @return MeetingInfo
+     */
     public function setAllowConversationWithoutHost($val)
     {
         $this->_propDict["allowConversationWithoutHost"] = $val;

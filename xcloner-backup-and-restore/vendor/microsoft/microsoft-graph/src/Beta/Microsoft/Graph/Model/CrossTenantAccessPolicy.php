@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CrossTenantAccessPolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase
 {
     /**
-    * Gets the allowedCloudEndpoints
-    * Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
-    *
-    * @return array|null The allowedCloudEndpoints
-    */
+     * Gets the allowedCloudEndpoints
+     * Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
+     *
+     * @return array|null The allowedCloudEndpoints
+     */
     public function getAllowedCloudEndpoints()
     {
         if (array_key_exists("allowedCloudEndpoints", $this->_propDict)) {
@@ -41,31 +42,29 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the allowedCloudEndpoints
-    * Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
-    *
-    * @param string[] $val The allowedCloudEndpoints
-    *
-    * @return CrossTenantAccessPolicy
-    */
+     * Sets the allowedCloudEndpoints
+     * Used to specify which Microsoft clouds an organization would like to collaborate with. By default, this value is empty. Supported values for this field are: microsoftonline.com, microsoftonline.us, and partner.microsoftonline.cn.
+     *
+     * @param string[] $val The allowedCloudEndpoints
+     *
+     * @return CrossTenantAccessPolicy
+     */
     public function setAllowedCloudEndpoints($val)
     {
         $this->_propDict["allowedCloudEndpoints"] = $val;
         return $this;
     }
-
     /**
-    * Gets the default
-    * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
-    *
-    * @return CrossTenantAccessPolicyConfigurationDefault|null The default
-    */
+     * Gets the default
+     * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
+     *
+     * @return CrossTenantAccessPolicyConfigurationDefault|null The default
+     */
     public function getDefault()
     {
         if (array_key_exists("default", $this->_propDict)) {
-            if (is_a($this->_propDict["default"], "\Beta\Microsoft\Graph\Model\CrossTenantAccessPolicyConfigurationDefault") || is_null($this->_propDict["default"])) {
+            if (is_a($this->_propDict["default"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CrossTenantAccessPolicyConfigurationDefault") || is_null($this->_propDict["default"])) {
                 return $this->_propDict["default"];
             } else {
                 $this->_propDict["default"] = new CrossTenantAccessPolicyConfigurationDefault($this->_propDict["default"]);
@@ -74,49 +73,44 @@ class CrossTenantAccessPolicy extends TenantRelationshipAccessPolicyBase
         }
         return null;
     }
-
     /**
-    * Sets the default
-    * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
-    *
-    * @param CrossTenantAccessPolicyConfigurationDefault $val The default
-    *
-    * @return CrossTenantAccessPolicy
-    */
+     * Sets the default
+     * Defines the default configuration for how your organization interacts with external Azure Active Directory organizations.
+     *
+     * @param CrossTenantAccessPolicyConfigurationDefault $val The default
+     *
+     * @return CrossTenantAccessPolicy
+     */
     public function setDefault($val)
     {
         $this->_propDict["default"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the partners
-    * Defines partner-specific configurations for external Azure Active Directory organizations.
+     * Defines partner-specific configurations for external Azure Active Directory organizations.
      *
      * @return array|null The partners
      */
     public function getPartners()
     {
         if (array_key_exists("partners", $this->_propDict)) {
-           return $this->_propDict["partners"];
+            return $this->_propDict["partners"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the partners
-    * Defines partner-specific configurations for external Azure Active Directory organizations.
-    *
-    * @param CrossTenantAccessPolicyConfigurationPartner[] $val The partners
-    *
-    * @return CrossTenantAccessPolicy
-    */
+     * Sets the partners
+     * Defines partner-specific configurations for external Azure Active Directory organizations.
+     *
+     * @param CrossTenantAccessPolicyConfigurationPartner[] $val The partners
+     *
+     * @return CrossTenantAccessPolicy
+     */
     public function setPartners($val)
     {
         $this->_propDict["partners"] = $val;
         return $this;
     }
-
 }

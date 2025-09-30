@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\TenantAdmin\Model;
+namespace XCloner\Beta\Microsoft\Graph\TenantAdmin\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Sharepoint class
 *
@@ -25,18 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Sharepoint extends \Beta\Microsoft\Graph\Model\Entity
+class Sharepoint extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the settings
-    * Represents the tenant-level settings for SharePoint and OneDrive.
-    *
-    * @return Settings|null The settings
-    */
+     * Gets the settings
+     * Represents the tenant-level settings for SharePoint and OneDrive.
+     *
+     * @return Settings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\TenantAdmin\Model\Settings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Beta\\Microsoft\\Graph\\TenantAdmin\\Model\\Settings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new Settings($this->_propDict["settings"]);
@@ -45,19 +46,17 @@ class Sharepoint extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    * Represents the tenant-level settings for SharePoint and OneDrive.
-    *
-    * @param Settings $val The settings
-    *
-    * @return Sharepoint
-    */
+     * Sets the settings
+     * Represents the tenant-level settings for SharePoint and OneDrive.
+     *
+     * @param Settings $val The settings
+     *
+     * @return Sharepoint
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

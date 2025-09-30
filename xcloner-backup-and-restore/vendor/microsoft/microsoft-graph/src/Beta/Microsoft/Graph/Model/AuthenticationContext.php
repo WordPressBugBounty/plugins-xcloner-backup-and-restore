@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationContext class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AuthenticationContext extends Entity
 {
-
     /**
-    * Gets the detail
-    * Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
-    *
-    * @return AuthenticationContextDetail|null The detail
-    */
+     * Gets the detail
+     * Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
+     *
+     * @return AuthenticationContextDetail|null The detail
+     */
     public function getDetail()
     {
         if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\AuthenticationContextDetail") || is_null($this->_propDict["detail"])) {
+            if (is_a($this->_propDict["detail"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationContextDetail") || is_null($this->_propDict["detail"])) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new AuthenticationContextDetail($this->_propDict["detail"]);
@@ -45,26 +46,25 @@ class AuthenticationContext extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the detail
-    * Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
-    *
-    * @param AuthenticationContextDetail $val The value to assign to the detail
-    *
-    * @return AuthenticationContext The AuthenticationContext
-    */
+     * Sets the detail
+     * Describes how the conditional access authentication context was triggered. A value of previouslySatisfied means the auth context was because the user already satisfied the requirements for that authentication context in some previous authentication event. A value of required means the user had to meet the authentication context requirement as part of the sign-in flow. The possible values are: required, previouslySatisfied, notApplicable, unknownFutureValue.
+     *
+     * @param AuthenticationContextDetail $val The value to assign to the detail
+     *
+     * @return AuthenticationContext The AuthenticationContext
+     */
     public function setDetail($val)
     {
         $this->_propDict["detail"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the id
-    * The identifier of a authentication context in your tenant.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The identifier of a authentication context in your tenant.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -73,15 +73,14 @@ class AuthenticationContext extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The identifier of a authentication context in your tenant.
-    *
-    * @param string $val The value of the id
-    *
-    * @return AuthenticationContext
-    */
+     * Sets the id
+     * The identifier of a authentication context in your tenant.
+     *
+     * @param string $val The value of the id
+     *
+     * @return AuthenticationContext
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;

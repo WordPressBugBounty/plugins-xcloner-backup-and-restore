@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserEvidence class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class UserEvidence extends AlertEvidence
 {
-
     /**
-    * Gets the userAccount
-    * The user account details.
-    *
-    * @return UserAccount|null The userAccount
-    */
+     * Gets the userAccount
+     * The user account details.
+     *
+     * @return UserAccount|null The userAccount
+     */
     public function getUserAccount()
     {
         if (array_key_exists("userAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccount"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\UserAccount") || is_null($this->_propDict["userAccount"])) {
+            if (is_a($this->_propDict["userAccount"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\UserAccount") || is_null($this->_propDict["userAccount"])) {
                 return $this->_propDict["userAccount"];
             } else {
                 $this->_propDict["userAccount"] = new UserAccount($this->_propDict["userAccount"]);
@@ -45,18 +46,17 @@ class UserEvidence extends AlertEvidence
         }
         return null;
     }
-
     /**
-    * Sets the userAccount
-    * The user account details.
-    *
-    * @param UserAccount $val The value to assign to the userAccount
-    *
-    * @return UserEvidence The UserEvidence
-    */
+     * Sets the userAccount
+     * The user account details.
+     *
+     * @param UserAccount $val The value to assign to the userAccount
+     *
+     * @return UserEvidence The UserEvidence
+     */
     public function setUserAccount($val)
     {
         $this->_propDict["userAccount"] = $val;
-         return $this;
+        return $this;
     }
 }

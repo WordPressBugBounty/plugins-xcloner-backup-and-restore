@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementIntentSettingCategory class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementIntentSettingCategory extends DeviceManagementSettingCategory
 {
-
-     /**
+    /**
      * Gets the settings
-    * The settings this category contains
+     * The settings this category contains
      *
      * @return array|null The settings
      */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-           return $this->_propDict["settings"];
+            return $this->_propDict["settings"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the settings
-    * The settings this category contains
-    *
-    * @param DeviceManagementSettingInstance[] $val The settings
-    *
-    * @return DeviceManagementIntentSettingCategory
-    */
+     * Sets the settings
+     * The settings this category contains
+     *
+     * @param DeviceManagementSettingInstance[] $val The settings
+     *
+     * @return DeviceManagementIntentSettingCategory
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

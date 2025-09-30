@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationChoiceSettingDefinition class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagementConfigurationSettingDefinition
 {
     /**
-    * Gets the defaultOptionId
-    * Default option for choice setting
-    *
-    * @return string|null The defaultOptionId
-    */
+     * Gets the defaultOptionId
+     * Default option for choice setting
+     *
+     * @return string|null The defaultOptionId
+     */
     public function getDefaultOptionId()
     {
         if (array_key_exists("defaultOptionId", $this->_propDict)) {
@@ -41,49 +42,44 @@ class DeviceManagementConfigurationChoiceSettingDefinition extends DeviceManagem
             return null;
         }
     }
-
     /**
-    * Sets the defaultOptionId
-    * Default option for choice setting
-    *
-    * @param string $val The defaultOptionId
-    *
-    * @return DeviceManagementConfigurationChoiceSettingDefinition
-    */
+     * Sets the defaultOptionId
+     * Default option for choice setting
+     *
+     * @param string $val The defaultOptionId
+     *
+     * @return DeviceManagementConfigurationChoiceSettingDefinition
+     */
     public function setDefaultOptionId($val)
     {
         $this->_propDict["defaultOptionId"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the options
-    * Options for the setting that can be selected
+     * Options for the setting that can be selected
      *
      * @return array|null The options
      */
     public function getOptions()
     {
         if (array_key_exists("options", $this->_propDict)) {
-           return $this->_propDict["options"];
+            return $this->_propDict["options"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the options
-    * Options for the setting that can be selected
-    *
-    * @param DeviceManagementConfigurationOptionDefinition[] $val The options
-    *
-    * @return DeviceManagementConfigurationChoiceSettingDefinition
-    */
+     * Sets the options
+     * Options for the setting that can be selected
+     *
+     * @param DeviceManagementConfigurationOptionDefinition[] $val The options
+     *
+     * @return DeviceManagementConfigurationChoiceSettingDefinition
+     */
     public function setOptions($val)
     {
         $this->_propDict["options"] = $val;
         return $this;
     }
-
 }

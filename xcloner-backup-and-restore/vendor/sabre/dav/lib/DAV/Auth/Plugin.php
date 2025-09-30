@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth;
 
-namespace Sabre\DAV\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\NotAuthenticated;
-use Sabre\DAV\Server;
-use Sabre\DAV\ServerPlugin;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\NotAuthenticated;
+use XCloner\Sabre\DAV\Server;
+use XCloner\Sabre\DAV\ServerPlugin;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * This plugin provides Authentication for a WebDAV server.
  *
@@ -41,13 +39,11 @@ class Plugin extends ServerPlugin
      *
      * @param bool
      */
-    public $autoRequireLogin = true;
-
+    public $autoRequireLogin = \true;
     /**
      * authentication backends.
      */
     protected $backends;
-
     /**
      * The currently logged in principal. Will be `null` if nobody is currently
      * logged in.
@@ -55,7 +51,6 @@ class Plugin extends ServerPlugin
      * @var string|null
      */
     protected $currentPrincipal;
-
     /**
      * Creates the authentication plugin.
      *
@@ -67,7 +62,6 @@ class Plugin extends ServerPlugin
             $this->addBackend($authBackend);
         }
     }
-
     /**
      * Adds an authentication backend to the plugin.
      */
@@ -75,7 +69,6 @@ class Plugin extends ServerPlugin
     {
         $this->backends[] = $authBackend;
     }
-
     /**
      * Initializes the plugin. This function is automatically called by the server.
      */
@@ -83,7 +76,6 @@ class Plugin extends ServerPlugin
     {
         $server->on('beforeMethod:*', [$this, 'beforeMethod'], 10);
     }
-
     /**
      * Returns a plugin name.
      *
@@ -96,7 +88,6 @@ class Plugin extends ServerPlugin
     {
         return 'auth';
     }
-
     /**
      * Returns the currently logged-in principal.
      *
@@ -113,7 +104,6 @@ class Plugin extends ServerPlugin
     {
         return $this->currentPrincipal;
     }
-
     /**
      * This method is called before any HTTP method and forces users to be authenticated.
      */
@@ -134,28 +124,22 @@ class Plugin extends ServerPlugin
             // See issue #580 for more information about that.
             return;
         }
-
         $authResult = $this->check($request, $response);
-
         if ($authResult[0]) {
             // Auth was successful
             $this->currentPrincipal = $authResult[1];
             $this->loginFailedReasons = null;
-
             return;
         }
-
         // If we got here, it means that no authentication backend was
         // successful in authenticating the user.
         $this->currentPrincipal = null;
         $this->loginFailedReasons = $authResult[1];
-
         if ($this->autoRequireLogin) {
             $this->challenge($request, $response);
             throw new NotAuthenticated(implode(', ', $authResult[1]));
         }
     }
-
     /**
      * Checks authentication credentials, and logs the user in if possible.
      *
@@ -175,30 +159,23 @@ class Plugin extends ServerPlugin
     public function check(RequestInterface $request, ResponseInterface $response)
     {
         if (!$this->backends) {
-            throw new \Sabre\DAV\Exception('No authentication backends were configured on this server.');
+            throw new \XCloner\Sabre\DAV\Exception('No authentication backends were configured on this server.');
         }
         $reasons = [];
         foreach ($this->backends as $backend) {
-            $result = $backend->check(
-                $request,
-                $response
-            );
-
+            $result = $backend->check($request, $response);
             if (!is_array($result) || 2 !== count($result) || !is_bool($result[0]) || !is_string($result[1])) {
-                throw new \Sabre\DAV\Exception('The authentication backend did not return a correct value from the check() method.');
+                throw new \XCloner\Sabre\DAV\Exception('The authentication backend did not return a correct value from the check() method.');
             }
-
             if ($result[0]) {
                 $this->currentPrincipal = $result[1];
                 // Exit early
-                return [true, $result[1]];
+                return [\true, $result[1]];
             }
             $reasons[] = $result[1];
         }
-
-        return [false, $reasons];
+        return [\false, $reasons];
     }
-
     /**
      * This method sends authentication challenges to the user.
      *
@@ -212,14 +189,12 @@ class Plugin extends ServerPlugin
             $backend->challenge($request, $response);
         }
     }
-
     /**
      * List of reasons why login failed for the last login operation.
      *
      * @var string[]|null
      */
     protected $loginFailedReasons;
-
     /**
      * Returns a list of reasons why login was unsuccessful.
      *
@@ -235,7 +210,6 @@ class Plugin extends ServerPlugin
     {
         return $this->loginFailedReasons;
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -249,10 +223,6 @@ class Plugin extends ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'Generic authentication plugin',
-            'link' => 'http://sabre.io/dav/authentication/',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'Generic authentication plugin', 'link' => 'http://sabre.io/dav/authentication/'];
     }
 }

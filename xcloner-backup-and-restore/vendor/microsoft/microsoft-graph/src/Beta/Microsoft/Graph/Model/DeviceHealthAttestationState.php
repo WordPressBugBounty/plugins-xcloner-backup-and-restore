@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthAttestationState class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceHealthAttestationState extends Entity
 {
     /**
-    * Gets the attestationIdentityKey
-    * TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
-    *
-    * @return string|null The attestationIdentityKey
-    */
+     * Gets the attestationIdentityKey
+     * TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
+     *
+     * @return string|null The attestationIdentityKey
+     */
     public function getAttestationIdentityKey()
     {
         if (array_key_exists("attestationIdentityKey", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the attestationIdentityKey
-    * TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
-    *
-    * @param string $val The value of the attestationIdentityKey
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the attestationIdentityKey
+     * TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.
+     *
+     * @param string $val The value of the attestationIdentityKey
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setAttestationIdentityKey($val)
     {
         $this->_propDict["attestationIdentityKey"] = $val;
         return $this;
     }
     /**
-    * Gets the bitLockerStatus
-    * On or Off of BitLocker Drive Encryption
-    *
-    * @return string|null The bitLockerStatus
-    */
+     * Gets the bitLockerStatus
+     * On or Off of BitLocker Drive Encryption
+     *
+     * @return string|null The bitLockerStatus
+     */
     public function getBitLockerStatus()
     {
         if (array_key_exists("bitLockerStatus", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bitLockerStatus
-    * On or Off of BitLocker Drive Encryption
-    *
-    * @param string $val The value of the bitLockerStatus
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the bitLockerStatus
+     * On or Off of BitLocker Drive Encryption
+     *
+     * @param string $val The value of the bitLockerStatus
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setBitLockerStatus($val)
     {
         $this->_propDict["bitLockerStatus"] = $val;
         return $this;
     }
     /**
-    * Gets the bootAppSecurityVersion
-    * The security version number of the Boot Application
-    *
-    * @return string|null The bootAppSecurityVersion
-    */
+     * Gets the bootAppSecurityVersion
+     * The security version number of the Boot Application
+     *
+     * @return string|null The bootAppSecurityVersion
+     */
     public function getBootAppSecurityVersion()
     {
         if (array_key_exists("bootAppSecurityVersion", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bootAppSecurityVersion
-    * The security version number of the Boot Application
-    *
-    * @param string $val The value of the bootAppSecurityVersion
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the bootAppSecurityVersion
+     * The security version number of the Boot Application
+     *
+     * @param string $val The value of the bootAppSecurityVersion
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setBootAppSecurityVersion($val)
     {
         $this->_propDict["bootAppSecurityVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the bootDebugging
-    * When bootDebugging is enabled, the device is used in development and testing
-    *
-    * @return string|null The bootDebugging
-    */
+     * Gets the bootDebugging
+     * When bootDebugging is enabled, the device is used in development and testing
+     *
+     * @return string|null The bootDebugging
+     */
     public function getBootDebugging()
     {
         if (array_key_exists("bootDebugging", $this->_propDict)) {
@@ -124,26 +123,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bootDebugging
-    * When bootDebugging is enabled, the device is used in development and testing
-    *
-    * @param string $val The value of the bootDebugging
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the bootDebugging
+     * When bootDebugging is enabled, the device is used in development and testing
+     *
+     * @param string $val The value of the bootDebugging
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setBootDebugging($val)
     {
         $this->_propDict["bootDebugging"] = $val;
         return $this;
     }
     /**
-    * Gets the bootManagerSecurityVersion
-    * The security version number of the Boot Application
-    *
-    * @return string|null The bootManagerSecurityVersion
-    */
+     * Gets the bootManagerSecurityVersion
+     * The security version number of the Boot Application
+     *
+     * @return string|null The bootManagerSecurityVersion
+     */
     public function getBootManagerSecurityVersion()
     {
         if (array_key_exists("bootManagerSecurityVersion", $this->_propDict)) {
@@ -152,26 +150,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bootManagerSecurityVersion
-    * The security version number of the Boot Application
-    *
-    * @param string $val The value of the bootManagerSecurityVersion
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the bootManagerSecurityVersion
+     * The security version number of the Boot Application
+     *
+     * @param string $val The value of the bootManagerSecurityVersion
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setBootManagerSecurityVersion($val)
     {
         $this->_propDict["bootManagerSecurityVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the bootManagerVersion
-    * The version of the Boot Manager
-    *
-    * @return string|null The bootManagerVersion
-    */
+     * Gets the bootManagerVersion
+     * The version of the Boot Manager
+     *
+     * @return string|null The bootManagerVersion
+     */
     public function getBootManagerVersion()
     {
         if (array_key_exists("bootManagerVersion", $this->_propDict)) {
@@ -180,26 +177,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bootManagerVersion
-    * The version of the Boot Manager
-    *
-    * @param string $val The value of the bootManagerVersion
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the bootManagerVersion
+     * The version of the Boot Manager
+     *
+     * @param string $val The value of the bootManagerVersion
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setBootManagerVersion($val)
     {
         $this->_propDict["bootManagerVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the bootRevisionListInfo
-    * The Boot Revision List that was loaded during initial boot on the attested device
-    *
-    * @return string|null The bootRevisionListInfo
-    */
+     * Gets the bootRevisionListInfo
+     * The Boot Revision List that was loaded during initial boot on the attested device
+     *
+     * @return string|null The bootRevisionListInfo
+     */
     public function getBootRevisionListInfo()
     {
         if (array_key_exists("bootRevisionListInfo", $this->_propDict)) {
@@ -208,26 +204,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bootRevisionListInfo
-    * The Boot Revision List that was loaded during initial boot on the attested device
-    *
-    * @param string $val The value of the bootRevisionListInfo
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the bootRevisionListInfo
+     * The Boot Revision List that was loaded during initial boot on the attested device
+     *
+     * @param string $val The value of the bootRevisionListInfo
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setBootRevisionListInfo($val)
     {
         $this->_propDict["bootRevisionListInfo"] = $val;
         return $this;
     }
     /**
-    * Gets the codeIntegrity
-    * When code integrity is enabled, code execution is restricted to integrity verified code
-    *
-    * @return string|null The codeIntegrity
-    */
+     * Gets the codeIntegrity
+     * When code integrity is enabled, code execution is restricted to integrity verified code
+     *
+     * @return string|null The codeIntegrity
+     */
     public function getCodeIntegrity()
     {
         if (array_key_exists("codeIntegrity", $this->_propDict)) {
@@ -236,26 +231,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the codeIntegrity
-    * When code integrity is enabled, code execution is restricted to integrity verified code
-    *
-    * @param string $val The value of the codeIntegrity
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the codeIntegrity
+     * When code integrity is enabled, code execution is restricted to integrity verified code
+     *
+     * @param string $val The value of the codeIntegrity
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setCodeIntegrity($val)
     {
         $this->_propDict["codeIntegrity"] = $val;
         return $this;
     }
     /**
-    * Gets the codeIntegrityCheckVersion
-    * The version of the Boot Manager
-    *
-    * @return string|null The codeIntegrityCheckVersion
-    */
+     * Gets the codeIntegrityCheckVersion
+     * The version of the Boot Manager
+     *
+     * @return string|null The codeIntegrityCheckVersion
+     */
     public function getCodeIntegrityCheckVersion()
     {
         if (array_key_exists("codeIntegrityCheckVersion", $this->_propDict)) {
@@ -264,26 +258,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the codeIntegrityCheckVersion
-    * The version of the Boot Manager
-    *
-    * @param string $val The value of the codeIntegrityCheckVersion
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the codeIntegrityCheckVersion
+     * The version of the Boot Manager
+     *
+     * @param string $val The value of the codeIntegrityCheckVersion
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setCodeIntegrityCheckVersion($val)
     {
         $this->_propDict["codeIntegrityCheckVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the codeIntegrityPolicy
-    * The Code Integrity policy that is controlling the security of the boot environment
-    *
-    * @return string|null The codeIntegrityPolicy
-    */
+     * Gets the codeIntegrityPolicy
+     * The Code Integrity policy that is controlling the security of the boot environment
+     *
+     * @return string|null The codeIntegrityPolicy
+     */
     public function getCodeIntegrityPolicy()
     {
         if (array_key_exists("codeIntegrityPolicy", $this->_propDict)) {
@@ -292,26 +285,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the codeIntegrityPolicy
-    * The Code Integrity policy that is controlling the security of the boot environment
-    *
-    * @param string $val The value of the codeIntegrityPolicy
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the codeIntegrityPolicy
+     * The Code Integrity policy that is controlling the security of the boot environment
+     *
+     * @param string $val The value of the codeIntegrityPolicy
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setCodeIntegrityPolicy($val)
     {
         $this->_propDict["codeIntegrityPolicy"] = $val;
         return $this;
     }
     /**
-    * Gets the contentNamespaceUrl
-    * The DHA report version. (Namespace version)
-    *
-    * @return string|null The contentNamespaceUrl
-    */
+     * Gets the contentNamespaceUrl
+     * The DHA report version. (Namespace version)
+     *
+     * @return string|null The contentNamespaceUrl
+     */
     public function getContentNamespaceUrl()
     {
         if (array_key_exists("contentNamespaceUrl", $this->_propDict)) {
@@ -320,26 +312,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentNamespaceUrl
-    * The DHA report version. (Namespace version)
-    *
-    * @param string $val The value of the contentNamespaceUrl
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the contentNamespaceUrl
+     * The DHA report version. (Namespace version)
+     *
+     * @param string $val The value of the contentNamespaceUrl
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setContentNamespaceUrl($val)
     {
         $this->_propDict["contentNamespaceUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the contentVersion
-    * The HealthAttestation state schema version
-    *
-    * @return string|null The contentVersion
-    */
+     * Gets the contentVersion
+     * The HealthAttestation state schema version
+     *
+     * @return string|null The contentVersion
+     */
     public function getContentVersion()
     {
         if (array_key_exists("contentVersion", $this->_propDict)) {
@@ -348,26 +339,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentVersion
-    * The HealthAttestation state schema version
-    *
-    * @param string $val The value of the contentVersion
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the contentVersion
+     * The HealthAttestation state schema version
+     *
+     * @param string $val The value of the contentVersion
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setContentVersion($val)
     {
         $this->_propDict["contentVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the dataExcutionPolicy
-    * DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
-    *
-    * @return string|null The dataExcutionPolicy
-    */
+     * Gets the dataExcutionPolicy
+     * DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
+     *
+     * @return string|null The dataExcutionPolicy
+     */
     public function getDataExcutionPolicy()
     {
         if (array_key_exists("dataExcutionPolicy", $this->_propDict)) {
@@ -376,26 +366,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dataExcutionPolicy
-    * DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
-    *
-    * @param string $val The value of the dataExcutionPolicy
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the dataExcutionPolicy
+     * DEP Policy defines a set of hardware and software technologies that perform additional checks on memory
+     *
+     * @param string $val The value of the dataExcutionPolicy
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setDataExcutionPolicy($val)
     {
         $this->_propDict["dataExcutionPolicy"] = $val;
         return $this;
     }
     /**
-    * Gets the deviceHealthAttestationStatus
-    * The DHA report version. (Namespace version)
-    *
-    * @return string|null The deviceHealthAttestationStatus
-    */
+     * Gets the deviceHealthAttestationStatus
+     * The DHA report version. (Namespace version)
+     *
+     * @return string|null The deviceHealthAttestationStatus
+     */
     public function getDeviceHealthAttestationStatus()
     {
         if (array_key_exists("deviceHealthAttestationStatus", $this->_propDict)) {
@@ -404,26 +393,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceHealthAttestationStatus
-    * The DHA report version. (Namespace version)
-    *
-    * @param string $val The value of the deviceHealthAttestationStatus
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the deviceHealthAttestationStatus
+     * The DHA report version. (Namespace version)
+     *
+     * @param string $val The value of the deviceHealthAttestationStatus
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setDeviceHealthAttestationStatus($val)
     {
         $this->_propDict["deviceHealthAttestationStatus"] = $val;
         return $this;
     }
     /**
-    * Gets the earlyLaunchAntiMalwareDriverProtection
-    * ELAM provides protection for the computers in your network when they start up
-    *
-    * @return string|null The earlyLaunchAntiMalwareDriverProtection
-    */
+     * Gets the earlyLaunchAntiMalwareDriverProtection
+     * ELAM provides protection for the computers in your network when they start up
+     *
+     * @return string|null The earlyLaunchAntiMalwareDriverProtection
+     */
     public function getEarlyLaunchAntiMalwareDriverProtection()
     {
         if (array_key_exists("earlyLaunchAntiMalwareDriverProtection", $this->_propDict)) {
@@ -432,26 +420,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the earlyLaunchAntiMalwareDriverProtection
-    * ELAM provides protection for the computers in your network when they start up
-    *
-    * @param string $val The value of the earlyLaunchAntiMalwareDriverProtection
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the earlyLaunchAntiMalwareDriverProtection
+     * ELAM provides protection for the computers in your network when they start up
+     *
+     * @param string $val The value of the earlyLaunchAntiMalwareDriverProtection
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setEarlyLaunchAntiMalwareDriverProtection($val)
     {
         $this->_propDict["earlyLaunchAntiMalwareDriverProtection"] = $val;
         return $this;
     }
     /**
-    * Gets the healthAttestationSupportedStatus
-    * This attribute indicates if DHA is supported for the device
-    *
-    * @return string|null The healthAttestationSupportedStatus
-    */
+     * Gets the healthAttestationSupportedStatus
+     * This attribute indicates if DHA is supported for the device
+     *
+     * @return string|null The healthAttestationSupportedStatus
+     */
     public function getHealthAttestationSupportedStatus()
     {
         if (array_key_exists("healthAttestationSupportedStatus", $this->_propDict)) {
@@ -460,26 +447,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the healthAttestationSupportedStatus
-    * This attribute indicates if DHA is supported for the device
-    *
-    * @param string $val The value of the healthAttestationSupportedStatus
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the healthAttestationSupportedStatus
+     * This attribute indicates if DHA is supported for the device
+     *
+     * @param string $val The value of the healthAttestationSupportedStatus
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setHealthAttestationSupportedStatus($val)
     {
         $this->_propDict["healthAttestationSupportedStatus"] = $val;
         return $this;
     }
     /**
-    * Gets the healthStatusMismatchInfo
-    * This attribute appears if DHA-Service detects an integrity issue
-    *
-    * @return string|null The healthStatusMismatchInfo
-    */
+     * Gets the healthStatusMismatchInfo
+     * This attribute appears if DHA-Service detects an integrity issue
+     *
+     * @return string|null The healthStatusMismatchInfo
+     */
     public function getHealthStatusMismatchInfo()
     {
         if (array_key_exists("healthStatusMismatchInfo", $this->_propDict)) {
@@ -488,31 +474,29 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the healthStatusMismatchInfo
-    * This attribute appears if DHA-Service detects an integrity issue
-    *
-    * @param string $val The value of the healthStatusMismatchInfo
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the healthStatusMismatchInfo
+     * This attribute appears if DHA-Service detects an integrity issue
+     *
+     * @param string $val The value of the healthStatusMismatchInfo
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setHealthStatusMismatchInfo($val)
     {
         $this->_propDict["healthStatusMismatchInfo"] = $val;
         return $this;
     }
-
     /**
-    * Gets the issuedDateTime
-    * The DateTime when device was evaluated or issued to MDM
-    *
-    * @return \DateTime|null The issuedDateTime
-    */
+     * Gets the issuedDateTime
+     * The DateTime when device was evaluated or issued to MDM
+     *
+     * @return \DateTime|null The issuedDateTime
+     */
     public function getIssuedDateTime()
     {
         if (array_key_exists("issuedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["issuedDateTime"], "\DateTime") || is_null($this->_propDict["issuedDateTime"])) {
+            if (is_a($this->_propDict["issuedDateTime"], "\\DateTime") || is_null($this->_propDict["issuedDateTime"])) {
                 return $this->_propDict["issuedDateTime"];
             } else {
                 $this->_propDict["issuedDateTime"] = new \DateTime($this->_propDict["issuedDateTime"]);
@@ -521,26 +505,25 @@ class DeviceHealthAttestationState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the issuedDateTime
-    * The DateTime when device was evaluated or issued to MDM
-    *
-    * @param \DateTime $val The value to assign to the issuedDateTime
-    *
-    * @return DeviceHealthAttestationState The DeviceHealthAttestationState
-    */
+     * Sets the issuedDateTime
+     * The DateTime when device was evaluated or issued to MDM
+     *
+     * @param \DateTime $val The value to assign to the issuedDateTime
+     *
+     * @return DeviceHealthAttestationState The DeviceHealthAttestationState
+     */
     public function setIssuedDateTime($val)
     {
         $this->_propDict["issuedDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the lastUpdateDateTime
-    * The Timestamp of the last update.
-    *
-    * @return string|null The lastUpdateDateTime
-    */
+     * Gets the lastUpdateDateTime
+     * The Timestamp of the last update.
+     *
+     * @return string|null The lastUpdateDateTime
+     */
     public function getLastUpdateDateTime()
     {
         if (array_key_exists("lastUpdateDateTime", $this->_propDict)) {
@@ -549,26 +532,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastUpdateDateTime
-    * The Timestamp of the last update.
-    *
-    * @param string $val The value of the lastUpdateDateTime
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the lastUpdateDateTime
+     * The Timestamp of the last update.
+     *
+     * @param string $val The value of the lastUpdateDateTime
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setLastUpdateDateTime($val)
     {
         $this->_propDict["lastUpdateDateTime"] = $val;
         return $this;
     }
     /**
-    * Gets the operatingSystemKernelDebugging
-    * When operatingSystemKernelDebugging is enabled, the device is used in development and testing
-    *
-    * @return string|null The operatingSystemKernelDebugging
-    */
+     * Gets the operatingSystemKernelDebugging
+     * When operatingSystemKernelDebugging is enabled, the device is used in development and testing
+     *
+     * @return string|null The operatingSystemKernelDebugging
+     */
     public function getOperatingSystemKernelDebugging()
     {
         if (array_key_exists("operatingSystemKernelDebugging", $this->_propDict)) {
@@ -577,26 +559,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the operatingSystemKernelDebugging
-    * When operatingSystemKernelDebugging is enabled, the device is used in development and testing
-    *
-    * @param string $val The value of the operatingSystemKernelDebugging
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the operatingSystemKernelDebugging
+     * When operatingSystemKernelDebugging is enabled, the device is used in development and testing
+     *
+     * @param string $val The value of the operatingSystemKernelDebugging
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setOperatingSystemKernelDebugging($val)
     {
         $this->_propDict["operatingSystemKernelDebugging"] = $val;
         return $this;
     }
     /**
-    * Gets the operatingSystemRevListInfo
-    * The Operating System Revision List that was loaded during initial boot on the attested device
-    *
-    * @return string|null The operatingSystemRevListInfo
-    */
+     * Gets the operatingSystemRevListInfo
+     * The Operating System Revision List that was loaded during initial boot on the attested device
+     *
+     * @return string|null The operatingSystemRevListInfo
+     */
     public function getOperatingSystemRevListInfo()
     {
         if (array_key_exists("operatingSystemRevListInfo", $this->_propDict)) {
@@ -605,26 +586,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the operatingSystemRevListInfo
-    * The Operating System Revision List that was loaded during initial boot on the attested device
-    *
-    * @param string $val The value of the operatingSystemRevListInfo
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the operatingSystemRevListInfo
+     * The Operating System Revision List that was loaded during initial boot on the attested device
+     *
+     * @param string $val The value of the operatingSystemRevListInfo
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setOperatingSystemRevListInfo($val)
     {
         $this->_propDict["operatingSystemRevListInfo"] = $val;
         return $this;
     }
     /**
-    * Gets the pcr0
-    * The measurement that is captured in PCR[0]
-    *
-    * @return string|null The pcr0
-    */
+     * Gets the pcr0
+     * The measurement that is captured in PCR[0]
+     *
+     * @return string|null The pcr0
+     */
     public function getPcr0()
     {
         if (array_key_exists("pcr0", $this->_propDict)) {
@@ -633,26 +613,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pcr0
-    * The measurement that is captured in PCR[0]
-    *
-    * @param string $val The value of the pcr0
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the pcr0
+     * The measurement that is captured in PCR[0]
+     *
+     * @param string $val The value of the pcr0
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setPcr0($val)
     {
         $this->_propDict["pcr0"] = $val;
         return $this;
     }
     /**
-    * Gets the pcrHashAlgorithm
-    * Informational attribute that identifies the HASH algorithm that was used by TPM
-    *
-    * @return string|null The pcrHashAlgorithm
-    */
+     * Gets the pcrHashAlgorithm
+     * Informational attribute that identifies the HASH algorithm that was used by TPM
+     *
+     * @return string|null The pcrHashAlgorithm
+     */
     public function getPcrHashAlgorithm()
     {
         if (array_key_exists("pcrHashAlgorithm", $this->_propDict)) {
@@ -661,26 +640,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pcrHashAlgorithm
-    * Informational attribute that identifies the HASH algorithm that was used by TPM
-    *
-    * @param string $val The value of the pcrHashAlgorithm
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the pcrHashAlgorithm
+     * Informational attribute that identifies the HASH algorithm that was used by TPM
+     *
+     * @param string $val The value of the pcrHashAlgorithm
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setPcrHashAlgorithm($val)
     {
         $this->_propDict["pcrHashAlgorithm"] = $val;
         return $this;
     }
     /**
-    * Gets the resetCount
-    * The number of times a PC device has hibernated or resumed
-    *
-    * @return int|null The resetCount
-    */
+     * Gets the resetCount
+     * The number of times a PC device has hibernated or resumed
+     *
+     * @return int|null The resetCount
+     */
     public function getResetCount()
     {
         if (array_key_exists("resetCount", $this->_propDict)) {
@@ -689,26 +667,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resetCount
-    * The number of times a PC device has hibernated or resumed
-    *
-    * @param int $val The value of the resetCount
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the resetCount
+     * The number of times a PC device has hibernated or resumed
+     *
+     * @param int $val The value of the resetCount
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setResetCount($val)
     {
         $this->_propDict["resetCount"] = $val;
         return $this;
     }
     /**
-    * Gets the restartCount
-    * The number of times a PC device has rebooted
-    *
-    * @return int|null The restartCount
-    */
+     * Gets the restartCount
+     * The number of times a PC device has rebooted
+     *
+     * @return int|null The restartCount
+     */
     public function getRestartCount()
     {
         if (array_key_exists("restartCount", $this->_propDict)) {
@@ -717,26 +694,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the restartCount
-    * The number of times a PC device has rebooted
-    *
-    * @param int $val The value of the restartCount
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the restartCount
+     * The number of times a PC device has rebooted
+     *
+     * @param int $val The value of the restartCount
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setRestartCount($val)
     {
         $this->_propDict["restartCount"] = $val;
         return $this;
     }
     /**
-    * Gets the safeMode
-    * Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
-    *
-    * @return string|null The safeMode
-    */
+     * Gets the safeMode
+     * Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
+     *
+     * @return string|null The safeMode
+     */
     public function getSafeMode()
     {
         if (array_key_exists("safeMode", $this->_propDict)) {
@@ -745,26 +721,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the safeMode
-    * Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
-    *
-    * @param string $val The value of the safeMode
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the safeMode
+     * Safe mode is a troubleshooting option for Windows that starts your computer in a limited state
+     *
+     * @param string $val The value of the safeMode
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setSafeMode($val)
     {
         $this->_propDict["safeMode"] = $val;
         return $this;
     }
     /**
-    * Gets the secureBoot
-    * When Secure Boot is enabled, the core components must have the correct cryptographic signatures
-    *
-    * @return string|null The secureBoot
-    */
+     * Gets the secureBoot
+     * When Secure Boot is enabled, the core components must have the correct cryptographic signatures
+     *
+     * @return string|null The secureBoot
+     */
     public function getSecureBoot()
     {
         if (array_key_exists("secureBoot", $this->_propDict)) {
@@ -773,26 +748,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the secureBoot
-    * When Secure Boot is enabled, the core components must have the correct cryptographic signatures
-    *
-    * @param string $val The value of the secureBoot
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the secureBoot
+     * When Secure Boot is enabled, the core components must have the correct cryptographic signatures
+     *
+     * @param string $val The value of the secureBoot
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setSecureBoot($val)
     {
         $this->_propDict["secureBoot"] = $val;
         return $this;
     }
     /**
-    * Gets the secureBootConfigurationPolicyFingerPrint
-    * Fingerprint of the Custom Secure Boot Configuration Policy
-    *
-    * @return string|null The secureBootConfigurationPolicyFingerPrint
-    */
+     * Gets the secureBootConfigurationPolicyFingerPrint
+     * Fingerprint of the Custom Secure Boot Configuration Policy
+     *
+     * @return string|null The secureBootConfigurationPolicyFingerPrint
+     */
     public function getSecureBootConfigurationPolicyFingerPrint()
     {
         if (array_key_exists("secureBootConfigurationPolicyFingerPrint", $this->_propDict)) {
@@ -801,26 +775,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the secureBootConfigurationPolicyFingerPrint
-    * Fingerprint of the Custom Secure Boot Configuration Policy
-    *
-    * @param string $val The value of the secureBootConfigurationPolicyFingerPrint
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the secureBootConfigurationPolicyFingerPrint
+     * Fingerprint of the Custom Secure Boot Configuration Policy
+     *
+     * @param string $val The value of the secureBootConfigurationPolicyFingerPrint
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setSecureBootConfigurationPolicyFingerPrint($val)
     {
         $this->_propDict["secureBootConfigurationPolicyFingerPrint"] = $val;
         return $this;
     }
     /**
-    * Gets the testSigning
-    * When test signing is allowed, the device does not enforce signature validation during boot
-    *
-    * @return string|null The testSigning
-    */
+     * Gets the testSigning
+     * When test signing is allowed, the device does not enforce signature validation during boot
+     *
+     * @return string|null The testSigning
+     */
     public function getTestSigning()
     {
         if (array_key_exists("testSigning", $this->_propDict)) {
@@ -829,26 +802,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the testSigning
-    * When test signing is allowed, the device does not enforce signature validation during boot
-    *
-    * @param string $val The value of the testSigning
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the testSigning
+     * When test signing is allowed, the device does not enforce signature validation during boot
+     *
+     * @param string $val The value of the testSigning
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setTestSigning($val)
     {
         $this->_propDict["testSigning"] = $val;
         return $this;
     }
     /**
-    * Gets the tpmVersion
-    * The security version number of the Boot Application
-    *
-    * @return string|null The tpmVersion
-    */
+     * Gets the tpmVersion
+     * The security version number of the Boot Application
+     *
+     * @return string|null The tpmVersion
+     */
     public function getTpmVersion()
     {
         if (array_key_exists("tpmVersion", $this->_propDict)) {
@@ -857,26 +829,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tpmVersion
-    * The security version number of the Boot Application
-    *
-    * @param string $val The value of the tpmVersion
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the tpmVersion
+     * The security version number of the Boot Application
+     *
+     * @param string $val The value of the tpmVersion
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setTpmVersion($val)
     {
         $this->_propDict["tpmVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the virtualSecureMode
-    * VSM is a container that protects high value assets from a compromised kernel
-    *
-    * @return string|null The virtualSecureMode
-    */
+     * Gets the virtualSecureMode
+     * VSM is a container that protects high value assets from a compromised kernel
+     *
+     * @return string|null The virtualSecureMode
+     */
     public function getVirtualSecureMode()
     {
         if (array_key_exists("virtualSecureMode", $this->_propDict)) {
@@ -885,26 +856,25 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the virtualSecureMode
-    * VSM is a container that protects high value assets from a compromised kernel
-    *
-    * @param string $val The value of the virtualSecureMode
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the virtualSecureMode
+     * VSM is a container that protects high value assets from a compromised kernel
+     *
+     * @param string $val The value of the virtualSecureMode
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setVirtualSecureMode($val)
     {
         $this->_propDict["virtualSecureMode"] = $val;
         return $this;
     }
     /**
-    * Gets the windowsPE
-    * Operating system running with limited services that is used to prepare a computer for Windows
-    *
-    * @return string|null The windowsPE
-    */
+     * Gets the windowsPE
+     * Operating system running with limited services that is used to prepare a computer for Windows
+     *
+     * @return string|null The windowsPE
+     */
     public function getWindowsPE()
     {
         if (array_key_exists("windowsPE", $this->_propDict)) {
@@ -913,15 +883,14 @@ class DeviceHealthAttestationState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the windowsPE
-    * Operating system running with limited services that is used to prepare a computer for Windows
-    *
-    * @param string $val The value of the windowsPE
-    *
-    * @return DeviceHealthAttestationState
-    */
+     * Sets the windowsPE
+     * Operating system running with limited services that is used to prepare a computer for Windows
+     *
+     * @param string $val The value of the windowsPE
+     *
+     * @return DeviceHealthAttestationState
+     */
     public function setWindowsPE($val)
     {
         $this->_propDict["windowsPE"] = $val;

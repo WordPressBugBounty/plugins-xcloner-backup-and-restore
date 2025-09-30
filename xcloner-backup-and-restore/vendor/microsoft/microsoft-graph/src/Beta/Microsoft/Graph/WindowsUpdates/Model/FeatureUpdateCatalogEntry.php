@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FeatureUpdateCatalogEntry class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
 {
     /**
-    * Gets the version
-    * The version of the feature update. Read-only.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * The version of the feature update. Read-only.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -41,19 +42,17 @@ class FeatureUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * The version of the feature update. Read-only.
-    *
-    * @param string $val The version
-    *
-    * @return FeatureUpdateCatalogEntry
-    */
+     * Sets the version
+     * The version of the feature update. Read-only.
+     *
+     * @param string $val The version
+     *
+     * @return FeatureUpdateCatalogEntry
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsKioskUWPApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsKioskUWPApp extends WindowsKioskAppBase
 {
     /**
-    * Gets the appId
-    * This references an Intune App that will be target to the same assignments as Kiosk configuration
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * This references an Intune App that will be target to the same assignments as Kiosk configuration
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * This references an Intune App that will be target to the same assignments as Kiosk configuration
-    *
-    * @param string $val The value of the appId
-    *
-    * @return WindowsKioskUWPApp
-    */
+     * Sets the appId
+     * This references an Intune App that will be target to the same assignments as Kiosk configuration
+     *
+     * @param string $val The value of the appId
+     *
+     * @return WindowsKioskUWPApp
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
     /**
-    * Gets the appUserModelId
-    * This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
-    *
-    * @return string|null The appUserModelId
-    */
+     * Gets the appUserModelId
+     * This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
+     *
+     * @return string|null The appUserModelId
+     */
     public function getAppUserModelId()
     {
         if (array_key_exists("appUserModelId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the appUserModelId
-    * This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
-    *
-    * @param string $val The value of the appUserModelId
-    *
-    * @return WindowsKioskUWPApp
-    */
+     * Sets the appUserModelId
+     * This is the only Application User Model ID (AUMID) that will be available to launch use while in Kiosk Mode
+     *
+     * @param string $val The value of the appUserModelId
+     *
+     * @return WindowsKioskUWPApp
+     */
     public function setAppUserModelId($val)
     {
         $this->_propDict["appUserModelId"] = $val;
         return $this;
     }
     /**
-    * Gets the containedAppId
-    * This references an contained App from an Intune App
-    *
-    * @return string|null The containedAppId
-    */
+     * Gets the containedAppId
+     * This references an contained App from an Intune App
+     *
+     * @return string|null The containedAppId
+     */
     public function getContainedAppId()
     {
         if (array_key_exists("containedAppId", $this->_propDict)) {
@@ -96,15 +96,14 @@ class WindowsKioskUWPApp extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the containedAppId
-    * This references an contained App from an Intune App
-    *
-    * @param string $val The value of the containedAppId
-    *
-    * @return WindowsKioskUWPApp
-    */
+     * Sets the containedAppId
+     * This references an contained App from an Intune App
+     *
+     * @param string $val The value of the containedAppId
+     *
+     * @return WindowsKioskUWPApp
+     */
     public function setContainedAppId($val)
     {
         $this->_propDict["containedAppId"] = $val;

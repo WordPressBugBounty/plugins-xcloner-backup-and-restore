@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Audio class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Audio extends Entity
 {
     /**
-    * Gets the album
-    * The title of the album for this audio file.
-    *
-    * @return string|null The album
-    */
+     * Gets the album
+     * The title of the album for this audio file.
+     *
+     * @return string|null The album
+     */
     public function getAlbum()
     {
         if (array_key_exists("album", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the album
-    * The title of the album for this audio file.
-    *
-    * @param string $val The value of the album
-    *
-    * @return Audio
-    */
+     * Sets the album
+     * The title of the album for this audio file.
+     *
+     * @param string $val The value of the album
+     *
+     * @return Audio
+     */
     public function setAlbum($val)
     {
         $this->_propDict["album"] = $val;
         return $this;
     }
     /**
-    * Gets the albumArtist
-    * The artist named on the album for the audio file.
-    *
-    * @return string|null The albumArtist
-    */
+     * Gets the albumArtist
+     * The artist named on the album for the audio file.
+     *
+     * @return string|null The albumArtist
+     */
     public function getAlbumArtist()
     {
         if (array_key_exists("albumArtist", $this->_propDict)) {
@@ -68,26 +69,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the albumArtist
-    * The artist named on the album for the audio file.
-    *
-    * @param string $val The value of the albumArtist
-    *
-    * @return Audio
-    */
+     * Sets the albumArtist
+     * The artist named on the album for the audio file.
+     *
+     * @param string $val The value of the albumArtist
+     *
+     * @return Audio
+     */
     public function setAlbumArtist($val)
     {
         $this->_propDict["albumArtist"] = $val;
         return $this;
     }
     /**
-    * Gets the artist
-    * The performing artist for the audio file.
-    *
-    * @return string|null The artist
-    */
+     * Gets the artist
+     * The performing artist for the audio file.
+     *
+     * @return string|null The artist
+     */
     public function getArtist()
     {
         if (array_key_exists("artist", $this->_propDict)) {
@@ -96,26 +96,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the artist
-    * The performing artist for the audio file.
-    *
-    * @param string $val The value of the artist
-    *
-    * @return Audio
-    */
+     * Sets the artist
+     * The performing artist for the audio file.
+     *
+     * @param string $val The value of the artist
+     *
+     * @return Audio
+     */
     public function setArtist($val)
     {
         $this->_propDict["artist"] = $val;
         return $this;
     }
     /**
-    * Gets the bitrate
-    * Bitrate expressed in kbps.
-    *
-    * @return int|null The bitrate
-    */
+     * Gets the bitrate
+     * Bitrate expressed in kbps.
+     *
+     * @return int|null The bitrate
+     */
     public function getBitrate()
     {
         if (array_key_exists("bitrate", $this->_propDict)) {
@@ -124,26 +123,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bitrate
-    * Bitrate expressed in kbps.
-    *
-    * @param int $val The value of the bitrate
-    *
-    * @return Audio
-    */
+     * Sets the bitrate
+     * Bitrate expressed in kbps.
+     *
+     * @param int $val The value of the bitrate
+     *
+     * @return Audio
+     */
     public function setBitrate($val)
     {
         $this->_propDict["bitrate"] = $val;
         return $this;
     }
     /**
-    * Gets the composers
-    * The name of the composer of the audio file.
-    *
-    * @return string|null The composers
-    */
+     * Gets the composers
+     * The name of the composer of the audio file.
+     *
+     * @return string|null The composers
+     */
     public function getComposers()
     {
         if (array_key_exists("composers", $this->_propDict)) {
@@ -152,26 +150,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the composers
-    * The name of the composer of the audio file.
-    *
-    * @param string $val The value of the composers
-    *
-    * @return Audio
-    */
+     * Sets the composers
+     * The name of the composer of the audio file.
+     *
+     * @param string $val The value of the composers
+     *
+     * @return Audio
+     */
     public function setComposers($val)
     {
         $this->_propDict["composers"] = $val;
         return $this;
     }
     /**
-    * Gets the copyright
-    * Copyright information for the audio file.
-    *
-    * @return string|null The copyright
-    */
+     * Gets the copyright
+     * Copyright information for the audio file.
+     *
+     * @return string|null The copyright
+     */
     public function getCopyright()
     {
         if (array_key_exists("copyright", $this->_propDict)) {
@@ -180,26 +177,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the copyright
-    * Copyright information for the audio file.
-    *
-    * @param string $val The value of the copyright
-    *
-    * @return Audio
-    */
+     * Sets the copyright
+     * Copyright information for the audio file.
+     *
+     * @param string $val The value of the copyright
+     *
+     * @return Audio
+     */
     public function setCopyright($val)
     {
         $this->_propDict["copyright"] = $val;
         return $this;
     }
     /**
-    * Gets the disc
-    * The number of the disc this audio file came from.
-    *
-    * @return int|null The disc
-    */
+     * Gets the disc
+     * The number of the disc this audio file came from.
+     *
+     * @return int|null The disc
+     */
     public function getDisc()
     {
         if (array_key_exists("disc", $this->_propDict)) {
@@ -208,26 +204,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the disc
-    * The number of the disc this audio file came from.
-    *
-    * @param int $val The value of the disc
-    *
-    * @return Audio
-    */
+     * Sets the disc
+     * The number of the disc this audio file came from.
+     *
+     * @param int $val The value of the disc
+     *
+     * @return Audio
+     */
     public function setDisc($val)
     {
         $this->_propDict["disc"] = $val;
         return $this;
     }
     /**
-    * Gets the discCount
-    * The total number of discs in this album.
-    *
-    * @return int|null The discCount
-    */
+     * Gets the discCount
+     * The total number of discs in this album.
+     *
+     * @return int|null The discCount
+     */
     public function getDiscCount()
     {
         if (array_key_exists("discCount", $this->_propDict)) {
@@ -236,26 +231,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the discCount
-    * The total number of discs in this album.
-    *
-    * @param int $val The value of the discCount
-    *
-    * @return Audio
-    */
+     * Sets the discCount
+     * The total number of discs in this album.
+     *
+     * @param int $val The value of the discCount
+     *
+     * @return Audio
+     */
     public function setDiscCount($val)
     {
         $this->_propDict["discCount"] = $val;
         return $this;
     }
     /**
-    * Gets the duration
-    * Duration of the audio file, expressed in milliseconds
-    *
-    * @return int|null The duration
-    */
+     * Gets the duration
+     * Duration of the audio file, expressed in milliseconds
+     *
+     * @return int|null The duration
+     */
     public function getDuration()
     {
         if (array_key_exists("duration", $this->_propDict)) {
@@ -264,26 +258,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the duration
-    * Duration of the audio file, expressed in milliseconds
-    *
-    * @param int $val The value of the duration
-    *
-    * @return Audio
-    */
+     * Sets the duration
+     * Duration of the audio file, expressed in milliseconds
+     *
+     * @param int $val The value of the duration
+     *
+     * @return Audio
+     */
     public function setDuration($val)
     {
         $this->_propDict["duration"] = $val;
         return $this;
     }
     /**
-    * Gets the genre
-    * The genre of this audio file.
-    *
-    * @return string|null The genre
-    */
+     * Gets the genre
+     * The genre of this audio file.
+     *
+     * @return string|null The genre
+     */
     public function getGenre()
     {
         if (array_key_exists("genre", $this->_propDict)) {
@@ -292,26 +285,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the genre
-    * The genre of this audio file.
-    *
-    * @param string $val The value of the genre
-    *
-    * @return Audio
-    */
+     * Sets the genre
+     * The genre of this audio file.
+     *
+     * @param string $val The value of the genre
+     *
+     * @return Audio
+     */
     public function setGenre($val)
     {
         $this->_propDict["genre"] = $val;
         return $this;
     }
     /**
-    * Gets the hasDrm
-    * Indicates if the file is protected with digital rights management.
-    *
-    * @return bool|null The hasDrm
-    */
+     * Gets the hasDrm
+     * Indicates if the file is protected with digital rights management.
+     *
+     * @return bool|null The hasDrm
+     */
     public function getHasDrm()
     {
         if (array_key_exists("hasDrm", $this->_propDict)) {
@@ -320,26 +312,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hasDrm
-    * Indicates if the file is protected with digital rights management.
-    *
-    * @param bool $val The value of the hasDrm
-    *
-    * @return Audio
-    */
+     * Sets the hasDrm
+     * Indicates if the file is protected with digital rights management.
+     *
+     * @param bool $val The value of the hasDrm
+     *
+     * @return Audio
+     */
     public function setHasDrm($val)
     {
         $this->_propDict["hasDrm"] = $val;
         return $this;
     }
     /**
-    * Gets the isVariableBitrate
-    * Indicates if the file is encoded with a variable bitrate.
-    *
-    * @return bool|null The isVariableBitrate
-    */
+     * Gets the isVariableBitrate
+     * Indicates if the file is encoded with a variable bitrate.
+     *
+     * @return bool|null The isVariableBitrate
+     */
     public function getIsVariableBitrate()
     {
         if (array_key_exists("isVariableBitrate", $this->_propDict)) {
@@ -348,26 +339,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isVariableBitrate
-    * Indicates if the file is encoded with a variable bitrate.
-    *
-    * @param bool $val The value of the isVariableBitrate
-    *
-    * @return Audio
-    */
+     * Sets the isVariableBitrate
+     * Indicates if the file is encoded with a variable bitrate.
+     *
+     * @param bool $val The value of the isVariableBitrate
+     *
+     * @return Audio
+     */
     public function setIsVariableBitrate($val)
     {
         $this->_propDict["isVariableBitrate"] = $val;
         return $this;
     }
     /**
-    * Gets the title
-    * The title of the audio file.
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * The title of the audio file.
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -376,26 +366,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * The title of the audio file.
-    *
-    * @param string $val The value of the title
-    *
-    * @return Audio
-    */
+     * Sets the title
+     * The title of the audio file.
+     *
+     * @param string $val The value of the title
+     *
+     * @return Audio
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;
         return $this;
     }
     /**
-    * Gets the track
-    * The number of the track on the original disc for this audio file.
-    *
-    * @return int|null The track
-    */
+     * Gets the track
+     * The number of the track on the original disc for this audio file.
+     *
+     * @return int|null The track
+     */
     public function getTrack()
     {
         if (array_key_exists("track", $this->_propDict)) {
@@ -404,26 +393,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the track
-    * The number of the track on the original disc for this audio file.
-    *
-    * @param int $val The value of the track
-    *
-    * @return Audio
-    */
+     * Sets the track
+     * The number of the track on the original disc for this audio file.
+     *
+     * @param int $val The value of the track
+     *
+     * @return Audio
+     */
     public function setTrack($val)
     {
         $this->_propDict["track"] = $val;
         return $this;
     }
     /**
-    * Gets the trackCount
-    * The total number of tracks on the original disc for this audio file.
-    *
-    * @return int|null The trackCount
-    */
+     * Gets the trackCount
+     * The total number of tracks on the original disc for this audio file.
+     *
+     * @return int|null The trackCount
+     */
     public function getTrackCount()
     {
         if (array_key_exists("trackCount", $this->_propDict)) {
@@ -432,26 +420,25 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the trackCount
-    * The total number of tracks on the original disc for this audio file.
-    *
-    * @param int $val The value of the trackCount
-    *
-    * @return Audio
-    */
+     * Sets the trackCount
+     * The total number of tracks on the original disc for this audio file.
+     *
+     * @param int $val The value of the trackCount
+     *
+     * @return Audio
+     */
     public function setTrackCount($val)
     {
         $this->_propDict["trackCount"] = $val;
         return $this;
     }
     /**
-    * Gets the year
-    * The year the audio file was recorded.
-    *
-    * @return int|null The year
-    */
+     * Gets the year
+     * The year the audio file was recorded.
+     *
+     * @return int|null The year
+     */
     public function getYear()
     {
         if (array_key_exists("year", $this->_propDict)) {
@@ -460,15 +447,14 @@ class Audio extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the year
-    * The year the audio file was recorded.
-    *
-    * @param int $val The value of the year
-    *
-    * @return Audio
-    */
+     * Sets the year
+     * The year the audio file was recorded.
+     *
+     * @param int $val The value of the year
+     *
+     * @return Audio
+     */
     public function setYear($val)
     {
         $this->_propDict["year"] = $val;

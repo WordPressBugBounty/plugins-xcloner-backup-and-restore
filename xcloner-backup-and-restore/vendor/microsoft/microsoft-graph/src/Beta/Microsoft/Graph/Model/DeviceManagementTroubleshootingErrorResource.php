@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementTroubleshootingErrorResource class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementTroubleshootingErrorResource extends Entity
 {
     /**
-    * Gets the link
-    * The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
-    *
-    * @return string|null The link
-    */
+     * Gets the link
+     * The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
+     *
+     * @return string|null The link
+     */
     public function getLink()
     {
         if (array_key_exists("link", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementTroubleshootingErrorResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the link
-    * The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
-    *
-    * @param string $val The value of the link
-    *
-    * @return DeviceManagementTroubleshootingErrorResource
-    */
+     * Sets the link
+     * The link to the web resource. Can contain any of the following formatters: {{UPN}}, {{DeviceGUID}}, {{UserGUID}}
+     *
+     * @param string $val The value of the link
+     *
+     * @return DeviceManagementTroubleshootingErrorResource
+     */
     public function setLink($val)
     {
         $this->_propDict["link"] = $val;
         return $this;
     }
     /**
-    * Gets the text
-    * Not yet documented
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     * Not yet documented
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DeviceManagementTroubleshootingErrorResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the text
-    * Not yet documented
-    *
-    * @param string $val The value of the text
-    *
-    * @return DeviceManagementTroubleshootingErrorResource
-    */
+     * Sets the text
+     * Not yet documented
+     *
+     * @param string $val The value of the text
+     *
+     * @return DeviceManagementTroubleshootingErrorResource
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;

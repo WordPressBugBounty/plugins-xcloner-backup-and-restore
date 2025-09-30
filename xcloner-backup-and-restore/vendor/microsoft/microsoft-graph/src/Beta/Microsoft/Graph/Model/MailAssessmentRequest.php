@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MailAssessmentRequest class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MailAssessmentRequest extends ThreatAssessmentRequest
 {
     /**
-    * Gets the destinationRoutingReason
-    * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
-    *
-    * @return MailDestinationRoutingReason|null The destinationRoutingReason
-    */
+     * Gets the destinationRoutingReason
+     * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
+     *
+     * @return MailDestinationRoutingReason|null The destinationRoutingReason
+     */
     public function getDestinationRoutingReason()
     {
         if (array_key_exists("destinationRoutingReason", $this->_propDict)) {
-            if (is_a($this->_propDict["destinationRoutingReason"], "\Beta\Microsoft\Graph\Model\MailDestinationRoutingReason") || is_null($this->_propDict["destinationRoutingReason"])) {
+            if (is_a($this->_propDict["destinationRoutingReason"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MailDestinationRoutingReason") || is_null($this->_propDict["destinationRoutingReason"])) {
                 return $this->_propDict["destinationRoutingReason"];
             } else {
                 $this->_propDict["destinationRoutingReason"] = new MailDestinationRoutingReason($this->_propDict["destinationRoutingReason"]);
@@ -45,27 +46,25 @@ class MailAssessmentRequest extends ThreatAssessmentRequest
         }
         return null;
     }
-
     /**
-    * Sets the destinationRoutingReason
-    * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
-    *
-    * @param MailDestinationRoutingReason $val The destinationRoutingReason
-    *
-    * @return MailAssessmentRequest
-    */
+     * Sets the destinationRoutingReason
+     * The reason for mail routed to its destination. Possible values are: none, mailFlowRule, safeSender, blockedSender, advancedSpamFiltering, domainAllowList, domainBlockList, notInAddressBook, firstTimeSender, autoPurgeToInbox, autoPurgeToJunk, autoPurgeToDeleted, outbound, notJunk, junk.
+     *
+     * @param MailDestinationRoutingReason $val The destinationRoutingReason
+     *
+     * @return MailAssessmentRequest
+     */
     public function setDestinationRoutingReason($val)
     {
         $this->_propDict["destinationRoutingReason"] = $val;
         return $this;
     }
-
     /**
-    * Gets the messageUri
-    * The resource URI of the mail message for assessment.
-    *
-    * @return string|null The messageUri
-    */
+     * Gets the messageUri
+     * The resource URI of the mail message for assessment.
+     *
+     * @return string|null The messageUri
+     */
     public function getMessageUri()
     {
         if (array_key_exists("messageUri", $this->_propDict)) {
@@ -74,27 +73,25 @@ class MailAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-
     /**
-    * Sets the messageUri
-    * The resource URI of the mail message for assessment.
-    *
-    * @param string $val The messageUri
-    *
-    * @return MailAssessmentRequest
-    */
+     * Sets the messageUri
+     * The resource URI of the mail message for assessment.
+     *
+     * @param string $val The messageUri
+     *
+     * @return MailAssessmentRequest
+     */
     public function setMessageUri($val)
     {
         $this->_propDict["messageUri"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recipientEmail
-    * The mail recipient whose policies are used to assess the mail.
-    *
-    * @return string|null The recipientEmail
-    */
+     * Gets the recipientEmail
+     * The mail recipient whose policies are used to assess the mail.
+     *
+     * @return string|null The recipientEmail
+     */
     public function getRecipientEmail()
     {
         if (array_key_exists("recipientEmail", $this->_propDict)) {
@@ -103,19 +100,17 @@ class MailAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-
     /**
-    * Sets the recipientEmail
-    * The mail recipient whose policies are used to assess the mail.
-    *
-    * @param string $val The recipientEmail
-    *
-    * @return MailAssessmentRequest
-    */
+     * Sets the recipientEmail
+     * The mail recipient whose policies are used to assess the mail.
+     *
+     * @param string $val The recipientEmail
+     *
+     * @return MailAssessmentRequest
+     */
     public function setRecipientEmail($val)
     {
         $this->_propDict["recipientEmail"] = $val;
         return $this;
     }
-
 }

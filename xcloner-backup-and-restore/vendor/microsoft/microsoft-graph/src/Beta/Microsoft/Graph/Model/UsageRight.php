@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UsageRight class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UsageRight extends Entity
 {
     /**
-    * Gets the catalogId
-    * Product id corresponding to the usage right.
-    *
-    * @return string|null The catalogId
-    */
+     * Gets the catalogId
+     * Product id corresponding to the usage right.
+     *
+     * @return string|null The catalogId
+     */
     public function getCatalogId()
     {
         if (array_key_exists("catalogId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UsageRight extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the catalogId
-    * Product id corresponding to the usage right.
-    *
-    * @param string $val The catalogId
-    *
-    * @return UsageRight
-    */
+     * Sets the catalogId
+     * Product id corresponding to the usage right.
+     *
+     * @param string $val The catalogId
+     *
+     * @return UsageRight
+     */
     public function setCatalogId($val)
     {
         $this->_propDict["catalogId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the serviceIdentifier
-    * Identifier of the service corresponding to the usage right.
-    *
-    * @return string|null The serviceIdentifier
-    */
+     * Gets the serviceIdentifier
+     * Identifier of the service corresponding to the usage right.
+     *
+     * @return string|null The serviceIdentifier
+     */
     public function getServiceIdentifier()
     {
         if (array_key_exists("serviceIdentifier", $this->_propDict)) {
@@ -70,31 +69,29 @@ class UsageRight extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the serviceIdentifier
-    * Identifier of the service corresponding to the usage right.
-    *
-    * @param string $val The serviceIdentifier
-    *
-    * @return UsageRight
-    */
+     * Sets the serviceIdentifier
+     * Identifier of the service corresponding to the usage right.
+     *
+     * @param string $val The serviceIdentifier
+     *
+     * @return UsageRight
+     */
     public function setServiceIdentifier($val)
     {
         $this->_propDict["serviceIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The state of the usage right. Possible values are: active, inactive, warning, suspended.
-    *
-    * @return UsageRightState|null The state
-    */
+     * Gets the state
+     * The state of the usage right. Possible values are: active, inactive, warning, suspended.
+     *
+     * @return UsageRightState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\UsageRightState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\UsageRightState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new UsageRightState($this->_propDict["state"]);
@@ -103,19 +100,17 @@ class UsageRight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The state of the usage right. Possible values are: active, inactive, warning, suspended.
-    *
-    * @param UsageRightState $val The state
-    *
-    * @return UsageRight
-    */
+     * Sets the state
+     * The state of the usage right. Possible values are: active, inactive, warning, suspended.
+     *
+     * @param UsageRightState $val The state
+     *
+     * @return UsageRight
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
 }

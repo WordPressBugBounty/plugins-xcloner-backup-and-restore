@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccountAlias class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccountAlias extends Entity
 {
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -39,24 +41,23 @@ class AccountAlias extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return AccountAlias
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return AccountAlias
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the idType
-    *
-    * @return string|null The idType
-    */
+     * Gets the idType
+     *
+     * @return string|null The idType
+     */
     public function getIdType()
     {
         if (array_key_exists("idType", $this->_propDict)) {
@@ -65,14 +66,13 @@ class AccountAlias extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the idType
-    *
-    * @param string $val The value of the idType
-    *
-    * @return AccountAlias
-    */
+     * Sets the idType
+     *
+     * @param string $val The value of the idType
+     *
+     * @return AccountAlias
+     */
     public function setIdType($val)
     {
         $this->_propDict["idType"] = $val;

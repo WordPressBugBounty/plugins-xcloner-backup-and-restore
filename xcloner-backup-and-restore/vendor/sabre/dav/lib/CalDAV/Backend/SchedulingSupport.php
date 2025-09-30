@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Backend;
 
-namespace Sabre\CalDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Implementing this interface adds CalDAV Scheduling support to your caldav
  * server, as defined in rfc6638.
@@ -35,7 +34,6 @@ interface SchedulingSupport extends BackendInterface
      * @return array
      */
     public function getSchedulingObject($principalUri, $objectUri);
-
     /**
      * Returns all scheduling objects for the inbox collection.
      *
@@ -49,7 +47,6 @@ interface SchedulingSupport extends BackendInterface
      * @return array
      */
     public function getSchedulingObjects($principalUri);
-
     /**
      * Deletes a scheduling object from the inbox collection.
      *
@@ -57,7 +54,6 @@ interface SchedulingSupport extends BackendInterface
      * @param string $objectUri
      */
     public function deleteSchedulingObject($principalUri, $objectUri);
-
     /**
      * Creates a new scheduling object. This should land in a users' inbox.
      *

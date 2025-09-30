@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileLobApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileLobApp extends MobileApp
 {
     /**
-    * Gets the committedContentVersion
-    * The internal committed content version.
-    *
-    * @return string|null The committedContentVersion
-    */
+     * Gets the committedContentVersion
+     * The internal committed content version.
+     *
+     * @return string|null The committedContentVersion
+     */
     public function getCommittedContentVersion()
     {
         if (array_key_exists("committedContentVersion", $this->_propDict)) {
@@ -41,27 +42,25 @@ class MobileLobApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the committedContentVersion
-    * The internal committed content version.
-    *
-    * @param string $val The committedContentVersion
-    *
-    * @return MobileLobApp
-    */
+     * Sets the committedContentVersion
+     * The internal committed content version.
+     *
+     * @param string $val The committedContentVersion
+     *
+     * @return MobileLobApp
+     */
     public function setCommittedContentVersion($val)
     {
         $this->_propDict["committedContentVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fileName
-    * The name of the main Lob application file.
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * The name of the main Lob application file.
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class MobileLobApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * The name of the main Lob application file.
-    *
-    * @param string $val The fileName
-    *
-    * @return MobileLobApp
-    */
+     * Sets the fileName
+     * The name of the main Lob application file.
+     *
+     * @param string $val The fileName
+     *
+     * @return MobileLobApp
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the size
-    * The total size, including all uploaded files.
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     * The total size, including all uploaded files.
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -99,49 +96,44 @@ class MobileLobApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the size
-    * The total size, including all uploaded files.
-    *
-    * @param int $val The size
-    *
-    * @return MobileLobApp
-    */
+     * Sets the size
+     * The total size, including all uploaded files.
+     *
+     * @param int $val The size
+     *
+     * @return MobileLobApp
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the contentVersions
-    * The list of content versions for this app.
+     * The list of content versions for this app.
      *
      * @return array|null The contentVersions
      */
     public function getContentVersions()
     {
         if (array_key_exists("contentVersions", $this->_propDict)) {
-           return $this->_propDict["contentVersions"];
+            return $this->_propDict["contentVersions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the contentVersions
-    * The list of content versions for this app.
-    *
-    * @param MobileAppContent[] $val The contentVersions
-    *
-    * @return MobileLobApp
-    */
+     * Sets the contentVersions
+     * The list of content versions for this app.
+     *
+     * @param MobileAppContent[] $val The contentVersions
+     *
+     * @return MobileLobApp
+     */
     public function setContentVersions($val)
     {
         $this->_propDict["contentVersions"] = $val;
         return $this;
     }
-
 }

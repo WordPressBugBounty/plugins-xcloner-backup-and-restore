@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ActionResultPart class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ActionResultPart extends Entity
 {
-
     /**
-    * Gets the error
-    * The error that occurred, if any, during the course of the bulk operation.
-    *
-    * @return PublicError|null The error
-    */
+     * Gets the error
+     * The error that occurred, if any, during the course of the bulk operation.
+     *
+     * @return PublicError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Microsoft\\Graph\\Model\\PublicError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new PublicError($this->_propDict["error"]);
@@ -45,18 +46,17 @@ class ActionResultPart extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the error
-    * The error that occurred, if any, during the course of the bulk operation.
-    *
-    * @param PublicError $val The value to assign to the error
-    *
-    * @return ActionResultPart The ActionResultPart
-    */
+     * Sets the error
+     * The error that occurred, if any, during the course of the bulk operation.
+     *
+     * @param PublicError $val The value to assign to the error
+     *
+     * @return ActionResultPart The ActionResultPart
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
-         return $this;
+        return $this;
     }
 }

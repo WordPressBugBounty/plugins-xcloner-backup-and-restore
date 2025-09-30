@@ -1,65 +1,64 @@
 <?php
 
+namespace XCloner\As247\CloudStorages\Support;
 
-namespace As247\CloudStorages\Support;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-
-use As247\CloudStorages\Exception\PathOutsideRootException;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\As247\CloudStorages\Exception\PathOutsideRootException;
 use LogicException;
-
 class Path
 {
-	/**
-	 * Clean the path
-	 * ./a/b/d/..//c.txt will return /a/b/c.txt
-	 * @param $path
-	 * @return string
-	 */
-	public static function clean($path){
-		return static::cleanPath($path);
-	}
-	public static function countSegments($path){
-		return static::cleanPath($path,'count');
-	}
-
-	/**
-	 * Explode path
-	 * /a/b/c.txt will return ['/','a','b','c.txt']
-	 * @param $path
-	 * @return array
-	 */
-	public static function explode($path){
-		return static::cleanPath($path,'array');
-	}
-	protected static function cleanPath($path,$return='string'){
-        if(is_array($path)){
-            $path=join('/',$path);
+    /**
+     * Clean the path
+     * ./a/b/d/..//c.txt will return /a/b/c.txt
+     * @param $path
+     * @return string
+     */
+    public static function clean($path)
+    {
+        return static::cleanPath($path);
+    }
+    public static function countSegments($path)
+    {
+        return static::cleanPath($path, 'count');
+    }
+    /**
+     * Explode path
+     * /a/b/c.txt will return ['/','a','b','c.txt']
+     * @param $path
+     * @return array
+     */
+    public static function explode($path)
+    {
+        return static::cleanPath($path, 'array');
+    }
+    protected static function cleanPath($path, $return = 'string')
+    {
+        if (is_array($path)) {
+            $path = join('/', $path);
         }
-        if(!is_string($path)){
-        	$path=(string)$path;
-		}
-		$path=static::normalizeRelativePath($path);
-		if($return==='string'){
-			$path='/'.join('/',$path);
-		}elseif($return==='count'){
-			return count($path);
-		}else{
-		    array_unshift($path,'/');
+        if (!is_string($path)) {
+            $path = (string) $path;
         }
-		return $path;
-	}
-	public static function replace($search, $replace, $subject){
-		$pos = strpos($subject, $search);
-		if ($pos === 0) {
-			$subject = substr_replace($subject, $replace, $pos, strlen($search));
-		}
-		return $subject;
-	}
-
-
+        $path = static::normalizeRelativePath($path);
+        if ($return === 'string') {
+            $path = '/' . join('/', $path);
+        } elseif ($return === 'count') {
+            return count($path);
+        } else {
+            array_unshift($path, '/');
+        }
+        return $path;
+    }
+    public static function replace($search, $replace, $subject)
+    {
+        $pos = strpos($subject, $search);
+        if ($pos === 0) {
+            $subject = substr_replace($subject, $replace, $pos, strlen($search));
+        }
+        return $subject;
+    }
     /**
      * Normalize relative directories in a path.
      *
@@ -73,38 +72,32 @@ class Path
     {
         $path = str_replace('\\', '/', $path);
         $path = static::removeFunkyWhiteSpace($path);
-
         $parts = [];
-
         foreach (explode('/', $path) as $part) {
             switch ($part) {
                 case '':
                 case '.':
                     break;
-
                 case '..':
                     if (empty($parts)) {
                         throw PathOutsideRootException::atLocation($path);
                     }
                     array_pop($parts);
                     break;
-
                 default:
                     $parts[] = $part;
                     break;
             }
         }
-
         return $parts;
     }
-
-	/**
-	 * Removes unprintable characters and invalid unicode characters.
-	 *
-	 * @param string $path
-	 *
-	 * @return string $path
-	 */
+    /**
+     * Removes unprintable characters and invalid unicode characters.
+     *
+     * @param string $path
+     *
+     * @return string $path
+     */
     protected static function removeFunkyWhiteSpace(string $path)
     {
         // We do this check in a loop, since removing invalid unicode characters
@@ -112,7 +105,6 @@ class Path
         while (preg_match('#\p{C}+|^\./#u', $path)) {
             $path = preg_replace('#\p{C}+|^\./#u', '', $path);
         }
-
         return $path;
     }
 }

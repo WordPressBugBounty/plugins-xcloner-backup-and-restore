@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\CallRecords\Model;
+namespace XCloner\Microsoft\Graph\CallRecords\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Segment class
 *
@@ -25,18 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Segment extends \Microsoft\Graph\Model\Entity
+class Segment extends \XCloner\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the callee
-    * Endpoint that answered this segment.
-    *
-    * @return Endpoint|null The callee
-    */
+     * Gets the callee
+     * Endpoint that answered this segment.
+     *
+     * @return Endpoint|null The callee
+     */
     public function getCallee()
     {
         if (array_key_exists("callee", $this->_propDict)) {
-            if (is_a($this->_propDict["callee"], "\Microsoft\Graph\CallRecords\Model\Endpoint") || is_null($this->_propDict["callee"])) {
+            if (is_a($this->_propDict["callee"], "XCloner\\Microsoft\\Graph\\CallRecords\\Model\\Endpoint") || is_null($this->_propDict["callee"])) {
                 return $this->_propDict["callee"];
             } else {
                 $this->_propDict["callee"] = new Endpoint($this->_propDict["callee"]);
@@ -45,31 +46,29 @@ class Segment extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the callee
-    * Endpoint that answered this segment.
-    *
-    * @param Endpoint $val The callee
-    *
-    * @return Segment
-    */
+     * Sets the callee
+     * Endpoint that answered this segment.
+     *
+     * @param Endpoint $val The callee
+     *
+     * @return Segment
+     */
     public function setCallee($val)
     {
         $this->_propDict["callee"] = $val;
         return $this;
     }
-
     /**
-    * Gets the caller
-    * Endpoint that initiated this segment.
-    *
-    * @return Endpoint|null The caller
-    */
+     * Gets the caller
+     * Endpoint that initiated this segment.
+     *
+     * @return Endpoint|null The caller
+     */
     public function getCaller()
     {
         if (array_key_exists("caller", $this->_propDict)) {
-            if (is_a($this->_propDict["caller"], "\Microsoft\Graph\CallRecords\Model\Endpoint") || is_null($this->_propDict["caller"])) {
+            if (is_a($this->_propDict["caller"], "XCloner\\Microsoft\\Graph\\CallRecords\\Model\\Endpoint") || is_null($this->_propDict["caller"])) {
                 return $this->_propDict["caller"];
             } else {
                 $this->_propDict["caller"] = new Endpoint($this->_propDict["caller"]);
@@ -78,31 +77,29 @@ class Segment extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the caller
-    * Endpoint that initiated this segment.
-    *
-    * @param Endpoint $val The caller
-    *
-    * @return Segment
-    */
+     * Sets the caller
+     * Endpoint that initiated this segment.
+     *
+     * @param Endpoint $val The caller
+     *
+     * @return Segment
+     */
     public function setCaller($val)
     {
         $this->_propDict["caller"] = $val;
         return $this;
     }
-
     /**
-    * Gets the endDateTime
-    * UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The endDateTime
-    */
+     * Gets the endDateTime
+     * UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The endDateTime
+     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -111,31 +108,29 @@ class Segment extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDateTime
-    * UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The endDateTime
-    *
-    * @return Segment
-    */
+     * Sets the endDateTime
+     * UTC time when the segment ended. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The endDateTime
+     *
+     * @return Segment
+     */
     public function setEndDateTime($val)
     {
         $this->_propDict["endDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the failureInfo
-    * Failure information associated with the segment if it failed.
-    *
-    * @return FailureInfo|null The failureInfo
-    */
+     * Gets the failureInfo
+     * Failure information associated with the segment if it failed.
+     *
+     * @return FailureInfo|null The failureInfo
+     */
     public function getFailureInfo()
     {
         if (array_key_exists("failureInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["failureInfo"], "\Microsoft\Graph\CallRecords\Model\FailureInfo") || is_null($this->_propDict["failureInfo"])) {
+            if (is_a($this->_propDict["failureInfo"], "XCloner\\Microsoft\\Graph\\CallRecords\\Model\\FailureInfo") || is_null($this->_propDict["failureInfo"])) {
                 return $this->_propDict["failureInfo"];
             } else {
                 $this->_propDict["failureInfo"] = new FailureInfo($this->_propDict["failureInfo"]);
@@ -144,61 +139,56 @@ class Segment extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the failureInfo
-    * Failure information associated with the segment if it failed.
-    *
-    * @param FailureInfo $val The failureInfo
-    *
-    * @return Segment
-    */
+     * Sets the failureInfo
+     * Failure information associated with the segment if it failed.
+     *
+     * @param FailureInfo $val The failureInfo
+     *
+     * @return Segment
+     */
     public function setFailureInfo($val)
     {
         $this->_propDict["failureInfo"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the media
-    * Media associated with this segment.
+     * Media associated with this segment.
      *
      * @return array|null The media
      */
     public function getMedia()
     {
         if (array_key_exists("media", $this->_propDict)) {
-           return $this->_propDict["media"];
+            return $this->_propDict["media"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the media
-    * Media associated with this segment.
-    *
-    * @param Media[] $val The media
-    *
-    * @return Segment
-    */
+     * Sets the media
+     * Media associated with this segment.
+     *
+     * @param Media[] $val The media
+     *
+     * @return Segment
+     */
     public function setMedia($val)
     {
         $this->_propDict["media"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -207,19 +197,17 @@ class Segment extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The startDateTime
-    *
-    * @return Segment
-    */
+     * Sets the startDateTime
+     * UTC time when the segment started. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The startDateTime
+     *
+     * @return Segment
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
         return $this;
     }
-
 }

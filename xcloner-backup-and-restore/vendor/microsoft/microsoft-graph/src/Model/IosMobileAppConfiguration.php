@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosMobileAppConfiguration class
 *
@@ -28,66 +29,61 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosMobileAppConfiguration extends ManagedDeviceMobileAppConfiguration
 {
     /**
-    * Gets the encodedSettingXml
-    * mdm app configuration Base64 binary.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The encodedSettingXml
-    */
+     * Gets the encodedSettingXml
+     * mdm app configuration Base64 binary.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The encodedSettingXml
+     */
     public function getEncodedSettingXml()
     {
         if (array_key_exists("encodedSettingXml", $this->_propDict)) {
-            if (is_a($this->_propDict["encodedSettingXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["encodedSettingXml"])) {
+            if (is_a($this->_propDict["encodedSettingXml"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["encodedSettingXml"])) {
                 return $this->_propDict["encodedSettingXml"];
             } else {
-                $this->_propDict["encodedSettingXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["encodedSettingXml"]);
+                $this->_propDict["encodedSettingXml"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["encodedSettingXml"]);
                 return $this->_propDict["encodedSettingXml"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the encodedSettingXml
-    * mdm app configuration Base64 binary.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The encodedSettingXml
-    *
-    * @return IosMobileAppConfiguration
-    */
+     * Sets the encodedSettingXml
+     * mdm app configuration Base64 binary.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The encodedSettingXml
+     *
+     * @return IosMobileAppConfiguration
+     */
     public function setEncodedSettingXml($val)
     {
         $this->_propDict["encodedSettingXml"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the settings
-    * app configuration setting items.
+     * app configuration setting items.
      *
      * @return array|null The settings
      */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-           return $this->_propDict["settings"];
+            return $this->_propDict["settings"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the settings
-    * app configuration setting items.
-    *
-    * @param AppConfigurationSettingItem[] $val The settings
-    *
-    * @return IosMobileAppConfiguration
-    */
+     * Sets the settings
+     * app configuration setting items.
+     *
+     * @param AppConfigurationSettingItem[] $val The settings
+     *
+     * @return IosMobileAppConfiguration
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

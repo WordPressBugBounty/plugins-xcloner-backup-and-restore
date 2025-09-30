@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupLifecyclePolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupLifecyclePolicy extends Entity
 {
     /**
-    * Gets the alternateNotificationEmails
-    * List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
-    *
-    * @return string|null The alternateNotificationEmails
-    */
+     * Gets the alternateNotificationEmails
+     * List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
+     *
+     * @return string|null The alternateNotificationEmails
+     */
     public function getAlternateNotificationEmails()
     {
         if (array_key_exists("alternateNotificationEmails", $this->_propDict)) {
@@ -41,27 +42,25 @@ class GroupLifecyclePolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the alternateNotificationEmails
-    * List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
-    *
-    * @param string $val The alternateNotificationEmails
-    *
-    * @return GroupLifecyclePolicy
-    */
+     * Sets the alternateNotificationEmails
+     * List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.
+     *
+     * @param string $val The alternateNotificationEmails
+     *
+     * @return GroupLifecyclePolicy
+     */
     public function setAlternateNotificationEmails($val)
     {
         $this->_propDict["alternateNotificationEmails"] = $val;
         return $this;
     }
-
     /**
-    * Gets the groupLifetimeInDays
-    * Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
-    *
-    * @return int|null The groupLifetimeInDays
-    */
+     * Gets the groupLifetimeInDays
+     * Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
+     *
+     * @return int|null The groupLifetimeInDays
+     */
     public function getGroupLifetimeInDays()
     {
         if (array_key_exists("groupLifetimeInDays", $this->_propDict)) {
@@ -70,27 +69,25 @@ class GroupLifecyclePolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the groupLifetimeInDays
-    * Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
-    *
-    * @param int $val The groupLifetimeInDays
-    *
-    * @return GroupLifecyclePolicy
-    */
+     * Sets the groupLifetimeInDays
+     * Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.
+     *
+     * @param int $val The groupLifetimeInDays
+     *
+     * @return GroupLifecyclePolicy
+     */
     public function setGroupLifetimeInDays($val)
     {
         $this->_propDict["groupLifetimeInDays"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the managedGroupTypes
-    * The group type for which the expiration policy applies. Possible values are All, Selected or None.
-    *
-    * @return string|null The managedGroupTypes
-    */
+     * Gets the managedGroupTypes
+     * The group type for which the expiration policy applies. Possible values are All, Selected or None.
+     *
+     * @return string|null The managedGroupTypes
+     */
     public function getManagedGroupTypes()
     {
         if (array_key_exists("managedGroupTypes", $this->_propDict)) {
@@ -99,19 +96,17 @@ class GroupLifecyclePolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedGroupTypes
-    * The group type for which the expiration policy applies. Possible values are All, Selected or None.
-    *
-    * @param string $val The managedGroupTypes
-    *
-    * @return GroupLifecyclePolicy
-    */
+     * Sets the managedGroupTypes
+     * The group type for which the expiration policy applies. Possible values are All, Selected or None.
+     *
+     * @param string $val The managedGroupTypes
+     *
+     * @return GroupLifecyclePolicy
+     */
     public function setManagedGroupTypes($val)
     {
         $this->_propDict["managedGroupTypes"] = $val;
         return $this;
     }
-
 }

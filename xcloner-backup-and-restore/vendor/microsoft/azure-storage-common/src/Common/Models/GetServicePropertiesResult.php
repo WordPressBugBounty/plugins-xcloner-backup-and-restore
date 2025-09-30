@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Result from calling GetServiceProperties REST wrapper.
  *
@@ -40,7 +39,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GetServicePropertiesResult
 {
     private $_serviceProperties;
-
     /**
      * Creates object from $parsedResponse.
      *
@@ -53,10 +51,8 @@ class GetServicePropertiesResult
     {
         $result = new GetServicePropertiesResult();
         $result->setValue(ServiceProperties::create($parsedResponse));
-
         return $result;
     }
-
     /**
      * Gets service properties object.
      *
@@ -66,7 +62,6 @@ class GetServicePropertiesResult
     {
         return $this->_serviceProperties;
     }
-
     /**
      * Sets service properties object.
      *

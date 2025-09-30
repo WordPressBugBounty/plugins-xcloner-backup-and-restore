@@ -1,23 +1,20 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Serializer;
 
-namespace Sabre\Xml\Serializer;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use InvalidArgumentException;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * This file provides a number of 'serializer' helper functions.
  *
  * These helper functions can be used to easily xml-encode common PHP
  * data structures, or can be placed in the $classMap.
  */
-
 /**
  * The 'enum' serializer writes simple list of elements.
  *
@@ -47,7 +44,6 @@ function enum(Writer $writer, array $values)
         $writer->writeElement($value);
     }
 }
-
 /**
  * The valueObject serializer turns a simple PHP object into a classname.
  *
@@ -66,14 +62,13 @@ function valueObject(Writer $writer, $valueObject, string $namespace)
             // If $val is an array, it has a special meaning. We need to
             // generate one child element for each item in $val
             foreach ($val as $child) {
-                $writer->writeElement('{'.$namespace.'}'.$key, $child);
+                $writer->writeElement('{' . $namespace . '}' . $key, $child);
             }
         } elseif (null !== $val) {
-            $writer->writeElement('{'.$namespace.'}'.$key, $val);
+            $writer->writeElement('{' . $namespace . '}' . $key, $val);
         }
     }
 }
-
 /**
  * This serializer helps you serialize xml structures that look like
  * this:.
@@ -95,7 +90,6 @@ function repeatingElements(Writer $writer, array $items, string $childElementNam
         $writer->writeElement($childElementName, $item);
     }
 }
-
 /**
  * This function is the 'default' serializer that is able to serialize most
  * things, and delegates to other serializers if needed.
@@ -170,11 +164,9 @@ function standardSerializer(Writer $writer, $value)
     } elseif (is_array($value) && array_key_exists('name', $value)) {
         // if the array had a 'name' element, we assume that this array
         // describes a 'name' and optionally 'attributes' and 'value'.
-
         $name = $value['name'];
         $attributes = isset($value['attributes']) ? $value['attributes'] : [];
         $value = isset($value['value']) ? $value['value'] : null;
-
         $writer->startElement($name);
         $writer->writeAttributes($attributes);
         $writer->write($value);
@@ -200,12 +192,12 @@ function standardSerializer(Writer $writer, $value)
                 $writer->write($item);
                 $writer->endElement();
             } else {
-                throw new InvalidArgumentException('The writer does not know how to serialize arrays with keys of type: '.gettype($name));
+                throw new InvalidArgumentException('The writer does not know how to serialize arrays with keys of type: ' . gettype($name));
             }
         }
     } elseif (is_object($value)) {
-        throw new InvalidArgumentException('The writer cannot serialize objects of class: '.get_class($value));
+        throw new InvalidArgumentException('The writer cannot serialize objects of class: ' . get_class($value));
     } elseif (!is_null($value)) {
-        throw new InvalidArgumentException('The writer cannot serialize values of type: '.gettype($value));
+        throw new InvalidArgumentException('The writer cannot serialize values of type: ' . gettype($value));
     }
 }

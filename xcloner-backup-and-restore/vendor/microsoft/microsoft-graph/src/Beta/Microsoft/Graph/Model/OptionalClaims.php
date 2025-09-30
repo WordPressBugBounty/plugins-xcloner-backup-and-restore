@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OptionalClaims class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OptionalClaims extends Entity
 {
-
     /**
-    * Gets the accessToken
-    * The optional claims returned in the JWT access token.
-    *
-    * @return OptionalClaim|null The accessToken
-    */
+     * Gets the accessToken
+     * The optional claims returned in the JWT access token.
+     *
+     * @return OptionalClaim|null The accessToken
+     */
     public function getAccessToken()
     {
         if (array_key_exists("accessToken", $this->_propDict)) {
-            if (is_a($this->_propDict["accessToken"], "\Beta\Microsoft\Graph\Model\OptionalClaim") || is_null($this->_propDict["accessToken"])) {
+            if (is_a($this->_propDict["accessToken"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OptionalClaim") || is_null($this->_propDict["accessToken"])) {
                 return $this->_propDict["accessToken"];
             } else {
                 $this->_propDict["accessToken"] = new OptionalClaim($this->_propDict["accessToken"]);
@@ -45,31 +46,29 @@ class OptionalClaims extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the accessToken
-    * The optional claims returned in the JWT access token.
-    *
-    * @param OptionalClaim $val The value to assign to the accessToken
-    *
-    * @return OptionalClaims The OptionalClaims
-    */
+     * Sets the accessToken
+     * The optional claims returned in the JWT access token.
+     *
+     * @param OptionalClaim $val The value to assign to the accessToken
+     *
+     * @return OptionalClaims The OptionalClaims
+     */
     public function setAccessToken($val)
     {
         $this->_propDict["accessToken"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the idToken
-    * The optional claims returned in the JWT ID token.
-    *
-    * @return OptionalClaim|null The idToken
-    */
+     * Gets the idToken
+     * The optional claims returned in the JWT ID token.
+     *
+     * @return OptionalClaim|null The idToken
+     */
     public function getIdToken()
     {
         if (array_key_exists("idToken", $this->_propDict)) {
-            if (is_a($this->_propDict["idToken"], "\Beta\Microsoft\Graph\Model\OptionalClaim") || is_null($this->_propDict["idToken"])) {
+            if (is_a($this->_propDict["idToken"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OptionalClaim") || is_null($this->_propDict["idToken"])) {
                 return $this->_propDict["idToken"];
             } else {
                 $this->_propDict["idToken"] = new OptionalClaim($this->_propDict["idToken"]);
@@ -78,31 +77,29 @@ class OptionalClaims extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the idToken
-    * The optional claims returned in the JWT ID token.
-    *
-    * @param OptionalClaim $val The value to assign to the idToken
-    *
-    * @return OptionalClaims The OptionalClaims
-    */
+     * Sets the idToken
+     * The optional claims returned in the JWT ID token.
+     *
+     * @param OptionalClaim $val The value to assign to the idToken
+     *
+     * @return OptionalClaims The OptionalClaims
+     */
     public function setIdToken($val)
     {
         $this->_propDict["idToken"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the saml2Token
-    * The optional claims returned in the SAML token.
-    *
-    * @return OptionalClaim|null The saml2Token
-    */
+     * Gets the saml2Token
+     * The optional claims returned in the SAML token.
+     *
+     * @return OptionalClaim|null The saml2Token
+     */
     public function getSaml2Token()
     {
         if (array_key_exists("saml2Token", $this->_propDict)) {
-            if (is_a($this->_propDict["saml2Token"], "\Beta\Microsoft\Graph\Model\OptionalClaim") || is_null($this->_propDict["saml2Token"])) {
+            if (is_a($this->_propDict["saml2Token"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OptionalClaim") || is_null($this->_propDict["saml2Token"])) {
                 return $this->_propDict["saml2Token"];
             } else {
                 $this->_propDict["saml2Token"] = new OptionalClaim($this->_propDict["saml2Token"]);
@@ -111,18 +108,17 @@ class OptionalClaims extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the saml2Token
-    * The optional claims returned in the SAML token.
-    *
-    * @param OptionalClaim $val The value to assign to the saml2Token
-    *
-    * @return OptionalClaims The OptionalClaims
-    */
+     * Sets the saml2Token
+     * The optional claims returned in the SAML token.
+     *
+     * @param OptionalClaim $val The value to assign to the saml2Token
+     *
+     * @return OptionalClaims The OptionalClaims
+     */
     public function setSaml2Token($val)
     {
         $this->_propDict["saml2Token"] = $val;
-         return $this;
+        return $this;
     }
 }

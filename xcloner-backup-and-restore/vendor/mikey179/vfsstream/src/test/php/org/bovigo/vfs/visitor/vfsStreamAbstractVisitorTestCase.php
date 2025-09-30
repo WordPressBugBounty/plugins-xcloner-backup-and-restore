@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,13 +8,14 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\visitor;
+namespace XCloner\org\bovigo\vfs\visitor;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\vfsStreamFile;
-use org\bovigo\vfs\vfsStreamBlock;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\vfsStreamDirectory;
+use XCloner\org\bovigo\vfs\vfsStreamFile;
+use XCloner\org\bovigo\vfs\vfsStreamBlock;
 /**
  * Test for org\bovigo\vfs\visitor\vfsStreamAbstractVisitor.
  *
@@ -21,7 +23,7 @@ use org\bovigo\vfs\vfsStreamBlock;
  * @see    https://github.com/mikey179/vfsStream/issues/10
  * @group  issue_10
  */
-class vfsStreamAbstractVisitorTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamAbstractVisitorTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * instance to test
@@ -29,46 +31,32 @@ class vfsStreamAbstractVisitorTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamAbstractVisitor
      */
     protected $abstractVisitor;
-
     /**
      * set up test environment
      */
     public function setUp()
     {
-        $this->abstractVisitor = $this->bc_getMock('org\\bovigo\\vfs\\visitor\\vfsStreamAbstractVisitor',
-                                                array('visitFile', 'visitDirectory')
-                                 );
+        $this->abstractVisitor = $this->bc_getMock('XCloner\org\bovigo\vfs\visitor\vfsStreamAbstractVisitor', array('visitFile', 'visitDirectory'));
     }
-
     /**
      * @test
      * @expectedException  \InvalidArgumentException
      */
     public function visitThrowsInvalidArgumentExceptionOnUnknownContentType()
     {
-        $mockContent = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockContent->expects($this->any())
-                    ->method('getType')
-                    ->will($this->returnValue('invalid'));
-        $this->assertSame($this->abstractVisitor,
-                          $this->abstractVisitor->visit($mockContent)
-        );
+        $mockContent = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockContent->expects($this->any())->method('getType')->will($this->returnValue('invalid'));
+        $this->assertSame($this->abstractVisitor, $this->abstractVisitor->visit($mockContent));
     }
-
     /**
      * @test
      */
     public function visitWithFileCallsVisitFile()
     {
         $file = new vfsStreamFile('foo.txt');
-        $this->abstractVisitor->expects($this->once())
-                              ->method('visitFile')
-                              ->with($this->equalTo($file));
-        $this->assertSame($this->abstractVisitor,
-                          $this->abstractVisitor->visit($file)
-        );
+        $this->abstractVisitor->expects($this->once())->method('visitFile')->with($this->equalTo($file));
+        $this->assertSame($this->abstractVisitor, $this->abstractVisitor->visit($file));
     }
-
     /**
      * tests that a block device eventually calls out to visit file
      *
@@ -77,25 +65,16 @@ class vfsStreamAbstractVisitorTestCase extends \BC_PHPUnit_Framework_TestCase
     public function visitWithBlockCallsVisitFile()
     {
         $block = new vfsStreamBlock('foo');
-        $this->abstractVisitor->expects($this->once())
-                              ->method('visitFile')
-                              ->with($this->equalTo($block));
-        $this->assertSame($this->abstractVisitor,
-                          $this->abstractVisitor->visit($block)
-        );
+        $this->abstractVisitor->expects($this->once())->method('visitFile')->with($this->equalTo($block));
+        $this->assertSame($this->abstractVisitor, $this->abstractVisitor->visit($block));
     }
-
     /**
      * @test
      */
     public function visitWithDirectoryCallsVisitDirectory()
     {
         $dir = new vfsStreamDirectory('bar');
-        $this->abstractVisitor->expects($this->once())
-                              ->method('visitDirectory')
-                              ->with($this->equalTo($dir));
-        $this->assertSame($this->abstractVisitor,
-                          $this->abstractVisitor->visit($dir)
-        );
+        $this->abstractVisitor->expects($this->once())->method('visitDirectory')->with($this->equalTo($dir));
+        $this->assertSame($this->abstractVisitor, $this->abstractVisitor->visit($dir));
     }
 }

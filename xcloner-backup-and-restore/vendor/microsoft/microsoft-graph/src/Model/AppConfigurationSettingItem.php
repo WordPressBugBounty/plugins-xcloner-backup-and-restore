@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppConfigurationSettingItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppConfigurationSettingItem extends Entity
 {
     /**
-    * Gets the appConfigKey
-    * app configuration key.
-    *
-    * @return string|null The appConfigKey
-    */
+     * Gets the appConfigKey
+     * app configuration key.
+     *
+     * @return string|null The appConfigKey
+     */
     public function getAppConfigKey()
     {
         if (array_key_exists("appConfigKey", $this->_propDict)) {
@@ -40,31 +42,29 @@ class AppConfigurationSettingItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appConfigKey
-    * app configuration key.
-    *
-    * @param string $val The value of the appConfigKey
-    *
-    * @return AppConfigurationSettingItem
-    */
+     * Sets the appConfigKey
+     * app configuration key.
+     *
+     * @param string $val The value of the appConfigKey
+     *
+     * @return AppConfigurationSettingItem
+     */
     public function setAppConfigKey($val)
     {
         $this->_propDict["appConfigKey"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appConfigKeyType
-    * app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType.
-    *
-    * @return MdmAppConfigKeyType|null The appConfigKeyType
-    */
+     * Gets the appConfigKeyType
+     * app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType.
+     *
+     * @return MdmAppConfigKeyType|null The appConfigKeyType
+     */
     public function getAppConfigKeyType()
     {
         if (array_key_exists("appConfigKeyType", $this->_propDict)) {
-            if (is_a($this->_propDict["appConfigKeyType"], "\Microsoft\Graph\Model\MdmAppConfigKeyType") || is_null($this->_propDict["appConfigKeyType"])) {
+            if (is_a($this->_propDict["appConfigKeyType"], "XCloner\\Microsoft\\Graph\\Model\\MdmAppConfigKeyType") || is_null($this->_propDict["appConfigKeyType"])) {
                 return $this->_propDict["appConfigKeyType"];
             } else {
                 $this->_propDict["appConfigKeyType"] = new MdmAppConfigKeyType($this->_propDict["appConfigKeyType"]);
@@ -73,26 +73,25 @@ class AppConfigurationSettingItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the appConfigKeyType
-    * app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType.
-    *
-    * @param MdmAppConfigKeyType $val The value to assign to the appConfigKeyType
-    *
-    * @return AppConfigurationSettingItem The AppConfigurationSettingItem
-    */
+     * Sets the appConfigKeyType
+     * app configuration key type. Possible values are: stringType, integerType, realType, booleanType, tokenType.
+     *
+     * @param MdmAppConfigKeyType $val The value to assign to the appConfigKeyType
+     *
+     * @return AppConfigurationSettingItem The AppConfigurationSettingItem
+     */
     public function setAppConfigKeyType($val)
     {
         $this->_propDict["appConfigKeyType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the appConfigKeyValue
-    * app configuration key value.
-    *
-    * @return string|null The appConfigKeyValue
-    */
+     * Gets the appConfigKeyValue
+     * app configuration key value.
+     *
+     * @return string|null The appConfigKeyValue
+     */
     public function getAppConfigKeyValue()
     {
         if (array_key_exists("appConfigKeyValue", $this->_propDict)) {
@@ -101,15 +100,14 @@ class AppConfigurationSettingItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appConfigKeyValue
-    * app configuration key value.
-    *
-    * @param string $val The value of the appConfigKeyValue
-    *
-    * @return AppConfigurationSettingItem
-    */
+     * Sets the appConfigKeyValue
+     * app configuration key value.
+     *
+     * @param string $val The value of the appConfigKeyValue
+     *
+     * @return AppConfigurationSettingItem
+     */
     public function setAppConfigKeyValue($val)
     {
         $this->_propDict["appConfigKeyValue"] = $val;

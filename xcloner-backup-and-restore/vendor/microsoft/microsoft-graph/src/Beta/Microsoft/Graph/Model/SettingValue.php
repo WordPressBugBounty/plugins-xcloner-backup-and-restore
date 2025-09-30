@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SettingValue class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SettingValue extends Entity
 {
     /**
-    * Gets the name
-    * Name of the setting (as defined by the directorySettingTemplate).
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the setting (as defined by the directorySettingTemplate).
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SettingValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the setting (as defined by the directorySettingTemplate).
-    *
-    * @param string $val The value of the name
-    *
-    * @return SettingValue
-    */
+     * Sets the name
+     * Name of the setting (as defined by the directorySettingTemplate).
+     *
+     * @param string $val The value of the name
+     *
+     * @return SettingValue
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Value of the setting.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Value of the setting.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -68,15 +69,14 @@ class SettingValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Value of the setting.
-    *
-    * @param string $val The value of the value
-    *
-    * @return SettingValue
-    */
+     * Sets the value
+     * Value of the setting.
+     *
+     * @param string $val The value of the value
+     *
+     * @return SettingValue
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

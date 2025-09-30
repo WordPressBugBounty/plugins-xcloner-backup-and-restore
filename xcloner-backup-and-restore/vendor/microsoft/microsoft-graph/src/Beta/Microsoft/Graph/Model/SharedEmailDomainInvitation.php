@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SharedEmailDomainInvitation class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SharedEmailDomainInvitation extends Entity
 {
     /**
-    * Gets the expiryTime
-    *
-    * @return \DateTime|null The expiryTime
-    */
+     * Gets the expiryTime
+     *
+     * @return \DateTime|null The expiryTime
+     */
     public function getExpiryTime()
     {
         if (array_key_exists("expiryTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expiryTime"], "\DateTime") || is_null($this->_propDict["expiryTime"])) {
+            if (is_a($this->_propDict["expiryTime"], "\\DateTime") || is_null($this->_propDict["expiryTime"])) {
                 return $this->_propDict["expiryTime"];
             } else {
                 $this->_propDict["expiryTime"] = new \DateTime($this->_propDict["expiryTime"]);
@@ -44,25 +45,23 @@ class SharedEmailDomainInvitation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the expiryTime
-    *
-    * @param \DateTime $val The expiryTime
-    *
-    * @return SharedEmailDomainInvitation
-    */
+     * Sets the expiryTime
+     *
+     * @param \DateTime $val The expiryTime
+     *
+     * @return SharedEmailDomainInvitation
+     */
     public function setExpiryTime($val)
     {
         $this->_propDict["expiryTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the invitationDomain
-    *
-    * @return string|null The invitationDomain
-    */
+     * Gets the invitationDomain
+     *
+     * @return string|null The invitationDomain
+     */
     public function getInvitationDomain()
     {
         if (array_key_exists("invitationDomain", $this->_propDict)) {
@@ -71,25 +70,23 @@ class SharedEmailDomainInvitation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the invitationDomain
-    *
-    * @param string $val The invitationDomain
-    *
-    * @return SharedEmailDomainInvitation
-    */
+     * Sets the invitationDomain
+     *
+     * @param string $val The invitationDomain
+     *
+     * @return SharedEmailDomainInvitation
+     */
     public function setInvitationDomain($val)
     {
         $this->_propDict["invitationDomain"] = $val;
         return $this;
     }
-
     /**
-    * Gets the invitationStatus
-    *
-    * @return string|null The invitationStatus
-    */
+     * Gets the invitationStatus
+     *
+     * @return string|null The invitationStatus
+     */
     public function getInvitationStatus()
     {
         if (array_key_exists("invitationStatus", $this->_propDict)) {
@@ -98,18 +95,16 @@ class SharedEmailDomainInvitation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the invitationStatus
-    *
-    * @param string $val The invitationStatus
-    *
-    * @return SharedEmailDomainInvitation
-    */
+     * Sets the invitationStatus
+     *
+     * @param string $val The invitationStatus
+     *
+     * @return SharedEmailDomainInvitation
+     */
     public function setInvitationStatus($val)
     {
         $this->_propDict["invitationStatus"] = $val;
         return $this;
     }
-
 }

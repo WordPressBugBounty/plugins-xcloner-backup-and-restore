@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcLoginResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CloudPcLoginResult extends Entity
 {
-
     /**
-    * Gets the time
-    * The time of the Cloud PC sign in action. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. Read-only.
-    *
-    * @return \DateTime|null The time
-    */
+     * Gets the time
+     * The time of the Cloud PC sign in action. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. Read-only.
+     *
+     * @return \DateTime|null The time
+     */
     public function getTime()
     {
         if (array_key_exists("time", $this->_propDict)) {
-            if (is_a($this->_propDict["time"], "\DateTime") || is_null($this->_propDict["time"])) {
+            if (is_a($this->_propDict["time"], "\\DateTime") || is_null($this->_propDict["time"])) {
                 return $this->_propDict["time"];
             } else {
                 $this->_propDict["time"] = new \DateTime($this->_propDict["time"]);
@@ -45,18 +46,17 @@ class CloudPcLoginResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the time
-    * The time of the Cloud PC sign in action. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the time
-    *
-    * @return CloudPcLoginResult The CloudPcLoginResult
-    */
+     * Sets the time
+     * The time of the Cloud PC sign in action. The timestamp is shown in ISO 8601 format and Coordinated Universal Time (UTC). For example, midnight UTC on Jan 1, 2014 appears as '2014-01-01T00:00:00Z'. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the time
+     *
+     * @return CloudPcLoginResult The CloudPcLoginResult
+     */
     public function setTime($val)
     {
         $this->_propDict["time"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,29 +1,25 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Predis\Client;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Predis\Client;
 class Predis extends AbstractCache
 {
     /**
      * @var \Predis\Client Predis Client
      */
     protected $client;
-
     /**
      * @var string storage key
      */
     protected $key;
-
     /**
      * @var int|null seconds until cache expiration
      */
     protected $expire;
-
     /**
      * Constructor.
      *
@@ -37,7 +33,6 @@ class Predis extends AbstractCache
         $this->key = $key;
         $this->expire = $expire;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -47,7 +42,6 @@ class Predis extends AbstractCache
             $this->setFromStorage($contents);
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -55,12 +49,10 @@ class Predis extends AbstractCache
     {
         $contents = $this->getForStorage();
         $this->executeCommand('set', [$this->key, $contents]);
-
         if ($this->expire !== null) {
             $this->executeCommand('expire', [$this->key, $this->expire]);
         }
     }
-
     /**
      * Execute a Predis command.
      *
@@ -72,7 +64,6 @@ class Predis extends AbstractCache
     protected function executeCommand($name, array $arguments)
     {
         $command = $this->client->createCommand($name, $arguments);
-
         return $this->client->executeCommand($command);
     }
 }

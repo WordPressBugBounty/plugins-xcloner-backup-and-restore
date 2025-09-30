@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OpenShift class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OpenShift extends ChangeTrackedEntity
 {
     /**
-    * Gets the draftOpenShift
-    * An unpublished open shift.
-    *
-    * @return OpenShiftItem|null The draftOpenShift
-    */
+     * Gets the draftOpenShift
+     * An unpublished open shift.
+     *
+     * @return OpenShiftItem|null The draftOpenShift
+     */
     public function getDraftOpenShift()
     {
         if (array_key_exists("draftOpenShift", $this->_propDict)) {
-            if (is_a($this->_propDict["draftOpenShift"], "\Beta\Microsoft\Graph\Model\OpenShiftItem") || is_null($this->_propDict["draftOpenShift"])) {
+            if (is_a($this->_propDict["draftOpenShift"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OpenShiftItem") || is_null($this->_propDict["draftOpenShift"])) {
                 return $this->_propDict["draftOpenShift"];
             } else {
                 $this->_propDict["draftOpenShift"] = new OpenShiftItem($this->_propDict["draftOpenShift"]);
@@ -45,26 +46,24 @@ class OpenShift extends ChangeTrackedEntity
         }
         return null;
     }
-
     /**
-    * Sets the draftOpenShift
-    * An unpublished open shift.
-    *
-    * @param OpenShiftItem $val The draftOpenShift
-    *
-    * @return OpenShift
-    */
+     * Sets the draftOpenShift
+     * An unpublished open shift.
+     *
+     * @param OpenShiftItem $val The draftOpenShift
+     *
+     * @return OpenShift
+     */
     public function setDraftOpenShift($val)
     {
         $this->_propDict["draftOpenShift"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isStagedForDeletion
-    *
-    * @return bool|null The isStagedForDeletion
-    */
+     * Gets the isStagedForDeletion
+     *
+     * @return bool|null The isStagedForDeletion
+     */
     public function getIsStagedForDeletion()
     {
         if (array_key_exists("isStagedForDeletion", $this->_propDict)) {
@@ -73,26 +72,24 @@ class OpenShift extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the isStagedForDeletion
-    *
-    * @param bool $val The isStagedForDeletion
-    *
-    * @return OpenShift
-    */
+     * Sets the isStagedForDeletion
+     *
+     * @param bool $val The isStagedForDeletion
+     *
+     * @return OpenShift
+     */
     public function setIsStagedForDeletion($val)
     {
         $this->_propDict["isStagedForDeletion"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the schedulingGroupId
-    * ID for the scheduling group that the open shift belongs to.
-    *
-    * @return string|null The schedulingGroupId
-    */
+     * Gets the schedulingGroupId
+     * ID for the scheduling group that the open shift belongs to.
+     *
+     * @return string|null The schedulingGroupId
+     */
     public function getSchedulingGroupId()
     {
         if (array_key_exists("schedulingGroupId", $this->_propDict)) {
@@ -101,31 +98,29 @@ class OpenShift extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the schedulingGroupId
-    * ID for the scheduling group that the open shift belongs to.
-    *
-    * @param string $val The schedulingGroupId
-    *
-    * @return OpenShift
-    */
+     * Sets the schedulingGroupId
+     * ID for the scheduling group that the open shift belongs to.
+     *
+     * @param string $val The schedulingGroupId
+     *
+     * @return OpenShift
+     */
     public function setSchedulingGroupId($val)
     {
         $this->_propDict["schedulingGroupId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sharedOpenShift
-    * A published open shift.
-    *
-    * @return OpenShiftItem|null The sharedOpenShift
-    */
+     * Gets the sharedOpenShift
+     * A published open shift.
+     *
+     * @return OpenShiftItem|null The sharedOpenShift
+     */
     public function getSharedOpenShift()
     {
         if (array_key_exists("sharedOpenShift", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedOpenShift"], "\Beta\Microsoft\Graph\Model\OpenShiftItem") || is_null($this->_propDict["sharedOpenShift"])) {
+            if (is_a($this->_propDict["sharedOpenShift"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OpenShiftItem") || is_null($this->_propDict["sharedOpenShift"])) {
                 return $this->_propDict["sharedOpenShift"];
             } else {
                 $this->_propDict["sharedOpenShift"] = new OpenShiftItem($this->_propDict["sharedOpenShift"]);
@@ -134,19 +129,17 @@ class OpenShift extends ChangeTrackedEntity
         }
         return null;
     }
-
     /**
-    * Sets the sharedOpenShift
-    * A published open shift.
-    *
-    * @param OpenShiftItem $val The sharedOpenShift
-    *
-    * @return OpenShift
-    */
+     * Sets the sharedOpenShift
+     * A published open shift.
+     *
+     * @param OpenShiftItem $val The sharedOpenShift
+     *
+     * @return OpenShift
+     */
     public function setSharedOpenShift($val)
     {
         $this->_propDict["sharedOpenShift"] = $val;
         return $this;
     }
-
 }

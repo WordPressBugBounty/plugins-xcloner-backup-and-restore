@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppliedAuthenticationEventListener class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppliedAuthenticationEventListener extends Entity
 {
-
     /**
-    * Gets the eventType
-    *
-    * @return AuthenticationEventType|null The eventType
-    */
+     * Gets the eventType
+     *
+     * @return AuthenticationEventType|null The eventType
+     */
     public function getEventType()
     {
         if (array_key_exists("eventType", $this->_propDict)) {
-            if (is_a($this->_propDict["eventType"], "\Beta\Microsoft\Graph\Model\AuthenticationEventType") || is_null($this->_propDict["eventType"])) {
+            if (is_a($this->_propDict["eventType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationEventType") || is_null($this->_propDict["eventType"])) {
                 return $this->_propDict["eventType"];
             } else {
                 $this->_propDict["eventType"] = new AuthenticationEventType($this->_propDict["eventType"]);
@@ -44,24 +45,23 @@ class AppliedAuthenticationEventListener extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the eventType
-    *
-    * @param AuthenticationEventType $val The value to assign to the eventType
-    *
-    * @return AppliedAuthenticationEventListener The AppliedAuthenticationEventListener
-    */
+     * Sets the eventType
+     *
+     * @param AuthenticationEventType $val The value to assign to the eventType
+     *
+     * @return AppliedAuthenticationEventListener The AppliedAuthenticationEventListener
+     */
     public function setEventType($val)
     {
         $this->_propDict["eventType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the executedListenerId
-    *
-    * @return string|null The executedListenerId
-    */
+     * Gets the executedListenerId
+     *
+     * @return string|null The executedListenerId
+     */
     public function getExecutedListenerId()
     {
         if (array_key_exists("executedListenerId", $this->_propDict)) {
@@ -70,29 +70,27 @@ class AppliedAuthenticationEventListener extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the executedListenerId
-    *
-    * @param string $val The value of the executedListenerId
-    *
-    * @return AppliedAuthenticationEventListener
-    */
+     * Sets the executedListenerId
+     *
+     * @param string $val The value of the executedListenerId
+     *
+     * @return AppliedAuthenticationEventListener
+     */
     public function setExecutedListenerId($val)
     {
         $this->_propDict["executedListenerId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the handlerResult
-    *
-    * @return AuthenticationEventHandlerResult|null The handlerResult
-    */
+     * Gets the handlerResult
+     *
+     * @return AuthenticationEventHandlerResult|null The handlerResult
+     */
     public function getHandlerResult()
     {
         if (array_key_exists("handlerResult", $this->_propDict)) {
-            if (is_a($this->_propDict["handlerResult"], "\Beta\Microsoft\Graph\Model\AuthenticationEventHandlerResult") || is_null($this->_propDict["handlerResult"])) {
+            if (is_a($this->_propDict["handlerResult"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationEventHandlerResult") || is_null($this->_propDict["handlerResult"])) {
                 return $this->_propDict["handlerResult"];
             } else {
                 $this->_propDict["handlerResult"] = new AuthenticationEventHandlerResult($this->_propDict["handlerResult"]);
@@ -101,17 +99,16 @@ class AppliedAuthenticationEventListener extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the handlerResult
-    *
-    * @param AuthenticationEventHandlerResult $val The value to assign to the handlerResult
-    *
-    * @return AppliedAuthenticationEventListener The AppliedAuthenticationEventListener
-    */
+     * Sets the handlerResult
+     *
+     * @param AuthenticationEventHandlerResult $val The value to assign to the handlerResult
+     *
+     * @return AppliedAuthenticationEventListener The AppliedAuthenticationEventListener
+     */
     public function setHandlerResult($val)
     {
         $this->_propDict["handlerResult"] = $val;
-         return $this;
+        return $this;
     }
 }

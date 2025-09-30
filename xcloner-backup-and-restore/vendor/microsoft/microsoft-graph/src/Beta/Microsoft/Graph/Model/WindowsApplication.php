@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsApplication class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsApplication extends Entity
 {
     /**
-    * Gets the packageSid
-    * The package security identifier that Microsoft has assigned the application. Optional. Read-only.
-    *
-    * @return string|null The packageSid
-    */
+     * Gets the packageSid
+     * The package security identifier that Microsoft has assigned the application. Optional. Read-only.
+     *
+     * @return string|null The packageSid
+     */
     public function getPackageSid()
     {
         if (array_key_exists("packageSid", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the packageSid
-    * The package security identifier that Microsoft has assigned the application. Optional. Read-only.
-    *
-    * @param string $val The value of the packageSid
-    *
-    * @return WindowsApplication
-    */
+     * Sets the packageSid
+     * The package security identifier that Microsoft has assigned the application. Optional. Read-only.
+     *
+     * @param string $val The value of the packageSid
+     *
+     * @return WindowsApplication
+     */
     public function setPackageSid($val)
     {
         $this->_propDict["packageSid"] = $val;
         return $this;
     }
     /**
-    * Gets the redirectUris
-    * Specifies the URLs where user tokens are sent for sign-in or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. Only available for applications that support the PersonalMicrosoftAccount signInAudience.
-    *
-    * @return string|null The redirectUris
-    */
+     * Gets the redirectUris
+     * Specifies the URLs where user tokens are sent for sign-in or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. Only available for applications that support the PersonalMicrosoftAccount signInAudience.
+     *
+     * @return string|null The redirectUris
+     */
     public function getRedirectUris()
     {
         if (array_key_exists("redirectUris", $this->_propDict)) {
@@ -68,15 +69,14 @@ class WindowsApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the redirectUris
-    * Specifies the URLs where user tokens are sent for sign-in or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. Only available for applications that support the PersonalMicrosoftAccount signInAudience.
-    *
-    * @param string $val The value of the redirectUris
-    *
-    * @return WindowsApplication
-    */
+     * Sets the redirectUris
+     * Specifies the URLs where user tokens are sent for sign-in or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. Only available for applications that support the PersonalMicrosoftAccount signInAudience.
+     *
+     * @param string $val The value of the redirectUris
+     *
+     * @return WindowsApplication
+     */
     public function setRedirectUris($val)
     {
         $this->_propDict["redirectUris"] = $val;

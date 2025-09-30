@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SynchronizationProgress class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SynchronizationProgress extends Entity
 {
     /**
-    * Gets the completedUnits
-    * The numerator of a progress ratio; the number of units of changes already processed.
-    *
-    * @return int|null The completedUnits
-    */
+     * Gets the completedUnits
+     * The numerator of a progress ratio; the number of units of changes already processed.
+     *
+     * @return int|null The completedUnits
+     */
     public function getCompletedUnits()
     {
         if (array_key_exists("completedUnits", $this->_propDict)) {
@@ -40,31 +42,29 @@ class SynchronizationProgress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedUnits
-    * The numerator of a progress ratio; the number of units of changes already processed.
-    *
-    * @param int $val The value of the completedUnits
-    *
-    * @return SynchronizationProgress
-    */
+     * Sets the completedUnits
+     * The numerator of a progress ratio; the number of units of changes already processed.
+     *
+     * @param int $val The value of the completedUnits
+     *
+     * @return SynchronizationProgress
+     */
     public function setCompletedUnits($val)
     {
         $this->_propDict["completedUnits"] = $val;
         return $this;
     }
-
     /**
-    * Gets the progressObservationDateTime
-    * The time of a progress observation as an offset in minutes from UTC.
-    *
-    * @return \DateTime|null The progressObservationDateTime
-    */
+     * Gets the progressObservationDateTime
+     * The time of a progress observation as an offset in minutes from UTC.
+     *
+     * @return \DateTime|null The progressObservationDateTime
+     */
     public function getProgressObservationDateTime()
     {
         if (array_key_exists("progressObservationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["progressObservationDateTime"], "\DateTime") || is_null($this->_propDict["progressObservationDateTime"])) {
+            if (is_a($this->_propDict["progressObservationDateTime"], "\\DateTime") || is_null($this->_propDict["progressObservationDateTime"])) {
                 return $this->_propDict["progressObservationDateTime"];
             } else {
                 $this->_propDict["progressObservationDateTime"] = new \DateTime($this->_propDict["progressObservationDateTime"]);
@@ -73,26 +73,25 @@ class SynchronizationProgress extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the progressObservationDateTime
-    * The time of a progress observation as an offset in minutes from UTC.
-    *
-    * @param \DateTime $val The value to assign to the progressObservationDateTime
-    *
-    * @return SynchronizationProgress The SynchronizationProgress
-    */
+     * Sets the progressObservationDateTime
+     * The time of a progress observation as an offset in minutes from UTC.
+     *
+     * @param \DateTime $val The value to assign to the progressObservationDateTime
+     *
+     * @return SynchronizationProgress The SynchronizationProgress
+     */
     public function setProgressObservationDateTime($val)
     {
         $this->_propDict["progressObservationDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the totalUnits
-    * The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
-    *
-    * @return int|null The totalUnits
-    */
+     * Gets the totalUnits
+     * The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
+     *
+     * @return int|null The totalUnits
+     */
     public function getTotalUnits()
     {
         if (array_key_exists("totalUnits", $this->_propDict)) {
@@ -101,26 +100,25 @@ class SynchronizationProgress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalUnits
-    * The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
-    *
-    * @param int $val The value of the totalUnits
-    *
-    * @return SynchronizationProgress
-    */
+     * Sets the totalUnits
+     * The denominator of a progress ratio; a number of units of changes to be processed to accomplish synchronization.
+     *
+     * @param int $val The value of the totalUnits
+     *
+     * @return SynchronizationProgress
+     */
     public function setTotalUnits($val)
     {
         $this->_propDict["totalUnits"] = $val;
         return $this;
     }
     /**
-    * Gets the units
-    * An optional description of the units.
-    *
-    * @return string|null The units
-    */
+     * Gets the units
+     * An optional description of the units.
+     *
+     * @return string|null The units
+     */
     public function getUnits()
     {
         if (array_key_exists("units", $this->_propDict)) {
@@ -129,15 +127,14 @@ class SynchronizationProgress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the units
-    * An optional description of the units.
-    *
-    * @param string $val The value of the units
-    *
-    * @return SynchronizationProgress
-    */
+     * Sets the units
+     * An optional description of the units.
+     *
+     * @param string $val The value of the units
+     *
+     * @return SynchronizationProgress
+     */
     public function setUnits($val)
     {
         $this->_propDict["units"] = $val;

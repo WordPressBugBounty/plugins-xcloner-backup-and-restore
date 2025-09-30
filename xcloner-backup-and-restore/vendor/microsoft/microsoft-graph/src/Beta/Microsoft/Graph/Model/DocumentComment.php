@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DocumentComment class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DocumentComment extends Entity
 {
     /**
-    * Gets the content
-    *
-    * @return string|null The content
-    */
+     * Gets the content
+     *
+     * @return string|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
@@ -40,22 +41,19 @@ class DocumentComment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the content
-    *
-    * @param string $val The content
-    *
-    * @return DocumentComment
-    */
+     * Sets the content
+     *
+     * @param string $val The content
+     *
+     * @return DocumentComment
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the replies
      *
      * @return array|null The replies
@@ -63,23 +61,21 @@ class DocumentComment extends Entity
     public function getReplies()
     {
         if (array_key_exists("replies", $this->_propDict)) {
-           return $this->_propDict["replies"];
+            return $this->_propDict["replies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the replies
-    *
-    * @param DocumentCommentReply[] $val The replies
-    *
-    * @return DocumentComment
-    */
+     * Sets the replies
+     *
+     * @param DocumentCommentReply[] $val The replies
+     *
+     * @return DocumentComment
+     */
     public function setReplies($val)
     {
         $this->_propDict["replies"] = $val;
         return $this;
     }
-
 }

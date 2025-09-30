@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,52 +15,49 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class CommentQuotedFileContent extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $mimeType;
-  /**
-   * @var string
-   */
-  public $value;
-
-  /**
-   * @param string
-   */
-  public function setMimeType($mimeType)
-  {
-    $this->mimeType = $mimeType;
-  }
-  /**
-   * @return string
-   */
-  public function getMimeType()
-  {
-    return $this->mimeType;
-  }
-  /**
-   * @param string
-   */
-  public function setValue($value)
-  {
-    $this->value = $value;
-  }
-  /**
-   * @return string
-   */
-  public function getValue()
-  {
-    return $this->value;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class CommentQuotedFileContent extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $mimeType;
+    /**
+     * @var string
+     */
+    public $value;
+    /**
+     * @param string
+     */
+    public function setMimeType($mimeType)
+    {
+        $this->mimeType = $mimeType;
+    }
+    /**
+     * @return string
+     */
+    public function getMimeType()
+    {
+        return $this->mimeType;
+    }
+    /**
+     * @param string
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+    }
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(CommentQuotedFileContent::class, 'Google_Service_Drive_CommentQuotedFileContent');
+class_alias(CommentQuotedFileContent::class, 'XCloner\Google_Service_Drive_CommentQuotedFileContent');

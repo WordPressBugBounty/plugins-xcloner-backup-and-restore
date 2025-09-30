@@ -1,23 +1,20 @@
 <?php
-namespace Aws\Sts\RegionalEndpoints;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Sts\RegionalEndpoints;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class Configuration implements ConfigurationInterface
 {
     private $endpointsType;
-
     public function __construct($endpointsType)
     {
         $this->endpointsType = strtolower($endpointsType);
         if (!in_array($this->endpointsType, ['legacy', 'regional'])) {
-            throw new \InvalidArgumentException(
-                "Configuration parameter must either be 'legacy' or 'regional'."
-            );
+            throw new \InvalidArgumentException("Configuration parameter must either be 'legacy' or 'regional'.");
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -25,14 +22,11 @@ class Configuration implements ConfigurationInterface
     {
         return $this->endpointsType;
     }
-
     /**
      * {@inheritdoc}
      */
     public function toArray()
     {
-        return [
-            'endpoints_type' => $this->getEndpointsType()
-        ];
+        return ['endpoints_type' => $this->getEndpointsType()];
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-namespace GuzzleHttp;
+namespace XCloner\GuzzleHttp;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\MessageInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\MessageInterface;
 interface BodySummarizerInterface
 {
     /**

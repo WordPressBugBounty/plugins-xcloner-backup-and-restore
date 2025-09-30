@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TextClassificationRequest class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TextClassificationRequest extends Entity
 {
     /**
-    * Gets the fileExtension
-    *
-    * @return string|null The fileExtension
-    */
+     * Gets the fileExtension
+     *
+     * @return string|null The fileExtension
+     */
     public function getFileExtension()
     {
         if (array_key_exists("fileExtension", $this->_propDict)) {
@@ -40,29 +41,27 @@ class TextClassificationRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileExtension
-    *
-    * @param string $val The fileExtension
-    *
-    * @return TextClassificationRequest
-    */
+     * Sets the fileExtension
+     *
+     * @param string $val The fileExtension
+     *
+     * @return TextClassificationRequest
+     */
     public function setFileExtension($val)
     {
         $this->_propDict["fileExtension"] = $val;
         return $this;
     }
-
     /**
-    * Gets the matchTolerancesToInclude
-    *
-    * @return MlClassificationMatchTolerance|null The matchTolerancesToInclude
-    */
+     * Gets the matchTolerancesToInclude
+     *
+     * @return MlClassificationMatchTolerance|null The matchTolerancesToInclude
+     */
     public function getMatchTolerancesToInclude()
     {
         if (array_key_exists("matchTolerancesToInclude", $this->_propDict)) {
-            if (is_a($this->_propDict["matchTolerancesToInclude"], "\Beta\Microsoft\Graph\Model\MlClassificationMatchTolerance") || is_null($this->_propDict["matchTolerancesToInclude"])) {
+            if (is_a($this->_propDict["matchTolerancesToInclude"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MlClassificationMatchTolerance") || is_null($this->_propDict["matchTolerancesToInclude"])) {
                 return $this->_propDict["matchTolerancesToInclude"];
             } else {
                 $this->_propDict["matchTolerancesToInclude"] = new MlClassificationMatchTolerance($this->_propDict["matchTolerancesToInclude"]);
@@ -71,29 +70,27 @@ class TextClassificationRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the matchTolerancesToInclude
-    *
-    * @param MlClassificationMatchTolerance $val The matchTolerancesToInclude
-    *
-    * @return TextClassificationRequest
-    */
+     * Sets the matchTolerancesToInclude
+     *
+     * @param MlClassificationMatchTolerance $val The matchTolerancesToInclude
+     *
+     * @return TextClassificationRequest
+     */
     public function setMatchTolerancesToInclude($val)
     {
         $this->_propDict["matchTolerancesToInclude"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scopesToRun
-    *
-    * @return SensitiveTypeScope|null The scopesToRun
-    */
+     * Gets the scopesToRun
+     *
+     * @return SensitiveTypeScope|null The scopesToRun
+     */
     public function getScopesToRun()
     {
         if (array_key_exists("scopesToRun", $this->_propDict)) {
-            if (is_a($this->_propDict["scopesToRun"], "\Beta\Microsoft\Graph\Model\SensitiveTypeScope") || is_null($this->_propDict["scopesToRun"])) {
+            if (is_a($this->_propDict["scopesToRun"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SensitiveTypeScope") || is_null($this->_propDict["scopesToRun"])) {
                 return $this->_propDict["scopesToRun"];
             } else {
                 $this->_propDict["scopesToRun"] = new SensitiveTypeScope($this->_propDict["scopesToRun"]);
@@ -102,25 +99,23 @@ class TextClassificationRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the scopesToRun
-    *
-    * @param SensitiveTypeScope $val The scopesToRun
-    *
-    * @return TextClassificationRequest
-    */
+     * Sets the scopesToRun
+     *
+     * @param SensitiveTypeScope $val The scopesToRun
+     *
+     * @return TextClassificationRequest
+     */
     public function setScopesToRun($val)
     {
         $this->_propDict["scopesToRun"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sensitiveTypeIds
-    *
-    * @return array|null The sensitiveTypeIds
-    */
+     * Gets the sensitiveTypeIds
+     *
+     * @return array|null The sensitiveTypeIds
+     */
     public function getSensitiveTypeIds()
     {
         if (array_key_exists("sensitiveTypeIds", $this->_propDict)) {
@@ -129,25 +124,23 @@ class TextClassificationRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sensitiveTypeIds
-    *
-    * @param string[] $val The sensitiveTypeIds
-    *
-    * @return TextClassificationRequest
-    */
+     * Sets the sensitiveTypeIds
+     *
+     * @param string[] $val The sensitiveTypeIds
+     *
+     * @return TextClassificationRequest
+     */
     public function setSensitiveTypeIds($val)
     {
         $this->_propDict["sensitiveTypeIds"] = $val;
         return $this;
     }
-
     /**
-    * Gets the text
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -156,18 +149,16 @@ class TextClassificationRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the text
-    *
-    * @param string $val The text
-    *
-    * @return TextClassificationRequest
-    */
+     * Sets the text
+     *
+     * @param string $val The text
+     *
+     * @return TextClassificationRequest
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;
         return $this;
     }
-
 }

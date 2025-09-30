@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Currency class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Currency extends Entity
 {
     /**
-    * Gets the amountDecimalPlaces
-    *
-    * @return string|null The amountDecimalPlaces
-    */
+     * Gets the amountDecimalPlaces
+     *
+     * @return string|null The amountDecimalPlaces
+     */
     public function getAmountDecimalPlaces()
     {
         if (array_key_exists("amountDecimalPlaces", $this->_propDict)) {
@@ -40,29 +41,27 @@ class Currency extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the amountDecimalPlaces
-    *
-    * @param string $val The amountDecimalPlaces
-    *
-    * @return Currency
-    */
+     * Sets the amountDecimalPlaces
+     *
+     * @param string $val The amountDecimalPlaces
+     *
+     * @return Currency
+     */
     public function setAmountDecimalPlaces($val)
     {
         $this->_propDict["amountDecimalPlaces"] = $val;
         return $this;
     }
-
     /**
-    * Gets the amountRoundingPrecision
-    *
-    * @return Decimal|null The amountRoundingPrecision
-    */
+     * Gets the amountRoundingPrecision
+     *
+     * @return Decimal|null The amountRoundingPrecision
+     */
     public function getAmountRoundingPrecision()
     {
         if (array_key_exists("amountRoundingPrecision", $this->_propDict)) {
-            if (is_a($this->_propDict["amountRoundingPrecision"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["amountRoundingPrecision"])) {
+            if (is_a($this->_propDict["amountRoundingPrecision"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Decimal") || is_null($this->_propDict["amountRoundingPrecision"])) {
                 return $this->_propDict["amountRoundingPrecision"];
             } else {
                 $this->_propDict["amountRoundingPrecision"] = new Decimal($this->_propDict["amountRoundingPrecision"]);
@@ -71,25 +70,23 @@ class Currency extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the amountRoundingPrecision
-    *
-    * @param Decimal $val The amountRoundingPrecision
-    *
-    * @return Currency
-    */
+     * Sets the amountRoundingPrecision
+     *
+     * @param Decimal $val The amountRoundingPrecision
+     *
+     * @return Currency
+     */
     public function setAmountRoundingPrecision($val)
     {
         $this->_propDict["amountRoundingPrecision"] = $val;
         return $this;
     }
-
     /**
-    * Gets the code
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -98,25 +95,23 @@ class Currency extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    *
-    * @param string $val The code
-    *
-    * @return Currency
-    */
+     * Sets the code
+     *
+     * @param string $val The code
+     *
+     * @return Currency
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -125,29 +120,27 @@ class Currency extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return Currency
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return Currency
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -156,25 +149,23 @@ class Currency extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return Currency
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return Currency
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the symbol
-    *
-    * @return string|null The symbol
-    */
+     * Gets the symbol
+     *
+     * @return string|null The symbol
+     */
     public function getSymbol()
     {
         if (array_key_exists("symbol", $this->_propDict)) {
@@ -183,18 +174,16 @@ class Currency extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the symbol
-    *
-    * @param string $val The symbol
-    *
-    * @return Currency
-    */
+     * Sets the symbol
+     *
+     * @param string $val The symbol
+     *
+     * @return Currency
+     */
     public function setSymbol($val)
     {
         $this->_propDict["symbol"] = $val;
         return $this;
     }
-
 }

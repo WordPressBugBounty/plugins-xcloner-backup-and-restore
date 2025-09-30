@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,69 +15,66 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveList extends \Google\Collection
-{
-  protected $collection_key = 'drives';
-  protected $drivesType = Drive::class;
-  protected $drivesDataType = 'array';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $nextPageToken;
-
-  /**
-   * @param Drive[]
-   */
-  public function setDrives($drives)
-  {
-    $this->drives = $drives;
-  }
-  /**
-   * @return Drive[]
-   */
-  public function getDrives()
-  {
-    return $this->drives;
-  }
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveList extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'drives';
+    protected $drivesType = Drive::class;
+    protected $drivesDataType = 'array';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $nextPageToken;
+    /**
+     * @param Drive[]
+     */
+    public function setDrives($drives)
+    {
+        $this->drives = $drives;
+    }
+    /**
+     * @return Drive[]
+     */
+    public function getDrives()
+    {
+        return $this->drives;
+    }
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveList::class, 'Google_Service_Drive_DriveList');
+class_alias(DriveList::class, 'XCloner\Google_Service_Drive_DriveList');

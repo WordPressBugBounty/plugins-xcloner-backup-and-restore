@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Request;
 
-namespace Sabre\DAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Locks\LockInfo;
-use Sabre\Xml\Element\KeyValue;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Locks\LockInfo;
+use XCloner\Sabre\Xml\Element\KeyValue;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * WebDAV LOCK request parser.
  *
@@ -31,7 +29,6 @@ class Lock implements XmlDeserializable
      * @var string
      */
     public $owner;
-
     /**
      * Scope of the lock.
      *
@@ -40,7 +37,6 @@ class Lock implements XmlDeserializable
      * @var int
      */
     public $scope;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -64,16 +60,12 @@ class Lock implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $reader->pushContext();
-        $reader->elementMap['{DAV:}owner'] = 'Sabre\\Xml\\Element\\XmlFragment';
-
+        $reader->elementMap['{DAV:}owner'] = 'XCloner\Sabre\Xml\Element\XmlFragment';
         $values = KeyValue::xmlDeserialize($reader);
-
         $reader->popContext();
-
         $new = new self();
         $new->owner = !empty($values['{DAV:}owner']) ? $values['{DAV:}owner']->getXml() : null;
         $new->scope = LockInfo::SHARED;
-
         if (isset($values['{DAV:}lockscope'])) {
             foreach ($values['{DAV:}lockscope'] as $elem) {
                 if ('{DAV:}exclusive' === $elem['name']) {
@@ -81,7 +73,6 @@ class Lock implements XmlDeserializable
                 }
             }
         }
-
         return $new;
     }
 }

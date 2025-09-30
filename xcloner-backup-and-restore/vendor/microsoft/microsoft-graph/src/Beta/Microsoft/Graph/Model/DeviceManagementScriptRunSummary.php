@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementScriptRunSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementScriptRunSummary extends Entity
 {
     /**
-    * Gets the errorDeviceCount
-    * Error device count.
-    *
-    * @return int|null The errorDeviceCount
-    */
+     * Gets the errorDeviceCount
+     * Error device count.
+     *
+     * @return int|null The errorDeviceCount
+     */
     public function getErrorDeviceCount()
     {
         if (array_key_exists("errorDeviceCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceManagementScriptRunSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorDeviceCount
-    * Error device count.
-    *
-    * @param int $val The errorDeviceCount
-    *
-    * @return DeviceManagementScriptRunSummary
-    */
+     * Sets the errorDeviceCount
+     * Error device count.
+     *
+     * @param int $val The errorDeviceCount
+     *
+     * @return DeviceManagementScriptRunSummary
+     */
     public function setErrorDeviceCount($val)
     {
         $this->_propDict["errorDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the errorUserCount
-    * Error user count.
-    *
-    * @return int|null The errorUserCount
-    */
+     * Gets the errorUserCount
+     * Error user count.
+     *
+     * @return int|null The errorUserCount
+     */
     public function getErrorUserCount()
     {
         if (array_key_exists("errorUserCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceManagementScriptRunSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorUserCount
-    * Error user count.
-    *
-    * @param int $val The errorUserCount
-    *
-    * @return DeviceManagementScriptRunSummary
-    */
+     * Sets the errorUserCount
+     * Error user count.
+     *
+     * @param int $val The errorUserCount
+     *
+     * @return DeviceManagementScriptRunSummary
+     */
     public function setErrorUserCount($val)
     {
         $this->_propDict["errorUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the successDeviceCount
-    * Success device count.
-    *
-    * @return int|null The successDeviceCount
-    */
+     * Gets the successDeviceCount
+     * Success device count.
+     *
+     * @return int|null The successDeviceCount
+     */
     public function getSuccessDeviceCount()
     {
         if (array_key_exists("successDeviceCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class DeviceManagementScriptRunSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successDeviceCount
-    * Success device count.
-    *
-    * @param int $val The successDeviceCount
-    *
-    * @return DeviceManagementScriptRunSummary
-    */
+     * Sets the successDeviceCount
+     * Success device count.
+     *
+     * @param int $val The successDeviceCount
+     *
+     * @return DeviceManagementScriptRunSummary
+     */
     public function setSuccessDeviceCount($val)
     {
         $this->_propDict["successDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the successUserCount
-    * Success user count.
-    *
-    * @return int|null The successUserCount
-    */
+     * Gets the successUserCount
+     * Success user count.
+     *
+     * @return int|null The successUserCount
+     */
     public function getSuccessUserCount()
     {
         if (array_key_exists("successUserCount", $this->_propDict)) {
@@ -128,19 +123,17 @@ class DeviceManagementScriptRunSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successUserCount
-    * Success user count.
-    *
-    * @param int $val The successUserCount
-    *
-    * @return DeviceManagementScriptRunSummary
-    */
+     * Sets the successUserCount
+     * Success user count.
+     *
+     * @param int $val The successUserCount
+     *
+     * @return DeviceManagementScriptRunSummary
+     */
     public function setSuccessUserCount($val)
     {
         $this->_propDict["successUserCount"] = intval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityBaselineContributingPolicy class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecurityBaselineContributingPolicy extends Entity
 {
     /**
-    * Gets the displayName
-    * Name of the policy
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the policy
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SecurityBaselineContributingPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the policy
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return SecurityBaselineContributingPolicy
-    */
+     * Sets the displayName
+     * Name of the policy
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return SecurityBaselineContributingPolicy
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the sourceId
-    * Unique identifier of the policy
-    *
-    * @return string|null The sourceId
-    */
+     * Gets the sourceId
+     * Unique identifier of the policy
+     *
+     * @return string|null The sourceId
+     */
     public function getSourceId()
     {
         if (array_key_exists("sourceId", $this->_propDict)) {
@@ -68,31 +69,29 @@ class SecurityBaselineContributingPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceId
-    * Unique identifier of the policy
-    *
-    * @param string $val The value of the sourceId
-    *
-    * @return SecurityBaselineContributingPolicy
-    */
+     * Sets the sourceId
+     * Unique identifier of the policy
+     *
+     * @param string $val The value of the sourceId
+     *
+     * @return SecurityBaselineContributingPolicy
+     */
     public function setSourceId($val)
     {
         $this->_propDict["sourceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sourceType
-    * Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
-    *
-    * @return SecurityBaselinePolicySourceType|null The sourceType
-    */
+     * Gets the sourceType
+     * Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
+     *
+     * @return SecurityBaselinePolicySourceType|null The sourceType
+     */
     public function getSourceType()
     {
         if (array_key_exists("sourceType", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceType"], "\Beta\Microsoft\Graph\Model\SecurityBaselinePolicySourceType") || is_null($this->_propDict["sourceType"])) {
+            if (is_a($this->_propDict["sourceType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityBaselinePolicySourceType") || is_null($this->_propDict["sourceType"])) {
                 return $this->_propDict["sourceType"];
             } else {
                 $this->_propDict["sourceType"] = new SecurityBaselinePolicySourceType($this->_propDict["sourceType"]);
@@ -101,18 +100,17 @@ class SecurityBaselineContributingPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sourceType
-    * Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
-    *
-    * @param SecurityBaselinePolicySourceType $val The value to assign to the sourceType
-    *
-    * @return SecurityBaselineContributingPolicy The SecurityBaselineContributingPolicy
-    */
+     * Sets the sourceType
+     * Authoring source of the policy. Possible values are: deviceConfiguration, deviceIntent.
+     *
+     * @param SecurityBaselinePolicySourceType $val The value to assign to the sourceType
+     *
+     * @return SecurityBaselineContributingPolicy The SecurityBaselineContributingPolicy
+     */
     public function setSourceType($val)
     {
         $this->_propDict["sourceType"] = $val;
-         return $this;
+        return $this;
     }
 }

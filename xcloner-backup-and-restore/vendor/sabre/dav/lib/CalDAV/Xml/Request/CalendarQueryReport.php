@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Request;
 
-namespace Sabre\CalDAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * CalendarQueryReport request parser.
  *
@@ -32,14 +30,12 @@ class CalendarQueryReport implements XmlDeserializable
      * @var array
      */
     public $properties;
-
     /**
      * List of property/component filters.
      *
      * @var array
      */
     public $filters;
-
     /**
      * If the calendar data must be expanded, this will contain an array with 2
      * elements: start and end.
@@ -49,7 +45,6 @@ class CalendarQueryReport implements XmlDeserializable
      * @var array|null
      */
     public $expand = null;
-
     /**
      * The mimetype of the content that should be returend. Usually
      * text/calendar.
@@ -57,7 +52,6 @@ class CalendarQueryReport implements XmlDeserializable
      * @var string
      */
     public $contentType = null;
-
     /**
      * The version of calendar-data that should be returned. Usually '2.0',
      * referring to iCalendar 2.0.
@@ -65,7 +59,6 @@ class CalendarQueryReport implements XmlDeserializable
      * @var string
      */
     public $version = null;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -88,34 +81,22 @@ class CalendarQueryReport implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $elems = $reader->parseInnerTree([
-            '{urn:ietf:params:xml:ns:caldav}comp-filter' => 'Sabre\\CalDAV\\Xml\\Filter\\CompFilter',
-            '{urn:ietf:params:xml:ns:caldav}prop-filter' => 'Sabre\\CalDAV\\Xml\\Filter\\PropFilter',
-            '{urn:ietf:params:xml:ns:caldav}param-filter' => 'Sabre\\CalDAV\\Xml\\Filter\\ParamFilter',
-            '{urn:ietf:params:xml:ns:caldav}calendar-data' => 'Sabre\\CalDAV\\Xml\\Filter\\CalendarData',
-            '{DAV:}prop' => 'Sabre\\Xml\\Element\\KeyValue',
-        ]);
-
-        $newProps = [
-            'filters' => null,
-            'properties' => [],
-        ];
-
+        $elems = $reader->parseInnerTree(['{urn:ietf:params:xml:ns:caldav}comp-filter' => 'XCloner\Sabre\CalDAV\Xml\Filter\CompFilter', '{urn:ietf:params:xml:ns:caldav}prop-filter' => 'XCloner\Sabre\CalDAV\Xml\Filter\PropFilter', '{urn:ietf:params:xml:ns:caldav}param-filter' => 'XCloner\Sabre\CalDAV\Xml\Filter\ParamFilter', '{urn:ietf:params:xml:ns:caldav}calendar-data' => 'XCloner\Sabre\CalDAV\Xml\Filter\CalendarData', '{DAV:}prop' => 'XCloner\Sabre\Xml\Element\KeyValue']);
+        $newProps = ['filters' => null, 'properties' => []];
         if (!is_array($elems)) {
             $elems = [];
         }
-
         foreach ($elems as $elem) {
             switch ($elem['name']) {
                 case '{DAV:}prop':
                     $newProps['properties'] = array_keys($elem['value']);
-                    if (isset($elem['value']['{'.Plugin::NS_CALDAV.'}calendar-data'])) {
-                        $newProps += $elem['value']['{'.Plugin::NS_CALDAV.'}calendar-data'];
+                    if (isset($elem['value']['{' . Plugin::NS_CALDAV . '}calendar-data'])) {
+                        $newProps += $elem['value']['{' . Plugin::NS_CALDAV . '}calendar-data'];
                     }
                     break;
-                case '{'.Plugin::NS_CALDAV.'}filter':
+                case '{' . Plugin::NS_CALDAV . '}filter':
                     foreach ($elem['value'] as $subElem) {
-                        if ($subElem['name'] === '{'.Plugin::NS_CALDAV.'}comp-filter') {
+                        if ($subElem['name'] === '{' . Plugin::NS_CALDAV . '}comp-filter') {
                             if (!is_null($newProps['filters'])) {
                                 throw new BadRequest('Only one top-level comp-filter may be defined');
                             }
@@ -125,16 +106,13 @@ class CalendarQueryReport implements XmlDeserializable
                     break;
             }
         }
-
         if (is_null($newProps['filters'])) {
-            throw new BadRequest('The {'.Plugin::NS_CALDAV.'}filter element is required for this request');
+            throw new BadRequest('The {' . Plugin::NS_CALDAV . '}filter element is required for this request');
         }
-
         $obj = new self();
         foreach ($newProps as $key => $value) {
-            $obj->$key = $value;
+            $obj->{$key} = $value;
         }
-
         return $obj;
     }
 }

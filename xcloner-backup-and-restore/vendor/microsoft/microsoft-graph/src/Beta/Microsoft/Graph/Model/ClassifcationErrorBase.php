@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ClassifcationErrorBase class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ClassifcationErrorBase extends Entity
 {
     /**
-    * Gets the code
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -39,29 +41,27 @@ class ClassifcationErrorBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    *
-    * @param string $val The value of the code
-    *
-    * @return ClassifcationErrorBase
-    */
+     * Sets the code
+     *
+     * @param string $val The value of the code
+     *
+     * @return ClassifcationErrorBase
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
-
     /**
-    * Gets the innerError
-    *
-    * @return ClassificationInnerError|null The innerError
-    */
+     * Gets the innerError
+     *
+     * @return ClassificationInnerError|null The innerError
+     */
     public function getInnerError()
     {
         if (array_key_exists("innerError", $this->_propDict)) {
-            if (is_a($this->_propDict["innerError"], "\Beta\Microsoft\Graph\Model\ClassificationInnerError") || is_null($this->_propDict["innerError"])) {
+            if (is_a($this->_propDict["innerError"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ClassificationInnerError") || is_null($this->_propDict["innerError"])) {
                 return $this->_propDict["innerError"];
             } else {
                 $this->_propDict["innerError"] = new ClassificationInnerError($this->_propDict["innerError"]);
@@ -70,24 +70,23 @@ class ClassifcationErrorBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the innerError
-    *
-    * @param ClassificationInnerError $val The value to assign to the innerError
-    *
-    * @return ClassifcationErrorBase The ClassifcationErrorBase
-    */
+     * Sets the innerError
+     *
+     * @param ClassificationInnerError $val The value to assign to the innerError
+     *
+     * @return ClassifcationErrorBase The ClassifcationErrorBase
+     */
     public function setInnerError($val)
     {
         $this->_propDict["innerError"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the message
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -96,24 +95,23 @@ class ClassifcationErrorBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    *
-    * @param string $val The value of the message
-    *
-    * @return ClassifcationErrorBase
-    */
+     * Sets the message
+     *
+     * @param string $val The value of the message
+     *
+     * @return ClassifcationErrorBase
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;
         return $this;
     }
     /**
-    * Gets the target
-    *
-    * @return string|null The target
-    */
+     * Gets the target
+     *
+     * @return string|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
@@ -122,14 +120,13 @@ class ClassifcationErrorBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the target
-    *
-    * @param string $val The value of the target
-    *
-    * @return ClassifcationErrorBase
-    */
+     * Sets the target
+     *
+     * @param string $val The value of the target
+     *
+     * @return ClassifcationErrorBase
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;

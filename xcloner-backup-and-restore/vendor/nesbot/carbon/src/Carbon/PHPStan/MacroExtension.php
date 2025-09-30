@@ -8,18 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\PHPStan;
 
-namespace Carbon\PHPStan;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use PHPStan\Reflection\ClassReflection;
-use PHPStan\Reflection\MethodReflection;
-use PHPStan\Reflection\MethodsClassReflectionExtension;
-use PHPStan\Reflection\Php\PhpMethodReflectionFactory;
-use PHPStan\Type\TypehintHelper;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\PHPStan\Reflection\ClassReflection;
+use XCloner\PHPStan\Reflection\MethodReflection;
+use XCloner\PHPStan\Reflection\MethodsClassReflectionExtension;
+use XCloner\PHPStan\Reflection\Php\PhpMethodReflectionFactory;
+use XCloner\PHPStan\Type\TypehintHelper;
 /**
  * Class MacroExtension.
  *
@@ -31,12 +29,10 @@ final class MacroExtension implements MethodsClassReflectionExtension
      * @var PhpMethodReflectionFactory
      */
     protected $methodReflectionFactory;
-
     /**
      * @var MacroScanner
      */
     protected $scanner;
-
     /**
      * Extension constructor.
      *
@@ -47,7 +43,6 @@ final class MacroExtension implements MethodsClassReflectionExtension
         $this->scanner = new MacroScanner();
         $this->methodReflectionFactory = $methodReflectionFactory;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -55,27 +50,12 @@ final class MacroExtension implements MethodsClassReflectionExtension
     {
         return $this->scanner->hasMethod($classReflection->getName(), $methodName);
     }
-
     /**
      * {@inheritdoc}
      */
     public function getMethod(ClassReflection $classReflection, string $methodName): MethodReflection
     {
         $builtinMacro = $this->scanner->getMethod($classReflection->getName(), $methodName);
-
-        return $this->methodReflectionFactory->create(
-            $classReflection,
-            null,
-            $builtinMacro,
-            $classReflection->getActiveTemplateTypeMap(),
-            [],
-            TypehintHelper::decideTypeFromReflection($builtinMacro->getReturnType()),
-            null,
-            null,
-            $builtinMacro->isDeprecated()->yes(),
-            $builtinMacro->isInternal(),
-            $builtinMacro->isFinal(),
-            $builtinMacro->getDocComment()
-        );
+        return $this->methodReflectionFactory->create($classReflection, null, $builtinMacro, $classReflection->getActiveTemplateTypeMap(), [], TypehintHelper::decideTypeFromReflection($builtinMacro->getReturnType()), null, null, $builtinMacro->isDeprecated()->yes(), $builtinMacro->isInternal(), $builtinMacro->isFinal(), $builtinMacro->getDocComment());
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Program class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Program extends Entity
 {
     /**
-    * Gets the description
-    * The description of the program.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the program.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class Program extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the program.
-    *
-    * @param string $val The description
-    *
-    * @return Program
-    */
+     * Sets the description
+     * The description of the program.
+     *
+     * @param string $val The description
+     *
+     * @return Program
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the program.  Required on create.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the program.  Required on create.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,49 +69,44 @@ class Program extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the program.  Required on create.
-    *
-    * @param string $val The displayName
-    *
-    * @return Program
-    */
+     * Sets the displayName
+     * The name of the program.  Required on create.
+     *
+     * @param string $val The displayName
+     *
+     * @return Program
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the controls
-    * Controls associated with the program.
+     * Controls associated with the program.
      *
      * @return array|null The controls
      */
     public function getControls()
     {
         if (array_key_exists("controls", $this->_propDict)) {
-           return $this->_propDict["controls"];
+            return $this->_propDict["controls"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the controls
-    * Controls associated with the program.
-    *
-    * @param ProgramControl[] $val The controls
-    *
-    * @return Program
-    */
+     * Sets the controls
+     * Controls associated with the program.
+     *
+     * @param ProgramControl[] $val The controls
+     *
+     * @return Program
+     */
     public function setControls($val)
     {
         $this->_propDict["controls"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * StoragePlanInformation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class StoragePlanInformation extends Entity
 {
     /**
-    * Gets the upgradeAvailable
-    * Indicates if there are higher storage quota plans available. Read-only.
-    *
-    * @return bool|null The upgradeAvailable
-    */
+     * Gets the upgradeAvailable
+     * Indicates if there are higher storage quota plans available. Read-only.
+     *
+     * @return bool|null The upgradeAvailable
+     */
     public function getUpgradeAvailable()
     {
         if (array_key_exists("upgradeAvailable", $this->_propDict)) {
@@ -40,15 +42,14 @@ class StoragePlanInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the upgradeAvailable
-    * Indicates if there are higher storage quota plans available. Read-only.
-    *
-    * @param bool $val The value of the upgradeAvailable
-    *
-    * @return StoragePlanInformation
-    */
+     * Sets the upgradeAvailable
+     * Indicates if there are higher storage quota plans available. Read-only.
+     *
+     * @param bool $val The value of the upgradeAvailable
+     *
+     * @return StoragePlanInformation
+     */
     public function setUpgradeAvailable($val)
     {
         $this->_propDict["upgradeAvailable"] = $val;

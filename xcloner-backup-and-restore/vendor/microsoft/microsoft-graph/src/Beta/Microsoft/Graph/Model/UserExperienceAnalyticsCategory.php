@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsCategory class
 *
@@ -27,64 +28,58 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class UserExperienceAnalyticsCategory extends Entity
 {
-
-     /**
+    /**
      * Gets the insights
-    * The insights for the user experience analytics category.
+     * The insights for the user experience analytics category.
      *
      * @return array|null The insights
      */
     public function getInsights()
     {
         if (array_key_exists("insights", $this->_propDict)) {
-           return $this->_propDict["insights"];
+            return $this->_propDict["insights"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the insights
-    * The insights for the user experience analytics category.
-    *
-    * @param UserExperienceAnalyticsInsight[] $val The insights
-    *
-    * @return UserExperienceAnalyticsCategory
-    */
+     * Sets the insights
+     * The insights for the user experience analytics category.
+     *
+     * @param UserExperienceAnalyticsInsight[] $val The insights
+     *
+     * @return UserExperienceAnalyticsCategory
+     */
     public function setInsights($val)
     {
         $this->_propDict["insights"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the metricValues
-    * The metric values for the user experience analytics category.
+     * The metric values for the user experience analytics category.
      *
      * @return array|null The metricValues
      */
     public function getMetricValues()
     {
         if (array_key_exists("metricValues", $this->_propDict)) {
-           return $this->_propDict["metricValues"];
+            return $this->_propDict["metricValues"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the metricValues
-    * The metric values for the user experience analytics category.
-    *
-    * @param UserExperienceAnalyticsMetric[] $val The metricValues
-    *
-    * @return UserExperienceAnalyticsCategory
-    */
+     * Sets the metricValues
+     * The metric values for the user experience analytics category.
+     *
+     * @param UserExperienceAnalyticsMetric[] $val The metricValues
+     *
+     * @return UserExperienceAnalyticsCategory
+     */
     public function setMetricValues($val)
     {
         $this->_propDict["metricValues"] = $val;
         return $this;
     }
-
 }

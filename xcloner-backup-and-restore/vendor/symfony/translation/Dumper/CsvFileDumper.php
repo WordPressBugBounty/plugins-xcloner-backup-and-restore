@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Dumper;
 
-namespace Symfony\Component\Translation\Dumper;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\MessageCatalogue;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\MessageCatalogue;
 /**
  * CsvFileDumper generates a csv formatted string representation of a message catalogue.
  *
@@ -25,25 +23,20 @@ class CsvFileDumper extends FileDumper
 {
     private $delimiter = ';';
     private $enclosure = '"';
-
     /**
      * {@inheritdoc}
      */
     public function formatCatalogue(MessageCatalogue $messages, string $domain, array $options = [])
     {
         $handle = fopen('php://memory', 'r+');
-
         foreach ($messages->all($domain) as $source => $target) {
             fputcsv($handle, [$source, $target], $this->delimiter, $this->enclosure);
         }
-
         rewind($handle);
         $output = stream_get_contents($handle);
         fclose($handle);
-
         return $output;
     }
-
     /**
      * Sets the delimiter and escape character for CSV.
      */
@@ -52,7 +45,6 @@ class CsvFileDumper extends FileDumper
         $this->delimiter = $delimiter;
         $this->enclosure = $enclosure;
     }
-
     /**
      * {@inheritdoc}
      */

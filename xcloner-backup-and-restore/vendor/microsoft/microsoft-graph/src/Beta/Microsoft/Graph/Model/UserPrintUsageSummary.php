@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserPrintUsageSummary class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserPrintUsageSummary extends Entity
 {
     /**
-    * Gets the completedJobCount
-    *
-    * @return int|null The completedJobCount
-    */
+     * Gets the completedJobCount
+     *
+     * @return int|null The completedJobCount
+     */
     public function getCompletedJobCount()
     {
         if (array_key_exists("completedJobCount", $this->_propDict)) {
@@ -39,24 +41,23 @@ class UserPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedJobCount
-    *
-    * @param int $val The value of the completedJobCount
-    *
-    * @return UserPrintUsageSummary
-    */
+     * Sets the completedJobCount
+     *
+     * @param int $val The value of the completedJobCount
+     *
+     * @return UserPrintUsageSummary
+     */
     public function setCompletedJobCount($val)
     {
         $this->_propDict["completedJobCount"] = $val;
         return $this;
     }
     /**
-    * Gets the incompleteJobCount
-    *
-    * @return int|null The incompleteJobCount
-    */
+     * Gets the incompleteJobCount
+     *
+     * @return int|null The incompleteJobCount
+     */
     public function getIncompleteJobCount()
     {
         if (array_key_exists("incompleteJobCount", $this->_propDict)) {
@@ -65,29 +66,27 @@ class UserPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the incompleteJobCount
-    *
-    * @param int $val The value of the incompleteJobCount
-    *
-    * @return UserPrintUsageSummary
-    */
+     * Sets the incompleteJobCount
+     *
+     * @param int $val The value of the incompleteJobCount
+     *
+     * @return UserPrintUsageSummary
+     */
     public function setIncompleteJobCount($val)
     {
         $this->_propDict["incompleteJobCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the user
-    *
-    * @return Identity|null The user
-    */
+     * Gets the user
+     *
+     * @return Identity|null The user
+     */
     public function getUser()
     {
         if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["user"])) {
+            if (is_a($this->_propDict["user"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Identity") || is_null($this->_propDict["user"])) {
                 return $this->_propDict["user"];
             } else {
                 $this->_propDict["user"] = new Identity($this->_propDict["user"]);
@@ -96,24 +95,23 @@ class UserPrintUsageSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the user
-    *
-    * @param Identity $val The value to assign to the user
-    *
-    * @return UserPrintUsageSummary The UserPrintUsageSummary
-    */
+     * Sets the user
+     *
+     * @param Identity $val The value to assign to the user
+     *
+     * @return UserPrintUsageSummary The UserPrintUsageSummary
+     */
     public function setUser($val)
     {
         $this->_propDict["user"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the userDisplayName
-    *
-    * @return string|null The userDisplayName
-    */
+     * Gets the userDisplayName
+     *
+     * @return string|null The userDisplayName
+     */
     public function getUserDisplayName()
     {
         if (array_key_exists("userDisplayName", $this->_propDict)) {
@@ -122,24 +120,23 @@ class UserPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userDisplayName
-    *
-    * @param string $val The value of the userDisplayName
-    *
-    * @return UserPrintUsageSummary
-    */
+     * Sets the userDisplayName
+     *
+     * @param string $val The value of the userDisplayName
+     *
+     * @return UserPrintUsageSummary
+     */
     public function setUserDisplayName($val)
     {
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
     /**
-    * Gets the userPrincipalName
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -148,14 +145,13 @@ class UserPrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return UserPrintUsageSummary
-    */
+     * Sets the userPrincipalName
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return UserPrintUsageSummary
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

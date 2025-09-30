@@ -8,16 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Doctrine;
 
-namespace Carbon\Doctrine;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class DateTimeDefaultPrecision
 {
     private static $precision = 6;
-
     /**
      * Change the default Doctrine datetime and datetime_immutable precision.
      *
@@ -27,7 +25,6 @@ class DateTimeDefaultPrecision
     {
         self::$precision = $precision;
     }
-
     /**
      * Get the default Doctrine datetime and datetime_immutable precision.
      *

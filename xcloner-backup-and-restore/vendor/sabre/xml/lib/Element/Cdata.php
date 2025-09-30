@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Element;
 
-namespace Sabre\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml;
 /**
  * CDATA element.
  *
@@ -30,7 +28,6 @@ class Cdata implements Xml\XmlSerializable
      * @var string
      */
     protected $value;
-
     /**
      * Constructor.
      */
@@ -38,7 +35,6 @@ class Cdata implements Xml\XmlSerializable
     {
         $this->value = $value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *

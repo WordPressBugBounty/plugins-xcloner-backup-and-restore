@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Represents windows azure blob object
  *
@@ -53,7 +52,6 @@ class Blob
     {
         return $this->_name;
     }
-
     /**
      * Sets blob name.
      *
@@ -65,7 +63,6 @@ class Blob
     {
         $this->_name = $name;
     }
-
     /**
      * Gets blob snapshot.
      *
@@ -75,7 +72,6 @@ class Blob
     {
         return $this->_snapshot;
     }
-
     /**
      * Sets blob snapshot.
      *
@@ -87,7 +83,6 @@ class Blob
     {
         $this->_snapshot = $snapshot;
     }
-
     /**
      * Gets blob url.
      *
@@ -97,7 +92,6 @@ class Blob
     {
         return $this->_url;
     }
-
     /**
      * Sets blob url.
      *
@@ -109,7 +103,6 @@ class Blob
     {
         $this->_url = $url;
     }
-
     /**
      * Gets blob metadata.
      *
@@ -119,7 +112,6 @@ class Blob
     {
         return $this->_metadata;
     }
-
     /**
      * Sets blob metadata.
      *
@@ -131,7 +123,6 @@ class Blob
     {
         $this->_metadata = $metadata;
     }
-
     /**
      * Gets blob properties.
      *
@@ -141,7 +132,6 @@ class Blob
     {
         return $this->_properties;
     }
-
     /**
      * Sets blob properties.
      *

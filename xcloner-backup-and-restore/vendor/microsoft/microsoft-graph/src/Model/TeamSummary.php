@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamSummary class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamSummary extends Entity
 {
     /**
-    * Gets the guestsCount
-    *
-    * @return int|null The guestsCount
-    */
+     * Gets the guestsCount
+     *
+     * @return int|null The guestsCount
+     */
     public function getGuestsCount()
     {
         if (array_key_exists("guestsCount", $this->_propDict)) {
@@ -39,24 +41,23 @@ class TeamSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the guestsCount
-    *
-    * @param int $val The value of the guestsCount
-    *
-    * @return TeamSummary
-    */
+     * Sets the guestsCount
+     *
+     * @param int $val The value of the guestsCount
+     *
+     * @return TeamSummary
+     */
     public function setGuestsCount($val)
     {
         $this->_propDict["guestsCount"] = $val;
         return $this;
     }
     /**
-    * Gets the membersCount
-    *
-    * @return int|null The membersCount
-    */
+     * Gets the membersCount
+     *
+     * @return int|null The membersCount
+     */
     public function getMembersCount()
     {
         if (array_key_exists("membersCount", $this->_propDict)) {
@@ -65,24 +66,23 @@ class TeamSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the membersCount
-    *
-    * @param int $val The value of the membersCount
-    *
-    * @return TeamSummary
-    */
+     * Sets the membersCount
+     *
+     * @param int $val The value of the membersCount
+     *
+     * @return TeamSummary
+     */
     public function setMembersCount($val)
     {
         $this->_propDict["membersCount"] = $val;
         return $this;
     }
     /**
-    * Gets the ownersCount
-    *
-    * @return int|null The ownersCount
-    */
+     * Gets the ownersCount
+     *
+     * @return int|null The ownersCount
+     */
     public function getOwnersCount()
     {
         if (array_key_exists("ownersCount", $this->_propDict)) {
@@ -91,14 +91,13 @@ class TeamSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ownersCount
-    *
-    * @param int $val The value of the ownersCount
-    *
-    * @return TeamSummary
-    */
+     * Sets the ownersCount
+     *
+     * @param int $val The value of the ownersCount
+     *
+     * @return TeamSummary
+     */
     public function setOwnersCount($val)
     {
         $this->_propDict["ownersCount"] = $val;

@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Sftp;
+namespace XCloner\League\Flysystem\Sftp;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 interface SftpAdapterException
 {
 }

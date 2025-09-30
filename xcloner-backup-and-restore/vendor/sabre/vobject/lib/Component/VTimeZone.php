@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Component;
+namespace XCloner\Sabre\VObject\Component;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject;
 /**
  * The VTimeZone component.
  *
@@ -31,7 +30,6 @@ class VTimeZone extends VObject\Component
     {
         return VObject\TimeZoneUtil::getTimeZone((string) $this->TZID, $this->root);
     }
-
     /**
      * A simple list of validation rules.
      *
@@ -51,10 +49,8 @@ class VTimeZone extends VObject\Component
     {
         return [
             'TZID' => 1,
-
             'LAST-MODIFIED' => '?',
             'TZURL' => '?',
-
             // At least 1 STANDARD or DAYLIGHT must appear.
             //
             // The validator is not specific yet to pick this up, so these

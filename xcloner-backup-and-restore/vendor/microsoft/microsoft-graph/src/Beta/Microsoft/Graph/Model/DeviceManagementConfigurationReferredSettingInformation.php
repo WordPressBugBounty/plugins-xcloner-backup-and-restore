@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationReferredSettingInformation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationReferredSettingInformation extends Entity
 {
     /**
-    * Gets the settingDefinitionId
-    * Setting definition id that is being referred to a setting. Applicable for reusable setting
-    *
-    * @return string|null The settingDefinitionId
-    */
+     * Gets the settingDefinitionId
+     * Setting definition id that is being referred to a setting. Applicable for reusable setting
+     *
+     * @return string|null The settingDefinitionId
+     */
     public function getSettingDefinitionId()
     {
         if (array_key_exists("settingDefinitionId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeviceManagementConfigurationReferredSettingInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingDefinitionId
-    * Setting definition id that is being referred to a setting. Applicable for reusable setting
-    *
-    * @param string $val The value of the settingDefinitionId
-    *
-    * @return DeviceManagementConfigurationReferredSettingInformation
-    */
+     * Sets the settingDefinitionId
+     * Setting definition id that is being referred to a setting. Applicable for reusable setting
+     *
+     * @param string $val The value of the settingDefinitionId
+     *
+     * @return DeviceManagementConfigurationReferredSettingInformation
+     */
     public function setSettingDefinitionId($val)
     {
         $this->_propDict["settingDefinitionId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsKioskAzureADUser class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsKioskAzureADUser extends WindowsKioskUser
 {
     /**
-    * Gets the userId
-    * The ID of the AzureAD user that will be locked to this kiosk configuration
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The ID of the AzureAD user that will be locked to this kiosk configuration
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsKioskAzureADUser extends WindowsKioskUser
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The ID of the AzureAD user that will be locked to this kiosk configuration
-    *
-    * @param string $val The value of the userId
-    *
-    * @return WindowsKioskAzureADUser
-    */
+     * Sets the userId
+     * The ID of the AzureAD user that will be locked to this kiosk configuration
+     *
+     * @param string $val The value of the userId
+     *
+     * @return WindowsKioskAzureADUser
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
     /**
-    * Gets the userPrincipalName
-    * The user accounts that will be locked to this kiosk configuration
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The user accounts that will be locked to this kiosk configuration
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class WindowsKioskAzureADUser extends WindowsKioskUser
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The user accounts that will be locked to this kiosk configuration
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return WindowsKioskAzureADUser
-    */
+     * Sets the userPrincipalName
+     * The user accounts that will be locked to this kiosk configuration
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return WindowsKioskAzureADUser
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

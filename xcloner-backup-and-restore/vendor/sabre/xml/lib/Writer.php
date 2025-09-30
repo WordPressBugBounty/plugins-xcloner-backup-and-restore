@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml;
 
-namespace Sabre\Xml;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use XMLWriter;
-
 /**
  * The XML Writer class.
  *
@@ -36,7 +34,6 @@ use XMLWriter;
 class Writer extends XMLWriter
 {
     use ContextStackTrait;
-
     /**
      * Any namespace that the writer is asked to write, will be added here.
      *
@@ -47,7 +44,6 @@ class Writer extends XMLWriter
      * @var array
      */
     protected $adhocNamespaces = [];
-
     /**
      * When the first element is written, this flag is set to true.
      *
@@ -56,8 +52,7 @@ class Writer extends XMLWriter
      *
      * @var bool
      */
-    protected $namespacesWritten = false;
-
+    protected $namespacesWritten = \false;
     /**
      * Writes a value to the output stream.
      *
@@ -103,7 +98,6 @@ class Writer extends XMLWriter
     {
         Serializer\standardSerializer($this, $value);
     }
-
     /**
      * Opens a new element.
      *
@@ -126,42 +120,29 @@ class Writer extends XMLWriter
     public function startElement($name): bool
     {
         if ('{' === $name[0]) {
-            list($namespace, $localName) =
-                Service::parseClarkNotation($name);
-
+            list($namespace, $localName) = Service::parseClarkNotation($name);
             if (array_key_exists($namespace, $this->namespaceMap)) {
-                $result = $this->startElementNS(
-                    '' === $this->namespaceMap[$namespace] ? null : $this->namespaceMap[$namespace],
-                    $localName,
-                    null
-                );
+                $result = $this->startElementNS('' === $this->namespaceMap[$namespace] ? null : $this->namespaceMap[$namespace], $localName, null);
+            } else if ('' === $namespace || null === $namespace) {
+                $result = $this->startElement($localName);
+                $this->writeAttribute('xmlns', '');
             } else {
-                // An empty namespace means it's the global namespace. This is
-                // allowed, but it mustn't get a prefix.
-                if ('' === $namespace || null === $namespace) {
-                    $result = $this->startElement($localName);
-                    $this->writeAttribute('xmlns', '');
-                } else {
-                    if (!isset($this->adhocNamespaces[$namespace])) {
-                        $this->adhocNamespaces[$namespace] = 'x'.(count($this->adhocNamespaces) + 1);
-                    }
-                    $result = $this->startElementNS($this->adhocNamespaces[$namespace], $localName, $namespace);
+                if (!isset($this->adhocNamespaces[$namespace])) {
+                    $this->adhocNamespaces[$namespace] = 'x' . (count($this->adhocNamespaces) + 1);
                 }
+                $result = $this->startElementNS($this->adhocNamespaces[$namespace], $localName, $namespace);
             }
         } else {
             $result = parent::startElement($name);
         }
-
         if (!$this->namespacesWritten) {
             foreach ($this->namespaceMap as $namespace => $prefix) {
-                $this->writeAttribute(($prefix ? 'xmlns:'.$prefix : 'xmlns'), $namespace);
+                $this->writeAttribute($prefix ? 'xmlns:' . $prefix : 'xmlns', $namespace);
             }
-            $this->namespacesWritten = true;
+            $this->namespacesWritten = \true;
         }
-
         return $result;
     }
-
     /**
      * Write a full element tag and it's contents.
      *
@@ -193,10 +174,8 @@ class Writer extends XMLWriter
             $this->write($content);
         }
         $this->endElement();
-
-        return true;
+        return \true;
     }
-
     /**
      * Writes a list of attributes.
      *
@@ -212,7 +191,6 @@ class Writer extends XMLWriter
             $this->writeAttribute($name, $value);
         }
     }
-
     /**
      * Writes a new attribute.
      *
@@ -231,30 +209,15 @@ class Writer extends XMLWriter
         if ('{' !== $name[0]) {
             return parent::writeAttribute($name, $value);
         }
-
-        list(
-            $namespace,
-            $localName
-        ) = Service::parseClarkNotation($name);
-
+        list($namespace, $localName) = Service::parseClarkNotation($name);
         if (array_key_exists($namespace, $this->namespaceMap)) {
             // It's an attribute with a namespace we know
-            return $this->writeAttribute(
-                $this->namespaceMap[$namespace].':'.$localName,
-                $value
-            );
+            return $this->writeAttribute($this->namespaceMap[$namespace] . ':' . $localName, $value);
         }
-
         // We don't know the namespace, we must add it in-line
         if (!isset($this->adhocNamespaces[$namespace])) {
-            $this->adhocNamespaces[$namespace] = 'x'.(count($this->adhocNamespaces) + 1);
+            $this->adhocNamespaces[$namespace] = 'x' . (count($this->adhocNamespaces) + 1);
         }
-
-        return $this->writeAttributeNS(
-            $this->adhocNamespaces[$namespace],
-            $localName,
-            $namespace,
-            $value
-        );
+        return $this->writeAttributeNS($this->adhocNamespaces[$namespace], $localName, $namespace, $value);
     }
 }

@@ -8,16 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\PHPStan;
 
-namespace Carbon\PHPStan;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Carbon\CarbonInterface;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Carbon\CarbonInterface;
 use ReflectionClass;
 use ReflectionException;
-
 final class MacroScanner
 {
     /**
@@ -32,11 +30,8 @@ final class MacroScanner
      */
     public function hasMethod(string $className, string $methodName): bool
     {
-        return is_a($className, CarbonInterface::class, true) &&
-            \is_callable([$className, 'hasMacro']) &&
-            $className::hasMacro($methodName);
+        return is_a($className, CarbonInterface::class, \true) && \is_callable([$className, 'hasMacro']) && $className::hasMacro($methodName);
     }
-
     /**
      * Return the Macro for a given pair class-method.
      *
@@ -53,14 +48,8 @@ final class MacroScanner
     {
         $reflectionClass = new ReflectionClass($className);
         $property = $reflectionClass->getProperty('globalMacros');
-
-        $property->setAccessible(true);
+        $property->setAccessible(\true);
         $macro = $property->getValue()[$methodName];
-
-        return new Macro(
-            $className,
-            $methodName,
-            $macro
-        );
+        return new Macro($className, $methodName, $macro);
     }
 }

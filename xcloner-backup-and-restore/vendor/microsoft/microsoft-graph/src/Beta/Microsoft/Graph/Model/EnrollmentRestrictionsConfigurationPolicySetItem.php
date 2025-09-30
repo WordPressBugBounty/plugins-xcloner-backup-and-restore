@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EnrollmentRestrictionsConfigurationPolicySetItem class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
 {
     /**
-    * Gets the limit
-    * Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
-    *
-    * @return int|null The limit
-    */
+     * Gets the limit
+     * Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
+     *
+     * @return int|null The limit
+     */
     public function getLimit()
     {
         if (array_key_exists("limit", $this->_propDict)) {
@@ -41,27 +42,25 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
             return null;
         }
     }
-
     /**
-    * Sets the limit
-    * Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
-    *
-    * @param int $val The limit
-    *
-    * @return EnrollmentRestrictionsConfigurationPolicySetItem
-    */
+     * Sets the limit
+     * Limit of the EnrollmentRestrictionsConfigurationPolicySetItem.
+     *
+     * @param int $val The limit
+     *
+     * @return EnrollmentRestrictionsConfigurationPolicySetItem
+     */
     public function setLimit($val)
     {
         $this->_propDict["limit"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the priority
-    * Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
-    *
-    * @return int|null The priority
-    */
+     * Gets the priority
+     * Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
+     *
+     * @return int|null The priority
+     */
     public function getPriority()
     {
         if (array_key_exists("priority", $this->_propDict)) {
@@ -70,19 +69,17 @@ class EnrollmentRestrictionsConfigurationPolicySetItem extends PolicySetItem
             return null;
         }
     }
-
     /**
-    * Sets the priority
-    * Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
-    *
-    * @param int $val The priority
-    *
-    * @return EnrollmentRestrictionsConfigurationPolicySetItem
-    */
+     * Sets the priority
+     * Priority of the EnrollmentRestrictionsConfigurationPolicySetItem.
+     *
+     * @param int $val The priority
+     *
+     * @return EnrollmentRestrictionsConfigurationPolicySetItem
+     */
     public function setPriority($val)
     {
         $this->_propDict["priority"] = intval($val);
         return $this;
     }
-
 }

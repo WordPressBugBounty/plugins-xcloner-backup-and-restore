@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDefenderScanActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDefenderScanActionResult extends DeviceActionResult
 {
     /**
-    * Gets the scanType
-    * Scan type either full scan or quick scan
-    *
-    * @return string|null The scanType
-    */
+     * Gets the scanType
+     * Scan type either full scan or quick scan
+     *
+     * @return string|null The scanType
+     */
     public function getScanType()
     {
         if (array_key_exists("scanType", $this->_propDict)) {
@@ -40,15 +42,14 @@ class WindowsDefenderScanActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the scanType
-    * Scan type either full scan or quick scan
-    *
-    * @param string $val The value of the scanType
-    *
-    * @return WindowsDefenderScanActionResult
-    */
+     * Sets the scanType
+     * Scan type either full scan or quick scan
+     *
+     * @param string $val The value of the scanType
+     *
+     * @return WindowsDefenderScanActionResult
+     */
     public function setScanType($val)
     {
         $this->_propDict["scanType"] = $val;

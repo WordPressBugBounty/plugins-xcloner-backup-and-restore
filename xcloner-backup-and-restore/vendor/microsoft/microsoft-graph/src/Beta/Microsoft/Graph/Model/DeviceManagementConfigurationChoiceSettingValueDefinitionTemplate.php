@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate extends Entity
 {
-
     /**
-    * Gets the allowedOptions
-    * Choice Setting Allowed Options
-    *
-    * @return DeviceManagementConfigurationOptionDefinitionTemplate|null The allowedOptions
-    */
+     * Gets the allowedOptions
+     * Choice Setting Allowed Options
+     *
+     * @return DeviceManagementConfigurationOptionDefinitionTemplate|null The allowedOptions
+     */
     public function getAllowedOptions()
     {
         if (array_key_exists("allowedOptions", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedOptions"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationOptionDefinitionTemplate") || is_null($this->_propDict["allowedOptions"])) {
+            if (is_a($this->_propDict["allowedOptions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationOptionDefinitionTemplate") || is_null($this->_propDict["allowedOptions"])) {
                 return $this->_propDict["allowedOptions"];
             } else {
                 $this->_propDict["allowedOptions"] = new DeviceManagementConfigurationOptionDefinitionTemplate($this->_propDict["allowedOptions"]);
@@ -45,18 +46,17 @@ class DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate extends 
         }
         return null;
     }
-
     /**
-    * Sets the allowedOptions
-    * Choice Setting Allowed Options
-    *
-    * @param DeviceManagementConfigurationOptionDefinitionTemplate $val The value to assign to the allowedOptions
-    *
-    * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate The DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate
-    */
+     * Sets the allowedOptions
+     * Choice Setting Allowed Options
+     *
+     * @param DeviceManagementConfigurationOptionDefinitionTemplate $val The value to assign to the allowedOptions
+     *
+     * @return DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate The DeviceManagementConfigurationChoiceSettingValueDefinitionTemplate
+     */
     public function setAllowedOptions($val)
     {
         $this->_propDict["allowedOptions"] = $val;
-         return $this;
+        return $this;
     }
 }

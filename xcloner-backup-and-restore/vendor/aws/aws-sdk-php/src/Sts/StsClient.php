@@ -1,15 +1,15 @@
 <?php
-namespace Aws\Sts;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Sts;
 
-
-use Aws\AwsClient;
-use Aws\CacheInterface;
-use Aws\Credentials\Credentials;
-use Aws\Result;
-use Aws\Sts\RegionalEndpoints\ConfigurationProvider;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\AwsClient;
+use XCloner\Aws\CacheInterface;
+use XCloner\Aws\Credentials\Credentials;
+use XCloner\Aws\Result;
+use XCloner\Aws\Sts\RegionalEndpoints\ConfigurationProvider;
 /**
  * This client is used to interact with the **AWS Security Token Service (AWS STS)**.
  *
@@ -32,7 +32,6 @@ use Aws\Sts\RegionalEndpoints\ConfigurationProvider;
  */
 class StsClient extends AwsClient
 {
-
     /**
      * {@inheritdoc}
      *
@@ -54,15 +53,11 @@ class StsClient extends AwsClient
      */
     public function __construct(array $args)
     {
-        if (
-            !isset($args['sts_regional_endpoints'])
-            || $args['sts_regional_endpoints'] instanceof CacheInterface
-        ) {
+        if (!isset($args['sts_regional_endpoints']) || $args['sts_regional_endpoints'] instanceof CacheInterface) {
             $args['sts_regional_endpoints'] = ConfigurationProvider::defaultProvider($args);
         }
         parent::__construct($args);
     }
-
     /**
      * Creates credentials from the result of an STS operations
      *
@@ -76,16 +71,7 @@ class StsClient extends AwsClient
         if (!$result->hasKey('Credentials')) {
             throw new \InvalidArgumentException('Result contains no credentials');
         }
-
         $c = $result['Credentials'];
-
-        return new Credentials(
-            $c['AccessKeyId'],
-            $c['SecretAccessKey'],
-            isset($c['SessionToken']) ? $c['SessionToken'] : null,
-            isset($c['Expiration']) && $c['Expiration'] instanceof \DateTimeInterface
-                ? (int) $c['Expiration']->format('U')
-                : null
-        );
+        return new Credentials($c['AccessKeyId'], $c['SecretAccessKey'], isset($c['SessionToken']) ? $c['SessionToken'] : null, isset($c['Expiration']) && $c['Expiration'] instanceof \DateTimeInterface ? (int) $c['Expiration']->format('U') : null);
     }
 }

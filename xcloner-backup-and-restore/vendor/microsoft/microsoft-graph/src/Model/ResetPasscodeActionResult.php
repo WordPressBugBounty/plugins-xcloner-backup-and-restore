@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResetPasscodeActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResetPasscodeActionResult extends DeviceActionResult
 {
     /**
-    * Gets the passcode
-    * Newly generated passcode for the device
-    *
-    * @return string|null The passcode
-    */
+     * Gets the passcode
+     * Newly generated passcode for the device
+     *
+     * @return string|null The passcode
+     */
     public function getPasscode()
     {
         if (array_key_exists("passcode", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ResetPasscodeActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the passcode
-    * Newly generated passcode for the device
-    *
-    * @param string $val The value of the passcode
-    *
-    * @return ResetPasscodeActionResult
-    */
+     * Sets the passcode
+     * Newly generated passcode for the device
+     *
+     * @param string $val The value of the passcode
+     *
+     * @return ResetPasscodeActionResult
+     */
     public function setPasscode($val)
     {
         $this->_propDict["passcode"] = $val;

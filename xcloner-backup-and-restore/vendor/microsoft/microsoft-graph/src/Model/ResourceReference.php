@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResourceReference class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResourceReference extends Entity
 {
     /**
-    * Gets the id
-    * The item's unique identifier.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The item's unique identifier.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ResourceReference extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The item's unique identifier.
-    *
-    * @param string $val The value of the id
-    *
-    * @return ResourceReference
-    */
+     * Sets the id
+     * The item's unique identifier.
+     *
+     * @param string $val The value of the id
+     *
+     * @return ResourceReference
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ResourceReference extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
-    *
-    * @param string $val The value of the type
-    *
-    * @return ResourceReference
-    */
+     * Sets the type
+     * A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'
+     *
+     * @param string $val The value of the type
+     *
+     * @return ResourceReference
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
     /**
-    * Gets the webUrl
-    * A URL leading to the referenced item.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * A URL leading to the referenced item.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ResourceReference extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * A URL leading to the referenced item.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return ResourceReference
-    */
+     * Sets the webUrl
+     * A URL leading to the referenced item.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return ResourceReference
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

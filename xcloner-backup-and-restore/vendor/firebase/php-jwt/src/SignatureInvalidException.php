@@ -1,10 +1,10 @@
 <?php
 
-namespace Firebase\JWT;
+namespace XCloner\Firebase\JWT;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class SignatureInvalidException extends \UnexpectedValueException
 {
 }

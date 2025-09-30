@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDeviceAccount class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDeviceAccount extends Entity
 {
     /**
-    * Gets the password
-    * Not yet documented
-    *
-    * @return string|null The password
-    */
+     * Gets the password
+     * Not yet documented
+     *
+     * @return string|null The password
+     */
     public function getPassword()
     {
         if (array_key_exists("password", $this->_propDict)) {
@@ -40,15 +42,14 @@ class WindowsDeviceAccount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the password
-    * Not yet documented
-    *
-    * @param string $val The value of the password
-    *
-    * @return WindowsDeviceAccount
-    */
+     * Sets the password
+     * Not yet documented
+     *
+     * @param string $val The value of the password
+     *
+     * @return WindowsDeviceAccount
+     */
     public function setPassword($val)
     {
         $this->_propDict["password"] = $val;

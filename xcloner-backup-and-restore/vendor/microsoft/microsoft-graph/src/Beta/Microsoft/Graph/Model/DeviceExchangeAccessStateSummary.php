@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceExchangeAccessStateSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceExchangeAccessStateSummary extends Entity
 {
     /**
-    * Gets the allowedDeviceCount
-    * Total count of devices with Exchange Access State: Allowed.
-    *
-    * @return int|null The allowedDeviceCount
-    */
+     * Gets the allowedDeviceCount
+     * Total count of devices with Exchange Access State: Allowed.
+     *
+     * @return int|null The allowedDeviceCount
+     */
     public function getAllowedDeviceCount()
     {
         if (array_key_exists("allowedDeviceCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceExchangeAccessStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedDeviceCount
-    * Total count of devices with Exchange Access State: Allowed.
-    *
-    * @param int $val The value of the allowedDeviceCount
-    *
-    * @return DeviceExchangeAccessStateSummary
-    */
+     * Sets the allowedDeviceCount
+     * Total count of devices with Exchange Access State: Allowed.
+     *
+     * @param int $val The value of the allowedDeviceCount
+     *
+     * @return DeviceExchangeAccessStateSummary
+     */
     public function setAllowedDeviceCount($val)
     {
         $this->_propDict["allowedDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the blockedDeviceCount
-    * Total count of devices with Exchange Access State: Blocked.
-    *
-    * @return int|null The blockedDeviceCount
-    */
+     * Gets the blockedDeviceCount
+     * Total count of devices with Exchange Access State: Blocked.
+     *
+     * @return int|null The blockedDeviceCount
+     */
     public function getBlockedDeviceCount()
     {
         if (array_key_exists("blockedDeviceCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceExchangeAccessStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the blockedDeviceCount
-    * Total count of devices with Exchange Access State: Blocked.
-    *
-    * @param int $val The value of the blockedDeviceCount
-    *
-    * @return DeviceExchangeAccessStateSummary
-    */
+     * Sets the blockedDeviceCount
+     * Total count of devices with Exchange Access State: Blocked.
+     *
+     * @param int $val The value of the blockedDeviceCount
+     *
+     * @return DeviceExchangeAccessStateSummary
+     */
     public function setBlockedDeviceCount($val)
     {
         $this->_propDict["blockedDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the quarantinedDeviceCount
-    * Total count of devices with Exchange Access State: Quarantined.
-    *
-    * @return int|null The quarantinedDeviceCount
-    */
+     * Gets the quarantinedDeviceCount
+     * Total count of devices with Exchange Access State: Quarantined.
+     *
+     * @return int|null The quarantinedDeviceCount
+     */
     public function getQuarantinedDeviceCount()
     {
         if (array_key_exists("quarantinedDeviceCount", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DeviceExchangeAccessStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the quarantinedDeviceCount
-    * Total count of devices with Exchange Access State: Quarantined.
-    *
-    * @param int $val The value of the quarantinedDeviceCount
-    *
-    * @return DeviceExchangeAccessStateSummary
-    */
+     * Sets the quarantinedDeviceCount
+     * Total count of devices with Exchange Access State: Quarantined.
+     *
+     * @param int $val The value of the quarantinedDeviceCount
+     *
+     * @return DeviceExchangeAccessStateSummary
+     */
     public function setQuarantinedDeviceCount($val)
     {
         $this->_propDict["quarantinedDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the unavailableDeviceCount
-    * Total count of devices for which no Exchange Access State could be found.
-    *
-    * @return int|null The unavailableDeviceCount
-    */
+     * Gets the unavailableDeviceCount
+     * Total count of devices for which no Exchange Access State could be found.
+     *
+     * @return int|null The unavailableDeviceCount
+     */
     public function getUnavailableDeviceCount()
     {
         if (array_key_exists("unavailableDeviceCount", $this->_propDict)) {
@@ -124,26 +123,25 @@ class DeviceExchangeAccessStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unavailableDeviceCount
-    * Total count of devices for which no Exchange Access State could be found.
-    *
-    * @param int $val The value of the unavailableDeviceCount
-    *
-    * @return DeviceExchangeAccessStateSummary
-    */
+     * Sets the unavailableDeviceCount
+     * Total count of devices for which no Exchange Access State could be found.
+     *
+     * @param int $val The value of the unavailableDeviceCount
+     *
+     * @return DeviceExchangeAccessStateSummary
+     */
     public function setUnavailableDeviceCount($val)
     {
         $this->_propDict["unavailableDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the unknownDeviceCount
-    * Total count of devices with Exchange Access State: Unknown.
-    *
-    * @return int|null The unknownDeviceCount
-    */
+     * Gets the unknownDeviceCount
+     * Total count of devices with Exchange Access State: Unknown.
+     *
+     * @return int|null The unknownDeviceCount
+     */
     public function getUnknownDeviceCount()
     {
         if (array_key_exists("unknownDeviceCount", $this->_propDict)) {
@@ -152,15 +150,14 @@ class DeviceExchangeAccessStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownDeviceCount
-    * Total count of devices with Exchange Access State: Unknown.
-    *
-    * @param int $val The value of the unknownDeviceCount
-    *
-    * @return DeviceExchangeAccessStateSummary
-    */
+     * Sets the unknownDeviceCount
+     * Total count of devices with Exchange Access State: Unknown.
+     *
+     * @param int $val The value of the unknownDeviceCount
+     *
+     * @return DeviceExchangeAccessStateSummary
+     */
     public function setUnknownDeviceCount($val)
     {
         $this->_propDict["unknownDeviceCount"] = $val;

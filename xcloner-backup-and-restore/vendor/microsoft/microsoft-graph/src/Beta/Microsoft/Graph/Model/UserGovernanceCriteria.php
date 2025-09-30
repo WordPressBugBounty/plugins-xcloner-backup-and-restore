@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserGovernanceCriteria class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserGovernanceCriteria extends GovernanceCriteria
 {
     /**
-    * Gets the userId
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -39,14 +41,13 @@ class UserGovernanceCriteria extends GovernanceCriteria
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    *
-    * @param string $val The value of the userId
-    *
-    * @return UserGovernanceCriteria
-    */
+     * Sets the userId
+     *
+     * @param string $val The value of the userId
+     *
+     * @return UserGovernanceCriteria
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;

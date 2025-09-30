@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsInformationProtectionAppLockerFile class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsInformationProtectionAppLockerFile extends Entity
 {
     /**
-    * Gets the displayName
-    * The friendly name
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The friendly name
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,60 +42,56 @@ class WindowsInformationProtectionAppLockerFile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The friendly name
-    *
-    * @param string $val The displayName
-    *
-    * @return WindowsInformationProtectionAppLockerFile
-    */
+     * Sets the displayName
+     * The friendly name
+     *
+     * @param string $val The displayName
+     *
+     * @return WindowsInformationProtectionAppLockerFile
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the file
-    * File as a byte array
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The file
-    */
+     * Gets the file
+     * File as a byte array
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The file
+     */
     public function getFile()
     {
         if (array_key_exists("file", $this->_propDict)) {
-            if (is_a($this->_propDict["file"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["file"])) {
+            if (is_a($this->_propDict["file"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["file"])) {
                 return $this->_propDict["file"];
             } else {
-                $this->_propDict["file"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["file"]);
+                $this->_propDict["file"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["file"]);
                 return $this->_propDict["file"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the file
-    * File as a byte array
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The file
-    *
-    * @return WindowsInformationProtectionAppLockerFile
-    */
+     * Sets the file
+     * File as a byte array
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The file
+     *
+     * @return WindowsInformationProtectionAppLockerFile
+     */
     public function setFile($val)
     {
         $this->_propDict["file"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fileHash
-    * SHA256 hash of the file
-    *
-    * @return string|null The fileHash
-    */
+     * Gets the fileHash
+     * SHA256 hash of the file
+     *
+     * @return string|null The fileHash
+     */
     public function getFileHash()
     {
         if (array_key_exists("fileHash", $this->_propDict)) {
@@ -103,27 +100,25 @@ class WindowsInformationProtectionAppLockerFile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileHash
-    * SHA256 hash of the file
-    *
-    * @param string $val The fileHash
-    *
-    * @return WindowsInformationProtectionAppLockerFile
-    */
+     * Sets the fileHash
+     * SHA256 hash of the file
+     *
+     * @param string $val The fileHash
+     *
+     * @return WindowsInformationProtectionAppLockerFile
+     */
     public function setFileHash($val)
     {
         $this->_propDict["fileHash"] = $val;
         return $this;
     }
-
     /**
-    * Gets the version
-    * Version of the entity.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * Version of the entity.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -132,19 +127,17 @@ class WindowsInformationProtectionAppLockerFile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * Version of the entity.
-    *
-    * @param string $val The version
-    *
-    * @return WindowsInformationProtectionAppLockerFile
-    */
+     * Sets the version
+     * Version of the entity.
+     *
+     * @param string $val The version
+     *
+     * @return WindowsInformationProtectionAppLockerFile
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

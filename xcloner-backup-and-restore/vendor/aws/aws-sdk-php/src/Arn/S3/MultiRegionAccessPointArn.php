@@ -1,12 +1,12 @@
 <?php
-namespace Aws\Arn\S3;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn\S3;
 
-
-use Aws\Arn\Arn;
-use Aws\Arn\ResourceTypeAndIdTrait;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Arn\Arn;
+use XCloner\Aws\Arn\ResourceTypeAndIdTrait;
 /**
  * This class represents an S3 multi-region bucket ARN, which is in the
  * following format:
@@ -16,7 +16,6 @@ use Aws\Arn\ResourceTypeAndIdTrait;
 class MultiRegionAccessPointArn extends AccessPointArn
 {
     use ResourceTypeAndIdTrait;
-
     /**
      * Parses a string into an associative array of components that represent
      * a MultiRegionArn
@@ -28,7 +27,6 @@ class MultiRegionAccessPointArn extends AccessPointArn
     {
         return parent::parse($string);
     }
-
     /**
      *
      * @param array $data
@@ -37,5 +35,4 @@ class MultiRegionAccessPointArn extends AccessPointArn
     {
         Arn::validate($data);
     }
-
 }

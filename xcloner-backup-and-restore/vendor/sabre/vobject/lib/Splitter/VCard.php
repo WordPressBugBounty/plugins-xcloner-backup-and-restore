@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Splitter;
+namespace XCloner\Sabre\VObject\Splitter;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject;
-use Sabre\VObject\Parser\MimeDir;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject;
+use XCloner\Sabre\VObject\Parser\MimeDir;
 /**
  * Splitter.
  *
@@ -30,14 +29,12 @@ class VCard implements SplitterInterface
      * @var resource
      */
     protected $input;
-
     /**
      * Persistent parser.
      *
      * @var MimeDir
      */
     protected $parser;
-
     /**
      * Constructor.
      *
@@ -51,7 +48,6 @@ class VCard implements SplitterInterface
         $this->input = $input;
         $this->parser = new MimeDir($input, $options);
     }
-
     /**
      * Every time getNext() is called, a new object will be parsed, until we
      * hit the end of the stream.
@@ -64,14 +60,12 @@ class VCard implements SplitterInterface
     {
         try {
             $object = $this->parser->parse();
-
             if (!$object instanceof VObject\Component\VCard) {
                 throw new VObject\ParseException('The supplied input contained non-VCARD data.');
             }
         } catch (VObject\EofException $e) {
             return;
         }
-
         return $object;
     }
 }

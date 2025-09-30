@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosStoreApp class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosStoreApp extends MobileApp
 {
     /**
-    * Gets the applicableDeviceType
-    * The iOS architecture for which this app can run on.
-    *
-    * @return IosDeviceType|null The applicableDeviceType
-    */
+     * Gets the applicableDeviceType
+     * The iOS architecture for which this app can run on.
+     *
+     * @return IosDeviceType|null The applicableDeviceType
+     */
     public function getApplicableDeviceType()
     {
         if (array_key_exists("applicableDeviceType", $this->_propDict)) {
-            if (is_a($this->_propDict["applicableDeviceType"], "\Microsoft\Graph\Model\IosDeviceType") || is_null($this->_propDict["applicableDeviceType"])) {
+            if (is_a($this->_propDict["applicableDeviceType"], "XCloner\\Microsoft\\Graph\\Model\\IosDeviceType") || is_null($this->_propDict["applicableDeviceType"])) {
                 return $this->_propDict["applicableDeviceType"];
             } else {
                 $this->_propDict["applicableDeviceType"] = new IosDeviceType($this->_propDict["applicableDeviceType"]);
@@ -45,27 +46,25 @@ class IosStoreApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the applicableDeviceType
-    * The iOS architecture for which this app can run on.
-    *
-    * @param IosDeviceType $val The applicableDeviceType
-    *
-    * @return IosStoreApp
-    */
+     * Sets the applicableDeviceType
+     * The iOS architecture for which this app can run on.
+     *
+     * @param IosDeviceType $val The applicableDeviceType
+     *
+     * @return IosStoreApp
+     */
     public function setApplicableDeviceType($val)
     {
         $this->_propDict["applicableDeviceType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appStoreUrl
-    * The Apple App Store URL
-    *
-    * @return string|null The appStoreUrl
-    */
+     * Gets the appStoreUrl
+     * The Apple App Store URL
+     *
+     * @return string|null The appStoreUrl
+     */
     public function getAppStoreUrl()
     {
         if (array_key_exists("appStoreUrl", $this->_propDict)) {
@@ -74,27 +73,25 @@ class IosStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appStoreUrl
-    * The Apple App Store URL
-    *
-    * @param string $val The appStoreUrl
-    *
-    * @return IosStoreApp
-    */
+     * Sets the appStoreUrl
+     * The Apple App Store URL
+     *
+     * @param string $val The appStoreUrl
+     *
+     * @return IosStoreApp
+     */
     public function setAppStoreUrl($val)
     {
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the bundleId
-    * The Identity Name.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * The Identity Name.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -103,31 +100,29 @@ class IosStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * The Identity Name.
-    *
-    * @param string $val The bundleId
-    *
-    * @return IosStoreApp
-    */
+     * Sets the bundleId
+     * The Identity Name.
+     *
+     * @param string $val The bundleId
+     *
+     * @return IosStoreApp
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @return IosMinimumOperatingSystem|null The minimumSupportedOperatingSystem
-    */
+     * Gets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @return IosMinimumOperatingSystem|null The minimumSupportedOperatingSystem
+     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Microsoft\Graph\Model\IosMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "XCloner\\Microsoft\\Graph\\Model\\IosMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new IosMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -136,19 +131,17 @@ class IosStoreApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @param IosMinimumOperatingSystem $val The minimumSupportedOperatingSystem
-    *
-    * @return IosStoreApp
-    */
+     * Sets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @param IosMinimumOperatingSystem $val The minimumSupportedOperatingSystem
+     *
+     * @return IosStoreApp
+     */
     public function setMinimumSupportedOperatingSystem($val)
     {
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-
 }

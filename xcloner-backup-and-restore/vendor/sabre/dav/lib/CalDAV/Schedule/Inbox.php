@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Schedule;
 
-namespace Sabre\CalDAV\Schedule;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV;
-use Sabre\CalDAV\Backend;
-use Sabre\DAV;
-use Sabre\DAVACL;
-use Sabre\VObject;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV;
+use XCloner\Sabre\CalDAV\Backend;
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
+use XCloner\Sabre\VObject;
 /**
  * The CalDAV scheduling inbox.
  *
@@ -23,21 +21,18 @@ use Sabre\VObject;
 class Inbox extends DAV\Collection implements IInbox
 {
     use DAVACL\ACLTrait;
-
     /**
      * CalDAV backend.
      *
      * @var Backend\BackendInterface
      */
     protected $caldavBackend;
-
     /**
      * The principal Uri.
      *
      * @var string
      */
     protected $principalUri;
-
     /**
      * Constructor.
      *
@@ -48,7 +43,6 @@ class Inbox extends DAV\Collection implements IInbox
         $this->caldavBackend = $caldavBackend;
         $this->principalUri = $principalUri;
     }
-
     /**
      * Returns the name of the node.
      *
@@ -60,7 +54,6 @@ class Inbox extends DAV\Collection implements IInbox
     {
         return 'inbox';
     }
-
     /**
      * Returns an array with all the child nodes.
      *
@@ -75,10 +68,8 @@ class Inbox extends DAV\Collection implements IInbox
             $obj['principaluri'] = $this->principalUri;
             $children[] = new SchedulingObject($this->caldavBackend, $obj);
         }
-
         return $children;
     }
-
     /**
      * Creates a new file in the directory.
      *
@@ -108,7 +99,6 @@ class Inbox extends DAV\Collection implements IInbox
     {
         $this->caldavBackend->createSchedulingObject($this->principalUri, $name, $data);
     }
-
     /**
      * Returns the owner principal.
      *
@@ -120,7 +110,6 @@ class Inbox extends DAV\Collection implements IInbox
     {
         return $this->principalUri;
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -135,35 +124,8 @@ class Inbox extends DAV\Collection implements IInbox
      */
     public function getACL()
     {
-        return [
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => '{DAV:}authenticated',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}write-properties',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}unbind',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}unbind',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{'.CalDAV\Plugin::NS_CALDAV.'}schedule-deliver',
-                'principal' => '{DAV:}authenticated',
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}read', 'principal' => '{DAV:}authenticated', 'protected' => \true], ['privilege' => '{DAV:}write-properties', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{DAV:}unbind', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{DAV:}unbind', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{' . CalDAV\Plugin::NS_CALDAV . '}schedule-deliver', 'principal' => '{DAV:}authenticated', 'protected' => \true]];
     }
-
     /**
      * Performs a calendar-query on the contents of this calendar.
      *
@@ -184,18 +146,15 @@ class Inbox extends DAV\Collection implements IInbox
     {
         $result = [];
         $validator = new CalDAV\CalendarQueryValidator();
-
         $objects = $this->caldavBackend->getSchedulingObjects($this->principalUri);
         foreach ($objects as $object) {
             $vObject = VObject\Reader::read($object['calendardata']);
             if ($validator->validate($vObject, $filters)) {
                 $result[] = $object['uri'];
             }
-
             // Destroy circular references to PHP will GC the object.
             $vObject->destroy();
         }
-
         return $result;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ActionUrl class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ActionUrl extends Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ActionUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ActionUrl
-    */
+     * Sets the displayName
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ActionUrl
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the url
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -65,14 +66,13 @@ class ActionUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    *
-    * @param string $val The value of the url
-    *
-    * @return ActionUrl
-    */
+     * Sets the url
+     *
+     * @param string $val The value of the url
+     *
+     * @return ActionUrl
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;

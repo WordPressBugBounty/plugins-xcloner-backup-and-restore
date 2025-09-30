@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessFilter class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessFilter extends Entity
 {
-
     /**
-    * Gets the mode
-    * Mode to use for the filter. Possible values are include or exclude.
-    *
-    * @return FilterMode|null The mode
-    */
+     * Gets the mode
+     * Mode to use for the filter. Possible values are include or exclude.
+     *
+     * @return FilterMode|null The mode
+     */
     public function getMode()
     {
         if (array_key_exists("mode", $this->_propDict)) {
-            if (is_a($this->_propDict["mode"], "\Microsoft\Graph\Model\FilterMode") || is_null($this->_propDict["mode"])) {
+            if (is_a($this->_propDict["mode"], "XCloner\\Microsoft\\Graph\\Model\\FilterMode") || is_null($this->_propDict["mode"])) {
                 return $this->_propDict["mode"];
             } else {
                 $this->_propDict["mode"] = new FilterMode($this->_propDict["mode"]);
@@ -45,26 +46,25 @@ class ConditionalAccessFilter extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mode
-    * Mode to use for the filter. Possible values are include or exclude.
-    *
-    * @param FilterMode $val The value to assign to the mode
-    *
-    * @return ConditionalAccessFilter The ConditionalAccessFilter
-    */
+     * Sets the mode
+     * Mode to use for the filter. Possible values are include or exclude.
+     *
+     * @param FilterMode $val The value to assign to the mode
+     *
+     * @return ConditionalAccessFilter The ConditionalAccessFilter
+     */
     public function setMode($val)
     {
         $this->_propDict["mode"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the rule
-    * Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
-    *
-    * @return string|null The rule
-    */
+     * Gets the rule
+     * Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
+     *
+     * @return string|null The rule
+     */
     public function getRule()
     {
         if (array_key_exists("rule", $this->_propDict)) {
@@ -73,15 +73,14 @@ class ConditionalAccessFilter extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the rule
-    * Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
-    *
-    * @param string $val The value of the rule
-    *
-    * @return ConditionalAccessFilter
-    */
+     * Sets the rule
+     * Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
+     *
+     * @param string $val The value of the rule
+     *
+     * @return ConditionalAccessFilter
+     */
     public function setRule($val)
     {
         $this->_propDict["rule"] = $val;

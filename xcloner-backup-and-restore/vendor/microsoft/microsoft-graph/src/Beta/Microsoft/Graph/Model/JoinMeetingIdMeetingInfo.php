@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * JoinMeetingIdMeetingInfo class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class JoinMeetingIdMeetingInfo extends MeetingInfo
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.joinMeetingIdMeetingInfo");
     }
-
     /**
-    * Gets the joinMeetingId
-    * The ID used to join the meeting.
-    *
-    * @return string|null The joinMeetingId
-    */
+     * Gets the joinMeetingId
+     * The ID used to join the meeting.
+     *
+     * @return string|null The joinMeetingId
+     */
     public function getJoinMeetingId()
     {
         if (array_key_exists("joinMeetingId", $this->_propDict)) {
@@ -51,26 +52,25 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo
             return null;
         }
     }
-
     /**
-    * Sets the joinMeetingId
-    * The ID used to join the meeting.
-    *
-    * @param string $val The value of the joinMeetingId
-    *
-    * @return JoinMeetingIdMeetingInfo
-    */
+     * Sets the joinMeetingId
+     * The ID used to join the meeting.
+     *
+     * @param string $val The value of the joinMeetingId
+     *
+     * @return JoinMeetingIdMeetingInfo
+     */
     public function setJoinMeetingId($val)
     {
         $this->_propDict["joinMeetingId"] = $val;
         return $this;
     }
     /**
-    * Gets the passcode
-    * The passcode used to join the meeting. Optional.
-    *
-    * @return string|null The passcode
-    */
+     * Gets the passcode
+     * The passcode used to join the meeting. Optional.
+     *
+     * @return string|null The passcode
+     */
     public function getPasscode()
     {
         if (array_key_exists("passcode", $this->_propDict)) {
@@ -79,15 +79,14 @@ class JoinMeetingIdMeetingInfo extends MeetingInfo
             return null;
         }
     }
-
     /**
-    * Sets the passcode
-    * The passcode used to join the meeting. Optional.
-    *
-    * @param string $val The value of the passcode
-    *
-    * @return JoinMeetingIdMeetingInfo
-    */
+     * Sets the passcode
+     * The passcode used to join the meeting. Optional.
+     *
+     * @param string $val The value of the passcode
+     *
+     * @return JoinMeetingIdMeetingInfo
+     */
     public function setPasscode($val)
     {
         $this->_propDict["passcode"] = $val;

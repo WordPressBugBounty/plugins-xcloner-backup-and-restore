@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SchemaExtension class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SchemaExtension extends Entity
 {
     /**
-    * Gets the description
-    * Description for the schema extension. Supports $filter (eq).
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description for the schema extension. Supports $filter (eq).
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SchemaExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description for the schema extension. Supports $filter (eq).
-    *
-    * @param string $val The description
-    *
-    * @return SchemaExtension
-    */
+     * Sets the description
+     * Description for the schema extension. Supports $filter (eq).
+     *
+     * @param string $val The description
+     *
+     * @return SchemaExtension
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the owner
-    * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).
-    *
-    * @return string|null The owner
-    */
+     * Gets the owner
+     * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).
+     *
+     * @return string|null The owner
+     */
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
@@ -70,57 +69,52 @@ class SchemaExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the owner
-    * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).
-    *
-    * @param string $val The owner
-    *
-    * @return SchemaExtension
-    */
+     * Sets the owner
+     * The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).
+     *
+     * @param string $val The owner
+     *
+     * @return SchemaExtension
+     */
     public function setOwner($val)
     {
         $this->_propDict["owner"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the schemaExtensionProperties
-    * The collection of property names and types that make up the schema extension definition.
+     * The collection of property names and types that make up the schema extension definition.
      *
      * @return array|null The schemaExtensionProperties
      */
     public function getSchemaExtensionProperties()
     {
         if (array_key_exists("properties", $this->_propDict)) {
-           return $this->_propDict["properties"];
+            return $this->_propDict["properties"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the schemaExtensionProperties
-    * The collection of property names and types that make up the schema extension definition.
-    *
-    * @param ExtensionSchemaProperty[] $val The schemaExtensionProperties
-    *
-    * @return SchemaExtension
-    */
+     * Sets the schemaExtensionProperties
+     * The collection of property names and types that make up the schema extension definition.
+     *
+     * @param ExtensionSchemaProperty[] $val The schemaExtensionProperties
+     *
+     * @return SchemaExtension
+     */
     public function setSchemaExtensionProperties($val)
     {
         $this->_propDict["properties"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq).
-    *
-    * @return string|null The status
-    */
+     * Gets the status
+     * The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq).
+     *
+     * @return string|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
@@ -129,27 +123,25 @@ class SchemaExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the status
-    * The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq).
-    *
-    * @param string $val The status
-    *
-    * @return SchemaExtension
-    */
+     * Sets the status
+     * The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. For more information about the possible state transitions and behaviors, see Schema extensions lifecycle. Supports $filter (eq).
+     *
+     * @param string $val The status
+     *
+     * @return SchemaExtension
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetTypes
-    * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.
-    *
-    * @return array|null The targetTypes
-    */
+     * Gets the targetTypes
+     * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.
+     *
+     * @return array|null The targetTypes
+     */
     public function getTargetTypes()
     {
         if (array_key_exists("targetTypes", $this->_propDict)) {
@@ -158,19 +150,17 @@ class SchemaExtension extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetTypes
-    * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.
-    *
-    * @param string[] $val The targetTypes
-    *
-    * @return SchemaExtension
-    */
+     * Sets the targetTypes
+     * Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, todoTask, todoTaskList, or user.
+     *
+     * @param string[] $val The targetTypes
+     *
+     * @return SchemaExtension
+     */
     public function setTargetTypes($val)
     {
         $this->_propDict["targetTypes"] = $val;
         return $this;
     }
-
 }

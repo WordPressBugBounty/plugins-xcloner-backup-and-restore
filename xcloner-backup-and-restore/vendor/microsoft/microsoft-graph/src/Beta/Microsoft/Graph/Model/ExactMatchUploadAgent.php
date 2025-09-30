@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExactMatchUploadAgent class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExactMatchUploadAgent extends Entity
 {
     /**
-    * Gets the creationDateTime
-    *
-    * @return \DateTime|null The creationDateTime
-    */
+     * Gets the creationDateTime
+     *
+     * @return \DateTime|null The creationDateTime
+     */
     public function getCreationDateTime()
     {
         if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
+            if (is_a($this->_propDict["creationDateTime"], "\\DateTime") || is_null($this->_propDict["creationDateTime"])) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -44,25 +45,23 @@ class ExactMatchUploadAgent extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the creationDateTime
-    *
-    * @param \DateTime $val The creationDateTime
-    *
-    * @return ExactMatchUploadAgent
-    */
+     * Sets the creationDateTime
+     *
+     * @param \DateTime $val The creationDateTime
+     *
+     * @return ExactMatchUploadAgent
+     */
     public function setCreationDateTime($val)
     {
         $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -71,18 +70,16 @@ class ExactMatchUploadAgent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The description
-    *
-    * @return ExactMatchUploadAgent
-    */
+     * Sets the description
+     *
+     * @param string $val The description
+     *
+     * @return ExactMatchUploadAgent
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
 }

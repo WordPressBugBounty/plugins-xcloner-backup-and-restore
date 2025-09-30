@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingInstance class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingInstance extends Entity
 {
     /**
-    * Gets the settingDefinitionId
-    * Setting Definition Id
-    *
-    * @return string|null The settingDefinitionId
-    */
+     * Gets the settingDefinitionId
+     * Setting Definition Id
+     *
+     * @return string|null The settingDefinitionId
+     */
     public function getSettingDefinitionId()
     {
         if (array_key_exists("settingDefinitionId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class DeviceManagementConfigurationSettingInstance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingDefinitionId
-    * Setting Definition Id
-    *
-    * @param string $val The value of the settingDefinitionId
-    *
-    * @return DeviceManagementConfigurationSettingInstance
-    */
+     * Sets the settingDefinitionId
+     * Setting Definition Id
+     *
+     * @param string $val The value of the settingDefinitionId
+     *
+     * @return DeviceManagementConfigurationSettingInstance
+     */
     public function setSettingDefinitionId($val)
     {
         $this->_propDict["settingDefinitionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingInstanceTemplateReference
-    * Setting Instance Template Reference
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplateReference|null The settingInstanceTemplateReference
-    */
+     * Gets the settingInstanceTemplateReference
+     * Setting Instance Template Reference
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplateReference|null The settingInstanceTemplateReference
+     */
     public function getSettingInstanceTemplateReference()
     {
         if (array_key_exists("settingInstanceTemplateReference", $this->_propDict)) {
-            if (is_a($this->_propDict["settingInstanceTemplateReference"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplateReference") || is_null($this->_propDict["settingInstanceTemplateReference"])) {
+            if (is_a($this->_propDict["settingInstanceTemplateReference"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationSettingInstanceTemplateReference") || is_null($this->_propDict["settingInstanceTemplateReference"])) {
                 return $this->_propDict["settingInstanceTemplateReference"];
             } else {
                 $this->_propDict["settingInstanceTemplateReference"] = new DeviceManagementConfigurationSettingInstanceTemplateReference($this->_propDict["settingInstanceTemplateReference"]);
@@ -73,18 +73,17 @@ class DeviceManagementConfigurationSettingInstance extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settingInstanceTemplateReference
-    * Setting Instance Template Reference
-    *
-    * @param DeviceManagementConfigurationSettingInstanceTemplateReference $val The value to assign to the settingInstanceTemplateReference
-    *
-    * @return DeviceManagementConfigurationSettingInstance The DeviceManagementConfigurationSettingInstance
-    */
+     * Sets the settingInstanceTemplateReference
+     * Setting Instance Template Reference
+     *
+     * @param DeviceManagementConfigurationSettingInstanceTemplateReference $val The value to assign to the settingInstanceTemplateReference
+     *
+     * @return DeviceManagementConfigurationSettingInstance The DeviceManagementConfigurationSettingInstance
+     */
     public function setSettingInstanceTemplateReference($val)
     {
         $this->_propDict["settingInstanceTemplateReference"] = $val;
-         return $this;
+        return $this;
     }
 }

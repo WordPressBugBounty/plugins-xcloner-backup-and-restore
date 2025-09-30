@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceDetail class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceDetail extends Entity
 {
     /**
-    * Gets the browser
-    * Indicates the browser information of the used for signing-in.
-    *
-    * @return string|null The browser
-    */
+     * Gets the browser
+     * Indicates the browser information of the used for signing-in.
+     *
+     * @return string|null The browser
+     */
     public function getBrowser()
     {
         if (array_key_exists("browser", $this->_propDict)) {
@@ -40,25 +42,24 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the browser
-    * Indicates the browser information of the used for signing-in.
-    *
-    * @param string $val The value of the browser
-    *
-    * @return DeviceDetail
-    */
+     * Sets the browser
+     * Indicates the browser information of the used for signing-in.
+     *
+     * @param string $val The value of the browser
+     *
+     * @return DeviceDetail
+     */
     public function setBrowser($val)
     {
         $this->_propDict["browser"] = $val;
         return $this;
     }
     /**
-    * Gets the browserId
-    *
-    * @return string|null The browserId
-    */
+     * Gets the browserId
+     *
+     * @return string|null The browserId
+     */
     public function getBrowserId()
     {
         if (array_key_exists("browserId", $this->_propDict)) {
@@ -67,25 +68,24 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the browserId
-    *
-    * @param string $val The value of the browserId
-    *
-    * @return DeviceDetail
-    */
+     * Sets the browserId
+     *
+     * @param string $val The value of the browserId
+     *
+     * @return DeviceDetail
+     */
     public function setBrowserId($val)
     {
         $this->_propDict["browserId"] = $val;
         return $this;
     }
     /**
-    * Gets the deviceId
-    * Refers to the UniqueID of the device used for signing-in.
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * Refers to the UniqueID of the device used for signing-in.
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -94,26 +94,25 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * Refers to the UniqueID of the device used for signing-in.
-    *
-    * @param string $val The value of the deviceId
-    *
-    * @return DeviceDetail
-    */
+     * Sets the deviceId
+     * Refers to the UniqueID of the device used for signing-in.
+     *
+     * @param string $val The value of the deviceId
+     *
+     * @return DeviceDetail
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Refers to the name of the device used for signing-in.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Refers to the name of the device used for signing-in.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -122,26 +121,25 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Refers to the name of the device used for signing-in.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return DeviceDetail
-    */
+     * Sets the displayName
+     * Refers to the name of the device used for signing-in.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return DeviceDetail
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the isCompliant
-    * Indicates whether the device is compliant or not.
-    *
-    * @return bool|null The isCompliant
-    */
+     * Gets the isCompliant
+     * Indicates whether the device is compliant or not.
+     *
+     * @return bool|null The isCompliant
+     */
     public function getIsCompliant()
     {
         if (array_key_exists("isCompliant", $this->_propDict)) {
@@ -150,26 +148,25 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isCompliant
-    * Indicates whether the device is compliant or not.
-    *
-    * @param bool $val The value of the isCompliant
-    *
-    * @return DeviceDetail
-    */
+     * Sets the isCompliant
+     * Indicates whether the device is compliant or not.
+     *
+     * @param bool $val The value of the isCompliant
+     *
+     * @return DeviceDetail
+     */
     public function setIsCompliant($val)
     {
         $this->_propDict["isCompliant"] = $val;
         return $this;
     }
     /**
-    * Gets the isManaged
-    * Indicates if the device is managed or not.
-    *
-    * @return bool|null The isManaged
-    */
+     * Gets the isManaged
+     * Indicates if the device is managed or not.
+     *
+     * @return bool|null The isManaged
+     */
     public function getIsManaged()
     {
         if (array_key_exists("isManaged", $this->_propDict)) {
@@ -178,26 +175,25 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isManaged
-    * Indicates if the device is managed or not.
-    *
-    * @param bool $val The value of the isManaged
-    *
-    * @return DeviceDetail
-    */
+     * Sets the isManaged
+     * Indicates if the device is managed or not.
+     *
+     * @param bool $val The value of the isManaged
+     *
+     * @return DeviceDetail
+     */
     public function setIsManaged($val)
     {
         $this->_propDict["isManaged"] = $val;
         return $this;
     }
     /**
-    * Gets the operatingSystem
-    * Indicates the OS name and version used for signing-in.
-    *
-    * @return string|null The operatingSystem
-    */
+     * Gets the operatingSystem
+     * Indicates the OS name and version used for signing-in.
+     *
+     * @return string|null The operatingSystem
+     */
     public function getOperatingSystem()
     {
         if (array_key_exists("operatingSystem", $this->_propDict)) {
@@ -206,26 +202,25 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the operatingSystem
-    * Indicates the OS name and version used for signing-in.
-    *
-    * @param string $val The value of the operatingSystem
-    *
-    * @return DeviceDetail
-    */
+     * Sets the operatingSystem
+     * Indicates the OS name and version used for signing-in.
+     *
+     * @param string $val The value of the operatingSystem
+     *
+     * @return DeviceDetail
+     */
     public function setOperatingSystem($val)
     {
         $this->_propDict["operatingSystem"] = $val;
         return $this;
     }
     /**
-    * Gets the trustType
-    * Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
-    *
-    * @return string|null The trustType
-    */
+     * Gets the trustType
+     * Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+     *
+     * @return string|null The trustType
+     */
     public function getTrustType()
     {
         if (array_key_exists("trustType", $this->_propDict)) {
@@ -234,15 +229,14 @@ class DeviceDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the trustType
-    * Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
-    *
-    * @param string $val The value of the trustType
-    *
-    * @return DeviceDetail
-    */
+     * Sets the trustType
+     * Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+     *
+     * @param string $val The value of the trustType
+     *
+     * @return DeviceDetail
+     */
     public function setTrustType($val)
     {
         $this->_propDict["trustType"] = $val;

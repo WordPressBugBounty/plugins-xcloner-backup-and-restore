@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Plugin;
+namespace XCloner\League\Flysystem\Plugin;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class ListFiles extends AbstractPlugin
 {
     /**
@@ -16,7 +16,6 @@ class ListFiles extends AbstractPlugin
     {
         return 'listFiles';
     }
-
     /**
      * List all files in the directory.
      *
@@ -25,14 +24,12 @@ class ListFiles extends AbstractPlugin
      *
      * @return array
      */
-    public function handle($directory = '', $recursive = false)
+    public function handle($directory = '', $recursive = \false)
     {
         $contents = $this->filesystem->listContents($directory, $recursive);
-
         $filter = function ($object) {
             return $object['type'] === 'file';
         };
-
         return array_values(array_filter($contents, $filter));
     }
 }

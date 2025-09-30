@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of the Carbon package.
  *
@@ -10,15 +9,14 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\PHPStan;
 
-namespace Carbon\PHPStan;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Closure;
-use PHPStan\Reflection\Php\BuiltinMethodReflection;
-use PHPStan\TrinaryLogic;
+use XCloner\PHPStan\Reflection\Php\BuiltinMethodReflection;
+use XCloner\PHPStan\TrinaryLogic;
 use ReflectionClass;
 use ReflectionFunction;
 use ReflectionMethod;
@@ -26,7 +24,6 @@ use ReflectionParameter;
 use ReflectionType;
 use stdClass;
 use Throwable;
-
 abstract class AbstractMacro implements BuiltinMethodReflection
 {
     /**
@@ -35,35 +32,30 @@ abstract class AbstractMacro implements BuiltinMethodReflection
      * @var ReflectionFunction|ReflectionMethod
      */
     protected $reflectionFunction;
-
     /**
      * The class name.
      *
      * @var class-string
      */
     private $className;
-
     /**
      * The method name.
      *
      * @var string
      */
     private $methodName;
-
     /**
      * The parameters.
      *
      * @var ReflectionParameter[]
      */
     private $parameters;
-
     /**
      * The is static.
      *
      * @var bool
      */
-    private $static = false;
-
+    private $static = \false;
     /**
      * Macro constructor.
      *
@@ -77,22 +69,18 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         $this->className = $className;
         $this->methodName = $methodName;
-        $this->reflectionFunction = \is_array($macro)
-            ? new ReflectionMethod($macro[0], $macro[1])
-            : new ReflectionFunction($macro);
+        $this->reflectionFunction = \is_array($macro) ? new ReflectionMethod($macro[0], $macro[1]) : new ReflectionFunction($macro);
         $this->parameters = $this->reflectionFunction->getParameters();
-
         if ($this->reflectionFunction->isClosure()) {
             try {
                 $closure = $this->reflectionFunction->getClosure();
                 $boundClosure = Closure::bind($closure, new stdClass());
-                $this->static = (!$boundClosure || (new ReflectionFunction($boundClosure))->getClosureThis() === null);
+                $this->static = !$boundClosure || (new ReflectionFunction($boundClosure))->getClosureThis() === null;
             } catch (Throwable $e) {
-                $this->static = true;
+                $this->static = \true;
             }
         }
     }
-
     /**
      * {@inheritdoc}
      */
@@ -100,47 +88,41 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return new ReflectionClass($this->className);
     }
-
     /**
      * {@inheritdoc}
      */
     public function isPrivate(): bool
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function isPublic(): bool
     {
-        return true;
+        return \true;
     }
-
     /**
      * {@inheritdoc}
      */
     public function isFinal(): bool
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function isInternal(): bool
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function isAbstract(): bool
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -148,7 +130,6 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this->static;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -156,7 +137,6 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this->reflectionFunction->getDocComment() ?: null;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -164,7 +144,6 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this->methodName;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -172,7 +151,6 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this->parameters;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -180,18 +158,13 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this->reflectionFunction->getReturnType();
     }
-
     /**
      * {@inheritdoc}
      */
     public function isDeprecated(): TrinaryLogic
     {
-        return TrinaryLogic::createFromBoolean(
-            $this->reflectionFunction->isDeprecated() ||
-            preg_match('/@deprecated/i', $this->getDocComment() ?: '')
-        );
+        return TrinaryLogic::createFromBoolean($this->reflectionFunction->isDeprecated() || preg_match('/@deprecated/i', $this->getDocComment() ?: ''));
     }
-
     /**
      * {@inheritdoc}
      */
@@ -199,7 +172,6 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this->reflectionFunction->isVariadic();
     }
-
     /**
      * {@inheritdoc}
      */
@@ -207,7 +179,6 @@ abstract class AbstractMacro implements BuiltinMethodReflection
     {
         return $this;
     }
-
     public function getTentativeReturnType(): ?ReflectionType
     {
         return null;

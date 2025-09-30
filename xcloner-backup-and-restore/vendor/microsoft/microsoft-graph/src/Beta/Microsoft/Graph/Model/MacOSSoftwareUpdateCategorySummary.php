@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSSoftwareUpdateCategorySummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSSoftwareUpdateCategorySummary extends Entity
 {
     /**
-    * Gets the deviceId
-    * The device ID.
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * The device ID.
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * The device ID.
-    *
-    * @param string $val The deviceId
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the deviceId
+     * The device ID.
+     *
+     * @param string $val The deviceId
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the report
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the report
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the report
-    *
-    * @param string $val The displayName
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the displayName
+     * The name of the report
+     *
+     * @param string $val The displayName
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the failedUpdateCount
-    * Number of failed updates on the device
-    *
-    * @return int|null The failedUpdateCount
-    */
+     * Gets the failedUpdateCount
+     * Number of failed updates on the device
+     *
+     * @return int|null The failedUpdateCount
+     */
     public function getFailedUpdateCount()
     {
         if (array_key_exists("failedUpdateCount", $this->_propDict)) {
@@ -99,31 +96,29 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedUpdateCount
-    * Number of failed updates on the device
-    *
-    * @param int $val The failedUpdateCount
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the failedUpdateCount
+     * Number of failed updates on the device
+     *
+     * @param int $val The failedUpdateCount
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setFailedUpdateCount($val)
     {
         $this->_propDict["failedUpdateCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the lastUpdatedDateTime
-    * Last date time the report for this device was updated.
-    *
-    * @return \DateTime|null The lastUpdatedDateTime
-    */
+     * Gets the lastUpdatedDateTime
+     * Last date time the report for this device was updated.
+     *
+     * @return \DateTime|null The lastUpdatedDateTime
+     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -132,27 +127,25 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastUpdatedDateTime
-    * Last date time the report for this device was updated.
-    *
-    * @param \DateTime $val The lastUpdatedDateTime
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the lastUpdatedDateTime
+     * Last date time the report for this device was updated.
+     *
+     * @param \DateTime $val The lastUpdatedDateTime
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setLastUpdatedDateTime($val)
     {
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the successfulUpdateCount
-    * Number of successful updates on the device
-    *
-    * @return int|null The successfulUpdateCount
-    */
+     * Gets the successfulUpdateCount
+     * Number of successful updates on the device
+     *
+     * @return int|null The successfulUpdateCount
+     */
     public function getSuccessfulUpdateCount()
     {
         if (array_key_exists("successfulUpdateCount", $this->_propDict)) {
@@ -161,27 +154,25 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successfulUpdateCount
-    * Number of successful updates on the device
-    *
-    * @param int $val The successfulUpdateCount
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the successfulUpdateCount
+     * Number of successful updates on the device
+     *
+     * @param int $val The successfulUpdateCount
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setSuccessfulUpdateCount($val)
     {
         $this->_propDict["successfulUpdateCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the totalUpdateCount
-    * Number of total updates on the device
-    *
-    * @return int|null The totalUpdateCount
-    */
+     * Gets the totalUpdateCount
+     * Number of total updates on the device
+     *
+     * @return int|null The totalUpdateCount
+     */
     public function getTotalUpdateCount()
     {
         if (array_key_exists("totalUpdateCount", $this->_propDict)) {
@@ -190,31 +181,29 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalUpdateCount
-    * Number of total updates on the device
-    *
-    * @param int $val The totalUpdateCount
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the totalUpdateCount
+     * Number of total updates on the device
+     *
+     * @param int $val The totalUpdateCount
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setTotalUpdateCount($val)
     {
         $this->_propDict["totalUpdateCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the updateCategory
-    * Software update type. Possible values are: critical, configurationDataFile, firmware, other.
-    *
-    * @return MacOSSoftwareUpdateCategory|null The updateCategory
-    */
+     * Gets the updateCategory
+     * Software update type. Possible values are: critical, configurationDataFile, firmware, other.
+     *
+     * @return MacOSSoftwareUpdateCategory|null The updateCategory
+     */
     public function getUpdateCategory()
     {
         if (array_key_exists("updateCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["updateCategory"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateCategory") || is_null($this->_propDict["updateCategory"])) {
+            if (is_a($this->_propDict["updateCategory"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MacOSSoftwareUpdateCategory") || is_null($this->_propDict["updateCategory"])) {
                 return $this->_propDict["updateCategory"];
             } else {
                 $this->_propDict["updateCategory"] = new MacOSSoftwareUpdateCategory($this->_propDict["updateCategory"]);
@@ -223,27 +212,25 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the updateCategory
-    * Software update type. Possible values are: critical, configurationDataFile, firmware, other.
-    *
-    * @param MacOSSoftwareUpdateCategory $val The updateCategory
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the updateCategory
+     * Software update type. Possible values are: critical, configurationDataFile, firmware, other.
+     *
+     * @param MacOSSoftwareUpdateCategory $val The updateCategory
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setUpdateCategory($val)
     {
         $this->_propDict["updateCategory"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * The user ID.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The user ID.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -252,49 +239,44 @@ class MacOSSoftwareUpdateCategorySummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The user ID.
-    *
-    * @param string $val The userId
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the userId
+     * The user ID.
+     *
+     * @param string $val The userId
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the updateStateSummaries
-    * Summary of the update states.
+     * Summary of the update states.
      *
      * @return array|null The updateStateSummaries
      */
     public function getUpdateStateSummaries()
     {
         if (array_key_exists("updateStateSummaries", $this->_propDict)) {
-           return $this->_propDict["updateStateSummaries"];
+            return $this->_propDict["updateStateSummaries"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the updateStateSummaries
-    * Summary of the update states.
-    *
-    * @param MacOSSoftwareUpdateStateSummary[] $val The updateStateSummaries
-    *
-    * @return MacOSSoftwareUpdateCategorySummary
-    */
+     * Sets the updateStateSummaries
+     * Summary of the update states.
+     *
+     * @param MacOSSoftwareUpdateStateSummary[] $val The updateStateSummaries
+     *
+     * @return MacOSSoftwareUpdateCategorySummary
+     */
     public function setUpdateStateSummaries($val)
     {
         $this->_propDict["updateStateSummaries"] = $val;
         return $this;
     }
-
 }

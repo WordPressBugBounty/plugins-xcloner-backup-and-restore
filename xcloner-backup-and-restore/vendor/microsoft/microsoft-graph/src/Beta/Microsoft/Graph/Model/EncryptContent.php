@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EncryptContent class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EncryptContent extends LabelActionBase
 {
-
     /**
-    * Gets the encryptWith
-    *
-    * @return EncryptWith|null The encryptWith
-    */
+     * Gets the encryptWith
+     *
+     * @return EncryptWith|null The encryptWith
+     */
     public function getEncryptWith()
     {
         if (array_key_exists("encryptWith", $this->_propDict)) {
-            if (is_a($this->_propDict["encryptWith"], "\Beta\Microsoft\Graph\Model\EncryptWith") || is_null($this->_propDict["encryptWith"])) {
+            if (is_a($this->_propDict["encryptWith"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EncryptWith") || is_null($this->_propDict["encryptWith"])) {
                 return $this->_propDict["encryptWith"];
             } else {
                 $this->_propDict["encryptWith"] = new EncryptWith($this->_propDict["encryptWith"]);
@@ -44,17 +45,16 @@ class EncryptContent extends LabelActionBase
         }
         return null;
     }
-
     /**
-    * Sets the encryptWith
-    *
-    * @param EncryptWith $val The value to assign to the encryptWith
-    *
-    * @return EncryptContent The EncryptContent
-    */
+     * Sets the encryptWith
+     *
+     * @param EncryptWith $val The value to assign to the encryptWith
+     *
+     * @return EncryptContent The EncryptContent
+     */
     public function setEncryptWith($val)
     {
         $this->_propDict["encryptWith"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MonitoringRule class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
+class MonitoringRule extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the action
-    * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
-    *
-    * @return MonitoringAction|null The action
-    */
+     * Gets the action
+     * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
+     *
+     * @return MonitoringAction|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringAction") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\MonitoringAction") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new MonitoringAction($this->_propDict["action"]);
@@ -45,31 +46,29 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
-    *
-    * @param MonitoringAction $val The value to assign to the action
-    *
-    * @return MonitoringRule The MonitoringRule
-    */
+     * Sets the action
+     * The action triggered when the threshold for the given signal is met. Possible values are: alertError, pauseDeployment, unknownFutureValue.
+     *
+     * @param MonitoringAction $val The value to assign to the action
+     *
+     * @return MonitoringRule The MonitoringRule
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the signal
-    * The signal to monitor. Possible values are: rollback, unknownFutureValue.
-    *
-    * @return MonitoringSignal|null The signal
-    */
+     * Gets the signal
+     * The signal to monitor. Possible values are: rollback, unknownFutureValue.
+     *
+     * @return MonitoringSignal|null The signal
+     */
     public function getSignal()
     {
         if (array_key_exists("signal", $this->_propDict)) {
-            if (is_a($this->_propDict["signal"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringSignal") || is_null($this->_propDict["signal"])) {
+            if (is_a($this->_propDict["signal"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\MonitoringSignal") || is_null($this->_propDict["signal"])) {
                 return $this->_propDict["signal"];
             } else {
                 $this->_propDict["signal"] = new MonitoringSignal($this->_propDict["signal"]);
@@ -78,26 +77,25 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the signal
-    * The signal to monitor. Possible values are: rollback, unknownFutureValue.
-    *
-    * @param MonitoringSignal $val The value to assign to the signal
-    *
-    * @return MonitoringRule The MonitoringRule
-    */
+     * Sets the signal
+     * The signal to monitor. Possible values are: rollback, unknownFutureValue.
+     *
+     * @param MonitoringSignal $val The value to assign to the signal
+     *
+     * @return MonitoringRule The MonitoringRule
+     */
     public function setSignal($val)
     {
         $this->_propDict["signal"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the threshold
-    * The threshold for a signal at which to trigger action. An integer from 1 to 100 (inclusive).
-    *
-    * @return int|null The threshold
-    */
+     * Gets the threshold
+     * The threshold for a signal at which to trigger action. An integer from 1 to 100 (inclusive).
+     *
+     * @return int|null The threshold
+     */
     public function getThreshold()
     {
         if (array_key_exists("threshold", $this->_propDict)) {
@@ -106,15 +104,14 @@ class MonitoringRule extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the threshold
-    * The threshold for a signal at which to trigger action. An integer from 1 to 100 (inclusive).
-    *
-    * @param int $val The value of the threshold
-    *
-    * @return MonitoringRule
-    */
+     * Sets the threshold
+     * The threshold for a signal at which to trigger action. An integer from 1 to 100 (inclusive).
+     *
+     * @param int $val The value of the threshold
+     *
+     * @return MonitoringRule
+     */
     public function setThreshold($val)
     {
         $this->_propDict["threshold"] = $val;

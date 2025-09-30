@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EntitlementManagementSchedule class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EntitlementManagementSchedule extends Entity
 {
-
     /**
-    * Gets the expiration
-    * When the access should expire.
-    *
-    * @return ExpirationPattern|null The expiration
-    */
+     * Gets the expiration
+     * When the access should expire.
+     *
+     * @return ExpirationPattern|null The expiration
+     */
     public function getExpiration()
     {
         if (array_key_exists("expiration", $this->_propDict)) {
-            if (is_a($this->_propDict["expiration"], "\Microsoft\Graph\Model\ExpirationPattern") || is_null($this->_propDict["expiration"])) {
+            if (is_a($this->_propDict["expiration"], "XCloner\\Microsoft\\Graph\\Model\\ExpirationPattern") || is_null($this->_propDict["expiration"])) {
                 return $this->_propDict["expiration"];
             } else {
                 $this->_propDict["expiration"] = new ExpirationPattern($this->_propDict["expiration"]);
@@ -45,31 +46,29 @@ class EntitlementManagementSchedule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the expiration
-    * When the access should expire.
-    *
-    * @param ExpirationPattern $val The value to assign to the expiration
-    *
-    * @return EntitlementManagementSchedule The EntitlementManagementSchedule
-    */
+     * Sets the expiration
+     * When the access should expire.
+     *
+     * @param ExpirationPattern $val The value to assign to the expiration
+     *
+     * @return EntitlementManagementSchedule The EntitlementManagementSchedule
+     */
     public function setExpiration($val)
     {
         $this->_propDict["expiration"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the recurrence
-    * For recurring access reviews.  Not used in access requests.
-    *
-    * @return PatternedRecurrence|null The recurrence
-    */
+     * Gets the recurrence
+     * For recurring access reviews.  Not used in access requests.
+     *
+     * @return PatternedRecurrence|null The recurrence
+     */
     public function getRecurrence()
     {
         if (array_key_exists("recurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrence"], "\Microsoft\Graph\Model\PatternedRecurrence") || is_null($this->_propDict["recurrence"])) {
+            if (is_a($this->_propDict["recurrence"], "XCloner\\Microsoft\\Graph\\Model\\PatternedRecurrence") || is_null($this->_propDict["recurrence"])) {
                 return $this->_propDict["recurrence"];
             } else {
                 $this->_propDict["recurrence"] = new PatternedRecurrence($this->_propDict["recurrence"]);
@@ -78,31 +77,29 @@ class EntitlementManagementSchedule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the recurrence
-    * For recurring access reviews.  Not used in access requests.
-    *
-    * @param PatternedRecurrence $val The value to assign to the recurrence
-    *
-    * @return EntitlementManagementSchedule The EntitlementManagementSchedule
-    */
+     * Sets the recurrence
+     * For recurring access reviews.  Not used in access requests.
+     *
+     * @param PatternedRecurrence $val The value to assign to the recurrence
+     *
+     * @return EntitlementManagementSchedule The EntitlementManagementSchedule
+     */
     public function setRecurrence($val)
     {
         $this->_propDict["recurrence"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -111,18 +108,17 @@ class EntitlementManagementSchedule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the startDateTime
-    *
-    * @return EntitlementManagementSchedule The EntitlementManagementSchedule
-    */
+     * Sets the startDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the startDateTime
+     *
+     * @return EntitlementManagementSchedule The EntitlementManagementSchedule
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

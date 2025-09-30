@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnlineMeetingInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OnlineMeetingInfo extends Entity
 {
     /**
-    * Gets the conferenceId
-    * The ID of the conference.
-    *
-    * @return string|null The conferenceId
-    */
+     * Gets the conferenceId
+     * The ID of the conference.
+     *
+     * @return string|null The conferenceId
+     */
     public function getConferenceId()
     {
         if (array_key_exists("conferenceId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conferenceId
-    * The ID of the conference.
-    *
-    * @param string $val The value of the conferenceId
-    *
-    * @return OnlineMeetingInfo
-    */
+     * Sets the conferenceId
+     * The ID of the conference.
+     *
+     * @param string $val The value of the conferenceId
+     *
+     * @return OnlineMeetingInfo
+     */
     public function setConferenceId($val)
     {
         $this->_propDict["conferenceId"] = $val;
         return $this;
     }
     /**
-    * Gets the joinUrl
-    * The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.
-    *
-    * @return string|null The joinUrl
-    */
+     * Gets the joinUrl
+     * The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.
+     *
+     * @return string|null The joinUrl
+     */
     public function getJoinUrl()
     {
         if (array_key_exists("joinUrl", $this->_propDict)) {
@@ -68,31 +69,29 @@ class OnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the joinUrl
-    * The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.
-    *
-    * @param string $val The value of the joinUrl
-    *
-    * @return OnlineMeetingInfo
-    */
+     * Sets the joinUrl
+     * The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.
+     *
+     * @param string $val The value of the joinUrl
+     *
+     * @return OnlineMeetingInfo
+     */
     public function setJoinUrl($val)
     {
         $this->_propDict["joinUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the phones
-    * All of the phone numbers associated with this conference.
-    *
-    * @return Phone|null The phones
-    */
+     * Gets the phones
+     * All of the phone numbers associated with this conference.
+     *
+     * @return Phone|null The phones
+     */
     public function getPhones()
     {
         if (array_key_exists("phones", $this->_propDict)) {
-            if (is_a($this->_propDict["phones"], "\Microsoft\Graph\Model\Phone") || is_null($this->_propDict["phones"])) {
+            if (is_a($this->_propDict["phones"], "XCloner\\Microsoft\\Graph\\Model\\Phone") || is_null($this->_propDict["phones"])) {
                 return $this->_propDict["phones"];
             } else {
                 $this->_propDict["phones"] = new Phone($this->_propDict["phones"]);
@@ -101,26 +100,25 @@ class OnlineMeetingInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the phones
-    * All of the phone numbers associated with this conference.
-    *
-    * @param Phone $val The value to assign to the phones
-    *
-    * @return OnlineMeetingInfo The OnlineMeetingInfo
-    */
+     * Sets the phones
+     * All of the phone numbers associated with this conference.
+     *
+     * @param Phone $val The value to assign to the phones
+     *
+     * @return OnlineMeetingInfo The OnlineMeetingInfo
+     */
     public function setPhones($val)
     {
         $this->_propDict["phones"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the quickDial
-    * The pre-formatted quickdial for this call.
-    *
-    * @return string|null The quickDial
-    */
+     * Gets the quickDial
+     * The pre-formatted quickdial for this call.
+     *
+     * @return string|null The quickDial
+     */
     public function getQuickDial()
     {
         if (array_key_exists("quickDial", $this->_propDict)) {
@@ -129,26 +127,25 @@ class OnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the quickDial
-    * The pre-formatted quickdial for this call.
-    *
-    * @param string $val The value of the quickDial
-    *
-    * @return OnlineMeetingInfo
-    */
+     * Sets the quickDial
+     * The pre-formatted quickdial for this call.
+     *
+     * @param string $val The value of the quickDial
+     *
+     * @return OnlineMeetingInfo
+     */
     public function setQuickDial($val)
     {
         $this->_propDict["quickDial"] = $val;
         return $this;
     }
     /**
-    * Gets the tollFreeNumbers
-    * The toll free numbers that can be used to join the conference.
-    *
-    * @return string|null The tollFreeNumbers
-    */
+     * Gets the tollFreeNumbers
+     * The toll free numbers that can be used to join the conference.
+     *
+     * @return string|null The tollFreeNumbers
+     */
     public function getTollFreeNumbers()
     {
         if (array_key_exists("tollFreeNumbers", $this->_propDict)) {
@@ -157,26 +154,25 @@ class OnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tollFreeNumbers
-    * The toll free numbers that can be used to join the conference.
-    *
-    * @param string $val The value of the tollFreeNumbers
-    *
-    * @return OnlineMeetingInfo
-    */
+     * Sets the tollFreeNumbers
+     * The toll free numbers that can be used to join the conference.
+     *
+     * @param string $val The value of the tollFreeNumbers
+     *
+     * @return OnlineMeetingInfo
+     */
     public function setTollFreeNumbers($val)
     {
         $this->_propDict["tollFreeNumbers"] = $val;
         return $this;
     }
     /**
-    * Gets the tollNumber
-    * The toll number that can be used to join the conference.
-    *
-    * @return string|null The tollNumber
-    */
+     * Gets the tollNumber
+     * The toll number that can be used to join the conference.
+     *
+     * @return string|null The tollNumber
+     */
     public function getTollNumber()
     {
         if (array_key_exists("tollNumber", $this->_propDict)) {
@@ -185,15 +181,14 @@ class OnlineMeetingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tollNumber
-    * The toll number that can be used to join the conference.
-    *
-    * @param string $val The value of the tollNumber
-    *
-    * @return OnlineMeetingInfo
-    */
+     * Sets the tollNumber
+     * The toll number that can be used to join the conference.
+     *
+     * @param string $val The value of the tollNumber
+     *
+     * @return OnlineMeetingInfo
+     */
     public function setTollNumber($val)
     {
         $this->_propDict["tollNumber"] = $val;

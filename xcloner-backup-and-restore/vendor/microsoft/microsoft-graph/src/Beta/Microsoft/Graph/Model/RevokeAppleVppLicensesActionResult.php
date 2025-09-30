@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RevokeAppleVppLicensesActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RevokeAppleVppLicensesActionResult extends DeviceActionResult
 {
     /**
-    * Gets the failedLicensesCount
-    * Total number of Apple Vpp licenses that failed to revoke
-    *
-    * @return int|null The failedLicensesCount
-    */
+     * Gets the failedLicensesCount
+     * Total number of Apple Vpp licenses that failed to revoke
+     *
+     * @return int|null The failedLicensesCount
+     */
     public function getFailedLicensesCount()
     {
         if (array_key_exists("failedLicensesCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the failedLicensesCount
-    * Total number of Apple Vpp licenses that failed to revoke
-    *
-    * @param int $val The value of the failedLicensesCount
-    *
-    * @return RevokeAppleVppLicensesActionResult
-    */
+     * Sets the failedLicensesCount
+     * Total number of Apple Vpp licenses that failed to revoke
+     *
+     * @param int $val The value of the failedLicensesCount
+     *
+     * @return RevokeAppleVppLicensesActionResult
+     */
     public function setFailedLicensesCount($val)
     {
         $this->_propDict["failedLicensesCount"] = $val;
         return $this;
     }
     /**
-    * Gets the totalLicensesCount
-    * Total number of Apple Vpp licenses associated
-    *
-    * @return int|null The totalLicensesCount
-    */
+     * Gets the totalLicensesCount
+     * Total number of Apple Vpp licenses associated
+     *
+     * @return int|null The totalLicensesCount
+     */
     public function getTotalLicensesCount()
     {
         if (array_key_exists("totalLicensesCount", $this->_propDict)) {
@@ -68,15 +69,14 @@ class RevokeAppleVppLicensesActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the totalLicensesCount
-    * Total number of Apple Vpp licenses associated
-    *
-    * @param int $val The value of the totalLicensesCount
-    *
-    * @return RevokeAppleVppLicensesActionResult
-    */
+     * Sets the totalLicensesCount
+     * Total number of Apple Vpp licenses associated
+     *
+     * @param int $val The value of the totalLicensesCount
+     *
+     * @return RevokeAppleVppLicensesActionResult
+     */
     public function setTotalLicensesCount($val)
     {
         $this->_propDict["totalLicensesCount"] = $val;

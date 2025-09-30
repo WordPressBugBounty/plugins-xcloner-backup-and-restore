@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InformationProtectionPolicy class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class InformationProtectionPolicy extends Entity
 {
-
-     /**
+    /**
      * Gets the labels
      *
      * @return array|null The labels
@@ -36,23 +36,21 @@ class InformationProtectionPolicy extends Entity
     public function getLabels()
     {
         if (array_key_exists("labels", $this->_propDict)) {
-           return $this->_propDict["labels"];
+            return $this->_propDict["labels"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the labels
-    *
-    * @param InformationProtectionLabel[] $val The labels
-    *
-    * @return InformationProtectionPolicy
-    */
+     * Sets the labels
+     *
+     * @param InformationProtectionLabel[] $val The labels
+     *
+     * @return InformationProtectionPolicy
+     */
     public function setLabels($val)
     {
         $this->_propDict["labels"] = $val;
         return $this;
     }
-
 }

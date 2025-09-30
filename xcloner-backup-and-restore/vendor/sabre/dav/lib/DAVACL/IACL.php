@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL;
 
-namespace Sabre\DAVACL;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * ACL-enabled node.
  *
@@ -28,7 +26,6 @@ interface IACL extends DAV\INode
      * @return string|null
      */
     public function getOwner();
-
     /**
      * Returns a group principal.
      *
@@ -37,7 +34,6 @@ interface IACL extends DAV\INode
      * @return string|null
      */
     public function getGroup();
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -51,14 +47,12 @@ interface IACL extends DAV\INode
      * @return array
      */
     public function getACL();
-
     /**
      * Updates the ACL.
      *
      * This method will receive a list of new ACE's as an array argument.
      */
     public function setACL(array $acl);
-
     /**
      * Returns the list of supported privileges for this node.
      *

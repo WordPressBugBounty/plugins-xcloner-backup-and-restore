@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CommentAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CommentAction extends Entity
 {
     /**
-    * Gets the isReply
-    * If true, this activity was a reply to an existing comment thread.
-    *
-    * @return bool|null The isReply
-    */
+     * Gets the isReply
+     * If true, this activity was a reply to an existing comment thread.
+     *
+     * @return bool|null The isReply
+     */
     public function getIsReply()
     {
         if (array_key_exists("isReply", $this->_propDict)) {
@@ -40,31 +42,29 @@ class CommentAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isReply
-    * If true, this activity was a reply to an existing comment thread.
-    *
-    * @param bool $val The value of the isReply
-    *
-    * @return CommentAction
-    */
+     * Sets the isReply
+     * If true, this activity was a reply to an existing comment thread.
+     *
+     * @param bool $val The value of the isReply
+     *
+     * @return CommentAction
+     */
     public function setIsReply($val)
     {
         $this->_propDict["isReply"] = $val;
         return $this;
     }
-
     /**
-    * Gets the parentAuthor
-    * The identity of the user who started the comment thread.
-    *
-    * @return IdentitySet|null The parentAuthor
-    */
+     * Gets the parentAuthor
+     * The identity of the user who started the comment thread.
+     *
+     * @return IdentitySet|null The parentAuthor
+     */
     public function getParentAuthor()
     {
         if (array_key_exists("parentAuthor", $this->_propDict)) {
-            if (is_a($this->_propDict["parentAuthor"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["parentAuthor"])) {
+            if (is_a($this->_propDict["parentAuthor"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["parentAuthor"])) {
                 return $this->_propDict["parentAuthor"];
             } else {
                 $this->_propDict["parentAuthor"] = new IdentitySet($this->_propDict["parentAuthor"]);
@@ -73,31 +73,29 @@ class CommentAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the parentAuthor
-    * The identity of the user who started the comment thread.
-    *
-    * @param IdentitySet $val The value to assign to the parentAuthor
-    *
-    * @return CommentAction The CommentAction
-    */
+     * Sets the parentAuthor
+     * The identity of the user who started the comment thread.
+     *
+     * @param IdentitySet $val The value to assign to the parentAuthor
+     *
+     * @return CommentAction The CommentAction
+     */
     public function setParentAuthor($val)
     {
         $this->_propDict["parentAuthor"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the participants
-    * The identities of the users participating in this comment thread.
-    *
-    * @return IdentitySet|null The participants
-    */
+     * Gets the participants
+     * The identities of the users participating in this comment thread.
+     *
+     * @return IdentitySet|null The participants
+     */
     public function getParticipants()
     {
         if (array_key_exists("participants", $this->_propDict)) {
-            if (is_a($this->_propDict["participants"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["participants"])) {
+            if (is_a($this->_propDict["participants"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["participants"])) {
                 return $this->_propDict["participants"];
             } else {
                 $this->_propDict["participants"] = new IdentitySet($this->_propDict["participants"]);
@@ -106,18 +104,17 @@ class CommentAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the participants
-    * The identities of the users participating in this comment thread.
-    *
-    * @param IdentitySet $val The value to assign to the participants
-    *
-    * @return CommentAction The CommentAction
-    */
+     * Sets the participants
+     * The identities of the users participating in this comment thread.
+     *
+     * @param IdentitySet $val The value to assign to the participants
+     *
+     * @return CommentAction The CommentAction
+     */
     public function setParticipants($val)
     {
         $this->_propDict["participants"] = $val;
-         return $this;
+        return $this;
     }
 }

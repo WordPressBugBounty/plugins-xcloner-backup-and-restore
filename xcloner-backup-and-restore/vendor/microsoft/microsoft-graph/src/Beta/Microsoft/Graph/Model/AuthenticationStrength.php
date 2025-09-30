@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationStrength class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AuthenticationStrength extends Entity
 {
     /**
-    * Gets the authenticationStrengthId
-    * Identifier of the authentication strength.
-    *
-    * @return string|null The authenticationStrengthId
-    */
+     * Gets the authenticationStrengthId
+     * Identifier of the authentication strength.
+     *
+     * @return string|null The authenticationStrengthId
+     */
     public function getAuthenticationStrengthId()
     {
         if (array_key_exists("authenticationStrengthId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AuthenticationStrength extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the authenticationStrengthId
-    * Identifier of the authentication strength.
-    *
-    * @param string $val The value of the authenticationStrengthId
-    *
-    * @return AuthenticationStrength
-    */
+     * Sets the authenticationStrengthId
+     * Identifier of the authentication strength.
+     *
+     * @param string $val The value of the authenticationStrengthId
+     *
+     * @return AuthenticationStrength
+     */
     public function setAuthenticationStrengthId($val)
     {
         $this->_propDict["authenticationStrengthId"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * The name of the authentication strength.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the authentication strength.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AuthenticationStrength extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the authentication strength.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AuthenticationStrength
-    */
+     * Sets the displayName
+     * The name of the authentication strength.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AuthenticationStrength
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;

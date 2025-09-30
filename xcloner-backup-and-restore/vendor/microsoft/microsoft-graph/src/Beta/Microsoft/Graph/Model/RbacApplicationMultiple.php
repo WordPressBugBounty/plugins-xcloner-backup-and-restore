@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RbacApplicationMultiple class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RbacApplicationMultiple extends Entity
 {
-
-     /**
+    /**
      * Gets the resourceNamespaces
      *
      * @return array|null The resourceNamespaces
@@ -36,27 +36,24 @@ class RbacApplicationMultiple extends Entity
     public function getResourceNamespaces()
     {
         if (array_key_exists("resourceNamespaces", $this->_propDict)) {
-           return $this->_propDict["resourceNamespaces"];
+            return $this->_propDict["resourceNamespaces"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the resourceNamespaces
-    *
-    * @param UnifiedRbacResourceNamespace[] $val The resourceNamespaces
-    *
-    * @return RbacApplicationMultiple
-    */
+     * Sets the resourceNamespaces
+     *
+     * @param UnifiedRbacResourceNamespace[] $val The resourceNamespaces
+     *
+     * @return RbacApplicationMultiple
+     */
     public function setResourceNamespaces($val)
     {
         $this->_propDict["resourceNamespaces"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the roleAssignments
      *
      * @return array|null The roleAssignments
@@ -64,27 +61,24 @@ class RbacApplicationMultiple extends Entity
     public function getRoleAssignments()
     {
         if (array_key_exists("roleAssignments", $this->_propDict)) {
-           return $this->_propDict["roleAssignments"];
+            return $this->_propDict["roleAssignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the roleAssignments
-    *
-    * @param UnifiedRoleAssignmentMultiple[] $val The roleAssignments
-    *
-    * @return RbacApplicationMultiple
-    */
+     * Sets the roleAssignments
+     *
+     * @param UnifiedRoleAssignmentMultiple[] $val The roleAssignments
+     *
+     * @return RbacApplicationMultiple
+     */
     public function setRoleAssignments($val)
     {
         $this->_propDict["roleAssignments"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the roleDefinitions
      *
      * @return array|null The roleDefinitions
@@ -92,23 +86,21 @@ class RbacApplicationMultiple extends Entity
     public function getRoleDefinitions()
     {
         if (array_key_exists("roleDefinitions", $this->_propDict)) {
-           return $this->_propDict["roleDefinitions"];
+            return $this->_propDict["roleDefinitions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the roleDefinitions
-    *
-    * @param UnifiedRoleDefinition[] $val The roleDefinitions
-    *
-    * @return RbacApplicationMultiple
-    */
+     * Sets the roleDefinitions
+     *
+     * @param UnifiedRoleDefinition[] $val The roleDefinitions
+     *
+     * @return RbacApplicationMultiple
+     */
     public function setRoleDefinitions($val)
     {
         $this->_propDict["roleDefinitions"] = $val;
         return $this;
     }
-
 }

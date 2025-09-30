@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsUpdateScheduledInstall class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.windowsUpdateScheduledInstall");
     }
-
-
     /**
-    * Gets the scheduledInstallDay
-    * Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
-    *
-    * @return WeeklySchedule|null The scheduledInstallDay
-    */
+     * Gets the scheduledInstallDay
+     * Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     *
+     * @return WeeklySchedule|null The scheduledInstallDay
+     */
     public function getScheduledInstallDay()
     {
         if (array_key_exists("scheduledInstallDay", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduledInstallDay"], "\Beta\Microsoft\Graph\Model\WeeklySchedule") || is_null($this->_propDict["scheduledInstallDay"])) {
+            if (is_a($this->_propDict["scheduledInstallDay"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WeeklySchedule") || is_null($this->_propDict["scheduledInstallDay"])) {
                 return $this->_propDict["scheduledInstallDay"];
             } else {
                 $this->_propDict["scheduledInstallDay"] = new WeeklySchedule($this->_propDict["scheduledInstallDay"]);
@@ -56,31 +56,29 @@ class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType
         }
         return null;
     }
-
     /**
-    * Sets the scheduledInstallDay
-    * Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
-    *
-    * @param WeeklySchedule $val The value to assign to the scheduledInstallDay
-    *
-    * @return WindowsUpdateScheduledInstall The WindowsUpdateScheduledInstall
-    */
+     * Sets the scheduledInstallDay
+     * Scheduled Install Day in week. Possible values are: userDefined, everyday, sunday, monday, tuesday, wednesday, thursday, friday, saturday, noScheduledScan.
+     *
+     * @param WeeklySchedule $val The value to assign to the scheduledInstallDay
+     *
+     * @return WindowsUpdateScheduledInstall The WindowsUpdateScheduledInstall
+     */
     public function setScheduledInstallDay($val)
     {
         $this->_propDict["scheduledInstallDay"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the scheduledInstallTime
-    * Scheduled Install Time during day
-    *
-    * @return TimeOfDay|null The scheduledInstallTime
-    */
+     * Gets the scheduledInstallTime
+     * Scheduled Install Time during day
+     *
+     * @return TimeOfDay|null The scheduledInstallTime
+     */
     public function getScheduledInstallTime()
     {
         if (array_key_exists("scheduledInstallTime", $this->_propDict)) {
-            if (is_a($this->_propDict["scheduledInstallTime"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["scheduledInstallTime"])) {
+            if (is_a($this->_propDict["scheduledInstallTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["scheduledInstallTime"])) {
                 return $this->_propDict["scheduledInstallTime"];
             } else {
                 $this->_propDict["scheduledInstallTime"] = new TimeOfDay($this->_propDict["scheduledInstallTime"]);
@@ -89,18 +87,17 @@ class WindowsUpdateScheduledInstall extends WindowsUpdateInstallScheduleType
         }
         return null;
     }
-
     /**
-    * Sets the scheduledInstallTime
-    * Scheduled Install Time during day
-    *
-    * @param TimeOfDay $val The value to assign to the scheduledInstallTime
-    *
-    * @return WindowsUpdateScheduledInstall The WindowsUpdateScheduledInstall
-    */
+     * Sets the scheduledInstallTime
+     * Scheduled Install Time during day
+     *
+     * @param TimeOfDay $val The value to assign to the scheduledInstallTime
+     *
+     * @return WindowsUpdateScheduledInstall The WindowsUpdateScheduledInstall
+     */
     public function setScheduledInstallTime($val)
     {
         $this->_propDict["scheduledInstallTime"] = $val;
-         return $this;
+        return $this;
     }
 }

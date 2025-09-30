@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAppProtectionPolicySetItem class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAppProtectionPolicySetItem extends PolicySetItem
 {
     /**
-    * Gets the targetedAppManagementLevels
-    * TargetedAppManagementLevels of the ManagedAppPolicySetItem.
-    *
-    * @return string|null The targetedAppManagementLevels
-    */
+     * Gets the targetedAppManagementLevels
+     * TargetedAppManagementLevels of the ManagedAppPolicySetItem.
+     *
+     * @return string|null The targetedAppManagementLevels
+     */
     public function getTargetedAppManagementLevels()
     {
         if (array_key_exists("targetedAppManagementLevels", $this->_propDict)) {
@@ -41,19 +42,17 @@ class ManagedAppProtectionPolicySetItem extends PolicySetItem
             return null;
         }
     }
-
     /**
-    * Sets the targetedAppManagementLevels
-    * TargetedAppManagementLevels of the ManagedAppPolicySetItem.
-    *
-    * @param string $val The targetedAppManagementLevels
-    *
-    * @return ManagedAppProtectionPolicySetItem
-    */
+     * Sets the targetedAppManagementLevels
+     * TargetedAppManagementLevels of the ManagedAppPolicySetItem.
+     *
+     * @param string $val The targetedAppManagementLevels
+     *
+     * @return ManagedAppProtectionPolicySetItem
+     */
     public function setTargetedAppManagementLevels($val)
     {
         $this->_propDict["targetedAppManagementLevels"] = $val;
         return $this;
     }
-
 }

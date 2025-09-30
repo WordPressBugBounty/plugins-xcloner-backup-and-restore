@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CommsNotification class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CommsNotification extends Entity
 {
-
     /**
-    * Gets the changeType
-    * Possible values are: created, updated, deleted.
-    *
-    * @return ChangeType|null The changeType
-    */
+     * Gets the changeType
+     * Possible values are: created, updated, deleted.
+     *
+     * @return ChangeType|null The changeType
+     */
     public function getChangeType()
     {
         if (array_key_exists("changeType", $this->_propDict)) {
-            if (is_a($this->_propDict["changeType"], "\Microsoft\Graph\Model\ChangeType") || is_null($this->_propDict["changeType"])) {
+            if (is_a($this->_propDict["changeType"], "XCloner\\Microsoft\\Graph\\Model\\ChangeType") || is_null($this->_propDict["changeType"])) {
                 return $this->_propDict["changeType"];
             } else {
                 $this->_propDict["changeType"] = new ChangeType($this->_propDict["changeType"]);
@@ -45,26 +46,25 @@ class CommsNotification extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the changeType
-    * Possible values are: created, updated, deleted.
-    *
-    * @param ChangeType $val The value to assign to the changeType
-    *
-    * @return CommsNotification The CommsNotification
-    */
+     * Sets the changeType
+     * Possible values are: created, updated, deleted.
+     *
+     * @param ChangeType $val The value to assign to the changeType
+     *
+     * @return CommsNotification The CommsNotification
+     */
     public function setChangeType($val)
     {
         $this->_propDict["changeType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the resourceUrl
-    * URI of the resource that was changed.
-    *
-    * @return string|null The resourceUrl
-    */
+     * Gets the resourceUrl
+     * URI of the resource that was changed.
+     *
+     * @return string|null The resourceUrl
+     */
     public function getResourceUrl()
     {
         if (array_key_exists("resourceUrl", $this->_propDict)) {
@@ -73,15 +73,14 @@ class CommsNotification extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceUrl
-    * URI of the resource that was changed.
-    *
-    * @param string $val The value of the resourceUrl
-    *
-    * @return CommsNotification
-    */
+     * Sets the resourceUrl
+     * URI of the resource that was changed.
+     *
+     * @param string $val The value of the resourceUrl
+     *
+     * @return CommsNotification
+     */
     public function setResourceUrl($val)
     {
         $this->_propDict["resourceUrl"] = $val;

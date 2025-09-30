@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * KeyCredential class
 *
@@ -26,45 +28,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class KeyCredential extends Entity
 {
-
     /**
-    * Gets the customKeyIdentifier
-    * Custom key identifier
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The customKeyIdentifier
-    */
+     * Gets the customKeyIdentifier
+     * Custom key identifier
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The customKeyIdentifier
+     */
     public function getCustomKeyIdentifier()
     {
         if (array_key_exists("customKeyIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["customKeyIdentifier"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["customKeyIdentifier"])) {
+            if (is_a($this->_propDict["customKeyIdentifier"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["customKeyIdentifier"])) {
                 return $this->_propDict["customKeyIdentifier"];
             } else {
-                $this->_propDict["customKeyIdentifier"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customKeyIdentifier"]);
+                $this->_propDict["customKeyIdentifier"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["customKeyIdentifier"]);
                 return $this->_propDict["customKeyIdentifier"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the customKeyIdentifier
-    * Custom key identifier
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the customKeyIdentifier
-    *
-    * @return KeyCredential The KeyCredential
-    */
+     * Sets the customKeyIdentifier
+     * Custom key identifier
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the customKeyIdentifier
+     *
+     * @return KeyCredential The KeyCredential
+     */
     public function setCustomKeyIdentifier($val)
     {
         $this->_propDict["customKeyIdentifier"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the displayName
-    * Friendly name for the key. Optional.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Friendly name for the key. Optional.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -73,31 +73,29 @@ class KeyCredential extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Friendly name for the key. Optional.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return KeyCredential
-    */
+     * Sets the displayName
+     * Friendly name for the key. Optional.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return KeyCredential
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the endDateTime
-    * The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The endDateTime
-    */
+     * Gets the endDateTime
+     * The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The endDateTime
+     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -106,59 +104,56 @@ class KeyCredential extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDateTime
-    * The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the endDateTime
-    *
-    * @return KeyCredential The KeyCredential
-    */
+     * Sets the endDateTime
+     * The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the endDateTime
+     *
+     * @return KeyCredential The KeyCredential
+     */
     public function setEndDateTime($val)
     {
         $this->_propDict["endDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the key
-    * Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The key
-    */
+     * Gets the key
+     * Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
-            if (is_a($this->_propDict["key"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["key"])) {
+            if (is_a($this->_propDict["key"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["key"])) {
                 return $this->_propDict["key"];
             } else {
-                $this->_propDict["key"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["key"]);
+                $this->_propDict["key"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["key"]);
                 return $this->_propDict["key"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the key
-    * Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the key
-    *
-    * @return KeyCredential The KeyCredential
-    */
+     * Sets the key
+     * Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the key
+     *
+     * @return KeyCredential The KeyCredential
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the keyId
-    * The unique identifier for the key.
-    *
-    * @return string|null The keyId
-    */
+     * Gets the keyId
+     * The unique identifier for the key.
+     *
+     * @return string|null The keyId
+     */
     public function getKeyId()
     {
         if (array_key_exists("keyId", $this->_propDict)) {
@@ -167,31 +162,29 @@ class KeyCredential extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the keyId
-    * The unique identifier for the key.
-    *
-    * @param string $val The value of the keyId
-    *
-    * @return KeyCredential
-    */
+     * Sets the keyId
+     * The unique identifier for the key.
+     *
+     * @param string $val The value of the keyId
+     *
+     * @return KeyCredential
+     */
     public function setKeyId($val)
     {
         $this->_propDict["keyId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -200,26 +193,25 @@ class KeyCredential extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the startDateTime
-    *
-    * @return KeyCredential The KeyCredential
-    */
+     * Sets the startDateTime
+     * The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the startDateTime
+     *
+     * @return KeyCredential The KeyCredential
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the type
-    * The type of key credential; for example, Symmetric, AsymmetricX509Cert.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * The type of key credential; for example, Symmetric, AsymmetricX509Cert.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -228,26 +220,25 @@ class KeyCredential extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * The type of key credential; for example, Symmetric, AsymmetricX509Cert.
-    *
-    * @param string $val The value of the type
-    *
-    * @return KeyCredential
-    */
+     * Sets the type
+     * The type of key credential; for example, Symmetric, AsymmetricX509Cert.
+     *
+     * @param string $val The value of the type
+     *
+     * @return KeyCredential
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
     /**
-    * Gets the usage
-    * A string that describes the purpose for which the key can be used; for example, Verify.
-    *
-    * @return string|null The usage
-    */
+     * Gets the usage
+     * A string that describes the purpose for which the key can be used; for example, Verify.
+     *
+     * @return string|null The usage
+     */
     public function getUsage()
     {
         if (array_key_exists("usage", $this->_propDict)) {
@@ -256,15 +247,14 @@ class KeyCredential extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the usage
-    * A string that describes the purpose for which the key can be used; for example, Verify.
-    *
-    * @param string $val The value of the usage
-    *
-    * @return KeyCredential
-    */
+     * Sets the usage
+     * A string that describes the purpose for which the key can be used; for example, Verify.
+     *
+     * @param string $val The value of the usage
+     *
+     * @return KeyCredential
+     */
     public function setUsage($val)
     {
         $this->_propDict["usage"] = $val;

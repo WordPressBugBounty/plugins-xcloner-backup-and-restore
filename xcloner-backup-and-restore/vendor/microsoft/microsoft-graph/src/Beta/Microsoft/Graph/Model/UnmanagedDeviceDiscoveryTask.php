@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnmanagedDeviceDiscoveryTask class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class UnmanagedDeviceDiscoveryTask extends DeviceAppManagementTask
 {
-
-     /**
+    /**
      * Gets the unmanagedDevices
-    * Unmanaged devices discovered in the network.
+     * Unmanaged devices discovered in the network.
      *
      * @return array|null The unmanagedDevices
      */
     public function getUnmanagedDevices()
     {
         if (array_key_exists("unmanagedDevices", $this->_propDict)) {
-           return $this->_propDict["unmanagedDevices"];
+            return $this->_propDict["unmanagedDevices"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the unmanagedDevices
-    * Unmanaged devices discovered in the network.
-    *
-    * @param UnmanagedDevice[] $val The unmanagedDevices
-    *
-    * @return UnmanagedDeviceDiscoveryTask
-    */
+     * Sets the unmanagedDevices
+     * Unmanaged devices discovered in the network.
+     *
+     * @param UnmanagedDevice[] $val The unmanagedDevices
+     *
+     * @return UnmanagedDeviceDiscoveryTask
+     */
     public function setUnmanagedDevices($val)
     {
         $this->_propDict["unmanagedDevices"] = $val;
         return $this;
     }
-
 }

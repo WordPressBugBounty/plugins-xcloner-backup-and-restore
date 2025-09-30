@@ -1,18 +1,17 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
-use GuzzleHttp\Client;
-use Psr\Http\Message\RequestInterface;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Promise\FulfilledPromise;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Client;
+use XCloner\Psr\Http\Message\RequestInterface;
+use XCloner\GuzzleHttp\ClientInterface;
+use XCloner\GuzzleHttp\Promise\FulfilledPromise;
 //-----------------------------------------------------------------------------
 // Functional functions
 //-----------------------------------------------------------------------------
-
 /**
  * Returns a function that always returns the same value;
  *
@@ -22,9 +21,10 @@ use GuzzleHttp\Promise\FulfilledPromise;
  */
 function constantly($value)
 {
-    return function () use ($value) { return $value; };
+    return function () use ($value) {
+        return $value;
+    };
 }
-
 /**
  * Filters values that do not satisfy the predicate function $pred.
  *
@@ -41,7 +41,6 @@ function filter($iterable, callable $pred)
         }
     }
 }
-
 /**
  * Applies a map function $f to each value in a collection.
  *
@@ -56,7 +55,6 @@ function map($iterable, callable $f)
         yield $f($value);
     }
 }
-
 /**
  * Creates a generator that iterates over a sequence, then iterates over each
  * value in the sequence and yields the application of the map function to each
@@ -75,7 +73,6 @@ function flatmap($iterable, callable $f)
         }
     }
 }
-
 /**
  * Partitions the input sequence into partitions of the specified size.
  *
@@ -94,12 +91,10 @@ function partition($iterable, $size)
             $buffer = [];
         }
     }
-
     if ($buffer) {
         yield $buffer;
     }
 }
-
 /**
  * Returns a function that invokes the provided variadic functions one
  * after the other until one of the functions returns a non-null value.
@@ -127,11 +122,9 @@ function or_chain()
         return null;
     };
 }
-
 //-----------------------------------------------------------------------------
 // JSON compiler and loading functions
 //-----------------------------------------------------------------------------
-
 /**
  * Loads a compiled JSON file from a PHP file.
  *
@@ -146,28 +139,20 @@ function or_chain()
 function load_compiled_json($path)
 {
     static $compiledList = [];
-
     $compiledFilepath = "{$path}.php";
-
     if (!isset($compiledList[$compiledFilepath])) {
         if (is_readable($compiledFilepath)) {
-            $compiledList[$compiledFilepath] = include($compiledFilepath);
+            $compiledList[$compiledFilepath] = include $compiledFilepath;
         }
     }
-
     if (isset($compiledList[$compiledFilepath])) {
         return $compiledList[$compiledFilepath];
     }
-
     if (!file_exists($path)) {
-        throw new \InvalidArgumentException(
-            sprintf("File not found: %s", $path)
-        );
+        throw new \InvalidArgumentException(sprintf("File not found: %s", $path));
     }
-
-    return json_decode(file_get_contents($path), true);
+    return json_decode(file_get_contents($path), \true);
 }
-
 /**
  * No-op
  */
@@ -175,11 +160,9 @@ function clear_compiled_json()
 {
     // pass
 }
-
 //-----------------------------------------------------------------------------
 // Directory iterator functions.
 //-----------------------------------------------------------------------------
-
 /**
  * Iterates over the files in a directory and works with custom wrappers.
  *
@@ -194,12 +177,11 @@ function dir_iterator($path, $context = null)
     if (!$dh) {
         throw new \InvalidArgumentException('File not found: ' . $path);
     }
-    while (($file = readdir($dh)) !== false) {
+    while (($file = readdir($dh)) !== \false) {
         yield $file;
     }
     closedir($dh);
 }
-
 /**
  * Returns a recursive directory iterator that yields absolute filenames.
  *
@@ -214,7 +196,7 @@ function dir_iterator($path, $context = null)
  */
 function recursive_dir_iterator($path, $context = null)
 {
-    $invalid = ['.' => true, '..' => true];
+    $invalid = ['.' => \true, '..' => \true];
     $pathLen = strlen($path) + 1;
     $iterator = dir_iterator($path, $context);
     $queue = [];
@@ -229,23 +211,18 @@ function recursive_dir_iterator($path, $context = null)
             yield $fullPath;
             if (is_dir($fullPath)) {
                 $queue[] = $iterator;
-                $iterator = map(
-                    dir_iterator($fullPath, $context),
-                    function ($file) use ($fullPath, $pathLen) {
-                        return substr("{$fullPath}/{$file}", $pathLen);
-                    }
-                );
+                $iterator = map(dir_iterator($fullPath, $context), function ($file) use ($fullPath, $pathLen) {
+                    return substr("{$fullPath}/{$file}", $pathLen);
+                });
                 continue;
             }
         }
         $iterator = array_pop($queue);
     } while ($iterator);
 }
-
 //-----------------------------------------------------------------------------
 // Misc. functions.
 //-----------------------------------------------------------------------------
-
 /**
  * Debug function used to describe the provided value type and class.
  *
@@ -268,7 +245,6 @@ function describe_type($input)
             return str_replace('double(', 'float(', rtrim(ob_get_clean()));
     }
 }
-
 /**
  * Creates a default HTTP handler based on the available clients.
  *
@@ -279,17 +255,14 @@ function default_http_handler()
     $version = guzzle_major_version();
     // If Guzzle 6 or 7 installed
     if ($version === 6 || $version === 7) {
-        return new \Aws\Handler\GuzzleV6\GuzzleHandler();
+        return new \XCloner\Aws\Handler\GuzzleV6\GuzzleHandler();
     }
-
     // If Guzzle 5 installed
     if ($version === 5) {
-        return new \Aws\Handler\GuzzleV5\GuzzleHandler();
+        return new \XCloner\Aws\Handler\GuzzleV5\GuzzleHandler();
     }
-
     throw new \RuntimeException('Unknown Guzzle version: ' . $version);
 }
-
 /**
  * Gets the default user agent string depending on the Guzzle version
  *
@@ -300,17 +273,14 @@ function default_user_agent()
     $version = guzzle_major_version();
     // If Guzzle 6 or 7 installed
     if ($version === 6 || $version === 7) {
-        return \GuzzleHttp\default_user_agent();
+        return \XCloner\GuzzleHttp\default_user_agent();
     }
-
     // If Guzzle 5 installed
     if ($version === 5) {
-        return \GuzzleHttp\Client::getDefaultUserAgent();
+        return \XCloner\GuzzleHttp\Client::getDefaultUserAgent();
     }
-
     throw new \RuntimeException('Unknown Guzzle version: ' . $version);
 }
-
 /**
  * Get the major version of guzzle that is installed.
  *
@@ -324,8 +294,7 @@ function guzzle_major_version()
     if (null !== $cache) {
         return $cache;
     }
-
-    if (defined('\GuzzleHttp\ClientInterface::VERSION')) {
+    if (defined('XCloner\GuzzleHttp\ClientInterface::VERSION')) {
         $version = (string) ClientInterface::VERSION;
         if ($version[0] === '6') {
             return $cache = 6;
@@ -333,13 +302,11 @@ function guzzle_major_version()
         if ($version[0] === '5') {
             return $cache = 5;
         }
-    } elseif (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
+    } elseif (defined('XCloner\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
         return $cache = ClientInterface::MAJOR_VERSION;
     }
-
     throw new \RuntimeException('Unable to determine what Guzzle version is installed.');
 }
-
 /**
  * Serialize a request for a command but do not send it.
  *
@@ -354,25 +321,17 @@ function serialize(CommandInterface $command)
 {
     $request = null;
     $handlerList = $command->getHandlerList();
-
     // Return a mock result.
-    $handlerList->setHandler(
-        function (CommandInterface $_, RequestInterface $r) use (&$request) {
-            $request = $r;
-            return new FulfilledPromise(new Result([]));
-        }
-    );
-
+    $handlerList->setHandler(function (CommandInterface $_, RequestInterface $r) use (&$request) {
+        $request = $r;
+        return new FulfilledPromise(new Result([]));
+    });
     call_user_func($handlerList->resolve(), $command)->wait();
     if (!$request instanceof RequestInterface) {
-        throw new \RuntimeException(
-            'Calling handler did not serialize request'
-        );
+        throw new \RuntimeException('Calling handler did not serialize request');
     }
-
     return $request;
 }
-
 /**
  * Retrieves data for a service from the SDK's service manifest file.
  *
@@ -399,27 +358,20 @@ function manifest($service = null)
             }
         }
     }
-
     // If no service specified, then return the whole manifest.
     if ($service === null) {
         return $manifest;
     }
-
     // Look up the service's info in the manifest data.
     $service = strtolower($service);
     if (isset($manifest[$service])) {
         return $manifest[$service] + ['endpoint' => $service];
     }
-
     if (isset($aliases[$service])) {
         return manifest($aliases[$service]);
     }
-
-    throw new \InvalidArgumentException(
-        "The service \"{$service}\" is not provided by the AWS SDK for PHP."
-    );
+    throw new \InvalidArgumentException("The service \"{$service}\" is not provided by the AWS SDK for PHP.");
 }
-
 /**
  * Checks if supplied parameter is a valid hostname
  *
@@ -428,13 +380,8 @@ function manifest($service = null)
  */
 function is_valid_hostname($hostname)
 {
-    return (
-        preg_match("/^([a-z\d](-*[a-z\d])*)(\.([a-z\d](-*[a-z\d])*))*\.?$/i", $hostname)
-        && preg_match("/^.{1,253}$/", $hostname)
-        && preg_match("/^[^\.]{1,63}(\.[^\.]{0,63})*$/", $hostname)
-    );
+    return preg_match("/^([a-z\\d](-*[a-z\\d])*)(\\.([a-z\\d](-*[a-z\\d])*))*\\.?\$/i", $hostname) && preg_match("/^.{1,253}\$/", $hostname) && preg_match("/^[^\\.]{1,63}(\\.[^\\.]{0,63})*\$/", $hostname);
 }
-
 /**
  * Checks if supplied parameter is a valid host label
  *
@@ -443,9 +390,8 @@ function is_valid_hostname($hostname)
  */
 function is_valid_hostlabel($label)
 {
-    return preg_match("/^(?!-)[a-zA-Z0-9-]{1,63}(?<!-)$/", $label);
+    return preg_match("/^(?!-)[a-zA-Z0-9-]{1,63}(?<!-)\$/", $label);
 }
-
 /**
  * Ignores '#' full line comments, which parse_ini_file no longer does
  * in PHP 7+.
@@ -455,18 +401,10 @@ function is_valid_hostlabel($label)
  * @param int $scanner_mode
  * @return array|bool
  */
-function parse_ini_file(
-    $filename,
-    $process_sections = false,
-    $scanner_mode = INI_SCANNER_NORMAL)
+function parse_ini_file($filename, $process_sections = \false, $scanner_mode = \INI_SCANNER_NORMAL)
 {
-    return parse_ini_string(
-        preg_replace('/^#.*\\n/m', "", file_get_contents($filename)),
-        $process_sections,
-        $scanner_mode
-    );
+    return parse_ini_string(preg_replace('/^#.*\n/m', "", file_get_contents($filename)), $process_sections, $scanner_mode);
 }
-
 /**
  * Outputs boolean value of input for a select range of possible values,
  * null otherwise
@@ -479,33 +417,28 @@ function boolean_value($input)
     if (is_bool($input)) {
         return $input;
     }
-
     if ($input === 0) {
-        return false;
+        return \false;
     }
-
     if ($input === 1) {
-        return true;
+        return \true;
     }
-
     if (is_string($input)) {
         switch (strtolower($input)) {
             case "true":
             case "on":
             case "1":
-                return true;
+                return \true;
                 break;
-
             case "false":
             case "off":
             case "0":
-                return false;
+                return \false;
                 break;
         }
     }
     return null;
 }
-
 /**
  * Checks if an input is a valid epoch time
  *
@@ -515,14 +448,13 @@ function boolean_value($input)
 function is_valid_epoch($input)
 {
     if (is_string($input) || is_numeric($input)) {
-        if (is_string($input) && !preg_match("/^-?[0-9]+\.?[0-9]*$/", $input)) {
-            return false;
+        if (is_string($input) && !preg_match("/^-?[0-9]+\\.?[0-9]*\$/", $input)) {
+            return \false;
         }
-        return true;
+        return \true;
     }
-    return false;
+    return \false;
 }
-
 /**
  * Checks if an input is a fips pseudo region
  *
@@ -531,9 +463,8 @@ function is_valid_epoch($input)
  */
 function is_fips_pseudo_region($region)
 {
-    return strpos($region, 'fips-') !== false || strpos($region, '-fips') !== false;
+    return strpos($region, 'fips-') !== \false || strpos($region, '-fips') !== \false;
 }
-
 /**
  * Returns a region without a fips label
  *
@@ -544,4 +475,3 @@ function strip_fips_pseudo_regions($region)
 {
     return str_replace(['fips-', '-fips'], ['', ''], $region);
 }
-

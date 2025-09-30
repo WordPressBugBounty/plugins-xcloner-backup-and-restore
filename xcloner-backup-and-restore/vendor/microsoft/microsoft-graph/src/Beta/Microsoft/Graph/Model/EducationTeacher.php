@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationTeacher class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationTeacher extends Entity
 {
     /**
-    * Gets the externalId
-    * Id of the Teacher in external source system.
-    *
-    * @return string|null The externalId
-    */
+     * Gets the externalId
+     * Id of the Teacher in external source system.
+     *
+     * @return string|null The externalId
+     */
     public function getExternalId()
     {
         if (array_key_exists("externalId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EducationTeacher extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the externalId
-    * Id of the Teacher in external source system.
-    *
-    * @param string $val The value of the externalId
-    *
-    * @return EducationTeacher
-    */
+     * Sets the externalId
+     * Id of the Teacher in external source system.
+     *
+     * @param string $val The value of the externalId
+     *
+     * @return EducationTeacher
+     */
     public function setExternalId($val)
     {
         $this->_propDict["externalId"] = $val;
         return $this;
     }
     /**
-    * Gets the teacherNumber
-    * Teacher number.
-    *
-    * @return string|null The teacherNumber
-    */
+     * Gets the teacherNumber
+     * Teacher number.
+     *
+     * @return string|null The teacherNumber
+     */
     public function getTeacherNumber()
     {
         if (array_key_exists("teacherNumber", $this->_propDict)) {
@@ -68,15 +69,14 @@ class EducationTeacher extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the teacherNumber
-    * Teacher number.
-    *
-    * @param string $val The value of the teacherNumber
-    *
-    * @return EducationTeacher
-    */
+     * Sets the teacherNumber
+     * Teacher number.
+     *
+     * @param string $val The value of the teacherNumber
+     *
+     * @return EducationTeacher
+     */
     public function setTeacherNumber($val)
     {
         $this->_propDict["teacherNumber"] = $val;

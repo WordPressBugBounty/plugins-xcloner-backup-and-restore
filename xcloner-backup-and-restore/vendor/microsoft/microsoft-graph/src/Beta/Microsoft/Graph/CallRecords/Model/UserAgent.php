@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\CallRecords\Model;
+namespace XCloner\Beta\Microsoft\Graph\CallRecords\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserAgent class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class UserAgent extends \Beta\Microsoft\Graph\Model\Entity
+class UserAgent extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the applicationVersion
-    * Identifies the version of application software used by this endpoint.
-    *
-    * @return string|null The applicationVersion
-    */
+     * Gets the applicationVersion
+     * Identifies the version of application software used by this endpoint.
+     *
+     * @return string|null The applicationVersion
+     */
     public function getApplicationVersion()
     {
         if (array_key_exists("applicationVersion", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserAgent extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the applicationVersion
-    * Identifies the version of application software used by this endpoint.
-    *
-    * @param string $val The value of the applicationVersion
-    *
-    * @return UserAgent
-    */
+     * Sets the applicationVersion
+     * Identifies the version of application software used by this endpoint.
+     *
+     * @param string $val The value of the applicationVersion
+     *
+     * @return UserAgent
+     */
     public function setApplicationVersion($val)
     {
         $this->_propDict["applicationVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the headerValue
-    * User-agent header value reported by this endpoint.
-    *
-    * @return string|null The headerValue
-    */
+     * Gets the headerValue
+     * User-agent header value reported by this endpoint.
+     *
+     * @return string|null The headerValue
+     */
     public function getHeaderValue()
     {
         if (array_key_exists("headerValue", $this->_propDict)) {
@@ -68,15 +69,14 @@ class UserAgent extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the headerValue
-    * User-agent header value reported by this endpoint.
-    *
-    * @param string $val The value of the headerValue
-    *
-    * @return UserAgent
-    */
+     * Sets the headerValue
+     * User-agent header value reported by this endpoint.
+     *
+     * @param string $val The value of the headerValue
+     *
+     * @return UserAgent
+     */
     public function setHeaderValue($val)
     {
         $this->_propDict["headerValue"] = $val;

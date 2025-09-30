@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ContentProperties class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ContentProperties extends Entity
 {
     /**
-    * Gets the extensions
-    *
-    * @return string|null The extensions
-    */
+     * Gets the extensions
+     *
+     * @return string|null The extensions
+     */
     public function getExtensions()
     {
         if (array_key_exists("extensions", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ContentProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the extensions
-    *
-    * @param string $val The value of the extensions
-    *
-    * @return ContentProperties
-    */
+     * Sets the extensions
+     *
+     * @param string $val The value of the extensions
+     *
+     * @return ContentProperties
+     */
     public function setExtensions($val)
     {
         $this->_propDict["extensions"] = $val;
         return $this;
     }
     /**
-    * Gets the lastModifiedBy
-    *
-    * @return string|null The lastModifiedBy
-    */
+     * Gets the lastModifiedBy
+     *
+     * @return string|null The lastModifiedBy
+     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
@@ -65,29 +66,27 @@ class ContentProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastModifiedBy
-    *
-    * @param string $val The value of the lastModifiedBy
-    *
-    * @return ContentProperties
-    */
+     * Sets the lastModifiedBy
+     *
+     * @param string $val The value of the lastModifiedBy
+     *
+     * @return ContentProperties
+     */
     public function setLastModifiedBy($val)
     {
         $this->_propDict["lastModifiedBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -96,29 +95,27 @@ class ContentProperties extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return ContentProperties The ContentProperties
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return ContentProperties The ContentProperties
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the metadata
-    *
-    * @return ContentMetadata|null The metadata
-    */
+     * Gets the metadata
+     *
+     * @return ContentMetadata|null The metadata
+     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\ContentMetadata") || is_null($this->_propDict["metadata"])) {
+            if (is_a($this->_propDict["metadata"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ContentMetadata") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new ContentMetadata($this->_propDict["metadata"]);
@@ -127,17 +124,16 @@ class ContentProperties extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the metadata
-    *
-    * @param ContentMetadata $val The value to assign to the metadata
-    *
-    * @return ContentProperties The ContentProperties
-    */
+     * Sets the metadata
+     *
+     * @param ContentMetadata $val The value to assign to the metadata
+     *
+     * @return ContentProperties The ContentProperties
+     */
     public function setMetadata($val)
     {
         $this->_propDict["metadata"] = $val;
-         return $this;
+        return $this;
     }
 }

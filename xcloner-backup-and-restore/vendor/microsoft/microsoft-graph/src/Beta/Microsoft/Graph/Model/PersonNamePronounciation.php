@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PersonNamePronounciation class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PersonNamePronounciation extends Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -39,24 +41,23 @@ class PersonNamePronounciation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return PersonNamePronounciation
-    */
+     * Sets the displayName
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return PersonNamePronounciation
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the first
-    *
-    * @return string|null The first
-    */
+     * Gets the first
+     *
+     * @return string|null The first
+     */
     public function getFirst()
     {
         if (array_key_exists("first", $this->_propDict)) {
@@ -65,24 +66,23 @@ class PersonNamePronounciation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the first
-    *
-    * @param string $val The value of the first
-    *
-    * @return PersonNamePronounciation
-    */
+     * Sets the first
+     *
+     * @param string $val The value of the first
+     *
+     * @return PersonNamePronounciation
+     */
     public function setFirst($val)
     {
         $this->_propDict["first"] = $val;
         return $this;
     }
     /**
-    * Gets the last
-    *
-    * @return string|null The last
-    */
+     * Gets the last
+     *
+     * @return string|null The last
+     */
     public function getLast()
     {
         if (array_key_exists("last", $this->_propDict)) {
@@ -91,24 +91,23 @@ class PersonNamePronounciation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the last
-    *
-    * @param string $val The value of the last
-    *
-    * @return PersonNamePronounciation
-    */
+     * Sets the last
+     *
+     * @param string $val The value of the last
+     *
+     * @return PersonNamePronounciation
+     */
     public function setLast($val)
     {
         $this->_propDict["last"] = $val;
         return $this;
     }
     /**
-    * Gets the maiden
-    *
-    * @return string|null The maiden
-    */
+     * Gets the maiden
+     *
+     * @return string|null The maiden
+     */
     public function getMaiden()
     {
         if (array_key_exists("maiden", $this->_propDict)) {
@@ -117,24 +116,23 @@ class PersonNamePronounciation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maiden
-    *
-    * @param string $val The value of the maiden
-    *
-    * @return PersonNamePronounciation
-    */
+     * Sets the maiden
+     *
+     * @param string $val The value of the maiden
+     *
+     * @return PersonNamePronounciation
+     */
     public function setMaiden($val)
     {
         $this->_propDict["maiden"] = $val;
         return $this;
     }
     /**
-    * Gets the middle
-    *
-    * @return string|null The middle
-    */
+     * Gets the middle
+     *
+     * @return string|null The middle
+     */
     public function getMiddle()
     {
         if (array_key_exists("middle", $this->_propDict)) {
@@ -143,14 +141,13 @@ class PersonNamePronounciation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the middle
-    *
-    * @param string $val The value of the middle
-    *
-    * @return PersonNamePronounciation
-    */
+     * Sets the middle
+     *
+     * @param string $val The value of the middle
+     *
+     * @return PersonNamePronounciation
+     */
     public function setMiddle($val)
     {
         $this->_propDict["middle"] = $val;

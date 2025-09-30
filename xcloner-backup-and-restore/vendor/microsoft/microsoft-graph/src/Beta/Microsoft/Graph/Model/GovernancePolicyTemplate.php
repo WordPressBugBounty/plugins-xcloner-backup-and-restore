@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GovernancePolicyTemplate class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GovernancePolicyTemplate extends Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,29 +41,27 @@ class GovernancePolicyTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return GovernancePolicyTemplate
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return GovernancePolicyTemplate
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the policy
-    *
-    * @return GovernancePolicy|null The policy
-    */
+     * Gets the policy
+     *
+     * @return GovernancePolicy|null The policy
+     */
     public function getPolicy()
     {
         if (array_key_exists("policy", $this->_propDict)) {
-            if (is_a($this->_propDict["policy"], "\Beta\Microsoft\Graph\Model\GovernancePolicy") || is_null($this->_propDict["policy"])) {
+            if (is_a($this->_propDict["policy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernancePolicy") || is_null($this->_propDict["policy"])) {
                 return $this->_propDict["policy"];
             } else {
                 $this->_propDict["policy"] = new GovernancePolicy($this->_propDict["policy"]);
@@ -71,29 +70,27 @@ class GovernancePolicyTemplate extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the policy
-    *
-    * @param GovernancePolicy $val The policy
-    *
-    * @return GovernancePolicyTemplate
-    */
+     * Sets the policy
+     *
+     * @param GovernancePolicy $val The policy
+     *
+     * @return GovernancePolicyTemplate
+     */
     public function setPolicy($val)
     {
         $this->_propDict["policy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settings
-    *
-    * @return BusinessFlowSettings|null The settings
-    */
+     * Gets the settings
+     *
+     * @return BusinessFlowSettings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\BusinessFlowSettings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\BusinessFlowSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new BusinessFlowSettings($this->_propDict["settings"]);
@@ -102,18 +99,16 @@ class GovernancePolicyTemplate extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    *
-    * @param BusinessFlowSettings $val The settings
-    *
-    * @return GovernancePolicyTemplate
-    */
+     * Sets the settings
+     *
+     * @param BusinessFlowSettings $val The settings
+     *
+     * @return GovernancePolicyTemplate
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

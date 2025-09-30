@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSAssociatedDomainsItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSAssociatedDomainsItem extends Entity
 {
     /**
-    * Gets the applicationIdentifier
-    * The application identifier of the app to associate domains with.
-    *
-    * @return string|null The applicationIdentifier
-    */
+     * Gets the applicationIdentifier
+     * The application identifier of the app to associate domains with.
+     *
+     * @return string|null The applicationIdentifier
+     */
     public function getApplicationIdentifier()
     {
         if (array_key_exists("applicationIdentifier", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MacOSAssociatedDomainsItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the applicationIdentifier
-    * The application identifier of the app to associate domains with.
-    *
-    * @param string $val The value of the applicationIdentifier
-    *
-    * @return MacOSAssociatedDomainsItem
-    */
+     * Sets the applicationIdentifier
+     * The application identifier of the app to associate domains with.
+     *
+     * @param string $val The value of the applicationIdentifier
+     *
+     * @return MacOSAssociatedDomainsItem
+     */
     public function setApplicationIdentifier($val)
     {
         $this->_propDict["applicationIdentifier"] = $val;
         return $this;
     }
     /**
-    * Gets the directDownloadsEnabled
-    * Determines whether data should be downloaded directly or via a CDN.
-    *
-    * @return bool|null The directDownloadsEnabled
-    */
+     * Gets the directDownloadsEnabled
+     * Determines whether data should be downloaded directly or via a CDN.
+     *
+     * @return bool|null The directDownloadsEnabled
+     */
     public function getDirectDownloadsEnabled()
     {
         if (array_key_exists("directDownloadsEnabled", $this->_propDict)) {
@@ -68,26 +69,25 @@ class MacOSAssociatedDomainsItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the directDownloadsEnabled
-    * Determines whether data should be downloaded directly or via a CDN.
-    *
-    * @param bool $val The value of the directDownloadsEnabled
-    *
-    * @return MacOSAssociatedDomainsItem
-    */
+     * Sets the directDownloadsEnabled
+     * Determines whether data should be downloaded directly or via a CDN.
+     *
+     * @param bool $val The value of the directDownloadsEnabled
+     *
+     * @return MacOSAssociatedDomainsItem
+     */
     public function setDirectDownloadsEnabled($val)
     {
         $this->_propDict["directDownloadsEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the domains
-    * The list of domains to associate.
-    *
-    * @return string|null The domains
-    */
+     * Gets the domains
+     * The list of domains to associate.
+     *
+     * @return string|null The domains
+     */
     public function getDomains()
     {
         if (array_key_exists("domains", $this->_propDict)) {
@@ -96,15 +96,14 @@ class MacOSAssociatedDomainsItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the domains
-    * The list of domains to associate.
-    *
-    * @param string $val The value of the domains
-    *
-    * @return MacOSAssociatedDomainsItem
-    */
+     * Sets the domains
+     * The list of domains to associate.
+     *
+     * @param string $val The value of the domains
+     *
+     * @return MacOSAssociatedDomainsItem
+     */
     public function setDomains($val)
     {
         $this->_propDict["domains"] = $val;

@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use ArrayIterator;
 use LogicException;
-
 /**
  * VObject ElementList.
  *
@@ -21,7 +20,6 @@ use LogicException;
 class ElementList extends ArrayIterator
 {
     /* {{{ ArrayAccess Interface */
-
     /**
      * Sets an item through ArrayAccess.
      *
@@ -33,7 +31,6 @@ class ElementList extends ArrayIterator
     {
         throw new LogicException('You can not add new objects to an ElementList');
     }
-
     /**
      * Sets an item through ArrayAccess.
      *
@@ -46,6 +43,5 @@ class ElementList extends ArrayIterator
     {
         throw new LogicException('You can not remove objects from an ElementList');
     }
-
     /* }}} */
 }

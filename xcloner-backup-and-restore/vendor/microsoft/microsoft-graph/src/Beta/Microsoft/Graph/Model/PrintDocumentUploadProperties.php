@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintDocumentUploadProperties class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintDocumentUploadProperties extends Entity
 {
     /**
-    * Gets the contentType
-    * The document's content (MIME) type.
-    *
-    * @return string|null The contentType
-    */
+     * Gets the contentType
+     * The document's content (MIME) type.
+     *
+     * @return string|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PrintDocumentUploadProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentType
-    * The document's content (MIME) type.
-    *
-    * @param string $val The value of the contentType
-    *
-    * @return PrintDocumentUploadProperties
-    */
+     * Sets the contentType
+     * The document's content (MIME) type.
+     *
+     * @param string $val The value of the contentType
+     *
+     * @return PrintDocumentUploadProperties
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
         return $this;
     }
     /**
-    * Gets the documentName
-    * The document's name.
-    *
-    * @return string|null The documentName
-    */
+     * Gets the documentName
+     * The document's name.
+     *
+     * @return string|null The documentName
+     */
     public function getDocumentName()
     {
         if (array_key_exists("documentName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class PrintDocumentUploadProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the documentName
-    * The document's name.
-    *
-    * @param string $val The value of the documentName
-    *
-    * @return PrintDocumentUploadProperties
-    */
+     * Sets the documentName
+     * The document's name.
+     *
+     * @param string $val The value of the documentName
+     *
+     * @return PrintDocumentUploadProperties
+     */
     public function setDocumentName($val)
     {
         $this->_propDict["documentName"] = $val;
         return $this;
     }
     /**
-    * Gets the size
-    * The document's size in bytes.
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     * The document's size in bytes.
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -96,15 +96,14 @@ class PrintDocumentUploadProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the size
-    * The document's size in bytes.
-    *
-    * @param int $val The value of the size
-    *
-    * @return PrintDocumentUploadProperties
-    */
+     * Sets the size
+     * The document's size in bytes.
+     *
+     * @param int $val The value of the size
+     *
+     * @return PrintDocumentUploadProperties
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = $val;

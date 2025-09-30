@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MentionAction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MentionAction extends Entity
 {
-
     /**
-    * Gets the mentionees
-    * The identities of the users mentioned in this action.
-    *
-    * @return IdentitySet|null The mentionees
-    */
+     * Gets the mentionees
+     * The identities of the users mentioned in this action.
+     *
+     * @return IdentitySet|null The mentionees
+     */
     public function getMentionees()
     {
         if (array_key_exists("mentionees", $this->_propDict)) {
-            if (is_a($this->_propDict["mentionees"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["mentionees"])) {
+            if (is_a($this->_propDict["mentionees"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["mentionees"])) {
                 return $this->_propDict["mentionees"];
             } else {
                 $this->_propDict["mentionees"] = new IdentitySet($this->_propDict["mentionees"]);
@@ -45,18 +46,17 @@ class MentionAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mentionees
-    * The identities of the users mentioned in this action.
-    *
-    * @param IdentitySet $val The value to assign to the mentionees
-    *
-    * @return MentionAction The MentionAction
-    */
+     * Sets the mentionees
+     * The identities of the users mentioned in this action.
+     *
+     * @param IdentitySet $val The value to assign to the mentionees
+     *
+     * @return MentionAction The MentionAction
+     */
     public function setMentionees($val)
     {
         $this->_propDict["mentionees"] = $val;
-         return $this;
+        return $this;
     }
 }

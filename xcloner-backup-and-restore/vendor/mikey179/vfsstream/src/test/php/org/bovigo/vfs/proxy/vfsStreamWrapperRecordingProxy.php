@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Stream wrapper to mock file system requests.
  *
@@ -30,7 +32,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
      * @var  string
      */
     protected $path;
-
     /**
      * records method call for given path
      *
@@ -39,13 +40,11 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
      */
     protected static function recordMethodCall($method, $path)
     {
-        if (isset(self::$calledMethods[$path]) === false) {
+        if (isset(self::$calledMethods[$path]) === \false) {
             self::$calledMethods[$path] = array();
         }
-
         self::$calledMethods[$path][] = $method;
     }
-
     /**
      * returns recorded method calls for given path
      *
@@ -54,13 +53,11 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
      */
     public static function getMethodCalls($path)
     {
-        if (isset(self::$calledMethods[$path]) === true) {
+        if (isset(self::$calledMethods[$path]) === \true) {
             return self::$calledMethods[$path];
         }
-
         return array();
     }
-
     /**
      * helper method for setting up vfsStream with the proxy
      *
@@ -72,18 +69,15 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
     public static function setup($rootDirName = 'root', $permissions = null)
     {
         self::$root = vfsStream::newDirectory($rootDirName, $permissions);
-        if (true === self::$registered) {
+        if (\true === self::$registered) {
             return self::$root;
         }
-
-        if (@stream_wrapper_register(vfsStream::SCHEME, __CLASS__) === false) {
+        if (@stream_wrapper_register(vfsStream::SCHEME, __CLASS__) === \false) {
             throw new vfsStreamException('A handler has already been registered for the ' . vfsStream::SCHEME . ' protocol.');
         }
-
-        self::$registered = true;
+        self::$registered = \true;
         return self::$root;
     }
-
     /**
      * open the stream
      *
@@ -99,7 +93,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_open', $this->path);
         return parent::stream_open($path, $mode, $options, $opened_path);
     }
-
     /**
      * closes the stream
      */
@@ -108,7 +101,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_close', $this->path);
         return parent::stream_close();
     }
-
     /**
      * read the stream up to $count bytes
      *
@@ -120,7 +112,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_read', $this->path);
         return parent::stream_read($count);
     }
-
     /**
      * writes data into the stream
      *
@@ -132,7 +123,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_write', $this->path);
         return parent::stream_write($data);
     }
-
     /**
      * checks whether stream is at end of file
      *
@@ -143,7 +133,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_eof', $this->path);
         return parent::stream_eof();
     }
-
     /**
      * returns the current position of the stream
      *
@@ -154,7 +143,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_tell', $this->path);
         return parent::stream_tell();
     }
-
     /**
      * seeks to the given offset
      *
@@ -167,7 +155,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_seek', $this->path);
         return parent::stream_seek($offset, $whence);
     }
-
     /**
      * flushes unstored data into storage
      *
@@ -178,7 +165,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_flush', $this->path);
         return parent::stream_flush();
     }
-
     /**
      * returns status of stream
      *
@@ -189,7 +175,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_stat', $this->path);
         return parent::stream_stat();
     }
-
     /**
      * retrieve the underlaying resource
      *
@@ -201,7 +186,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_cast', $this->path);
         return parent::stream_cast($cast_as);
     }
-
     /**
      * set lock status for stream
      *
@@ -213,7 +197,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('stream_link', $this->path);
         return parent::stream_lock($operation);
     }
-
     /**
      * remove the data under the given path
      *
@@ -225,7 +208,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('unlink', $path);
         return parent::unlink($path);
     }
-
     /**
      * rename from one path to another
      *
@@ -238,7 +220,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('rename', $path_from);
         return parent::rename($path_from, $path_to);
     }
-
     /**
      * creates a new directory
      *
@@ -252,7 +233,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('mkdir', $path);
         return parent::mkdir($path, $mode, $options);
     }
-
     /**
      * removes a directory
      *
@@ -265,7 +245,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('rmdir', $path);
         return parent::rmdir($path, $options);
     }
-
     /**
      * opens a directory
      *
@@ -279,7 +258,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('dir_opendir', $this->path);
         return parent::dir_opendir($path, $options);
     }
-
     /**
      * reads directory contents
      *
@@ -290,7 +268,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('dir_readdir', $this->path);
         return parent::dir_readdir();
     }
-
     /**
      * reset directory iteration
      *
@@ -301,7 +278,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('dir_rewinddir', $this->path);
         return parent::dir_rewinddir();
     }
-
     /**
      * closes directory
      *
@@ -312,7 +288,6 @@ class vfsStreamWrapperRecordingProxy extends vfsStreamWrapper
         self::recordMethodCall('dir_closedir', $this->path);
         return parent::dir_closedir();
     }
-
     /**
      * returns status of url
      *

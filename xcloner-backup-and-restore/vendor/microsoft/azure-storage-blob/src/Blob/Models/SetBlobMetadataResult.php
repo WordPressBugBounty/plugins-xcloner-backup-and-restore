@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Holds results of calling getBlobMetadata wrapper
  *
@@ -46,7 +44,6 @@ class SetBlobMetadataResult
     private $etag;
     private $lastModified;
     private $requestServerEncrypted;
-
     /**
      * Creates SetBlobMetadataResult from response headers.
      *
@@ -59,31 +56,12 @@ class SetBlobMetadataResult
     public static function create(array $headers)
     {
         $result = new SetBlobMetadataResult();
-
-        $result->setETag(Utilities::tryGetValueInsensitive(
-            Resources::ETAG,
-            $headers
-        ));
-
-        $date   = Utilities::tryGetValueInsensitive(
-            Resources::LAST_MODIFIED,
-            $headers
-        );
+        $result->setETag(Utilities::tryGetValueInsensitive(Resources::ETAG, $headers));
+        $date = Utilities::tryGetValueInsensitive(Resources::LAST_MODIFIED, $headers);
         $result->setLastModified(Utilities::rfc1123ToDateTime($date));
-
-        $result->setRequestServerEncrypted(
-            Utilities::toBoolean(
-                Utilities::tryGetValueInsensitive(
-                    Resources::X_MS_REQUEST_SERVER_ENCRYPTED,
-                    $headers
-                ),
-                true
-            )
-        );
-
+        $result->setRequestServerEncrypted(Utilities::toBoolean(Utilities::tryGetValueInsensitive(Resources::X_MS_REQUEST_SERVER_ENCRYPTED, $headers), \true));
         return $result;
     }
-
     /**
      * Gets blob lastModified.
      *
@@ -93,7 +71,6 @@ class SetBlobMetadataResult
     {
         return $this->lastModified;
     }
-
     /**
      * Sets blob lastModified.
      *
@@ -106,7 +83,6 @@ class SetBlobMetadataResult
         Validate::isDate($lastModified);
         $this->lastModified = $lastModified;
     }
-
     /**
      * Gets blob etag.
      *
@@ -116,7 +92,6 @@ class SetBlobMetadataResult
     {
         return $this->etag;
     }
-
     /**
      * Sets blob etag.
      *
@@ -129,7 +104,6 @@ class SetBlobMetadataResult
         Validate::canCastAsString($etag, 'etag');
         $this->etag = $etag;
     }
-
     /**
      * Gets the whether the contents of the request are successfully encrypted.
      *
@@ -139,7 +113,6 @@ class SetBlobMetadataResult
     {
         return $this->requestServerEncrypted;
     }
-
     /**
      * Sets the request server encryption value.
      *

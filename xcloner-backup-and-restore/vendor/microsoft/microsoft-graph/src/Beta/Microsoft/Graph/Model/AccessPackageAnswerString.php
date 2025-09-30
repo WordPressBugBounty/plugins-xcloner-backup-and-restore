@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageAnswerString class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageAnswerString extends AccessPackageAnswer
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.accessPackageAnswerString");
     }
-
     /**
-    * Gets the value
-    * The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -51,15 +52,14 @@ class AccessPackageAnswerString extends AccessPackageAnswer
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
-    *
-    * @param string $val The value of the value
-    *
-    * @return AccessPackageAnswerString
-    */
+     * Sets the value
+     * The value stored on the requestor's user profile, if this answer is configured to be stored as a specific attribute.
+     *
+     * @param string $val The value of the value
+     *
+     * @return AccessPackageAnswerString
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

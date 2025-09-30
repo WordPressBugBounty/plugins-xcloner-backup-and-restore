@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * NetworkConnection class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class NetworkConnection extends Entity
 {
     /**
-    * Gets the applicationName
-    * Name of the application managing the network connection (for example, Facebook or SMTP).
-    *
-    * @return string|null The applicationName
-    */
+     * Gets the applicationName
+     * Name of the application managing the network connection (for example, Facebook or SMTP).
+     *
+     * @return string|null The applicationName
+     */
     public function getApplicationName()
     {
         if (array_key_exists("applicationName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the applicationName
-    * Name of the application managing the network connection (for example, Facebook or SMTP).
-    *
-    * @param string $val The value of the applicationName
-    *
-    * @return NetworkConnection
-    */
+     * Sets the applicationName
+     * Name of the application managing the network connection (for example, Facebook or SMTP).
+     *
+     * @param string $val The value of the applicationName
+     *
+     * @return NetworkConnection
+     */
     public function setApplicationName($val)
     {
         $this->_propDict["applicationName"] = $val;
         return $this;
     }
     /**
-    * Gets the destinationAddress
-    * Destination IP address (of the network connection).
-    *
-    * @return string|null The destinationAddress
-    */
+     * Gets the destinationAddress
+     * Destination IP address (of the network connection).
+     *
+     * @return string|null The destinationAddress
+     */
     public function getDestinationAddress()
     {
         if (array_key_exists("destinationAddress", $this->_propDict)) {
@@ -68,26 +69,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationAddress
-    * Destination IP address (of the network connection).
-    *
-    * @param string $val The value of the destinationAddress
-    *
-    * @return NetworkConnection
-    */
+     * Sets the destinationAddress
+     * Destination IP address (of the network connection).
+     *
+     * @param string $val The value of the destinationAddress
+     *
+     * @return NetworkConnection
+     */
     public function setDestinationAddress($val)
     {
         $this->_propDict["destinationAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the destinationDomain
-    * Destination domain portion of the destination URL. (for example 'www.contoso.com').
-    *
-    * @return string|null The destinationDomain
-    */
+     * Gets the destinationDomain
+     * Destination domain portion of the destination URL. (for example 'www.contoso.com').
+     *
+     * @return string|null The destinationDomain
+     */
     public function getDestinationDomain()
     {
         if (array_key_exists("destinationDomain", $this->_propDict)) {
@@ -96,26 +96,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationDomain
-    * Destination domain portion of the destination URL. (for example 'www.contoso.com').
-    *
-    * @param string $val The value of the destinationDomain
-    *
-    * @return NetworkConnection
-    */
+     * Sets the destinationDomain
+     * Destination domain portion of the destination URL. (for example 'www.contoso.com').
+     *
+     * @param string $val The value of the destinationDomain
+     *
+     * @return NetworkConnection
+     */
     public function setDestinationDomain($val)
     {
         $this->_propDict["destinationDomain"] = $val;
         return $this;
     }
     /**
-    * Gets the destinationLocation
-    * Location (by IP address mapping) associated with the destination of a network connection.
-    *
-    * @return string|null The destinationLocation
-    */
+     * Gets the destinationLocation
+     * Location (by IP address mapping) associated with the destination of a network connection.
+     *
+     * @return string|null The destinationLocation
+     */
     public function getDestinationLocation()
     {
         if (array_key_exists("destinationLocation", $this->_propDict)) {
@@ -124,26 +123,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationLocation
-    * Location (by IP address mapping) associated with the destination of a network connection.
-    *
-    * @param string $val The value of the destinationLocation
-    *
-    * @return NetworkConnection
-    */
+     * Sets the destinationLocation
+     * Location (by IP address mapping) associated with the destination of a network connection.
+     *
+     * @param string $val The value of the destinationLocation
+     *
+     * @return NetworkConnection
+     */
     public function setDestinationLocation($val)
     {
         $this->_propDict["destinationLocation"] = $val;
         return $this;
     }
     /**
-    * Gets the destinationPort
-    * Destination port (of the network connection).
-    *
-    * @return string|null The destinationPort
-    */
+     * Gets the destinationPort
+     * Destination port (of the network connection).
+     *
+     * @return string|null The destinationPort
+     */
     public function getDestinationPort()
     {
         if (array_key_exists("destinationPort", $this->_propDict)) {
@@ -152,26 +150,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationPort
-    * Destination port (of the network connection).
-    *
-    * @param string $val The value of the destinationPort
-    *
-    * @return NetworkConnection
-    */
+     * Sets the destinationPort
+     * Destination port (of the network connection).
+     *
+     * @param string $val The value of the destinationPort
+     *
+     * @return NetworkConnection
+     */
     public function setDestinationPort($val)
     {
         $this->_propDict["destinationPort"] = $val;
         return $this;
     }
     /**
-    * Gets the destinationUrl
-    * Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html')
-    *
-    * @return string|null The destinationUrl
-    */
+     * Gets the destinationUrl
+     * Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html')
+     *
+     * @return string|null The destinationUrl
+     */
     public function getDestinationUrl()
     {
         if (array_key_exists("destinationUrl", $this->_propDict)) {
@@ -180,31 +177,29 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationUrl
-    * Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html')
-    *
-    * @param string $val The value of the destinationUrl
-    *
-    * @return NetworkConnection
-    */
+     * Sets the destinationUrl
+     * Network connection URL/URI string - excluding parameters. (for example 'www.contoso.com/products/default.html')
+     *
+     * @param string $val The value of the destinationUrl
+     *
+     * @return NetworkConnection
+     */
     public function setDestinationUrl($val)
     {
         $this->_propDict["destinationUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the direction
-    * Network connection direction. Possible values are: unknown, inbound, outbound.
-    *
-    * @return ConnectionDirection|null The direction
-    */
+     * Gets the direction
+     * Network connection direction. Possible values are: unknown, inbound, outbound.
+     *
+     * @return ConnectionDirection|null The direction
+     */
     public function getDirection()
     {
         if (array_key_exists("direction", $this->_propDict)) {
-            if (is_a($this->_propDict["direction"], "\Microsoft\Graph\Model\ConnectionDirection") || is_null($this->_propDict["direction"])) {
+            if (is_a($this->_propDict["direction"], "XCloner\\Microsoft\\Graph\\Model\\ConnectionDirection") || is_null($this->_propDict["direction"])) {
                 return $this->_propDict["direction"];
             } else {
                 $this->_propDict["direction"] = new ConnectionDirection($this->_propDict["direction"]);
@@ -213,31 +208,29 @@ class NetworkConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the direction
-    * Network connection direction. Possible values are: unknown, inbound, outbound.
-    *
-    * @param ConnectionDirection $val The value to assign to the direction
-    *
-    * @return NetworkConnection The NetworkConnection
-    */
+     * Sets the direction
+     * Network connection direction. Possible values are: unknown, inbound, outbound.
+     *
+     * @param ConnectionDirection $val The value to assign to the direction
+     *
+     * @return NetworkConnection The NetworkConnection
+     */
     public function setDirection($val)
     {
         $this->_propDict["direction"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the domainRegisteredDateTime
-    * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The domainRegisteredDateTime
-    */
+     * Gets the domainRegisteredDateTime
+     * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The domainRegisteredDateTime
+     */
     public function getDomainRegisteredDateTime()
     {
         if (array_key_exists("domainRegisteredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["domainRegisteredDateTime"], "\DateTime") || is_null($this->_propDict["domainRegisteredDateTime"])) {
+            if (is_a($this->_propDict["domainRegisteredDateTime"], "\\DateTime") || is_null($this->_propDict["domainRegisteredDateTime"])) {
                 return $this->_propDict["domainRegisteredDateTime"];
             } else {
                 $this->_propDict["domainRegisteredDateTime"] = new \DateTime($this->_propDict["domainRegisteredDateTime"]);
@@ -246,26 +239,25 @@ class NetworkConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the domainRegisteredDateTime
-    * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the domainRegisteredDateTime
-    *
-    * @return NetworkConnection The NetworkConnection
-    */
+     * Sets the domainRegisteredDateTime
+     * Date when the destination domain was registered. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the domainRegisteredDateTime
+     *
+     * @return NetworkConnection The NetworkConnection
+     */
     public function setDomainRegisteredDateTime($val)
     {
         $this->_propDict["domainRegisteredDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the localDnsName
-    * The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with).
-    *
-    * @return string|null The localDnsName
-    */
+     * Gets the localDnsName
+     * The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with).
+     *
+     * @return string|null The localDnsName
+     */
     public function getLocalDnsName()
     {
         if (array_key_exists("localDnsName", $this->_propDict)) {
@@ -274,26 +266,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the localDnsName
-    * The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with).
-    *
-    * @param string $val The value of the localDnsName
-    *
-    * @return NetworkConnection
-    */
+     * Sets the localDnsName
+     * The local DNS name resolution as it appears in the host's local DNS cache (for example, in case the 'hosts' file was tampered with).
+     *
+     * @param string $val The value of the localDnsName
+     *
+     * @return NetworkConnection
+     */
     public function setLocalDnsName($val)
     {
         $this->_propDict["localDnsName"] = $val;
         return $this;
     }
     /**
-    * Gets the natDestinationAddress
-    * Network Address Translation destination IP address.
-    *
-    * @return string|null The natDestinationAddress
-    */
+     * Gets the natDestinationAddress
+     * Network Address Translation destination IP address.
+     *
+     * @return string|null The natDestinationAddress
+     */
     public function getNatDestinationAddress()
     {
         if (array_key_exists("natDestinationAddress", $this->_propDict)) {
@@ -302,26 +293,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the natDestinationAddress
-    * Network Address Translation destination IP address.
-    *
-    * @param string $val The value of the natDestinationAddress
-    *
-    * @return NetworkConnection
-    */
+     * Sets the natDestinationAddress
+     * Network Address Translation destination IP address.
+     *
+     * @param string $val The value of the natDestinationAddress
+     *
+     * @return NetworkConnection
+     */
     public function setNatDestinationAddress($val)
     {
         $this->_propDict["natDestinationAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the natDestinationPort
-    * Network Address Translation destination port.
-    *
-    * @return string|null The natDestinationPort
-    */
+     * Gets the natDestinationPort
+     * Network Address Translation destination port.
+     *
+     * @return string|null The natDestinationPort
+     */
     public function getNatDestinationPort()
     {
         if (array_key_exists("natDestinationPort", $this->_propDict)) {
@@ -330,26 +320,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the natDestinationPort
-    * Network Address Translation destination port.
-    *
-    * @param string $val The value of the natDestinationPort
-    *
-    * @return NetworkConnection
-    */
+     * Sets the natDestinationPort
+     * Network Address Translation destination port.
+     *
+     * @param string $val The value of the natDestinationPort
+     *
+     * @return NetworkConnection
+     */
     public function setNatDestinationPort($val)
     {
         $this->_propDict["natDestinationPort"] = $val;
         return $this;
     }
     /**
-    * Gets the natSourceAddress
-    * Network Address Translation source IP address.
-    *
-    * @return string|null The natSourceAddress
-    */
+     * Gets the natSourceAddress
+     * Network Address Translation source IP address.
+     *
+     * @return string|null The natSourceAddress
+     */
     public function getNatSourceAddress()
     {
         if (array_key_exists("natSourceAddress", $this->_propDict)) {
@@ -358,26 +347,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the natSourceAddress
-    * Network Address Translation source IP address.
-    *
-    * @param string $val The value of the natSourceAddress
-    *
-    * @return NetworkConnection
-    */
+     * Sets the natSourceAddress
+     * Network Address Translation source IP address.
+     *
+     * @param string $val The value of the natSourceAddress
+     *
+     * @return NetworkConnection
+     */
     public function setNatSourceAddress($val)
     {
         $this->_propDict["natSourceAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the natSourcePort
-    * Network Address Translation source port.
-    *
-    * @return string|null The natSourcePort
-    */
+     * Gets the natSourcePort
+     * Network Address Translation source port.
+     *
+     * @return string|null The natSourcePort
+     */
     public function getNatSourcePort()
     {
         if (array_key_exists("natSourcePort", $this->_propDict)) {
@@ -386,31 +374,29 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the natSourcePort
-    * Network Address Translation source port.
-    *
-    * @param string $val The value of the natSourcePort
-    *
-    * @return NetworkConnection
-    */
+     * Sets the natSourcePort
+     * Network Address Translation source port.
+     *
+     * @param string $val The value of the natSourcePort
+     *
+     * @return NetworkConnection
+     */
     public function setNatSourcePort($val)
     {
         $this->_propDict["natSourcePort"] = $val;
         return $this;
     }
-
     /**
-    * Gets the protocol
-    * Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
-    *
-    * @return SecurityNetworkProtocol|null The protocol
-    */
+     * Gets the protocol
+     * Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
+     *
+     * @return SecurityNetworkProtocol|null The protocol
+     */
     public function getProtocol()
     {
         if (array_key_exists("protocol", $this->_propDict)) {
-            if (is_a($this->_propDict["protocol"], "\Microsoft\Graph\Model\SecurityNetworkProtocol") || is_null($this->_propDict["protocol"])) {
+            if (is_a($this->_propDict["protocol"], "XCloner\\Microsoft\\Graph\\Model\\SecurityNetworkProtocol") || is_null($this->_propDict["protocol"])) {
                 return $this->_propDict["protocol"];
             } else {
                 $this->_propDict["protocol"] = new SecurityNetworkProtocol($this->_propDict["protocol"]);
@@ -419,26 +405,25 @@ class NetworkConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the protocol
-    * Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
-    *
-    * @param SecurityNetworkProtocol $val The value to assign to the protocol
-    *
-    * @return NetworkConnection The NetworkConnection
-    */
+     * Sets the protocol
+     * Network protocol. Possible values are: unknown, ip, icmp, igmp, ggp, ipv4, tcp, pup, udp, idp, ipv6, ipv6RoutingHeader, ipv6FragmentHeader, ipSecEncapsulatingSecurityPayload, ipSecAuthenticationHeader, icmpV6, ipv6NoNextHeader, ipv6DestinationOptions, nd, raw, ipx, spx, spxII.
+     *
+     * @param SecurityNetworkProtocol $val The value to assign to the protocol
+     *
+     * @return NetworkConnection The NetworkConnection
+     */
     public function setProtocol($val)
     {
         $this->_propDict["protocol"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the riskScore
-    * Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage.
-    *
-    * @return string|null The riskScore
-    */
+     * Gets the riskScore
+     * Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage.
+     *
+     * @return string|null The riskScore
+     */
     public function getRiskScore()
     {
         if (array_key_exists("riskScore", $this->_propDict)) {
@@ -447,26 +432,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskScore
-    * Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage.
-    *
-    * @param string $val The value of the riskScore
-    *
-    * @return NetworkConnection
-    */
+     * Sets the riskScore
+     * Provider generated/calculated risk score of the network connection. Recommended value range of 0-1, which equates to a percentage.
+     *
+     * @param string $val The value of the riskScore
+     *
+     * @return NetworkConnection
+     */
     public function setRiskScore($val)
     {
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
     /**
-    * Gets the sourceAddress
-    * Source (i.e. origin) IP address (of the network connection).
-    *
-    * @return string|null The sourceAddress
-    */
+     * Gets the sourceAddress
+     * Source (i.e. origin) IP address (of the network connection).
+     *
+     * @return string|null The sourceAddress
+     */
     public function getSourceAddress()
     {
         if (array_key_exists("sourceAddress", $this->_propDict)) {
@@ -475,26 +459,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceAddress
-    * Source (i.e. origin) IP address (of the network connection).
-    *
-    * @param string $val The value of the sourceAddress
-    *
-    * @return NetworkConnection
-    */
+     * Sets the sourceAddress
+     * Source (i.e. origin) IP address (of the network connection).
+     *
+     * @param string $val The value of the sourceAddress
+     *
+     * @return NetworkConnection
+     */
     public function setSourceAddress($val)
     {
         $this->_propDict["sourceAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the sourceLocation
-    * Location (by IP address mapping) associated with the source of a network connection.
-    *
-    * @return string|null The sourceLocation
-    */
+     * Gets the sourceLocation
+     * Location (by IP address mapping) associated with the source of a network connection.
+     *
+     * @return string|null The sourceLocation
+     */
     public function getSourceLocation()
     {
         if (array_key_exists("sourceLocation", $this->_propDict)) {
@@ -503,26 +486,25 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceLocation
-    * Location (by IP address mapping) associated with the source of a network connection.
-    *
-    * @param string $val The value of the sourceLocation
-    *
-    * @return NetworkConnection
-    */
+     * Sets the sourceLocation
+     * Location (by IP address mapping) associated with the source of a network connection.
+     *
+     * @param string $val The value of the sourceLocation
+     *
+     * @return NetworkConnection
+     */
     public function setSourceLocation($val)
     {
         $this->_propDict["sourceLocation"] = $val;
         return $this;
     }
     /**
-    * Gets the sourcePort
-    * Source (i.e. origin) IP port (of the network connection).
-    *
-    * @return string|null The sourcePort
-    */
+     * Gets the sourcePort
+     * Source (i.e. origin) IP port (of the network connection).
+     *
+     * @return string|null The sourcePort
+     */
     public function getSourcePort()
     {
         if (array_key_exists("sourcePort", $this->_propDict)) {
@@ -531,31 +513,29 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourcePort
-    * Source (i.e. origin) IP port (of the network connection).
-    *
-    * @param string $val The value of the sourcePort
-    *
-    * @return NetworkConnection
-    */
+     * Sets the sourcePort
+     * Source (i.e. origin) IP port (of the network connection).
+     *
+     * @param string $val The value of the sourcePort
+     *
+     * @return NetworkConnection
+     */
     public function setSourcePort($val)
     {
         $this->_propDict["sourcePort"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
-    *
-    * @return ConnectionStatus|null The status
-    */
+     * Gets the status
+     * Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
+     *
+     * @return ConnectionStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ConnectionStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Microsoft\\Graph\\Model\\ConnectionStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ConnectionStatus($this->_propDict["status"]);
@@ -564,26 +544,25 @@ class NetworkConnection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
-    *
-    * @param ConnectionStatus $val The value to assign to the status
-    *
-    * @return NetworkConnection The NetworkConnection
-    */
+     * Sets the status
+     * Network connection status. Possible values are: unknown, attempted, succeeded, blocked, failed.
+     *
+     * @param ConnectionStatus $val The value to assign to the status
+     *
+     * @return NetworkConnection The NetworkConnection
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the urlParameters
-    * Parameters (suffix) of the destination URL.
-    *
-    * @return string|null The urlParameters
-    */
+     * Gets the urlParameters
+     * Parameters (suffix) of the destination URL.
+     *
+     * @return string|null The urlParameters
+     */
     public function getUrlParameters()
     {
         if (array_key_exists("urlParameters", $this->_propDict)) {
@@ -592,15 +571,14 @@ class NetworkConnection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the urlParameters
-    * Parameters (suffix) of the destination URL.
-    *
-    * @param string $val The value of the urlParameters
-    *
-    * @return NetworkConnection
-    */
+     * Sets the urlParameters
+     * Parameters (suffix) of the destination URL.
+     *
+     * @param string $val The value of the urlParameters
+     *
+     * @return NetworkConnection
+     */
     public function setUrlParameters($val)
     {
         $this->_propDict["urlParameters"] = $val;

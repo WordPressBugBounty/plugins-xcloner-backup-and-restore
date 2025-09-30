@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Backend;
 
-namespace Sabre\CalDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Adds support for sharing features to a CalDAV server.
  *
@@ -34,7 +33,6 @@ interface SharingSupport extends BackendInterface
      * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees
      */
     public function updateInvites($calendarId, array $sharees);
-
     /**
      * Returns the list of people whom this calendar is shared with.
      *
@@ -52,7 +50,6 @@ interface SharingSupport extends BackendInterface
      * @return \Sabre\DAV\Xml\Element\Sharee[]
      */
     public function getInvites($calendarId);
-
     /**
      * Publishes a calendar.
      *

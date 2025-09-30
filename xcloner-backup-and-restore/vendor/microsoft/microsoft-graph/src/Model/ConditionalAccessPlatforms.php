@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessPlatforms class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessPlatforms extends Entity
 {
-
     /**
-    * Gets the excludePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
-    *
-    * @return ConditionalAccessDevicePlatform|null The excludePlatforms
-    */
+     * Gets the excludePlatforms
+     * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     *
+     * @return ConditionalAccessDevicePlatform|null The excludePlatforms
+     */
     public function getExcludePlatforms()
     {
         if (array_key_exists("excludePlatforms", $this->_propDict)) {
-            if (is_a($this->_propDict["excludePlatforms"], "\Microsoft\Graph\Model\ConditionalAccessDevicePlatform") || is_null($this->_propDict["excludePlatforms"])) {
+            if (is_a($this->_propDict["excludePlatforms"], "XCloner\\Microsoft\\Graph\\Model\\ConditionalAccessDevicePlatform") || is_null($this->_propDict["excludePlatforms"])) {
                 return $this->_propDict["excludePlatforms"];
             } else {
                 $this->_propDict["excludePlatforms"] = new ConditionalAccessDevicePlatform($this->_propDict["excludePlatforms"]);
@@ -45,31 +46,29 @@ class ConditionalAccessPlatforms extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the excludePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
-    *
-    * @param ConditionalAccessDevicePlatform $val The value to assign to the excludePlatforms
-    *
-    * @return ConditionalAccessPlatforms The ConditionalAccessPlatforms
-    */
+     * Sets the excludePlatforms
+     * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     *
+     * @param ConditionalAccessDevicePlatform $val The value to assign to the excludePlatforms
+     *
+     * @return ConditionalAccessPlatforms The ConditionalAccessPlatforms
+     */
     public function setExcludePlatforms($val)
     {
         $this->_propDict["excludePlatforms"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the includePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
-    *
-    * @return ConditionalAccessDevicePlatform|null The includePlatforms
-    */
+     * Gets the includePlatforms
+     * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     *
+     * @return ConditionalAccessDevicePlatform|null The includePlatforms
+     */
     public function getIncludePlatforms()
     {
         if (array_key_exists("includePlatforms", $this->_propDict)) {
-            if (is_a($this->_propDict["includePlatforms"], "\Microsoft\Graph\Model\ConditionalAccessDevicePlatform") || is_null($this->_propDict["includePlatforms"])) {
+            if (is_a($this->_propDict["includePlatforms"], "XCloner\\Microsoft\\Graph\\Model\\ConditionalAccessDevicePlatform") || is_null($this->_propDict["includePlatforms"])) {
                 return $this->_propDict["includePlatforms"];
             } else {
                 $this->_propDict["includePlatforms"] = new ConditionalAccessDevicePlatform($this->_propDict["includePlatforms"]);
@@ -78,18 +77,17 @@ class ConditionalAccessPlatforms extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the includePlatforms
-    * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
-    *
-    * @param ConditionalAccessDevicePlatform $val The value to assign to the includePlatforms
-    *
-    * @return ConditionalAccessPlatforms The ConditionalAccessPlatforms
-    */
+     * Sets the includePlatforms
+     * Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     *
+     * @param ConditionalAccessDevicePlatform $val The value to assign to the includePlatforms
+     *
+     * @return ConditionalAccessPlatforms The ConditionalAccessPlatforms
+     */
     public function setIncludePlatforms($val)
     {
         $this->_propDict["includePlatforms"] = $val;
-         return $this;
+        return $this;
     }
 }

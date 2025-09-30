@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemActivityOLD class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemActivityOLD extends Entity
 {
     /**
-    * Gets the action
-    *
-    * @return ItemActionSet|null The action
-    */
+     * Gets the action
+     *
+     * @return ItemActionSet|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\ItemActionSet") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ItemActionSet") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new ItemActionSet($this->_propDict["action"]);
@@ -44,29 +45,27 @@ class ItemActivityOLD extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    *
-    * @param ItemActionSet $val The action
-    *
-    * @return ItemActivityOLD
-    */
+     * Sets the action
+     *
+     * @param ItemActionSet $val The action
+     *
+     * @return ItemActivityOLD
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
         return $this;
     }
-
     /**
-    * Gets the actor
-    *
-    * @return IdentitySet|null The actor
-    */
+     * Gets the actor
+     *
+     * @return IdentitySet|null The actor
+     */
     public function getActor()
     {
         if (array_key_exists("actor", $this->_propDict)) {
-            if (is_a($this->_propDict["actor"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["actor"])) {
+            if (is_a($this->_propDict["actor"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["actor"])) {
                 return $this->_propDict["actor"];
             } else {
                 $this->_propDict["actor"] = new IdentitySet($this->_propDict["actor"]);
@@ -75,29 +74,27 @@ class ItemActivityOLD extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actor
-    *
-    * @param IdentitySet $val The actor
-    *
-    * @return ItemActivityOLD
-    */
+     * Sets the actor
+     *
+     * @param IdentitySet $val The actor
+     *
+     * @return ItemActivityOLD
+     */
     public function setActor($val)
     {
         $this->_propDict["actor"] = $val;
         return $this;
     }
-
     /**
-    * Gets the times
-    *
-    * @return ItemActivityTimeSet|null The times
-    */
+     * Gets the times
+     *
+     * @return ItemActivityTimeSet|null The times
+     */
     public function getTimes()
     {
         if (array_key_exists("times", $this->_propDict)) {
-            if (is_a($this->_propDict["times"], "\Beta\Microsoft\Graph\Model\ItemActivityTimeSet") || is_null($this->_propDict["times"])) {
+            if (is_a($this->_propDict["times"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ItemActivityTimeSet") || is_null($this->_propDict["times"])) {
                 return $this->_propDict["times"];
             } else {
                 $this->_propDict["times"] = new ItemActivityTimeSet($this->_propDict["times"]);
@@ -106,29 +103,27 @@ class ItemActivityOLD extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the times
-    *
-    * @param ItemActivityTimeSet $val The times
-    *
-    * @return ItemActivityOLD
-    */
+     * Sets the times
+     *
+     * @param ItemActivityTimeSet $val The times
+     *
+     * @return ItemActivityOLD
+     */
     public function setTimes($val)
     {
         $this->_propDict["times"] = $val;
         return $this;
     }
-
     /**
-    * Gets the driveItem
-    *
-    * @return DriveItem|null The driveItem
-    */
+     * Gets the driveItem
+     *
+     * @return DriveItem|null The driveItem
+     */
     public function getDriveItem()
     {
         if (array_key_exists("driveItem", $this->_propDict)) {
-            if (is_a($this->_propDict["driveItem"], "\Beta\Microsoft\Graph\Model\DriveItem") || is_null($this->_propDict["driveItem"])) {
+            if (is_a($this->_propDict["driveItem"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DriveItem") || is_null($this->_propDict["driveItem"])) {
                 return $this->_propDict["driveItem"];
             } else {
                 $this->_propDict["driveItem"] = new DriveItem($this->_propDict["driveItem"]);
@@ -137,29 +132,27 @@ class ItemActivityOLD extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the driveItem
-    *
-    * @param DriveItem $val The driveItem
-    *
-    * @return ItemActivityOLD
-    */
+     * Sets the driveItem
+     *
+     * @param DriveItem $val The driveItem
+     *
+     * @return ItemActivityOLD
+     */
     public function setDriveItem($val)
     {
         $this->_propDict["driveItem"] = $val;
         return $this;
     }
-
     /**
-    * Gets the listItem
-    *
-    * @return ListItem|null The listItem
-    */
+     * Gets the listItem
+     *
+     * @return ListItem|null The listItem
+     */
     public function getListItem()
     {
         if (array_key_exists("listItem", $this->_propDict)) {
-            if (is_a($this->_propDict["listItem"], "\Beta\Microsoft\Graph\Model\ListItem") || is_null($this->_propDict["listItem"])) {
+            if (is_a($this->_propDict["listItem"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ListItem") || is_null($this->_propDict["listItem"])) {
                 return $this->_propDict["listItem"];
             } else {
                 $this->_propDict["listItem"] = new ListItem($this->_propDict["listItem"]);
@@ -168,18 +161,16 @@ class ItemActivityOLD extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the listItem
-    *
-    * @param ListItem $val The listItem
-    *
-    * @return ItemActivityOLD
-    */
+     * Sets the listItem
+     *
+     * @param ListItem $val The listItem
+     *
+     * @return ItemActivityOLD
+     */
     public function setListItem($val)
     {
         $this->_propDict["listItem"] = $val;
         return $this;
     }
-
 }

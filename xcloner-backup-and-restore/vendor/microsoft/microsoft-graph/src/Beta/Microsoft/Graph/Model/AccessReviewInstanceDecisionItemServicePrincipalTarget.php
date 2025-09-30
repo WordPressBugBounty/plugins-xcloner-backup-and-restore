@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewInstanceDecisionItemServicePrincipalTarget class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessReviewInstanceDecisionItemTarget
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.accessReviewInstanceDecisionItemServicePrincipalTarget");
     }
-
     /**
-    * Gets the appId
-    * The appId for the service principal entity being reviewed.
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * The appId for the service principal entity being reviewed.
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -51,26 +52,25 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * The appId for the service principal entity being reviewed.
-    *
-    * @param string $val The value of the appId
-    *
-    * @return AccessReviewInstanceDecisionItemServicePrincipalTarget
-    */
+     * Sets the appId
+     * The appId for the service principal entity being reviewed.
+     *
+     * @param string $val The value of the appId
+     *
+     * @return AccessReviewInstanceDecisionItemServicePrincipalTarget
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
     /**
-    * Gets the servicePrincipalDisplayName
-    * The display name of the service principal whose access is being reviewed.
-    *
-    * @return string|null The servicePrincipalDisplayName
-    */
+     * Gets the servicePrincipalDisplayName
+     * The display name of the service principal whose access is being reviewed.
+     *
+     * @return string|null The servicePrincipalDisplayName
+     */
     public function getServicePrincipalDisplayName()
     {
         if (array_key_exists("servicePrincipalDisplayName", $this->_propDict)) {
@@ -79,25 +79,24 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalDisplayName
-    * The display name of the service principal whose access is being reviewed.
-    *
-    * @param string $val The value of the servicePrincipalDisplayName
-    *
-    * @return AccessReviewInstanceDecisionItemServicePrincipalTarget
-    */
+     * Sets the servicePrincipalDisplayName
+     * The display name of the service principal whose access is being reviewed.
+     *
+     * @param string $val The value of the servicePrincipalDisplayName
+     *
+     * @return AccessReviewInstanceDecisionItemServicePrincipalTarget
+     */
     public function setServicePrincipalDisplayName($val)
     {
         $this->_propDict["servicePrincipalDisplayName"] = $val;
         return $this;
     }
     /**
-    * Gets the servicePrincipalId
-    *
-    * @return string|null The servicePrincipalId
-    */
+     * Gets the servicePrincipalId
+     *
+     * @return string|null The servicePrincipalId
+     */
     public function getServicePrincipalId()
     {
         if (array_key_exists("servicePrincipalId", $this->_propDict)) {
@@ -106,14 +105,13 @@ class AccessReviewInstanceDecisionItemServicePrincipalTarget extends AccessRevie
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalId
-    *
-    * @param string $val The value of the servicePrincipalId
-    *
-    * @return AccessReviewInstanceDecisionItemServicePrincipalTarget
-    */
+     * Sets the servicePrincipalId
+     *
+     * @param string $val The value of the servicePrincipalId
+     *
+     * @return AccessReviewInstanceDecisionItemServicePrincipalTarget
+     */
     public function setServicePrincipalId($val)
     {
         $this->_propDict["servicePrincipalId"] = $val;

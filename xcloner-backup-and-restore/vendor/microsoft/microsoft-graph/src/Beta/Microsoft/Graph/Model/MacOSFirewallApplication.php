@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSFirewallApplication class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSFirewallApplication extends Entity
 {
     /**
-    * Gets the allowsIncomingConnections
-    * Whether or not incoming connections are allowed.
-    *
-    * @return bool|null The allowsIncomingConnections
-    */
+     * Gets the allowsIncomingConnections
+     * Whether or not incoming connections are allowed.
+     *
+     * @return bool|null The allowsIncomingConnections
+     */
     public function getAllowsIncomingConnections()
     {
         if (array_key_exists("allowsIncomingConnections", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MacOSFirewallApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowsIncomingConnections
-    * Whether or not incoming connections are allowed.
-    *
-    * @param bool $val The value of the allowsIncomingConnections
-    *
-    * @return MacOSFirewallApplication
-    */
+     * Sets the allowsIncomingConnections
+     * Whether or not incoming connections are allowed.
+     *
+     * @param bool $val The value of the allowsIncomingConnections
+     *
+     * @return MacOSFirewallApplication
+     */
     public function setAllowsIncomingConnections($val)
     {
         $this->_propDict["allowsIncomingConnections"] = $val;
         return $this;
     }
     /**
-    * Gets the bundleId
-    * BundleId of the application.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * BundleId of the application.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MacOSFirewallApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * BundleId of the application.
-    *
-    * @param string $val The value of the bundleId
-    *
-    * @return MacOSFirewallApplication
-    */
+     * Sets the bundleId
+     * BundleId of the application.
+     *
+     * @param string $val The value of the bundleId
+     *
+     * @return MacOSFirewallApplication
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;

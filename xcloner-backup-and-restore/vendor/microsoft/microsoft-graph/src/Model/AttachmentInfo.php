@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttachmentInfo class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AttachmentInfo extends Entity
 {
-
     /**
-    * Gets the attachmentType
-    *
-    * @return AttachmentType|null The attachmentType
-    */
+     * Gets the attachmentType
+     *
+     * @return AttachmentType|null The attachmentType
+     */
     public function getAttachmentType()
     {
         if (array_key_exists("attachmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["attachmentType"], "\Microsoft\Graph\Model\AttachmentType") || is_null($this->_propDict["attachmentType"])) {
+            if (is_a($this->_propDict["attachmentType"], "XCloner\\Microsoft\\Graph\\Model\\AttachmentType") || is_null($this->_propDict["attachmentType"])) {
                 return $this->_propDict["attachmentType"];
             } else {
                 $this->_propDict["attachmentType"] = new AttachmentType($this->_propDict["attachmentType"]);
@@ -44,24 +45,23 @@ class AttachmentInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attachmentType
-    *
-    * @param AttachmentType $val The value to assign to the attachmentType
-    *
-    * @return AttachmentInfo The AttachmentInfo
-    */
+     * Sets the attachmentType
+     *
+     * @param AttachmentType $val The value to assign to the attachmentType
+     *
+     * @return AttachmentInfo The AttachmentInfo
+     */
     public function setAttachmentType($val)
     {
         $this->_propDict["attachmentType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the contentType
-    *
-    * @return string|null The contentType
-    */
+     * Gets the contentType
+     *
+     * @return string|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
@@ -70,24 +70,23 @@ class AttachmentInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentType
-    *
-    * @param string $val The value of the contentType
-    *
-    * @return AttachmentInfo
-    */
+     * Sets the contentType
+     *
+     * @param string $val The value of the contentType
+     *
+     * @return AttachmentInfo
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -96,24 +95,23 @@ class AttachmentInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return AttachmentInfo
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return AttachmentInfo
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the size
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -122,14 +120,13 @@ class AttachmentInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the size
-    *
-    * @param int $val The value of the size
-    *
-    * @return AttachmentInfo
-    */
+     * Sets the size
+     *
+     * @param int $val The value of the size
+     *
+     * @return AttachmentInfo
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = $val;

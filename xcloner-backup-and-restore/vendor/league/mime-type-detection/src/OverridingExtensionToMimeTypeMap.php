@@ -1,22 +1,20 @@
 <?php
 
-namespace League\MimeTypeDetection;
+namespace XCloner\League\MimeTypeDetection;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class OverridingExtensionToMimeTypeMap implements ExtensionToMimeTypeMap
 {
     /**
      * @var ExtensionToMimeTypeMap
      */
     private $innerMap;
-
     /**
      * @var string[]
      */
     private $overrides;
-
     /**
      * @param array<string, string>  $overrides
      */
@@ -25,7 +23,6 @@ class OverridingExtensionToMimeTypeMap implements ExtensionToMimeTypeMap
         $this->innerMap = $innerMap;
         $this->overrides = $overrides;
     }
-
     public function lookupMimeType(string $extension): ?string
     {
         return $this->overrides[$extension] ?? $this->innerMap->lookupMimeType($extension);

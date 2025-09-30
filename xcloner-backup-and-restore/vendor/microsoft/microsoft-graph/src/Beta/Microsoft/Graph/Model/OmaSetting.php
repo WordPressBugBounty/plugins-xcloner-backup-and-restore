@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OmaSetting class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OmaSetting extends Entity
 {
     /**
-    * Gets the description
-    * Description.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OmaSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description.
-    *
-    * @param string $val The value of the description
-    *
-    * @return OmaSetting
-    */
+     * Sets the description
+     * Description.
+     *
+     * @param string $val The value of the description
+     *
+     * @return OmaSetting
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Display Name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display Name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class OmaSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display Name.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return OmaSetting
-    */
+     * Sets the displayName
+     * Display Name.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return OmaSetting
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the isEncrypted
-    * Indicates whether the value field is encrypted. This property is read-only.
-    *
-    * @return bool|null The isEncrypted
-    */
+     * Gets the isEncrypted
+     * Indicates whether the value field is encrypted. This property is read-only.
+     *
+     * @return bool|null The isEncrypted
+     */
     public function getIsEncrypted()
     {
         if (array_key_exists("isEncrypted", $this->_propDict)) {
@@ -96,26 +96,25 @@ class OmaSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEncrypted
-    * Indicates whether the value field is encrypted. This property is read-only.
-    *
-    * @param bool $val The value of the isEncrypted
-    *
-    * @return OmaSetting
-    */
+     * Sets the isEncrypted
+     * Indicates whether the value field is encrypted. This property is read-only.
+     *
+     * @param bool $val The value of the isEncrypted
+     *
+     * @return OmaSetting
+     */
     public function setIsEncrypted($val)
     {
         $this->_propDict["isEncrypted"] = $val;
         return $this;
     }
     /**
-    * Gets the omaUri
-    * OMA.
-    *
-    * @return string|null The omaUri
-    */
+     * Gets the omaUri
+     * OMA.
+     *
+     * @return string|null The omaUri
+     */
     public function getOmaUri()
     {
         if (array_key_exists("omaUri", $this->_propDict)) {
@@ -124,26 +123,25 @@ class OmaSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the omaUri
-    * OMA.
-    *
-    * @param string $val The value of the omaUri
-    *
-    * @return OmaSetting
-    */
+     * Sets the omaUri
+     * OMA.
+     *
+     * @param string $val The value of the omaUri
+     *
+     * @return OmaSetting
+     */
     public function setOmaUri($val)
     {
         $this->_propDict["omaUri"] = $val;
         return $this;
     }
     /**
-    * Gets the secretReferenceValueId
-    * ReferenceId for looking up secret for decryption. This property is read-only.
-    *
-    * @return string|null The secretReferenceValueId
-    */
+     * Gets the secretReferenceValueId
+     * ReferenceId for looking up secret for decryption. This property is read-only.
+     *
+     * @return string|null The secretReferenceValueId
+     */
     public function getSecretReferenceValueId()
     {
         if (array_key_exists("secretReferenceValueId", $this->_propDict)) {
@@ -152,15 +150,14 @@ class OmaSetting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the secretReferenceValueId
-    * ReferenceId for looking up secret for decryption. This property is read-only.
-    *
-    * @param string $val The value of the secretReferenceValueId
-    *
-    * @return OmaSetting
-    */
+     * Sets the secretReferenceValueId
+     * ReferenceId for looking up secret for decryption. This property is read-only.
+     *
+     * @param string $val The value of the secretReferenceValueId
+     *
+     * @return OmaSetting
+     */
     public function setSecretReferenceValueId($val)
     {
         $this->_propDict["secretReferenceValueId"] = $val;

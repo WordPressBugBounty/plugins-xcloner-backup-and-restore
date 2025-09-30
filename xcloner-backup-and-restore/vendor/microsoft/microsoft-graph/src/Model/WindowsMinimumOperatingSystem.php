@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsMinimumOperatingSystem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsMinimumOperatingSystem extends Entity
 {
     /**
-    * Gets the v10_0
-    * Windows version 10.0 or later.
-    *
-    * @return bool|null The v10_0
-    */
+     * Gets the v10_0
+     * Windows version 10.0 or later.
+     *
+     * @return bool|null The v10_0
+     */
     public function getV10_0()
     {
         if (array_key_exists("v100", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsMinimumOperatingSystem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the v10_0
-    * Windows version 10.0 or later.
-    *
-    * @param bool $val The value of the v10_0
-    *
-    * @return WindowsMinimumOperatingSystem
-    */
+     * Sets the v10_0
+     * Windows version 10.0 or later.
+     *
+     * @param bool $val The value of the v10_0
+     *
+     * @return WindowsMinimumOperatingSystem
+     */
     public function setV10_0($val)
     {
         $this->_propDict["v100"] = $val;
         return $this;
     }
     /**
-    * Gets the v8_0
-    * Windows version 8.0 or later.
-    *
-    * @return bool|null The v8_0
-    */
+     * Gets the v8_0
+     * Windows version 8.0 or later.
+     *
+     * @return bool|null The v8_0
+     */
     public function getV8_0()
     {
         if (array_key_exists("v80", $this->_propDict)) {
@@ -68,26 +69,25 @@ class WindowsMinimumOperatingSystem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the v8_0
-    * Windows version 8.0 or later.
-    *
-    * @param bool $val The value of the v8_0
-    *
-    * @return WindowsMinimumOperatingSystem
-    */
+     * Sets the v8_0
+     * Windows version 8.0 or later.
+     *
+     * @param bool $val The value of the v8_0
+     *
+     * @return WindowsMinimumOperatingSystem
+     */
     public function setV8_0($val)
     {
         $this->_propDict["v80"] = $val;
         return $this;
     }
     /**
-    * Gets the v8_1
-    * Windows version 8.1 or later.
-    *
-    * @return bool|null The v8_1
-    */
+     * Gets the v8_1
+     * Windows version 8.1 or later.
+     *
+     * @return bool|null The v8_1
+     */
     public function getV8_1()
     {
         if (array_key_exists("v81", $this->_propDict)) {
@@ -96,15 +96,14 @@ class WindowsMinimumOperatingSystem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the v8_1
-    * Windows version 8.1 or later.
-    *
-    * @param bool $val The value of the v8_1
-    *
-    * @return WindowsMinimumOperatingSystem
-    */
+     * Sets the v8_1
+     * Windows version 8.1 or later.
+     *
+     * @param bool $val The value of the v8_1
+     *
+     * @return WindowsMinimumOperatingSystem
+     */
     public function setV8_1($val)
     {
         $this->_propDict["v81"] = $val;

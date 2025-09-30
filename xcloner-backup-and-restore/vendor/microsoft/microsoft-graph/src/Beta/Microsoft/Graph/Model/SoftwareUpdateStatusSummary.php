@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SoftwareUpdateStatusSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SoftwareUpdateStatusSummary extends Entity
 {
     /**
-    * Gets the compliantDeviceCount
-    * Number of compliant devices.
-    *
-    * @return int|null The compliantDeviceCount
-    */
+     * Gets the compliantDeviceCount
+     * Number of compliant devices.
+     *
+     * @return int|null The compliantDeviceCount
+     */
     public function getCompliantDeviceCount()
     {
         if (array_key_exists("compliantDeviceCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the compliantDeviceCount
-    * Number of compliant devices.
-    *
-    * @param int $val The compliantDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the compliantDeviceCount
+     * Number of compliant devices.
+     *
+     * @param int $val The compliantDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setCompliantDeviceCount($val)
     {
         $this->_propDict["compliantDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the compliantUserCount
-    * Number of compliant users.
-    *
-    * @return int|null The compliantUserCount
-    */
+     * Gets the compliantUserCount
+     * Number of compliant users.
+     *
+     * @return int|null The compliantUserCount
+     */
     public function getCompliantUserCount()
     {
         if (array_key_exists("compliantUserCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the compliantUserCount
-    * Number of compliant users.
-    *
-    * @param int $val The compliantUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the compliantUserCount
+     * Number of compliant users.
+     *
+     * @param int $val The compliantUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setCompliantUserCount($val)
     {
         $this->_propDict["compliantUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the conflictDeviceCount
-    * Number of conflict devices.
-    *
-    * @return int|null The conflictDeviceCount
-    */
+     * Gets the conflictDeviceCount
+     * Number of conflict devices.
+     *
+     * @return int|null The conflictDeviceCount
+     */
     public function getConflictDeviceCount()
     {
         if (array_key_exists("conflictDeviceCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conflictDeviceCount
-    * Number of conflict devices.
-    *
-    * @param int $val The conflictDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the conflictDeviceCount
+     * Number of conflict devices.
+     *
+     * @param int $val The conflictDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setConflictDeviceCount($val)
     {
         $this->_propDict["conflictDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the conflictUserCount
-    * Number of conflict users.
-    *
-    * @return int|null The conflictUserCount
-    */
+     * Gets the conflictUserCount
+     * Number of conflict users.
+     *
+     * @return int|null The conflictUserCount
+     */
     public function getConflictUserCount()
     {
         if (array_key_exists("conflictUserCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conflictUserCount
-    * Number of conflict users.
-    *
-    * @param int $val The conflictUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the conflictUserCount
+     * Number of conflict users.
+     *
+     * @param int $val The conflictUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setConflictUserCount($val)
     {
         $this->_propDict["conflictUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the policy.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the policy.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -157,27 +150,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the policy.
-    *
-    * @param string $val The displayName
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the displayName
+     * The name of the policy.
+     *
+     * @param string $val The displayName
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the errorDeviceCount
-    * Number of devices had error.
-    *
-    * @return int|null The errorDeviceCount
-    */
+     * Gets the errorDeviceCount
+     * Number of devices had error.
+     *
+     * @return int|null The errorDeviceCount
+     */
     public function getErrorDeviceCount()
     {
         if (array_key_exists("errorDeviceCount", $this->_propDict)) {
@@ -186,27 +177,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorDeviceCount
-    * Number of devices had error.
-    *
-    * @param int $val The errorDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the errorDeviceCount
+     * Number of devices had error.
+     *
+     * @param int $val The errorDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setErrorDeviceCount($val)
     {
         $this->_propDict["errorDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the errorUserCount
-    * Number of users had error.
-    *
-    * @return int|null The errorUserCount
-    */
+     * Gets the errorUserCount
+     * Number of users had error.
+     *
+     * @return int|null The errorUserCount
+     */
     public function getErrorUserCount()
     {
         if (array_key_exists("errorUserCount", $this->_propDict)) {
@@ -215,27 +204,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorUserCount
-    * Number of users had error.
-    *
-    * @param int $val The errorUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the errorUserCount
+     * Number of users had error.
+     *
+     * @param int $val The errorUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setErrorUserCount($val)
     {
         $this->_propDict["errorUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the nonCompliantDeviceCount
-    * Number of non compliant devices.
-    *
-    * @return int|null The nonCompliantDeviceCount
-    */
+     * Gets the nonCompliantDeviceCount
+     * Number of non compliant devices.
+     *
+     * @return int|null The nonCompliantDeviceCount
+     */
     public function getNonCompliantDeviceCount()
     {
         if (array_key_exists("nonCompliantDeviceCount", $this->_propDict)) {
@@ -244,27 +231,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the nonCompliantDeviceCount
-    * Number of non compliant devices.
-    *
-    * @param int $val The nonCompliantDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the nonCompliantDeviceCount
+     * Number of non compliant devices.
+     *
+     * @param int $val The nonCompliantDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setNonCompliantDeviceCount($val)
     {
         $this->_propDict["nonCompliantDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the nonCompliantUserCount
-    * Number of non compliant users.
-    *
-    * @return int|null The nonCompliantUserCount
-    */
+     * Gets the nonCompliantUserCount
+     * Number of non compliant users.
+     *
+     * @return int|null The nonCompliantUserCount
+     */
     public function getNonCompliantUserCount()
     {
         if (array_key_exists("nonCompliantUserCount", $this->_propDict)) {
@@ -273,27 +258,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the nonCompliantUserCount
-    * Number of non compliant users.
-    *
-    * @param int $val The nonCompliantUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the nonCompliantUserCount
+     * Number of non compliant users.
+     *
+     * @param int $val The nonCompliantUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setNonCompliantUserCount($val)
     {
         $this->_propDict["nonCompliantUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicableDeviceCount
-    * Number of not applicable devices.
-    *
-    * @return int|null The notApplicableDeviceCount
-    */
+     * Gets the notApplicableDeviceCount
+     * Number of not applicable devices.
+     *
+     * @return int|null The notApplicableDeviceCount
+     */
     public function getNotApplicableDeviceCount()
     {
         if (array_key_exists("notApplicableDeviceCount", $this->_propDict)) {
@@ -302,27 +285,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicableDeviceCount
-    * Number of not applicable devices.
-    *
-    * @param int $val The notApplicableDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the notApplicableDeviceCount
+     * Number of not applicable devices.
+     *
+     * @param int $val The notApplicableDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setNotApplicableDeviceCount($val)
     {
         $this->_propDict["notApplicableDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicableUserCount
-    * Number of not applicable users.
-    *
-    * @return int|null The notApplicableUserCount
-    */
+     * Gets the notApplicableUserCount
+     * Number of not applicable users.
+     *
+     * @return int|null The notApplicableUserCount
+     */
     public function getNotApplicableUserCount()
     {
         if (array_key_exists("notApplicableUserCount", $this->_propDict)) {
@@ -331,27 +312,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicableUserCount
-    * Number of not applicable users.
-    *
-    * @param int $val The notApplicableUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the notApplicableUserCount
+     * Number of not applicable users.
+     *
+     * @param int $val The notApplicableUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setNotApplicableUserCount($val)
     {
         $this->_propDict["notApplicableUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the remediatedDeviceCount
-    * Number of remediated devices.
-    *
-    * @return int|null The remediatedDeviceCount
-    */
+     * Gets the remediatedDeviceCount
+     * Number of remediated devices.
+     *
+     * @return int|null The remediatedDeviceCount
+     */
     public function getRemediatedDeviceCount()
     {
         if (array_key_exists("remediatedDeviceCount", $this->_propDict)) {
@@ -360,27 +339,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedDeviceCount
-    * Number of remediated devices.
-    *
-    * @param int $val The remediatedDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the remediatedDeviceCount
+     * Number of remediated devices.
+     *
+     * @param int $val The remediatedDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setRemediatedDeviceCount($val)
     {
         $this->_propDict["remediatedDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the remediatedUserCount
-    * Number of remediated users.
-    *
-    * @return int|null The remediatedUserCount
-    */
+     * Gets the remediatedUserCount
+     * Number of remediated users.
+     *
+     * @return int|null The remediatedUserCount
+     */
     public function getRemediatedUserCount()
     {
         if (array_key_exists("remediatedUserCount", $this->_propDict)) {
@@ -389,27 +366,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedUserCount
-    * Number of remediated users.
-    *
-    * @param int $val The remediatedUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the remediatedUserCount
+     * Number of remediated users.
+     *
+     * @param int $val The remediatedUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setRemediatedUserCount($val)
     {
         $this->_propDict["remediatedUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unknownDeviceCount
-    * Number of unknown devices.
-    *
-    * @return int|null The unknownDeviceCount
-    */
+     * Gets the unknownDeviceCount
+     * Number of unknown devices.
+     *
+     * @return int|null The unknownDeviceCount
+     */
     public function getUnknownDeviceCount()
     {
         if (array_key_exists("unknownDeviceCount", $this->_propDict)) {
@@ -418,27 +393,25 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownDeviceCount
-    * Number of unknown devices.
-    *
-    * @param int $val The unknownDeviceCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the unknownDeviceCount
+     * Number of unknown devices.
+     *
+     * @param int $val The unknownDeviceCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setUnknownDeviceCount($val)
     {
         $this->_propDict["unknownDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unknownUserCount
-    * Number of unknown users.
-    *
-    * @return int|null The unknownUserCount
-    */
+     * Gets the unknownUserCount
+     * Number of unknown users.
+     *
+     * @return int|null The unknownUserCount
+     */
     public function getUnknownUserCount()
     {
         if (array_key_exists("unknownUserCount", $this->_propDict)) {
@@ -447,19 +420,17 @@ class SoftwareUpdateStatusSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownUserCount
-    * Number of unknown users.
-    *
-    * @param int $val The unknownUserCount
-    *
-    * @return SoftwareUpdateStatusSummary
-    */
+     * Sets the unknownUserCount
+     * Number of unknown users.
+     *
+     * @param int $val The unknownUserCount
+     *
+     * @return SoftwareUpdateStatusSummary
+     */
     public function setUnknownUserCount($val)
     {
         $this->_propDict["unknownUserCount"] = intval($val);
         return $this;
     }
-
 }

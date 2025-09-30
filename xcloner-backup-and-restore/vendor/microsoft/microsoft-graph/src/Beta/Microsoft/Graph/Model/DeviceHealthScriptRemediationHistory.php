@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptRemediationHistory class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceHealthScriptRemediationHistory extends Entity
 {
-
     /**
-    * Gets the historyData
-    * The number of devices remediated by the device health script on the given date.
-    *
-    * @return DeviceHealthScriptRemediationHistoryData|null The historyData
-    */
+     * Gets the historyData
+     * The number of devices remediated by the device health script on the given date.
+     *
+     * @return DeviceHealthScriptRemediationHistoryData|null The historyData
+     */
     public function getHistoryData()
     {
         if (array_key_exists("historyData", $this->_propDict)) {
-            if (is_a($this->_propDict["historyData"], "\Beta\Microsoft\Graph\Model\DeviceHealthScriptRemediationHistoryData") || is_null($this->_propDict["historyData"])) {
+            if (is_a($this->_propDict["historyData"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceHealthScriptRemediationHistoryData") || is_null($this->_propDict["historyData"])) {
                 return $this->_propDict["historyData"];
             } else {
                 $this->_propDict["historyData"] = new DeviceHealthScriptRemediationHistoryData($this->_propDict["historyData"]);
@@ -45,31 +46,29 @@ class DeviceHealthScriptRemediationHistory extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the historyData
-    * The number of devices remediated by the device health script on the given date.
-    *
-    * @param DeviceHealthScriptRemediationHistoryData $val The value to assign to the historyData
-    *
-    * @return DeviceHealthScriptRemediationHistory The DeviceHealthScriptRemediationHistory
-    */
+     * Sets the historyData
+     * The number of devices remediated by the device health script on the given date.
+     *
+     * @param DeviceHealthScriptRemediationHistoryData $val The value to assign to the historyData
+     *
+     * @return DeviceHealthScriptRemediationHistory The DeviceHealthScriptRemediationHistory
+     */
     public function setHistoryData($val)
     {
         $this->_propDict["historyData"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date on which the results history is calculated for the healthscript.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date on which the results history is calculated for the healthscript.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -78,18 +77,17 @@ class DeviceHealthScriptRemediationHistory extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date on which the results history is calculated for the healthscript.
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return DeviceHealthScriptRemediationHistory The DeviceHealthScriptRemediationHistory
-    */
+     * Sets the lastModifiedDateTime
+     * The date on which the results history is calculated for the healthscript.
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return DeviceHealthScriptRemediationHistory The DeviceHealthScriptRemediationHistory
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

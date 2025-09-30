@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TenantCustomizedInformation class
 *
@@ -25,44 +26,41 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
+class TenantCustomizedInformation extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the contacts
-    * The collection of contacts for the managed tenant. Optional.
+     * The collection of contacts for the managed tenant. Optional.
      *
      * @return array|null The contacts
      */
     public function getContacts()
     {
         if (array_key_exists("contacts", $this->_propDict)) {
-           return $this->_propDict["contacts"];
+            return $this->_propDict["contacts"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the contacts
-    * The collection of contacts for the managed tenant. Optional.
-    *
-    * @param TenantContactInformation[] $val The contacts
-    *
-    * @return TenantCustomizedInformation
-    */
+     * Sets the contacts
+     * The collection of contacts for the managed tenant. Optional.
+     *
+     * @param TenantContactInformation[] $val The contacts
+     *
+     * @return TenantCustomizedInformation
+     */
     public function setContacts($val)
     {
         $this->_propDict["contacts"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name for the managed tenant. Required. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name for the managed tenant. Required. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -71,27 +69,25 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name for the managed tenant. Required. Read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return TenantCustomizedInformation
-    */
+     * Sets the displayName
+     * The display name for the managed tenant. Required. Read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return TenantCustomizedInformation
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -100,27 +96,25 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
-    *
-    * @param string $val The tenantId
-    *
-    * @return TenantCustomizedInformation
-    */
+     * Sets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Optional. Read-only.
+     *
+     * @param string $val The tenantId
+     *
+     * @return TenantCustomizedInformation
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the website
-    * The website for the managed tenant. Required.
-    *
-    * @return string|null The website
-    */
+     * Gets the website
+     * The website for the managed tenant. Required.
+     *
+     * @return string|null The website
+     */
     public function getWebsite()
     {
         if (array_key_exists("website", $this->_propDict)) {
@@ -129,19 +123,17 @@ class TenantCustomizedInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the website
-    * The website for the managed tenant. Required.
-    *
-    * @param string $val The website
-    *
-    * @return TenantCustomizedInformation
-    */
+     * Sets the website
+     * The website for the managed tenant. Required.
+     *
+     * @param string $val The website
+     *
+     * @return TenantCustomizedInformation
+     */
     public function setWebsite($val)
     {
         $this->_propDict["website"] = $val;
         return $this;
     }
-
 }

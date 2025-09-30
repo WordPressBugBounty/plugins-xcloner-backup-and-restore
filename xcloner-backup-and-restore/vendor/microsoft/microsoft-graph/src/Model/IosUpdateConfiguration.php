@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosUpdateConfiguration class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosUpdateConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the activeHoursEnd
-    * Active Hours End (active hours mean the time window when updates install should not happen)
-    *
-    * @return TimeOfDay|null The activeHoursEnd
-    */
+     * Gets the activeHoursEnd
+     * Active Hours End (active hours mean the time window when updates install should not happen)
+     *
+     * @return TimeOfDay|null The activeHoursEnd
+     */
     public function getActiveHoursEnd()
     {
         if (array_key_exists("activeHoursEnd", $this->_propDict)) {
-            if (is_a($this->_propDict["activeHoursEnd"], "\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["activeHoursEnd"])) {
+            if (is_a($this->_propDict["activeHoursEnd"], "XCloner\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["activeHoursEnd"])) {
                 return $this->_propDict["activeHoursEnd"];
             } else {
                 $this->_propDict["activeHoursEnd"] = new TimeOfDay($this->_propDict["activeHoursEnd"]);
@@ -45,31 +46,29 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the activeHoursEnd
-    * Active Hours End (active hours mean the time window when updates install should not happen)
-    *
-    * @param TimeOfDay $val The activeHoursEnd
-    *
-    * @return IosUpdateConfiguration
-    */
+     * Sets the activeHoursEnd
+     * Active Hours End (active hours mean the time window when updates install should not happen)
+     *
+     * @param TimeOfDay $val The activeHoursEnd
+     *
+     * @return IosUpdateConfiguration
+     */
     public function setActiveHoursEnd($val)
     {
         $this->_propDict["activeHoursEnd"] = $val;
         return $this;
     }
-
     /**
-    * Gets the activeHoursStart
-    * Active Hours Start (active hours mean the time window when updates install should not happen)
-    *
-    * @return TimeOfDay|null The activeHoursStart
-    */
+     * Gets the activeHoursStart
+     * Active Hours Start (active hours mean the time window when updates install should not happen)
+     *
+     * @return TimeOfDay|null The activeHoursStart
+     */
     public function getActiveHoursStart()
     {
         if (array_key_exists("activeHoursStart", $this->_propDict)) {
-            if (is_a($this->_propDict["activeHoursStart"], "\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["activeHoursStart"])) {
+            if (is_a($this->_propDict["activeHoursStart"], "XCloner\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["activeHoursStart"])) {
                 return $this->_propDict["activeHoursStart"];
             } else {
                 $this->_propDict["activeHoursStart"] = new TimeOfDay($this->_propDict["activeHoursStart"]);
@@ -78,57 +77,52 @@ class IosUpdateConfiguration extends DeviceConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the activeHoursStart
-    * Active Hours Start (active hours mean the time window when updates install should not happen)
-    *
-    * @param TimeOfDay $val The activeHoursStart
-    *
-    * @return IosUpdateConfiguration
-    */
+     * Sets the activeHoursStart
+     * Active Hours Start (active hours mean the time window when updates install should not happen)
+     *
+     * @param TimeOfDay $val The activeHoursStart
+     *
+     * @return IosUpdateConfiguration
+     */
     public function setActiveHoursStart($val)
     {
         $this->_propDict["activeHoursStart"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the scheduledInstallDays
-    * Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
+     * Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
      *
      * @return array|null The scheduledInstallDays
      */
     public function getScheduledInstallDays()
     {
         if (array_key_exists("scheduledInstallDays", $this->_propDict)) {
-           return $this->_propDict["scheduledInstallDays"];
+            return $this->_propDict["scheduledInstallDays"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the scheduledInstallDays
-    * Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
-    *
-    * @param DayOfWeek[] $val The scheduledInstallDays
-    *
-    * @return IosUpdateConfiguration
-    */
+     * Sets the scheduledInstallDays
+     * Days in week for which active hours are configured. This collection can contain a maximum of 7 elements.
+     *
+     * @param DayOfWeek[] $val The scheduledInstallDays
+     *
+     * @return IosUpdateConfiguration
+     */
     public function setScheduledInstallDays($val)
     {
         $this->_propDict["scheduledInstallDays"] = $val;
         return $this;
     }
-
     /**
-    * Gets the utcTimeOffsetInMinutes
-    * UTC Time Offset indicated in minutes
-    *
-    * @return int|null The utcTimeOffsetInMinutes
-    */
+     * Gets the utcTimeOffsetInMinutes
+     * UTC Time Offset indicated in minutes
+     *
+     * @return int|null The utcTimeOffsetInMinutes
+     */
     public function getUtcTimeOffsetInMinutes()
     {
         if (array_key_exists("utcTimeOffsetInMinutes", $this->_propDict)) {
@@ -137,19 +131,17 @@ class IosUpdateConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the utcTimeOffsetInMinutes
-    * UTC Time Offset indicated in minutes
-    *
-    * @param int $val The utcTimeOffsetInMinutes
-    *
-    * @return IosUpdateConfiguration
-    */
+     * Sets the utcTimeOffsetInMinutes
+     * UTC Time Offset indicated in minutes
+     *
+     * @param int $val The utcTimeOffsetInMinutes
+     *
+     * @return IosUpdateConfiguration
+     */
     public function setUtcTimeOffsetInMinutes($val)
     {
         $this->_propDict["utcTimeOffsetInMinutes"] = intval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookOperation extends Entity
 {
     /**
-    * Gets the error
-    * The error returned by the operation.
-    *
-    * @return WorkbookOperationError|null The error
-    */
+     * Gets the error
+     * The error returned by the operation.
+     *
+     * @return WorkbookOperationError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\WorkbookOperationError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookOperationError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new WorkbookOperationError($this->_propDict["error"]);
@@ -45,27 +46,25 @@ class WorkbookOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the error
-    * The error returned by the operation.
-    *
-    * @param WorkbookOperationError $val The error
-    *
-    * @return WorkbookOperation
-    */
+     * Sets the error
+     * The error returned by the operation.
+     *
+     * @param WorkbookOperationError $val The error
+     *
+     * @return WorkbookOperation
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceLocation
-    * The resource URI for the result.
-    *
-    * @return string|null The resourceLocation
-    */
+     * Gets the resourceLocation
+     * The resource URI for the result.
+     *
+     * @return string|null The resourceLocation
+     */
     public function getResourceLocation()
     {
         if (array_key_exists("resourceLocation", $this->_propDict)) {
@@ -74,31 +73,29 @@ class WorkbookOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceLocation
-    * The resource URI for the result.
-    *
-    * @param string $val The resourceLocation
-    *
-    * @return WorkbookOperation
-    */
+     * Sets the resourceLocation
+     * The resource URI for the result.
+     *
+     * @param string $val The resourceLocation
+     *
+     * @return WorkbookOperation
+     */
     public function setResourceLocation($val)
     {
         $this->_propDict["resourceLocation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
-    *
-    * @return WorkbookOperationStatus|null The status
-    */
+     * Gets the status
+     * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     *
+     * @return WorkbookOperationStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\WorkbookOperationStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookOperationStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new WorkbookOperationStatus($this->_propDict["status"]);
@@ -107,19 +104,17 @@ class WorkbookOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
-    *
-    * @param WorkbookOperationStatus $val The status
-    *
-    * @return WorkbookOperation
-    */
+     * Sets the status
+     * The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     *
+     * @param WorkbookOperationStatus $val The status
+     *
+     * @return WorkbookOperation
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
 }

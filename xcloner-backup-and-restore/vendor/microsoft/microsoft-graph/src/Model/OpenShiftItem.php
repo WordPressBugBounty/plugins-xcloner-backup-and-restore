@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OpenShiftItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OpenShiftItem extends ShiftItem
 {
     /**
-    * Gets the openSlotCount
-    * Count of the number of slots for the given open shift.
-    *
-    * @return int|null The openSlotCount
-    */
+     * Gets the openSlotCount
+     * Count of the number of slots for the given open shift.
+     *
+     * @return int|null The openSlotCount
+     */
     public function getOpenSlotCount()
     {
         if (array_key_exists("openSlotCount", $this->_propDict)) {
@@ -40,15 +42,14 @@ class OpenShiftItem extends ShiftItem
             return null;
         }
     }
-
     /**
-    * Sets the openSlotCount
-    * Count of the number of slots for the given open shift.
-    *
-    * @param int $val The value of the openSlotCount
-    *
-    * @return OpenShiftItem
-    */
+     * Sets the openSlotCount
+     * Count of the number of slots for the given open shift.
+     *
+     * @param int $val The value of the openSlotCount
+     *
+     * @return OpenShiftItem
+     */
     public function setOpenSlotCount($val)
     {
         $this->_propDict["openSlotCount"] = $val;

@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Traits;
 
-namespace Carbon\Traits;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Carbon\CarbonInterface;
-use Carbon\Exceptions\UnknownUnitException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Carbon\CarbonInterface;
+use XCloner\Carbon\Exceptions\UnknownUnitException;
 /**
  * Trait Rounding.
  *
@@ -30,7 +28,6 @@ use Carbon\Exceptions\UnknownUnitException;
 trait Rounding
 {
     use IntervalRounding;
-
     /**
      * Round the current instance at the given unit with given precision if specified and the given function.
      *
@@ -61,71 +58,51 @@ trait Rounding
         ]);
         $factor = 1;
         $initialMonth = $this->month;
-
         if ($normalizedUnit === 'week') {
             $normalizedUnit = 'day';
             $precision *= static::DAYS_PER_WEEK;
         }
-
         if (isset($metaUnits[$normalizedUnit])) {
             [$factor, $normalizedUnit] = $metaUnits[$normalizedUnit];
         }
-
         $precision *= $factor;
-
         if (!isset($ranges[$normalizedUnit])) {
             throw new UnknownUnitException($unit);
         }
-
-        $found = false;
+        $found = \false;
         $fraction = 0;
         $arguments = null;
         $factor = $this->year < 0 ? -1 : 1;
         $changes = [];
-
         foreach ($ranges as $unit => [$minimum, $maximum]) {
             if ($normalizedUnit === $unit) {
-                $arguments = [$this->$unit, $minimum];
+                $arguments = [$this->{$unit}, $minimum];
                 $fraction = $precision - floor($precision);
-                $found = true;
-
+                $found = \true;
                 continue;
             }
-
             if ($found) {
                 $delta = $maximum + 1 - $minimum;
                 $factor /= $delta;
                 $fraction *= $delta;
-                $arguments[0] += ($this->$unit - $minimum) * $factor;
-                $changes[$unit] = round(
-                    $minimum + ($fraction ? $fraction * $function(($this->$unit - $minimum) / $fraction) : 0)
-                );
-
+                $arguments[0] += ($this->{$unit} - $minimum) * $factor;
+                $changes[$unit] = round($minimum + ($fraction ? $fraction * $function(($this->{$unit} - $minimum) / $fraction) : 0));
                 // Cannot use modulo as it lose double precision
                 while ($changes[$unit] >= $delta) {
                     $changes[$unit] -= $delta;
                 }
-
                 $fraction -= floor($fraction);
             }
         }
-
         [$value, $minimum] = $arguments;
         $normalizedValue = floor($function(($value - $minimum) / $precision) * $precision + $minimum);
-
         /** @var CarbonInterface $result */
-        $result = $this->$normalizedUnit($normalizedValue);
-
+        $result = $this->{$normalizedUnit}($normalizedValue);
         foreach ($changes as $unit => $value) {
-            $result = $result->$unit($value);
+            $result = $result->{$unit}($value);
         }
-
-        return $normalizedUnit === 'month' && $precision <= 1 && abs($result->month - $initialMonth) === 2
-            // Re-run the change in case an overflow occurred
-            ? $result->$normalizedUnit($normalizedValue)
-            : $result;
+        return $normalizedUnit === 'month' && $precision <= 1 && abs($result->month - $initialMonth) === 2 ? $result->{$normalizedUnit}($normalizedValue) : $result;
     }
-
     /**
      * Truncate the current instance at the given unit with given precision if specified.
      *
@@ -138,7 +115,6 @@ trait Rounding
     {
         return $this->roundUnit($unit, $precision, 'floor');
     }
-
     /**
      * Ceil the current instance at the given unit with given precision if specified.
      *
@@ -151,7 +127,6 @@ trait Rounding
     {
         return $this->roundUnit($unit, $precision, 'ceil');
     }
-
     /**
      * Round the current instance second with given precision if specified.
      *
@@ -164,7 +139,6 @@ trait Rounding
     {
         return $this->roundWith($precision, $function);
     }
-
     /**
      * Round the current instance second with given precision if specified.
      *
@@ -176,7 +150,6 @@ trait Rounding
     {
         return $this->round($precision, 'floor');
     }
-
     /**
      * Ceil the current instance second with given precision if specified.
      *
@@ -188,7 +161,6 @@ trait Rounding
     {
         return $this->round($precision, 'ceil');
     }
-
     /**
      * Round the current instance week.
      *
@@ -198,12 +170,8 @@ trait Rounding
      */
     public function roundWeek($weekStartsAt = null)
     {
-        return $this->closest(
-            $this->avoidMutation()->floorWeek($weekStartsAt),
-            $this->avoidMutation()->ceilWeek($weekStartsAt)
-        );
+        return $this->closest($this->avoidMutation()->floorWeek($weekStartsAt), $this->avoidMutation()->ceilWeek($weekStartsAt));
     }
-
     /**
      * Truncate the current instance week.
      *
@@ -215,7 +183,6 @@ trait Rounding
     {
         return $this->startOfWeek($weekStartsAt);
     }
-
     /**
      * Ceil the current instance week.
      *
@@ -227,16 +194,9 @@ trait Rounding
     {
         if ($this->isMutable()) {
             $startOfWeek = $this->avoidMutation()->startOfWeek($weekStartsAt);
-
-            return $startOfWeek != $this ?
-                $this->startOfWeek($weekStartsAt)->addWeek() :
-                $this;
+            return $startOfWeek != $this ? $this->startOfWeek($weekStartsAt)->addWeek() : $this;
         }
-
         $startOfWeek = $this->startOfWeek($weekStartsAt);
-
-        return $startOfWeek != $this ?
-            $startOfWeek->addWeek() :
-            $this->avoidMutation();
+        return $startOfWeek != $this ? $startOfWeek->addWeek() : $this->avoidMutation();
     }
 }

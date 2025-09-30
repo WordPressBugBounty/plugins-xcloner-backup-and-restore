@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSVpnConfiguration class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSVpnConfiguration extends AppleVpnConfiguration
 {
     /**
-    * Gets the identityCertificate
-    * Identity certificate for client authentication when authentication method is certificate.
-    *
-    * @return MacOSCertificateProfileBase|null The identityCertificate
-    */
+     * Gets the identityCertificate
+     * Identity certificate for client authentication when authentication method is certificate.
+     *
+     * @return MacOSCertificateProfileBase|null The identityCertificate
+     */
     public function getIdentityCertificate()
     {
         if (array_key_exists("identityCertificate", $this->_propDict)) {
-            if (is_a($this->_propDict["identityCertificate"], "\Beta\Microsoft\Graph\Model\MacOSCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
+            if (is_a($this->_propDict["identityCertificate"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MacOSCertificateProfileBase") || is_null($this->_propDict["identityCertificate"])) {
                 return $this->_propDict["identityCertificate"];
             } else {
                 $this->_propDict["identityCertificate"] = new MacOSCertificateProfileBase($this->_propDict["identityCertificate"]);
@@ -45,19 +46,17 @@ class MacOSVpnConfiguration extends AppleVpnConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the identityCertificate
-    * Identity certificate for client authentication when authentication method is certificate.
-    *
-    * @param MacOSCertificateProfileBase $val The identityCertificate
-    *
-    * @return MacOSVpnConfiguration
-    */
+     * Sets the identityCertificate
+     * Identity certificate for client authentication when authentication method is certificate.
+     *
+     * @param MacOSCertificateProfileBase $val The identityCertificate
+     *
+     * @return MacOSVpnConfiguration
+     */
     public function setIdentityCertificate($val)
     {
         $this->_propDict["identityCertificate"] = $val;
         return $this;
     }
-
 }

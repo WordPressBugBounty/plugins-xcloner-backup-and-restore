@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementIntentDeviceSettingStateSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementIntentDeviceSettingStateSummary extends Entity
 {
     /**
-    * Gets the compliantCount
-    * Number of compliant devices
-    *
-    * @return int|null The compliantCount
-    */
+     * Gets the compliantCount
+     * Number of compliant devices
+     *
+     * @return int|null The compliantCount
+     */
     public function getCompliantCount()
     {
         if (array_key_exists("compliantCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the compliantCount
-    * Number of compliant devices
-    *
-    * @param int $val The compliantCount
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the compliantCount
+     * Number of compliant devices
+     *
+     * @param int $val The compliantCount
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setCompliantCount($val)
     {
         $this->_propDict["compliantCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the conflictCount
-    * Number of devices in conflict
-    *
-    * @return int|null The conflictCount
-    */
+     * Gets the conflictCount
+     * Number of devices in conflict
+     *
+     * @return int|null The conflictCount
+     */
     public function getConflictCount()
     {
         if (array_key_exists("conflictCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conflictCount
-    * Number of devices in conflict
-    *
-    * @param int $val The conflictCount
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the conflictCount
+     * Number of devices in conflict
+     *
+     * @param int $val The conflictCount
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setConflictCount($val)
     {
         $this->_propDict["conflictCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the errorCount
-    * Number of error devices
-    *
-    * @return int|null The errorCount
-    */
+     * Gets the errorCount
+     * Number of error devices
+     *
+     * @return int|null The errorCount
+     */
     public function getErrorCount()
     {
         if (array_key_exists("errorCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorCount
-    * Number of error devices
-    *
-    * @param int $val The errorCount
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the errorCount
+     * Number of error devices
+     *
+     * @param int $val The errorCount
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setErrorCount($val)
     {
         $this->_propDict["errorCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the nonCompliantCount
-    * Number of non compliant devices
-    *
-    * @return int|null The nonCompliantCount
-    */
+     * Gets the nonCompliantCount
+     * Number of non compliant devices
+     *
+     * @return int|null The nonCompliantCount
+     */
     public function getNonCompliantCount()
     {
         if (array_key_exists("nonCompliantCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the nonCompliantCount
-    * Number of non compliant devices
-    *
-    * @param int $val The nonCompliantCount
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the nonCompliantCount
+     * Number of non compliant devices
+     *
+     * @param int $val The nonCompliantCount
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setNonCompliantCount($val)
     {
         $this->_propDict["nonCompliantCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicableCount
-    * Number of not applicable devices
-    *
-    * @return int|null The notApplicableCount
-    */
+     * Gets the notApplicableCount
+     * Number of not applicable devices
+     *
+     * @return int|null The notApplicableCount
+     */
     public function getNotApplicableCount()
     {
         if (array_key_exists("notApplicableCount", $this->_propDict)) {
@@ -157,27 +150,25 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicableCount
-    * Number of not applicable devices
-    *
-    * @param int $val The notApplicableCount
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the notApplicableCount
+     * Number of not applicable devices
+     *
+     * @param int $val The notApplicableCount
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setNotApplicableCount($val)
     {
         $this->_propDict["notApplicableCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the remediatedCount
-    * Number of remediated devices
-    *
-    * @return int|null The remediatedCount
-    */
+     * Gets the remediatedCount
+     * Number of remediated devices
+     *
+     * @return int|null The remediatedCount
+     */
     public function getRemediatedCount()
     {
         if (array_key_exists("remediatedCount", $this->_propDict)) {
@@ -186,27 +177,25 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedCount
-    * Number of remediated devices
-    *
-    * @param int $val The remediatedCount
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the remediatedCount
+     * Number of remediated devices
+     *
+     * @param int $val The remediatedCount
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setRemediatedCount($val)
     {
         $this->_propDict["remediatedCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the settingName
-    * Name of a setting
-    *
-    * @return string|null The settingName
-    */
+     * Gets the settingName
+     * Name of a setting
+     *
+     * @return string|null The settingName
+     */
     public function getSettingName()
     {
         if (array_key_exists("settingName", $this->_propDict)) {
@@ -215,19 +204,17 @@ class DeviceManagementIntentDeviceSettingStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingName
-    * Name of a setting
-    *
-    * @param string $val The settingName
-    *
-    * @return DeviceManagementIntentDeviceSettingStateSummary
-    */
+     * Sets the settingName
+     * Name of a setting
+     *
+     * @param string $val The settingName
+     *
+     * @return DeviceManagementIntentDeviceSettingStateSummary
+     */
     public function setSettingName($val)
     {
         $this->_propDict["settingName"] = $val;
         return $this;
     }
-
 }

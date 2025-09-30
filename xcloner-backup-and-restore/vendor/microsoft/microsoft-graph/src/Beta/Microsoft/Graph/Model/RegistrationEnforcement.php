@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RegistrationEnforcement class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RegistrationEnforcement extends Entity
 {
-
     /**
-    * Gets the authenticationMethodsRegistrationCampaign
-    * Run campaigns to remind users to setup targeted authentication methods.
-    *
-    * @return AuthenticationMethodsRegistrationCampaign|null The authenticationMethodsRegistrationCampaign
-    */
+     * Gets the authenticationMethodsRegistrationCampaign
+     * Run campaigns to remind users to setup targeted authentication methods.
+     *
+     * @return AuthenticationMethodsRegistrationCampaign|null The authenticationMethodsRegistrationCampaign
+     */
     public function getAuthenticationMethodsRegistrationCampaign()
     {
         if (array_key_exists("authenticationMethodsRegistrationCampaign", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationMethodsRegistrationCampaign"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodsRegistrationCampaign") || is_null($this->_propDict["authenticationMethodsRegistrationCampaign"])) {
+            if (is_a($this->_propDict["authenticationMethodsRegistrationCampaign"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationMethodsRegistrationCampaign") || is_null($this->_propDict["authenticationMethodsRegistrationCampaign"])) {
                 return $this->_propDict["authenticationMethodsRegistrationCampaign"];
             } else {
                 $this->_propDict["authenticationMethodsRegistrationCampaign"] = new AuthenticationMethodsRegistrationCampaign($this->_propDict["authenticationMethodsRegistrationCampaign"]);
@@ -45,18 +46,17 @@ class RegistrationEnforcement extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the authenticationMethodsRegistrationCampaign
-    * Run campaigns to remind users to setup targeted authentication methods.
-    *
-    * @param AuthenticationMethodsRegistrationCampaign $val The value to assign to the authenticationMethodsRegistrationCampaign
-    *
-    * @return RegistrationEnforcement The RegistrationEnforcement
-    */
+     * Sets the authenticationMethodsRegistrationCampaign
+     * Run campaigns to remind users to setup targeted authentication methods.
+     *
+     * @param AuthenticationMethodsRegistrationCampaign $val The value to assign to the authenticationMethodsRegistrationCampaign
+     *
+     * @return RegistrationEnforcement The RegistrationEnforcement
+     */
     public function setAuthenticationMethodsRegistrationCampaign($val)
     {
         $this->_propDict["authenticationMethodsRegistrationCampaign"] = $val;
-         return $this;
+        return $this;
     }
 }

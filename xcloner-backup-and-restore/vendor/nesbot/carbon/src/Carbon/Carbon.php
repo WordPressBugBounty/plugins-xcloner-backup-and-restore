@@ -8,18 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon;
 
-namespace Carbon;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Carbon\Traits\Date;
-use Carbon\Traits\DeprecatedProperties;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Carbon\Traits\Date;
+use XCloner\Carbon\Traits\DeprecatedProperties;
 use DateTime;
 use DateTimeInterface;
 use DateTimeZone;
-
 /**
  * A simple API extension for DateTime.
  *
@@ -513,7 +511,6 @@ use DateTimeZone;
 class Carbon extends DateTime implements CarbonInterface
 {
     use Date;
-
     /**
      * Returns true if the current class/instance is mutable.
      *
@@ -521,6 +518,6 @@ class Carbon extends DateTime implements CarbonInterface
      */
     public static function isMutable()
     {
-        return true;
+        return \true;
     }
 }

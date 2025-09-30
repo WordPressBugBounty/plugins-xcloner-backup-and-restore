@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppContent class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MobileAppContent extends Entity
 {
-
-     /**
+    /**
      * Gets the files
-    * The list of files for this app content version.
+     * The list of files for this app content version.
      *
      * @return array|null The files
      */
     public function getFiles()
     {
         if (array_key_exists("files", $this->_propDict)) {
-           return $this->_propDict["files"];
+            return $this->_propDict["files"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the files
-    * The list of files for this app content version.
-    *
-    * @param MobileAppContentFile[] $val The files
-    *
-    * @return MobileAppContent
-    */
+     * Sets the files
+     * The list of files for this app content version.
+     *
+     * @param MobileAppContentFile[] $val The files
+     *
+     * @return MobileAppContent
+     */
     public function setFiles($val)
     {
         $this->_propDict["files"] = $val;
         return $this;
     }
-
 }

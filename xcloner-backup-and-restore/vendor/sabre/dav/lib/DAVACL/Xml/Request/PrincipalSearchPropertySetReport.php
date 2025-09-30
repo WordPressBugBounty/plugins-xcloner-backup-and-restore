@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Request;
 
-namespace Sabre\DAVACL\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * PrincipalSearchPropertySetReport request parser.
  *
@@ -50,12 +48,9 @@ class PrincipalSearchPropertySetReport implements XmlDeserializable
         if (!$reader->isEmptyElement) {
             throw new BadRequest('The {DAV:}principal-search-property-set element must be empty');
         }
-
         // The element is actually empty, so there's not much to do.
         $reader->next();
-
         $self = new self();
-
         return $self;
     }
 }

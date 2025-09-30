@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Browser\HtmlOutput;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Browser\HtmlOutput;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
 /**
  * {DAV:}resourcetype property.
  *
@@ -39,7 +37,6 @@ class ResourceType extends Element\Elements implements HtmlOutput
     {
         parent::__construct((array) $resourceTypes);
     }
-
     /**
      * Returns the values in clark-notation.
      *
@@ -51,7 +48,6 @@ class ResourceType extends Element\Elements implements HtmlOutput
     {
         return $this->value;
     }
-
     /**
      * Checks if the principal contains a certain value.
      *
@@ -63,7 +59,6 @@ class ResourceType extends Element\Elements implements HtmlOutput
     {
         return in_array($type, $this->value);
     }
-
     /**
      * Adds a resourcetype value to this property.
      *
@@ -74,7 +69,6 @@ class ResourceType extends Element\Elements implements HtmlOutput
         $this->value[] = $type;
         $this->value = array_unique($this->value);
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -99,7 +93,6 @@ class ResourceType extends Element\Elements implements HtmlOutput
     {
         return new self(parent::xmlDeserialize($reader));
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -115,9 +108,6 @@ class ResourceType extends Element\Elements implements HtmlOutput
      */
     public function toHtml(HtmlOutputHelper $html)
     {
-        return implode(
-            ', ',
-            array_map([$html, 'xmlName'], $this->getValue())
-        );
+        return implode(', ', array_map([$html, 'xmlName'], $this->getValue()));
     }
 }

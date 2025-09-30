@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrincipalResourceMembershipsScope class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PrincipalResourceMembershipsScope extends AccessReviewScope
 {
-
     /**
-    * Gets the principalScopes
-    * Defines the scopes of the principals whose access to resources are reviewed in the access review.
-    *
-    * @return AccessReviewScope|null The principalScopes
-    */
+     * Gets the principalScopes
+     * Defines the scopes of the principals whose access to resources are reviewed in the access review.
+     *
+     * @return AccessReviewScope|null The principalScopes
+     */
     public function getPrincipalScopes()
     {
         if (array_key_exists("principalScopes", $this->_propDict)) {
-            if (is_a($this->_propDict["principalScopes"], "\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["principalScopes"])) {
+            if (is_a($this->_propDict["principalScopes"], "XCloner\\Microsoft\\Graph\\Model\\AccessReviewScope") || is_null($this->_propDict["principalScopes"])) {
                 return $this->_propDict["principalScopes"];
             } else {
                 $this->_propDict["principalScopes"] = new AccessReviewScope($this->_propDict["principalScopes"]);
@@ -45,31 +46,29 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope
         }
         return null;
     }
-
     /**
-    * Sets the principalScopes
-    * Defines the scopes of the principals whose access to resources are reviewed in the access review.
-    *
-    * @param AccessReviewScope $val The value to assign to the principalScopes
-    *
-    * @return PrincipalResourceMembershipsScope The PrincipalResourceMembershipsScope
-    */
+     * Sets the principalScopes
+     * Defines the scopes of the principals whose access to resources are reviewed in the access review.
+     *
+     * @param AccessReviewScope $val The value to assign to the principalScopes
+     *
+     * @return PrincipalResourceMembershipsScope The PrincipalResourceMembershipsScope
+     */
     public function setPrincipalScopes($val)
     {
         $this->_propDict["principalScopes"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the resourceScopes
-    * Defines the scopes of the resources for which access is reviewed.
-    *
-    * @return AccessReviewScope|null The resourceScopes
-    */
+     * Gets the resourceScopes
+     * Defines the scopes of the resources for which access is reviewed.
+     *
+     * @return AccessReviewScope|null The resourceScopes
+     */
     public function getResourceScopes()
     {
         if (array_key_exists("resourceScopes", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceScopes"], "\Microsoft\Graph\Model\AccessReviewScope") || is_null($this->_propDict["resourceScopes"])) {
+            if (is_a($this->_propDict["resourceScopes"], "XCloner\\Microsoft\\Graph\\Model\\AccessReviewScope") || is_null($this->_propDict["resourceScopes"])) {
                 return $this->_propDict["resourceScopes"];
             } else {
                 $this->_propDict["resourceScopes"] = new AccessReviewScope($this->_propDict["resourceScopes"]);
@@ -78,18 +77,17 @@ class PrincipalResourceMembershipsScope extends AccessReviewScope
         }
         return null;
     }
-
     /**
-    * Sets the resourceScopes
-    * Defines the scopes of the resources for which access is reviewed.
-    *
-    * @param AccessReviewScope $val The value to assign to the resourceScopes
-    *
-    * @return PrincipalResourceMembershipsScope The PrincipalResourceMembershipsScope
-    */
+     * Sets the resourceScopes
+     * Defines the scopes of the resources for which access is reviewed.
+     *
+     * @param AccessReviewScope $val The value to assign to the resourceScopes
+     *
+     * @return PrincipalResourceMembershipsScope The PrincipalResourceMembershipsScope
+     */
     public function setResourceScopes($val)
     {
         $this->_propDict["resourceScopes"] = $val;
-         return $this;
+        return $this;
     }
 }

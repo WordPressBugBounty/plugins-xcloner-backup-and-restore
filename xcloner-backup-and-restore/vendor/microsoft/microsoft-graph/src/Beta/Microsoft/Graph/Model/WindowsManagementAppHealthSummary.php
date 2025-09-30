@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsManagementAppHealthSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsManagementAppHealthSummary extends Entity
 {
     /**
-    * Gets the healthyDeviceCount
-    * Healthy device count.
-    *
-    * @return int|null The healthyDeviceCount
-    */
+     * Gets the healthyDeviceCount
+     * Healthy device count.
+     *
+     * @return int|null The healthyDeviceCount
+     */
     public function getHealthyDeviceCount()
     {
         if (array_key_exists("healthyDeviceCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WindowsManagementAppHealthSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the healthyDeviceCount
-    * Healthy device count.
-    *
-    * @param int $val The healthyDeviceCount
-    *
-    * @return WindowsManagementAppHealthSummary
-    */
+     * Sets the healthyDeviceCount
+     * Healthy device count.
+     *
+     * @param int $val The healthyDeviceCount
+     *
+     * @return WindowsManagementAppHealthSummary
+     */
     public function setHealthyDeviceCount($val)
     {
         $this->_propDict["healthyDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unhealthyDeviceCount
-    * Unhealthy device count.
-    *
-    * @return int|null The unhealthyDeviceCount
-    */
+     * Gets the unhealthyDeviceCount
+     * Unhealthy device count.
+     *
+     * @return int|null The unhealthyDeviceCount
+     */
     public function getUnhealthyDeviceCount()
     {
         if (array_key_exists("unhealthyDeviceCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class WindowsManagementAppHealthSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unhealthyDeviceCount
-    * Unhealthy device count.
-    *
-    * @param int $val The unhealthyDeviceCount
-    *
-    * @return WindowsManagementAppHealthSummary
-    */
+     * Sets the unhealthyDeviceCount
+     * Unhealthy device count.
+     *
+     * @param int $val The unhealthyDeviceCount
+     *
+     * @return WindowsManagementAppHealthSummary
+     */
     public function setUnhealthyDeviceCount($val)
     {
         $this->_propDict["unhealthyDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unknownDeviceCount
-    * Unknown device count.
-    *
-    * @return int|null The unknownDeviceCount
-    */
+     * Gets the unknownDeviceCount
+     * Unknown device count.
+     *
+     * @return int|null The unknownDeviceCount
+     */
     public function getUnknownDeviceCount()
     {
         if (array_key_exists("unknownDeviceCount", $this->_propDict)) {
@@ -99,19 +96,17 @@ class WindowsManagementAppHealthSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownDeviceCount
-    * Unknown device count.
-    *
-    * @param int $val The unknownDeviceCount
-    *
-    * @return WindowsManagementAppHealthSummary
-    */
+     * Sets the unknownDeviceCount
+     * Unknown device count.
+     *
+     * @param int $val The unknownDeviceCount
+     *
+     * @return WindowsManagementAppHealthSummary
+     */
     public function setUnknownDeviceCount($val)
     {
         $this->_propDict["unknownDeviceCount"] = intval($val);
         return $this;
     }
-
 }

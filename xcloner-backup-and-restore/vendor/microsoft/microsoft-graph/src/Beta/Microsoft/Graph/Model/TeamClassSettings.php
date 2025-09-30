@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamClassSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamClassSettings extends Entity
 {
     /**
-    * Gets the notifyGuardiansAboutAssignments
-    * If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally.
-    *
-    * @return bool|null The notifyGuardiansAboutAssignments
-    */
+     * Gets the notifyGuardiansAboutAssignments
+     * If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally.
+     *
+     * @return bool|null The notifyGuardiansAboutAssignments
+     */
     public function getNotifyGuardiansAboutAssignments()
     {
         if (array_key_exists("notifyGuardiansAboutAssignments", $this->_propDict)) {
@@ -40,15 +42,14 @@ class TeamClassSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notifyGuardiansAboutAssignments
-    * If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally.
-    *
-    * @param bool $val The value of the notifyGuardiansAboutAssignments
-    *
-    * @return TeamClassSettings
-    */
+     * Sets the notifyGuardiansAboutAssignments
+     * If set to true, enables sending of weekly assignments digest emails to parents/guardians, provided the tenant admin has enabled the setting globally.
+     *
+     * @param bool $val The value of the notifyGuardiansAboutAssignments
+     *
+     * @return TeamClassSettings
+     */
     public function setNotifyGuardiansAboutAssignments($val)
     {
         $this->_propDict["notifyGuardiansAboutAssignments"] = $val;

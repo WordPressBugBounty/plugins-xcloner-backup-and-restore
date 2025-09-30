@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ThumbnailSet class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ThumbnailSet extends Entity
 {
     /**
-    * Gets the large
-    * A 1920x1920 scaled thumbnail.
-    *
-    * @return Thumbnail|null The large
-    */
+     * Gets the large
+     * A 1920x1920 scaled thumbnail.
+     *
+     * @return Thumbnail|null The large
+     */
     public function getLarge()
     {
         if (array_key_exists("large", $this->_propDict)) {
-            if (is_a($this->_propDict["large"], "\Microsoft\Graph\Model\Thumbnail") || is_null($this->_propDict["large"])) {
+            if (is_a($this->_propDict["large"], "XCloner\\Microsoft\\Graph\\Model\\Thumbnail") || is_null($this->_propDict["large"])) {
                 return $this->_propDict["large"];
             } else {
                 $this->_propDict["large"] = new Thumbnail($this->_propDict["large"]);
@@ -45,31 +46,29 @@ class ThumbnailSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the large
-    * A 1920x1920 scaled thumbnail.
-    *
-    * @param Thumbnail $val The large
-    *
-    * @return ThumbnailSet
-    */
+     * Sets the large
+     * A 1920x1920 scaled thumbnail.
+     *
+     * @param Thumbnail $val The large
+     *
+     * @return ThumbnailSet
+     */
     public function setLarge($val)
     {
         $this->_propDict["large"] = $val;
         return $this;
     }
-
     /**
-    * Gets the medium
-    * A 176x176 scaled thumbnail.
-    *
-    * @return Thumbnail|null The medium
-    */
+     * Gets the medium
+     * A 176x176 scaled thumbnail.
+     *
+     * @return Thumbnail|null The medium
+     */
     public function getMedium()
     {
         if (array_key_exists("medium", $this->_propDict)) {
-            if (is_a($this->_propDict["medium"], "\Microsoft\Graph\Model\Thumbnail") || is_null($this->_propDict["medium"])) {
+            if (is_a($this->_propDict["medium"], "XCloner\\Microsoft\\Graph\\Model\\Thumbnail") || is_null($this->_propDict["medium"])) {
                 return $this->_propDict["medium"];
             } else {
                 $this->_propDict["medium"] = new Thumbnail($this->_propDict["medium"]);
@@ -78,31 +77,29 @@ class ThumbnailSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the medium
-    * A 176x176 scaled thumbnail.
-    *
-    * @param Thumbnail $val The medium
-    *
-    * @return ThumbnailSet
-    */
+     * Sets the medium
+     * A 176x176 scaled thumbnail.
+     *
+     * @param Thumbnail $val The medium
+     *
+     * @return ThumbnailSet
+     */
     public function setMedium($val)
     {
         $this->_propDict["medium"] = $val;
         return $this;
     }
-
     /**
-    * Gets the small
-    * A 48x48 cropped thumbnail.
-    *
-    * @return Thumbnail|null The small
-    */
+     * Gets the small
+     * A 48x48 cropped thumbnail.
+     *
+     * @return Thumbnail|null The small
+     */
     public function getSmall()
     {
         if (array_key_exists("small", $this->_propDict)) {
-            if (is_a($this->_propDict["small"], "\Microsoft\Graph\Model\Thumbnail") || is_null($this->_propDict["small"])) {
+            if (is_a($this->_propDict["small"], "XCloner\\Microsoft\\Graph\\Model\\Thumbnail") || is_null($this->_propDict["small"])) {
                 return $this->_propDict["small"];
             } else {
                 $this->_propDict["small"] = new Thumbnail($this->_propDict["small"]);
@@ -111,31 +108,29 @@ class ThumbnailSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the small
-    * A 48x48 cropped thumbnail.
-    *
-    * @param Thumbnail $val The small
-    *
-    * @return ThumbnailSet
-    */
+     * Sets the small
+     * A 48x48 cropped thumbnail.
+     *
+     * @param Thumbnail $val The small
+     *
+     * @return ThumbnailSet
+     */
     public function setSmall($val)
     {
         $this->_propDict["small"] = $val;
         return $this;
     }
-
     /**
-    * Gets the source
-    * A custom thumbnail image or the original image used to generate other thumbnails.
-    *
-    * @return Thumbnail|null The source
-    */
+     * Gets the source
+     * A custom thumbnail image or the original image used to generate other thumbnails.
+     *
+     * @return Thumbnail|null The source
+     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
-            if (is_a($this->_propDict["source"], "\Microsoft\Graph\Model\Thumbnail") || is_null($this->_propDict["source"])) {
+            if (is_a($this->_propDict["source"], "XCloner\\Microsoft\\Graph\\Model\\Thumbnail") || is_null($this->_propDict["source"])) {
                 return $this->_propDict["source"];
             } else {
                 $this->_propDict["source"] = new Thumbnail($this->_propDict["source"]);
@@ -144,19 +139,17 @@ class ThumbnailSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the source
-    * A custom thumbnail image or the original image used to generate other thumbnails.
-    *
-    * @param Thumbnail $val The source
-    *
-    * @return ThumbnailSet
-    */
+     * Sets the source
+     * A custom thumbnail image or the original image used to generate other thumbnails.
+     *
+     * @param Thumbnail $val The source
+     *
+     * @return ThumbnailSet
+     */
     public function setSource($val)
     {
         $this->_propDict["source"] = $val;
         return $this;
     }
-
 }

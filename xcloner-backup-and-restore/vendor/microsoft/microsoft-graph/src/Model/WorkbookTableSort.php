@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookTableSort class
 *
@@ -27,42 +28,39 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WorkbookTableSort extends Entity
 {
-
-     /**
+    /**
      * Gets the fields
-    * Represents the current conditions used to last sort the table. Read-only.
+     * Represents the current conditions used to last sort the table. Read-only.
      *
      * @return array|null The fields
      */
     public function getFields()
     {
         if (array_key_exists("fields", $this->_propDict)) {
-           return $this->_propDict["fields"];
+            return $this->_propDict["fields"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the fields
-    * Represents the current conditions used to last sort the table. Read-only.
-    *
-    * @param WorkbookSortField[] $val The fields
-    *
-    * @return WorkbookTableSort
-    */
+     * Sets the fields
+     * Represents the current conditions used to last sort the table. Read-only.
+     *
+     * @param WorkbookSortField[] $val The fields
+     *
+     * @return WorkbookTableSort
+     */
     public function setFields($val)
     {
         $this->_propDict["fields"] = $val;
         return $this;
     }
-
     /**
-    * Gets the matchCase
-    * Represents whether the casing impacted the last sort of the table. Read-only.
-    *
-    * @return bool|null The matchCase
-    */
+     * Gets the matchCase
+     * Represents whether the casing impacted the last sort of the table. Read-only.
+     *
+     * @return bool|null The matchCase
+     */
     public function getMatchCase()
     {
         if (array_key_exists("matchCase", $this->_propDict)) {
@@ -71,27 +69,25 @@ class WorkbookTableSort extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the matchCase
-    * Represents whether the casing impacted the last sort of the table. Read-only.
-    *
-    * @param bool $val The matchCase
-    *
-    * @return WorkbookTableSort
-    */
+     * Sets the matchCase
+     * Represents whether the casing impacted the last sort of the table. Read-only.
+     *
+     * @param bool $val The matchCase
+     *
+     * @return WorkbookTableSort
+     */
     public function setMatchCase($val)
     {
         $this->_propDict["matchCase"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the method
-    * Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
-    *
-    * @return string|null The method
-    */
+     * Gets the method
+     * Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
+     *
+     * @return string|null The method
+     */
     public function getMethod()
     {
         if (array_key_exists("method", $this->_propDict)) {
@@ -100,19 +96,17 @@ class WorkbookTableSort extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the method
-    * Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
-    *
-    * @param string $val The method
-    *
-    * @return WorkbookTableSort
-    */
+     * Sets the method
+     * Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
+     *
+     * @param string $val The method
+     *
+     * @return WorkbookTableSort
+     */
     public function setMethod($val)
     {
         $this->_propDict["method"] = $val;
         return $this;
     }
-
 }

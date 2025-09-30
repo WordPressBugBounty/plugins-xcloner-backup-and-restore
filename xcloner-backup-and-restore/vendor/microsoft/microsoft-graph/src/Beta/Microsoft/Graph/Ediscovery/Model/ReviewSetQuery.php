@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ReviewSetQuery class
 *
@@ -25,51 +26,49 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ReviewSetQuery extends \Beta\Microsoft\Graph\Model\Entity
+class ReviewSetQuery extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the createdBy
-    * The user who created the query.
-    *
-    * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The createdBy
-    */
+     * Gets the createdBy
+     * The user who created the query.
+     *
+     * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The createdBy
+     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
-                $this->_propDict["createdBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
+                $this->_propDict["createdBy"] = new \XCloner\Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["createdBy"]);
                 return $this->_propDict["createdBy"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the createdBy
-    * The user who created the query.
-    *
-    * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The createdBy
-    *
-    * @return ReviewSetQuery
-    */
+     * Sets the createdBy
+     * The user who created the query.
+     *
+     * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The createdBy
+     *
+     * @return ReviewSetQuery
+     */
     public function setCreatedBy($val)
     {
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -78,27 +77,25 @@ class ReviewSetQuery extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return ReviewSetQuery
-    */
+     * Sets the createdDateTime
+     * The time and date when the query was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return ReviewSetQuery
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the query.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the query.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -107,64 +104,60 @@ class ReviewSetQuery extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the query.
-    *
-    * @param string $val The displayName
-    *
-    * @return ReviewSetQuery
-    */
+     * Sets the displayName
+     * The name of the query.
+     *
+     * @param string $val The displayName
+     *
+     * @return ReviewSetQuery
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedBy
-    * The user who last modified the query.
-    *
-    * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The lastModifiedBy
-    */
+     * Gets the lastModifiedBy
+     * The user who last modified the query.
+     *
+     * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The lastModifiedBy
+     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
-                $this->_propDict["lastModifiedBy"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["lastModifiedBy"]);
+                $this->_propDict["lastModifiedBy"] = new \XCloner\Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["lastModifiedBy"]);
                 return $this->_propDict["lastModifiedBy"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedBy
-    * The user who last modified the query.
-    *
-    * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The lastModifiedBy
-    *
-    * @return ReviewSetQuery
-    */
+     * Sets the lastModifiedBy
+     * The user who last modified the query.
+     *
+     * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The lastModifiedBy
+     *
+     * @return ReviewSetQuery
+     */
     public function setLastModifiedBy($val)
     {
         $this->_propDict["lastModifiedBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -173,27 +166,25 @@ class ReviewSetQuery extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return ReviewSetQuery
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time the query was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return ReviewSetQuery
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the query
-    * The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date&amp;gt;=06/01/2016 AND Date&amp;lt;=07/01/2016.
-    *
-    * @return string|null The query
-    */
+     * Gets the query
+     * The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date&amp;gt;=06/01/2016 AND Date&amp;lt;=07/01/2016.
+     *
+     * @return string|null The query
+     */
     public function getQuery()
     {
         if (array_key_exists("query", $this->_propDict)) {
@@ -202,19 +193,17 @@ class ReviewSetQuery extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the query
-    * The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date&amp;gt;=06/01/2016 AND Date&amp;lt;=07/01/2016.
-    *
-    * @param string $val The query
-    *
-    * @return ReviewSetQuery
-    */
+     * Sets the query
+     * The query string in KQL (Keyword Query Language) query. For details, see Document metadata fields in Advanced eDiscovery.  This field maps directly to the keywords condition.  You can refine searches by using fields listed in the searchable field name paired with values; for example, subject:'Quarterly Financials' AND Date&amp;gt;=06/01/2016 AND Date&amp;lt;=07/01/2016.
+     *
+     * @param string $val The query
+     *
+     * @return ReviewSetQuery
+     */
     public function setQuery($val)
     {
         $this->_propDict["query"] = $val;
         return $this;
     }
-
 }

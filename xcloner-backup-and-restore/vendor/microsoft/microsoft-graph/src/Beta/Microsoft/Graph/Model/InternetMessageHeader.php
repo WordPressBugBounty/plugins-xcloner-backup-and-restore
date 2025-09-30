@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InternetMessageHeader class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InternetMessageHeader extends Entity
 {
     /**
-    * Gets the name
-    * Represents the key in a key-value pair.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Represents the key in a key-value pair.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class InternetMessageHeader extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Represents the key in a key-value pair.
-    *
-    * @param string $val The value of the name
-    *
-    * @return InternetMessageHeader
-    */
+     * Sets the name
+     * Represents the key in a key-value pair.
+     *
+     * @param string $val The value of the name
+     *
+     * @return InternetMessageHeader
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * The value in a key-value pair.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * The value in a key-value pair.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -68,15 +69,14 @@ class InternetMessageHeader extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The value in a key-value pair.
-    *
-    * @param string $val The value of the value
-    *
-    * @return InternetMessageHeader
-    */
+     * Sets the value
+     * The value in a key-value pair.
+     *
+     * @param string $val The value of the value
+     *
+     * @return InternetMessageHeader
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

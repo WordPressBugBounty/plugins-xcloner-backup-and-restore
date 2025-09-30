@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserFlowLanguageConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserFlowLanguageConfiguration extends Entity
 {
     /**
-    * Gets the displayName
-    * The language name to display. This property is read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The language name to display. This property is read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UserFlowLanguageConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The language name to display. This property is read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return UserFlowLanguageConfiguration
-    */
+     * Sets the displayName
+     * The language name to display. This property is read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return UserFlowLanguageConfiguration
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isEnabled
-    * Indicates whether the language is enabled within the user flow.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Indicates whether the language is enabled within the user flow.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -70,79 +69,71 @@ class UserFlowLanguageConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Indicates whether the language is enabled within the user flow.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return UserFlowLanguageConfiguration
-    */
+     * Sets the isEnabled
+     * Indicates whether the language is enabled within the user flow.
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return UserFlowLanguageConfiguration
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the defaultPages
-    * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+     * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
      *
      * @return array|null The defaultPages
      */
     public function getDefaultPages()
     {
         if (array_key_exists("defaultPages", $this->_propDict)) {
-           return $this->_propDict["defaultPages"];
+            return $this->_propDict["defaultPages"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the defaultPages
-    * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
-    *
-    * @param UserFlowLanguagePage[] $val The defaultPages
-    *
-    * @return UserFlowLanguageConfiguration
-    */
+     * Sets the defaultPages
+     * Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.
+     *
+     * @param UserFlowLanguagePage[] $val The defaultPages
+     *
+     * @return UserFlowLanguageConfiguration
+     */
     public function setDefaultPages($val)
     {
         $this->_propDict["defaultPages"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the overridesPages
-    * Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
+     * Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
      *
      * @return array|null The overridesPages
      */
     public function getOverridesPages()
     {
         if (array_key_exists("overridesPages", $this->_propDict)) {
-           return $this->_propDict["overridesPages"];
+            return $this->_propDict["overridesPages"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the overridesPages
-    * Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
-    *
-    * @param UserFlowLanguagePage[] $val The overridesPages
-    *
-    * @return UserFlowLanguageConfiguration
-    */
+     * Sets the overridesPages
+     * Collection of pages with the overrides messages to display in a user flow for a specified language. This collection only allows to modify the content of the page, any other modification is not allowed (creation or deletion of pages).
+     *
+     * @param UserFlowLanguagePage[] $val The overridesPages
+     *
+     * @return UserFlowLanguageConfiguration
+     */
     public function setOverridesPages($val)
     {
         $this->_propDict["overridesPages"] = $val;
         return $this;
     }
-
 }

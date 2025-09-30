@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceAndAppManagementRoleAssignment class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceAndAppManagementRoleAssignment extends RoleAssignment
 {
     /**
-    * Gets the members
-    * The list of ids of role member security groups. These are IDs from Azure Active Directory.
-    *
-    * @return array|null The members
-    */
+     * Gets the members
+     * The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     *
+     * @return array|null The members
+     */
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment
             return null;
         }
     }
-
     /**
-    * Sets the members
-    * The list of ids of role member security groups. These are IDs from Azure Active Directory.
-    *
-    * @param string[] $val The members
-    *
-    * @return DeviceAndAppManagementRoleAssignment
-    */
+     * Sets the members
+     * The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     *
+     * @param string[] $val The members
+     *
+     * @return DeviceAndAppManagementRoleAssignment
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\DeviceManagementNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\DeviceManagementNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RuleThreshold class
 *
@@ -24,18 +26,17 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
+class RuleThreshold extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the aggregation
-    *
-    * @return AggregationType|null The aggregation
-    */
+     * Gets the aggregation
+     *
+     * @return AggregationType|null The aggregation
+     */
     public function getAggregation()
     {
         if (array_key_exists("aggregation", $this->_propDict)) {
-            if (is_a($this->_propDict["aggregation"], "\Beta\Microsoft\Graph\DeviceManagementNamespace\Model\AggregationType") || is_null($this->_propDict["aggregation"])) {
+            if (is_a($this->_propDict["aggregation"], "XCloner\\Beta\\Microsoft\\Graph\\DeviceManagementNamespace\\Model\\AggregationType") || is_null($this->_propDict["aggregation"])) {
                 return $this->_propDict["aggregation"];
             } else {
                 $this->_propDict["aggregation"] = new AggregationType($this->_propDict["aggregation"]);
@@ -44,29 +45,27 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the aggregation
-    *
-    * @param AggregationType $val The value to assign to the aggregation
-    *
-    * @return RuleThreshold The RuleThreshold
-    */
+     * Sets the aggregation
+     *
+     * @param AggregationType $val The value to assign to the aggregation
+     *
+     * @return RuleThreshold The RuleThreshold
+     */
     public function setAggregation($val)
     {
         $this->_propDict["aggregation"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the operator
-    *
-    * @return OperatorType|null The operator
-    */
+     * Gets the operator
+     *
+     * @return OperatorType|null The operator
+     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
-            if (is_a($this->_propDict["operator"], "\Beta\Microsoft\Graph\DeviceManagementNamespace\Model\OperatorType") || is_null($this->_propDict["operator"])) {
+            if (is_a($this->_propDict["operator"], "XCloner\\Beta\\Microsoft\\Graph\\DeviceManagementNamespace\\Model\\OperatorType") || is_null($this->_propDict["operator"])) {
                 return $this->_propDict["operator"];
             } else {
                 $this->_propDict["operator"] = new OperatorType($this->_propDict["operator"]);
@@ -75,24 +74,23 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the operator
-    *
-    * @param OperatorType $val The value to assign to the operator
-    *
-    * @return RuleThreshold The RuleThreshold
-    */
+     * Sets the operator
+     *
+     * @param OperatorType $val The value to assign to the operator
+     *
+     * @return RuleThreshold The RuleThreshold
+     */
     public function setOperator($val)
     {
         $this->_propDict["operator"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the target
-    *
-    * @return int|null The target
-    */
+     * Gets the target
+     *
+     * @return int|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
@@ -101,14 +99,13 @@ class RuleThreshold extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the target
-    *
-    * @param int $val The value of the target
-    *
-    * @return RuleThreshold
-    */
+     * Sets the target
+     *
+     * @param int $val The value of the target
+     *
+     * @return RuleThreshold
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;

@@ -8,19 +8,17 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Traits;
 
-namespace Carbon\Traits;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Carbon\Carbon;
-use Carbon\CarbonImmutable;
-use Carbon\CarbonInterface;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Carbon\Carbon;
+use XCloner\Carbon\CarbonImmutable;
+use XCloner\Carbon\CarbonInterface;
 use Closure;
 use DateTimeImmutable;
 use DateTimeInterface;
-
 trait IntervalStep
 {
     /**
@@ -29,7 +27,6 @@ trait IntervalStep
      * @var Closure|null
      */
     protected $step;
-
     /**
      * Get the dynamic step in use.
      *
@@ -39,7 +36,6 @@ trait IntervalStep
     {
         return $this->step;
     }
-
     /**
      * Set a step to apply instead of a fixed interval to get the new date.
      *
@@ -51,7 +47,6 @@ trait IntervalStep
     {
         $this->step = $step;
     }
-
     /**
      * Take a date and apply either the step if set, or the current interval else.
      *
@@ -62,22 +57,18 @@ trait IntervalStep
      *
      * @return CarbonInterface
      */
-    public function convertDate(DateTimeInterface $dateTime, bool $negated = false): CarbonInterface
+    public function convertDate(DateTimeInterface $dateTime, bool $negated = \false): CarbonInterface
     {
         /** @var CarbonInterface $carbonDate */
         $carbonDate = $dateTime instanceof CarbonInterface ? $dateTime : $this->resolveCarbon($dateTime);
-
         if ($this->step) {
             return $carbonDate->setDateTimeFrom(($this->step)($carbonDate->avoidMutation(), $negated));
         }
-
         if ($negated) {
             return $carbonDate->rawSub($this);
         }
-
         return $carbonDate->rawAdd($this);
     }
-
     /**
      * Convert DateTimeImmutable instance to CarbonImmutable instance and DateTime instance to Carbon instance.
      *
@@ -90,7 +81,6 @@ trait IntervalStep
         if ($dateTime instanceof DateTimeImmutable) {
             return CarbonImmutable::instance($dateTime);
         }
-
         return Carbon::instance($dateTime);
     }
 }

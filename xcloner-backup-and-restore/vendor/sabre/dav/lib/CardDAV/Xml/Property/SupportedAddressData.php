@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV\Xml\Property;
 
-namespace Sabre\CardDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CardDAV\Plugin;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CardDAV\Plugin;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * Supported-address-data property.
  *
@@ -33,23 +31,16 @@ class SupportedAddressData implements XmlSerializable
      * @var array
      */
     protected $supportedData = [];
-
     /**
      * Creates the property.
      */
     public function __construct(array $supportedData = null)
     {
         if (is_null($supportedData)) {
-            $supportedData = [
-                ['contentType' => 'text/vcard', 'version' => '3.0'],
-                ['contentType' => 'text/vcard', 'version' => '4.0'],
-                ['contentType' => 'application/vcard+json', 'version' => '4.0'],
-            ];
+            $supportedData = [['contentType' => 'text/vcard', 'version' => '3.0'], ['contentType' => 'text/vcard', 'version' => '4.0'], ['contentType' => 'application/vcard+json', 'version' => '4.0']];
         }
-
         $this->supportedData = $supportedData;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -69,12 +60,10 @@ class SupportedAddressData implements XmlSerializable
     public function xmlSerialize(Writer $writer)
     {
         foreach ($this->supportedData as $supported) {
-            $writer->startElement('{'.Plugin::NS_CARDDAV.'}address-data-type');
-            $writer->writeAttributes([
-                'content-type' => $supported['contentType'],
-                'version' => $supported['version'],
-                ]);
-            $writer->endElement(); // address-data-type
+            $writer->startElement('{' . Plugin::NS_CARDDAV . '}address-data-type');
+            $writer->writeAttributes(['content-type' => $supported['contentType'], 'version' => $supported['version']]);
+            $writer->endElement();
+            // address-data-type
         }
     }
 }

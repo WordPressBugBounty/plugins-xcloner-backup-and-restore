@@ -1,10 +1,10 @@
 <?php
 
-namespace Psr\Http\Message;
+namespace XCloner\Psr\Http\Message;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Representation of an outgoing, client-side request.
  *
@@ -43,7 +43,6 @@ interface RequestInterface extends MessageInterface
      * @return string
      */
     public function getRequestTarget();
-
     /**
      * Return an instance with the specific request-target.
      *
@@ -62,14 +61,12 @@ interface RequestInterface extends MessageInterface
      * @return static
      */
     public function withRequestTarget($requestTarget);
-
     /**
      * Retrieves the HTTP method of the request.
      *
      * @return string Returns the request method.
      */
     public function getMethod();
-
     /**
      * Return an instance with the provided HTTP method.
      *
@@ -86,7 +83,6 @@ interface RequestInterface extends MessageInterface
      * @throws \InvalidArgumentException for invalid HTTP methods.
      */
     public function withMethod($method);
-
     /**
      * Retrieves the URI instance.
      *
@@ -97,7 +93,6 @@ interface RequestInterface extends MessageInterface
      *     representing the URI of the request.
      */
     public function getUri();
-
     /**
      * Returns an instance with the provided URI.
      *
@@ -128,5 +123,5 @@ interface RequestInterface extends MessageInterface
      * @param bool $preserveHost Preserve the original state of the Host header.
      * @return static
      */
-    public function withUri(UriInterface $uri, $preserveHost = false);
+    public function withUri(UriInterface $uri, $preserveHost = \false);
 }

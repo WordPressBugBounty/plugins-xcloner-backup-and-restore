@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChatMessageReaction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ChatMessageReaction extends Entity
 {
-
     /**
-    * Gets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,26 +46,25 @@ class ChatMessageReaction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the createdDateTime
-    *
-    * @return ChatMessageReaction The ChatMessageReaction
-    */
+     * Sets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the createdDateTime
+     *
+     * @return ChatMessageReaction The ChatMessageReaction
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the reactionType
-    * Supported values are like, angry, sad, laugh, heart, surprised.
-    *
-    * @return string|null The reactionType
-    */
+     * Gets the reactionType
+     * Supported values are like, angry, sad, laugh, heart, surprised.
+     *
+     * @return string|null The reactionType
+     */
     public function getReactionType()
     {
         if (array_key_exists("reactionType", $this->_propDict)) {
@@ -73,31 +73,29 @@ class ChatMessageReaction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the reactionType
-    * Supported values are like, angry, sad, laugh, heart, surprised.
-    *
-    * @param string $val The value of the reactionType
-    *
-    * @return ChatMessageReaction
-    */
+     * Sets the reactionType
+     * Supported values are like, angry, sad, laugh, heart, surprised.
+     *
+     * @param string $val The value of the reactionType
+     *
+     * @return ChatMessageReaction
+     */
     public function setReactionType($val)
     {
         $this->_propDict["reactionType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the user
-    * The user who reacted to the message.
-    *
-    * @return ChatMessageReactionIdentitySet|null The user
-    */
+     * Gets the user
+     * The user who reacted to the message.
+     *
+     * @return ChatMessageReactionIdentitySet|null The user
+     */
     public function getUser()
     {
         if (array_key_exists("user", $this->_propDict)) {
-            if (is_a($this->_propDict["user"], "\Beta\Microsoft\Graph\Model\ChatMessageReactionIdentitySet") || is_null($this->_propDict["user"])) {
+            if (is_a($this->_propDict["user"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ChatMessageReactionIdentitySet") || is_null($this->_propDict["user"])) {
                 return $this->_propDict["user"];
             } else {
                 $this->_propDict["user"] = new ChatMessageReactionIdentitySet($this->_propDict["user"]);
@@ -106,18 +104,17 @@ class ChatMessageReaction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the user
-    * The user who reacted to the message.
-    *
-    * @param ChatMessageReactionIdentitySet $val The value to assign to the user
-    *
-    * @return ChatMessageReaction The ChatMessageReaction
-    */
+     * Sets the user
+     * The user who reacted to the message.
+     *
+     * @param ChatMessageReactionIdentitySet $val The value to assign to the user
+     *
+     * @return ChatMessageReaction The ChatMessageReaction
+     */
     public function setUser($val)
     {
         $this->_propDict["user"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
 /**
  * Optional parameters for listBlobs API.
  *
@@ -43,7 +41,6 @@ use MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
 class ListBlobsOptions extends BlobServiceOptions
 {
     use MarkerContinuationTokenTrait;
-
     private $_prefix;
     private $_delimiter;
     private $_maxResults;
@@ -52,7 +49,6 @@ class ListBlobsOptions extends BlobServiceOptions
     private $_includeUncommittedBlobs;
     private $_includeCopy;
     private $_includeDeleted;
-
     /**
      * Gets prefix.
      *
@@ -62,7 +58,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_prefix;
     }
-
     /**
      * Sets prefix.
      *
@@ -75,7 +70,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::canCastAsString($prefix, 'prefix');
         $this->_prefix = $prefix;
     }
-
     /**
      * Gets delimiter.
      *
@@ -85,7 +79,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_delimiter;
     }
-
     /**
      * Sets prefix.
      *
@@ -98,7 +91,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::canCastAsString($delimiter, 'delimiter');
         $this->_delimiter = $delimiter;
     }
-
     /**
      * Gets max results.
      *
@@ -108,7 +100,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_maxResults;
     }
-
     /**
      * Sets max results.
      *
@@ -121,7 +112,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::isInteger($maxResults, 'maxResults');
         $this->_maxResults = $maxResults;
     }
-
     /**
      * Indicates if metadata is included or not.
      *
@@ -131,7 +121,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_includeMetadata;
     }
-
     /**
      * Sets the include metadata flag.
      *
@@ -144,7 +133,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::isBoolean($includeMetadata);
         $this->_includeMetadata = $includeMetadata;
     }
-
     /**
      * Indicates if snapshots is included or not.
      *
@@ -154,7 +142,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_includeSnapshots;
     }
-
     /**
      * Sets the include snapshots flag.
      *
@@ -167,7 +154,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::isBoolean($includeSnapshots);
         $this->_includeSnapshots = $includeSnapshots;
     }
-
     /**
      * Indicates if uncommittedBlobs is included or not.
      *
@@ -177,7 +163,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_includeUncommittedBlobs;
     }
-
     /**
      * Sets the include uncommittedBlobs flag.
      *
@@ -190,7 +175,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::isBoolean($includeUncommittedBlobs);
         $this->_includeUncommittedBlobs = $includeUncommittedBlobs;
     }
-
     /**
      * Indicates if copy is included or not.
      *
@@ -200,7 +184,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_includeCopy;
     }
-
     /**
      * Sets the include copy flag.
      *
@@ -213,7 +196,6 @@ class ListBlobsOptions extends BlobServiceOptions
         Validate::isBoolean($includeCopy);
         $this->_includeCopy = $includeCopy;
     }
-
     /**
      * Indicates if deleted is included or not.
      *
@@ -223,7 +205,6 @@ class ListBlobsOptions extends BlobServiceOptions
     {
         return $this->_includeDeleted;
     }
-
     /**
      * Sets the include deleted flag.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Represents a quota for disk space.
  *
@@ -22,7 +24,7 @@ class Quota
     /**
      * unlimited quota
      */
-    const UNLIMITED   = -1;
+    const UNLIMITED = -1;
     /**
      * quota in bytes
      *
@@ -31,7 +33,6 @@ class Quota
      * @type  int
      */
     private $amount;
-
     /**
      * constructor
      *
@@ -41,7 +42,6 @@ class Quota
     {
         $this->amount = $amount;
     }
-
     /**
      * create with unlimited space
      *
@@ -51,7 +51,6 @@ class Quota
     {
         return new self(self::UNLIMITED);
     }
-
     /**
      * checks if a quota is set
      *
@@ -61,7 +60,6 @@ class Quota
     {
         return self::UNLIMITED < $this->amount;
     }
-
     /**
      * checks if given used space exceeda quota limit
      *
@@ -74,16 +72,13 @@ class Quota
         if (self::UNLIMITED === $this->amount) {
             return $usedSpace;
         }
-
         if ($usedSpace >= $this->amount) {
             return 0;
         }
-
         $spaceLeft = $this->amount - $usedSpace;
         if (0 >= $spaceLeft) {
             return 0;
         }
-
         return $spaceLeft;
     }
 }

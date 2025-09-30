@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * StsPolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class StsPolicy extends PolicyBase
 {
     /**
-    * Gets the definition
-    * A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.
-    *
-    * @return array|null The definition
-    */
+     * Gets the definition
+     * A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.
+     *
+     * @return array|null The definition
+     */
     public function getDefinition()
     {
         if (array_key_exists("definition", $this->_propDict)) {
@@ -41,27 +42,25 @@ class StsPolicy extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the definition
-    * A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.
-    *
-    * @param string[] $val The definition
-    *
-    * @return StsPolicy
-    */
+     * Sets the definition
+     * A string collection containing a JSON string that defines the rules and settings for a policy. The syntax for the definition differs for each derived policy type. Required.
+     *
+     * @param string[] $val The definition
+     *
+     * @return StsPolicy
+     */
     public function setDefinition($val)
     {
         $this->_propDict["definition"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isOrganizationDefault
-    * If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false.
-    *
-    * @return bool|null The isOrganizationDefault
-    */
+     * Gets the isOrganizationDefault
+     * If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false.
+     *
+     * @return bool|null The isOrganizationDefault
+     */
     public function getIsOrganizationDefault()
     {
         if (array_key_exists("isOrganizationDefault", $this->_propDict)) {
@@ -70,23 +69,20 @@ class StsPolicy extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the isOrganizationDefault
-    * If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false.
-    *
-    * @param bool $val The isOrganizationDefault
-    *
-    * @return StsPolicy
-    */
+     * Sets the isOrganizationDefault
+     * If set to true, activates this policy. There can be many policies for the same policy type, but only one can be activated as the organization default. Optional, default value is false.
+     *
+     * @param bool $val The isOrganizationDefault
+     *
+     * @return StsPolicy
+     */
     public function setIsOrganizationDefault($val)
     {
         $this->_propDict["isOrganizationDefault"] = boolval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the appliesTo
      *
      * @return array|null The appliesTo
@@ -94,23 +90,21 @@ class StsPolicy extends PolicyBase
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-           return $this->_propDict["appliesTo"];
+            return $this->_propDict["appliesTo"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the appliesTo
-    *
-    * @param DirectoryObject[] $val The appliesTo
-    *
-    * @return StsPolicy
-    */
+     * Sets the appliesTo
+     *
+     * @param DirectoryObject[] $val The appliesTo
+     *
+     * @return StsPolicy
+     */
     public function setAppliesTo($val)
     {
         $this->_propDict["appliesTo"] = $val;
         return $this;
     }
-
 }

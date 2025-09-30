@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Conversation class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Conversation extends Entity
 {
     /**
-    * Gets the hasAttachments
-    * Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
-    *
-    * @return bool|null The hasAttachments
-    */
+     * Gets the hasAttachments
+     * Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
+     *
+     * @return bool|null The hasAttachments
+     */
     public function getHasAttachments()
     {
         if (array_key_exists("hasAttachments", $this->_propDict)) {
@@ -41,31 +42,29 @@ class Conversation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hasAttachments
-    * Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
-    *
-    * @param bool $val The hasAttachments
-    *
-    * @return Conversation
-    */
+     * Sets the hasAttachments
+     * Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
+     *
+     * @param bool $val The hasAttachments
+     *
+     * @return Conversation
+     */
     public function setHasAttachments($val)
     {
         $this->_propDict["hasAttachments"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The lastDeliveredDateTime
-    */
+     * Gets the lastDeliveredDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The lastDeliveredDateTime
+     */
     public function getLastDeliveredDateTime()
     {
         if (array_key_exists("lastDeliveredDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastDeliveredDateTime"], "\DateTime") || is_null($this->_propDict["lastDeliveredDateTime"])) {
+            if (is_a($this->_propDict["lastDeliveredDateTime"], "\\DateTime") || is_null($this->_propDict["lastDeliveredDateTime"])) {
                 return $this->_propDict["lastDeliveredDateTime"];
             } else {
                 $this->_propDict["lastDeliveredDateTime"] = new \DateTime($this->_propDict["lastDeliveredDateTime"]);
@@ -74,27 +73,25 @@ class Conversation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastDeliveredDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The lastDeliveredDateTime
-    *
-    * @return Conversation
-    */
+     * Sets the lastDeliveredDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The lastDeliveredDateTime
+     *
+     * @return Conversation
+     */
     public function setLastDeliveredDateTime($val)
     {
         $this->_propDict["lastDeliveredDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the preview
-    * A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
-    *
-    * @return string|null The preview
-    */
+     * Gets the preview
+     * A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
+     *
+     * @return string|null The preview
+     */
     public function getPreview()
     {
         if (array_key_exists("preview", $this->_propDict)) {
@@ -103,27 +100,25 @@ class Conversation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the preview
-    * A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
-    *
-    * @param string $val The preview
-    *
-    * @return Conversation
-    */
+     * Sets the preview
+     * A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
+     *
+     * @param string $val The preview
+     *
+     * @return Conversation
+     */
     public function setPreview($val)
     {
         $this->_propDict["preview"] = $val;
         return $this;
     }
-
     /**
-    * Gets the topic
-    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
-    *
-    * @return string|null The topic
-    */
+     * Gets the topic
+     * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+     *
+     * @return string|null The topic
+     */
     public function getTopic()
     {
         if (array_key_exists("topic", $this->_propDict)) {
@@ -132,27 +127,25 @@ class Conversation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the topic
-    * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
-    *
-    * @param string $val The topic
-    *
-    * @return Conversation
-    */
+     * Sets the topic
+     * The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.
+     *
+     * @param string $val The topic
+     *
+     * @return Conversation
+     */
     public function setTopic($val)
     {
         $this->_propDict["topic"] = $val;
         return $this;
     }
-
     /**
-    * Gets the uniqueSenders
-    * All the users that sent a message to this Conversation.
-    *
-    * @return array|null The uniqueSenders
-    */
+     * Gets the uniqueSenders
+     * All the users that sent a message to this Conversation.
+     *
+     * @return array|null The uniqueSenders
+     */
     public function getUniqueSenders()
     {
         if (array_key_exists("uniqueSenders", $this->_propDict)) {
@@ -161,49 +154,44 @@ class Conversation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the uniqueSenders
-    * All the users that sent a message to this Conversation.
-    *
-    * @param string[] $val The uniqueSenders
-    *
-    * @return Conversation
-    */
+     * Sets the uniqueSenders
+     * All the users that sent a message to this Conversation.
+     *
+     * @param string[] $val The uniqueSenders
+     *
+     * @return Conversation
+     */
     public function setUniqueSenders($val)
     {
         $this->_propDict["uniqueSenders"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the threads
-    * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
      *
      * @return array|null The threads
      */
     public function getThreads()
     {
         if (array_key_exists("threads", $this->_propDict)) {
-           return $this->_propDict["threads"];
+            return $this->_propDict["threads"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the threads
-    * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
-    *
-    * @param ConversationThread[] $val The threads
-    *
-    * @return Conversation
-    */
+     * Sets the threads
+     * A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.
+     *
+     * @param ConversationThread[] $val The threads
+     *
+     * @return Conversation
+     */
     public function setThreads($val)
     {
         $this->_propDict["threads"] = $val;
         return $this;
     }
-
 }

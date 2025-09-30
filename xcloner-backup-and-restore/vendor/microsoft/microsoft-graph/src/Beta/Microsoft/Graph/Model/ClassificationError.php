@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ClassificationError class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ClassificationError extends ClassifcationErrorBase
 {
-
     /**
-    * Gets the details
-    *
-    * @return ClassifcationErrorBase|null The details
-    */
+     * Gets the details
+     *
+     * @return ClassifcationErrorBase|null The details
+     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Beta\Microsoft\Graph\Model\ClassifcationErrorBase") || is_null($this->_propDict["details"])) {
+            if (is_a($this->_propDict["details"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ClassifcationErrorBase") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new ClassifcationErrorBase($this->_propDict["details"]);
@@ -44,17 +45,16 @@ class ClassificationError extends ClassifcationErrorBase
         }
         return null;
     }
-
     /**
-    * Sets the details
-    *
-    * @param ClassifcationErrorBase $val The value to assign to the details
-    *
-    * @return ClassificationError The ClassificationError
-    */
+     * Sets the details
+     *
+     * @param ClassifcationErrorBase $val The value to assign to the details
+     *
+     * @return ClassificationError The ClassificationError
+     */
     public function setDetails($val)
     {
         $this->_propDict["details"] = $val;
-         return $this;
+        return $this;
     }
 }

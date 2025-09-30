@@ -1,9 +1,10 @@
 <?php
-namespace JmesPath;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\JmesPath;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Returns data from the input array that matches a JMESPath expression.
  *

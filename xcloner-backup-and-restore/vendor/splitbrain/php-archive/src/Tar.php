@@ -1,10 +1,10 @@
 <?php
 
-namespace splitbrain\PHPArchive;
+namespace XCloner\splitbrain\PHPArchive;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Class Tar
  *
@@ -18,15 +18,13 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  */
 class Tar extends Archive
 {
-
     protected $file = '';
     protected $comptype = Archive::COMPRESS_AUTO;
     protected $complevel = 9;
     protected $fh;
     protected $memory = '';
-    protected $closed = true;
-    protected $writeaccess = false;
-
+    protected $closed = \true;
+    protected $writeaccess = \false;
     /**
      * Sets the compression to use
      *
@@ -40,12 +38,15 @@ class Tar extends Archive
         if ($level < -1 || $level > 9) {
             throw new ArchiveIllegalCompressionException('Compression level should be between -1 and 9');
         }
-        $this->comptype  = $type;
+        $this->comptype = $type;
         $this->complevel = $level;
-        if($level == 0) $this->comptype = Archive::COMPRESS_NONE;
-        if($type == Archive::COMPRESS_NONE) $this->complevel = 0;
+        if ($level == 0) {
+            $this->comptype = Archive::COMPRESS_NONE;
+        }
+        if ($type == Archive::COMPRESS_NONE) {
+            $this->complevel = 0;
+        }
     }
-
     /**
      * Open an existing TAR file for reading
      *
@@ -56,12 +57,10 @@ class Tar extends Archive
     public function open($file)
     {
         $this->file = $file;
-
         // update compression to mach file
         if ($this->comptype == Tar::COMPRESS_AUTO) {
             $this->setCompression($this->complevel, $this->filetype($file));
         }
-
         // open file handles
         if ($this->comptype === Archive::COMPRESS_GZIP) {
             $this->fh = @gzopen($this->file, 'rb');
@@ -70,13 +69,11 @@ class Tar extends Archive
         } else {
             $this->fh = @fopen($this->file, 'rb');
         }
-
         if (!$this->fh) {
-            throw new ArchiveIOException('Could not open file for reading: '.$this->file);
+            throw new ArchiveIOException('Could not open file for reading: ' . $this->file);
         }
-        $this->closed = false;
+        $this->closed = \false;
     }
-
     /**
      * Read the contents of a TAR archive
      *
@@ -92,14 +89,11 @@ class Tar extends Archive
     public function contents()
     {
         $result = array();
-
         foreach ($this->yieldContents() as $fileinfo) {
             $result[] = $fileinfo;
         }
-
         return $result;
     }
-
     /**
      * Read the contents of a TAR archive and return each entry using yield
      * for memory efficiency.
@@ -114,21 +108,16 @@ class Tar extends Archive
         if ($this->closed || !$this->file) {
             throw new ArchiveIOException('Can not read from a closed archive');
         }
-
         while ($read = $this->readbytes(512)) {
             $header = $this->parseHeader($read);
             if (!is_array($header)) {
                 continue;
             }
-
             $this->skipbytes(ceil($header['size'] / 512) * 512);
             yield $this->header2fileinfo($header);
         }
-
         $this->close();
-
     }
-
     /**
      * Extract an existing TAR archive
      *
@@ -160,13 +149,11 @@ class Tar extends Archive
         if ($this->closed || !$this->file) {
             throw new ArchiveIOException('Can not read from a closed archive');
         }
-
         $outdir = rtrim($outdir, '/');
-        @mkdir($outdir, 0777, true);
+        @mkdir($outdir, 0777, \true);
         if (!is_dir($outdir)) {
-            throw new ArchiveIOException("Could not create directory '$outdir'");
+            throw new ArchiveIOException("Could not create directory '{$outdir}'");
         }
-
         $extracted = array();
         while ($dat = $this->readbytes(512)) {
             // read the file header
@@ -175,55 +162,47 @@ class Tar extends Archive
                 continue;
             }
             $fileinfo = $this->header2fileinfo($header);
-
             // apply strip rules
             $fileinfo->strip($strip);
-
             // skip unwanted files
             if (!strlen($fileinfo->getPath()) || !$fileinfo->matchExpression($include, $exclude)) {
                 $this->skipbytes(ceil($header['size'] / 512) * 512);
                 continue;
             }
-
             // create output directory
-            $output    = $outdir.'/'.$fileinfo->getPath();
-            $directory = ($fileinfo->getIsdir()) ? $output : dirname($output);
+            $output = $outdir . '/' . $fileinfo->getPath();
+            $directory = $fileinfo->getIsdir() ? $output : dirname($output);
             if (!file_exists($directory)) {
-                mkdir($directory, 0777, true);
+                mkdir($directory, 0777, \true);
             }
-
             // extract data
             if (!$fileinfo->getIsdir()) {
                 $fp = @fopen($output, "wb");
                 if (!$fp) {
-                    throw new ArchiveIOException('Could not open file for writing: '.$output);
+                    throw new ArchiveIOException('Could not open file for writing: ' . $output);
                 }
-
                 $size = floor($header['size'] / 512);
                 for ($i = 0; $i < $size; $i++) {
                     fwrite($fp, $this->readbytes(512), 512);
                 }
-                if (($header['size'] % 512) != 0) {
+                if ($header['size'] % 512 != 0) {
                     fwrite($fp, $this->readbytes(512), $header['size'] % 512);
                 }
-
                 fclose($fp);
                 @touch($output, $fileinfo->getMtime());
                 @chmod($output, $fileinfo->getMode());
             } else {
-                $this->skipbytes(ceil($header['size'] / 512) * 512); // the size is usually 0 for directories
+                $this->skipbytes(ceil($header['size'] / 512) * 512);
+                // the size is usually 0 for directories
             }
-
-            if(is_callable($this->callback)) {
+            if (is_callable($this->callback)) {
                 call_user_func($this->callback, $fileinfo);
             }
             $extracted[] = $fileinfo;
         }
-
         $this->close();
         return $extracted;
     }
-
     /**
      * Create a new TAR file
      *
@@ -235,32 +214,28 @@ class Tar extends Archive
      */
     public function create($file = '')
     {
-        $this->file   = $file;
+        $this->file = $file;
         $this->memory = '';
-        $this->fh     = 0;
-
+        $this->fh = 0;
         if ($this->file) {
             // determine compression
             if ($this->comptype == Archive::COMPRESS_AUTO) {
                 $this->setCompression($this->complevel, $this->filetype($file));
             }
-
             if ($this->comptype === Archive::COMPRESS_GZIP) {
-                $this->fh = @gzopen($this->file, 'wb'.$this->complevel);
+                $this->fh = @gzopen($this->file, 'wb' . $this->complevel);
             } elseif ($this->comptype === Archive::COMPRESS_BZIP) {
                 $this->fh = @bzopen($this->file, 'w');
             } else {
                 $this->fh = @fopen($this->file, 'wb');
             }
-
             if (!$this->fh) {
-                throw new ArchiveIOException('Could not open file for writing: '.$this->file);
+                throw new ArchiveIOException('Could not open file for writing: ' . $this->file);
             }
         }
-        $this->writeaccess = true;
-        $this->closed      = false;
+        $this->writeaccess = \true;
+        $this->closed = \false;
     }
-
     /**
      * Add a file to the current TAR archive using an existing file in the filesystem
      *
@@ -275,14 +250,11 @@ class Tar extends Archive
         if (is_string($fileinfo)) {
             $fileinfo = FileInfo::fromPath($file, $fileinfo);
         }
-
         if ($this->closed) {
             throw new ArchiveIOException('Archive has been closed, files can no longer be added');
         }
-
         // create file header
         $this->writeFileHeader($fileinfo);
-
         // write data, but only if we have data to write.
         // note: on Windows fopen() on a directory will fail, so we prevent
         // errors on Windows by testing if we have data to write.
@@ -295,7 +267,7 @@ class Tar extends Archive
             while (!feof($fp)) {
                 $data = fread($fp, 512);
                 $read += strlen($data);
-                if ($data === false) {
+                if ($data === \false) {
                     break;
                 }
                 if ($data === '') {
@@ -305,18 +277,15 @@ class Tar extends Archive
                 $this->writebytes($packed);
             }
             fclose($fp);
-
             if ($read != $fileinfo->getSize()) {
                 $this->close();
-                throw new ArchiveCorruptedException("The size of $file changed while reading, archive corrupted. read $read expected ".$fileinfo->getSize());
+                throw new ArchiveCorruptedException("The size of {$file} changed while reading, archive corrupted. read {$read} expected " . $fileinfo->getSize());
             }
         }
-
-        if(is_callable($this->callback)) {
+        if (is_callable($this->callback)) {
             call_user_func($this->callback, $fileinfo);
         }
     }
-
     /**
      * Add a file to the current TAR archive using the given $data as content
      *
@@ -329,24 +298,19 @@ class Tar extends Archive
         if (is_string($fileinfo)) {
             $fileinfo = new FileInfo($fileinfo);
         }
-
         if ($this->closed) {
             throw new ArchiveIOException('Archive has been closed, files can no longer be added');
         }
-
         $len = strlen($data);
         $fileinfo->setSize($len);
         $this->writeFileHeader($fileinfo);
-
         for ($s = 0; $s < $len; $s += 512) {
             $this->writebytes(pack("a512", substr($data, $s, 512)));
         }
-
         if (is_callable($this->callback)) {
             call_user_func($this->callback, $fileinfo);
         }
     }
-
     /**
      * Add the closing footer to the archive if in write mode, close all file handles
      *
@@ -363,14 +327,13 @@ class Tar extends Archive
     {
         if ($this->closed) {
             return;
-        } // we did this already
-
+        }
+        // we did this already
         // write footer
         if ($this->writeaccess) {
             $this->writebytes(pack("a512", ""));
             $this->writebytes(pack("a512", ""));
         }
-
         // close file handles
         if ($this->file) {
             if ($this->comptype === Archive::COMPRESS_GZIP) {
@@ -380,15 +343,12 @@ class Tar extends Archive
             } else {
                 fclose($this->fh);
             }
-
             $this->file = '';
-            $this->fh   = 0;
+            $this->fh = 0;
         }
-
-        $this->writeaccess = false;
-        $this->closed      = true;
+        $this->writeaccess = \false;
+        $this->closed = \true;
     }
-
     /**
      * Returns the created in-memory archive data
      *
@@ -398,11 +358,9 @@ class Tar extends Archive
     public function getArchive()
     {
         $this->close();
-
         if ($this->comptype === Archive::COMPRESS_AUTO) {
             $this->comptype = Archive::COMPRESS_NONE;
         }
-
         if ($this->comptype === Archive::COMPRESS_GZIP) {
             return gzencode($this->memory, $this->complevel);
         }
@@ -411,7 +369,6 @@ class Tar extends Archive
         }
         return $this->memory;
     }
-
     /**
      * Save the created in-memory archive data
      *
@@ -427,12 +384,10 @@ class Tar extends Archive
         if ($this->comptype === Archive::COMPRESS_AUTO) {
             $this->setCompression($this->complevel, $this->filetype($file));
         }
-
         if (!@file_put_contents($file, $this->getArchive())) {
-            throw new ArchiveIOException('Could not write to file: '.$file);
+            throw new ArchiveIOException('Could not write to file: ' . $file);
         }
     }
-
     /**
      * Read from the open file pointer
      *
@@ -449,7 +404,6 @@ class Tar extends Archive
             return @fread($this->fh, $length);
         }
     }
-
     /**
      * Write to the open filepointer or memory
      *
@@ -469,12 +423,11 @@ class Tar extends Archive
         } else {
             $written = @fwrite($this->fh, $data);
         }
-        if ($written === false) {
+        if ($written === \false) {
             throw new ArchiveIOException('Failed to write to archive stream');
         }
         return $written;
     }
-
     /**
      * Skip forward in the open file pointer
      *
@@ -485,20 +438,19 @@ class Tar extends Archive
     protected function skipbytes($bytes)
     {
         if ($this->comptype === Archive::COMPRESS_GZIP) {
-            @gzseek($this->fh, $bytes, SEEK_CUR);
+            @gzseek($this->fh, $bytes, \SEEK_CUR);
         } elseif ($this->comptype === Archive::COMPRESS_BZIP) {
             // there is no seek in bzip2, we simply read on
             // bzread allows to read a max of 8kb at once
-            while($bytes) {
+            while ($bytes) {
                 $toread = min(8192, $bytes);
                 @bzread($this->fh, $toread);
                 $bytes -= $toread;
             }
         } else {
-            @fseek($this->fh, $bytes, SEEK_CUR);
+            @fseek($this->fh, $bytes, \SEEK_CUR);
         }
     }
-
     /**
      * Write the given file meta data as header
      *
@@ -507,17 +459,8 @@ class Tar extends Archive
      */
     protected function writeFileHeader(FileInfo $fileinfo)
     {
-        $this->writeRawFileHeader(
-            $fileinfo->getPath(),
-            $fileinfo->getUid(),
-            $fileinfo->getGid(),
-            $fileinfo->getMode(),
-            $fileinfo->getSize(),
-            $fileinfo->getMtime(),
-            $fileinfo->getIsdir() ? '5' : '0'
-        );
+        $this->writeRawFileHeader($fileinfo->getPath(), $fileinfo->getUid(), $fileinfo->getGid(), $fileinfo->getMode(), $fileinfo->getSize(), $fileinfo->getMtime(), $fileinfo->getIsdir() ? '5' : '0');
     }
-
     /**
      * Write a file header to the stream
      *
@@ -533,49 +476,43 @@ class Tar extends Archive
     protected function writeRawFileHeader($name, $uid, $gid, $perm, $size, $mtime, $typeflag = '')
     {
         // handle filename length restrictions
-        $prefix  = '';
+        $prefix = '';
         $namelen = strlen($name);
         if ($namelen > 100) {
             $file = basename($name);
-            $dir  = dirname($name);
+            $dir = dirname($name);
             if (strlen($file) > 100 || strlen($dir) > 155) {
                 // we're still too large, let's use GNU longlink
                 $this->writeRawFileHeader('././@LongLink', 0, 0, 0, $namelen, 0, 'L');
                 for ($s = 0; $s < $namelen; $s += 512) {
                     $this->writebytes(pack("a512", substr($name, $s, 512)));
                 }
-                $name = substr($name, 0, 100); // cut off name
+                $name = substr($name, 0, 100);
+                // cut off name
             } else {
                 // we're fine when splitting, use POSIX ustar
                 $prefix = $dir;
-                $name   = $file;
+                $name = $file;
             }
         }
-
         // values are needed in octal
-        $uid   = sprintf("%6s ", decoct($uid));
-        $gid   = sprintf("%6s ", decoct($gid));
-        $perm  = sprintf("%6s ", decoct($perm));
-        $size  = sprintf("%11s ", decoct($size));
+        $uid = sprintf("%6s ", decoct($uid));
+        $gid = sprintf("%6s ", decoct($gid));
+        $perm = sprintf("%6s ", decoct($perm));
+        $size = sprintf("%11s ", decoct($size));
         $mtime = sprintf("%11s", decoct($mtime));
-
         $data_first = pack("a100a8a8a8a12A12", $name, $perm, $uid, $gid, $size, $mtime);
-        $data_last  = pack("a1a100a6a2a32a32a8a8a155a12", $typeflag, '', 'ustar', '', '', '', '', '', $prefix, "");
-
+        $data_last = pack("a1a100a6a2a32a32a8a8a155a12", $typeflag, '', 'ustar', '', '', '', '', '', $prefix, "");
         for ($i = 0, $chks = 0; $i < 148; $i++) {
             $chks += ord($data_first[$i]);
         }
-
         for ($i = 156, $chks += 256, $j = 0; $i < 512; $i++, $j++) {
             $chks += ord($data_last[$j]);
         }
-
         $this->writebytes($data_first);
-
         $chks = pack("a8", sprintf("%6s ", decoct($chks)));
-        $this->writebytes($chks.$data_last);
+        $this->writebytes($chks . $data_last);
     }
-
     /**
      * Decode the given tar file header
      *
@@ -588,61 +525,50 @@ class Tar extends Archive
         if (!$block || strlen($block) != 512) {
             throw new ArchiveCorruptedException('Unexpected length of header');
         }
-
         // null byte blocks are ignored
-        if(trim($block) === '') return false;
-
+        if (trim($block) === '') {
+            return \false;
+        }
         for ($i = 0, $chks = 0; $i < 148; $i++) {
             $chks += ord($block[$i]);
         }
-
         for ($i = 156, $chks += 256; $i < 512; $i++) {
             $chks += ord($block[$i]);
         }
-
-        $header = @unpack(
-            "a100filename/a8perm/a8uid/a8gid/a12size/a12mtime/a8checksum/a1typeflag/a100link/a6magic/a2version/a32uname/a32gname/a8devmajor/a8devminor/a155prefix",
-            $block
-        );
+        $header = @unpack("a100filename/a8perm/a8uid/a8gid/a12size/a12mtime/a8checksum/a1typeflag/a100link/a6magic/a2version/a32uname/a32gname/a8devmajor/a8devminor/a155prefix", $block);
         if (!$header) {
             throw new ArchiveCorruptedException('Failed to parse header');
         }
-
         $return['checksum'] = OctDec(trim($header['checksum']));
         if ($return['checksum'] != $chks) {
             throw new ArchiveCorruptedException('Header does not match its checksum');
         }
-
         $return['filename'] = trim($header['filename']);
-        $return['perm']     = OctDec(trim($header['perm']));
-        $return['uid']      = OctDec(trim($header['uid']));
-        $return['gid']      = OctDec(trim($header['gid']));
-        $return['size']     = OctDec(trim($header['size']));
-        $return['mtime']    = OctDec(trim($header['mtime']));
+        $return['perm'] = OctDec(trim($header['perm']));
+        $return['uid'] = OctDec(trim($header['uid']));
+        $return['gid'] = OctDec(trim($header['gid']));
+        $return['size'] = OctDec(trim($header['size']));
+        $return['mtime'] = OctDec(trim($header['mtime']));
         $return['typeflag'] = $header['typeflag'];
-        $return['link']     = trim($header['link']);
-        $return['uname']    = trim($header['uname']);
-        $return['gname']    = trim($header['gname']);
-
+        $return['link'] = trim($header['link']);
+        $return['uname'] = trim($header['uname']);
+        $return['gname'] = trim($header['gname']);
         // Handle ustar Posix compliant path prefixes
         if (trim($header['prefix'])) {
-            $return['filename'] = trim($header['prefix']).'/'.$return['filename'];
+            $return['filename'] = trim($header['prefix']) . '/' . $return['filename'];
         }
-
         // Handle Long-Link entries from GNU Tar
         if ($return['typeflag'] == 'L') {
             // following data block(s) is the filename
             $filename = trim($this->readbytes(ceil($return['size'] / 512) * 512));
             // next block is the real header
-            $block  = $this->readbytes(512);
+            $block = $this->readbytes(512);
             $return = $this->parseHeader($block);
             // overwrite the filename
             $return['filename'] = $filename;
         }
-
         return $return;
     }
-
     /**
      * Creates a FileInfo object from the given parsed header
      *
@@ -661,10 +587,8 @@ class Tar extends Archive
         $fileinfo->setOwner($header['uname']);
         $fileinfo->setGroup($header['gname']);
         $fileinfo->setIsdir((bool) $header['typeflag']);
-
         return $fileinfo;
     }
-
     /**
      * Checks if the given compression type is available and throws an exception if not
      *
@@ -676,12 +600,10 @@ class Tar extends Archive
         if ($comptype === Archive::COMPRESS_GZIP && !function_exists('gzopen')) {
             throw new ArchiveIllegalCompressionException('No gzip support available');
         }
-
         if ($comptype === Archive::COMPRESS_BZIP && !function_exists('bzopen')) {
             throw new ArchiveIllegalCompressionException('No bzip2 support available');
         }
     }
-
     /**
      * Guesses the wanted compression from the given file
      *
@@ -695,16 +617,20 @@ class Tar extends Archive
     public function filetype($file)
     {
         // for existing files, try to read the magic bytes
-        if(file_exists($file) && is_readable($file) && filesize($file) > 5) {
+        if (file_exists($file) && is_readable($file) && filesize($file) > 5) {
             $fh = @fopen($file, 'rb');
-            if(!$fh) return false;
+            if (!$fh) {
+                return \false;
+            }
             $magic = fread($fh, 5);
             fclose($fh);
-
-            if(strpos($magic, "\x42\x5a") === 0) return Archive::COMPRESS_BZIP;
-            if(strpos($magic, "\x1f\x8b") === 0) return Archive::COMPRESS_GZIP;
+            if (strpos($magic, "BZ") === 0) {
+                return Archive::COMPRESS_BZIP;
+            }
+            if (strpos($magic, "\x1f\x8b") === 0) {
+                return Archive::COMPRESS_GZIP;
+            }
         }
-
         // otherwise rely on file name
         $file = strtolower($file);
         if (substr($file, -3) == '.gz' || substr($file, -4) == '.tgz') {
@@ -712,8 +638,6 @@ class Tar extends Archive
         } elseif (substr($file, -4) == '.bz2' || substr($file, -4) == '.tbz') {
             return Archive::COMPRESS_BZIP;
         }
-
         return Archive::COMPRESS_NONE;
     }
-
 }

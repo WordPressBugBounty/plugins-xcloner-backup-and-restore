@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamFile.
  */
-class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamFileTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * instance to test
@@ -22,7 +24,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamFile
      */
     protected $file;
-
     /**
      * set up test environment
      */
@@ -30,7 +31,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->file = new vfsStreamFile('foo');
     }
-
     /**
      * test default values and methods
      *
@@ -44,7 +44,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse($this->file->appliesTo('foo/bar'));
         $this->assertFalse($this->file->appliesTo('bar'));
     }
-
     /**
      * test setting and getting the content of a file
      *
@@ -58,7 +57,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertSame($this->file, $this->file->withContent('baz'));
         $this->assertEquals('baz', $this->file->getContent());
     }
-
     /**
      * test renaming the directory
      *
@@ -72,7 +70,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse($this->file->appliesTo('foo/bar'));
         $this->assertTrue($this->file->appliesTo('bar'));
     }
-
     /**
      * test reading contents from the file
      *
@@ -86,7 +83,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(5, $this->file->getBytesRead());
         $this->assertTrue($this->file->eof());
     }
-
     /**
      * test reading contents from the file
      *
@@ -111,7 +107,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($this->file->eof());
         $this->assertEquals('', $this->file->read(3));
     }
-
     /**
      * test seeking to offset
      *
@@ -120,30 +115,28 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
     public function seekEmptyFile()
     {
         $this->assertFalse($this->file->seek(0, 55));
-        $this->assertTrue($this->file->seek(0, SEEK_SET));
+        $this->assertTrue($this->file->seek(0, \SEEK_SET));
         $this->assertEquals(0, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(5, SEEK_SET));
+        $this->assertTrue($this->file->seek(5, \SEEK_SET));
         $this->assertEquals(5, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(0, SEEK_CUR));
+        $this->assertTrue($this->file->seek(0, \SEEK_CUR));
         $this->assertEquals(5, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(2, SEEK_CUR));
+        $this->assertTrue($this->file->seek(2, \SEEK_CUR));
         $this->assertEquals(7, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(0, SEEK_END));
+        $this->assertTrue($this->file->seek(0, \SEEK_END));
         $this->assertEquals(0, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(2, SEEK_END));
+        $this->assertTrue($this->file->seek(2, \SEEK_END));
         $this->assertEquals(2, $this->file->getBytesRead());
     }
-
     /**
      * @test
      * @since 1.6.5
      */
     public function seekEmptyFileBeforeBeginningDoesNotChangeOffset()
     {
-        $this->assertFalse($this->file->seek(-5, SEEK_SET), 'Seek before beginning of file');
+        $this->assertFalse($this->file->seek(-5, \SEEK_SET), 'Seek before beginning of file');
         $this->assertEquals(0, $this->file->getBytesRead());
     }
-
     /**
      * test seeking to offset
      *
@@ -153,26 +146,25 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->file->setContent('foobarbaz');
         $this->assertFalse($this->file->seek(0, 55));
-        $this->assertTrue($this->file->seek(0, SEEK_SET));
+        $this->assertTrue($this->file->seek(0, \SEEK_SET));
         $this->assertEquals('foobarbaz', $this->file->readUntilEnd());
         $this->assertEquals(0, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(5, SEEK_SET));
+        $this->assertTrue($this->file->seek(5, \SEEK_SET));
         $this->assertEquals('rbaz', $this->file->readUntilEnd());
         $this->assertEquals(5, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(0, SEEK_CUR));
+        $this->assertTrue($this->file->seek(0, \SEEK_CUR));
         $this->assertEquals('rbaz', $this->file->readUntilEnd());
         $this->assertEquals(5, $this->file->getBytesRead(), 5);
-        $this->assertTrue($this->file->seek(2, SEEK_CUR));
+        $this->assertTrue($this->file->seek(2, \SEEK_CUR));
         $this->assertEquals('az', $this->file->readUntilEnd());
         $this->assertEquals(7, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(0, SEEK_END));
+        $this->assertTrue($this->file->seek(0, \SEEK_END));
         $this->assertEquals('', $this->file->readUntilEnd());
         $this->assertEquals(9, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(2, SEEK_END));
+        $this->assertTrue($this->file->seek(2, \SEEK_END));
         $this->assertEquals('', $this->file->readUntilEnd());
         $this->assertEquals(11, $this->file->getBytesRead());
     }
-
     /**
      * @test
      * @since 1.6.5
@@ -180,20 +172,19 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
     public function seekFileBeforeBeginningDoesNotChangeOffset()
     {
         $this->file->setContent('foobarbaz');
-        $this->assertFalse($this->file->seek(-5, SEEK_SET), 'Seek before beginning of file');
+        $this->assertFalse($this->file->seek(-5, \SEEK_SET), 'Seek before beginning of file');
         $this->assertEquals(0, $this->file->getBytesRead());
-        $this->assertTrue($this->file->seek(2, SEEK_CUR));
-        $this->assertFalse($this->file->seek(-5, SEEK_SET), 'Seek before beginning of file');
+        $this->assertTrue($this->file->seek(2, \SEEK_CUR));
+        $this->assertFalse($this->file->seek(-5, \SEEK_SET), 'Seek before beginning of file');
         $this->assertEquals(2, $this->file->getBytesRead());
         $this->assertEquals('obarbaz', $this->file->readUntilEnd());
-        $this->assertFalse($this->file->seek(-5, SEEK_CUR), 'Seek before beginning of file');
+        $this->assertFalse($this->file->seek(-5, \SEEK_CUR), 'Seek before beginning of file');
         $this->assertEquals(2, $this->file->getBytesRead());
         $this->assertEquals('obarbaz', $this->file->readUntilEnd());
-        $this->assertFalse($this->file->seek(-20, SEEK_END), 'Seek before beginning of file');
+        $this->assertFalse($this->file->seek(-20, \SEEK_END), 'Seek before beginning of file');
         $this->assertEquals(2, $this->file->getBytesRead());
         $this->assertEquals('obarbaz', $this->file->readUntilEnd());
     }
-
     /**
      * test writing data into the file
      *
@@ -208,7 +199,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('foobar', $this->file->getContent());
         $this->assertEquals(6, $this->file->size());
     }
-
     /**
      * test writing data into the file
      *
@@ -217,7 +207,7 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
     public function write()
     {
         $this->file->setContent('foobarbaz');
-        $this->assertTrue($this->file->seek(3, SEEK_SET));
+        $this->assertTrue($this->file->seek(3, \SEEK_SET));
         $this->assertEquals(3, $this->file->write('foo'));
         $this->assertEquals('foofoobaz', $this->file->getContent());
         $this->assertEquals(9, $this->file->size());
@@ -225,7 +215,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('foofoobar', $this->file->getContent());
         $this->assertEquals(9, $this->file->size());
     }
-
     /**
      * setting and retrieving permissions for a file
      *
@@ -238,7 +227,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertSame($this->file, $this->file->chmod(0644));
         $this->assertEquals(0644, $this->file->getPermissions());
     }
-
     /**
      * setting and retrieving permissions for a file
      *
@@ -252,7 +240,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertSame($this->file, $this->file->chmod(0600));
         $this->assertEquals(0600, $this->file->getPermissions());
     }
-
     /**
      * setting and retrieving owner of a file
      *
@@ -267,7 +254,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(vfsStream::OWNER_USER_1, $this->file->getUser());
         $this->assertTrue($this->file->isOwnedByUser(vfsStream::OWNER_USER_1));
     }
-
     /**
      * setting and retrieving owner group of a file
      *
@@ -282,7 +268,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(vfsStream::GROUP_USER_1, $this->file->getGroup());
         $this->assertTrue($this->file->isOwnedByGroup(vfsStream::GROUP_USER_1));
     }
-
     /**
      * @test
      * @group  issue_33
@@ -295,7 +280,6 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(5, $this->file->size());
         $this->assertEquals('lorem', $this->file->getContent());
     }
-
     /**
      * @test
      * @group  issue_33
@@ -306,9 +290,8 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(11, $this->file->write("lorem ipsum"));
         $this->assertTrue($this->file->truncate(25));
         $this->assertEquals(25, $this->file->size());
-        $this->assertEquals("lorem ipsum\0\0\0\0\0\0\0\0\0\0\0\0\0\0", $this->file->getContent());
+        $this->assertEquals("lorem ipsum\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", $this->file->getContent());
     }
-
     /**
      * @test
      * @group  issue_79
@@ -316,17 +299,10 @@ class vfsStreamFileTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function withContentAcceptsAnyFileContentInstance()
     {
-        $mockFileContent = $this->bc_getMock('org\bovigo\vfs\content\FileContent');
-        $mockFileContent->expects($this->once())
-                        ->method('content')
-                        ->will($this->returnValue('foobarbaz'));
-        $this->assertEquals(
-                'foobarbaz',
-                $this->file->withContent($mockFileContent)
-                           ->getContent()
-        );
+        $mockFileContent = $this->bc_getMock('XCloner\org\bovigo\vfs\content\FileContent');
+        $mockFileContent->expects($this->once())->method('content')->will($this->returnValue('foobarbaz'));
+        $this->assertEquals('foobarbaz', $this->file->withContent($mockFileContent)->getContent());
     }
-
     /**
      * @test
      * @group  issue_79

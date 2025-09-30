@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityVendorInformation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecurityVendorInformation extends Entity
 {
     /**
-    * Gets the provider
-    * Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
-    *
-    * @return string|null The provider
-    */
+     * Gets the provider
+     * Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
+     *
+     * @return string|null The provider
+     */
     public function getProvider()
     {
         if (array_key_exists("provider", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SecurityVendorInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the provider
-    * Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
-    *
-    * @param string $val The value of the provider
-    *
-    * @return SecurityVendorInformation
-    */
+     * Sets the provider
+     * Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
+     *
+     * @param string $val The value of the provider
+     *
+     * @return SecurityVendorInformation
+     */
     public function setProvider($val)
     {
         $this->_propDict["provider"] = $val;
         return $this;
     }
     /**
-    * Gets the providerVersion
-    * Version of the provider or subprovider, if it exists, that generated the alert. Required
-    *
-    * @return string|null The providerVersion
-    */
+     * Gets the providerVersion
+     * Version of the provider or subprovider, if it exists, that generated the alert. Required
+     *
+     * @return string|null The providerVersion
+     */
     public function getProviderVersion()
     {
         if (array_key_exists("providerVersion", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SecurityVendorInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the providerVersion
-    * Version of the provider or subprovider, if it exists, that generated the alert. Required
-    *
-    * @param string $val The value of the providerVersion
-    *
-    * @return SecurityVendorInformation
-    */
+     * Sets the providerVersion
+     * Version of the provider or subprovider, if it exists, that generated the alert. Required
+     *
+     * @param string $val The value of the providerVersion
+     *
+     * @return SecurityVendorInformation
+     */
     public function setProviderVersion($val)
     {
         $this->_propDict["providerVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the subProvider
-    * Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
-    *
-    * @return string|null The subProvider
-    */
+     * Gets the subProvider
+     * Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
+     *
+     * @return string|null The subProvider
+     */
     public function getSubProvider()
     {
         if (array_key_exists("subProvider", $this->_propDict)) {
@@ -96,26 +96,25 @@ class SecurityVendorInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subProvider
-    * Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
-    *
-    * @param string $val The value of the subProvider
-    *
-    * @return SecurityVendorInformation
-    */
+     * Sets the subProvider
+     * Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
+     *
+     * @param string $val The value of the subProvider
+     *
+     * @return SecurityVendorInformation
+     */
     public function setSubProvider($val)
     {
         $this->_propDict["subProvider"] = $val;
         return $this;
     }
     /**
-    * Gets the vendor
-    * Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
-    *
-    * @return string|null The vendor
-    */
+     * Gets the vendor
+     * Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
+     *
+     * @return string|null The vendor
+     */
     public function getVendor()
     {
         if (array_key_exists("vendor", $this->_propDict)) {
@@ -124,15 +123,14 @@ class SecurityVendorInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the vendor
-    * Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
-    *
-    * @param string $val The value of the vendor
-    *
-    * @return SecurityVendorInformation
-    */
+     * Sets the vendor
+     * Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
+     *
+     * @param string $val The value of the vendor
+     *
+     * @return SecurityVendorInformation
+     */
     public function setVendor($val)
     {
         $this->_propDict["vendor"] = $val;

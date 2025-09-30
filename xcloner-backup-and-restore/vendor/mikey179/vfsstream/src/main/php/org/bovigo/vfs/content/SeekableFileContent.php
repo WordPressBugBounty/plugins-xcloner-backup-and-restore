@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\content;
+namespace XCloner\org\bovigo\vfs\content;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Default implementation for file contents based on simple strings.
  *
@@ -24,7 +26,6 @@ abstract class SeekableFileContent implements FileContent
      * @type  int
      */
     private $offset = 0;
-
     /**
      * reads the given amount of bytes from content
      *
@@ -37,15 +38,13 @@ abstract class SeekableFileContent implements FileContent
         $this->offset += $count;
         return $data;
     }
-
     /**
      * actual reading of given byte count starting at given offset
      *
      * @param  int  $offset
      * @param  int  $count
      */
-    protected abstract function doRead($offset, $count);
-
+    abstract protected function doRead($offset, $count);
     /**
      * seeks to the given offset
      *
@@ -57,29 +56,24 @@ abstract class SeekableFileContent implements FileContent
     {
         $newOffset = $this->offset;
         switch ($whence) {
-            case SEEK_CUR:
+            case \SEEK_CUR:
                 $newOffset += $offset;
                 break;
-
-            case SEEK_END:
+            case \SEEK_END:
                 $newOffset = $this->size() + $offset;
                 break;
-
-            case SEEK_SET:
+            case \SEEK_SET:
                 $newOffset = $offset;
                 break;
-
             default:
-                return false;
+                return \false;
         }
-
-        if ($newOffset<0) {
-            return false;
+        if ($newOffset < 0) {
+            return \false;
         }
         $this->offset = $newOffset;
-        return true;
+        return \true;
     }
-
     /**
      * checks whether pointer is at end of file
      *
@@ -89,7 +83,6 @@ abstract class SeekableFileContent implements FileContent
     {
         return $this->size() <= $this->offset;
     }
-
     /**
      * writes an amount of data
      *
@@ -98,12 +91,11 @@ abstract class SeekableFileContent implements FileContent
      */
     public function write($data)
     {
-        $dataLength    = strlen($data);
+        $dataLength = strlen($data);
         $this->doWrite($data, $this->offset, $dataLength);
         $this->offset += $dataLength;
         return $dataLength;
     }
-
     /**
      * actual writing of data with specified length at given offset
      *
@@ -111,8 +103,7 @@ abstract class SeekableFileContent implements FileContent
      * @param   int     $offset
      * @param   int     $length
      */
-    protected abstract function doWrite($data, $offset, $length);
-
+    abstract protected function doWrite($data, $offset, $length);
     /**
      * for backwards compatibility with vfsStreamFile::bytesRead()
      *
@@ -123,7 +114,6 @@ abstract class SeekableFileContent implements FileContent
     {
         return $this->offset;
     }
-
     /**
      * for backwards compatibility with vfsStreamFile::readUntilEnd()
      *

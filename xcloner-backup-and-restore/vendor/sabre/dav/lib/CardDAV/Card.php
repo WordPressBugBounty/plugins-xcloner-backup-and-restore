@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV;
 
-namespace Sabre\CardDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
 /**
  * The Card object represents a single Card from an addressbook.
  *
@@ -20,28 +18,24 @@ use Sabre\DAVACL;
 class Card extends DAV\File implements ICard, DAVACL\IACL
 {
     use DAVACL\ACLTrait;
-
     /**
      * CardDAV backend.
      *
      * @var Backend\BackendInterface
      */
     protected $carddavBackend;
-
     /**
      * Array with information about this Card.
      *
      * @var array
      */
     protected $cardData;
-
     /**
      * Array with information about the containing addressbook.
      *
      * @var array
      */
     protected $addressBookInfo;
-
     /**
      * Constructor.
      */
@@ -51,7 +45,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
         $this->addressBookInfo = $addressBookInfo;
         $this->cardData = $cardData;
     }
-
     /**
      * Returns the uri for this object.
      *
@@ -61,7 +54,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
     {
         return $this->cardData['uri'];
     }
-
     /**
      * Returns the VCard-formatted object.
      *
@@ -74,10 +66,8 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
         if (!isset($this->cardData['carddata'])) {
             $this->cardData = $this->carddavBackend->getCard($this->addressBookInfo['id'], $this->cardData['uri']);
         }
-
         return $this->cardData['carddata'];
     }
-
     /**
      * Updates the VCard-formatted object.
      *
@@ -90,17 +80,13 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
         if (is_resource($cardData)) {
             $cardData = stream_get_contents($cardData);
         }
-
         // Converting to UTF-8, if needed
         $cardData = DAV\StringUtil::ensureUTF8($cardData);
-
         $etag = $this->carddavBackend->updateCard($this->addressBookInfo['id'], $this->cardData['uri'], $cardData);
         $this->cardData['carddata'] = $cardData;
         $this->cardData['etag'] = $etag;
-
         return $etag;
     }
-
     /**
      * Deletes the card.
      */
@@ -108,7 +94,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
     {
         $this->carddavBackend->deleteCard($this->addressBookInfo['id'], $this->cardData['uri']);
     }
-
     /**
      * Returns the mime content-type.
      *
@@ -118,7 +103,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
     {
         return 'text/vcard; charset=utf-8';
     }
-
     /**
      * Returns an ETag for this object.
      *
@@ -131,14 +115,13 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
         } else {
             $data = $this->get();
             if (is_string($data)) {
-                return '"'.md5($data).'"';
+                return '"' . md5($data) . '"';
             } else {
                 // We refuse to calculate the md5 if it's a stream.
                 return null;
             }
         }
     }
-
     /**
      * Returns the last modification date as a unix timestamp.
      *
@@ -148,7 +131,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
     {
         return isset($this->cardData['lastmodified']) ? $this->cardData['lastmodified'] : null;
     }
-
     /**
      * Returns the size of this object in bytes.
      *
@@ -162,7 +144,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
             return strlen($this->get());
         }
     }
-
     /**
      * Returns the owner principal.
      *
@@ -174,7 +155,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
     {
         return $this->addressBookInfo['principaluri'];
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -193,13 +173,6 @@ class Card extends DAV\File implements ICard, DAVACL\IACL
         if (isset($this->cardData['acl'])) {
             return $this->cardData['acl'];
         }
-
-        return [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->addressBookInfo['principaluri'],
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}all', 'principal' => $this->addressBookInfo['principaluri'], 'protected' => \true]];
     }
 }

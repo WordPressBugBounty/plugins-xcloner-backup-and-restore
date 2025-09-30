@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AlertTrigger class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AlertTrigger extends Entity
 {
     /**
-    * Gets the name
-    * Name of the property serving as a detection trigger.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the property serving as a detection trigger.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AlertTrigger extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the property serving as a detection trigger.
-    *
-    * @param string $val The value of the name
-    *
-    * @return AlertTrigger
-    */
+     * Sets the name
+     * Name of the property serving as a detection trigger.
+     *
+     * @param string $val The value of the name
+     *
+     * @return AlertTrigger
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * Type of the property in the key:value pair for interpretation. For example, String, Boolean etc.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * Type of the property in the key:value pair for interpretation. For example, String, Boolean etc.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AlertTrigger extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * Type of the property in the key:value pair for interpretation. For example, String, Boolean etc.
-    *
-    * @param string $val The value of the type
-    *
-    * @return AlertTrigger
-    */
+     * Sets the type
+     * Type of the property in the key:value pair for interpretation. For example, String, Boolean etc.
+     *
+     * @param string $val The value of the type
+     *
+     * @return AlertTrigger
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Value of the property serving as a detection trigger.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Value of the property serving as a detection trigger.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -96,15 +96,14 @@ class AlertTrigger extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Value of the property serving as a detection trigger.
-    *
-    * @param string $val The value of the value
-    *
-    * @return AlertTrigger
-    */
+     * Sets the value
+     * Value of the property serving as a detection trigger.
+     *
+     * @param string $val The value of the value
+     *
+     * @return AlertTrigger
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

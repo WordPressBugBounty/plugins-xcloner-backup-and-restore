@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,87 +15,84 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class ChangeList extends \Google\Collection
-{
-  protected $collection_key = 'changes';
-  protected $changesType = Change::class;
-  protected $changesDataType = 'array';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $newStartPageToken;
-  /**
-   * @var string
-   */
-  public $nextPageToken;
-
-  /**
-   * @param Change[]
-   */
-  public function setChanges($changes)
-  {
-    $this->changes = $changes;
-  }
-  /**
-   * @return Change[]
-   */
-  public function getChanges()
-  {
-    return $this->changes;
-  }
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setNewStartPageToken($newStartPageToken)
-  {
-    $this->newStartPageToken = $newStartPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNewStartPageToken()
-  {
-    return $this->newStartPageToken;
-  }
-  /**
-   * @param string
-   */
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class ChangeList extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'changes';
+    protected $changesType = Change::class;
+    protected $changesDataType = 'array';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $newStartPageToken;
+    /**
+     * @var string
+     */
+    public $nextPageToken;
+    /**
+     * @param Change[]
+     */
+    public function setChanges($changes)
+    {
+        $this->changes = $changes;
+    }
+    /**
+     * @return Change[]
+     */
+    public function getChanges()
+    {
+        return $this->changes;
+    }
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setNewStartPageToken($newStartPageToken)
+    {
+        $this->newStartPageToken = $newStartPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNewStartPageToken()
+    {
+        return $this->newStartPageToken;
+    }
+    /**
+     * @param string
+     */
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(ChangeList::class, 'Google_Service_Drive_ChangeList');
+class_alias(ChangeList::class, 'XCloner\Google_Service_Drive_ChangeList');

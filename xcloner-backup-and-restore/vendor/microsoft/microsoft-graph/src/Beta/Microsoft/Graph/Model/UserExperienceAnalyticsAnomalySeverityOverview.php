@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsAnomalySeverityOverview class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsAnomalySeverityOverview extends Entity
 {
     /**
-    * Gets the highSeverityAnomalyCount
-    * The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The highSeverityAnomalyCount
-    */
+     * Gets the highSeverityAnomalyCount
+     * The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The highSeverityAnomalyCount
+     */
     public function getHighSeverityAnomalyCount()
     {
         if (array_key_exists("highSeverityAnomalyCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserExperienceAnalyticsAnomalySeverityOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the highSeverityAnomalyCount
-    * The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the highSeverityAnomalyCount
-    *
-    * @return UserExperienceAnalyticsAnomalySeverityOverview
-    */
+     * Sets the highSeverityAnomalyCount
+     * The number of high severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the highSeverityAnomalyCount
+     *
+     * @return UserExperienceAnalyticsAnomalySeverityOverview
+     */
     public function setHighSeverityAnomalyCount($val)
     {
         $this->_propDict["highSeverityAnomalyCount"] = $val;
         return $this;
     }
     /**
-    * Gets the informationalSeverityAnomalyCount
-    * The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The informationalSeverityAnomalyCount
-    */
+     * Gets the informationalSeverityAnomalyCount
+     * The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The informationalSeverityAnomalyCount
+     */
     public function getInformationalSeverityAnomalyCount()
     {
         if (array_key_exists("informationalSeverityAnomalyCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UserExperienceAnalyticsAnomalySeverityOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the informationalSeverityAnomalyCount
-    * The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the informationalSeverityAnomalyCount
-    *
-    * @return UserExperienceAnalyticsAnomalySeverityOverview
-    */
+     * Sets the informationalSeverityAnomalyCount
+     * The number of informational severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the informationalSeverityAnomalyCount
+     *
+     * @return UserExperienceAnalyticsAnomalySeverityOverview
+     */
     public function setInformationalSeverityAnomalyCount($val)
     {
         $this->_propDict["informationalSeverityAnomalyCount"] = $val;
         return $this;
     }
     /**
-    * Gets the lowSeverityAnomalyCount
-    * The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The lowSeverityAnomalyCount
-    */
+     * Gets the lowSeverityAnomalyCount
+     * The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The lowSeverityAnomalyCount
+     */
     public function getLowSeverityAnomalyCount()
     {
         if (array_key_exists("lowSeverityAnomalyCount", $this->_propDict)) {
@@ -96,26 +96,25 @@ class UserExperienceAnalyticsAnomalySeverityOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lowSeverityAnomalyCount
-    * The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the lowSeverityAnomalyCount
-    *
-    * @return UserExperienceAnalyticsAnomalySeverityOverview
-    */
+     * Sets the lowSeverityAnomalyCount
+     * The number of low severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the lowSeverityAnomalyCount
+     *
+     * @return UserExperienceAnalyticsAnomalySeverityOverview
+     */
     public function setLowSeverityAnomalyCount($val)
     {
         $this->_propDict["lowSeverityAnomalyCount"] = $val;
         return $this;
     }
     /**
-    * Gets the mediumSeverityAnomalyCount
-    * The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The mediumSeverityAnomalyCount
-    */
+     * Gets the mediumSeverityAnomalyCount
+     * The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The mediumSeverityAnomalyCount
+     */
     public function getMediumSeverityAnomalyCount()
     {
         if (array_key_exists("mediumSeverityAnomalyCount", $this->_propDict)) {
@@ -124,26 +123,25 @@ class UserExperienceAnalyticsAnomalySeverityOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mediumSeverityAnomalyCount
-    * The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the mediumSeverityAnomalyCount
-    *
-    * @return UserExperienceAnalyticsAnomalySeverityOverview
-    */
+     * Sets the mediumSeverityAnomalyCount
+     * The number of medium severity anomalies which have been detected. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the mediumSeverityAnomalyCount
+     *
+     * @return UserExperienceAnalyticsAnomalySeverityOverview
+     */
     public function setMediumSeverityAnomalyCount($val)
     {
         $this->_propDict["mediumSeverityAnomalyCount"] = $val;
         return $this;
     }
     /**
-    * Gets the otherSeverityAnomalyCount
-    * The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The otherSeverityAnomalyCount
-    */
+     * Gets the otherSeverityAnomalyCount
+     * The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The otherSeverityAnomalyCount
+     */
     public function getOtherSeverityAnomalyCount()
     {
         if (array_key_exists("otherSeverityAnomalyCount", $this->_propDict)) {
@@ -152,15 +150,14 @@ class UserExperienceAnalyticsAnomalySeverityOverview extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the otherSeverityAnomalyCount
-    * The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the otherSeverityAnomalyCount
-    *
-    * @return UserExperienceAnalyticsAnomalySeverityOverview
-    */
+     * Sets the otherSeverityAnomalyCount
+     * The number of anomalies which have been detected with undefined severity. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the otherSeverityAnomalyCount
+     *
+     * @return UserExperienceAnalyticsAnomalySeverityOverview
+     */
     public function setOtherSeverityAnomalyCount($val)
     {
         $this->_propDict["otherSeverityAnomalyCount"] = $val;

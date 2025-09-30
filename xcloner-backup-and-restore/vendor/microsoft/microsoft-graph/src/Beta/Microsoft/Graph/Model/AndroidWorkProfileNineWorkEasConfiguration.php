@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidWorkProfileNineWorkEasConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidWorkProfileNineWorkEasConfiguration extends AndroidWorkProfileEasEmailProfileBase
 {
     /**
-    * Gets the syncCalendar
-    * Toggles syncing the calendar. If set to false the calendar is turned off on the device.
-    *
-    * @return bool|null The syncCalendar
-    */
+     * Gets the syncCalendar
+     * Toggles syncing the calendar. If set to false the calendar is turned off on the device.
+     *
+     * @return bool|null The syncCalendar
+     */
     public function getSyncCalendar()
     {
         if (array_key_exists("syncCalendar", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidWorkProfileNineWorkEasConfiguration extends AndroidWorkProfileEasEm
             return null;
         }
     }
-
     /**
-    * Sets the syncCalendar
-    * Toggles syncing the calendar. If set to false the calendar is turned off on the device.
-    *
-    * @param bool $val The syncCalendar
-    *
-    * @return AndroidWorkProfileNineWorkEasConfiguration
-    */
+     * Sets the syncCalendar
+     * Toggles syncing the calendar. If set to false the calendar is turned off on the device.
+     *
+     * @param bool $val The syncCalendar
+     *
+     * @return AndroidWorkProfileNineWorkEasConfiguration
+     */
     public function setSyncCalendar($val)
     {
         $this->_propDict["syncCalendar"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the syncContacts
-    * Toggles syncing contacts. If set to false contacts are turned off on the device.
-    *
-    * @return bool|null The syncContacts
-    */
+     * Gets the syncContacts
+     * Toggles syncing contacts. If set to false contacts are turned off on the device.
+     *
+     * @return bool|null The syncContacts
+     */
     public function getSyncContacts()
     {
         if (array_key_exists("syncContacts", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AndroidWorkProfileNineWorkEasConfiguration extends AndroidWorkProfileEasEm
             return null;
         }
     }
-
     /**
-    * Sets the syncContacts
-    * Toggles syncing contacts. If set to false contacts are turned off on the device.
-    *
-    * @param bool $val The syncContacts
-    *
-    * @return AndroidWorkProfileNineWorkEasConfiguration
-    */
+     * Sets the syncContacts
+     * Toggles syncing contacts. If set to false contacts are turned off on the device.
+     *
+     * @param bool $val The syncContacts
+     *
+     * @return AndroidWorkProfileNineWorkEasConfiguration
+     */
     public function setSyncContacts($val)
     {
         $this->_propDict["syncContacts"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the syncTasks
-    * Toggles syncing tasks. If set to false tasks are turned off on the device.
-    *
-    * @return bool|null The syncTasks
-    */
+     * Gets the syncTasks
+     * Toggles syncing tasks. If set to false tasks are turned off on the device.
+     *
+     * @return bool|null The syncTasks
+     */
     public function getSyncTasks()
     {
         if (array_key_exists("syncTasks", $this->_propDict)) {
@@ -99,19 +96,17 @@ class AndroidWorkProfileNineWorkEasConfiguration extends AndroidWorkProfileEasEm
             return null;
         }
     }
-
     /**
-    * Sets the syncTasks
-    * Toggles syncing tasks. If set to false tasks are turned off on the device.
-    *
-    * @param bool $val The syncTasks
-    *
-    * @return AndroidWorkProfileNineWorkEasConfiguration
-    */
+     * Sets the syncTasks
+     * Toggles syncing tasks. If set to false tasks are turned off on the device.
+     *
+     * @param bool $val The syncTasks
+     *
+     * @return AndroidWorkProfileNineWorkEasConfiguration
+     */
     public function setSyncTasks($val)
     {
         $this->_propDict["syncTasks"] = boolval($val);
         return $this;
     }
-
 }

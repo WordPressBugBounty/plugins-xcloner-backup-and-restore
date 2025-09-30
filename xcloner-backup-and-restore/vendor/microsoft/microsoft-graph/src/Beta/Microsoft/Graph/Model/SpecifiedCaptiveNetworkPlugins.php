@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SpecifiedCaptiveNetworkPlugins class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SpecifiedCaptiveNetworkPlugins extends Entity
 {
     /**
-    * Gets the allowedBundleIdentifiers
-    * Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
-    *
-    * @return string|null The allowedBundleIdentifiers
-    */
+     * Gets the allowedBundleIdentifiers
+     * Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
+     *
+     * @return string|null The allowedBundleIdentifiers
+     */
     public function getAllowedBundleIdentifiers()
     {
         if (array_key_exists("allowedBundleIdentifiers", $this->_propDict)) {
@@ -40,15 +42,14 @@ class SpecifiedCaptiveNetworkPlugins extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedBundleIdentifiers
-    * Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
-    *
-    * @param string $val The value of the allowedBundleIdentifiers
-    *
-    * @return SpecifiedCaptiveNetworkPlugins
-    */
+     * Sets the allowedBundleIdentifiers
+     * Address of the IKEv2 server. Must be a FQDN, UserFQDN, network address, or ASN1DN
+     *
+     * @param string $val The value of the allowedBundleIdentifiers
+     *
+     * @return SpecifiedCaptiveNetworkPlugins
+     */
     public function setAllowedBundleIdentifiers($val)
     {
         $this->_propDict["allowedBundleIdentifiers"] = $val;

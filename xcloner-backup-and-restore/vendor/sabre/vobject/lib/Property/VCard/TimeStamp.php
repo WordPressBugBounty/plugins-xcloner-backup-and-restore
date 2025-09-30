@@ -1,14 +1,13 @@
 <?php
 
-namespace Sabre\VObject\Property\VCard;
+namespace XCloner\Sabre\VObject\Property\VCard;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\DateTimeParser;
-use Sabre\VObject\Property\Text;
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\VObject\Property\Text;
+use XCloner\Sabre\Xml;
 /**
  * TimeStamp property.
  *
@@ -27,7 +26,6 @@ class TimeStamp extends Text
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Returns the type of value.
      *
@@ -40,7 +38,6 @@ class TimeStamp extends Text
     {
         return 'TIMESTAMP';
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -51,23 +48,13 @@ class TimeStamp extends Text
     public function getJsonValue()
     {
         $parts = DateTimeParser::parseVCardDateTime($this->getValue());
-
-        $dateStr =
-            $parts['year'].'-'.
-            $parts['month'].'-'.
-            $parts['date'].'T'.
-            $parts['hour'].':'.
-            $parts['minute'].':'.
-            $parts['second'];
-
+        $dateStr = $parts['year'] . '-' . $parts['month'] . '-' . $parts['date'] . 'T' . $parts['hour'] . ':' . $parts['minute'] . ':' . $parts['second'];
         // Timezone
         if (!is_null($parts['timezone'])) {
             $dateStr .= $parts['timezone'];
         }
-
         return [$dateStr];
     }
-
     /**
      * This method serializes only the value of a property. This is used to
      * create xCard or xCal documents.

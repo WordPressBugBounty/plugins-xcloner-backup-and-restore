@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationConditions class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AuthenticationConditions extends Entity
 {
-
     /**
-    * Gets the applications
-    *
-    * @return AuthenticationConditionsApplications|null The applications
-    */
+     * Gets the applications
+     *
+     * @return AuthenticationConditionsApplications|null The applications
+     */
     public function getApplications()
     {
         if (array_key_exists("applications", $this->_propDict)) {
-            if (is_a($this->_propDict["applications"], "\Beta\Microsoft\Graph\Model\AuthenticationConditionsApplications") || is_null($this->_propDict["applications"])) {
+            if (is_a($this->_propDict["applications"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationConditionsApplications") || is_null($this->_propDict["applications"])) {
                 return $this->_propDict["applications"];
             } else {
                 $this->_propDict["applications"] = new AuthenticationConditionsApplications($this->_propDict["applications"]);
@@ -44,17 +45,16 @@ class AuthenticationConditions extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the applications
-    *
-    * @param AuthenticationConditionsApplications $val The value to assign to the applications
-    *
-    * @return AuthenticationConditions The AuthenticationConditions
-    */
+     * Sets the applications
+     *
+     * @param AuthenticationConditionsApplications $val The value to assign to the applications
+     *
+     * @return AuthenticationConditions The AuthenticationConditions
+     */
     public function setApplications($val)
     {
         $this->_propDict["applications"] = $val;
-         return $this;
+        return $this;
     }
 }

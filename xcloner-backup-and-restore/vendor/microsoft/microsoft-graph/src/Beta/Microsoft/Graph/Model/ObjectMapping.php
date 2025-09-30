@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ObjectMapping class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ObjectMapping extends Entity
 {
-
     /**
-    * Gets the attributeMappings
-    * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
-    *
-    * @return AttributeMapping|null The attributeMappings
-    */
+     * Gets the attributeMappings
+     * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
+     *
+     * @return AttributeMapping|null The attributeMappings
+     */
     public function getAttributeMappings()
     {
         if (array_key_exists("attributeMappings", $this->_propDict)) {
-            if (is_a($this->_propDict["attributeMappings"], "\Beta\Microsoft\Graph\Model\AttributeMapping") || is_null($this->_propDict["attributeMappings"])) {
+            if (is_a($this->_propDict["attributeMappings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AttributeMapping") || is_null($this->_propDict["attributeMappings"])) {
                 return $this->_propDict["attributeMappings"];
             } else {
                 $this->_propDict["attributeMappings"] = new AttributeMapping($this->_propDict["attributeMappings"]);
@@ -45,26 +46,25 @@ class ObjectMapping extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attributeMappings
-    * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
-    *
-    * @param AttributeMapping $val The value to assign to the attributeMappings
-    *
-    * @return ObjectMapping The ObjectMapping
-    */
+     * Sets the attributeMappings
+     * Attribute mappings define which attributes to map from the source object into the target object and how they should flow. A number of functions are available to support the transformation of the original source values.
+     *
+     * @param AttributeMapping $val The value to assign to the attributeMappings
+     *
+     * @return ObjectMapping The ObjectMapping
+     */
     public function setAttributeMappings($val)
     {
         $this->_propDict["attributeMappings"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the enabled
-    * When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
-    *
-    * @return bool|null The enabled
-    */
+     * Gets the enabled
+     * When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
+     *
+     * @return bool|null The enabled
+     */
     public function getEnabled()
     {
         if (array_key_exists("enabled", $this->_propDict)) {
@@ -73,31 +73,29 @@ class ObjectMapping extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabled
-    * When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
-    *
-    * @param bool $val The value of the enabled
-    *
-    * @return ObjectMapping
-    */
+     * Sets the enabled
+     * When true, this object mapping will be processed during synchronization. When false, this object mapping will be skipped.
+     *
+     * @param bool $val The value of the enabled
+     *
+     * @return ObjectMapping
+     */
     public function setEnabled($val)
     {
         $this->_propDict["enabled"] = $val;
         return $this;
     }
-
     /**
-    * Gets the flowTypes
-    * Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
-    *
-    * @return ObjectFlowTypes|null The flowTypes
-    */
+     * Gets the flowTypes
+     * Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
+     *
+     * @return ObjectFlowTypes|null The flowTypes
+     */
     public function getFlowTypes()
     {
         if (array_key_exists("flowTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["flowTypes"], "\Beta\Microsoft\Graph\Model\ObjectFlowTypes") || is_null($this->_propDict["flowTypes"])) {
+            if (is_a($this->_propDict["flowTypes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ObjectFlowTypes") || is_null($this->_propDict["flowTypes"])) {
                 return $this->_propDict["flowTypes"];
             } else {
                 $this->_propDict["flowTypes"] = new ObjectFlowTypes($this->_propDict["flowTypes"]);
@@ -106,31 +104,29 @@ class ObjectMapping extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the flowTypes
-    * Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
-    *
-    * @param ObjectFlowTypes $val The value to assign to the flowTypes
-    *
-    * @return ObjectMapping The ObjectMapping
-    */
+     * Sets the flowTypes
+     * Which flow types are enabled for this object mapping. Add creates new objects in the target directory, Update modifies existing objects, and Delete deprovisions existing users. The default is Add, Update, Delete.
+     *
+     * @param ObjectFlowTypes $val The value to assign to the flowTypes
+     *
+     * @return ObjectMapping The ObjectMapping
+     */
     public function setFlowTypes($val)
     {
         $this->_propDict["flowTypes"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the metadata
-    * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-    *
-    * @return MetadataEntry|null The metadata
-    */
+     * Gets the metadata
+     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     *
+     * @return MetadataEntry|null The metadata
+     */
     public function getMetadata()
     {
         if (array_key_exists("metadata", $this->_propDict)) {
-            if (is_a($this->_propDict["metadata"], "\Beta\Microsoft\Graph\Model\MetadataEntry") || is_null($this->_propDict["metadata"])) {
+            if (is_a($this->_propDict["metadata"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MetadataEntry") || is_null($this->_propDict["metadata"])) {
                 return $this->_propDict["metadata"];
             } else {
                 $this->_propDict["metadata"] = new MetadataEntry($this->_propDict["metadata"]);
@@ -139,26 +135,25 @@ class ObjectMapping extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the metadata
-    * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
-    *
-    * @param MetadataEntry $val The value to assign to the metadata
-    *
-    * @return ObjectMapping The ObjectMapping
-    */
+     * Sets the metadata
+     * Additional extension properties. Unless mentioned explicitly, metadata values should not be changed.
+     *
+     * @param MetadataEntry $val The value to assign to the metadata
+     *
+     * @return ObjectMapping The ObjectMapping
+     */
     public function setMetadata($val)
     {
         $this->_propDict["metadata"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * Human-friendly name of the object mapping.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Human-friendly name of the object mapping.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -167,31 +162,29 @@ class ObjectMapping extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Human-friendly name of the object mapping.
-    *
-    * @param string $val The value of the name
-    *
-    * @return ObjectMapping
-    */
+     * Sets the name
+     * Human-friendly name of the object mapping.
+     *
+     * @param string $val The value of the name
+     *
+     * @return ObjectMapping
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scope
-    * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
-    *
-    * @return Filter|null The scope
-    */
+     * Gets the scope
+     * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
+     *
+     * @return Filter|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\Filter") || is_null($this->_propDict["scope"])) {
+            if (is_a($this->_propDict["scope"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Filter") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new Filter($this->_propDict["scope"]);
@@ -200,26 +193,25 @@ class ObjectMapping extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the scope
-    * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
-    *
-    * @param Filter $val The value to assign to the scope
-    *
-    * @return ObjectMapping The ObjectMapping
-    */
+     * Sets the scope
+     * Defines a filter to be used when deciding whether a given object should be provisioned. For example, you might want to only provision users that are located in the US.
+     *
+     * @param Filter $val The value to assign to the scope
+     *
+     * @return ObjectMapping The ObjectMapping
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the sourceObjectName
-    * Name of the object in the source directory. Must match the object name from the source directory definition.
-    *
-    * @return string|null The sourceObjectName
-    */
+     * Gets the sourceObjectName
+     * Name of the object in the source directory. Must match the object name from the source directory definition.
+     *
+     * @return string|null The sourceObjectName
+     */
     public function getSourceObjectName()
     {
         if (array_key_exists("sourceObjectName", $this->_propDict)) {
@@ -228,26 +220,25 @@ class ObjectMapping extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceObjectName
-    * Name of the object in the source directory. Must match the object name from the source directory definition.
-    *
-    * @param string $val The value of the sourceObjectName
-    *
-    * @return ObjectMapping
-    */
+     * Sets the sourceObjectName
+     * Name of the object in the source directory. Must match the object name from the source directory definition.
+     *
+     * @param string $val The value of the sourceObjectName
+     *
+     * @return ObjectMapping
+     */
     public function setSourceObjectName($val)
     {
         $this->_propDict["sourceObjectName"] = $val;
         return $this;
     }
     /**
-    * Gets the targetObjectName
-    * Name of the object in target directory. Must match the object name from the target directory definition.
-    *
-    * @return string|null The targetObjectName
-    */
+     * Gets the targetObjectName
+     * Name of the object in target directory. Must match the object name from the target directory definition.
+     *
+     * @return string|null The targetObjectName
+     */
     public function getTargetObjectName()
     {
         if (array_key_exists("targetObjectName", $this->_propDict)) {
@@ -256,15 +247,14 @@ class ObjectMapping extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetObjectName
-    * Name of the object in target directory. Must match the object name from the target directory definition.
-    *
-    * @param string $val The value of the targetObjectName
-    *
-    * @return ObjectMapping
-    */
+     * Sets the targetObjectName
+     * Name of the object in target directory. Must match the object name from the target directory definition.
+     *
+     * @param string $val The value of the targetObjectName
+     *
+     * @return ObjectMapping
+     */
     public function setTargetObjectName($val)
     {
         $this->_propDict["targetObjectName"] = $val;

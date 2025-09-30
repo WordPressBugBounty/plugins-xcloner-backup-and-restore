@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealth class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceHealth extends Entity
 {
-
     /**
-    * Gets the lastConnectionTime
-    * The last time the device was connected.
-    *
-    * @return \DateTime|null The lastConnectionTime
-    */
+     * Gets the lastConnectionTime
+     * The last time the device was connected.
+     *
+     * @return \DateTime|null The lastConnectionTime
+     */
     public function getLastConnectionTime()
     {
         if (array_key_exists("lastConnectionTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastConnectionTime"], "\DateTime") || is_null($this->_propDict["lastConnectionTime"])) {
+            if (is_a($this->_propDict["lastConnectionTime"], "\\DateTime") || is_null($this->_propDict["lastConnectionTime"])) {
                 return $this->_propDict["lastConnectionTime"];
             } else {
                 $this->_propDict["lastConnectionTime"] = new \DateTime($this->_propDict["lastConnectionTime"]);
@@ -45,18 +46,17 @@ class DeviceHealth extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastConnectionTime
-    * The last time the device was connected.
-    *
-    * @param \DateTime $val The value to assign to the lastConnectionTime
-    *
-    * @return DeviceHealth The DeviceHealth
-    */
+     * Sets the lastConnectionTime
+     * The last time the device was connected.
+     *
+     * @param \DateTime $val The value to assign to the lastConnectionTime
+     *
+     * @return DeviceHealth The DeviceHealth
+     */
     public function setLastConnectionTime($val)
     {
         $this->_propDict["lastConnectionTime"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows10EnterpriseModernAppManagementConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows10EnterpriseModernAppManagementConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the uninstallBuiltInApps
-    * Indicates whether or not to uninstall a fixed list of built-in Windows apps.
-    *
-    * @return bool|null The uninstallBuiltInApps
-    */
+     * Gets the uninstallBuiltInApps
+     * Indicates whether or not to uninstall a fixed list of built-in Windows apps.
+     *
+     * @return bool|null The uninstallBuiltInApps
+     */
     public function getUninstallBuiltInApps()
     {
         if (array_key_exists("uninstallBuiltInApps", $this->_propDict)) {
@@ -41,19 +42,17 @@ class Windows10EnterpriseModernAppManagementConfiguration extends DeviceConfigur
             return null;
         }
     }
-
     /**
-    * Sets the uninstallBuiltInApps
-    * Indicates whether or not to uninstall a fixed list of built-in Windows apps.
-    *
-    * @param bool $val The uninstallBuiltInApps
-    *
-    * @return Windows10EnterpriseModernAppManagementConfiguration
-    */
+     * Sets the uninstallBuiltInApps
+     * Indicates whether or not to uninstall a fixed list of built-in Windows apps.
+     *
+     * @param bool $val The uninstallBuiltInApps
+     *
+     * @return Windows10EnterpriseModernAppManagementConfiguration
+     */
     public function setUninstallBuiltInApps($val)
     {
         $this->_propDict["uninstallBuiltInApps"] = boolval($val);
         return $this;
     }
-
 }

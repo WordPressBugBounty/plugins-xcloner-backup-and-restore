@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Todo class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Todo extends Entity
 {
-
-     /**
+    /**
      * Gets the lists
-    * The task lists in the users mailbox.
+     * The task lists in the users mailbox.
      *
      * @return array|null The lists
      */
     public function getLists()
     {
         if (array_key_exists("lists", $this->_propDict)) {
-           return $this->_propDict["lists"];
+            return $this->_propDict["lists"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the lists
-    * The task lists in the users mailbox.
-    *
-    * @param TodoTaskList[] $val The lists
-    *
-    * @return Todo
-    */
+     * Sets the lists
+     * The task lists in the users mailbox.
+     *
+     * @param TodoTaskList[] $val The lists
+     *
+     * @return Todo
+     */
     public function setLists($val)
     {
         $this->_propDict["lists"] = $val;
         return $this;
     }
-
 }

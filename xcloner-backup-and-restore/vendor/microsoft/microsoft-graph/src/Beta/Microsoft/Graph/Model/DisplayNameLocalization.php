@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DisplayNameLocalization class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DisplayNameLocalization extends Entity
 {
     /**
-    * Gets the displayName
-    * If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DisplayNameLocalization extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return DisplayNameLocalization
-    */
+     * Sets the displayName
+     * If present, the value of this field contains the displayName string that has been set for the language present in the languageTag field.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return DisplayNameLocalization
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the languageTag
-    * Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
-    *
-    * @return string|null The languageTag
-    */
+     * Gets the languageTag
+     * Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
+     *
+     * @return string|null The languageTag
+     */
     public function getLanguageTag()
     {
         if (array_key_exists("languageTag", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DisplayNameLocalization extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the languageTag
-    * Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
-    *
-    * @param string $val The value of the languageTag
-    *
-    * @return DisplayNameLocalization
-    */
+     * Sets the languageTag
+     * Provides the language culture-code and friendly name of the language that the displayName field has been provided in.
+     *
+     * @param string $val The value of the languageTag
+     *
+     * @return DisplayNameLocalization
+     */
     public function setLanguageTag($val)
     {
         $this->_propDict["languageTag"] = $val;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Unknown property.
  *
@@ -28,7 +28,6 @@ class Unknown extends Text
     {
         return [$this->getRawMimeDirValue()];
     }
-
     /**
      * Returns the type of value.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CallOptions class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CallOptions extends Entity
 {
     /**
-    * Gets the hideBotAfterEscalation
-    * Indicates whether to hide the app after the call is escalated.
-    *
-    * @return bool|null The hideBotAfterEscalation
-    */
+     * Gets the hideBotAfterEscalation
+     * Indicates whether to hide the app after the call is escalated.
+     *
+     * @return bool|null The hideBotAfterEscalation
+     */
     public function getHideBotAfterEscalation()
     {
         if (array_key_exists("hideBotAfterEscalation", $this->_propDict)) {
@@ -40,26 +42,25 @@ class CallOptions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hideBotAfterEscalation
-    * Indicates whether to hide the app after the call is escalated.
-    *
-    * @param bool $val The value of the hideBotAfterEscalation
-    *
-    * @return CallOptions
-    */
+     * Sets the hideBotAfterEscalation
+     * Indicates whether to hide the app after the call is escalated.
+     *
+     * @param bool $val The value of the hideBotAfterEscalation
+     *
+     * @return CallOptions
+     */
     public function setHideBotAfterEscalation($val)
     {
         $this->_propDict["hideBotAfterEscalation"] = $val;
         return $this;
     }
     /**
-    * Gets the isContentSharingNotificationEnabled
-    * Indicates whether content sharing notifications should be enabled for the call.
-    *
-    * @return bool|null The isContentSharingNotificationEnabled
-    */
+     * Gets the isContentSharingNotificationEnabled
+     * Indicates whether content sharing notifications should be enabled for the call.
+     *
+     * @return bool|null The isContentSharingNotificationEnabled
+     */
     public function getIsContentSharingNotificationEnabled()
     {
         if (array_key_exists("isContentSharingNotificationEnabled", $this->_propDict)) {
@@ -68,15 +69,14 @@ class CallOptions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isContentSharingNotificationEnabled
-    * Indicates whether content sharing notifications should be enabled for the call.
-    *
-    * @param bool $val The value of the isContentSharingNotificationEnabled
-    *
-    * @return CallOptions
-    */
+     * Sets the isContentSharingNotificationEnabled
+     * Indicates whether content sharing notifications should be enabled for the call.
+     *
+     * @param bool $val The value of the isContentSharingNotificationEnabled
+     *
+     * @return CallOptions
+     */
     public function setIsContentSharingNotificationEnabled($val)
     {
         $this->_propDict["isContentSharingNotificationEnabled"] = $val;

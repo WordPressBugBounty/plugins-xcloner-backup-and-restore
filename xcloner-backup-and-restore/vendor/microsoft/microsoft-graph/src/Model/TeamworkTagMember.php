@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkTagMember class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamworkTagMember extends Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,25 +41,23 @@ class TeamworkTagMember extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return TeamworkTagMember
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return TeamworkTagMember
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -67,25 +66,23 @@ class TeamworkTagMember extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    *
-    * @param string $val The tenantId
-    *
-    * @return TeamworkTagMember
-    */
+     * Sets the tenantId
+     *
+     * @param string $val The tenantId
+     *
+     * @return TeamworkTagMember
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -94,18 +91,16 @@ class TeamworkTagMember extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    *
-    * @param string $val The userId
-    *
-    * @return TeamworkTagMember
-    */
+     * Sets the userId
+     *
+     * @param string $val The userId
+     *
+     * @return TeamworkTagMember
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

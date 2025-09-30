@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP\Auth;
 
-namespace Sabre\HTTP\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * HTTP Digest Authentication handler.
  *
@@ -39,13 +37,11 @@ class Digest extends AbstractAuth
      */
     const QOP_AUTH = 1;
     const QOP_AUTHINT = 2;
-
     protected $nonce;
     protected $opaque;
     protected $digestParts;
     protected $A1;
     protected $qop = self::QOP_AUTH;
-
     /**
      * Initializes the object.
      */
@@ -55,7 +51,6 @@ class Digest extends AbstractAuth
         $this->opaque = md5($realm);
         parent::__construct($realm, $request, $response);
     }
-
     /**
      * Gathers all information from the headers.
      *
@@ -66,7 +61,6 @@ class Digest extends AbstractAuth
         $digest = $this->getDigest();
         $this->digestParts = $this->parseDigest((string) $digest);
     }
-
     /**
      * Sets the quality of protection value.
      *
@@ -84,7 +78,6 @@ class Digest extends AbstractAuth
     {
         $this->qop = $qop;
     }
-
     /**
      * Validates the user.
      *
@@ -93,21 +86,17 @@ class Digest extends AbstractAuth
     public function validateA1(string $A1): bool
     {
         $this->A1 = $A1;
-
         return $this->validate();
     }
-
     /**
      * Validates authentication through a password. The actual password must be provided here.
      * It is strongly recommended not store the password in plain-text and use validateA1 instead.
      */
     public function validatePassword(string $password): bool
     {
-        $this->A1 = md5($this->digestParts['username'].':'.$this->realm.':'.$password);
-
+        $this->A1 = md5($this->digestParts['username'] . ':' . $this->realm . ':' . $password);
         return $this->validate();
     }
-
     /**
      * Returns the username for the request.
      * Returns null if there were none.
@@ -118,38 +107,31 @@ class Digest extends AbstractAuth
     {
         return $this->digestParts['username'] ?? null;
     }
-
     /**
      * Validates the digest challenge.
      */
     protected function validate(): bool
     {
         if (!is_array($this->digestParts)) {
-            return false;
+            return \false;
         }
-
-        $A2 = $this->request->getMethod().':'.$this->digestParts['uri'];
-
+        $A2 = $this->request->getMethod() . ':' . $this->digestParts['uri'];
         if ('auth-int' === $this->digestParts['qop']) {
             // Making sure we support this qop value
             if (!($this->qop & self::QOP_AUTHINT)) {
-                return false;
+                return \false;
             }
             // We need to add an md5 of the entire request body to the A2 part of the hash
             $body = $this->request->getBody();
             $this->request->setBody($body);
-            $A2 .= ':'.md5($body);
+            $A2 .= ':' . md5($body);
         } elseif (!($this->qop & self::QOP_AUTH)) {
-            return false;
+            return \false;
         }
-
         $A2 = md5($A2);
-
         $validResponse = md5("{$this->A1}:{$this->digestParts['nonce']}:{$this->digestParts['nc']}:{$this->digestParts['cnonce']}:{$this->digestParts['qop']}:{$A2}");
-
         return $this->digestParts['response'] === $validResponse;
     }
-
     /**
      * Returns an HTTP 401 header, forcing login.
      *
@@ -169,11 +151,9 @@ class Digest extends AbstractAuth
                 $qop = 'auth,auth-int';
                 break;
         }
-
-        $this->response->addHeader('WWW-Authenticate', 'Digest realm="'.$this->realm.'",qop="'.$qop.'",nonce="'.$this->nonce.'",opaque="'.$this->opaque.'"');
+        $this->response->addHeader('WWW-Authenticate', 'Digest realm="' . $this->realm . '",qop="' . $qop . '",nonce="' . $this->nonce . '",opaque="' . $this->opaque . '"');
         $this->response->setStatus(401);
     }
-
     /**
      * This method returns the full digest string.
      *
@@ -187,7 +167,6 @@ class Digest extends AbstractAuth
     {
         return $this->request->getHeader('Authorization');
     }
-
     /**
      * Parses the different pieces of the digest string into an array.
      *
@@ -200,14 +179,11 @@ class Digest extends AbstractAuth
         // protect against missing data
         $needed_parts = ['nonce' => 1, 'nc' => 1, 'cnonce' => 1, 'qop' => 1, 'username' => 1, 'uri' => 1, 'response' => 1];
         $data = [];
-
-        preg_match_all('@(\w+)=(?:(?:")([^"]+)"|([^\s,$]+))@', $digest, $matches, PREG_SET_ORDER);
-
+        preg_match_all('@(\w+)=(?:(?:")([^"]+)"|([^\s,$]+))@', $digest, $matches, \PREG_SET_ORDER);
         foreach ($matches as $m) {
             $data[$m[1]] = $m[2] ?: $m[3];
             unset($needed_parts[$m[1]]);
         }
-
-        return $needed_parts ? false : $data;
+        return $needed_parts ? \false : $data;
     }
 }

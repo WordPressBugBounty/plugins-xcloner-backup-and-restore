@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DelegatedAdminServiceManagementDetail class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DelegatedAdminServiceManagementDetail extends Entity
 {
     /**
-    * Gets the serviceManagementUrl
-    * The URL of the management portal for the managed service. Read-only.
-    *
-    * @return string|null The serviceManagementUrl
-    */
+     * Gets the serviceManagementUrl
+     * The URL of the management portal for the managed service. Read-only.
+     *
+     * @return string|null The serviceManagementUrl
+     */
     public function getServiceManagementUrl()
     {
         if (array_key_exists("serviceManagementUrl", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DelegatedAdminServiceManagementDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the serviceManagementUrl
-    * The URL of the management portal for the managed service. Read-only.
-    *
-    * @param string $val The serviceManagementUrl
-    *
-    * @return DelegatedAdminServiceManagementDetail
-    */
+     * Sets the serviceManagementUrl
+     * The URL of the management portal for the managed service. Read-only.
+     *
+     * @param string $val The serviceManagementUrl
+     *
+     * @return DelegatedAdminServiceManagementDetail
+     */
     public function setServiceManagementUrl($val)
     {
         $this->_propDict["serviceManagementUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the serviceName
-    * The name of a managed service. Read-only.
-    *
-    * @return string|null The serviceName
-    */
+     * Gets the serviceName
+     * The name of a managed service. Read-only.
+     *
+     * @return string|null The serviceName
+     */
     public function getServiceName()
     {
         if (array_key_exists("serviceName", $this->_propDict)) {
@@ -70,19 +69,17 @@ class DelegatedAdminServiceManagementDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the serviceName
-    * The name of a managed service. Read-only.
-    *
-    * @param string $val The serviceName
-    *
-    * @return DelegatedAdminServiceManagementDetail
-    */
+     * Sets the serviceName
+     * The name of a managed service. Read-only.
+     *
+     * @param string $val The serviceName
+     *
+     * @return DelegatedAdminServiceManagementDetail
+     */
     public function setServiceName($val)
     {
         $this->_propDict["serviceName"] = $val;
         return $this;
     }
-
 }

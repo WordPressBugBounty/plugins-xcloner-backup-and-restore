@@ -1,10 +1,10 @@
 <?php
 
-namespace GuzzleHttp\Exception;
+namespace XCloner\GuzzleHttp\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 final class InvalidArgumentException extends \InvalidArgumentException implements GuzzleException
 {
 }

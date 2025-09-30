@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProxiedDomain class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProxiedDomain extends Entity
 {
     /**
-    * Gets the ipAddressOrFQDN
-    * The IP address or FQDN
-    *
-    * @return string|null The ipAddressOrFQDN
-    */
+     * Gets the ipAddressOrFQDN
+     * The IP address or FQDN
+     *
+     * @return string|null The ipAddressOrFQDN
+     */
     public function getIpAddressOrFQDN()
     {
         if (array_key_exists("ipAddressOrFQDN", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ProxiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ipAddressOrFQDN
-    * The IP address or FQDN
-    *
-    * @param string $val The value of the ipAddressOrFQDN
-    *
-    * @return ProxiedDomain
-    */
+     * Sets the ipAddressOrFQDN
+     * The IP address or FQDN
+     *
+     * @param string $val The value of the ipAddressOrFQDN
+     *
+     * @return ProxiedDomain
+     */
     public function setIpAddressOrFQDN($val)
     {
         $this->_propDict["ipAddressOrFQDN"] = $val;
         return $this;
     }
     /**
-    * Gets the proxy
-    * Proxy IP or FQDN
-    *
-    * @return string|null The proxy
-    */
+     * Gets the proxy
+     * Proxy IP or FQDN
+     *
+     * @return string|null The proxy
+     */
     public function getProxy()
     {
         if (array_key_exists("proxy", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ProxiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the proxy
-    * Proxy IP or FQDN
-    *
-    * @param string $val The value of the proxy
-    *
-    * @return ProxiedDomain
-    */
+     * Sets the proxy
+     * Proxy IP or FQDN
+     *
+     * @param string $val The value of the proxy
+     *
+     * @return ProxiedDomain
+     */
     public function setProxy($val)
     {
         $this->_propDict["proxy"] = $val;

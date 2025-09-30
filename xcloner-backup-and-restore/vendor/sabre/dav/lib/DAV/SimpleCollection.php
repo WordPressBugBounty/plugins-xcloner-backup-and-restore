@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use InvalidArgumentException;
-
 /**
  * SimpleCollection.
  *
@@ -27,14 +25,12 @@ class SimpleCollection extends Collection
      * @var INode[]
      */
     protected $children = [];
-
     /**
      * Name of this resource.
      *
      * @var string
      */
     protected $name;
-
     /**
      * Creates this node.
      *
@@ -58,7 +54,6 @@ class SimpleCollection extends Collection
             $this->addChild($child);
         }
     }
-
     /**
      * Adds a new childnode to this collection.
      */
@@ -66,7 +61,6 @@ class SimpleCollection extends Collection
     {
         $this->children[$child->getName()] = $child;
     }
-
     /**
      * Returns the name of the collection.
      *
@@ -76,7 +70,6 @@ class SimpleCollection extends Collection
     {
         return $this->name;
     }
-
     /**
      * Returns a child object, by its name.
      *
@@ -97,9 +90,8 @@ class SimpleCollection extends Collection
         if (isset($this->children[$name])) {
             return $this->children[$name];
         }
-        throw new Exception\NotFound('File not found: '.$name.' in \''.$this->getName().'\'');
+        throw new Exception\NotFound('File not found: ' . $name . ' in \'' . $this->getName() . '\'');
     }
-
     /**
      * Returns a list of children for this collection.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceEnrollmentConfiguration class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceEnrollmentConfiguration extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * Created date time in UTC of the device enrollment configuration
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Created date time in UTC of the device enrollment configuration
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class DeviceEnrollmentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Created date time in UTC of the device enrollment configuration
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the createdDateTime
+     * Created date time in UTC of the device enrollment configuration
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * The description of the device enrollment configuration
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the device enrollment configuration
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -74,27 +73,25 @@ class DeviceEnrollmentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the device enrollment configuration
-    *
-    * @param string $val The description
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the description
+     * The description of the device enrollment configuration
+     *
+     * @param string $val The description
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name of the device enrollment configuration
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the device enrollment configuration
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -103,31 +100,29 @@ class DeviceEnrollmentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the device enrollment configuration
-    *
-    * @param string $val The displayName
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the displayName
+     * The display name of the device enrollment configuration
+     *
+     * @param string $val The displayName
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Last modified date time in UTC of the device enrollment configuration
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Last modified date time in UTC of the device enrollment configuration
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -136,27 +131,25 @@ class DeviceEnrollmentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Last modified date time in UTC of the device enrollment configuration
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the lastModifiedDateTime
+     * Last modified date time in UTC of the device enrollment configuration
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the priority
-    * Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
-    *
-    * @return int|null The priority
-    */
+     * Gets the priority
+     * Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
+     *
+     * @return int|null The priority
+     */
     public function getPriority()
     {
         if (array_key_exists("priority", $this->_propDict)) {
@@ -165,27 +158,25 @@ class DeviceEnrollmentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the priority
-    * Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
-    *
-    * @param int $val The priority
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the priority
+     * Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.
+     *
+     * @param int $val The priority
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setPriority($val)
     {
         $this->_propDict["priority"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the version
-    * The version of the device enrollment configuration
-    *
-    * @return int|null The version
-    */
+     * Gets the version
+     * The version of the device enrollment configuration
+     *
+     * @return int|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -194,49 +185,44 @@ class DeviceEnrollmentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * The version of the device enrollment configuration
-    *
-    * @param int $val The version
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the version
+     * The version of the device enrollment configuration
+     *
+     * @param int $val The version
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = intval($val);
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignments
-    * The list of group assignments for the device configuration profile
+     * The list of group assignments for the device configuration profile
      *
      * @return array|null The assignments
      */
     public function getAssignments()
     {
         if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+            return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignments
-    * The list of group assignments for the device configuration profile
-    *
-    * @param EnrollmentConfigurationAssignment[] $val The assignments
-    *
-    * @return DeviceEnrollmentConfiguration
-    */
+     * Sets the assignments
+     * The list of group assignments for the device configuration profile
+     *
+     * @param EnrollmentConfigurationAssignment[] $val The assignments
+     *
+     * @return DeviceEnrollmentConfiguration
+     */
     public function setAssignments($val)
     {
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-
 }

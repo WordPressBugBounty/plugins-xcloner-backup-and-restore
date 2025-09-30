@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAppPolicyDeploymentSummaryPerApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAppPolicyDeploymentSummaryPerApp extends Entity
 {
     /**
-    * Gets the configurationAppliedUserCount
-    * Number of users the policy is applied.
-    *
-    * @return int|null The configurationAppliedUserCount
-    */
+     * Gets the configurationAppliedUserCount
+     * Number of users the policy is applied.
+     *
+     * @return int|null The configurationAppliedUserCount
+     */
     public function getConfigurationAppliedUserCount()
     {
         if (array_key_exists("configurationAppliedUserCount", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ManagedAppPolicyDeploymentSummaryPerApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the configurationAppliedUserCount
-    * Number of users the policy is applied.
-    *
-    * @param int $val The value of the configurationAppliedUserCount
-    *
-    * @return ManagedAppPolicyDeploymentSummaryPerApp
-    */
+     * Sets the configurationAppliedUserCount
+     * Number of users the policy is applied.
+     *
+     * @param int $val The value of the configurationAppliedUserCount
+     *
+     * @return ManagedAppPolicyDeploymentSummaryPerApp
+     */
     public function setConfigurationAppliedUserCount($val)
     {
         $this->_propDict["configurationAppliedUserCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the mobileAppIdentifier
-    * Deployment of an app.
-    *
-    * @return MobileAppIdentifier|null The mobileAppIdentifier
-    */
+     * Gets the mobileAppIdentifier
+     * Deployment of an app.
+     *
+     * @return MobileAppIdentifier|null The mobileAppIdentifier
+     */
     public function getMobileAppIdentifier()
     {
         if (array_key_exists("mobileAppIdentifier", $this->_propDict)) {
-            if (is_a($this->_propDict["mobileAppIdentifier"], "\Microsoft\Graph\Model\MobileAppIdentifier") || is_null($this->_propDict["mobileAppIdentifier"])) {
+            if (is_a($this->_propDict["mobileAppIdentifier"], "XCloner\\Microsoft\\Graph\\Model\\MobileAppIdentifier") || is_null($this->_propDict["mobileAppIdentifier"])) {
                 return $this->_propDict["mobileAppIdentifier"];
             } else {
                 $this->_propDict["mobileAppIdentifier"] = new MobileAppIdentifier($this->_propDict["mobileAppIdentifier"]);
@@ -73,18 +73,17 @@ class ManagedAppPolicyDeploymentSummaryPerApp extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mobileAppIdentifier
-    * Deployment of an app.
-    *
-    * @param MobileAppIdentifier $val The value to assign to the mobileAppIdentifier
-    *
-    * @return ManagedAppPolicyDeploymentSummaryPerApp The ManagedAppPolicyDeploymentSummaryPerApp
-    */
+     * Sets the mobileAppIdentifier
+     * Deployment of an app.
+     *
+     * @param MobileAppIdentifier $val The value to assign to the mobileAppIdentifier
+     *
+     * @return ManagedAppPolicyDeploymentSummaryPerApp The ManagedAppPolicyDeploymentSummaryPerApp
+     */
     public function setMobileAppIdentifier($val)
     {
         $this->_propDict["mobileAppIdentifier"] = $val;
-         return $this;
+        return $this;
     }
 }

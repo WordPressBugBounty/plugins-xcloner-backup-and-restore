@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EvaluateLabelJobResult class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EvaluateLabelJobResult extends Entity
 {
-
     /**
-    * Gets the responsiblePolicy
-    *
-    * @return ResponsiblePolicy|null The responsiblePolicy
-    */
+     * Gets the responsiblePolicy
+     *
+     * @return ResponsiblePolicy|null The responsiblePolicy
+     */
     public function getResponsiblePolicy()
     {
         if (array_key_exists("responsiblePolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["responsiblePolicy"], "\Beta\Microsoft\Graph\Model\ResponsiblePolicy") || is_null($this->_propDict["responsiblePolicy"])) {
+            if (is_a($this->_propDict["responsiblePolicy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResponsiblePolicy") || is_null($this->_propDict["responsiblePolicy"])) {
                 return $this->_propDict["responsiblePolicy"];
             } else {
                 $this->_propDict["responsiblePolicy"] = new ResponsiblePolicy($this->_propDict["responsiblePolicy"]);
@@ -44,29 +45,27 @@ class EvaluateLabelJobResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the responsiblePolicy
-    *
-    * @param ResponsiblePolicy $val The value to assign to the responsiblePolicy
-    *
-    * @return EvaluateLabelJobResult The EvaluateLabelJobResult
-    */
+     * Sets the responsiblePolicy
+     *
+     * @param ResponsiblePolicy $val The value to assign to the responsiblePolicy
+     *
+     * @return EvaluateLabelJobResult The EvaluateLabelJobResult
+     */
     public function setResponsiblePolicy($val)
     {
         $this->_propDict["responsiblePolicy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the responsibleSensitiveTypes
-    *
-    * @return ResponsibleSensitiveType|null The responsibleSensitiveTypes
-    */
+     * Gets the responsibleSensitiveTypes
+     *
+     * @return ResponsibleSensitiveType|null The responsibleSensitiveTypes
+     */
     public function getResponsibleSensitiveTypes()
     {
         if (array_key_exists("responsibleSensitiveTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["responsibleSensitiveTypes"], "\Beta\Microsoft\Graph\Model\ResponsibleSensitiveType") || is_null($this->_propDict["responsibleSensitiveTypes"])) {
+            if (is_a($this->_propDict["responsibleSensitiveTypes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResponsibleSensitiveType") || is_null($this->_propDict["responsibleSensitiveTypes"])) {
                 return $this->_propDict["responsibleSensitiveTypes"];
             } else {
                 $this->_propDict["responsibleSensitiveTypes"] = new ResponsibleSensitiveType($this->_propDict["responsibleSensitiveTypes"]);
@@ -75,29 +74,27 @@ class EvaluateLabelJobResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the responsibleSensitiveTypes
-    *
-    * @param ResponsibleSensitiveType $val The value to assign to the responsibleSensitiveTypes
-    *
-    * @return EvaluateLabelJobResult The EvaluateLabelJobResult
-    */
+     * Sets the responsibleSensitiveTypes
+     *
+     * @param ResponsibleSensitiveType $val The value to assign to the responsibleSensitiveTypes
+     *
+     * @return EvaluateLabelJobResult The EvaluateLabelJobResult
+     */
     public function setResponsibleSensitiveTypes($val)
     {
         $this->_propDict["responsibleSensitiveTypes"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the sensitivityLabel
-    *
-    * @return MatchingLabel|null The sensitivityLabel
-    */
+     * Gets the sensitivityLabel
+     *
+     * @return MatchingLabel|null The sensitivityLabel
+     */
     public function getSensitivityLabel()
     {
         if (array_key_exists("sensitivityLabel", $this->_propDict)) {
-            if (is_a($this->_propDict["sensitivityLabel"], "\Beta\Microsoft\Graph\Model\MatchingLabel") || is_null($this->_propDict["sensitivityLabel"])) {
+            if (is_a($this->_propDict["sensitivityLabel"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MatchingLabel") || is_null($this->_propDict["sensitivityLabel"])) {
                 return $this->_propDict["sensitivityLabel"];
             } else {
                 $this->_propDict["sensitivityLabel"] = new MatchingLabel($this->_propDict["sensitivityLabel"]);
@@ -106,17 +103,16 @@ class EvaluateLabelJobResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sensitivityLabel
-    *
-    * @param MatchingLabel $val The value to assign to the sensitivityLabel
-    *
-    * @return EvaluateLabelJobResult The EvaluateLabelJobResult
-    */
+     * Sets the sensitivityLabel
+     *
+     * @param MatchingLabel $val The value to assign to the sensitivityLabel
+     *
+     * @return EvaluateLabelJobResult The EvaluateLabelJobResult
+     */
     public function setSensitivityLabel($val)
     {
         $this->_propDict["sensitivityLabel"] = $val;
-         return $this;
+        return $this;
     }
 }

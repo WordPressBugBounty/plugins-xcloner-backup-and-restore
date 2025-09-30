@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RecommendedAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RecommendedAction extends Entity
 {
     /**
-    * Gets the actionWebUrl
-    * Web URL to the recommended action.
-    *
-    * @return string|null The actionWebUrl
-    */
+     * Gets the actionWebUrl
+     * Web URL to the recommended action.
+     *
+     * @return string|null The actionWebUrl
+     */
     public function getActionWebUrl()
     {
         if (array_key_exists("actionWebUrl", $this->_propDict)) {
@@ -40,26 +42,25 @@ class RecommendedAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionWebUrl
-    * Web URL to the recommended action.
-    *
-    * @param string $val The value of the actionWebUrl
-    *
-    * @return RecommendedAction
-    */
+     * Sets the actionWebUrl
+     * Web URL to the recommended action.
+     *
+     * @param string $val The value of the actionWebUrl
+     *
+     * @return RecommendedAction
+     */
     public function setActionWebUrl($val)
     {
         $this->_propDict["actionWebUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the potentialScoreImpact
-    * Potential improvement in the tenant security score from the recommended action.
-    *
-    * @return float|null The potentialScoreImpact
-    */
+     * Gets the potentialScoreImpact
+     * Potential improvement in the tenant security score from the recommended action.
+     *
+     * @return float|null The potentialScoreImpact
+     */
     public function getPotentialScoreImpact()
     {
         if (array_key_exists("potentialScoreImpact", $this->_propDict)) {
@@ -68,26 +69,25 @@ class RecommendedAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the potentialScoreImpact
-    * Potential improvement in the tenant security score from the recommended action.
-    *
-    * @param float $val The value of the potentialScoreImpact
-    *
-    * @return RecommendedAction
-    */
+     * Sets the potentialScoreImpact
+     * Potential improvement in the tenant security score from the recommended action.
+     *
+     * @param float $val The value of the potentialScoreImpact
+     *
+     * @return RecommendedAction
+     */
     public function setPotentialScoreImpact($val)
     {
         $this->_propDict["potentialScoreImpact"] = $val;
         return $this;
     }
     /**
-    * Gets the title
-    * Title of the recommended action.
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * Title of the recommended action.
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -96,15 +96,14 @@ class RecommendedAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * Title of the recommended action.
-    *
-    * @param string $val The value of the title
-    *
-    * @return RecommendedAction
-    */
+     * Sets the title
+     * Title of the recommended action.
+     *
+     * @param string $val The value of the title
+     *
+     * @return RecommendedAction
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;

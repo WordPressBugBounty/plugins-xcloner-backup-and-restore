@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InsightIdentity class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InsightIdentity extends Entity
 {
     /**
-    * Gets the address
-    * The email address of the user who shared the item.
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     * The email address of the user who shared the item.
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -40,26 +42,25 @@ class InsightIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    * The email address of the user who shared the item.
-    *
-    * @param string $val The value of the address
-    *
-    * @return InsightIdentity
-    */
+     * Sets the address
+     * The email address of the user who shared the item.
+     *
+     * @param string $val The value of the address
+     *
+     * @return InsightIdentity
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * The display name of the user who shared the item.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the user who shared the item.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class InsightIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the user who shared the item.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return InsightIdentity
-    */
+     * Sets the displayName
+     * The display name of the user who shared the item.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return InsightIdentity
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    * The id of the user who shared the item.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The id of the user who shared the item.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -96,15 +96,14 @@ class InsightIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The id of the user who shared the item.
-    *
-    * @param string $val The value of the id
-    *
-    * @return InsightIdentity
-    */
+     * Sets the id
+     * The id of the user who shared the item.
+     *
+     * @param string $val The value of the id
+     *
+     * @return InsightIdentity
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;

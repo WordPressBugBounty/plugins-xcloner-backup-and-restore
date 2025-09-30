@@ -1,10 +1,10 @@
 <?php
 
-namespace GuzzleHttp\Promise;
+namespace XCloner\GuzzleHttp\Promise;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Interface used with classes that return a promise.
  */

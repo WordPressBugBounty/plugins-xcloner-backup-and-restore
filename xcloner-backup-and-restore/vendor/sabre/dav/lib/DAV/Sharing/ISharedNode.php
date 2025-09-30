@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Sharing;
 
-namespace Sabre\DAV\Sharing;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\INode;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\INode;
 /**
  * This interface represents a resource that has sharing capabilities, either
  * because it's possible for an owner to share the resource, or because this is
@@ -29,7 +27,6 @@ interface ISharedNode extends INode
      * @return int
      */
     public function getShareAccess();
-
     /**
      * This function must return a URI that uniquely identifies the shared
      * resource. This URI should be identical across instances, and is
@@ -42,7 +39,6 @@ interface ISharedNode extends INode
      * @return string
      */
     public function getShareResourceUri();
-
     /**
      * Updates the list of sharees.
      *
@@ -51,7 +47,6 @@ interface ISharedNode extends INode
      * @param \Sabre\DAV\Xml\Element\Sharee[] $sharees
      */
     public function updateInvites(array $sharees);
-
     /**
      * Returns the list of people whom this resource is shared with.
      *

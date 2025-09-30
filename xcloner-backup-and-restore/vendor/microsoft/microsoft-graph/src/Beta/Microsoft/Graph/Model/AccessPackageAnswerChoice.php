@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageAnswerChoice class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageAnswerChoice extends Entity
 {
     /**
-    * Gets the actualValue
-    * The actual value of the selected choice. This is typically a string value which is understandable by applications. Required.
-    *
-    * @return string|null The actualValue
-    */
+     * Gets the actualValue
+     * The actual value of the selected choice. This is typically a string value which is understandable by applications. Required.
+     *
+     * @return string|null The actualValue
+     */
     public function getActualValue()
     {
         if (array_key_exists("actualValue", $this->_propDict)) {
@@ -40,31 +42,29 @@ class AccessPackageAnswerChoice extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actualValue
-    * The actual value of the selected choice. This is typically a string value which is understandable by applications. Required.
-    *
-    * @param string $val The value of the actualValue
-    *
-    * @return AccessPackageAnswerChoice
-    */
+     * Sets the actualValue
+     * The actual value of the selected choice. This is typically a string value which is understandable by applications. Required.
+     *
+     * @param string $val The value of the actualValue
+     *
+     * @return AccessPackageAnswerChoice
+     */
     public function setActualValue($val)
     {
         $this->_propDict["actualValue"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayValue
-    * The localized display values shown to the requestor and approvers. Required.
-    *
-    * @return AccessPackageLocalizedContent|null The displayValue
-    */
+     * Gets the displayValue
+     * The localized display values shown to the requestor and approvers. Required.
+     *
+     * @return AccessPackageLocalizedContent|null The displayValue
+     */
     public function getDisplayValue()
     {
         if (array_key_exists("displayValue", $this->_propDict)) {
-            if (is_a($this->_propDict["displayValue"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedContent") || is_null($this->_propDict["displayValue"])) {
+            if (is_a($this->_propDict["displayValue"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AccessPackageLocalizedContent") || is_null($this->_propDict["displayValue"])) {
                 return $this->_propDict["displayValue"];
             } else {
                 $this->_propDict["displayValue"] = new AccessPackageLocalizedContent($this->_propDict["displayValue"]);
@@ -73,18 +73,17 @@ class AccessPackageAnswerChoice extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the displayValue
-    * The localized display values shown to the requestor and approvers. Required.
-    *
-    * @param AccessPackageLocalizedContent $val The value to assign to the displayValue
-    *
-    * @return AccessPackageAnswerChoice The AccessPackageAnswerChoice
-    */
+     * Sets the displayValue
+     * The localized display values shown to the requestor and approvers. Required.
+     *
+     * @param AccessPackageLocalizedContent $val The value to assign to the displayValue
+     *
+     * @return AccessPackageAnswerChoice The AccessPackageAnswerChoice
+     */
     public function setDisplayValue($val)
     {
         $this->_propDict["displayValue"] = $val;
-         return $this;
+        return $this;
     }
 }

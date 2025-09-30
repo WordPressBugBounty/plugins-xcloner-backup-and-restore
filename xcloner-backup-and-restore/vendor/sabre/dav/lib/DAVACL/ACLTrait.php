@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL;
 
-namespace Sabre\DAVACL;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This trait is a default implementation of the IACL interface.
  *
@@ -32,7 +31,6 @@ trait ACLTrait
     {
         return null;
     }
-
     /**
      * Returns a group principal.
      *
@@ -44,7 +42,6 @@ trait ACLTrait
     {
         return null;
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -59,15 +56,8 @@ trait ACLTrait
      */
     public function getACL()
     {
-        return [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => '{DAV:}owner',
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}all', 'principal' => '{DAV:}owner', 'protected' => \true]];
     }
-
     /**
      * Updates the ACL.
      *
@@ -75,9 +65,8 @@ trait ACLTrait
      */
     public function setACL(array $acl)
     {
-        throw new \Sabre\DAV\Exception\Forbidden('Setting ACL is not supported on this node');
+        throw new \XCloner\Sabre\DAV\Exception\Forbidden('Setting ACL is not supported on this node');
     }
-
     /**
      * Returns the list of supported privileges for this node.
      *

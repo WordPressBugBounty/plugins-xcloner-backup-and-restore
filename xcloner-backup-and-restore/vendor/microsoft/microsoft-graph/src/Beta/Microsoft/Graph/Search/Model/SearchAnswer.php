@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Search\Model;
+namespace XCloner\Beta\Microsoft\Graph\Search\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SearchAnswer class
 *
@@ -25,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class SearchAnswer extends \Beta\Microsoft\Graph\Model\Entity
+class SearchAnswer extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the description
-    * Search answer description shown on search results page.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Search answer description shown on search results page.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SearchAnswer extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Search answer description shown on search results page.
-    *
-    * @param string $val The description
-    *
-    * @return SearchAnswer
-    */
+     * Sets the description
+     * Search answer description shown on search results page.
+     *
+     * @param string $val The description
+     *
+     * @return SearchAnswer
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Search answer name displayed in search results.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Search answer name displayed in search results.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,31 +69,29 @@ class SearchAnswer extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Search answer name displayed in search results.
-    *
-    * @param string $val The displayName
-    *
-    * @return SearchAnswer
-    */
+     * Sets the displayName
+     * Search answer name displayed in search results.
+     *
+     * @param string $val The displayName
+     *
+     * @return SearchAnswer
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedBy
-    * Details of the user that created or last modified the search answer. Read-only.
-    *
-    * @return IdentitySet|null The lastModifiedBy
-    */
+     * Gets the lastModifiedBy
+     * Details of the user that created or last modified the search answer. Read-only.
+     *
+     * @return IdentitySet|null The lastModifiedBy
+     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Search\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "XCloner\\Beta\\Microsoft\\Graph\\Search\\Model\\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -103,31 +100,29 @@ class SearchAnswer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedBy
-    * Details of the user that created or last modified the search answer. Read-only.
-    *
-    * @param IdentitySet $val The lastModifiedBy
-    *
-    * @return SearchAnswer
-    */
+     * Sets the lastModifiedBy
+     * Details of the user that created or last modified the search answer. Read-only.
+     *
+     * @param IdentitySet $val The lastModifiedBy
+     *
+     * @return SearchAnswer
+     */
     public function setLastModifiedBy($val)
     {
         $this->_propDict["lastModifiedBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Timestamp of when the search answer is created or edited. Read-only.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Timestamp of when the search answer is created or edited. Read-only.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -136,27 +131,25 @@ class SearchAnswer extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Timestamp of when the search answer is created or edited. Read-only.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return SearchAnswer
-    */
+     * Sets the lastModifiedDateTime
+     * Timestamp of when the search answer is created or edited. Read-only.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return SearchAnswer
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the webUrl
-    * Search answer URL link. When users click this search answer in search results, they will go to this URL.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Search answer URL link. When users click this search answer in search results, they will go to this URL.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -165,19 +158,17 @@ class SearchAnswer extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Search answer URL link. When users click this search answer in search results, they will go to this URL.
-    *
-    * @param string $val The webUrl
-    *
-    * @return SearchAnswer
-    */
+     * Sets the webUrl
+     * Search answer URL link. When users click this search answer in search results, they will go to this URL.
+     *
+     * @param string $val The webUrl
+     *
+     * @return SearchAnswer
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Cached\Storage;
+namespace XCloner\League\Flysystem\Cached\Storage;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class Memory extends AbstractCache
 {
     /**
@@ -14,7 +14,6 @@ class Memory extends AbstractCache
     {
         // There is nothing to save
     }
-
     /**
      * {@inheritdoc}
      */

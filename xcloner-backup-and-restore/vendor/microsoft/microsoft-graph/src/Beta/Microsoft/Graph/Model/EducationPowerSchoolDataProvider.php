@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationPowerSchoolDataProvider class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvider
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.educationPowerSchoolDataProvider");
     }
-
     /**
-    * Gets the allowTeachersInMultipleSchools
-    * Indicates whether the source has multiple identifiers for a single student or teacher.
-    *
-    * @return bool|null The allowTeachersInMultipleSchools
-    */
+     * Gets the allowTeachersInMultipleSchools
+     * Indicates whether the source has multiple identifiers for a single student or teacher.
+     *
+     * @return bool|null The allowTeachersInMultipleSchools
+     */
     public function getAllowTeachersInMultipleSchools()
     {
         if (array_key_exists("allowTeachersInMultipleSchools", $this->_propDict)) {
@@ -51,26 +52,25 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             return null;
         }
     }
-
     /**
-    * Sets the allowTeachersInMultipleSchools
-    * Indicates whether the source has multiple identifiers for a single student or teacher.
-    *
-    * @param bool $val The value of the allowTeachersInMultipleSchools
-    *
-    * @return EducationPowerSchoolDataProvider
-    */
+     * Sets the allowTeachersInMultipleSchools
+     * Indicates whether the source has multiple identifiers for a single student or teacher.
+     *
+     * @param bool $val The value of the allowTeachersInMultipleSchools
+     *
+     * @return EducationPowerSchoolDataProvider
+     */
     public function setAllowTeachersInMultipleSchools($val)
     {
         $this->_propDict["allowTeachersInMultipleSchools"] = $val;
         return $this;
     }
     /**
-    * Gets the clientId
-    * The client ID used to connect to PowerSchool.
-    *
-    * @return string|null The clientId
-    */
+     * Gets the clientId
+     * The client ID used to connect to PowerSchool.
+     *
+     * @return string|null The clientId
+     */
     public function getClientId()
     {
         if (array_key_exists("clientId", $this->_propDict)) {
@@ -79,26 +79,25 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             return null;
         }
     }
-
     /**
-    * Sets the clientId
-    * The client ID used to connect to PowerSchool.
-    *
-    * @param string $val The value of the clientId
-    *
-    * @return EducationPowerSchoolDataProvider
-    */
+     * Sets the clientId
+     * The client ID used to connect to PowerSchool.
+     *
+     * @param string $val The value of the clientId
+     *
+     * @return EducationPowerSchoolDataProvider
+     */
     public function setClientId($val)
     {
         $this->_propDict["clientId"] = $val;
         return $this;
     }
     /**
-    * Gets the clientSecret
-    * The client secret to authenticate the connection to the PowerSchool instance.
-    *
-    * @return string|null The clientSecret
-    */
+     * Gets the clientSecret
+     * The client secret to authenticate the connection to the PowerSchool instance.
+     *
+     * @return string|null The clientSecret
+     */
     public function getClientSecret()
     {
         if (array_key_exists("clientSecret", $this->_propDict)) {
@@ -107,26 +106,25 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             return null;
         }
     }
-
     /**
-    * Sets the clientSecret
-    * The client secret to authenticate the connection to the PowerSchool instance.
-    *
-    * @param string $val The value of the clientSecret
-    *
-    * @return EducationPowerSchoolDataProvider
-    */
+     * Sets the clientSecret
+     * The client secret to authenticate the connection to the PowerSchool instance.
+     *
+     * @param string $val The value of the clientSecret
+     *
+     * @return EducationPowerSchoolDataProvider
+     */
     public function setClientSecret($val)
     {
         $this->_propDict["clientSecret"] = $val;
         return $this;
     }
     /**
-    * Gets the connectionUrl
-    * The connection URL to the PowerSchool instance.
-    *
-    * @return string|null The connectionUrl
-    */
+     * Gets the connectionUrl
+     * The connection URL to the PowerSchool instance.
+     *
+     * @return string|null The connectionUrl
+     */
     public function getConnectionUrl()
     {
         if (array_key_exists("connectionUrl", $this->_propDict)) {
@@ -135,31 +133,29 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             return null;
         }
     }
-
     /**
-    * Sets the connectionUrl
-    * The connection URL to the PowerSchool instance.
-    *
-    * @param string $val The value of the connectionUrl
-    *
-    * @return EducationPowerSchoolDataProvider
-    */
+     * Sets the connectionUrl
+     * The connection URL to the PowerSchool instance.
+     *
+     * @param string $val The value of the connectionUrl
+     *
+     * @return EducationPowerSchoolDataProvider
+     */
     public function setConnectionUrl($val)
     {
         $this->_propDict["connectionUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the customizations
-    * Optional customization to be applied to the synchronization profile.
-    *
-    * @return EducationSynchronizationCustomizations|null The customizations
-    */
+     * Gets the customizations
+     * Optional customization to be applied to the synchronization profile.
+     *
+     * @return EducationSynchronizationCustomizations|null The customizations
+     */
     public function getCustomizations()
     {
         if (array_key_exists("customizations", $this->_propDict)) {
-            if (is_a($this->_propDict["customizations"], "\Beta\Microsoft\Graph\Model\EducationSynchronizationCustomizations") || is_null($this->_propDict["customizations"])) {
+            if (is_a($this->_propDict["customizations"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationSynchronizationCustomizations") || is_null($this->_propDict["customizations"])) {
                 return $this->_propDict["customizations"];
             } else {
                 $this->_propDict["customizations"] = new EducationSynchronizationCustomizations($this->_propDict["customizations"]);
@@ -168,26 +164,25 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
         }
         return null;
     }
-
     /**
-    * Sets the customizations
-    * Optional customization to be applied to the synchronization profile.
-    *
-    * @param EducationSynchronizationCustomizations $val The value to assign to the customizations
-    *
-    * @return EducationPowerSchoolDataProvider The EducationPowerSchoolDataProvider
-    */
+     * Sets the customizations
+     * Optional customization to be applied to the synchronization profile.
+     *
+     * @param EducationSynchronizationCustomizations $val The value to assign to the customizations
+     *
+     * @return EducationPowerSchoolDataProvider The EducationPowerSchoolDataProvider
+     */
     public function setCustomizations($val)
     {
         $this->_propDict["customizations"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the schoolsIds
-    * The list of schools to sync.
-    *
-    * @return string|null The schoolsIds
-    */
+     * Gets the schoolsIds
+     * The list of schools to sync.
+     *
+     * @return string|null The schoolsIds
+     */
     public function getSchoolsIds()
     {
         if (array_key_exists("schoolsIds", $this->_propDict)) {
@@ -196,26 +191,25 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             return null;
         }
     }
-
     /**
-    * Sets the schoolsIds
-    * The list of schools to sync.
-    *
-    * @param string $val The value of the schoolsIds
-    *
-    * @return EducationPowerSchoolDataProvider
-    */
+     * Sets the schoolsIds
+     * The list of schools to sync.
+     *
+     * @param string $val The value of the schoolsIds
+     *
+     * @return EducationPowerSchoolDataProvider
+     */
     public function setSchoolsIds($val)
     {
         $this->_propDict["schoolsIds"] = $val;
         return $this;
     }
     /**
-    * Gets the schoolYear
-    * The school year to sync.
-    *
-    * @return string|null The schoolYear
-    */
+     * Gets the schoolYear
+     * The school year to sync.
+     *
+     * @return string|null The schoolYear
+     */
     public function getSchoolYear()
     {
         if (array_key_exists("schoolYear", $this->_propDict)) {
@@ -224,15 +218,14 @@ class EducationPowerSchoolDataProvider extends EducationSynchronizationDataProvi
             return null;
         }
     }
-
     /**
-    * Sets the schoolYear
-    * The school year to sync.
-    *
-    * @param string $val The value of the schoolYear
-    *
-    * @return EducationPowerSchoolDataProvider
-    */
+     * Sets the schoolYear
+     * The school year to sync.
+     *
+     * @param string $val The value of the schoolYear
+     *
+     * @return EducationPowerSchoolDataProvider
+     */
     public function setSchoolYear($val)
     {
         $this->_propDict["schoolYear"] = $val;

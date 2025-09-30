@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * String utility.
  *
@@ -39,23 +38,19 @@ class StringUtil
                 $haystack = str_replace(range('a', 'z'), range('A', 'Z'), $haystack);
                 $needle = str_replace(range('a', 'z'), range('A', 'Z'), $needle);
                 break;
-
             case 'i;octet':
                 // Do nothing
                 break;
-
             case 'i;unicode-casemap':
                 $haystack = mb_strtoupper($haystack, 'UTF-8');
                 $needle = mb_strtoupper($needle, 'UTF-8');
                 break;
-
             default:
-                throw new Exception\BadRequest('Collation type: '.$collation.' is not supported');
+                throw new Exception\BadRequest('Collation type: ' . $collation . ' is not supported');
         }
-
         switch ($matchType) {
             case 'contains':
-                return false !== strpos($haystack, $needle);
+                return \false !== strpos($haystack, $needle);
             case 'equals':
                 return $haystack === $needle;
             case 'starts-with':
@@ -63,10 +58,9 @@ class StringUtil
             case 'ends-with':
                 return strrpos($haystack, $needle) === strlen($haystack) - strlen($needle);
             default:
-                throw new Exception\BadRequest('Match-type: '.$matchType.' is not supported');
+                throw new Exception\BadRequest('Match-type: ' . $matchType . ' is not supported');
         }
     }
-
     /**
      * This method takes an input string, checks if it's not valid UTF-8 and
      * attempts to convert it to UTF-8 if it's not.

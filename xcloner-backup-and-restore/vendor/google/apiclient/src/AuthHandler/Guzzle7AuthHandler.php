@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2020 Google LLC
  *
@@ -14,12 +15,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\AuthHandler;
 
-namespace Google\AuthHandler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This supports Guzzle 7
  */

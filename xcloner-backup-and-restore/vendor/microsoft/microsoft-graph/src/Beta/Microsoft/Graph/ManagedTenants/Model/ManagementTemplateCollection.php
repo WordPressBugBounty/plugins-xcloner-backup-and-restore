@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagementTemplateCollection class
 *
@@ -25,13 +26,13 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
+class ManagementTemplateCollection extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the createdByUserId
-    *
-    * @return string|null The createdByUserId
-    */
+     * Gets the createdByUserId
+     *
+     * @return string|null The createdByUserId
+     */
     public function getCreatedByUserId()
     {
         if (array_key_exists("createdByUserId", $this->_propDict)) {
@@ -40,29 +41,27 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the createdByUserId
-    *
-    * @param string $val The createdByUserId
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the createdByUserId
+     *
+     * @param string $val The createdByUserId
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setCreatedByUserId($val)
     {
         $this->_propDict["createdByUserId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -71,25 +70,23 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the createdDateTime
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -98,25 +95,23 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The description
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the description
+     *
+     * @param string $val The description
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -125,25 +120,23 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastActionByUserId
-    *
-    * @return string|null The lastActionByUserId
-    */
+     * Gets the lastActionByUserId
+     *
+     * @return string|null The lastActionByUserId
+     */
     public function getLastActionByUserId()
     {
         if (array_key_exists("lastActionByUserId", $this->_propDict)) {
@@ -152,29 +145,27 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastActionByUserId
-    *
-    * @param string $val The lastActionByUserId
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the lastActionByUserId
+     *
+     * @param string $val The lastActionByUserId
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setLastActionByUserId($val)
     {
         $this->_propDict["lastActionByUserId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastActionDateTime
-    *
-    * @return \DateTime|null The lastActionDateTime
-    */
+     * Gets the lastActionDateTime
+     *
+     * @return \DateTime|null The lastActionDateTime
+     */
     public function getLastActionDateTime()
     {
         if (array_key_exists("lastActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
+            if (is_a($this->_propDict["lastActionDateTime"], "\\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
                 return $this->_propDict["lastActionDateTime"];
             } else {
                 $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
@@ -183,22 +174,19 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastActionDateTime
-    *
-    * @param \DateTime $val The lastActionDateTime
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the lastActionDateTime
+     *
+     * @param \DateTime $val The lastActionDateTime
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setLastActionDateTime($val)
     {
         $this->_propDict["lastActionDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the managementTemplates
      *
      * @return array|null The managementTemplates
@@ -206,23 +194,21 @@ class ManagementTemplateCollection extends \Beta\Microsoft\Graph\Model\Entity
     public function getManagementTemplates()
     {
         if (array_key_exists("managementTemplates", $this->_propDict)) {
-           return $this->_propDict["managementTemplates"];
+            return $this->_propDict["managementTemplates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the managementTemplates
-    *
-    * @param ManagementTemplate[] $val The managementTemplates
-    *
-    * @return ManagementTemplateCollection
-    */
+     * Sets the managementTemplates
+     *
+     * @param ManagementTemplate[] $val The managementTemplates
+     *
+     * @return ManagementTemplateCollection
+     */
     public function setManagementTemplates($val)
     {
         $this->_propDict["managementTemplates"] = $val;
         return $this;
     }
-
 }

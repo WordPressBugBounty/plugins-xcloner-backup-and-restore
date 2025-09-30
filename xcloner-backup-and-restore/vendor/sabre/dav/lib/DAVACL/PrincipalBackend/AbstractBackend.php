@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\PrincipalBackend;
 
-namespace Sabre\DAVACL\PrincipalBackend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Abstract Principal Backend.
  *
@@ -45,11 +44,7 @@ abstract class AbstractBackend implements BackendInterface
         if ('mailto:' !== substr($uri, 0, 7)) {
             return;
         }
-        $result = $this->searchPrincipals(
-            $principalPrefix,
-            ['{http://sabredav.org/ns}email-address' => substr($uri, 7)]
-        );
-
+        $result = $this->searchPrincipals($principalPrefix, ['{http://sabredav.org/ns}email-address' => substr($uri, 7)]);
         if ($result) {
             return $result[0];
         }

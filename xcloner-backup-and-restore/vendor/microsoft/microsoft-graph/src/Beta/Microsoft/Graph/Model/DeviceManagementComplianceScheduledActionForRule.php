@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementComplianceScheduledActionForRule class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementComplianceScheduledActionForRule extends Entity
 {
     /**
-    * Gets the ruleName
-    * Name of the rule which this scheduled action applies to.
-    *
-    * @return string|null The ruleName
-    */
+     * Gets the ruleName
+     * Name of the rule which this scheduled action applies to.
+     *
+     * @return string|null The ruleName
+     */
     public function getRuleName()
     {
         if (array_key_exists("ruleName", $this->_propDict)) {
@@ -41,49 +42,44 @@ class DeviceManagementComplianceScheduledActionForRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ruleName
-    * Name of the rule which this scheduled action applies to.
-    *
-    * @param string $val The ruleName
-    *
-    * @return DeviceManagementComplianceScheduledActionForRule
-    */
+     * Sets the ruleName
+     * Name of the rule which this scheduled action applies to.
+     *
+     * @param string $val The ruleName
+     *
+     * @return DeviceManagementComplianceScheduledActionForRule
+     */
     public function setRuleName($val)
     {
         $this->_propDict["ruleName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the scheduledActionConfigurations
-    * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
+     * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
      *
      * @return array|null The scheduledActionConfigurations
      */
     public function getScheduledActionConfigurations()
     {
         if (array_key_exists("scheduledActionConfigurations", $this->_propDict)) {
-           return $this->_propDict["scheduledActionConfigurations"];
+            return $this->_propDict["scheduledActionConfigurations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the scheduledActionConfigurations
-    * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
-    *
-    * @param DeviceManagementComplianceActionItem[] $val The scheduledActionConfigurations
-    *
-    * @return DeviceManagementComplianceScheduledActionForRule
-    */
+     * Sets the scheduledActionConfigurations
+     * The list of scheduled action configurations for this compliance policy. This collection can contain a maximum of 100 elements.
+     *
+     * @param DeviceManagementComplianceActionItem[] $val The scheduledActionConfigurations
+     *
+     * @return DeviceManagementComplianceScheduledActionForRule
+     */
     public function setScheduledActionConfigurations($val)
     {
         $this->_propDict["scheduledActionConfigurations"] = $val;
         return $this;
     }
-
 }

@@ -1,21 +1,19 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Notifications;
 
-namespace Sabre\CalDAV\Notifications;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\INode as BaseINode;
-use Sabre\DAV\PropFind;
-use Sabre\DAV\Server;
-use Sabre\DAV\ServerPlugin;
-use Sabre\DAVACL;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\INode as BaseINode;
+use XCloner\Sabre\DAV\PropFind;
+use XCloner\Sabre\DAV\Server;
+use XCloner\Sabre\DAV\ServerPlugin;
+use XCloner\Sabre\DAVACL;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * Notifications plugin.
  *
@@ -35,14 +33,12 @@ class Plugin extends ServerPlugin
      * This is the namespace for the proprietary calendarserver extensions.
      */
     const NS_CALENDARSERVER = 'http://calendarserver.org/ns/';
-
     /**
      * Reference to the main server object.
      *
      * @var Server
      */
     protected $server;
-
     /**
      * Returns a plugin name.
      *
@@ -55,7 +51,6 @@ class Plugin extends ServerPlugin
     {
         return 'notifications';
     }
-
     /**
      * This initializes the plugin.
      *
@@ -69,42 +64,28 @@ class Plugin extends ServerPlugin
         $this->server = $server;
         $server->on('method:GET', [$this, 'httpGet'], 90);
         $server->on('propFind', [$this, 'propFind']);
-
         $server->xml->namespaceMap[self::NS_CALENDARSERVER] = 'cs';
-        $server->resourceTypeMapping['\\Sabre\\CalDAV\\Notifications\\ICollection'] = '{'.self::NS_CALENDARSERVER.'}notification';
-
-        array_push($server->protectedProperties,
-            '{'.self::NS_CALENDARSERVER.'}notification-URL',
-            '{'.self::NS_CALENDARSERVER.'}notificationtype'
-        );
+        $server->resourceTypeMapping['\Sabre\CalDAV\Notifications\ICollection'] = '{' . self::NS_CALENDARSERVER . '}notification';
+        array_push($server->protectedProperties, '{' . self::NS_CALENDARSERVER . '}notification-URL', '{' . self::NS_CALENDARSERVER . '}notificationtype');
     }
-
     /**
      * PropFind.
      */
     public function propFind(PropFind $propFind, BaseINode $node)
     {
         $caldavPlugin = $this->server->getPlugin('caldav');
-
         if ($node instanceof DAVACL\IPrincipal) {
             $principalUrl = $node->getPrincipalUrl();
-
             // notification-URL property
-            $propFind->handle('{'.self::NS_CALENDARSERVER.'}notification-URL', function () use ($principalUrl, $caldavPlugin) {
-                $notificationPath = $caldavPlugin->getCalendarHomeForPrincipal($principalUrl).'/notifications/';
-
+            $propFind->handle('{' . self::NS_CALENDARSERVER . '}notification-URL', function () use ($principalUrl, $caldavPlugin) {
+                $notificationPath = $caldavPlugin->getCalendarHomeForPrincipal($principalUrl) . '/notifications/';
                 return new DAV\Xml\Property\Href($notificationPath);
             });
         }
-
         if ($node instanceof INode) {
-            $propFind->handle(
-                '{'.self::NS_CALENDARSERVER.'}notificationtype',
-                [$node, 'getNotificationType']
-            );
+            $propFind->handle('{' . self::NS_CALENDARSERVER . '}notificationtype', [$node, 'getNotificationType']);
         }
     }
-
     /**
      * This event is triggered before the usual GET request handler.
      *
@@ -114,17 +95,14 @@ class Plugin extends ServerPlugin
     public function httpGet(RequestInterface $request, ResponseInterface $response)
     {
         $path = $request->getPath();
-
         try {
             $node = $this->server->tree->getNodeForPath($path);
         } catch (DAV\Exception\NotFound $e) {
             return;
         }
-
         if (!$node instanceof INode) {
             return;
         }
-
         $writer = $this->server->xml->getWriter();
         $writer->contextUri = $this->server->getBaseUri();
         $writer->openMemory();
@@ -132,16 +110,13 @@ class Plugin extends ServerPlugin
         $writer->startElement('{http://calendarserver.org/ns/}notification');
         $node->getNotificationType()->xmlSerializeFull($writer);
         $writer->endElement();
-
         $response->setHeader('Content-Type', 'application/xml');
         $response->setHeader('ETag', $node->getETag());
         $response->setStatus(200);
         $response->setBody($writer->outputMemory());
-
         // Return false to break the event chain.
-        return false;
+        return \false;
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -155,10 +130,6 @@ class Plugin extends ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'Adds support for caldav-notifications, which is required to enable caldav-sharing.',
-            'link' => 'http://sabre.io/dav/caldav-sharing/',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'Adds support for caldav-notifications, which is required to enable caldav-sharing.', 'link' => 'http://sabre.io/dav/caldav-sharing/'];
     }
 }

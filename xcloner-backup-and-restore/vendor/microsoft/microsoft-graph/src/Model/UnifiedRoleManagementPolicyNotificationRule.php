@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnifiedRoleManagementPolicyNotificationRule class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementPolicyRule
 {
     /**
-    * Gets the isDefaultRecipientsEnabled
-    * Indicates whether a default recipient will receive the notification email.
-    *
-    * @return bool|null The isDefaultRecipientsEnabled
-    */
+     * Gets the isDefaultRecipientsEnabled
+     * Indicates whether a default recipient will receive the notification email.
+     *
+     * @return bool|null The isDefaultRecipientsEnabled
+     */
     public function getIsDefaultRecipientsEnabled()
     {
         if (array_key_exists("isDefaultRecipientsEnabled", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
             return null;
         }
     }
-
     /**
-    * Sets the isDefaultRecipientsEnabled
-    * Indicates whether a default recipient will receive the notification email.
-    *
-    * @param bool $val The isDefaultRecipientsEnabled
-    *
-    * @return UnifiedRoleManagementPolicyNotificationRule
-    */
+     * Sets the isDefaultRecipientsEnabled
+     * Indicates whether a default recipient will receive the notification email.
+     *
+     * @param bool $val The isDefaultRecipientsEnabled
+     *
+     * @return UnifiedRoleManagementPolicyNotificationRule
+     */
     public function setIsDefaultRecipientsEnabled($val)
     {
         $this->_propDict["isDefaultRecipientsEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the notificationLevel
-    * The level of notification. The possible values are None, Critical, All.
-    *
-    * @return string|null The notificationLevel
-    */
+     * Gets the notificationLevel
+     * The level of notification. The possible values are None, Critical, All.
+     *
+     * @return string|null The notificationLevel
+     */
     public function getNotificationLevel()
     {
         if (array_key_exists("notificationLevel", $this->_propDict)) {
@@ -70,27 +69,25 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
             return null;
         }
     }
-
     /**
-    * Sets the notificationLevel
-    * The level of notification. The possible values are None, Critical, All.
-    *
-    * @param string $val The notificationLevel
-    *
-    * @return UnifiedRoleManagementPolicyNotificationRule
-    */
+     * Sets the notificationLevel
+     * The level of notification. The possible values are None, Critical, All.
+     *
+     * @param string $val The notificationLevel
+     *
+     * @return UnifiedRoleManagementPolicyNotificationRule
+     */
     public function setNotificationLevel($val)
     {
         $this->_propDict["notificationLevel"] = $val;
         return $this;
     }
-
     /**
-    * Gets the notificationRecipients
-    * The list of recipients of the email notifications.
-    *
-    * @return array|null The notificationRecipients
-    */
+     * Gets the notificationRecipients
+     * The list of recipients of the email notifications.
+     *
+     * @return array|null The notificationRecipients
+     */
     public function getNotificationRecipients()
     {
         if (array_key_exists("notificationRecipients", $this->_propDict)) {
@@ -99,27 +96,25 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
             return null;
         }
     }
-
     /**
-    * Sets the notificationRecipients
-    * The list of recipients of the email notifications.
-    *
-    * @param string[] $val The notificationRecipients
-    *
-    * @return UnifiedRoleManagementPolicyNotificationRule
-    */
+     * Sets the notificationRecipients
+     * The list of recipients of the email notifications.
+     *
+     * @param string[] $val The notificationRecipients
+     *
+     * @return UnifiedRoleManagementPolicyNotificationRule
+     */
     public function setNotificationRecipients($val)
     {
         $this->_propDict["notificationRecipients"] = $val;
         return $this;
     }
-
     /**
-    * Gets the notificationType
-    * The type of notification. Only Email is supported.
-    *
-    * @return string|null The notificationType
-    */
+     * Gets the notificationType
+     * The type of notification. Only Email is supported.
+     *
+     * @return string|null The notificationType
+     */
     public function getNotificationType()
     {
         if (array_key_exists("notificationType", $this->_propDict)) {
@@ -128,27 +123,25 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
             return null;
         }
     }
-
     /**
-    * Sets the notificationType
-    * The type of notification. Only Email is supported.
-    *
-    * @param string $val The notificationType
-    *
-    * @return UnifiedRoleManagementPolicyNotificationRule
-    */
+     * Sets the notificationType
+     * The type of notification. Only Email is supported.
+     *
+     * @param string $val The notificationType
+     *
+     * @return UnifiedRoleManagementPolicyNotificationRule
+     */
     public function setNotificationType($val)
     {
         $this->_propDict["notificationType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recipientType
-    * The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
-    *
-    * @return string|null The recipientType
-    */
+     * Gets the recipientType
+     * The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
+     *
+     * @return string|null The recipientType
+     */
     public function getRecipientType()
     {
         if (array_key_exists("recipientType", $this->_propDict)) {
@@ -157,19 +150,17 @@ class UnifiedRoleManagementPolicyNotificationRule extends UnifiedRoleManagementP
             return null;
         }
     }
-
     /**
-    * Sets the recipientType
-    * The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
-    *
-    * @param string $val The recipientType
-    *
-    * @return UnifiedRoleManagementPolicyNotificationRule
-    */
+     * Sets the recipientType
+     * The type of recipient of the notification. The possible values are Requestor, Approver, Admin.
+     *
+     * @param string $val The recipientType
+     *
+     * @return UnifiedRoleManagementPolicyNotificationRule
+     */
     public function setRecipientType($val)
     {
         $this->_propDict["recipientType"] = $val;
         return $this;
     }
-
 }

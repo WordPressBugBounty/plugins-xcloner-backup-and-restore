@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Trait implementing setting and getting accessTier.
  *
@@ -48,7 +47,6 @@ trait AccessTierTrait
      *                         https://docs.microsoft.com/en-us/rest/api/storageservices/set-blob-tier
      */
     private $accessTier;
-
     /**
      * Gets blob access tier.
      *
@@ -58,7 +56,6 @@ trait AccessTierTrait
     {
         return $this->accessTier;
     }
-
     /**
      * Sets blob access tier.
      *

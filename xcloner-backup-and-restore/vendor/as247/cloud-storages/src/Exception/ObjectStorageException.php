@@ -1,13 +1,10 @@
 <?php
 
+namespace XCloner\As247\CloudStorages\Exception;
 
-namespace As247\CloudStorages\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class ObjectStorageException extends \RuntimeException
 {
-
 }

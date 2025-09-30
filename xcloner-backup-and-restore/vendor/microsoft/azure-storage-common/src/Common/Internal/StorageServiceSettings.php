@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal;
 
-namespace MicrosoftAzure\Storage\Common\Internal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Represents the settings used to sign and access a request against the storage
  * service. For more information about storage service connection strings check this
@@ -53,7 +52,6 @@ class StorageServiceSettings extends ServiceSettings
     private $queueSecondaryEndpointUri;
     private $tableSecondaryEndpointUri;
     private $fileSecondaryEndpointUri;
-
     private static $devStoreAccount;
     private static $useDevelopmentStorageSetting;
     private static $developmentStorageProxyUriSetting;
@@ -66,19 +64,16 @@ class StorageServiceSettings extends ServiceSettings
     private static $tableEndpointSetting;
     private static $fileEndpointSetting;
     private static $endpointSuffixSetting;
-
     /**
      * If initialized or not
      * @internal
      */
-    protected static $isInitialized = false;
-
+    protected static $isInitialized = \false;
     /**
      * Valid setting keys
      * @internal
      */
     protected static $validSettingKeys = array();
-
     /**
      * Initializes static members of the class.
      *
@@ -86,66 +81,28 @@ class StorageServiceSettings extends ServiceSettings
      */
     protected static function init()
     {
-        self::$useDevelopmentStorageSetting = self::setting(
-            Resources::USE_DEVELOPMENT_STORAGE_NAME,
-            'true'
-        );
-
-        self::$developmentStorageProxyUriSetting = self::settingWithFunc(
-            Resources::DEVELOPMENT_STORAGE_PROXY_URI_NAME,
-            Validate::getIsValidUri()
-        );
-
-        self::$defaultEndpointsProtocolSetting = self::setting(
-            Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME,
-            'http',
-            'https'
-        );
-
+        self::$useDevelopmentStorageSetting = self::setting(Resources::USE_DEVELOPMENT_STORAGE_NAME, 'true');
+        self::$developmentStorageProxyUriSetting = self::settingWithFunc(Resources::DEVELOPMENT_STORAGE_PROXY_URI_NAME, Validate::getIsValidUri());
+        self::$defaultEndpointsProtocolSetting = self::setting(Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME, 'http', 'https');
         self::$accountNameSetting = self::setting(Resources::ACCOUNT_NAME_NAME);
-
         self::$accountKeySetting = self::settingWithFunc(
             Resources::ACCOUNT_KEY_NAME,
             // base64_decode will return false if the $key is not in base64 format.
             function ($key) {
-                $isValidBase64String = base64_decode($key, true);
+                $isValidBase64String = base64_decode($key, \true);
                 if ($isValidBase64String) {
-                    return true;
+                    return \true;
                 } else {
-                    throw new \RuntimeException(
-                        sprintf(Resources::INVALID_ACCOUNT_KEY_FORMAT, $key)
-                    );
+                    throw new \RuntimeException(sprintf(Resources::INVALID_ACCOUNT_KEY_FORMAT, $key));
                 }
             }
         );
-
         self::$sasTokenSetting = self::setting(Resources::SAS_TOKEN_NAME);
-
-        self::$blobEndpointSetting = self::settingWithFunc(
-            Resources::BLOB_ENDPOINT_NAME,
-            Validate::getIsValidUri()
-        );
-
-        self::$queueEndpointSetting = self::settingWithFunc(
-            Resources::QUEUE_ENDPOINT_NAME,
-            Validate::getIsValidUri()
-        );
-
-        self::$tableEndpointSetting = self::settingWithFunc(
-            Resources::TABLE_ENDPOINT_NAME,
-            Validate::getIsValidUri()
-        );
-
-        self::$fileEndpointSetting = self::settingWithFunc(
-            Resources::FILE_ENDPOINT_NAME,
-            Validate::getIsValidUri()
-        );
-
-        self::$endpointSuffixSetting = self::settingWithFunc(
-            Resources::ENDPOINT_SUFFIX_NAME,
-            Validate::getIsValidHostname()
-        );
-
+        self::$blobEndpointSetting = self::settingWithFunc(Resources::BLOB_ENDPOINT_NAME, Validate::getIsValidUri());
+        self::$queueEndpointSetting = self::settingWithFunc(Resources::QUEUE_ENDPOINT_NAME, Validate::getIsValidUri());
+        self::$tableEndpointSetting = self::settingWithFunc(Resources::TABLE_ENDPOINT_NAME, Validate::getIsValidUri());
+        self::$fileEndpointSetting = self::settingWithFunc(Resources::FILE_ENDPOINT_NAME, Validate::getIsValidUri());
+        self::$endpointSuffixSetting = self::settingWithFunc(Resources::ENDPOINT_SUFFIX_NAME, Validate::getIsValidHostname());
         self::$validSettingKeys[] = Resources::USE_DEVELOPMENT_STORAGE_NAME;
         self::$validSettingKeys[] = Resources::DEVELOPMENT_STORAGE_PROXY_URI_NAME;
         self::$validSettingKeys[] = Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME;
@@ -158,7 +115,6 @@ class StorageServiceSettings extends ServiceSettings
         self::$validSettingKeys[] = Resources::FILE_ENDPOINT_NAME;
         self::$validSettingKeys[] = Resources::ENDPOINT_SUFFIX_NAME;
     }
-
     /**
      * Creates new storage service settings instance.
      *
@@ -182,32 +138,20 @@ class StorageServiceSettings extends ServiceSettings
      *                                          file endpoint.
      * @param string $sas                       The storage service SAS token.
      */
-    public function __construct(
-        $name,
-        $key,
-        $blobEndpointUri,
-        $queueEndpointUri,
-        $tableEndpointUri,
-        $fileEndpointUri,
-        $blobSecondaryEndpointUri = null,
-        $queueSecondaryEndpointUri = null,
-        $tableSecondaryEndpointUri = null,
-        $fileSecondaryEndpointUri = null,
-        $sas = null
-    ) {
-        $this->name                      = $name;
-        $this->key                       = $key;
-        $this->sas                       = $sas;
-        $this->blobEndpointUri           = $blobEndpointUri;
-        $this->queueEndpointUri          = $queueEndpointUri;
-        $this->tableEndpointUri          = $tableEndpointUri;
-        $this->fileEndpointUri           = $fileEndpointUri;
-        $this->blobSecondaryEndpointUri  = $blobSecondaryEndpointUri;
+    public function __construct($name, $key, $blobEndpointUri, $queueEndpointUri, $tableEndpointUri, $fileEndpointUri, $blobSecondaryEndpointUri = null, $queueSecondaryEndpointUri = null, $tableSecondaryEndpointUri = null, $fileSecondaryEndpointUri = null, $sas = null)
+    {
+        $this->name = $name;
+        $this->key = $key;
+        $this->sas = $sas;
+        $this->blobEndpointUri = $blobEndpointUri;
+        $this->queueEndpointUri = $queueEndpointUri;
+        $this->tableEndpointUri = $tableEndpointUri;
+        $this->fileEndpointUri = $fileEndpointUri;
+        $this->blobSecondaryEndpointUri = $blobSecondaryEndpointUri;
         $this->queueSecondaryEndpointUri = $queueSecondaryEndpointUri;
         $this->tableSecondaryEndpointUri = $tableSecondaryEndpointUri;
-        $this->fileSecondaryEndpointUri  = $fileSecondaryEndpointUri;
+        $this->fileSecondaryEndpointUri = $fileSecondaryEndpointUri;
     }
-
     /**
      * Returns a StorageServiceSettings with development storage credentials using
      * the specified proxy Uri.
@@ -221,21 +165,11 @@ class StorageServiceSettings extends ServiceSettings
         if (is_null($proxyUri)) {
             return self::developmentStorageAccount();
         }
-
-        $scheme = parse_url($proxyUri, PHP_URL_SCHEME);
-        $host   = parse_url($proxyUri, PHP_URL_HOST);
+        $scheme = parse_url($proxyUri, \PHP_URL_SCHEME);
+        $host = parse_url($proxyUri, \PHP_URL_HOST);
         $prefix = $scheme . "://" . $host;
-
-        return new StorageServiceSettings(
-            Resources::DEV_STORE_NAME,
-            Resources::DEV_STORE_KEY,
-            $prefix . ':10000/devstoreaccount1/',
-            $prefix . ':10001/devstoreaccount1/',
-            $prefix . ':10002/devstoreaccount1/',
-            null
-        );
+        return new StorageServiceSettings(Resources::DEV_STORE_NAME, Resources::DEV_STORE_KEY, $prefix . ':10000/devstoreaccount1/', $prefix . ':10001/devstoreaccount1/', $prefix . ':10002/devstoreaccount1/', null);
     }
-
     /**
      * Gets a StorageServiceSettings object that references the development storage
      * account.
@@ -245,14 +179,10 @@ class StorageServiceSettings extends ServiceSettings
     public static function developmentStorageAccount()
     {
         if (is_null(self::$devStoreAccount)) {
-            self::$devStoreAccount = self::getDevelopmentStorageAccount(
-                Resources::DEV_STORE_URI
-            );
+            self::$devStoreAccount = self::getDevelopmentStorageAccount(Resources::DEV_STORE_URI);
         }
-
         return self::$devStoreAccount;
     }
-
     /**
      * Gets the default service endpoint using the specified protocol and account
      * name.
@@ -265,27 +195,16 @@ class StorageServiceSettings extends ServiceSettings
      *
      * @return string
      */
-    private static function getServiceEndpoint(
-        $scheme,
-        $accountName,
-        $dnsPrefix,
-        $dnsSuffix = null,
-        $isSecondary = false
-    ) {
+    private static function getServiceEndpoint($scheme, $accountName, $dnsPrefix, $dnsSuffix = null, $isSecondary = \false)
+    {
         if ($isSecondary) {
             $accountName .= Resources::SECONDARY_STRING;
         }
         if ($dnsSuffix === null) {
             $dnsSuffix = Resources::DEFAULT_ENDPOINT_SUFFIX;
         }
-        return sprintf(
-            Resources::SERVICE_URI_FORMAT,
-            $scheme,
-            $accountName,
-            $dnsPrefix.$dnsSuffix
-        );
+        return sprintf(Resources::SERVICE_URI_FORMAT, $scheme, $accountName, $dnsPrefix . $dnsSuffix);
     }
-
     /**
      * Creates StorageServiceSettings object given endpoints uri.
      *
@@ -301,65 +220,17 @@ class StorageServiceSettings extends ServiceSettings
      *
      * @return StorageServiceSettings
      */
-    private static function createStorageServiceSettings(
-        array $settings,
-        $blobEndpointUri = null,
-        $queueEndpointUri = null,
-        $tableEndpointUri = null,
-        $fileEndpointUri = null,
-        $blobSecondaryEndpointUri = null,
-        $queueSecondaryEndpointUri = null,
-        $tableSecondaryEndpointUri = null,
-        $fileSecondaryEndpointUri = null
-    ) {
-        $blobEndpointUri  = Utilities::tryGetValueInsensitive(
-            Resources::BLOB_ENDPOINT_NAME,
-            $settings,
-            $blobEndpointUri
-        );
-        $queueEndpointUri = Utilities::tryGetValueInsensitive(
-            Resources::QUEUE_ENDPOINT_NAME,
-            $settings,
-            $queueEndpointUri
-        );
-        $tableEndpointUri = Utilities::tryGetValueInsensitive(
-            Resources::TABLE_ENDPOINT_NAME,
-            $settings,
-            $tableEndpointUri
-        );
-        $fileEndpointUri = Utilities::tryGetValueInsensitive(
-            Resources::FILE_ENDPOINT_NAME,
-            $settings,
-            $fileEndpointUri
-        );
-        $accountName      = Utilities::tryGetValueInsensitive(
-            Resources::ACCOUNT_NAME_NAME,
-            $settings
-        );
-        $accountKey       = Utilities::tryGetValueInsensitive(
-            Resources::ACCOUNT_KEY_NAME,
-            $settings
-        );
-        $sasToken         = Utilities::tryGetValueInsensitive(
-            Resources::SAS_TOKEN_NAME,
-            $settings
-        );
-
-        return new StorageServiceSettings(
-            $accountName,
-            $accountKey,
-            $blobEndpointUri,
-            $queueEndpointUri,
-            $tableEndpointUri,
-            $fileEndpointUri,
-            $blobSecondaryEndpointUri,
-            $queueSecondaryEndpointUri,
-            $tableSecondaryEndpointUri,
-            $fileSecondaryEndpointUri,
-            $sasToken
-        );
+    private static function createStorageServiceSettings(array $settings, $blobEndpointUri = null, $queueEndpointUri = null, $tableEndpointUri = null, $fileEndpointUri = null, $blobSecondaryEndpointUri = null, $queueSecondaryEndpointUri = null, $tableSecondaryEndpointUri = null, $fileSecondaryEndpointUri = null)
+    {
+        $blobEndpointUri = Utilities::tryGetValueInsensitive(Resources::BLOB_ENDPOINT_NAME, $settings, $blobEndpointUri);
+        $queueEndpointUri = Utilities::tryGetValueInsensitive(Resources::QUEUE_ENDPOINT_NAME, $settings, $queueEndpointUri);
+        $tableEndpointUri = Utilities::tryGetValueInsensitive(Resources::TABLE_ENDPOINT_NAME, $settings, $tableEndpointUri);
+        $fileEndpointUri = Utilities::tryGetValueInsensitive(Resources::FILE_ENDPOINT_NAME, $settings, $fileEndpointUri);
+        $accountName = Utilities::tryGetValueInsensitive(Resources::ACCOUNT_NAME_NAME, $settings);
+        $accountKey = Utilities::tryGetValueInsensitive(Resources::ACCOUNT_KEY_NAME, $settings);
+        $sasToken = Utilities::tryGetValueInsensitive(Resources::SAS_TOKEN_NAME, $settings);
+        return new StorageServiceSettings($accountName, $accountKey, $blobEndpointUri, $queueEndpointUri, $tableEndpointUri, $fileEndpointUri, $blobSecondaryEndpointUri, $queueSecondaryEndpointUri, $tableSecondaryEndpointUri, $fileSecondaryEndpointUri, $sasToken);
     }
-
     /**
      * Creates a StorageServiceSettings object from the given connection string.
      *
@@ -370,146 +241,32 @@ class StorageServiceSettings extends ServiceSettings
     public static function createFromConnectionString($connectionString)
     {
         $tokenizedSettings = self::parseAndValidateKeys($connectionString);
-
         // Devstore case
-        $matchedSpecs = self::matchedSpecification(
-            $tokenizedSettings,
-            self::allRequired(self::$useDevelopmentStorageSetting),
-            self::optional(self::$developmentStorageProxyUriSetting)
-        );
+        $matchedSpecs = self::matchedSpecification($tokenizedSettings, self::allRequired(self::$useDevelopmentStorageSetting), self::optional(self::$developmentStorageProxyUriSetting));
         if ($matchedSpecs) {
-            $proxyUri = Utilities::tryGetValueInsensitive(
-                Resources::DEVELOPMENT_STORAGE_PROXY_URI_NAME,
-                $tokenizedSettings
-            );
-
+            $proxyUri = Utilities::tryGetValueInsensitive(Resources::DEVELOPMENT_STORAGE_PROXY_URI_NAME, $tokenizedSettings);
             return self::getDevelopmentStorageAccount($proxyUri);
         }
-
         // Automatic case
-        $matchedSpecs = self::matchedSpecification(
-            $tokenizedSettings,
-            self::allRequired(
-                self::$defaultEndpointsProtocolSetting,
-                self::$accountNameSetting,
-                self::$accountKeySetting
-            ),
-            self::optional(
-                self::$blobEndpointSetting,
-                self::$queueEndpointSetting,
-                self::$tableEndpointSetting,
-                self::$fileEndpointSetting,
-                self::$endpointSuffixSetting
-            )
-        );
+        $matchedSpecs = self::matchedSpecification($tokenizedSettings, self::allRequired(self::$defaultEndpointsProtocolSetting, self::$accountNameSetting, self::$accountKeySetting), self::optional(self::$blobEndpointSetting, self::$queueEndpointSetting, self::$tableEndpointSetting, self::$fileEndpointSetting, self::$endpointSuffixSetting));
         if ($matchedSpecs) {
-            $scheme         = Utilities::tryGetValueInsensitive(
-                Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME,
-                $tokenizedSettings
-            );
-            $accountName    = Utilities::tryGetValueInsensitive(
-                Resources::ACCOUNT_NAME_NAME,
-                $tokenizedSettings
-            );
-            $endpointSuffix = Utilities::tryGetValueInsensitive(
-                Resources::ENDPOINT_SUFFIX_NAME,
-                $tokenizedSettings
-            );
-            return self::createStorageServiceSettings(
-                $tokenizedSettings,
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::BLOB_DNS_PREFIX,
-                    $endpointSuffix
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::QUEUE_DNS_PREFIX,
-                    $endpointSuffix
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::TABLE_DNS_PREFIX,
-                    $endpointSuffix
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::FILE_DNS_PREFIX,
-                    $endpointSuffix
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::BLOB_DNS_PREFIX,
-                    $endpointSuffix,
-                    true
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::QUEUE_DNS_PREFIX,
-                    $endpointSuffix,
-                    true
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::TABLE_DNS_PREFIX,
-                    $endpointSuffix,
-                    true
-                ),
-                self::getServiceEndpoint(
-                    $scheme,
-                    $accountName,
-                    Resources::FILE_DNS_PREFIX,
-                    $endpointSuffix,
-                    true
-                )
-            );
+            $scheme = Utilities::tryGetValueInsensitive(Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME, $tokenizedSettings);
+            $accountName = Utilities::tryGetValueInsensitive(Resources::ACCOUNT_NAME_NAME, $tokenizedSettings);
+            $endpointSuffix = Utilities::tryGetValueInsensitive(Resources::ENDPOINT_SUFFIX_NAME, $tokenizedSettings);
+            return self::createStorageServiceSettings($tokenizedSettings, self::getServiceEndpoint($scheme, $accountName, Resources::BLOB_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::QUEUE_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::TABLE_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::FILE_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::BLOB_DNS_PREFIX, $endpointSuffix, \true), self::getServiceEndpoint($scheme, $accountName, Resources::QUEUE_DNS_PREFIX, $endpointSuffix, \true), self::getServiceEndpoint($scheme, $accountName, Resources::TABLE_DNS_PREFIX, $endpointSuffix, \true), self::getServiceEndpoint($scheme, $accountName, Resources::FILE_DNS_PREFIX, $endpointSuffix, \true));
         }
-
         // Explicit case for AccountName/AccountKey combination
-        $matchedSpecs = self::matchedSpecification(
-            $tokenizedSettings,
-            self::atLeastOne(
-                self::$blobEndpointSetting,
-                self::$queueEndpointSetting,
-                self::$tableEndpointSetting,
-                self::$fileEndpointSetting
-            ),
-            self::allRequired(
-                self::$accountNameSetting,
-                self::$accountKeySetting
-            )
-        );
+        $matchedSpecs = self::matchedSpecification($tokenizedSettings, self::atLeastOne(self::$blobEndpointSetting, self::$queueEndpointSetting, self::$tableEndpointSetting, self::$fileEndpointSetting), self::allRequired(self::$accountNameSetting, self::$accountKeySetting));
         if ($matchedSpecs) {
             return self::createStorageServiceSettings($tokenizedSettings);
         }
-
         // Explicit case for SAS token
-        $matchedSpecs = self::matchedSpecification(
-            $tokenizedSettings,
-            self::atLeastOne(
-                self::$blobEndpointSetting,
-                self::$queueEndpointSetting,
-                self::$tableEndpointSetting,
-                self::$fileEndpointSetting
-            ),
-            self::allRequired(
-                self::$sasTokenSetting
-            )
-        );
+        $matchedSpecs = self::matchedSpecification($tokenizedSettings, self::atLeastOne(self::$blobEndpointSetting, self::$queueEndpointSetting, self::$tableEndpointSetting, self::$fileEndpointSetting), self::allRequired(self::$sasTokenSetting));
         if ($matchedSpecs) {
             return self::createStorageServiceSettings($tokenizedSettings);
         }
-
         self::noMatch($connectionString);
     }
-
     /**
      * Creates a StorageServiceSettings object from the given connection string.
      * Note this is only for AAD connection string, it should at least contain
@@ -524,76 +281,11 @@ class StorageServiceSettings extends ServiceSettings
         // Explicit case for AAD token, Connection string could only have account
         // name.
         $tokenizedSettings = self::parseAndValidateKeys($connectionString);
-
-        $scheme         = Utilities::tryGetValueInsensitive(
-            Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME,
-            $tokenizedSettings
-        );
-        $accountName    = Utilities::tryGetValueInsensitive(
-            Resources::ACCOUNT_NAME_NAME,
-            $tokenizedSettings
-        );
-        $endpointSuffix = Utilities::tryGetValueInsensitive(
-            Resources::ENDPOINT_SUFFIX_NAME,
-            $tokenizedSettings
-        );
-        return self::createStorageServiceSettings(
-            $tokenizedSettings,
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::BLOB_DNS_PREFIX,
-                $endpointSuffix
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::QUEUE_DNS_PREFIX,
-                $endpointSuffix
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::TABLE_DNS_PREFIX,
-                $endpointSuffix
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::FILE_DNS_PREFIX,
-                $endpointSuffix
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::BLOB_DNS_PREFIX,
-                $endpointSuffix,
-                true
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::QUEUE_DNS_PREFIX,
-                $endpointSuffix,
-                true
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::TABLE_DNS_PREFIX,
-                $endpointSuffix,
-                true
-            ),
-            self::getServiceEndpoint(
-                $scheme,
-                $accountName,
-                Resources::FILE_DNS_PREFIX,
-                $endpointSuffix,
-                true
-            )
-        );
+        $scheme = Utilities::tryGetValueInsensitive(Resources::DEFAULT_ENDPOINTS_PROTOCOL_NAME, $tokenizedSettings);
+        $accountName = Utilities::tryGetValueInsensitive(Resources::ACCOUNT_NAME_NAME, $tokenizedSettings);
+        $endpointSuffix = Utilities::tryGetValueInsensitive(Resources::ENDPOINT_SUFFIX_NAME, $tokenizedSettings);
+        return self::createStorageServiceSettings($tokenizedSettings, self::getServiceEndpoint($scheme, $accountName, Resources::BLOB_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::QUEUE_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::TABLE_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::FILE_DNS_PREFIX, $endpointSuffix), self::getServiceEndpoint($scheme, $accountName, Resources::BLOB_DNS_PREFIX, $endpointSuffix, \true), self::getServiceEndpoint($scheme, $accountName, Resources::QUEUE_DNS_PREFIX, $endpointSuffix, \true), self::getServiceEndpoint($scheme, $accountName, Resources::TABLE_DNS_PREFIX, $endpointSuffix, \true), self::getServiceEndpoint($scheme, $accountName, Resources::FILE_DNS_PREFIX, $endpointSuffix, \true));
     }
-
     /**
      * Gets storage service name.
      *
@@ -603,7 +295,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->name;
     }
-
     /**
      * Gets storage service key.
      *
@@ -613,7 +304,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->key;
     }
-
     /**
      * Checks if there is a SAS token.
      *
@@ -623,7 +313,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return !empty($this->sas);
     }
-
     /**
      * Gets storage service SAS token.
      *
@@ -633,7 +322,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->sas;
     }
-
     /**
      * Gets storage service blob endpoint uri.
      *
@@ -643,7 +331,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->blobEndpointUri;
     }
-
     /**
      * Gets storage service queue endpoint uri.
      *
@@ -653,7 +340,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->queueEndpointUri;
     }
-
     /**
      * Gets storage service table endpoint uri.
      *
@@ -663,7 +349,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->tableEndpointUri;
     }
-
     /**
      * Gets storage service file endpoint uri.
      *
@@ -673,7 +358,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->fileEndpointUri;
     }
-
     /**
      * Gets storage service secondary blob endpoint uri.
      *
@@ -683,7 +367,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->blobSecondaryEndpointUri;
     }
-
     /**
      * Gets storage service secondary queue endpoint uri.
      *
@@ -693,7 +376,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->queueSecondaryEndpointUri;
     }
-
     /**
      * Gets storage service secondary table endpoint uri.
      *
@@ -703,7 +385,6 @@ class StorageServiceSettings extends ServiceSettings
     {
         return $this->tableSecondaryEndpointUri;
     }
-
     /**
      * Gets storage service secondary file endpoint uri.
      *

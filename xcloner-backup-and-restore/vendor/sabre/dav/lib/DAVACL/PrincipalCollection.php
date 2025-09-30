@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL;
 
-namespace Sabre\DAVACL;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\InvalidResourceType;
-use Sabre\DAV\IExtendedCollection;
-use Sabre\DAV\MkCol;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\InvalidResourceType;
+use XCloner\Sabre\DAV\IExtendedCollection;
+use XCloner\Sabre\DAV\MkCol;
 /**
  * Principals Collection.
  *
@@ -24,7 +22,6 @@ use Sabre\DAV\MkCol;
 class PrincipalCollection extends AbstractPrincipalCollection implements IExtendedCollection, IACL
 {
     use ACLTrait;
-
     /**
      * This method returns a node for a principal.
      *
@@ -38,7 +35,6 @@ class PrincipalCollection extends AbstractPrincipalCollection implements IExtend
     {
         return new Principal($this->principalBackend, $principal);
     }
-
     /**
      * Creates a new collection.
      *
@@ -67,13 +63,8 @@ class PrincipalCollection extends AbstractPrincipalCollection implements IExtend
         if (!$mkCol->hasResourceType('{DAV:}principal')) {
             throw new InvalidResourceType('Only resources of type {DAV:}principal may be created here');
         }
-
-        $this->principalBackend->createPrincipal(
-            $this->principalPrefix.'/'.$name,
-            $mkCol
-        );
+        $this->principalBackend->createPrincipal($this->principalPrefix . '/' . $name, $mkCol);
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -88,12 +79,6 @@ class PrincipalCollection extends AbstractPrincipalCollection implements IExtend
      */
     public function getACL()
     {
-        return [
-            [
-                'principal' => '{DAV:}authenticated',
-                'privilege' => '{DAV:}read',
-                'protected' => true,
-            ],
-        ];
+        return [['principal' => '{DAV:}authenticated', 'privilege' => '{DAV:}read', 'protected' => \true]];
     }
 }

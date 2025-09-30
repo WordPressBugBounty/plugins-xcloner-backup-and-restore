@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PasswordResetResponse class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PasswordResetResponse extends Entity
 {
     /**
-    * Gets the newPassword
-    * The Azure AD-generated password.
-    *
-    * @return string|null The newPassword
-    */
+     * Gets the newPassword
+     * The Azure AD-generated password.
+     *
+     * @return string|null The newPassword
+     */
     public function getNewPassword()
     {
         if (array_key_exists("newPassword", $this->_propDict)) {
@@ -40,15 +42,14 @@ class PasswordResetResponse extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the newPassword
-    * The Azure AD-generated password.
-    *
-    * @param string $val The value of the newPassword
-    *
-    * @return PasswordResetResponse
-    */
+     * Sets the newPassword
+     * The Azure AD-generated password.
+     *
+     * @param string $val The value of the newPassword
+     *
+     * @return PasswordResetResponse
+     */
     public function setNewPassword($val)
     {
         $this->_propDict["newPassword"] = $val;

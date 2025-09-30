@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV;
 
-namespace Sabre\CardDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\MkCol;
-use Sabre\DAVACL;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\MkCol;
+use XCloner\Sabre\DAVACL;
+use XCloner\Sabre\Uri;
 /**
  * AddressBook Home class.
  *
@@ -24,21 +22,18 @@ use Sabre\Uri;
 class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection, DAVACL\IACL
 {
     use DAVACL\ACLTrait;
-
     /**
      * Principal uri.
      *
      * @var array
      */
     protected $principalUri;
-
     /**
      * carddavBackend.
      *
      * @var Backend\BackendInterface
      */
     protected $carddavBackend;
-
     /**
      * Constructor.
      *
@@ -49,7 +44,6 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
         $this->carddavBackend = $carddavBackend;
         $this->principalUri = $principalUri;
     }
-
     /**
      * Returns the name of this object.
      *
@@ -58,10 +52,8 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
     public function getName()
     {
         list(, $name) = Uri\split($this->principalUri);
-
         return $name;
     }
-
     /**
      * Updates the name of this object.
      *
@@ -71,7 +63,6 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
     {
         throw new DAV\Exception\MethodNotAllowed();
     }
-
     /**
      * Deletes this object.
      */
@@ -79,7 +70,6 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
     {
         throw new DAV\Exception\MethodNotAllowed();
     }
-
     /**
      * Returns the last modification date.
      *
@@ -89,7 +79,6 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
     {
         return null;
     }
-
     /**
      * Creates a new file under this object.
      *
@@ -102,7 +91,6 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
     {
         throw new DAV\Exception\MethodNotAllowed('Creating new files in this collection is not supported');
     }
-
     /**
      * Creates a new directory under this object.
      *
@@ -114,7 +102,6 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
     {
         throw new DAV\Exception\MethodNotAllowed('Creating new collections in this collection is not supported');
     }
-
     /**
      * Returns a single addressbook, by name.
      *
@@ -131,9 +118,8 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
                 return $child;
             }
         }
-        throw new DAV\Exception\NotFound('Addressbook with name \''.$name.'\' could not be found');
+        throw new DAV\Exception\NotFound('Addressbook with name \'' . $name . '\' could not be found');
     }
-
     /**
      * Returns a list of addressbooks.
      *
@@ -146,10 +132,8 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
         foreach ($addressbooks as $addressbook) {
             $objs[] = new AddressBook($this->carddavBackend, $addressbook);
         }
-
         return $objs;
     }
-
     /**
      * Creates a new address book.
      *
@@ -159,14 +143,13 @@ class AddressBookHome extends DAV\Collection implements DAV\IExtendedCollection,
      */
     public function createExtendedCollection($name, MkCol $mkCol)
     {
-        if (!$mkCol->hasResourceType('{'.Plugin::NS_CARDDAV.'}addressbook')) {
+        if (!$mkCol->hasResourceType('{' . Plugin::NS_CARDDAV . '}addressbook')) {
             throw new DAV\Exception\InvalidResourceType('Unknown resourceType for this collection');
         }
         $properties = $mkCol->getRemainingValues();
         $mkCol->setRemainingResultCode(201);
         $this->carddavBackend->createAddressBook($this->principalUri, $name, $properties);
     }
-
     /**
      * Returns the owner principal.
      *

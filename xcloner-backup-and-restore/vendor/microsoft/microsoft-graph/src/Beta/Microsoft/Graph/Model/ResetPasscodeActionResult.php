@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResetPasscodeActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResetPasscodeActionResult extends DeviceActionResult
 {
     /**
-    * Gets the errorCode
-    * RotateBitLockerKeys action error code. Valid values 0 to 2147483647
-    *
-    * @return int|null The errorCode
-    */
+     * Gets the errorCode
+     * RotateBitLockerKeys action error code. Valid values 0 to 2147483647
+     *
+     * @return int|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ResetPasscodeActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * RotateBitLockerKeys action error code. Valid values 0 to 2147483647
-    *
-    * @param int $val The value of the errorCode
-    *
-    * @return ResetPasscodeActionResult
-    */
+     * Sets the errorCode
+     * RotateBitLockerKeys action error code. Valid values 0 to 2147483647
+     *
+     * @param int $val The value of the errorCode
+     *
+     * @return ResetPasscodeActionResult
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
     /**
-    * Gets the passcode
-    * Newly generated passcode for the device
-    *
-    * @return string|null The passcode
-    */
+     * Gets the passcode
+     * Newly generated passcode for the device
+     *
+     * @return string|null The passcode
+     */
     public function getPasscode()
     {
         if (array_key_exists("passcode", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ResetPasscodeActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the passcode
-    * Newly generated passcode for the device
-    *
-    * @param string $val The value of the passcode
-    *
-    * @return ResetPasscodeActionResult
-    */
+     * Sets the passcode
+     * Newly generated passcode for the device
+     *
+     * @param string $val The value of the passcode
+     *
+     * @return ResetPasscodeActionResult
+     */
     public function setPasscode($val)
     {
         $this->_propDict["passcode"] = $val;

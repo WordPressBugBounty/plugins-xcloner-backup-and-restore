@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationResource class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EducationResource extends Entity
 {
-
     /**
-    * Gets the createdBy
-    * Who created the resource.
-    *
-    * @return IdentitySet|null The createdBy
-    */
+     * Gets the createdBy
+     * Who created the resource.
+     *
+     * @return IdentitySet|null The createdBy
+     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -45,31 +46,29 @@ class EducationResource extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdBy
-    * Who created the resource.
-    *
-    * @param IdentitySet $val The value to assign to the createdBy
-    *
-    * @return EducationResource The EducationResource
-    */
+     * Sets the createdBy
+     * Who created the resource.
+     *
+     * @param IdentitySet $val The value to assign to the createdBy
+     *
+     * @return EducationResource The EducationResource
+     */
     public function setCreatedBy($val)
     {
         $this->_propDict["createdBy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -78,26 +77,25 @@ class EducationResource extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the createdDateTime
-    *
-    * @return EducationResource The EducationResource
-    */
+     * Sets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the createdDateTime
+     *
+     * @return EducationResource The EducationResource
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the displayName
-    * Display name of resource.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of resource.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -106,31 +104,29 @@ class EducationResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of resource.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return EducationResource
-    */
+     * Sets the displayName
+     * Display name of resource.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return EducationResource
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedBy
-    * Who was the last user to modify the resource.
-    *
-    * @return IdentitySet|null The lastModifiedBy
-    */
+     * Gets the lastModifiedBy
+     * Who was the last user to modify the resource.
+     *
+     * @return IdentitySet|null The lastModifiedBy
+     */
     public function getLastModifiedBy()
     {
         if (array_key_exists("lastModifiedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedBy"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
+            if (is_a($this->_propDict["lastModifiedBy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["lastModifiedBy"])) {
                 return $this->_propDict["lastModifiedBy"];
             } else {
                 $this->_propDict["lastModifiedBy"] = new IdentitySet($this->_propDict["lastModifiedBy"]);
@@ -139,31 +135,29 @@ class EducationResource extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedBy
-    * Who was the last user to modify the resource.
-    *
-    * @param IdentitySet $val The value to assign to the lastModifiedBy
-    *
-    * @return EducationResource The EducationResource
-    */
+     * Sets the lastModifiedBy
+     * Who was the last user to modify the resource.
+     *
+     * @param IdentitySet $val The value to assign to the lastModifiedBy
+     *
+     * @return EducationResource The EducationResource
+     */
     public function setLastModifiedBy($val)
     {
         $this->_propDict["lastModifiedBy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -172,18 +166,17 @@ class EducationResource extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return EducationResource The EducationResource
-    */
+     * Sets the lastModifiedDateTime
+     * Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return EducationResource The EducationResource
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

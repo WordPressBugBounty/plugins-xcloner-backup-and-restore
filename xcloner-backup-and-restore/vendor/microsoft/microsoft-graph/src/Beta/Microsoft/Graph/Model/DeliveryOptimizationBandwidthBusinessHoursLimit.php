@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeliveryOptimizationBandwidthBusinessHoursLimit class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
 {
     /**
-    * Gets the bandwidthBeginBusinessHours
-    * Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
-    *
-    * @return int|null The bandwidthBeginBusinessHours
-    */
+     * Gets the bandwidthBeginBusinessHours
+     * Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
+     *
+     * @return int|null The bandwidthBeginBusinessHours
+     */
     public function getBandwidthBeginBusinessHours()
     {
         if (array_key_exists("bandwidthBeginBusinessHours", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bandwidthBeginBusinessHours
-    * Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
-    *
-    * @param int $val The value of the bandwidthBeginBusinessHours
-    *
-    * @return DeliveryOptimizationBandwidthBusinessHoursLimit
-    */
+     * Sets the bandwidthBeginBusinessHours
+     * Specifies the beginning of business hours using a 24-hour clock (0-23). Valid values 0 to 23
+     *
+     * @param int $val The value of the bandwidthBeginBusinessHours
+     *
+     * @return DeliveryOptimizationBandwidthBusinessHoursLimit
+     */
     public function setBandwidthBeginBusinessHours($val)
     {
         $this->_propDict["bandwidthBeginBusinessHours"] = $val;
         return $this;
     }
     /**
-    * Gets the bandwidthEndBusinessHours
-    * Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23
-    *
-    * @return int|null The bandwidthEndBusinessHours
-    */
+     * Gets the bandwidthEndBusinessHours
+     * Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23
+     *
+     * @return int|null The bandwidthEndBusinessHours
+     */
     public function getBandwidthEndBusinessHours()
     {
         if (array_key_exists("bandwidthEndBusinessHours", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bandwidthEndBusinessHours
-    * Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23
-    *
-    * @param int $val The value of the bandwidthEndBusinessHours
-    *
-    * @return DeliveryOptimizationBandwidthBusinessHoursLimit
-    */
+     * Sets the bandwidthEndBusinessHours
+     * Specifies the end of business hours using a 24-hour clock (0-23). Valid values 0 to 23
+     *
+     * @param int $val The value of the bandwidthEndBusinessHours
+     *
+     * @return DeliveryOptimizationBandwidthBusinessHoursLimit
+     */
     public function setBandwidthEndBusinessHours($val)
     {
         $this->_propDict["bandwidthEndBusinessHours"] = $val;
         return $this;
     }
     /**
-    * Gets the bandwidthPercentageDuringBusinessHours
-    * Specifies the percentage of bandwidth to limit during business hours (0-100). Valid values 0 to 100
-    *
-    * @return int|null The bandwidthPercentageDuringBusinessHours
-    */
+     * Gets the bandwidthPercentageDuringBusinessHours
+     * Specifies the percentage of bandwidth to limit during business hours (0-100). Valid values 0 to 100
+     *
+     * @return int|null The bandwidthPercentageDuringBusinessHours
+     */
     public function getBandwidthPercentageDuringBusinessHours()
     {
         if (array_key_exists("bandwidthPercentageDuringBusinessHours", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bandwidthPercentageDuringBusinessHours
-    * Specifies the percentage of bandwidth to limit during business hours (0-100). Valid values 0 to 100
-    *
-    * @param int $val The value of the bandwidthPercentageDuringBusinessHours
-    *
-    * @return DeliveryOptimizationBandwidthBusinessHoursLimit
-    */
+     * Sets the bandwidthPercentageDuringBusinessHours
+     * Specifies the percentage of bandwidth to limit during business hours (0-100). Valid values 0 to 100
+     *
+     * @param int $val The value of the bandwidthPercentageDuringBusinessHours
+     *
+     * @return DeliveryOptimizationBandwidthBusinessHoursLimit
+     */
     public function setBandwidthPercentageDuringBusinessHours($val)
     {
         $this->_propDict["bandwidthPercentageDuringBusinessHours"] = $val;
         return $this;
     }
     /**
-    * Gets the bandwidthPercentageOutsideBusinessHours
-    * Specifies the percentage of bandwidth to limit outsidse business hours (0-100). Valid values 0 to 100
-    *
-    * @return int|null The bandwidthPercentageOutsideBusinessHours
-    */
+     * Gets the bandwidthPercentageOutsideBusinessHours
+     * Specifies the percentage of bandwidth to limit outsidse business hours (0-100). Valid values 0 to 100
+     *
+     * @return int|null The bandwidthPercentageOutsideBusinessHours
+     */
     public function getBandwidthPercentageOutsideBusinessHours()
     {
         if (array_key_exists("bandwidthPercentageOutsideBusinessHours", $this->_propDict)) {
@@ -124,15 +123,14 @@ class DeliveryOptimizationBandwidthBusinessHoursLimit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bandwidthPercentageOutsideBusinessHours
-    * Specifies the percentage of bandwidth to limit outsidse business hours (0-100). Valid values 0 to 100
-    *
-    * @param int $val The value of the bandwidthPercentageOutsideBusinessHours
-    *
-    * @return DeliveryOptimizationBandwidthBusinessHoursLimit
-    */
+     * Sets the bandwidthPercentageOutsideBusinessHours
+     * Specifies the percentage of bandwidth to limit outsidse business hours (0-100). Valid values 0 to 100
+     *
+     * @param int $val The value of the bandwidthPercentageOutsideBusinessHours
+     *
+     * @return DeliveryOptimizationBandwidthBusinessHoursLimit
+     */
     public function setBandwidthPercentageOutsideBusinessHours($val)
     {
         $this->_propDict["bandwidthPercentageOutsideBusinessHours"] = $val;

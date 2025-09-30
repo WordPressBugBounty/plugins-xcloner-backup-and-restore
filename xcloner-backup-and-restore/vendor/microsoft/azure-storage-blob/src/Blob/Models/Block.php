@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Holds information about blob block.
  *
@@ -41,7 +40,6 @@ class Block
 {
     private $_blockId;
     private $_type;
-
     /**
      * Constructor.
      *
@@ -53,7 +51,6 @@ class Block
         $this->_blockId = $blockId;
         $this->_type = $type;
     }
-
     /**
      * Sets the blockId.
      *
@@ -65,7 +62,6 @@ class Block
     {
         $this->_blockId = $blockId;
     }
-
     /**
      * Gets the blockId.
      *
@@ -75,7 +71,6 @@ class Block
     {
         return $this->_blockId;
     }
-
     /**
      * Sets the type.
      *
@@ -87,7 +82,6 @@ class Block
     {
         $this->_type = $type;
     }
-
     /**
      * Gets the type.
      *
