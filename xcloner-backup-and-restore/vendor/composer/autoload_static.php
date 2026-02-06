@@ -30,7 +30,7 @@ class ComposerStaticInit9833a701906c29e14e899e7bad4efc59
     );
 
     public static $prefixLengthsPsr4 = array (
-        'X' => 
+        'X' =>
         array (
             'XCloner\\splitbrain\\PHPArchive\\' => 30,
             'XCloner\\phpseclib\\' => 18,
@@ -87,207 +87,207 @@ class ComposerStaticInit9833a701906c29e14e899e7bad4efc59
     );
 
     public static $prefixDirsPsr4 = array (
-        'XCloner\\splitbrain\\PHPArchive\\' => 
+        'XCloner\\splitbrain\\PHPArchive\\' =>
         array (
             0 => __DIR__ . '/..' . '/splitbrain/php-archive/src',
         ),
-        'XCloner\\phpseclib\\' => 
+        'XCloner\\phpseclib\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
         ),
-        'XCloner\\org\\bovigo\\vfs\\' => 
+        'XCloner\\org\\bovigo\\vfs\\' =>
         array (
             0 => __DIR__ . '/..' . '/mikey179/vfsstream/src/main/php/org/bovigo/vfs',
         ),
-        'XCloner\\Watchfulli\\XClonerCore\\' => 
+        'XCloner\\Watchfulli\\XClonerCore\\' =>
         array (
             0 => __DIR__ . '/../..' . '/lib',
         ),
-        'XCloner\\Symfony\\Polyfill\\Php80\\' => 
+        'XCloner\\Symfony\\Polyfill\\Php80\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-php80',
         ),
-        'XCloner\\Symfony\\Polyfill\\Mbstring\\' => 
+        'XCloner\\Symfony\\Polyfill\\Mbstring\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
         ),
-        'XCloner\\Symfony\\Contracts\\Translation\\' => 
+        'XCloner\\Symfony\\Contracts\\Translation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/translation-contracts',
         ),
-        'XCloner\\Symfony\\Component\\Translation\\' => 
+        'XCloner\\Symfony\\Component\\Translation\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/translation',
         ),
-        'XCloner\\Srmklive\\Dropbox\\' => 
+        'XCloner\\Srmklive\\Dropbox\\' =>
         array (
             0 => __DIR__ . '/..' . '/srmklive/flysystem-dropbox-v2/src',
         ),
-        'XCloner\\Sabre\\Xml\\' => 
+        'XCloner\\Sabre\\Xml\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/xml/lib',
         ),
-        'XCloner\\Sabre\\VObject\\' => 
+        'XCloner\\Sabre\\VObject\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/vobject/lib',
         ),
-        'XCloner\\Sabre\\Uri\\' => 
+        'XCloner\\Sabre\\Uri\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/uri/lib',
         ),
-        'XCloner\\Sabre\\HTTP\\' => 
+        'XCloner\\Sabre\\HTTP\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/http/lib',
         ),
-        'XCloner\\Sabre\\Event\\' => 
+        'XCloner\\Sabre\\Event\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/event/lib',
         ),
-        'XCloner\\Sabre\\DAV\\' => 
+        'XCloner\\Sabre\\DAV\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/dav/lib/DAV',
         ),
-        'XCloner\\Sabre\\DAVACL\\' => 
+        'XCloner\\Sabre\\DAVACL\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/dav/lib/DAVACL',
         ),
-        'XCloner\\Sabre\\CardDAV\\' => 
+        'XCloner\\Sabre\\CardDAV\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/dav/lib/CardDAV',
         ),
-        'XCloner\\Sabre\\CalDAV\\' => 
+        'XCloner\\Sabre\\CalDAV\\' =>
         array (
             0 => __DIR__ . '/..' . '/sabre/dav/lib/CalDAV',
         ),
-        'XCloner\\Psr\\Log\\' => 
+        'XCloner\\Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'XCloner\\Psr\\Http\\Message\\' => 
+        'XCloner\\Psr\\Http\\Message\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
         ),
-        'XCloner\\Psr\\Http\\Client\\' => 
+        'XCloner\\Psr\\Http\\Client\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
-        'XCloner\\Psr\\Cache\\' => 
+        'XCloner\\Psr\\Cache\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/cache/src',
         ),
-        'XCloner\\Monolog\\' => 
+        'XCloner\\Monolog\\' =>
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
         ),
-        'XCloner\\Microsoft\\Graph\\' => 
+        'XCloner\\Microsoft\\Graph\\' =>
         array (
             0 => __DIR__ . '/..' . '/microsoft/microsoft-graph/src',
         ),
-        'XCloner\\MicrosoftAzure\\Storage\\Common\\' => 
+        'XCloner\\MicrosoftAzure\\Storage\\Common\\' =>
         array (
             0 => __DIR__ . '/..' . '/microsoft/azure-storage-common/src/Common',
         ),
-        'XCloner\\MicrosoftAzure\\Storage\\Blob\\' => 
+        'XCloner\\MicrosoftAzure\\Storage\\Blob\\' =>
         array (
             0 => __DIR__ . '/..' . '/microsoft/azure-storage-blob/src/Blob',
         ),
-        'XCloner\\Mhetreramesh\\Flysystem\\' => 
+        'XCloner\\Mhetreramesh\\Flysystem\\' =>
         array (
             0 => __DIR__ . '/..' . '/mhetreramesh/flysystem-backblaze/src',
         ),
-        'XCloner\\League\\MimeTypeDetection\\' => 
+        'XCloner\\League\\MimeTypeDetection\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/mime-type-detection/src',
         ),
-        'XCloner\\League\\Flysystem\\WebDAV\\' => 
+        'XCloner\\League\\Flysystem\\WebDAV\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem-webdav/src',
         ),
-        'XCloner\\League\\Flysystem\\Sftp\\' => 
+        'XCloner\\League\\Flysystem\\Sftp\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem-sftp/src',
         ),
-        'XCloner\\League\\Flysystem\\Cached\\' => 
+        'XCloner\\League\\Flysystem\\Cached\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem-cached-adapter/src',
         ),
-        'XCloner\\League\\Flysystem\\AzureBlobStorage\\' => 
+        'XCloner\\League\\Flysystem\\AzureBlobStorage\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem-azure-blob-storage/src',
         ),
-        'XCloner\\League\\Flysystem\\AwsS3v3\\' => 
+        'XCloner\\League\\Flysystem\\AwsS3v3\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem-aws-s3-v3/src',
         ),
-        'XCloner\\League\\Flysystem\\' => 
+        'XCloner\\League\\Flysystem\\' =>
         array (
             0 => __DIR__ . '/..' . '/league/flysystem/src',
         ),
-        'XCloner\\JmesPath\\' => 
+        'XCloner\\JmesPath\\' =>
         array (
             0 => __DIR__ . '/..' . '/mtdowling/jmespath.php/src',
         ),
-        'XCloner\\Hypweb\\Flysystem\\GoogleDrive\\' => 
+        'XCloner\\Hypweb\\Flysystem\\GoogleDrive\\' =>
         array (
             0 => __DIR__ . '/..' . '/nao-pon/flysystem-google-drive/src',
         ),
-        'XCloner\\Hypweb\\Flysystem\\Cached\\Extra\\' => 
+        'XCloner\\Hypweb\\Flysystem\\Cached\\Extra\\' =>
         array (
             0 => __DIR__ . '/..' . '/nao-pon/flysystem-cached-extra/src',
         ),
-        'XCloner\\GuzzleHttp\\Psr7\\' => 
+        'XCloner\\GuzzleHttp\\Psr7\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
-        'XCloner\\GuzzleHttp\\Promise\\' => 
+        'XCloner\\GuzzleHttp\\Promise\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
         ),
-        'XCloner\\GuzzleHttp\\' => 
+        'XCloner\\GuzzleHttp\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
         ),
-        'XCloner\\Google\\Service\\' => 
+        'XCloner\\Google\\Service\\' =>
         array (
             0 => __DIR__ . '/..' . '/google/apiclient-services/src',
         ),
-        'XCloner\\Google\\Auth\\' => 
+        'XCloner\\Google\\Auth\\' =>
         array (
             0 => __DIR__ . '/..' . '/google/auth/src',
         ),
-        'XCloner\\Google\\' => 
+        'XCloner\\Google\\' =>
         array (
             0 => __DIR__ . '/..' . '/google/apiclient/src',
         ),
-        'XCloner\\Firebase\\JWT\\' => 
+        'XCloner\\Firebase\\JWT\\' =>
         array (
             0 => __DIR__ . '/..' . '/firebase/php-jwt/src',
         ),
-        'XCloner\\Carbon\\' => 
+        'XCloner\\Carbon\\' =>
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
         ),
-        'XCloner\\Beta\\Microsoft\\Graph\\' => 
+        'XCloner\\Beta\\Microsoft\\Graph\\' =>
         array (
             0 => __DIR__ . '/..' . '/microsoft/microsoft-graph/src/Beta/Microsoft/Graph',
         ),
-        'XCloner\\BackblazeB2\\' => 
+        'XCloner\\BackblazeB2\\' =>
         array (
             0 => __DIR__ . '/..' . '/gliterd/backblaze-b2/src',
         ),
-        'XCloner\\Aws\\' => 
+        'XCloner\\Aws\\' =>
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
         ),
-        'XCloner\\As247\\Flysystem\\OneDrive\\' => 
+        'XCloner\\As247\\Flysystem\\OneDrive\\' =>
         array (
             0 => __DIR__ . '/..' . '/as247/flysystem-onedrive/src',
         ),
-        'XCloner\\As247\\Flysystem\\DriveSupport\\' => 
+        'XCloner\\As247\\Flysystem\\DriveSupport\\' =>
         array (
             0 => __DIR__ . '/..' . '/as247/flysystem-drive-support/src',
         ),
-        'XCloner\\As247\\CloudStorages\\' => 
+        'XCloner\\As247\\CloudStorages\\' =>
         array (
             0 => __DIR__ . '/..' . '/as247/cloud-storages/src',
         ),

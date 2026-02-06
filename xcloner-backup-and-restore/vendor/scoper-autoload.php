@@ -29,7 +29,65 @@ if (!function_exists('humbug_phpscoper_expose_class')) {
         }
     }
 }
+humbug_phpscoper_expose_class('Context', 'XCloner\Context');
+humbug_phpscoper_expose_class('SimpleType', 'XCloner\SimpleType');
+humbug_phpscoper_expose_class('Type', 'XCloner\Type');
+humbug_phpscoper_expose_class('ArginfoType', 'XCloner\ArginfoType');
+humbug_phpscoper_expose_class('ArgInfo', 'XCloner\ArgInfo');
+humbug_phpscoper_expose_class('FunctionOrMethodName', 'XCloner\FunctionOrMethodName');
+humbug_phpscoper_expose_class('FunctionName', 'XCloner\FunctionName');
+humbug_phpscoper_expose_class('MethodName', 'XCloner\MethodName');
+humbug_phpscoper_expose_class('ReturnInfo', 'XCloner\ReturnInfo');
+humbug_phpscoper_expose_class('FuncInfo', 'XCloner\FuncInfo');
+humbug_phpscoper_expose_class('ClassInfo', 'XCloner\ClassInfo');
+humbug_phpscoper_expose_class('FileInfo', 'XCloner\FileInfo');
+humbug_phpscoper_expose_class('DocCommentTag', 'XCloner\DocCommentTag');
+humbug_phpscoper_expose_class('InputStreamTest', 'XCloner\InputStreamTest');
+humbug_phpscoper_expose_class('CredentialsTest', 'XCloner\CredentialsTest');
+humbug_phpscoper_expose_class('CrcTest', 'XCloner\CrcTest');
+humbug_phpscoper_expose_class('ErrorTest', 'XCloner\ErrorTest');
+humbug_phpscoper_expose_class('CoreTest', 'XCloner\CoreTest');
+humbug_phpscoper_expose_class('LogTest', 'XCloner\LogTest');
+humbug_phpscoper_expose_class('SigningTest', 'XCloner\SigningTest');
+humbug_phpscoper_expose_class('EventLoopGroupTest', 'XCloner\EventLoopGroupTest');
+humbug_phpscoper_expose_class('HttpMessageTest', 'XCloner\HttpMessageTest');
+humbug_phpscoper_expose_class('ComposerAutoloaderInit9833a701906c29e14e899e7bad4efc59', 'XCloner\ComposerAutoloaderInit9833a701906c29e14e899e7bad4efc59');
+humbug_phpscoper_expose_class('CliLog', 'XCloner\CliLog');
+humbug_phpscoper_expose_class('PHPUnit_Util_ErrorHandler', 'XCloner\PHPUnit_Util_ErrorHandler');
+humbug_phpscoper_expose_class('PHPUnit_TextUI_ResultPrinter', 'XCloner\PHPUnit_TextUI_ResultPrinter');
+humbug_phpscoper_expose_class('BC_PHPUnit_Framework_TestCase', 'XCloner\BC_PHPUnit_Framework_TestCase');
+humbug_phpscoper_expose_class('StreamMock', 'XCloner\StreamMock');
+humbug_phpscoper_expose_class('GoogleDriveTests', 'XCloner\GoogleDriveTests');
+humbug_phpscoper_expose_class('StreamTest', 'XCloner\StreamTest');
+humbug_phpscoper_expose_class('HttpTest', 'XCloner\HttpTest');
+humbug_phpscoper_expose_class('GraphRequestTest', 'XCloner\GraphRequestTest');
+humbug_phpscoper_expose_class('GraphCollectionRequestTest', 'XCloner\GraphCollectionRequestTest');
+humbug_phpscoper_expose_class('GraphResponseTest', 'XCloner\GraphResponseTest');
+humbug_phpscoper_expose_class('ExceptionWrapperTest', 'XCloner\ExceptionWrapperTest');
+humbug_phpscoper_expose_class('ContactTest', 'XCloner\ContactTest');
+humbug_phpscoper_expose_class('DeltaQueryTest', 'XCloner\DeltaQueryTest');
+humbug_phpscoper_expose_class('SharepointTest', 'XCloner\SharepointTest');
+humbug_phpscoper_expose_class('MailTest', 'XCloner\MailTest');
+humbug_phpscoper_expose_class('WebhooksTest', 'XCloner\WebhooksTest');
+humbug_phpscoper_expose_class('EventTest', 'XCloner\EventTest');
+humbug_phpscoper_expose_class('AzureTest', 'XCloner\AzureTest');
+humbug_phpscoper_expose_class('OnenoteTest', 'XCloner\OnenoteTest');
+humbug_phpscoper_expose_class('OnedriveTest', 'XCloner\OnedriveTest');
+humbug_phpscoper_expose_class('TermStoreTest', 'XCloner\TermStoreTest');
+humbug_phpscoper_expose_class('PlannerTest', 'XCloner\PlannerTest');
+humbug_phpscoper_expose_class('OpenTypeTest', 'XCloner\OpenTypeTest');
+humbug_phpscoper_expose_class('UserTest', 'XCloner\UserTest');
+humbug_phpscoper_expose_class('ExcelTest', 'XCloner\ExcelTest');
+humbug_phpscoper_expose_class('GraphTest', 'XCloner\GraphTest');
+humbug_phpscoper_expose_class('ModelTest', 'XCloner\ModelTest');
+humbug_phpscoper_expose_class('TestEnum', 'XCloner\TestEnum');
+humbug_phpscoper_expose_class('ExceptionTest', 'XCloner\ExceptionTest');
 humbug_phpscoper_expose_class('BackblazeAdapterTests', 'XCloner\BackblazeAdapterTests');
+humbug_phpscoper_expose_class('Attribute', 'XCloner\Attribute');
+humbug_phpscoper_expose_class('UnhandledMatchError', 'XCloner\UnhandledMatchError');
+humbug_phpscoper_expose_class('PhpToken', 'XCloner\PhpToken');
+humbug_phpscoper_expose_class('Stringable', 'XCloner\Stringable');
+humbug_phpscoper_expose_class('ValueError', 'XCloner\ValueError');
 humbug_phpscoper_expose_class('Google_Task_Composer', 'XCloner\Google_Task_Composer');
 humbug_phpscoper_expose_class('Google_AccessToken_Revoke', 'XCloner\Google_AccessToken_Revoke');
 humbug_phpscoper_expose_class('Google_AccessToken_Verify', 'XCloner\Google_AccessToken_Verify');
@@ -51,74 +109,16 @@ humbug_phpscoper_expose_class('Google_Task_Exception', 'XCloner\Google_Task_Exce
 humbug_phpscoper_expose_class('Google_Task_Retryable', 'XCloner\Google_Task_Retryable');
 humbug_phpscoper_expose_class('Google_Task_Runner', 'XCloner\Google_Task_Runner');
 humbug_phpscoper_expose_class('Google_Utils_UriTemplate', 'XCloner\Google_Utils_UriTemplate');
-humbug_phpscoper_expose_class('PhpToken', 'XCloner\PhpToken');
-humbug_phpscoper_expose_class('UnhandledMatchError', 'XCloner\UnhandledMatchError');
-humbug_phpscoper_expose_class('Attribute', 'XCloner\Attribute');
-humbug_phpscoper_expose_class('ValueError', 'XCloner\ValueError');
-humbug_phpscoper_expose_class('Stringable', 'XCloner\Stringable');
-humbug_phpscoper_expose_class('CliLog', 'XCloner\CliLog');
-humbug_phpscoper_expose_class('ComposerAutoloaderInit9833a701906c29e14e899e7bad4efc59', 'XCloner\ComposerAutoloaderInit9833a701906c29e14e899e7bad4efc59');
-humbug_phpscoper_expose_class('CrcTest', 'XCloner\CrcTest');
-humbug_phpscoper_expose_class('EventLoopGroupTest', 'XCloner\EventLoopGroupTest');
-humbug_phpscoper_expose_class('HttpMessageTest', 'XCloner\HttpMessageTest');
-humbug_phpscoper_expose_class('ErrorTest', 'XCloner\ErrorTest');
-humbug_phpscoper_expose_class('CoreTest', 'XCloner\CoreTest');
-humbug_phpscoper_expose_class('InputStreamTest', 'XCloner\InputStreamTest');
-humbug_phpscoper_expose_class('CredentialsTest', 'XCloner\CredentialsTest');
-humbug_phpscoper_expose_class('SigningTest', 'XCloner\SigningTest');
-humbug_phpscoper_expose_class('LogTest', 'XCloner\LogTest');
-humbug_phpscoper_expose_class('Context', 'XCloner\Context');
-humbug_phpscoper_expose_class('SimpleType', 'XCloner\SimpleType');
-humbug_phpscoper_expose_class('Type', 'XCloner\Type');
-humbug_phpscoper_expose_class('ArginfoType', 'XCloner\ArginfoType');
-humbug_phpscoper_expose_class('ArgInfo', 'XCloner\ArgInfo');
-humbug_phpscoper_expose_class('FunctionOrMethodName', 'XCloner\FunctionOrMethodName');
-humbug_phpscoper_expose_class('FunctionName', 'XCloner\FunctionName');
-humbug_phpscoper_expose_class('MethodName', 'XCloner\MethodName');
-humbug_phpscoper_expose_class('ReturnInfo', 'XCloner\ReturnInfo');
-humbug_phpscoper_expose_class('FuncInfo', 'XCloner\FuncInfo');
-humbug_phpscoper_expose_class('ClassInfo', 'XCloner\ClassInfo');
-humbug_phpscoper_expose_class('FileInfo', 'XCloner\FileInfo');
-humbug_phpscoper_expose_class('DocCommentTag', 'XCloner\DocCommentTag');
-humbug_phpscoper_expose_class('ModelTest', 'XCloner\ModelTest');
-humbug_phpscoper_expose_class('TestEnum', 'XCloner\TestEnum');
-humbug_phpscoper_expose_class('ExceptionWrapperTest', 'XCloner\ExceptionWrapperTest');
-humbug_phpscoper_expose_class('ExcelTest', 'XCloner\ExcelTest');
-humbug_phpscoper_expose_class('EventTest', 'XCloner\EventTest');
-humbug_phpscoper_expose_class('MailTest', 'XCloner\MailTest');
-humbug_phpscoper_expose_class('OnenoteTest', 'XCloner\OnenoteTest');
-humbug_phpscoper_expose_class('OnedriveTest', 'XCloner\OnedriveTest');
-humbug_phpscoper_expose_class('DeltaQueryTest', 'XCloner\DeltaQueryTest');
-humbug_phpscoper_expose_class('TermStoreTest', 'XCloner\TermStoreTest');
-humbug_phpscoper_expose_class('OpenTypeTest', 'XCloner\OpenTypeTest');
-humbug_phpscoper_expose_class('PlannerTest', 'XCloner\PlannerTest');
-humbug_phpscoper_expose_class('WebhooksTest', 'XCloner\WebhooksTest');
-humbug_phpscoper_expose_class('UserTest', 'XCloner\UserTest');
-humbug_phpscoper_expose_class('SharepointTest', 'XCloner\SharepointTest');
-humbug_phpscoper_expose_class('AzureTest', 'XCloner\AzureTest');
-humbug_phpscoper_expose_class('ContactTest', 'XCloner\ContactTest');
-humbug_phpscoper_expose_class('GraphRequestTest', 'XCloner\GraphRequestTest');
-humbug_phpscoper_expose_class('GraphResponseTest', 'XCloner\GraphResponseTest');
-humbug_phpscoper_expose_class('GraphCollectionRequestTest', 'XCloner\GraphCollectionRequestTest');
-humbug_phpscoper_expose_class('StreamTest', 'XCloner\StreamTest');
-humbug_phpscoper_expose_class('HttpTest', 'XCloner\HttpTest');
-humbug_phpscoper_expose_class('GraphTest', 'XCloner\GraphTest');
-humbug_phpscoper_expose_class('ExceptionTest', 'XCloner\ExceptionTest');
 humbug_phpscoper_expose_class('AzureBlobStorageTest', 'XCloner\AzureBlobStorageTest');
-humbug_phpscoper_expose_class('NoopCacheTests', 'XCloner\NoopCacheTests');
-humbug_phpscoper_expose_class('StashTests', 'XCloner\StashTests');
-humbug_phpscoper_expose_class('InspectionTests', 'XCloner\InspectionTests');
-humbug_phpscoper_expose_class('AdapterCacheTests', 'XCloner\AdapterCacheTests');
-humbug_phpscoper_expose_class('PhpRedisTests', 'XCloner\PhpRedisTests');
 humbug_phpscoper_expose_class('Psr6CacheTests', 'XCloner\Psr6CacheTests');
-humbug_phpscoper_expose_class('MemoryCacheTests', 'XCloner\MemoryCacheTests');
+humbug_phpscoper_expose_class('InspectionTests', 'XCloner\InspectionTests');
+humbug_phpscoper_expose_class('StashTests', 'XCloner\StashTests');
+humbug_phpscoper_expose_class('PhpRedisTests', 'XCloner\PhpRedisTests');
 humbug_phpscoper_expose_class('PredisTests', 'XCloner\PredisTests');
+humbug_phpscoper_expose_class('MemoryCacheTests', 'XCloner\MemoryCacheTests');
+humbug_phpscoper_expose_class('NoopCacheTests', 'XCloner\NoopCacheTests');
 humbug_phpscoper_expose_class('MemcachedTests', 'XCloner\MemcachedTests');
-humbug_phpscoper_expose_class('PHPUnit_Util_ErrorHandler', 'XCloner\PHPUnit_Util_ErrorHandler');
-humbug_phpscoper_expose_class('PHPUnit_TextUI_ResultPrinter', 'XCloner\PHPUnit_TextUI_ResultPrinter');
-humbug_phpscoper_expose_class('BC_PHPUnit_Framework_TestCase', 'XCloner\BC_PHPUnit_Framework_TestCase');
-humbug_phpscoper_expose_class('StreamMock', 'XCloner\StreamMock');
-humbug_phpscoper_expose_class('GoogleDriveTests', 'XCloner\GoogleDriveTests');
+humbug_phpscoper_expose_class('AdapterCacheTests', 'XCloner\AdapterCacheTests');
 humbug_phpscoper_expose_class('Xcloner_Admin', 'XCloner\Xcloner_Admin');
 
 // Function aliases. For more information see:
@@ -288,6 +288,7 @@ if (!function_exists('trigger_deprecation')) { function trigger_deprecation() { 
 if (!function_exists('updateDocs')) { function updateDocs() { return \XCloner\updateDocs(...func_get_args()); } }
 if (!function_exists('updateGraphConstants')) { function updateGraphConstants() { return \XCloner\updateGraphConstants(...func_get_args()); } }
 if (!function_exists('updateReadme')) { function updateReadme() { return \XCloner\updateReadme(...func_get_args()); } }
+if (!function_exists('wp_unslash')) { function wp_unslash() { return \XCloner\wp_unslash(...func_get_args()); } }
 if (!function_exists('xcloner_stop_heartbeat')) { function xcloner_stop_heartbeat() { return \XCloner\xcloner_stop_heartbeat(...func_get_args()); } }
 if (!function_exists('zend_monitor_custom_event')) { function zend_monitor_custom_event() { return \XCloner\zend_monitor_custom_event(...func_get_args()); } }
 

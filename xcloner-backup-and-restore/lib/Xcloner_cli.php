@@ -47,7 +47,7 @@ class Xcloner_cli
     }
     private function do_wp_cli_execution()
     {
-        \XCloner\WP_CLI::add_command(
+        \WP_CLI::add_command(
             'xcloner_generate_backup',
             /**
              * XCloner Generate backup based on supplied profile Name or ID
@@ -70,7 +70,7 @@ class Xcloner_cli
              * @when before_wp_load
              */
             function ($args, $assoc_args) {
-                if (\XCloner\WP_CLI::get_config('quiet')) {
+                if (\WP_CLI::get_config('quiet')) {
                     $assoc_args['quiet'] = \true;
                 }
                 $this->argv = $args;
@@ -147,11 +147,18 @@ class Xcloner_cli
      */
     private function load_wordpress()
     {
+        if ($this->is_wordpress_loaded()) {
+            return;
+        }
         $wp_load_path = XCLONER_PLUGIN_DIR . '/../../../wp-load.php';
         if (!file_exists($wp_load_path)) {
             throw new Exception('Can\'t find WordPress load file (wp-load.php)');
         }
         require_once $wp_load_path;
+    }
+    private function is_wordpress_loaded()
+    {
+        return defined('ABSPATH');
     }
     private function should_list_backup_contents($opts)
     {
