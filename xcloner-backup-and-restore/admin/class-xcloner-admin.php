@@ -165,11 +165,11 @@ class Xcloner_Admin
     {
         require_once "partials/xcloner_console_page.php";
     }
-    public function xcloner_restore_site()
+    public function xcloner_restore_site_page()
     {
         require_once "partials/xcloner_restore_page.php";
     }
-    public function xcloner_clone_site()
+    public function xcloner_clone_site_page()
     {
         require_once "partials/xcloner_restore_page.php";
     }

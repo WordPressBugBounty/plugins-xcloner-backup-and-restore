@@ -600,8 +600,8 @@ class Xcloner
             add_submenu_page('xcloner_init_page', __('Manage Backups', 'xcloner-backup-and-restore'), __('Manage Backups', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_manage_backups_page', array($this, 'xcloner_display'));
             add_submenu_page('xcloner_init_page', __('Schedules & Profiles', 'xcloner-backup-and-restore'), __('Schedules & Profiles', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_scheduled_backups_page', array($this, 'xcloner_display'));
             add_submenu_page('xcloner_init_page', __('Generate Backups', 'xcloner-backup-and-restore'), __('Generate Backups', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_generate_backups_page', array($this, 'xcloner_display'));
-            add_submenu_page('xcloner_init_page', __('Restore Site', 'xcloner-backup-and-restore'), __('Restore Site', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_restore_site', array($this, 'xcloner_display'));
-            add_submenu_page('xcloner_init_page', __('Clone Site', 'xcloner-backup-and-restore'), __('Clone Site', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_clone_site', array($this, 'xcloner_display'));
+            add_submenu_page('xcloner_init_page', __('Restore Site', 'xcloner-backup-and-restore'), __('Restore Site', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_restore_site_page', array($this, 'xcloner_display'));
+            add_submenu_page('xcloner_init_page', __('Clone Site', 'xcloner-backup-and-restore'), __('Clone Site', 'xcloner-backup-and-restore'), 'manage_options', 'xcloner_clone_site_page', array($this, 'xcloner_display'));
         }
     }
     /**
