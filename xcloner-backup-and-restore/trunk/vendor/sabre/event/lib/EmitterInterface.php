@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event;
 
-namespace Sabre\Event;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Event Emitter Interface.
  *
@@ -23,12 +22,10 @@ interface EmitterInterface
      * Subscribe to an event.
      */
     public function on(string $eventName, callable $callBack, int $priority = 100);
-
     /**
      * Subscribe to an event exactly once.
      */
     public function once(string $eventName, callable $callBack, int $priority = 100);
-
     /**
      * Emits an event.
      *
@@ -51,7 +48,6 @@ interface EmitterInterface
      * will be called at most 4 times.
      */
     public function emit(string $eventName, array $arguments = [], callable $continueCallBack = null): bool;
-
     /**
      * Returns the list of listeners for an event.
      *
@@ -61,7 +57,6 @@ interface EmitterInterface
      * @return callable[]
      */
     public function listeners(string $eventName): array;
-
     /**
      * Removes a specific listener from an event.
      *
@@ -69,7 +64,6 @@ interface EmitterInterface
      * was removed it will return true.
      */
     public function removeListener(string $eventName, callable $listener): bool;
-
     /**
      * Removes all listeners.
      *

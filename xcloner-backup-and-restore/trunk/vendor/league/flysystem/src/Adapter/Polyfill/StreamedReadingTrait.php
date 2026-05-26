@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Adapter\Polyfill;
+namespace XCloner\League\Flysystem\Adapter\Polyfill;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * A helper for adapters that only handle strings to provide read streams.
  */
@@ -21,19 +21,16 @@ trait StreamedReadingTrait
      */
     public function readStream($path)
     {
-        if ( ! $data = $this->read($path)) {
-            return false;
+        if (!$data = $this->read($path)) {
+            return \false;
         }
-
         $stream = fopen('php://temp', 'w+b');
         fwrite($stream, $data['contents']);
         rewind($stream);
         $data['stream'] = $stream;
         unset($data['contents']);
-
         return $data;
     }
-
     /**
      * Reads a file.
      *

@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use ArrayIterator;
-use Sabre\Xml;
-
+use XCloner\Sabre\Xml;
 /**
  * VObject Parameter.
  *
@@ -28,7 +27,6 @@ class Parameter extends Node
      * @var string
      */
     public $name;
-
     /**
      * vCard 2.1 allows parameters to be encoded without a name.
      *
@@ -36,15 +34,13 @@ class Parameter extends Node
      *
      * @var bool
      */
-    public $noName = false;
-
+    public $noName = \false;
     /**
      * Parameter value.
      *
      * @var string
      */
     protected $value;
-
     /**
      * Sets up the object.
      *
@@ -57,23 +53,21 @@ class Parameter extends Node
     {
         $this->root = $root;
         if (is_null($name)) {
-            $this->noName = true;
+            $this->noName = \true;
             $this->name = static::guessParameterNameByValue($value);
         } else {
             $this->name = strtoupper($name);
         }
-
         // If guessParameterNameByValue() returns an empty string
         // above, we're actually dealing with a parameter that has no value.
         // In that case we have to move the value to the name.
         if ('' === $this->name) {
-            $this->noName = false;
+            $this->noName = \false;
             $this->name = strtoupper($value);
         } else {
             $this->setValue($value);
         }
     }
-
     /**
      * Try to guess property name by value, can be used for vCard 2.1 nameless parameters.
      *
@@ -94,7 +88,6 @@ class Parameter extends Node
             case 'BASE64':
                 $name = 'ENCODING';
                 break;
-
             // Common types
             case 'WORK':
             case 'HOME':
@@ -152,7 +145,6 @@ class Parameter extends Node
             case 'PGP':
                 $name = 'TYPE';
                 break;
-
             // Value types
             case 'INLINE':
             case 'URL':
@@ -160,14 +152,11 @@ class Parameter extends Node
             case 'CID':
                 $name = 'VALUE';
                 break;
-
             default:
                 $name = '';
         }
-
         return $name;
     }
-
     /**
      * Updates the current value.
      *
@@ -179,7 +168,6 @@ class Parameter extends Node
     {
         $this->value = $value;
     }
-
     /**
      * Returns the current value.
      *
@@ -196,7 +184,6 @@ class Parameter extends Node
             return $this->value;
         }
     }
-
     /**
      * Sets multiple values for this parameter.
      */
@@ -204,7 +191,6 @@ class Parameter extends Node
     {
         $this->value = $value;
     }
-
     /**
      * Returns all values for this parameter.
      *
@@ -222,7 +208,6 @@ class Parameter extends Node
             return [$this->value];
         }
     }
-
     /**
      * Adds a value to this parameter.
      *
@@ -239,7 +224,6 @@ class Parameter extends Node
             $this->value = array_merge((array) $this->value, (array) $part);
         }
     }
-
     /**
      * Checks if this parameter contains the specified value.
      *
@@ -253,12 +237,8 @@ class Parameter extends Node
      */
     public function has($value)
     {
-        return in_array(
-            strtolower($value),
-            array_map('strtolower', (array) $this->value)
-        );
+        return in_array(strtolower($value), array_map('strtolower', (array) $this->value));
     }
-
     /**
      * Turns the object back into a serialized blob.
      *
@@ -267,58 +247,42 @@ class Parameter extends Node
     public function serialize()
     {
         $value = $this->getParts();
-
         if (0 === count($value)) {
-            return $this->name.'=';
+            return $this->name . '=';
         }
-
         if (Document::VCARD21 === $this->root->getDocumentType() && $this->noName) {
             return implode(';', $value);
         }
-
-        return $this->name.'='.array_reduce(
-            $value,
-            function ($out, $item) {
-                if (!is_null($out)) {
-                    $out .= ',';
-                }
-
-                // If there's no special characters in the string, we'll use the simple
-                // format.
-                //
-                // The list of special characters is defined as:
-                //
-                // Any character except CONTROL, DQUOTE, ";", ":", ","
-                //
-                // by the iCalendar spec:
-                // https://tools.ietf.org/html/rfc5545#section-3.1
-                //
-                // And we add ^ to that because of:
-                // https://tools.ietf.org/html/rfc6868
-                //
-                // But we've found that iCal (7.0, shipped with OSX 10.9)
-                // severely trips on + characters not being quoted, so we
-                // added + as well.
-                if (!preg_match('#(?: [\n":;\^,\+] )#x', $item)) {
-                    return $out.$item;
-                } else {
-                    // Enclosing in double-quotes, and using RFC6868 for encoding any
-                    // special characters
-                    $out .= '"'.strtr(
-                        $item,
-                        [
-                            '^' => '^^',
-                            "\n" => '^n',
-                            '"' => '^\'',
-                        ]
-                    ).'"';
-
-                    return $out;
-                }
+        return $this->name . '=' . array_reduce($value, function ($out, $item) {
+            if (!is_null($out)) {
+                $out .= ',';
             }
-        );
+            // If there's no special characters in the string, we'll use the simple
+            // format.
+            //
+            // The list of special characters is defined as:
+            //
+            // Any character except CONTROL, DQUOTE, ";", ":", ","
+            //
+            // by the iCalendar spec:
+            // https://tools.ietf.org/html/rfc5545#section-3.1
+            //
+            // And we add ^ to that because of:
+            // https://tools.ietf.org/html/rfc6868
+            //
+            // But we've found that iCal (7.0, shipped with OSX 10.9)
+            // severely trips on + characters not being quoted, so we
+            // added + as well.
+            if (!preg_match('#(?: [\n":;\^,\+] )#x', $item)) {
+                return $out . $item;
+            } else {
+                // Enclosing in double-quotes, and using RFC6868 for encoding any
+                // special characters
+                $out .= '"' . strtr($item, ['^' => '^^', "\n" => '^n', '"' => '^\'']) . '"';
+                return $out;
+            }
+        });
     }
-
     /**
      * This method returns an array, with the representation as it should be
      * encoded in JSON. This is used to create jCard or jCal documents.
@@ -330,7 +294,6 @@ class Parameter extends Node
     {
         return $this->value;
     }
-
     /**
      * This method serializes the data into XML. This is used to create xCard or
      * xCal documents.
@@ -343,7 +306,6 @@ class Parameter extends Node
             $writer->writeElement('text', $value);
         }
     }
-
     /**
      * Called when this object is being cast to a string.
      *
@@ -353,7 +315,6 @@ class Parameter extends Node
     {
         return (string) $this->getValue();
     }
-
     /**
      * Returns the iterator for this object.
      *
@@ -365,7 +326,6 @@ class Parameter extends Node
         if (!is_null($this->iterator)) {
             return $this->iterator;
         }
-
         return $this->iterator = new ArrayIterator((array) $this->value);
     }
 }

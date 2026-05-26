@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ApplicationServicePrincipal class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ApplicationServicePrincipal extends Entity
 {
-
     /**
-    * Gets the application
-    *
-    * @return Application|null The application
-    */
+     * Gets the application
+     *
+     * @return Application|null The application
+     */
     public function getApplication()
     {
         if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "\Microsoft\Graph\Model\Application") || is_null($this->_propDict["application"])) {
+            if (is_a($this->_propDict["application"], "XCloner\\Microsoft\\Graph\\Model\\Application") || is_null($this->_propDict["application"])) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new Application($this->_propDict["application"]);
@@ -44,29 +45,27 @@ class ApplicationServicePrincipal extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the application
-    *
-    * @param Application $val The value to assign to the application
-    *
-    * @return ApplicationServicePrincipal The ApplicationServicePrincipal
-    */
+     * Sets the application
+     *
+     * @param Application $val The value to assign to the application
+     *
+     * @return ApplicationServicePrincipal The ApplicationServicePrincipal
+     */
     public function setApplication($val)
     {
         $this->_propDict["application"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the servicePrincipal
-    *
-    * @return ServicePrincipal|null The servicePrincipal
-    */
+     * Gets the servicePrincipal
+     *
+     * @return ServicePrincipal|null The servicePrincipal
+     */
     public function getServicePrincipal()
     {
         if (array_key_exists("servicePrincipal", $this->_propDict)) {
-            if (is_a($this->_propDict["servicePrincipal"], "\Microsoft\Graph\Model\ServicePrincipal") || is_null($this->_propDict["servicePrincipal"])) {
+            if (is_a($this->_propDict["servicePrincipal"], "XCloner\\Microsoft\\Graph\\Model\\ServicePrincipal") || is_null($this->_propDict["servicePrincipal"])) {
                 return $this->_propDict["servicePrincipal"];
             } else {
                 $this->_propDict["servicePrincipal"] = new ServicePrincipal($this->_propDict["servicePrincipal"]);
@@ -75,17 +74,16 @@ class ApplicationServicePrincipal extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the servicePrincipal
-    *
-    * @param ServicePrincipal $val The value to assign to the servicePrincipal
-    *
-    * @return ApplicationServicePrincipal The ApplicationServicePrincipal
-    */
+     * Sets the servicePrincipal
+     *
+     * @param ServicePrincipal $val The value to assign to the servicePrincipal
+     *
+     * @return ApplicationServicePrincipal The ApplicationServicePrincipal
+     */
     public function setServicePrincipal($val)
     {
         $this->_propDict["servicePrincipal"] = $val;
-         return $this;
+        return $this;
     }
 }

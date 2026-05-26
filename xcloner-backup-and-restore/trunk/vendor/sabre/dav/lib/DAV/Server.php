@@ -1,24 +1,22 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Log\LoggerAwareInterface;
-use Psr\Log\LoggerAwareTrait;
-use Psr\Log\LoggerInterface;
-use Psr\Log\NullLogger;
-use Sabre\Event\EmitterInterface;
-use Sabre\Event\WildcardEmitterTrait;
-use Sabre\HTTP;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-use Sabre\Uri;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Log\LoggerAwareInterface;
+use XCloner\Psr\Log\LoggerAwareTrait;
+use XCloner\Psr\Log\LoggerInterface;
+use XCloner\Psr\Log\NullLogger;
+use XCloner\Sabre\Event\EmitterInterface;
+use XCloner\Sabre\Event\WildcardEmitterTrait;
+use XCloner\Sabre\HTTP;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
+use XCloner\Sabre\Uri;
+use XCloner\Sabre\Xml\Writer;
 /**
  * Main DAV server class.
  *
@@ -30,59 +28,50 @@ class Server implements LoggerAwareInterface, EmitterInterface
 {
     use LoggerAwareTrait;
     use WildcardEmitterTrait;
-
     /**
      * Infinity is used for some request supporting the HTTP Depth header and indicates that the operation should traverse the entire tree.
      */
     const DEPTH_INFINITY = -1;
-
     /**
      * XML namespace for all SabreDAV related elements.
      */
     const NS_SABREDAV = 'http://sabredav.org/ns';
-
     /**
      * The tree object.
      *
      * @var Tree
      */
     public $tree;
-
     /**
      * The base uri.
      *
      * @var string
      */
     protected $baseUri = null;
-
     /**
      * httpResponse.
      *
      * @var HTTP\Response
      */
     public $httpResponse;
-
     /**
      * httpRequest.
      *
      * @var HTTP\Request
      */
     public $httpRequest;
-
     /**
      * PHP HTTP Sapi.
      *
      * @var HTTP\Sapi
      */
     public $sapi;
-
     /**
      * The list of plugins.
      *
      * @var array
      */
     protected $plugins = [];
-
     /**
      * This property will be filled with a unique string that describes the
      * transaction. This is useful for performance measuring and logging
@@ -95,7 +84,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
      * @var string
      */
     public $transactionType;
-
     /**
      * This is a list of properties that are always server-controlled, and
      * must not get modified with PROPPATCH.
@@ -111,40 +99,32 @@ class Server implements LoggerAwareInterface, EmitterInterface
         '{DAV:}getlastmodified',
         '{DAV:}lockdiscovery',
         '{DAV:}supportedlock',
-
         // RFC4331
         '{DAV:}quota-available-bytes',
         '{DAV:}quota-used-bytes',
-
         // RFC3744
         '{DAV:}supported-privilege-set',
         '{DAV:}current-user-privilege-set',
         '{DAV:}acl',
         '{DAV:}acl-restrictions',
         '{DAV:}inherited-acl-set',
-
         // RFC3253
         '{DAV:}supported-method-set',
         '{DAV:}supported-report-set',
-
         // RFC6578
         '{DAV:}sync-token',
-
         // calendarserver.org extensions
         '{http://calendarserver.org/ns/}ctag',
-
         // sabredav extensions
         '{http://sabredav.org/ns}sync-token',
     ];
-
     /**
      * This is a flag that allow or not showing file, line and code
      * of the exception in the returned XML.
      *
      * @var bool
      */
-    public $debugExceptions = false;
-
+    public $debugExceptions = \false;
     /**
      * This property allows you to automatically add the 'resourcetype' value
      * based on a node's classname or interface.
@@ -154,10 +134,7 @@ class Server implements LoggerAwareInterface, EmitterInterface
      *
      * @var array
      */
-    public $resourceTypeMapping = [
-        'Sabre\\DAV\\ICollection' => '{DAV:}collection',
-    ];
-
+    public $resourceTypeMapping = ['XCloner\Sabre\DAV\ICollection' => '{DAV:}collection'];
     /**
      * This property allows the usage of Depth: infinity on PROPFIND requests.
      *
@@ -169,15 +146,13 @@ class Server implements LoggerAwareInterface, EmitterInterface
      *
      * @var bool
      */
-    public $enablePropfindDepthInfinity = false;
-
+    public $enablePropfindDepthInfinity = \false;
     /**
      * Reference to the XML utility object.
      *
      * @var Xml\Service
      */
     public $xml;
-
     /**
      * If this setting is turned off, SabreDAV's version number will be hidden
      * from various places.
@@ -186,8 +161,7 @@ class Server implements LoggerAwareInterface, EmitterInterface
      *
      * @var bool
      */
-    public static $exposeVersion = true;
-
+    public static $exposeVersion = \true;
     /**
      * If this setting is turned on, any multi status response on any PROPFIND will be streamed to the output buffer.
      * This will be beneficial for large result sets which will no longer consume a large amount of memory as well as
@@ -195,8 +169,7 @@ class Server implements LoggerAwareInterface, EmitterInterface
      *
      * @var bool
      */
-    public static $streamMultiStatus = false;
-
+    public static $streamMultiStatus = \false;
     /**
      * Sets up the server.
      *
@@ -227,16 +200,14 @@ class Server implements LoggerAwareInterface, EmitterInterface
             $root = new SimpleCollection('root');
             $this->tree = new Tree($root);
         } else {
-            throw new Exception('Invalid argument passed to constructor. Argument must either be an instance of Sabre\\DAV\\Tree, Sabre\\DAV\\INode, an array or null');
+            throw new Exception('Invalid argument passed to constructor. Argument must either be an instance of Sabre\DAV\Tree, Sabre\DAV\INode, an array or null');
         }
-
         $this->xml = new Xml\Service();
         $this->sapi = $sapi ?? new HTTP\Sapi();
         $this->httpResponse = new HTTP\Response();
         $this->httpRequest = $this->sapi->getRequest();
         $this->addPlugin(new CorePlugin());
     }
-
     /**
      * Starts the DAV Server.
      */
@@ -250,7 +221,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
             // Encoding, and this forces the webserver SabreDAV is running on,
             // to buffer entire responses to calculate Content-Length.
             $this->httpResponse->setHTTPVersion($this->httpRequest->getHTTPVersion());
-
             // Setting the base url
             $this->httpRequest->setBaseUrl($this->getBaseUri());
             $this->invokeMethod($this->httpRequest, $this->httpResponse);
@@ -260,20 +230,16 @@ class Server implements LoggerAwareInterface, EmitterInterface
             } catch (\Exception $ignore) {
             }
             $DOM = new \DOMDocument('1.0', 'utf-8');
-            $DOM->formatOutput = true;
-
+            $DOM->formatOutput = \true;
             $error = $DOM->createElementNS('DAV:', 'd:error');
             $error->setAttribute('xmlns:s', self::NS_SABREDAV);
             $DOM->appendChild($error);
-
             $h = function ($v) {
-                return htmlspecialchars((string) $v, ENT_NOQUOTES, 'UTF-8');
+                return htmlspecialchars((string) $v, \ENT_NOQUOTES, 'UTF-8');
             };
-
             if (self::$exposeVersion) {
                 $error->appendChild($DOM->createElement('s:sabredav-version', $h(Version::VERSION)));
             }
-
             $error->appendChild($DOM->createElement('s:exception', $h(get_class($e))));
             $error->appendChild($DOM->createElement('s:message', $h($e->getMessage())));
             if ($this->debugExceptions) {
@@ -282,7 +248,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
                 $error->appendChild($DOM->createElement('s:code', $h($e->getCode())));
                 $error->appendChild($DOM->createElement('s:stacktrace', $h($e->getTraceAsString())));
             }
-
             if ($this->debugExceptions) {
                 $previous = $e;
                 while ($previous = $previous->getPrevious()) {
@@ -296,7 +261,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
                     $error->appendChild($xPrevious);
                 }
             }
-
             if ($e instanceof Exception) {
                 $httpCode = $e->getHTTPCode();
                 $e->serialize($this, $error);
@@ -306,14 +270,12 @@ class Server implements LoggerAwareInterface, EmitterInterface
                 $headers = [];
             }
             $headers['Content-Type'] = 'application/xml; charset=utf-8';
-
             $this->httpResponse->setStatus($httpCode);
             $this->httpResponse->setHeaders($headers);
             $this->httpResponse->setBody($DOM->saveXML());
             $this->sapi->sendResponse($this->httpResponse);
         }
     }
-
     /**
      * Alias of start().
      *
@@ -323,7 +285,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         $this->start();
     }
-
     /**
      * Sets the base server uri.
      *
@@ -335,10 +296,8 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if ('/' !== $uri[strlen($uri) - 1]) {
             $uri .= '/';
         }
-
         $this->baseUri = $uri;
     }
-
     /**
      * Returns the base responding uri.
      *
@@ -349,10 +308,8 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if (is_null($this->baseUri)) {
             $this->baseUri = $this->guessBaseUri();
         }
-
         return $this->baseUri;
     }
-
     /**
      * This method attempts to detect the base uri.
      * Only the PATH_INFO variable is considered.
@@ -365,35 +322,28 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         $pathInfo = $this->httpRequest->getRawServerValue('PATH_INFO');
         $uri = $this->httpRequest->getRawServerValue('REQUEST_URI');
-
         // If PATH_INFO is found, we can assume it's accurate.
         if (!empty($pathInfo)) {
             // We need to make sure we ignore the QUERY_STRING part
             if ($pos = strpos($uri, '?')) {
                 $uri = substr($uri, 0, $pos);
             }
-
             // PATH_INFO is only set for urls, such as: /example.php/path
             // in that case PATH_INFO contains '/path'.
             // Note that REQUEST_URI is percent encoded, while PATH_INFO is
             // not, Therefore they are only comparable if we first decode
             // REQUEST_INFO as well.
             $decodedUri = HTTP\decodePath($uri);
-
             // A simple sanity check:
             if (substr($decodedUri, strlen($decodedUri) - strlen($pathInfo)) === $pathInfo) {
                 $baseUri = substr($decodedUri, 0, strlen($decodedUri) - strlen($pathInfo));
-
-                return rtrim($baseUri, '/').'/';
+                return rtrim($baseUri, '/') . '/';
             }
-
-            throw new Exception('The REQUEST_URI ('.$uri.') did not end with the contents of PATH_INFO ('.$pathInfo.'). This server might be misconfigured.');
+            throw new Exception('The REQUEST_URI (' . $uri . ') did not end with the contents of PATH_INFO (' . $pathInfo . '). This server might be misconfigured.');
         }
-
         // The last fallback is that we're just going to assume the server root.
         return '/';
     }
-
     /**
      * Adds a plugin to the server.
      *
@@ -404,7 +354,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
         $this->plugins[$plugin->getPluginName()] = $plugin;
         $plugin->initialize($this);
     }
-
     /**
      * Returns an initialized plugin by it's name.
      *
@@ -419,10 +368,8 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if (isset($this->plugins[$name])) {
             return $this->plugins[$name];
         }
-
         return null;
     }
-
     /**
      * Returns all plugins.
      *
@@ -432,7 +379,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         return $this->plugins;
     }
-
     /**
      * Returns the PSR-3 logger object.
      *
@@ -443,49 +389,38 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if (!$this->logger) {
             $this->logger = new NullLogger();
         }
-
         return $this->logger;
     }
-
     /**
      * Handles a http request, and execute a method based on its name.
      *
      * @param bool $sendResponse whether to send the HTTP response to the DAV client
      */
-    public function invokeMethod(RequestInterface $request, ResponseInterface $response, $sendResponse = true)
+    public function invokeMethod(RequestInterface $request, ResponseInterface $response, $sendResponse = \true)
     {
         $method = $request->getMethod();
-
-        if (!$this->emit('beforeMethod:'.$method, [$request, $response])) {
+        if (!$this->emit('beforeMethod:' . $method, [$request, $response])) {
             return;
         }
-
         if (self::$exposeVersion) {
             $response->setHeader('X-Sabre-Version', Version::VERSION);
         }
-
         $this->transactionType = strtolower($method);
-
         if (!$this->checkPreconditions($request, $response)) {
             $this->sapi->sendResponse($response);
-
             return;
         }
-
-        if ($this->emit('method:'.$method, [$request, $response])) {
-            $exMessage = 'There was no plugin in the system that was willing to handle this '.$method.' method.';
+        if ($this->emit('method:' . $method, [$request, $response])) {
+            $exMessage = 'There was no plugin in the system that was willing to handle this ' . $method . ' method.';
             if ('GET' === $method) {
                 $exMessage .= ' Enable the Browser plugin to get a better result here.';
             }
-
             // Unsupported method
             throw new Exception\NotImplemented($exMessage);
         }
-
-        if (!$this->emit('afterMethod:'.$method, [$request, $response])) {
+        if (!$this->emit('afterMethod:' . $method, [$request, $response])) {
             return;
         }
-
         if (null === $response->getStatus()) {
             throw new Exception('No subsystem set a valid HTTP status code. Something must have interrupted the request without providing further detail.');
         }
@@ -494,9 +429,7 @@ class Server implements LoggerAwareInterface, EmitterInterface
             $this->emit('afterResponse', [$request, $response]);
         }
     }
-
     // {{{ HTTP/WebDAV protocol helpers
-
     /**
      * Returns an array with all the supported HTTP methods for a specific uri.
      *
@@ -506,35 +439,20 @@ class Server implements LoggerAwareInterface, EmitterInterface
      */
     public function getAllowedMethods($path)
     {
-        $methods = [
-            'OPTIONS',
-            'GET',
-            'HEAD',
-            'DELETE',
-            'PROPFIND',
-            'PUT',
-            'PROPPATCH',
-            'COPY',
-            'MOVE',
-            'REPORT',
-        ];
-
+        $methods = ['OPTIONS', 'GET', 'HEAD', 'DELETE', 'PROPFIND', 'PUT', 'PROPPATCH', 'COPY', 'MOVE', 'REPORT'];
         // The MKCOL is only allowed on an unmapped uri
         try {
             $this->tree->getNodeForPath($path);
         } catch (Exception\NotFound $e) {
             $methods[] = 'MKCOL';
         }
-
         // We're also checking if any of the plugins register any new methods
         foreach ($this->plugins as $plugin) {
             $methods = array_merge($methods, $plugin->getHTTPMethods($path));
         }
         array_unique($methods);
-
         return $methods;
     }
-
     /**
      * Gets the uri for the request, keeping the base uri into consideration.
      *
@@ -544,7 +462,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         return $this->calculateUri($this->httpRequest->getUrl());
     }
-
     /**
      * Turns a URI such as the REQUEST_URI into a local path.
      *
@@ -562,24 +479,20 @@ class Server implements LoggerAwareInterface, EmitterInterface
     public function calculateUri($uri)
     {
         if ('' != $uri && '/' != $uri[0] && strpos($uri, '://')) {
-            $uri = parse_url($uri, PHP_URL_PATH);
+            $uri = parse_url($uri, \PHP_URL_PATH);
         }
-
         $uri = Uri\normalize(preg_replace('|/+|', '/', $uri));
         $baseUri = Uri\normalize($this->getBaseUri());
-
         if (0 === strpos($uri, $baseUri)) {
             return trim(HTTP\decodePath(substr($uri, strlen($baseUri))), '/');
-
-        // A special case, if the baseUri was accessed without a trailing
-        // slash, we'll accept it as well.
-        } elseif ($uri.'/' === $baseUri) {
+            // A special case, if the baseUri was accessed without a trailing
+            // slash, we'll accept it as well.
+        } elseif ($uri . '/' === $baseUri) {
             return '';
         } else {
-            throw new Exception\Forbidden('Requested uri ('.$uri.') is out of base uri ('.$this->getBaseUri().')');
+            throw new Exception\Forbidden('Requested uri (' . $uri . ') is out of base uri (' . $this->getBaseUri() . ')');
         }
     }
-
     /**
      * Returns the HTTP depth header.
      *
@@ -594,23 +507,18 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         // If its not set, we'll grab the default
         $depth = $this->httpRequest->getHeader('Depth');
-
         if (is_null($depth)) {
             return $default;
         }
-
         if ('infinity' == $depth) {
             return self::DEPTH_INFINITY;
         }
-
         // If its an unknown value. we'll grab the default
         if (!ctype_digit($depth)) {
             return $default;
         }
-
         return (int) $depth;
     }
-
     /**
      * Returns the HTTP range header.
      *
@@ -631,23 +539,15 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if (is_null($range)) {
             return null;
         }
-
         // Matching "Range: bytes=1234-5678: both numbers are optional
-
         if (!preg_match('/^bytes=([0-9]*)-([0-9]*)$/i', $range, $matches)) {
             return null;
         }
-
         if ('' === $matches[1] && '' === $matches[2]) {
             return null;
         }
-
-        return [
-            '' !== $matches[1] ? (int) $matches[1] : null,
-            '' !== $matches[2] ? (int) $matches[2] : null,
-        ];
+        return ['' !== $matches[1] ? (int) $matches[1] : null, '' !== $matches[2] ? (int) $matches[2] : null];
     }
-
     /**
      * Returns the HTTP Prefer header information.
      *
@@ -678,27 +578,21 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         $result = [
             // can be true or false
-            'respond-async' => false,
+            'respond-async' => \false,
             // Could be set to 'representation' or 'minimal'.
             'return' => null,
             // Used as a timeout, is usually a number.
             'wait' => null,
             // can be 'strict' or 'lenient'.
-            'handling' => false,
+            'handling' => \false,
         ];
-
         if ($prefer = $this->httpRequest->getHeader('Prefer')) {
-            $result = array_merge(
-                $result,
-                HTTP\parsePrefer($prefer)
-            );
+            $result = array_merge($result, HTTP\parsePrefer($prefer));
         } elseif ('t' == $this->httpRequest->getHeader('Brief')) {
             $result['return'] = 'minimal';
         }
-
         return $result;
     }
-
     /**
      * Returns information about Copy and Move requests.
      *
@@ -733,29 +627,24 @@ class Server implements LoggerAwareInterface, EmitterInterface
             $overwrite = 'T';
         }
         if ('T' == strtoupper($overwrite)) {
-            $overwrite = true;
+            $overwrite = \true;
         } elseif ('F' == strtoupper($overwrite)) {
-            $overwrite = false;
-        }
-        // We need to throw a bad request exception, if the header was invalid
-        else {
+            $overwrite = \false;
+        } else {
             throw new Exception\BadRequest('The HTTP Overwrite header should be either T or F');
         }
         list($destinationDir) = Uri\split($destination);
-
         try {
             $destinationParent = $this->tree->getNodeForPath($destinationDir);
-            if (!($destinationParent instanceof ICollection)) {
+            if (!$destinationParent instanceof ICollection) {
                 throw new Exception\UnsupportedMediaType('The destination node is not a collection');
             }
         } catch (Exception\NotFound $e) {
             // If the destination parent node is not found, we throw a 409
             throw new Exception\Conflict('The destination node is not found');
         }
-
         try {
             $destinationNode = $this->tree->getNodeForPath($destination);
-
             // If this succeeded, it means the destination already exists
             // we'll need to throw precondition failed in case overwrite is false
             if (!$overwrite) {
@@ -763,25 +652,18 @@ class Server implements LoggerAwareInterface, EmitterInterface
             }
         } catch (Exception\NotFound $e) {
             // Destination didn't exist, we're all good
-            $destinationNode = false;
+            $destinationNode = \false;
         }
-
         $requestPath = $request->getPath();
         if ($destination === $requestPath) {
             throw new Exception\Forbidden('Source and destination uri are identical.');
         }
-        if (substr($destination, 0, strlen($requestPath) + 1) === $requestPath.'/') {
+        if (substr($destination, 0, strlen($requestPath) + 1) === $requestPath . '/') {
             throw new Exception\Conflict('The destination may not be part of the same subtree as the source path.');
         }
-
         // These are the three relevant properties we need to return
-        return [
-            'destination' => $destination,
-            'destinationExists' => (bool) $destinationNode,
-            'destinationNode' => $destinationNode,
-        ];
+        return ['destination' => $destination, 'destinationExists' => (bool) $destinationNode, 'destinationNode' => $destinationNode];
     }
-
     /**
      * Returns a list of properties for a path.
      *
@@ -807,7 +689,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
             return [];
         }
     }
-
     /**
      * A kid-friendly way to fetch properties for a node's children.
      *
@@ -829,13 +710,10 @@ class Server implements LoggerAwareInterface, EmitterInterface
             if (0 === $k) {
                 continue;
             }
-
             $result[$row['href']] = $row[200];
         }
-
         return $result;
     }
-
     /**
      * Returns a list of HTTP headers for a particular resource.
      *
@@ -851,33 +729,22 @@ class Server implements LoggerAwareInterface, EmitterInterface
      */
     public function getHTTPHeaders($path)
     {
-        $propertyMap = [
-            '{DAV:}getcontenttype' => 'Content-Type',
-            '{DAV:}getcontentlength' => 'Content-Length',
-            '{DAV:}getlastmodified' => 'Last-Modified',
-            '{DAV:}getetag' => 'ETag',
-        ];
-
+        $propertyMap = ['{DAV:}getcontenttype' => 'Content-Type', '{DAV:}getcontentlength' => 'Content-Length', '{DAV:}getlastmodified' => 'Last-Modified', '{DAV:}getetag' => 'ETag'];
         $properties = $this->getProperties($path, array_keys($propertyMap));
-
         $headers = [];
         foreach ($propertyMap as $property => $header) {
             if (!isset($properties[$property])) {
                 continue;
             }
-
             if (is_scalar($properties[$property])) {
                 $headers[$header] = $properties[$property];
-
-            // GetLastModified gets special cased
+                // GetLastModified gets special cased
             } elseif ($properties[$property] instanceof Xml\Property\GetLastModified) {
                 $headers[$header] = HTTP\toDate($properties[$property]->getTime());
             }
         }
-
         return $headers;
     }
-
     /**
      * Small helper to support PROPFIND with DEPTH_INFINITY.
      *
@@ -892,27 +759,19 @@ class Server implements LoggerAwareInterface, EmitterInterface
         }
         $newDepth = $propFind->getDepth();
         $path = $propFind->getPath();
-
         if (self::DEPTH_INFINITY !== $newDepth) {
             --$newDepth;
         }
-
         $propertyNames = $propFind->getRequestedProperties();
         $propFindType = !$propFind->isAllProps() ? PropFind::NORMAL : PropFind::ALLPROPS;
-
         foreach ($this->tree->getChildren($path) as $childNode) {
             if ('' !== $path) {
-                $subPath = $path.'/'.$childNode->getName();
+                $subPath = $path . '/' . $childNode->getName();
             } else {
                 $subPath = $childNode->getName();
             }
             $subPropFind = new PropFind($subPath, $propertyNames, $newDepth, $propFindType);
-
-            yield [
-                $subPropFind,
-                $childNode,
-            ];
-
+            yield [$subPropFind, $childNode];
             if ((self::DEPTH_INFINITY === $newDepth || $newDepth >= 1) && $childNode instanceof ICollection) {
                 foreach ($this->generatePathNodes($subPropFind) as $subItem) {
                     yield $subItem;
@@ -920,7 +779,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
             }
         }
     }
-
     /**
      * Returns a list of properties for a given path.
      *
@@ -943,7 +801,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         return iterator_to_array($this->getPropertiesIteratorForPath($path, $propertyNames, $depth));
     }
-
     /**
      * Returns a list of properties for a given path.
      *
@@ -965,30 +822,20 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if (!$this->enablePropfindDepthInfinity && 0 != $depth) {
             $depth = 1;
         }
-
         $path = trim($path, '/');
-
         $propFindType = $propertyNames ? PropFind::NORMAL : PropFind::ALLPROPS;
         $propFind = new PropFind($path, (array) $propertyNames, $depth, $propFindType);
-
         $parentNode = $this->tree->getNodeForPath($path);
-
-        $propFindRequests = [[
-            $propFind,
-            $parentNode,
-        ]];
-
+        $propFindRequests = [[$propFind, $parentNode]];
         if (($depth > 0 || self::DEPTH_INFINITY === $depth) && $parentNode instanceof ICollection) {
             $propFindRequests = $this->generatePathNodes(clone $propFind, current($propFindRequests));
         }
-
         foreach ($propFindRequests as $propFindRequest) {
             list($propFind, $node) = $propFindRequest;
             $r = $this->getPropertiesByNode($propFind, $node);
             if ($r) {
                 $result = $propFind->getResultForMultiStatus();
                 $result['href'] = $propFind->getPath();
-
                 // WebDAV recommends adding a slash to the path, if the path is
                 // a collection.
                 // Furthermore, iCal also demands this to be the case for
@@ -1001,7 +848,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
             }
         }
     }
-
     /**
      * Returns a list of properties for a list of paths.
      *
@@ -1016,28 +862,22 @@ class Server implements LoggerAwareInterface, EmitterInterface
      */
     public function getPropertiesForMultiplePaths(array $paths, array $propertyNames = [])
     {
-        $result = [
-        ];
-
+        $result = [];
         $nodes = $this->tree->getMultipleNodes($paths);
-
         foreach ($nodes as $path => $node) {
             $propFind = new PropFind($path, $propertyNames);
             $r = $this->getPropertiesByNode($propFind, $node);
             if ($r) {
                 $result[$path] = $propFind->getResultForMultiStatus();
                 $result[$path]['href'] = $path;
-
                 $resourceType = $this->getResourceTypeForNode($node);
                 if (in_array('{DAV:}collection', $resourceType) || in_array('{DAV:}principal', $resourceType)) {
                     $result[$path]['href'] .= '/';
                 }
             }
         }
-
         return $result;
     }
-
     /**
      * Determines all properties for a node.
      *
@@ -1054,7 +894,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         return $this->emit('propFind', [$propFind, $node]);
     }
-
     /**
      * This method is invoked by sub-systems creating a new file.
      *
@@ -1073,45 +912,35 @@ class Server implements LoggerAwareInterface, EmitterInterface
     public function createFile($uri, $data, &$etag = null)
     {
         list($dir, $name) = Uri\split($uri);
-
         if (!$this->emit('beforeBind', [$uri])) {
-            return false;
+            return \false;
         }
-
         try {
             $parent = $this->tree->getNodeForPath($dir);
         } catch (Exception\NotFound $e) {
             throw new Exception\Conflict('Files cannot be created in non-existent collections');
         }
-
         if (!$parent instanceof ICollection) {
             throw new Exception\Conflict('Files can only be created as children of collections');
         }
-
         // It is possible for an event handler to modify the content of the
         // body, before it gets written. If this is the case, $modified
         // should be set to true.
         //
         // If $modified is true, we must not send back an ETag.
-        $modified = false;
+        $modified = \false;
         if (!$this->emit('beforeCreateFile', [$uri, &$data, $parent, &$modified])) {
-            return false;
+            return \false;
         }
-
         $etag = $parent->createFile($name, $data);
-
         if ($modified) {
             $etag = null;
         }
-
-        $this->tree->markDirty($dir.'/'.$name);
-
+        $this->tree->markDirty($dir . '/' . $name);
         $this->emit('afterBind', [$uri]);
         $this->emit('afterCreateFile', [$uri, $parent]);
-
-        return true;
+        return \true;
     }
-
     /**
      * This method is invoked by sub-systems updating a file.
      *
@@ -1126,26 +955,22 @@ class Server implements LoggerAwareInterface, EmitterInterface
     public function updateFile($uri, $data, &$etag = null)
     {
         $node = $this->tree->getNodeForPath($uri);
-
         // It is possible for an event handler to modify the content of the
         // body, before it gets written. If this is the case, $modified
         // should be set to true.
         //
         // If $modified is true, we must not send back an ETag.
-        $modified = false;
+        $modified = \false;
         if (!$this->emit('beforeWriteContent', [$uri, $node, &$data, &$modified])) {
-            return false;
+            return \false;
         }
-
         $etag = $node->put($data);
         if ($modified) {
             $etag = null;
         }
         $this->emit('afterWriteContent', [$uri, $node]);
-
-        return true;
+        return \true;
     }
-
     /**
      * This method is invoked by sub-systems creating a new directory.
      *
@@ -1155,7 +980,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         $this->createCollection($uri, new MkCol(['{DAV:}collection'], []));
     }
-
     /**
      * Use this method to create a new collection.
      *
@@ -1166,33 +990,27 @@ class Server implements LoggerAwareInterface, EmitterInterface
     public function createCollection($uri, MkCol $mkCol)
     {
         list($parentUri, $newName) = Uri\split($uri);
-
         // Making sure the parent exists
         try {
             $parent = $this->tree->getNodeForPath($parentUri);
         } catch (Exception\NotFound $e) {
             throw new Exception\Conflict('Parent node does not exist');
         }
-
         // Making sure the parent is a collection
         if (!$parent instanceof ICollection) {
             throw new Exception\Conflict('Parent node is not a collection');
         }
-
         // Making sure the child does not already exist
         try {
             $parent->getChild($newName);
-
             // If we got here.. it means there's already a node on that url, and we need to throw a 405
             throw new Exception\MethodNotAllowed('The resource you tried to create already exists');
         } catch (Exception\NotFound $e) {
             // NotFound is the expected behavior.
         }
-
         if (!$this->emit('beforeBind', [$uri])) {
             return;
         }
-
         if ($parent instanceof IExtendedCollection) {
             /*
              * If the parent is an instance of IExtendedCollection, it means that
@@ -1209,10 +1027,8 @@ class Server implements LoggerAwareInterface, EmitterInterface
             if (count($mkCol->getResourceType()) > 1) {
                 throw new Exception\InvalidResourceType('The {DAV:}resourcetype you specified is not supported here.');
             }
-
             $parent->createDirectory($newName);
         }
-
         // If there are any properties that have not been handled/stored,
         // we ask the 'propPatch' event to handle them. This will allow for
         // example the propertyStorage system to store properties upon MKCOL.
@@ -1220,29 +1036,21 @@ class Server implements LoggerAwareInterface, EmitterInterface
             $this->emit('propPatch', [$uri, $mkCol]);
         }
         $success = $mkCol->commit();
-
         if (!$success) {
             $result = $mkCol->getResult();
-
-            $formattedResult = [
-                'href' => $uri,
-            ];
-
+            $formattedResult = ['href' => $uri];
             foreach ($result as $propertyName => $status) {
                 if (!isset($formattedResult[$status])) {
                     $formattedResult[$status] = [];
                 }
                 $formattedResult[$status][$propertyName] = null;
             }
-
             return $formattedResult;
         }
-
         $this->tree->markDirty($parentUri);
         $this->emit('afterBind', [$uri]);
         $this->emit('afterCreateCollection', [$uri]);
     }
-
     /**
      * This method updates a resource's properties.
      *
@@ -1265,10 +1073,8 @@ class Server implements LoggerAwareInterface, EmitterInterface
         $propPatch = new PropPatch($properties);
         $this->emit('propPatch', [$path, $propPatch]);
         $propPatch->commit();
-
         return $propPatch->getResult();
     }
-
     /**
      * This method checks the main HTTP preconditions.
      *
@@ -1295,7 +1101,6 @@ class Server implements LoggerAwareInterface, EmitterInterface
         $node = null;
         $lastMod = null;
         $etag = null;
-
         if ($ifMatch = $request->getHeader('If-Match')) {
             // If-Match contains an entity tag. Only if the entity-tag
             // matches we are allowed to make the request succeed.
@@ -1306,25 +1111,19 @@ class Server implements LoggerAwareInterface, EmitterInterface
             } catch (Exception\NotFound $e) {
                 throw new Exception\PreconditionFailed('An If-Match header was specified and the resource did not exist', 'If-Match');
             }
-
             // Only need to check entity tags if they are not *
             if ('*' !== $ifMatch) {
                 // There can be multiple ETags
                 $ifMatch = explode(',', $ifMatch);
-                $haveMatch = false;
+                $haveMatch = \false;
                 foreach ($ifMatch as $ifMatchItem) {
                     // Stripping any extra spaces
                     $ifMatchItem = trim($ifMatchItem, ' ');
-
                     $etag = $node instanceof IFile ? $node->getETag() : null;
                     if ($etag === $ifMatchItem) {
-                        $haveMatch = true;
-                    } else {
-                        // Evolution has a bug where it sometimes prepends the "
-                        // with a \. This is our workaround.
-                        if (str_replace('\\"', '"', $ifMatchItem) === $etag) {
-                            $haveMatch = true;
-                        }
+                        $haveMatch = \true;
+                    } else if (str_replace('\"', '"', $ifMatchItem) === $etag) {
+                        $haveMatch = \true;
                     }
                 }
                 if (!$haveMatch) {
@@ -1335,55 +1134,49 @@ class Server implements LoggerAwareInterface, EmitterInterface
                 }
             }
         }
-
         if ($ifNoneMatch = $request->getHeader('If-None-Match')) {
             // The If-None-Match header contains an ETag.
             // Only if the ETag does not match the current ETag, the request will succeed
             // The header can also contain *, in which case the request
             // will only succeed if the entity does not exist at all.
-            $nodeExists = true;
+            $nodeExists = \true;
             if (!$node) {
                 try {
                     $node = $this->tree->getNodeForPath($path);
                 } catch (Exception\NotFound $e) {
-                    $nodeExists = false;
+                    $nodeExists = \false;
                 }
             }
             if ($nodeExists) {
-                $haveMatch = false;
+                $haveMatch = \false;
                 if ('*' === $ifNoneMatch) {
-                    $haveMatch = true;
+                    $haveMatch = \true;
                 } else {
                     // There might be multiple ETags
                     $ifNoneMatch = explode(',', $ifNoneMatch);
                     $etag = $node instanceof IFile ? $node->getETag() : null;
-
                     foreach ($ifNoneMatch as $ifNoneMatchItem) {
                         // Stripping any extra spaces
                         $ifNoneMatchItem = trim($ifNoneMatchItem, ' ');
-
                         if ($etag === $ifNoneMatchItem) {
-                            $haveMatch = true;
+                            $haveMatch = \true;
                         }
                     }
                 }
-
                 if ($haveMatch) {
                     if ($etag) {
                         $response->setHeader('ETag', $etag);
                     }
                     if ('GET' === $request->getMethod()) {
                         $response->setStatus(304);
-
-                        return false;
+                        return \false;
                     } else {
                         throw new Exception\PreconditionFailed('An If-None-Match header was specified, but the ETag matched (or * was specified).', 'If-None-Match');
                     }
                 }
             }
         }
-
-        if (!$ifNoneMatch && ($ifModifiedSince = $request->getHeader('If-Modified-Since'))) {
+        if (!$ifNoneMatch && $ifModifiedSince = $request->getHeader('If-Modified-Since')) {
             // The If-Modified-Since header contains a date. We
             // will only return the entity if it has been changed since
             // that date. If it hasn't been changed, we return a 304
@@ -1391,29 +1184,25 @@ class Server implements LoggerAwareInterface, EmitterInterface
             // Note that this header only has to be checked if there was no If-None-Match header
             // as per the HTTP spec.
             $date = HTTP\parseDate($ifModifiedSince);
-
             if ($date) {
                 if (is_null($node)) {
                     $node = $this->tree->getNodeForPath($path);
                 }
                 $lastMod = $node->getLastModified();
                 if ($lastMod) {
-                    $lastMod = new \DateTime('@'.$lastMod);
+                    $lastMod = new \DateTime('@' . $lastMod);
                     if ($lastMod <= $date) {
                         $response->setStatus(304);
                         $response->setHeader('Last-Modified', HTTP\toDate($lastMod));
-
-                        return false;
+                        return \false;
                     }
                 }
             }
         }
-
         if ($ifUnmodifiedSince = $request->getHeader('If-Unmodified-Since')) {
             // The If-Unmodified-Since will allow allow the request if the
             // entity has not changed since the specified date.
             $date = HTTP\parseDate($ifUnmodifiedSince);
-
             // We must only check the date if it's valid
             if ($date) {
                 if (is_null($node)) {
@@ -1421,14 +1210,13 @@ class Server implements LoggerAwareInterface, EmitterInterface
                 }
                 $lastMod = $node->getLastModified();
                 if ($lastMod) {
-                    $lastMod = new \DateTime('@'.$lastMod);
+                    $lastMod = new \DateTime('@' . $lastMod);
                     if ($lastMod > $date) {
                         throw new Exception\PreconditionFailed('An If-Unmodified-Since header was specified, but the entity has been changed since the specified date.', 'If-Unmodified-Since');
                     }
                 }
             }
         }
-
         // Now the hardest, the If: header. The If: header can contain multiple
         // urls, ETags and so-called 'state tokens'.
         //
@@ -1438,33 +1226,27 @@ class Server implements LoggerAwareInterface, EmitterInterface
         // The only proper way to deal with these, is to emit events, that a
         // Sync and Lock plugin can pick up.
         $ifConditions = $this->getIfConditions($request);
-
         foreach ($ifConditions as $kk => $ifCondition) {
             foreach ($ifCondition['tokens'] as $ii => $token) {
-                $ifConditions[$kk]['tokens'][$ii]['validToken'] = false;
+                $ifConditions[$kk]['tokens'][$ii]['validToken'] = \false;
             }
         }
-
         // Plugins are responsible for validating all the tokens.
         // If a plugin deemed a token 'valid', it will set 'validToken' to
         // true.
         $this->emit('validateTokens', [$request, &$ifConditions]);
-
         // Now we're going to analyze the result.
-
         // Every ifCondition needs to validate to true, so we exit as soon as
         // we have an invalid condition.
         foreach ($ifConditions as $ifCondition) {
             $uri = $ifCondition['uri'];
             $tokens = $ifCondition['tokens'];
-
             // We only need 1 valid token for the condition to succeed.
             foreach ($tokens as $token) {
                 $tokenValid = $token['validToken'] || !$token['token'];
-
-                $etagValid = false;
+                $etagValid = \false;
                 if (!$token['etag']) {
-                    $etagValid = true;
+                    $etagValid = \true;
                 }
                 // Checking the ETag, only if the token was already deemed
                 // valid and there is one.
@@ -1474,21 +1256,17 @@ class Server implements LoggerAwareInterface, EmitterInterface
                     $node = $this->tree->getNodeForPath($uri);
                     $etagValid = $node instanceof IFile && $node->getETag() == $token['etag'];
                 }
-
                 if (($tokenValid && $etagValid) ^ $token['negate']) {
                     // Both were valid, so we can go to the next condition.
                     continue 2;
                 }
             }
-
             // If we ended here, it means there was no valid ETag + token
             // combination found for the current condition. This means we fail!
-            throw new Exception\PreconditionFailed('Failed to find a valid token/etag combination for '.$uri, 'If');
+            throw new Exception\PreconditionFailed('Failed to find a valid token/etag combination for ' . $uri, 'If');
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * This method is created to extract information from the WebDAV HTTP 'If:' header.
      *
@@ -1565,47 +1343,27 @@ class Server implements LoggerAwareInterface, EmitterInterface
         if (!$header) {
             return [];
         }
-
         $matches = [];
-
         $regex = '/(?:\<(?P<uri>.*?)\>\s)?\((?P<not>Not\s)?(?:\<(?P<token>[^\>]*)\>)?(?:\s?)(?:\[(?P<etag>[^\]]*)\])?\)/im';
-        preg_match_all($regex, $header, $matches, PREG_SET_ORDER);
-
+        preg_match_all($regex, $header, $matches, \PREG_SET_ORDER);
         $conditions = [];
-
         foreach ($matches as $match) {
             // If there was no uri specified in this match, and there were
             // already conditions parsed, we add the condition to the list of
             // conditions for the previous uri.
             if (!$match['uri'] && count($conditions)) {
-                $conditions[count($conditions) - 1]['tokens'][] = [
-                    'negate' => $match['not'] ? true : false,
-                    'token' => $match['token'],
-                    'etag' => isset($match['etag']) ? $match['etag'] : '',
-                ];
+                $conditions[count($conditions) - 1]['tokens'][] = ['negate' => $match['not'] ? \true : \false, 'token' => $match['token'], 'etag' => isset($match['etag']) ? $match['etag'] : ''];
             } else {
                 if (!$match['uri']) {
                     $realUri = $request->getPath();
                 } else {
                     $realUri = $this->calculateUri($match['uri']);
                 }
-
-                $conditions[] = [
-                    'uri' => $realUri,
-                    'tokens' => [
-                        [
-                            'negate' => $match['not'] ? true : false,
-                            'token' => $match['token'],
-                            'etag' => isset($match['etag']) ? $match['etag'] : '',
-                        ],
-                    ],
-                ];
+                $conditions[] = ['uri' => $realUri, 'tokens' => [['negate' => $match['not'] ? \true : \false, 'token' => $match['token'], 'etag' => isset($match['etag']) ? $match['etag'] : '']]];
             }
         }
-
         return $conditions;
     }
-
     /**
      * Returns an array with resourcetypes for a node.
      *
@@ -1619,13 +1377,10 @@ class Server implements LoggerAwareInterface, EmitterInterface
                 $result[] = $resourceType;
             }
         }
-
         return $result;
     }
-
     // }}}
     // {{{ XML Readers & Writers
-
     /**
      * Returns a callback generating a WebDAV propfind response body based on a list of nodes.
      *
@@ -1636,7 +1391,7 @@ class Server implements LoggerAwareInterface, EmitterInterface
      *
      * @return callable|string
      */
-    public function generateMultiStatus($fileProperties, $strip404s = false)
+    public function generateMultiStatus($fileProperties, $strip404s = \false)
     {
         $w = $this->xml->getWriter();
         if (self::$streamMultiStatus) {
@@ -1648,10 +1403,8 @@ class Server implements LoggerAwareInterface, EmitterInterface
         }
         $w->openMemory();
         $this->writeMultiStatus($w, $fileProperties, $strip404s);
-
         return $w->outputMemory();
     }
-
     /**
      * @param $fileProperties
      */
@@ -1659,23 +1412,15 @@ class Server implements LoggerAwareInterface, EmitterInterface
     {
         $w->contextUri = $this->baseUri;
         $w->startDocument();
-
         $w->startElement('{DAV:}multistatus');
-
         foreach ($fileProperties as $entry) {
             $href = $entry['href'];
             unset($entry['href']);
             if ($strip404s) {
                 unset($entry[404]);
             }
-            $response = new Xml\Element\Response(
-                ltrim($href, '/'),
-                $entry
-            );
-            $w->write([
-                'name' => '{DAV:}response',
-                'value' => $response,
-            ]);
+            $response = new Xml\Element\Response(ltrim($href, '/'), $entry);
+            $w->write(['name' => '{DAV:}response', 'value' => $response]);
         }
         $w->endElement();
         $w->endDocument();

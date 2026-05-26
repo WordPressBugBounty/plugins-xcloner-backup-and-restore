@@ -1,17 +1,16 @@
 <?php
 
-namespace Sabre\VObject\Property\ICalendar;
+namespace XCloner\Sabre\VObject\Property\ICalendar;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeInterface;
 use DateTimeZone;
-use Sabre\VObject\DateTimeParser;
-use Sabre\VObject\InvalidDataException;
-use Sabre\VObject\Property;
-use Sabre\VObject\TimeZoneUtil;
-
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\VObject\InvalidDataException;
+use XCloner\Sabre\VObject\Property;
+use XCloner\Sabre\VObject\TimeZoneUtil;
 /**
  * DateTime property.
  *
@@ -36,7 +35,6 @@ class DateTime extends Property
      * @var string|null
      */
     public $delimiter = ',';
-
     /**
      * Sets a multi-valued property.
      *
@@ -50,7 +48,6 @@ class DateTime extends Property
             parent::setParts($parts);
         }
     }
-
     /**
      * Updates the current value.
      *
@@ -70,7 +67,6 @@ class DateTime extends Property
             parent::setValue($value);
         }
     }
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -83,7 +79,6 @@ class DateTime extends Property
     {
         $this->setValue(explode($this->delimiter, $val));
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -93,7 +88,6 @@ class DateTime extends Property
     {
         return implode($this->delimiter, $this->getParts());
     }
-
     /**
      * Returns true if this is a DATE-TIME value, false if it's a DATE.
      *
@@ -103,7 +97,6 @@ class DateTime extends Property
     {
         return 'DATE' !== strtoupper((string) $this['VALUE']);
     }
-
     /**
      * Returns true if this is a floating DATE or DATE-TIME.
      *
@@ -111,14 +104,8 @@ class DateTime extends Property
      */
     public function isFloating()
     {
-        return
-            !$this->hasTime() ||
-            (
-                !isset($this['TZID']) &&
-                false === strpos($this->getValue(), 'Z')
-            );
+        return !$this->hasTime() || !isset($this['TZID']) && \false === strpos($this->getValue(), 'Z');
     }
-
     /**
      * Returns a date-time value.
      *
@@ -140,10 +127,8 @@ class DateTime extends Property
         if (!$dt) {
             return;
         }
-
         return $dt[0];
     }
-
     /**
      * Returns multiple date-time values.
      *
@@ -160,29 +145,24 @@ class DateTime extends Property
     {
         // Does the property have a TZID?
         $tzid = $this['TZID'];
-
         if ($tzid) {
             $timeZone = TimeZoneUtil::getTimeZone((string) $tzid, $this->root);
         }
-
         $dts = [];
         foreach ($this->getParts() as $part) {
             $dts[] = DateTimeParser::parse($part, $timeZone);
         }
-
         return $dts;
     }
-
     /**
      * Sets the property as a DateTime object.
      *
      * @param bool isFloating If set to true, timezones will be ignored
      */
-    public function setDateTime(DateTimeInterface $dt, $isFloating = false)
+    public function setDateTime(DateTimeInterface $dt, $isFloating = \false)
     {
         $this->setDateTimes([$dt], $isFloating);
     }
-
     /**
      * Sets the property as multiple date-time objects.
      *
@@ -192,17 +172,15 @@ class DateTime extends Property
      * @param DateTimeInterface[] $dt
      * @param bool isFloating If set to true, timezones will be ignored
      */
-    public function setDateTimes(array $dt, $isFloating = false)
+    public function setDateTimes(array $dt, $isFloating = \false)
     {
         $values = [];
-
         if ($this->hasTime()) {
             $tz = null;
-            $isUtc = false;
-
+            $isUtc = \false;
             foreach ($dt as $d) {
                 if ($isFloating) {
-                    $values[] = $d->format('Ymd\\THis');
+                    $values[] = $d->format('XCloner\Ymd\THis');
                     continue;
                 }
                 if (is_null($tz)) {
@@ -214,11 +192,10 @@ class DateTime extends Property
                 } else {
                     $d = $d->setTimeZone($tz);
                 }
-
                 if ($isUtc) {
-                    $values[] = $d->format('Ymd\\THis\\Z');
+                    $values[] = $d->format('XCloner\Ymd\THis\Z');
                 } else {
-                    $values[] = $d->format('Ymd\\THis');
+                    $values[] = $d->format('XCloner\Ymd\THis');
                 }
             }
             if ($isUtc || $isFloating) {
@@ -230,10 +207,8 @@ class DateTime extends Property
             }
             $this->offsetUnset('TZID');
         }
-
         $this->value = $values;
     }
-
     /**
      * Returns the type of value.
      *
@@ -246,7 +221,6 @@ class DateTime extends Property
     {
         return $this->hasTime() ? 'DATE-TIME' : 'DATE';
     }
-
     /**
      * Returns the value, in the format it should be encoded for JSON.
      *
@@ -259,22 +233,16 @@ class DateTime extends Property
         $dts = $this->getDateTimes();
         $hasTime = $this->hasTime();
         $isFloating = $this->isFloating();
-
         $tz = $dts[0]->getTimeZone();
-        $isUtc = $isFloating ? false : in_array($tz->getName(), ['UTC', 'GMT', 'Z']);
-
-        return array_map(
-            function (DateTimeInterface $dt) use ($hasTime, $isUtc) {
-                if ($hasTime) {
-                    return $dt->format('Y-m-d\\TH:i:s').($isUtc ? 'Z' : '');
-                } else {
-                    return $dt->format('Y-m-d');
-                }
-            },
-            $dts
-        );
+        $isUtc = $isFloating ? \false : in_array($tz->getName(), ['UTC', 'GMT', 'Z']);
+        return array_map(function (DateTimeInterface $dt) use ($hasTime, $isUtc) {
+            if ($hasTime) {
+                return $dt->format('Y-m-d\TH:i:s') . ($isUtc ? 'Z' : '');
+            } else {
+                return $dt->format('Y-m-d');
+            }
+        }, $dts);
     }
-
     /**
      * Sets the json value, as it would appear in a jCard or jCal object.
      *
@@ -286,16 +254,10 @@ class DateTime extends Property
         // iCalendar. In jCal date-parts are separated by dashes, and
         // time-parts are separated by colons. It makes sense to just remove
         // those.
-        $this->setValue(
-            array_map(
-                function ($item) {
-                    return strtr($item, [':' => '', '-' => '']);
-                },
-                $value
-            )
-        );
+        $this->setValue(array_map(function ($item) {
+            return strtr($item, [':' => '', '-' => '']);
+        }, $value));
     }
-
     /**
      * We need to intercept offsetSet, because it may be used to alter the
      * VALUE from DATE-TIME to DATE or vice-versa.
@@ -310,11 +272,9 @@ class DateTime extends Property
         if ('VALUE' !== strtoupper($name)) {
             return;
         }
-
         // This will ensure that dates are correctly encoded.
         $this->setDateTimes($this->getDateTimes());
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -353,15 +313,10 @@ class DateTime extends Property
                         break;
                 }
             } catch (InvalidDataException $e) {
-                $messages[] = [
-                    'level' => 3,
-                    'message' => 'The supplied value ('.$value.') is not a correct '.$valueType,
-                    'node' => $this,
-                ];
+                $messages[] = ['level' => 3, 'message' => 'The supplied value (' . $value . ') is not a correct ' . $valueType, 'node' => $this];
                 break;
             }
         }
-
         return $messages;
     }
 }

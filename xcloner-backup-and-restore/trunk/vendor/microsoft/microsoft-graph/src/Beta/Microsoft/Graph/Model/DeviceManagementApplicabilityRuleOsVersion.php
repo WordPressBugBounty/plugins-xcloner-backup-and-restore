@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementApplicabilityRuleOsVersion class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementApplicabilityRuleOsVersion extends Entity
 {
     /**
-    * Gets the maxOSVersion
-    * Max OS version for Applicability Rule.
-    *
-    * @return string|null The maxOSVersion
-    */
+     * Gets the maxOSVersion
+     * Max OS version for Applicability Rule.
+     *
+     * @return string|null The maxOSVersion
+     */
     public function getMaxOSVersion()
     {
         if (array_key_exists("maxOSVersion", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementApplicabilityRuleOsVersion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maxOSVersion
-    * Max OS version for Applicability Rule.
-    *
-    * @param string $val The value of the maxOSVersion
-    *
-    * @return DeviceManagementApplicabilityRuleOsVersion
-    */
+     * Sets the maxOSVersion
+     * Max OS version for Applicability Rule.
+     *
+     * @param string $val The value of the maxOSVersion
+     *
+     * @return DeviceManagementApplicabilityRuleOsVersion
+     */
     public function setMaxOSVersion($val)
     {
         $this->_propDict["maxOSVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the minOSVersion
-    * Min OS version for Applicability Rule.
-    *
-    * @return string|null The minOSVersion
-    */
+     * Gets the minOSVersion
+     * Min OS version for Applicability Rule.
+     *
+     * @return string|null The minOSVersion
+     */
     public function getMinOSVersion()
     {
         if (array_key_exists("minOSVersion", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceManagementApplicabilityRuleOsVersion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the minOSVersion
-    * Min OS version for Applicability Rule.
-    *
-    * @param string $val The value of the minOSVersion
-    *
-    * @return DeviceManagementApplicabilityRuleOsVersion
-    */
+     * Sets the minOSVersion
+     * Min OS version for Applicability Rule.
+     *
+     * @param string $val The value of the minOSVersion
+     *
+     * @return DeviceManagementApplicabilityRuleOsVersion
+     */
     public function setMinOSVersion($val)
     {
         $this->_propDict["minOSVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * Name for object.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name for object.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -96,31 +96,29 @@ class DeviceManagementApplicabilityRuleOsVersion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name for object.
-    *
-    * @param string $val The value of the name
-    *
-    * @return DeviceManagementApplicabilityRuleOsVersion
-    */
+     * Sets the name
+     * Name for object.
+     *
+     * @param string $val The value of the name
+     *
+     * @return DeviceManagementApplicabilityRuleOsVersion
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ruleType
-    * Applicability Rule type. Possible values are: include, exclude.
-    *
-    * @return DeviceManagementApplicabilityRuleType|null The ruleType
-    */
+     * Gets the ruleType
+     * Applicability Rule type. Possible values are: include, exclude.
+     *
+     * @return DeviceManagementApplicabilityRuleType|null The ruleType
+     */
     public function getRuleType()
     {
         if (array_key_exists("ruleType", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleType"], "\Beta\Microsoft\Graph\Model\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
+            if (is_a($this->_propDict["ruleType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementApplicabilityRuleType") || is_null($this->_propDict["ruleType"])) {
                 return $this->_propDict["ruleType"];
             } else {
                 $this->_propDict["ruleType"] = new DeviceManagementApplicabilityRuleType($this->_propDict["ruleType"]);
@@ -129,18 +127,17 @@ class DeviceManagementApplicabilityRuleOsVersion extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the ruleType
-    * Applicability Rule type. Possible values are: include, exclude.
-    *
-    * @param DeviceManagementApplicabilityRuleType $val The value to assign to the ruleType
-    *
-    * @return DeviceManagementApplicabilityRuleOsVersion The DeviceManagementApplicabilityRuleOsVersion
-    */
+     * Sets the ruleType
+     * Applicability Rule type. Possible values are: include, exclude.
+     *
+     * @param DeviceManagementApplicabilityRuleType $val The value to assign to the ruleType
+     *
+     * @return DeviceManagementApplicabilityRuleOsVersion The DeviceManagementApplicabilityRuleOsVersion
+     */
     public function setRuleType($val)
     {
         $this->_propDict["ruleType"] = $val;
-         return $this;
+        return $this;
     }
 }

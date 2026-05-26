@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookWorksheetProtection class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookWorksheetProtection extends Entity
 {
     /**
-    * Gets the options
-    * Sheet protection options. Read-only.
-    *
-    * @return WorkbookWorksheetProtectionOptions|null The options
-    */
+     * Gets the options
+     * Sheet protection options. Read-only.
+     *
+     * @return WorkbookWorksheetProtectionOptions|null The options
+     */
     public function getOptions()
     {
         if (array_key_exists("options", $this->_propDict)) {
-            if (is_a($this->_propDict["options"], "\Beta\Microsoft\Graph\Model\WorkbookWorksheetProtectionOptions") || is_null($this->_propDict["options"])) {
+            if (is_a($this->_propDict["options"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookWorksheetProtectionOptions") || is_null($this->_propDict["options"])) {
                 return $this->_propDict["options"];
             } else {
                 $this->_propDict["options"] = new WorkbookWorksheetProtectionOptions($this->_propDict["options"]);
@@ -45,27 +46,25 @@ class WorkbookWorksheetProtection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the options
-    * Sheet protection options. Read-only.
-    *
-    * @param WorkbookWorksheetProtectionOptions $val The options
-    *
-    * @return WorkbookWorksheetProtection
-    */
+     * Sets the options
+     * Sheet protection options. Read-only.
+     *
+     * @param WorkbookWorksheetProtectionOptions $val The options
+     *
+     * @return WorkbookWorksheetProtection
+     */
     public function setOptions($val)
     {
         $this->_propDict["options"] = $val;
         return $this;
     }
-
     /**
-    * Gets the protected
-    * Indicates if the worksheet is protected.  Read-only.
-    *
-    * @return bool|null The protected
-    */
+     * Gets the protected
+     * Indicates if the worksheet is protected.  Read-only.
+     *
+     * @return bool|null The protected
+     */
     public function getProtected()
     {
         if (array_key_exists("protected", $this->_propDict)) {
@@ -74,19 +73,17 @@ class WorkbookWorksheetProtection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the protected
-    * Indicates if the worksheet is protected.  Read-only.
-    *
-    * @param bool $val The protected
-    *
-    * @return WorkbookWorksheetProtection
-    */
+     * Sets the protected
+     * Indicates if the worksheet is protected.  Read-only.
+     *
+     * @param bool $val The protected
+     *
+     * @return WorkbookWorksheetProtection
+     */
     public function setProtected($val)
     {
         $this->_propDict["protected"] = boolval($val);
         return $this;
     }
-
 }

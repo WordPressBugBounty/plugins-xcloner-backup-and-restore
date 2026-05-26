@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingOccurrence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingOccurrence extends Entity
 {
     /**
-    * Gets the maxDeviceOccurrence
-    * Maximum times setting can be set on device.
-    *
-    * @return int|null The maxDeviceOccurrence
-    */
+     * Gets the maxDeviceOccurrence
+     * Maximum times setting can be set on device.
+     *
+     * @return int|null The maxDeviceOccurrence
+     */
     public function getMaxDeviceOccurrence()
     {
         if (array_key_exists("maxDeviceOccurrence", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementConfigurationSettingOccurrence extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maxDeviceOccurrence
-    * Maximum times setting can be set on device.
-    *
-    * @param int $val The value of the maxDeviceOccurrence
-    *
-    * @return DeviceManagementConfigurationSettingOccurrence
-    */
+     * Sets the maxDeviceOccurrence
+     * Maximum times setting can be set on device.
+     *
+     * @param int $val The value of the maxDeviceOccurrence
+     *
+     * @return DeviceManagementConfigurationSettingOccurrence
+     */
     public function setMaxDeviceOccurrence($val)
     {
         $this->_propDict["maxDeviceOccurrence"] = $val;
         return $this;
     }
     /**
-    * Gets the minDeviceOccurrence
-    * Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
-    *
-    * @return int|null The minDeviceOccurrence
-    */
+     * Gets the minDeviceOccurrence
+     * Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
+     *
+     * @return int|null The minDeviceOccurrence
+     */
     public function getMinDeviceOccurrence()
     {
         if (array_key_exists("minDeviceOccurrence", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DeviceManagementConfigurationSettingOccurrence extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the minDeviceOccurrence
-    * Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
-    *
-    * @param int $val The value of the minDeviceOccurrence
-    *
-    * @return DeviceManagementConfigurationSettingOccurrence
-    */
+     * Sets the minDeviceOccurrence
+     * Minimum times setting can be set on device. A MinDeviceOccurrence of 0 means setting is optional
+     *
+     * @param int $val The value of the minDeviceOccurrence
+     *
+     * @return DeviceManagementConfigurationSettingOccurrence
+     */
     public function setMinDeviceOccurrence($val)
     {
         $this->_propDict["minDeviceOccurrence"] = $val;

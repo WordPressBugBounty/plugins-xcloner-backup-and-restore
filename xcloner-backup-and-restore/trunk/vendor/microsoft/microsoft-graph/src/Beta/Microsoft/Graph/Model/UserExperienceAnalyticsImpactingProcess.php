@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsImpactingProcess class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsImpactingProcess extends Entity
 {
     /**
-    * Gets the category
-    * The category of impacting process.
-    *
-    * @return string|null The category
-    */
+     * Gets the category
+     * The category of impacting process.
+     *
+     * @return string|null The category
+     */
     public function getCategory()
     {
         if (array_key_exists("category", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the category
-    * The category of impacting process.
-    *
-    * @param string $val The category
-    *
-    * @return UserExperienceAnalyticsImpactingProcess
-    */
+     * Sets the category
+     * The category of impacting process.
+     *
+     * @param string $val The category
+     *
+     * @return UserExperienceAnalyticsImpactingProcess
+     */
     public function setCategory($val)
     {
         $this->_propDict["category"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * The description of process.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of process.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -70,27 +69,25 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of process.
-    *
-    * @param string $val The description
-    *
-    * @return UserExperienceAnalyticsImpactingProcess
-    */
+     * Sets the description
+     * The description of process.
+     *
+     * @param string $val The description
+     *
+     * @return UserExperienceAnalyticsImpactingProcess
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceId
-    * The unique identifier of the impacted device.
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * The unique identifier of the impacted device.
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -99,27 +96,25 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * The unique identifier of the impacted device.
-    *
-    * @param string $val The deviceId
-    *
-    * @return UserExperienceAnalyticsImpactingProcess
-    */
+     * Sets the deviceId
+     * The unique identifier of the impacted device.
+     *
+     * @param string $val The deviceId
+     *
+     * @return UserExperienceAnalyticsImpactingProcess
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the impactValue
-    * The impact value of the process. Valid values 0 to 1.79769313486232E+308
-    *
-    * @return float|null The impactValue
-    */
+     * Gets the impactValue
+     * The impact value of the process. Valid values 0 to 1.79769313486232E+308
+     *
+     * @return float|null The impactValue
+     */
     public function getImpactValue()
     {
         if (array_key_exists("impactValue", $this->_propDict)) {
@@ -128,27 +123,25 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the impactValue
-    * The impact value of the process. Valid values 0 to 1.79769313486232E+308
-    *
-    * @param float $val The impactValue
-    *
-    * @return UserExperienceAnalyticsImpactingProcess
-    */
+     * Sets the impactValue
+     * The impact value of the process. Valid values 0 to 1.79769313486232E+308
+     *
+     * @param float $val The impactValue
+     *
+     * @return UserExperienceAnalyticsImpactingProcess
+     */
     public function setImpactValue($val)
     {
         $this->_propDict["impactValue"] = floatval($val);
         return $this;
     }
-
     /**
-    * Gets the processName
-    * The process name.
-    *
-    * @return string|null The processName
-    */
+     * Gets the processName
+     * The process name.
+     *
+     * @return string|null The processName
+     */
     public function getProcessName()
     {
         if (array_key_exists("processName", $this->_propDict)) {
@@ -157,27 +150,25 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the processName
-    * The process name.
-    *
-    * @param string $val The processName
-    *
-    * @return UserExperienceAnalyticsImpactingProcess
-    */
+     * Sets the processName
+     * The process name.
+     *
+     * @param string $val The processName
+     *
+     * @return UserExperienceAnalyticsImpactingProcess
+     */
     public function setProcessName($val)
     {
         $this->_propDict["processName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the publisher
-    * The publisher of the process.
-    *
-    * @return string|null The publisher
-    */
+     * Gets the publisher
+     * The publisher of the process.
+     *
+     * @return string|null The publisher
+     */
     public function getPublisher()
     {
         if (array_key_exists("publisher", $this->_propDict)) {
@@ -186,19 +177,17 @@ class UserExperienceAnalyticsImpactingProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the publisher
-    * The publisher of the process.
-    *
-    * @param string $val The publisher
-    *
-    * @return UserExperienceAnalyticsImpactingProcess
-    */
+     * Sets the publisher
+     * The publisher of the process.
+     *
+     * @param string $val The publisher
+     *
+     * @return UserExperienceAnalyticsImpactingProcess
+     */
     public function setPublisher($val)
     {
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-
 }

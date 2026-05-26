@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChatViewpoint class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ChatViewpoint extends Entity
 {
     /**
-    * Gets the isHidden
-    * Indicates whether the chat is hidden for the current user.
-    *
-    * @return bool|null The isHidden
-    */
+     * Gets the isHidden
+     * Indicates whether the chat is hidden for the current user.
+     *
+     * @return bool|null The isHidden
+     */
     public function getIsHidden()
     {
         if (array_key_exists("isHidden", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ChatViewpoint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isHidden
-    * Indicates whether the chat is hidden for the current user.
-    *
-    * @param bool $val The value of the isHidden
-    *
-    * @return ChatViewpoint
-    */
+     * Sets the isHidden
+     * Indicates whether the chat is hidden for the current user.
+     *
+     * @param bool $val The value of the isHidden
+     *
+     * @return ChatViewpoint
+     */
     public function setIsHidden($val)
     {
         $this->_propDict["isHidden"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastMessageReadDateTime
-    * Represents the dateTime up until which the current user has read chatMessages in a specific chat.
-    *
-    * @return \DateTime|null The lastMessageReadDateTime
-    */
+     * Gets the lastMessageReadDateTime
+     * Represents the dateTime up until which the current user has read chatMessages in a specific chat.
+     *
+     * @return \DateTime|null The lastMessageReadDateTime
+     */
     public function getLastMessageReadDateTime()
     {
         if (array_key_exists("lastMessageReadDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastMessageReadDateTime"], "\DateTime") || is_null($this->_propDict["lastMessageReadDateTime"])) {
+            if (is_a($this->_propDict["lastMessageReadDateTime"], "\\DateTime") || is_null($this->_propDict["lastMessageReadDateTime"])) {
                 return $this->_propDict["lastMessageReadDateTime"];
             } else {
                 $this->_propDict["lastMessageReadDateTime"] = new \DateTime($this->_propDict["lastMessageReadDateTime"]);
@@ -73,18 +73,17 @@ class ChatViewpoint extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastMessageReadDateTime
-    * Represents the dateTime up until which the current user has read chatMessages in a specific chat.
-    *
-    * @param \DateTime $val The value to assign to the lastMessageReadDateTime
-    *
-    * @return ChatViewpoint The ChatViewpoint
-    */
+     * Sets the lastMessageReadDateTime
+     * Represents the dateTime up until which the current user has read chatMessages in a specific chat.
+     *
+     * @param \DateTime $val The value to assign to the lastMessageReadDateTime
+     *
+     * @return ChatViewpoint The ChatViewpoint
+     */
     public function setLastMessageReadDateTime($val)
     {
         $this->_propDict["lastMessageReadDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,9 +1,11 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
-#[Attribute(Attribute::TARGET_CLASS)]
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+#[\Attribute(\Attribute::TARGET_CLASS)]
 final class Attribute
 {
     public const TARGET_CLASS = 1;
@@ -14,12 +16,11 @@ final class Attribute
     public const TARGET_PARAMETER = 32;
     public const TARGET_ALL = 63;
     public const IS_REPEATABLE = 64;
-
     /** @var int */
     public $flags;
-
     public function __construct(int $flags = self::TARGET_ALL)
     {
         $this->flags = $flags;
     }
 }
+\class_alias('XCloner\Attribute', 'Attribute', \false);

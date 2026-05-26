@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IdentityProtectionRoot class
 *
@@ -28,161 +29,146 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IdentityProtectionRoot implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new IdentityProtectionRoot
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new IdentityProtectionRoot
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the IdentityProtectionRoot
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the IdentityProtectionRoot
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
-
-     /**
+    /**
      * Gets the riskDetections
-    * Risk detection in Azure AD Identity Protection and the associated information about the detection.
+     * Risk detection in Azure AD Identity Protection and the associated information about the detection.
      *
      * @return array|null The riskDetections
      */
     public function getRiskDetections()
     {
         if (array_key_exists("riskDetections", $this->_propDict)) {
-           return $this->_propDict["riskDetections"];
+            return $this->_propDict["riskDetections"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the riskDetections
-    * Risk detection in Azure AD Identity Protection and the associated information about the detection.
-    *
-    * @param RiskDetection[] $val The riskDetections
-    *
-    * @return IdentityProtectionRoot
-    */
+     * Sets the riskDetections
+     * Risk detection in Azure AD Identity Protection and the associated information about the detection.
+     *
+     * @param RiskDetection[] $val The riskDetections
+     *
+     * @return IdentityProtectionRoot
+     */
     public function setRiskDetections($val)
     {
         $this->_propDict["riskDetections"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the riskyServicePrincipals
-    * Azure AD service principals that are at risk.
+     * Azure AD service principals that are at risk.
      *
      * @return array|null The riskyServicePrincipals
      */
     public function getRiskyServicePrincipals()
     {
         if (array_key_exists("riskyServicePrincipals", $this->_propDict)) {
-           return $this->_propDict["riskyServicePrincipals"];
+            return $this->_propDict["riskyServicePrincipals"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the riskyServicePrincipals
-    * Azure AD service principals that are at risk.
-    *
-    * @param RiskyServicePrincipal[] $val The riskyServicePrincipals
-    *
-    * @return IdentityProtectionRoot
-    */
+     * Sets the riskyServicePrincipals
+     * Azure AD service principals that are at risk.
+     *
+     * @param RiskyServicePrincipal[] $val The riskyServicePrincipals
+     *
+     * @return IdentityProtectionRoot
+     */
     public function setRiskyServicePrincipals($val)
     {
         $this->_propDict["riskyServicePrincipals"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the riskyUsers
-    * Users that are flagged as at-risk by Azure AD Identity Protection.
+     * Users that are flagged as at-risk by Azure AD Identity Protection.
      *
      * @return array|null The riskyUsers
      */
     public function getRiskyUsers()
     {
         if (array_key_exists("riskyUsers", $this->_propDict)) {
-           return $this->_propDict["riskyUsers"];
+            return $this->_propDict["riskyUsers"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the riskyUsers
-    * Users that are flagged as at-risk by Azure AD Identity Protection.
-    *
-    * @param RiskyUser[] $val The riskyUsers
-    *
-    * @return IdentityProtectionRoot
-    */
+     * Sets the riskyUsers
+     * Users that are flagged as at-risk by Azure AD Identity Protection.
+     *
+     * @param RiskyUser[] $val The riskyUsers
+     *
+     * @return IdentityProtectionRoot
+     */
     public function setRiskyUsers($val)
     {
         $this->_propDict["riskyUsers"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the servicePrincipalRiskDetections
-    * Represents information about detected at-risk service principals in an Azure AD tenant.
+     * Represents information about detected at-risk service principals in an Azure AD tenant.
      *
      * @return array|null The servicePrincipalRiskDetections
      */
     public function getServicePrincipalRiskDetections()
     {
         if (array_key_exists("servicePrincipalRiskDetections", $this->_propDict)) {
-           return $this->_propDict["servicePrincipalRiskDetections"];
+            return $this->_propDict["servicePrincipalRiskDetections"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalRiskDetections
-    * Represents information about detected at-risk service principals in an Azure AD tenant.
-    *
-    * @param ServicePrincipalRiskDetection[] $val The servicePrincipalRiskDetections
-    *
-    * @return IdentityProtectionRoot
-    */
+     * Sets the servicePrincipalRiskDetections
+     * Represents information about detected at-risk service principals in an Azure AD tenant.
+     *
+     * @param ServicePrincipalRiskDetection[] $val The servicePrincipalRiskDetections
+     *
+     * @return IdentityProtectionRoot
+     */
     public function setServicePrincipalRiskDetections($val)
     {
         $this->_propDict["servicePrincipalRiskDetections"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -190,36 +176,34 @@ class IdentityProtectionRoot implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return IdentityProtectionRoot
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return IdentityProtectionRoot
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

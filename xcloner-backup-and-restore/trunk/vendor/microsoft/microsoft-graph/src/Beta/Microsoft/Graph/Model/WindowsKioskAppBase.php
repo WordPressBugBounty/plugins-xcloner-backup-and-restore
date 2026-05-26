@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsKioskAppBase class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WindowsKioskAppBase extends Entity
 {
-
     /**
-    * Gets the appType
-    * The app type. Possible values are: unknown, store, desktop, aumId.
-    *
-    * @return WindowsKioskAppType|null The appType
-    */
+     * Gets the appType
+     * The app type. Possible values are: unknown, store, desktop, aumId.
+     *
+     * @return WindowsKioskAppType|null The appType
+     */
     public function getAppType()
     {
         if (array_key_exists("appType", $this->_propDict)) {
-            if (is_a($this->_propDict["appType"], "\Beta\Microsoft\Graph\Model\WindowsKioskAppType") || is_null($this->_propDict["appType"])) {
+            if (is_a($this->_propDict["appType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsKioskAppType") || is_null($this->_propDict["appType"])) {
                 return $this->_propDict["appType"];
             } else {
                 $this->_propDict["appType"] = new WindowsKioskAppType($this->_propDict["appType"]);
@@ -45,26 +46,25 @@ class WindowsKioskAppBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the appType
-    * The app type. Possible values are: unknown, store, desktop, aumId.
-    *
-    * @param WindowsKioskAppType $val The value to assign to the appType
-    *
-    * @return WindowsKioskAppBase The WindowsKioskAppBase
-    */
+     * Sets the appType
+     * The app type. Possible values are: unknown, store, desktop, aumId.
+     *
+     * @param WindowsKioskAppType $val The value to assign to the appType
+     *
+     * @return WindowsKioskAppBase The WindowsKioskAppBase
+     */
     public function setAppType($val)
     {
         $this->_propDict["appType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the autoLaunch
-    * Allow the app to be auto-launched in multi-app kiosk mode
-    *
-    * @return bool|null The autoLaunch
-    */
+     * Gets the autoLaunch
+     * Allow the app to be auto-launched in multi-app kiosk mode
+     *
+     * @return bool|null The autoLaunch
+     */
     public function getAutoLaunch()
     {
         if (array_key_exists("autoLaunch", $this->_propDict)) {
@@ -73,26 +73,25 @@ class WindowsKioskAppBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the autoLaunch
-    * Allow the app to be auto-launched in multi-app kiosk mode
-    *
-    * @param bool $val The value of the autoLaunch
-    *
-    * @return WindowsKioskAppBase
-    */
+     * Sets the autoLaunch
+     * Allow the app to be auto-launched in multi-app kiosk mode
+     *
+     * @param bool $val The value of the autoLaunch
+     *
+     * @return WindowsKioskAppBase
+     */
     public function setAutoLaunch($val)
     {
         $this->_propDict["autoLaunch"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * Represents the friendly name of an app
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Represents the friendly name of an app
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -101,31 +100,29 @@ class WindowsKioskAppBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Represents the friendly name of an app
-    *
-    * @param string $val The value of the name
-    *
-    * @return WindowsKioskAppBase
-    */
+     * Sets the name
+     * Represents the friendly name of an app
+     *
+     * @param string $val The value of the name
+     *
+     * @return WindowsKioskAppBase
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startLayoutTileSize
-    * The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
-    *
-    * @return WindowsAppStartLayoutTileSize|null The startLayoutTileSize
-    */
+     * Gets the startLayoutTileSize
+     * The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
+     *
+     * @return WindowsAppStartLayoutTileSize|null The startLayoutTileSize
+     */
     public function getStartLayoutTileSize()
     {
         if (array_key_exists("startLayoutTileSize", $this->_propDict)) {
-            if (is_a($this->_propDict["startLayoutTileSize"], "\Beta\Microsoft\Graph\Model\WindowsAppStartLayoutTileSize") || is_null($this->_propDict["startLayoutTileSize"])) {
+            if (is_a($this->_propDict["startLayoutTileSize"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsAppStartLayoutTileSize") || is_null($this->_propDict["startLayoutTileSize"])) {
                 return $this->_propDict["startLayoutTileSize"];
             } else {
                 $this->_propDict["startLayoutTileSize"] = new WindowsAppStartLayoutTileSize($this->_propDict["startLayoutTileSize"]);
@@ -134,18 +131,17 @@ class WindowsKioskAppBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startLayoutTileSize
-    * The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
-    *
-    * @param WindowsAppStartLayoutTileSize $val The value to assign to the startLayoutTileSize
-    *
-    * @return WindowsKioskAppBase The WindowsKioskAppBase
-    */
+     * Sets the startLayoutTileSize
+     * The app tile size for the start layout. Possible values are: hidden, small, medium, wide, large.
+     *
+     * @param WindowsAppStartLayoutTileSize $val The value to assign to the startLayoutTileSize
+     *
+     * @return WindowsKioskAppBase The WindowsKioskAppBase
+     */
     public function setStartLayoutTileSize($val)
     {
         $this->_propDict["startLayoutTileSize"] = $val;
-         return $this;
+        return $this;
     }
 }

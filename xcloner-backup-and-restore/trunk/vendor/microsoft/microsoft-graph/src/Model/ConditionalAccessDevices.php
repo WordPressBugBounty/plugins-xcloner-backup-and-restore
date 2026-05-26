@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessDevices class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessDevices extends Entity
 {
-
     /**
-    * Gets the deviceFilter
-    * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
-    *
-    * @return ConditionalAccessFilter|null The deviceFilter
-    */
+     * Gets the deviceFilter
+     * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
+     *
+     * @return ConditionalAccessFilter|null The deviceFilter
+     */
     public function getDeviceFilter()
     {
         if (array_key_exists("deviceFilter", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceFilter"], "\Microsoft\Graph\Model\ConditionalAccessFilter") || is_null($this->_propDict["deviceFilter"])) {
+            if (is_a($this->_propDict["deviceFilter"], "XCloner\\Microsoft\\Graph\\Model\\ConditionalAccessFilter") || is_null($this->_propDict["deviceFilter"])) {
                 return $this->_propDict["deviceFilter"];
             } else {
                 $this->_propDict["deviceFilter"] = new ConditionalAccessFilter($this->_propDict["deviceFilter"]);
@@ -45,18 +46,17 @@ class ConditionalAccessDevices extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceFilter
-    * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
-    *
-    * @param ConditionalAccessFilter $val The value to assign to the deviceFilter
-    *
-    * @return ConditionalAccessDevices The ConditionalAccessDevices
-    */
+     * Sets the deviceFilter
+     * Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
+     *
+     * @param ConditionalAccessFilter $val The value to assign to the deviceFilter
+     *
+     * @return ConditionalAccessDevices The ConditionalAccessDevices
+     */
     public function setDeviceFilter($val)
     {
         $this->_propDict["deviceFilter"] = $val;
-         return $this;
+        return $this;
     }
 }

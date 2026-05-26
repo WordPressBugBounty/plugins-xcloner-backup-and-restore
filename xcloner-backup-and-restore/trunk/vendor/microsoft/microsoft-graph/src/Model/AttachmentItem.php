@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttachmentItem class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AttachmentItem extends Entity
 {
-
     /**
-    * Gets the attachmentType
-    * The type of attachment. Possible values are: file, item, reference. Required.
-    *
-    * @return AttachmentType|null The attachmentType
-    */
+     * Gets the attachmentType
+     * The type of attachment. Possible values are: file, item, reference. Required.
+     *
+     * @return AttachmentType|null The attachmentType
+     */
     public function getAttachmentType()
     {
         if (array_key_exists("attachmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["attachmentType"], "\Microsoft\Graph\Model\AttachmentType") || is_null($this->_propDict["attachmentType"])) {
+            if (is_a($this->_propDict["attachmentType"], "XCloner\\Microsoft\\Graph\\Model\\AttachmentType") || is_null($this->_propDict["attachmentType"])) {
                 return $this->_propDict["attachmentType"];
             } else {
                 $this->_propDict["attachmentType"] = new AttachmentType($this->_propDict["attachmentType"]);
@@ -45,26 +46,25 @@ class AttachmentItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attachmentType
-    * The type of attachment. Possible values are: file, item, reference. Required.
-    *
-    * @param AttachmentType $val The value to assign to the attachmentType
-    *
-    * @return AttachmentItem The AttachmentItem
-    */
+     * Sets the attachmentType
+     * The type of attachment. Possible values are: file, item, reference. Required.
+     *
+     * @param AttachmentType $val The value to assign to the attachmentType
+     *
+     * @return AttachmentItem The AttachmentItem
+     */
     public function setAttachmentType($val)
     {
         $this->_propDict["attachmentType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the contentId
-    * The CID or Content-Id of the attachment for referencing in case of in-line attachments using &amp;lt;img src='cid:contentId'&amp;gt; tag in HTML messages. Optional.
-    *
-    * @return string|null The contentId
-    */
+     * Gets the contentId
+     * The CID or Content-Id of the attachment for referencing in case of in-line attachments using &amp;lt;img src='cid:contentId'&amp;gt; tag in HTML messages. Optional.
+     *
+     * @return string|null The contentId
+     */
     public function getContentId()
     {
         if (array_key_exists("contentId", $this->_propDict)) {
@@ -73,26 +73,25 @@ class AttachmentItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentId
-    * The CID or Content-Id of the attachment for referencing in case of in-line attachments using &amp;lt;img src='cid:contentId'&amp;gt; tag in HTML messages. Optional.
-    *
-    * @param string $val The value of the contentId
-    *
-    * @return AttachmentItem
-    */
+     * Sets the contentId
+     * The CID or Content-Id of the attachment for referencing in case of in-line attachments using &amp;lt;img src='cid:contentId'&amp;gt; tag in HTML messages. Optional.
+     *
+     * @param string $val The value of the contentId
+     *
+     * @return AttachmentItem
+     */
     public function setContentId($val)
     {
         $this->_propDict["contentId"] = $val;
         return $this;
     }
     /**
-    * Gets the contentType
-    * The nature of the data in the attachment. Optional.
-    *
-    * @return string|null The contentType
-    */
+     * Gets the contentType
+     * The nature of the data in the attachment. Optional.
+     *
+     * @return string|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
@@ -101,26 +100,25 @@ class AttachmentItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentType
-    * The nature of the data in the attachment. Optional.
-    *
-    * @param string $val The value of the contentType
-    *
-    * @return AttachmentItem
-    */
+     * Sets the contentType
+     * The nature of the data in the attachment. Optional.
+     *
+     * @param string $val The value of the contentType
+     *
+     * @return AttachmentItem
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
         return $this;
     }
     /**
-    * Gets the isInline
-    * true if the attachment is an inline attachment; otherwise, false. Optional.
-    *
-    * @return bool|null The isInline
-    */
+     * Gets the isInline
+     * true if the attachment is an inline attachment; otherwise, false. Optional.
+     *
+     * @return bool|null The isInline
+     */
     public function getIsInline()
     {
         if (array_key_exists("isInline", $this->_propDict)) {
@@ -129,26 +127,25 @@ class AttachmentItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isInline
-    * true if the attachment is an inline attachment; otherwise, false. Optional.
-    *
-    * @param bool $val The value of the isInline
-    *
-    * @return AttachmentItem
-    */
+     * Sets the isInline
+     * true if the attachment is an inline attachment; otherwise, false. Optional.
+     *
+     * @param bool $val The value of the isInline
+     *
+     * @return AttachmentItem
+     */
     public function setIsInline($val)
     {
         $this->_propDict["isInline"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -157,26 +154,25 @@ class AttachmentItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
-    *
-    * @param string $val The value of the name
-    *
-    * @return AttachmentItem
-    */
+     * Sets the name
+     * The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
+     *
+     * @param string $val The value of the name
+     *
+     * @return AttachmentItem
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the size
-    * The length of the attachment in bytes. Required.
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     * The length of the attachment in bytes. Required.
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -185,15 +181,14 @@ class AttachmentItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the size
-    * The length of the attachment in bytes. Required.
-    *
-    * @param int $val The value of the size
-    *
-    * @return AttachmentItem
-    */
+     * Sets the size
+     * The length of the attachment in bytes. Required.
+     *
+     * @param int $val The value of the size
+     *
+     * @return AttachmentItem
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\CallRecords\Model;
+namespace XCloner\Beta\Microsoft\Graph\CallRecords\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ParticipantEndpoint class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ParticipantEndpoint extends Endpoint
 {
-
     /**
-    * Gets the feedback
-    * The feedback provided by the user of this endpoint about the quality of the session.
-    *
-    * @return UserFeedback|null The feedback
-    */
+     * Gets the feedback
+     * The feedback provided by the user of this endpoint about the quality of the session.
+     *
+     * @return UserFeedback|null The feedback
+     */
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "\Beta\Microsoft\Graph\CallRecords\Model\UserFeedback") || is_null($this->_propDict["feedback"])) {
+            if (is_a($this->_propDict["feedback"], "XCloner\\Beta\\Microsoft\\Graph\\CallRecords\\Model\\UserFeedback") || is_null($this->_propDict["feedback"])) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new UserFeedback($this->_propDict["feedback"]);
@@ -45,51 +46,48 @@ class ParticipantEndpoint extends Endpoint
         }
         return null;
     }
-
     /**
-    * Sets the feedback
-    * The feedback provided by the user of this endpoint about the quality of the session.
-    *
-    * @param UserFeedback $val The value to assign to the feedback
-    *
-    * @return ParticipantEndpoint The ParticipantEndpoint
-    */
+     * Sets the feedback
+     * The feedback provided by the user of this endpoint about the quality of the session.
+     *
+     * @param UserFeedback $val The value to assign to the feedback
+     *
+     * @return ParticipantEndpoint The ParticipantEndpoint
+     */
     public function setFeedback($val)
     {
         $this->_propDict["feedback"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the identity
-    * Identity associated with the endpoint.
-    *
-    * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The identity
-    */
+     * Gets the identity
+     * Identity associated with the endpoint.
+     *
+     * @return \Beta\Microsoft\Graph\Model\IdentitySet|null The identity
+     */
     public function getIdentity()
     {
         if (array_key_exists("identity", $this->_propDict)) {
-            if (is_a($this->_propDict["identity"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["identity"])) {
+            if (is_a($this->_propDict["identity"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["identity"])) {
                 return $this->_propDict["identity"];
             } else {
-                $this->_propDict["identity"] = new \Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["identity"]);
+                $this->_propDict["identity"] = new \XCloner\Beta\Microsoft\Graph\Model\IdentitySet($this->_propDict["identity"]);
                 return $this->_propDict["identity"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the identity
-    * Identity associated with the endpoint.
-    *
-    * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The value to assign to the identity
-    *
-    * @return ParticipantEndpoint The ParticipantEndpoint
-    */
+     * Sets the identity
+     * Identity associated with the endpoint.
+     *
+     * @param \Beta\Microsoft\Graph\Model\IdentitySet $val The value to assign to the identity
+     *
+     * @return ParticipantEndpoint The ParticipantEndpoint
+     */
     public function setIdentity($val)
     {
         $this->_propDict["identity"] = $val;
-         return $this;
+        return $this;
     }
 }

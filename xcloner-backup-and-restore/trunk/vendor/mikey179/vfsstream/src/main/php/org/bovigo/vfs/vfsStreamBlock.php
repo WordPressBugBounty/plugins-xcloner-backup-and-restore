@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,11 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Block container.
  *
@@ -31,7 +32,6 @@ class vfsStreamBlock extends vfsStreamFile
             throw new vfsStreamException('Name of Block device was empty');
         }
         parent::__construct($name, $permissions);
-
         $this->type = vfsStreamContent::TYPE_BLOCK;
     }
 }

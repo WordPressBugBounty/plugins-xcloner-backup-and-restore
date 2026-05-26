@@ -1,21 +1,19 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\VObject\TimezoneGuesser;
 
-namespace Sabre\VObject\TimezoneGuesser;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeZone;
 use Exception;
-
 /**
  * Some clients add 'X-LIC-LOCATION' with the olson name.
  */
 class FindFromTimezoneIdentifier implements TimezoneFinder
 {
-    public function find(string $tzid, bool $failIfUncertain = false): ?DateTimeZone
+    public function find(string $tzid, bool $failIfUncertain = \false): ?DateTimeZone
     {
         // First we will just see if the tzid is a support timezone identifier.
         //
@@ -41,21 +39,14 @@ class FindFromTimezoneIdentifier implements TimezoneFinder
         // \DateTimeZone() before doing so. Otherwise we could simply instantiate
         // and catch the exception.
         $tzIdentifiers = DateTimeZone::listIdentifiers();
-
         try {
-            if (
-                (in_array($tzid, $tzIdentifiers)) ||
-                (preg_match('/^GMT(\+|-)([0-9]{4})$/', $tzid, $matches)) ||
-                (in_array($tzid, $this->getIdentifiersBC()))
-            ) {
+            if (in_array($tzid, $tzIdentifiers) || preg_match('/^GMT(\+|-)([0-9]{4})$/', $tzid, $matches) || in_array($tzid, $this->getIdentifiersBC())) {
                 return new DateTimeZone($tzid);
             }
         } catch (Exception $e) {
         }
-
         return null;
     }
-
     /**
      * This method returns an array of timezone identifiers, that are supported
      * by DateTimeZone(), but not returned by DateTimeZone::listIdentifiers().
@@ -69,6 +60,6 @@ class FindFromTimezoneIdentifier implements TimezoneFinder
      */
     private function getIdentifiersBC()
     {
-        return include __DIR__.'/../timezonedata/php-bc.php';
+        return include __DIR__ . '/../timezonedata/php-bc.php';
     }
 }

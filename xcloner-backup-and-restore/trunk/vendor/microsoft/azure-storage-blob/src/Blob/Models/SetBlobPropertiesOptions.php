@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Optional parameters for setBlobProperties wrapper
  *
@@ -41,7 +40,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
 {
     private $_blobProperties;
     private $_sequenceNumberAction;
-
     /**
      * Creates a new SetBlobPropertiesOptions with a specified BlobProperties
      * instance.
@@ -51,10 +49,8 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     public function __construct(BlobProperties $blobProperties = null)
     {
         parent::__construct();
-        $this->_blobProperties = is_null($blobProperties)
-                                 ? new BlobProperties() : clone $blobProperties;
+        $this->_blobProperties = is_null($blobProperties) ? new BlobProperties() : clone $blobProperties;
     }
-
     /**
      * Gets blob sequenceNumber.
      *
@@ -64,7 +60,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getSequenceNumber();
     }
-
     /**
      * Sets blob sequenceNumber.
      *
@@ -76,7 +71,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setSequenceNumber($sequenceNumber);
     }
-
     /**
      * Gets lease Id for the blob
      *
@@ -86,7 +80,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_sequenceNumberAction;
     }
-
     /**
      * Sets lease Id for the blob
      *
@@ -98,7 +91,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_sequenceNumberAction = $sequenceNumberAction;
     }
-
     /**
      * Gets blob contentLength.
      *
@@ -108,7 +100,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getContentLength();
     }
-
     /**
      * Sets blob contentLength.
      *
@@ -120,7 +111,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setContentLength($contentLength);
     }
-
     /**
      * Gets ContentType.
      *
@@ -130,7 +120,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getContentType();
     }
-
     /**
      * Sets ContentType.
      *
@@ -142,7 +131,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setContentType($contentType);
     }
-
     /**
      * Gets ContentEncoding.
      *
@@ -152,7 +140,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getContentEncoding();
     }
-
     /**
      * Sets ContentEncoding.
      *
@@ -164,7 +151,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setContentEncoding($contentEncoding);
     }
-
     /**
      * Gets ContentLanguage.
      *
@@ -174,7 +160,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getContentLanguage();
     }
-
     /**
      * Sets ContentLanguage.
      *
@@ -186,7 +171,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setContentLanguage($contentLanguage);
     }
-
     /**
      * Gets ContentMD5.
      *
@@ -196,7 +180,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getContentMD5();
     }
-
     /**
      * Sets blob ContentMD5.
      *
@@ -208,7 +191,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setContentMD5($contentMD5);
     }
-
     /**
      * Gets cache control.
      *
@@ -218,7 +200,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getCacheControl();
     }
-
     /**
      * Sets cacheControl.
      *
@@ -230,7 +211,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         $this->_blobProperties->setCacheControl($cacheControl);
     }
-
     /**
      * Gets content disposition.
      *
@@ -240,7 +220,6 @@ class SetBlobPropertiesOptions extends BlobServiceOptions
     {
         return $this->_blobProperties->getContentDisposition();
     }
-
     /**
      * Sets contentDisposition.
      *

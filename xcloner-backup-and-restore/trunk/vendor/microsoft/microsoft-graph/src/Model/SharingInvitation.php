@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SharingInvitation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SharingInvitation extends Entity
 {
     /**
-    * Gets the email
-    * The email address provided for the recipient of the sharing invitation. Read-only.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * The email address provided for the recipient of the sharing invitation. Read-only.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -40,31 +42,29 @@ class SharingInvitation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * The email address provided for the recipient of the sharing invitation. Read-only.
-    *
-    * @param string $val The value of the email
-    *
-    * @return SharingInvitation
-    */
+     * Sets the email
+     * The email address provided for the recipient of the sharing invitation. Read-only.
+     *
+     * @param string $val The value of the email
+     *
+     * @return SharingInvitation
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
-
     /**
-    * Gets the invitedBy
-    * Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
-    *
-    * @return IdentitySet|null The invitedBy
-    */
+     * Gets the invitedBy
+     * Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
+     *
+     * @return IdentitySet|null The invitedBy
+     */
     public function getInvitedBy()
     {
         if (array_key_exists("invitedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["invitedBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["invitedBy"])) {
+            if (is_a($this->_propDict["invitedBy"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["invitedBy"])) {
                 return $this->_propDict["invitedBy"];
             } else {
                 $this->_propDict["invitedBy"] = new IdentitySet($this->_propDict["invitedBy"]);
@@ -73,25 +73,24 @@ class SharingInvitation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the invitedBy
-    * Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
-    *
-    * @param IdentitySet $val The value to assign to the invitedBy
-    *
-    * @return SharingInvitation The SharingInvitation
-    */
+     * Sets the invitedBy
+     * Provides information about who sent the invitation that created this permission, if that information is available. Read-only.
+     *
+     * @param IdentitySet $val The value to assign to the invitedBy
+     *
+     * @return SharingInvitation The SharingInvitation
+     */
     public function setInvitedBy($val)
     {
         $this->_propDict["invitedBy"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the redeemedBy
-    *
-    * @return string|null The redeemedBy
-    */
+     * Gets the redeemedBy
+     *
+     * @return string|null The redeemedBy
+     */
     public function getRedeemedBy()
     {
         if (array_key_exists("redeemedBy", $this->_propDict)) {
@@ -100,25 +99,24 @@ class SharingInvitation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the redeemedBy
-    *
-    * @param string $val The value of the redeemedBy
-    *
-    * @return SharingInvitation
-    */
+     * Sets the redeemedBy
+     *
+     * @param string $val The value of the redeemedBy
+     *
+     * @return SharingInvitation
+     */
     public function setRedeemedBy($val)
     {
         $this->_propDict["redeemedBy"] = $val;
         return $this;
     }
     /**
-    * Gets the signInRequired
-    * If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
-    *
-    * @return bool|null The signInRequired
-    */
+     * Gets the signInRequired
+     * If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
+     *
+     * @return bool|null The signInRequired
+     */
     public function getSignInRequired()
     {
         if (array_key_exists("signInRequired", $this->_propDict)) {
@@ -127,15 +125,14 @@ class SharingInvitation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the signInRequired
-    * If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
-    *
-    * @param bool $val The value of the signInRequired
-    *
-    * @return SharingInvitation
-    */
+     * Sets the signInRequired
+     * If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.
+     *
+     * @param bool $val The value of the signInRequired
+     *
+     * @return SharingInvitation
+     */
     public function setSignInRequired($val)
     {
         $this->_propDict["signInRequired"] = $val;

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This exception represents a HTTP error coming from the Client.
  *
@@ -25,7 +24,6 @@ class ClientHttpException extends \Exception implements HttpException
      * @var ResponseInterface
      */
     protected $response;
-
     /**
      * Constructor.
      */
@@ -34,7 +32,6 @@ class ClientHttpException extends \Exception implements HttpException
         $this->response = $response;
         parent::__construct($response->getStatusText(), $response->getStatus());
     }
-
     /**
      * The http status code for the error.
      */
@@ -42,7 +39,6 @@ class ClientHttpException extends \Exception implements HttpException
     {
         return $this->response->getStatus();
     }
-
     /**
      * Returns the full response object.
      */

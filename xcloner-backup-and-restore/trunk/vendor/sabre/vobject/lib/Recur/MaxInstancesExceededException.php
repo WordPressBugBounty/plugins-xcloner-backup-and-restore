@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Recur;
+namespace XCloner\Sabre\VObject\Recur;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Exception;
-
 /**
  * This exception will get thrown when a recurrence rule generated more than
  * the maximum number of instances.

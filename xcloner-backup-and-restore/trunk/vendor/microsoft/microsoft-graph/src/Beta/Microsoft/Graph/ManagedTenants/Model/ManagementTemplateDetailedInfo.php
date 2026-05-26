@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagementTemplateDetailedInfo class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ManagementTemplateDetailedInfo extends \Beta\Microsoft\Graph\Model\Entity
+class ManagementTemplateDetailedInfo extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the category
-    * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-    *
-    * @return ManagementCategory|null The category
-    */
+     * Gets the category
+     * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     *
+     * @return ManagementCategory|null The category
+     */
     public function getCategory()
     {
         if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\ManagedTenants\Model\ManagementCategory") || is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "XCloner\\Beta\\Microsoft\\Graph\\ManagedTenants\\Model\\ManagementCategory") || is_null($this->_propDict["category"])) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new ManagementCategory($this->_propDict["category"]);
@@ -45,26 +46,25 @@ class ManagementTemplateDetailedInfo extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the category
-    * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
-    *
-    * @param ManagementCategory $val The value to assign to the category
-    *
-    * @return ManagementTemplateDetailedInfo The ManagementTemplateDetailedInfo
-    */
+     * Sets the category
+     * The management category for the management template. Possible values are: custom, devices, identity, unknownFutureValue. Required. Read-only.
+     *
+     * @param ManagementCategory $val The value to assign to the category
+     *
+     * @return ManagementTemplateDetailedInfo The ManagementTemplateDetailedInfo
+     */
     public function setCategory($val)
     {
         $this->_propDict["category"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the displayName
-    * The display name for the management template. Required. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name for the management template. Required. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -73,26 +73,25 @@ class ManagementTemplateDetailedInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name for the management template. Required. Read-only.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ManagementTemplateDetailedInfo
-    */
+     * Sets the displayName
+     * The display name for the management template. Required. Read-only.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ManagementTemplateDetailedInfo
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the managementTemplateId
-    * The unique identifier for the management template. Required. Read-only.
-    *
-    * @return string|null The managementTemplateId
-    */
+     * Gets the managementTemplateId
+     * The unique identifier for the management template. Required. Read-only.
+     *
+     * @return string|null The managementTemplateId
+     */
     public function getManagementTemplateId()
     {
         if (array_key_exists("managementTemplateId", $this->_propDict)) {
@@ -101,25 +100,24 @@ class ManagementTemplateDetailedInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the managementTemplateId
-    * The unique identifier for the management template. Required. Read-only.
-    *
-    * @param string $val The value of the managementTemplateId
-    *
-    * @return ManagementTemplateDetailedInfo
-    */
+     * Sets the managementTemplateId
+     * The unique identifier for the management template. Required. Read-only.
+     *
+     * @param string $val The value of the managementTemplateId
+     *
+     * @return ManagementTemplateDetailedInfo
+     */
     public function setManagementTemplateId($val)
     {
         $this->_propDict["managementTemplateId"] = $val;
         return $this;
     }
     /**
-    * Gets the version
-    *
-    * @return int|null The version
-    */
+     * Gets the version
+     *
+     * @return int|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -128,14 +126,13 @@ class ManagementTemplateDetailedInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    *
-    * @param int $val The value of the version
-    *
-    * @return ManagementTemplateDetailedInfo
-    */
+     * Sets the version
+     *
+     * @param int $val The value of the version
+     *
+     * @return ManagementTemplateDetailedInfo
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AssignmentOrder class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AssignmentOrder extends Entity
 {
     /**
-    * Gets the order
-    * A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
-    *
-    * @return string|null The order
-    */
+     * Gets the order
+     * A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
+     *
+     * @return string|null The order
+     */
     public function getOrder()
     {
         if (array_key_exists("order", $this->_propDict)) {
@@ -40,15 +42,14 @@ class AssignmentOrder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the order
-    * A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
-    *
-    * @param string $val The value of the order
-    *
-    * @return AssignmentOrder
-    */
+     * Sets the order
+     * A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
+     *
+     * @param string $val The value of the order
+     *
+     * @return AssignmentOrder
+     */
     public function setOrder($val)
     {
         $this->_propDict["order"] = $val;

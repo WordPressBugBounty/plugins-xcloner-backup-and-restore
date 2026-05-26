@@ -1,15 +1,14 @@
 <?php
 
-namespace GuzzleHttp\Psr7;
+namespace XCloner\GuzzleHttp\Psr7;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\MessageInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\StreamInterface;
-use Psr\Http\Message\UriInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\MessageInterface;
+use XCloner\Psr\Http\Message\RequestInterface;
+use XCloner\Psr\Http\Message\StreamInterface;
+use XCloner\Psr\Http\Message\UriInterface;
 /**
  * Returns the string representation of an HTTP message.
  *
@@ -23,7 +22,6 @@ function str(MessageInterface $message)
 {
     return Message::toString($message);
 }
-
 /**
  * Returns a UriInterface for the given value.
  *
@@ -43,7 +41,6 @@ function uri_for($uri)
 {
     return Utils::uriFor($uri);
 }
-
 /**
  * Create a new stream based on the input type.
  *
@@ -86,7 +83,6 @@ function stream_for($resource = '', array $options = [])
 {
     return Utils::streamFor($resource, $options);
 }
-
 /**
  * Parse an array of header values containing ";" separated data into an
  * array of associative arrays representing the header key value pair data
@@ -103,7 +99,6 @@ function parse_header($header)
 {
     return Header::parse($header);
 }
-
 /**
  * Converts an array of header values that may contain comma separated
  * headers into an array of headers with no comma separated values.
@@ -118,7 +113,6 @@ function normalize_header($header)
 {
     return Header::normalize($header);
 }
-
 /**
  * Clone and modify a request with the given changes.
  *
@@ -145,7 +139,6 @@ function modify_request(RequestInterface $request, array $changes)
 {
     return Utils::modifyRequest($request, $changes);
 }
-
 /**
  * Attempts to rewind a message body and throws an exception on failure.
  *
@@ -162,7 +155,6 @@ function rewind_body(MessageInterface $message)
 {
     Message::rewindBody($message);
 }
-
 /**
  * Safely opens a PHP stream resource using a filename.
  *
@@ -182,7 +174,6 @@ function try_fopen($filename, $mode)
 {
     return Utils::tryFopen($filename, $mode);
 }
-
 /**
  * Copy the contents of a stream into a string until the given number of
  * bytes have been read.
@@ -201,7 +192,6 @@ function copy_to_string(StreamInterface $stream, $maxLen = -1)
 {
     return Utils::copyToString($stream, $maxLen);
 }
-
 /**
  * Copy the contents of a stream into another stream until the given number
  * of bytes have been read.
@@ -219,7 +209,6 @@ function copy_to_stream(StreamInterface $source, StreamInterface $dest, $maxLen 
 {
     return Utils::copyToStream($source, $dest, $maxLen);
 }
-
 /**
  * Calculate a hash of a stream.
  *
@@ -236,11 +225,10 @@ function copy_to_stream(StreamInterface $source, StreamInterface $dest, $maxLen 
  *
  * @deprecated hash will be removed in guzzlehttp/psr7:2.0. Use Utils::hash instead.
  */
-function hash(StreamInterface $stream, $algo, $rawOutput = false)
+function hash(StreamInterface $stream, $algo, $rawOutput = \false)
 {
     return Utils::hash($stream, $algo, $rawOutput);
 }
-
 /**
  * Read a line from the stream up to the maximum allowed buffer length.
  *
@@ -255,7 +243,6 @@ function readline(StreamInterface $stream, $maxLength = null)
 {
     return Utils::readLine($stream, $maxLength);
 }
-
 /**
  * Parses a request message string into a request object.
  *
@@ -269,7 +256,6 @@ function parse_request($message)
 {
     return Message::parseRequest($message);
 }
-
 /**
  * Parses a response message string into a response object.
  *
@@ -283,7 +269,6 @@ function parse_response($message)
 {
     return Message::parseResponse($message);
 }
-
 /**
  * Parse a query string into an associative array.
  *
@@ -299,11 +284,10 @@ function parse_response($message)
  *
  * @deprecated parse_query will be removed in guzzlehttp/psr7:2.0. Use Query::parse instead.
  */
-function parse_query($str, $urlEncoding = true)
+function parse_query($str, $urlEncoding = \true)
 {
     return Query::parse($str, $urlEncoding);
 }
-
 /**
  * Build a query string from an array of key value pairs.
  *
@@ -320,11 +304,10 @@ function parse_query($str, $urlEncoding = true)
  *
  * @deprecated build_query will be removed in guzzlehttp/psr7:2.0. Use Query::build instead.
  */
-function build_query(array $params, $encoding = PHP_QUERY_RFC3986)
+function build_query(array $params, $encoding = \PHP_QUERY_RFC3986)
 {
     return Query::build($params, $encoding);
 }
-
 /**
  * Determines the mimetype of a file by looking at its extension.
  *
@@ -338,7 +321,6 @@ function mimetype_from_filename($filename)
 {
     return MimeType::fromFilename($filename);
 }
-
 /**
  * Maps a file extensions to a mimetype.
  *
@@ -353,7 +335,6 @@ function mimetype_from_extension($extension)
 {
     return MimeType::fromExtension($extension);
 }
-
 /**
  * Parses an HTTP message into an associative array.
  *
@@ -373,7 +354,6 @@ function _parse_message($message)
 {
     return Message::parseMessage($message);
 }
-
 /**
  * Constructs a URI for an HTTP request message.
  *
@@ -390,7 +370,6 @@ function _parse_request_uri($path, array $headers)
 {
     return Message::parseRequestUri($path, $headers);
 }
-
 /**
  * Get a short summary of the message body.
  *
@@ -407,7 +386,6 @@ function get_message_body_summary(MessageInterface $message, $truncateAt = 120)
 {
     return Message::bodySummary($message, $truncateAt);
 }
-
 /**
  * Remove the items given by the keys, case insensitively from the data.
  *

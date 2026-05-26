@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementEnumConstraint class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementEnumConstraint extends DeviceManagementConstraint
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementEnumConstraint");
     }
-
-
     /**
-    * Gets the values
-    * List of valid values for this string
-    *
-    * @return DeviceManagementEnumValue|null The values
-    */
+     * Gets the values
+     * List of valid values for this string
+     *
+     * @return DeviceManagementEnumValue|null The values
+     */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
-            if (is_a($this->_propDict["values"], "\Beta\Microsoft\Graph\Model\DeviceManagementEnumValue") || is_null($this->_propDict["values"])) {
+            if (is_a($this->_propDict["values"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementEnumValue") || is_null($this->_propDict["values"])) {
                 return $this->_propDict["values"];
             } else {
                 $this->_propDict["values"] = new DeviceManagementEnumValue($this->_propDict["values"]);
@@ -56,18 +56,17 @@ class DeviceManagementEnumConstraint extends DeviceManagementConstraint
         }
         return null;
     }
-
     /**
-    * Sets the values
-    * List of valid values for this string
-    *
-    * @param DeviceManagementEnumValue $val The value to assign to the values
-    *
-    * @return DeviceManagementEnumConstraint The DeviceManagementEnumConstraint
-    */
+     * Sets the values
+     * List of valid values for this string
+     *
+     * @param DeviceManagementEnumValue $val The value to assign to the values
+     *
+     * @return DeviceManagementEnumConstraint The DeviceManagementEnumConstraint
+     */
     public function setValues($val)
     {
         $this->_propDict["values"] = $val;
-         return $this;
+        return $this;
     }
 }

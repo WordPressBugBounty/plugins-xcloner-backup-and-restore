@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Planner class
 *
@@ -27,94 +28,85 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Planner extends Entity
 {
-
-     /**
+    /**
      * Gets the buckets
-    * Read-only. Nullable. Returns a collection of the specified buckets
+     * Read-only. Nullable. Returns a collection of the specified buckets
      *
      * @return array|null The buckets
      */
     public function getBuckets()
     {
         if (array_key_exists("buckets", $this->_propDict)) {
-           return $this->_propDict["buckets"];
+            return $this->_propDict["buckets"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the buckets
-    * Read-only. Nullable. Returns a collection of the specified buckets
-    *
-    * @param PlannerBucket[] $val The buckets
-    *
-    * @return Planner
-    */
+     * Sets the buckets
+     * Read-only. Nullable. Returns a collection of the specified buckets
+     *
+     * @param PlannerBucket[] $val The buckets
+     *
+     * @return Planner
+     */
     public function setBuckets($val)
     {
         $this->_propDict["buckets"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the plans
-    * Read-only. Nullable. Returns a collection of the specified plans
+     * Read-only. Nullable. Returns a collection of the specified plans
      *
      * @return array|null The plans
      */
     public function getPlans()
     {
         if (array_key_exists("plans", $this->_propDict)) {
-           return $this->_propDict["plans"];
+            return $this->_propDict["plans"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the plans
-    * Read-only. Nullable. Returns a collection of the specified plans
-    *
-    * @param PlannerPlan[] $val The plans
-    *
-    * @return Planner
-    */
+     * Sets the plans
+     * Read-only. Nullable. Returns a collection of the specified plans
+     *
+     * @param PlannerPlan[] $val The plans
+     *
+     * @return Planner
+     */
     public function setPlans($val)
     {
         $this->_propDict["plans"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the tasks
-    * Read-only. Nullable. Returns a collection of the specified tasks
+     * Read-only. Nullable. Returns a collection of the specified tasks
      *
      * @return array|null The tasks
      */
     public function getTasks()
     {
         if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
+            return $this->_propDict["tasks"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the tasks
-    * Read-only. Nullable. Returns a collection of the specified tasks
-    *
-    * @param PlannerTask[] $val The tasks
-    *
-    * @return Planner
-    */
+     * Sets the tasks
+     * Read-only. Nullable. Returns a collection of the specified tasks
+     *
+     * @param PlannerTask[] $val The tasks
+     *
+     * @return Planner
+     */
     public function setTasks($val)
     {
         $this->_propDict["tasks"] = $val;
         return $this;
     }
-
 }

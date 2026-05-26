@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ScheduleEntity class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ScheduleEntity extends Entity
 {
-
     /**
-    * Gets the endDateTime
-    *
-    * @return \DateTime|null The endDateTime
-    */
+     * Gets the endDateTime
+     *
+     * @return \DateTime|null The endDateTime
+     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -44,29 +45,27 @@ class ScheduleEntity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDateTime
-    *
-    * @param \DateTime $val The value to assign to the endDateTime
-    *
-    * @return ScheduleEntity The ScheduleEntity
-    */
+     * Sets the endDateTime
+     *
+     * @param \DateTime $val The value to assign to the endDateTime
+     *
+     * @return ScheduleEntity The ScheduleEntity
+     */
     public function setEndDateTime($val)
     {
         $this->_propDict["endDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the startDateTime
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -75,29 +74,27 @@ class ScheduleEntity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    *
-    * @param \DateTime $val The value to assign to the startDateTime
-    *
-    * @return ScheduleEntity The ScheduleEntity
-    */
+     * Sets the startDateTime
+     *
+     * @param \DateTime $val The value to assign to the startDateTime
+     *
+     * @return ScheduleEntity The ScheduleEntity
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the theme
-    *
-    * @return ScheduleEntityTheme|null The theme
-    */
+     * Gets the theme
+     *
+     * @return ScheduleEntityTheme|null The theme
+     */
     public function getTheme()
     {
         if (array_key_exists("theme", $this->_propDict)) {
-            if (is_a($this->_propDict["theme"], "\Microsoft\Graph\Model\ScheduleEntityTheme") || is_null($this->_propDict["theme"])) {
+            if (is_a($this->_propDict["theme"], "XCloner\\Microsoft\\Graph\\Model\\ScheduleEntityTheme") || is_null($this->_propDict["theme"])) {
                 return $this->_propDict["theme"];
             } else {
                 $this->_propDict["theme"] = new ScheduleEntityTheme($this->_propDict["theme"]);
@@ -106,17 +103,16 @@ class ScheduleEntity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the theme
-    *
-    * @param ScheduleEntityTheme $val The value to assign to the theme
-    *
-    * @return ScheduleEntity The ScheduleEntity
-    */
+     * Sets the theme
+     *
+     * @param ScheduleEntityTheme $val The value to assign to the theme
+     *
+     * @return ScheduleEntity The ScheduleEntity
+     */
     public function setTheme($val)
     {
         $this->_propDict["theme"] = $val;
-         return $this;
+        return $this;
     }
 }

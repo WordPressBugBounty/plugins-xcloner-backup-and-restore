@@ -22,14 +22,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal;
 
-namespace MicrosoftAzure\Storage\Common\Internal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\StreamInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\StreamInterface;
 /**
  * Utilities for the project
  *
@@ -54,11 +52,8 @@ class Utilities
      */
     public static function tryGetValue($array, $key, $default = null)
     {
-        return (!is_null($array)) && is_array($array) && array_key_exists($key, $array)
-            ? $array[$key]
-            : $default;
+        return !is_null($array) && is_array($array) && array_key_exists($key, $array) ? $array[$key] : $default;
     }
-
     /**
      * Adds a url scheme if there is no scheme. Return null if input URL is null.
      *
@@ -72,16 +67,12 @@ class Utilities
         if ($url == null) {
             return $url;
         }
-
-        $urlScheme = parse_url($url, PHP_URL_SCHEME);
-
+        $urlScheme = parse_url($url, \PHP_URL_SCHEME);
         if (empty($urlScheme)) {
-            $url = "$scheme://" . $url;
+            $url = "{$scheme}://" . $url;
         }
-
         return $url;
     }
-
     /**
      * Parse storage account name from an endpoint url.
      *
@@ -91,12 +82,10 @@ class Utilities
      */
     public static function tryParseAccountNameFromUrl($url)
     {
-        $host = parse_url($url, PHP_URL_HOST);
-
+        $host = parse_url($url, \PHP_URL_HOST);
         // first token of the url host is account name
         return explode('.', $host)[0];
     }
-
     /**
      * Parse secondary endpoint url string from a primary endpoint url.
      *
@@ -112,14 +101,9 @@ class Utilities
         if (count($splitTokens) > 0 && $splitTokens[0] != '') {
             $schemaAccountToken = $splitTokens[0];
             $schemaAccountSplitTokens = explode('/', $schemaAccountToken);
-            if (count($schemaAccountSplitTokens) > 0 &&
-                $schemaAccountSplitTokens[0] != '') {
-                $accountName = $schemaAccountSplitTokens[
-                    count($schemaAccountSplitTokens) - 1
-                ];
-                $schemaAccountSplitTokens[count($schemaAccountSplitTokens) - 1] =
-                    $accountName . Resources::SECONDARY_STRING;
-
+            if (count($schemaAccountSplitTokens) > 0 && $schemaAccountSplitTokens[0] != '') {
+                $accountName = $schemaAccountSplitTokens[count($schemaAccountSplitTokens) - 1];
+                $schemaAccountSplitTokens[count($schemaAccountSplitTokens) - 1] = $accountName . Resources::SECONDARY_STRING;
                 $splitTokens[0] = implode('/', $schemaAccountSplitTokens);
                 $secondaryUri = implode('.', $splitTokens);
                 return $secondaryUri;
@@ -127,7 +111,6 @@ class Utilities
         }
         return null;
     }
-
     /**
      * tries to get nested array with index name $key from $array.
      *
@@ -142,7 +125,6 @@ class Utilities
     {
         return Utilities::getArray(Utilities::tryGetValue($array, $key));
     }
-
     /**
      * Adds the given key/value pair into array if the value doesn't satisfy empty().
      *
@@ -160,12 +142,10 @@ class Utilities
         if (!is_null($array)) {
             Validate::isArray($array, 'array');
         }
-
         if (!empty($value)) {
             $array[$key] = $value;
         }
     }
-
     /**
      * Returns the specified value of the key chain passed from $array and in case
      * that key chain doesn't exist, null is returned.
@@ -176,9 +156,8 @@ class Utilities
      */
     public static function tryGetKeysChainValue(array $array)
     {
-        $arguments    = func_get_args();
+        $arguments = func_get_args();
         $numArguments = func_num_args();
-
         $currentArray = $array;
         for ($i = 1; $i < $numArguments; $i++) {
             if (is_array($currentArray)) {
@@ -191,10 +170,8 @@ class Utilities
                 return null;
             }
         }
-
         return $currentArray;
     }
-
     /**
      * Checks if the passed $string starts with $prefix
      *
@@ -205,15 +182,14 @@ class Utilities
      *
      * @return boolean
      */
-    public static function startsWith($string, $prefix, $ignoreCase = false)
+    public static function startsWith($string, $prefix, $ignoreCase = \false)
     {
         if ($ignoreCase) {
             $string = strtolower($string);
             $prefix = strtolower($prefix);
         }
-        return ($prefix == substr($string, 0, strlen($prefix)));
+        return $prefix == substr($string, 0, strlen($prefix));
     }
-
     /**
      * Returns grouped items from passed $var
      *
@@ -226,20 +202,15 @@ class Utilities
         if (is_null($var) || empty($var)) {
             return array();
         }
-
         foreach ($var as $value) {
-            if ((gettype($value) == 'object')
-                && (get_class($value) == 'SimpleXMLElement')
-            ) {
+            if (gettype($value) == 'object' && get_class($value) == 'SimpleXMLElement') {
                 return (array) $var;
             } elseif (!is_array($value)) {
                 return array($var);
             }
         }
-
         return $var;
     }
-
     /**
      * Unserializes the passed $xml into array.
      *
@@ -250,10 +221,8 @@ class Utilities
     public static function unserialize($xml)
     {
         $sxml = new \SimpleXMLElement($xml);
-
         return self::_sxml2arr($sxml);
     }
-
     /**
      * Converts a SimpleXML object to an Array recursively
      * ensuring all sub-elements are arrays as well.
@@ -266,16 +235,14 @@ class Utilities
     private static function _sxml2arr($sxml, array $arr = null)
     {
         foreach ((array) $sxml as $key => $value) {
-            if (is_object($value) || (is_array($value))) {
+            if (is_object($value) || is_array($value)) {
                 $arr[$key] = self::_sxml2arr($value);
             } else {
                 $arr[$key] = $value;
             }
         }
-
         return $arr;
     }
-
     /**
      * Serializes given array into xml. The array indices must be string to use
      * them as XML tags.
@@ -287,32 +254,21 @@ class Utilities
      *
      * @return string
      */
-    public static function serialize(
-        array $array,
-        $rootName,
-        $defaultTag = null,
-        $standalone = null
-    ) {
-        $xmlVersion  = '1.0';
+    public static function serialize(array $array, $rootName, $defaultTag = null, $standalone = null)
+    {
+        $xmlVersion = '1.0';
         $xmlEncoding = 'UTF-8';
-
         if (!is_array($array)) {
-            return false;
+            return \false;
         }
-
         $xmlw = new \XmlWriter();
         $xmlw->openMemory();
         $xmlw->startDocument($xmlVersion, $xmlEncoding, $standalone);
-
         $xmlw->startElement($rootName);
-
         self::_arr2xml($xmlw, $array, $defaultTag);
-
         $xmlw->endElement();
-
-        return $xmlw->outputMemory(true);
+        return $xmlw->outputMemory(\true);
     }
-
     /**
      * Takes an array and produces XML based on it.
      *
@@ -323,11 +279,8 @@ class Utilities
      *
      * @return void
      */
-    private static function _arr2xml(
-        \XMLWriter $xmlw,
-        array $data,
-        $defaultTag = null
-    ) {
+    private static function _arr2xml(\XMLWriter $xmlw, array $data, $defaultTag = null)
+    {
         foreach ($data as $key => $value) {
             if (strcmp($key, '@attributes') == 0) {
                 foreach ($value as $attributeName => $attributeValue) {
@@ -341,9 +294,7 @@ class Utilities
                         $xmlw->startElement($defaultTag);
                     }
                 }
-
                 self::_arr2xml($xmlw, $value);
-
                 if (!is_int($key)) {
                     $xmlw->endElement();
                 }
@@ -353,7 +304,6 @@ class Utilities
             }
         }
     }
-
     /**
      * Converts string into boolean value.
      *
@@ -363,15 +313,13 @@ class Utilities
      *
      * @return bool
      */
-    public static function toBoolean($obj, $skipNull = false)
+    public static function toBoolean($obj, $skipNull = \false)
     {
         if ($skipNull && is_null($obj)) {
             return null;
         }
-
-        return filter_var($obj, FILTER_VALIDATE_BOOLEAN);
+        return filter_var($obj, \FILTER_VALIDATE_BOOLEAN);
     }
-
     /**
      * Converts string into boolean value.
      *
@@ -383,7 +331,6 @@ class Utilities
     {
         return $obj ? 'true' : 'false';
     }
-
     /**
      * Converts a given date string into \DateTime object
      *
@@ -394,11 +341,9 @@ class Utilities
     public static function rfc1123ToDateTime($date)
     {
         $timeZone = new \DateTimeZone('GMT');
-        $format   = Resources::AZURE_DATE_FORMAT;
-
+        $format = Resources::AZURE_DATE_FORMAT;
         return \DateTime::createFromFormat($format, $date, $timeZone);
     }
-
     /**
      * Generate ISO 8601 compliant date string in UTC time zone
      *
@@ -410,10 +355,8 @@ class Utilities
     {
         $date = clone $date;
         $date = $date->setTimezone(new \DateTimeZone('UTC'));
-
         return str_replace('+00:00', 'Z', $date->format('c'));
     }
-
     /**
      * Converts a DateTime object into an Edm.DaeTime value in UTC timezone,
      * represented as a string.
@@ -427,18 +370,14 @@ class Utilities
         if (empty($value)) {
             return $value;
         }
-
         if (is_string($value)) {
-            $value =  self::convertToDateTime($value);
+            $value = self::convertToDateTime($value);
         }
-
         Validate::isDate($value);
-
         $cloned = clone $value;
         $cloned->setTimezone(new \DateTimeZone('UTC'));
-        return str_replace('+00:00', 'Z', $cloned->format("Y-m-d\TH:i:s.u0P"));
+        return str_replace('+00:00', 'Z', $cloned->format("Y-m-d\\TH:i:s.u0P"));
     }
-
     /**
      * Converts a string to a \DateTime object. Returns false on failure.
      *
@@ -451,14 +390,11 @@ class Utilities
         if ($value instanceof \DateTime) {
             return $value;
         }
-
         if (substr($value, -1) == 'Z') {
             $value = substr($value, 0, strlen($value) - 1);
         }
-
         return new \DateTime($value, new \DateTimeZone('UTC'));
     }
-
     /**
      * Converts string to stream handle.
      *
@@ -470,7 +406,6 @@ class Utilities
     {
         return fopen('data://text/plain,' . urlencode($string), 'rb');
     }
-
     /**
      * Sorts an array based on given keys order.
      *
@@ -482,16 +417,13 @@ class Utilities
     public static function orderArray(array $array, array $order)
     {
         $ordered = array();
-
         foreach ($order as $key) {
             if (array_key_exists($key, $array)) {
                 $ordered[$key] = $array[$key];
             }
         }
-
         return $ordered;
     }
-
     /**
      * Checks if a value exists in an array. The comparison is done in a case
      * insensitive manner.
@@ -505,7 +437,6 @@ class Utilities
     {
         return in_array(strtolower($needle), array_map('strtolower', $haystack));
     }
-
     /**
      * Checks if the given key exists in the array. The comparison is done in a case
      * insensitive manner.
@@ -519,7 +450,6 @@ class Utilities
     {
         return array_key_exists(strtolower($key), array_change_key_case($search));
     }
-
     /**
      * Returns the specified value of the $key passed from $array and in case that
      * this $key doesn't exist, the default value is returned. The key matching is
@@ -536,7 +466,6 @@ class Utilities
         $array = array_change_key_case($haystack);
         return Utilities::tryGetValue($array, strtolower($key), $default);
     }
-
     /**
      * Returns a string representation of a version 4 GUID, which uses random
      * numbers.There are 6 reserved bits, and the GUIDs have this format:
@@ -553,27 +482,31 @@ class Utilities
     public static function getGuid()
     {
         // @codingStandardsIgnoreStart
-
         return sprintf(
             '%04x%04x-%04x-%04x-%02x%02x-%04x%04x%04x',
             mt_rand(0, 65535),
-            mt_rand(0, 65535),          // 32 bits for "time_low"
-            mt_rand(0, 65535),          // 16 bits for "time_mid"
-            mt_rand(0, 4096) + 16384,   // 16 bits for "time_hi_and_version", with
-                                        // the most significant 4 bits being 0100
-                                        // to indicate randomly generated version
-            mt_rand(0, 64) + 128,       // 8 bits  for "clock_seq_hi", with
-                                        // the most significant 2 bits being 10,
-                                        // required by version 4 GUIDs.
-            mt_rand(0, 255),            // 8 bits  for "clock_seq_low"
-            mt_rand(0, 65535),          // 16 bits for "node 0" and "node 1"
-            mt_rand(0, 65535),          // 16 bits for "node 2" and "node 3"
-            mt_rand(0, 65535)           // 16 bits for "node 4" and "node 5"
+            mt_rand(0, 65535),
+            // 32 bits for "time_low"
+            mt_rand(0, 65535),
+            // 16 bits for "time_mid"
+            mt_rand(0, 4096) + 16384,
+            // 16 bits for "time_hi_and_version", with
+            // the most significant 4 bits being 0100
+            // to indicate randomly generated version
+            mt_rand(0, 64) + 128,
+            // 8 bits  for "clock_seq_hi", with
+            // the most significant 2 bits being 10,
+            // required by version 4 GUIDs.
+            mt_rand(0, 255),
+            // 8 bits  for "clock_seq_low"
+            mt_rand(0, 65535),
+            // 16 bits for "node 0" and "node 1"
+            mt_rand(0, 65535),
+            // 16 bits for "node 2" and "node 3"
+            mt_rand(0, 65535)
         );
-
         // @codingStandardsIgnoreEnd
     }
-
     /**
      * Creates a list of objects of type $class from the provided array using static
      * create method.
@@ -586,14 +519,11 @@ class Utilities
     public static function createInstanceList(array $parsed, $class)
     {
         $list = array();
-
         foreach ($parsed as $value) {
             $list[] = $class::create($value);
         }
-
         return $list;
     }
-
     /**
      * Takes a string and return if it ends with the specified character/string.
      *
@@ -604,20 +534,18 @@ class Utilities
      *
      * @return boolean
      */
-    public static function endsWith($haystack, $needle, $ignoreCase = false)
+    public static function endsWith($haystack, $needle, $ignoreCase = \false)
     {
         if ($ignoreCase) {
             $haystack = strtolower($haystack);
-            $needle   = strtolower($needle);
+            $needle = strtolower($needle);
         }
         $length = strlen($needle);
         if ($length == 0) {
-            return true;
+            return \true;
         }
-
-        return (substr($haystack, -$length) === $needle);
+        return substr($haystack, -$length) === $needle;
     }
-
     /**
      * Get id from entity object or string.
      * If entity is object than validate type and return $entity->$method()
@@ -636,11 +564,9 @@ class Utilities
         } else {
             Validate::isA($entity, $type, 'entity');
             Validate::methodExists($entity, $method, $type);
-
-            return $entity->$method();
+            return $entity->{$method}();
         }
     }
-
     /**
      * Generate a pseudo-random string of bytes using a cryptographically strong
      * algorithm.
@@ -654,7 +580,6 @@ class Utilities
     {
         return openssl_random_pseudo_bytes($length);
     }
-
     /**
      * Convert base 256 number to decimal number.
      *
@@ -665,17 +590,14 @@ class Utilities
     public static function base256ToDec($number)
     {
         Validate::canCastAsString($number, 'number');
-
         $result = 0;
-        $base   = 1;
+        $base = 1;
         for ($i = strlen($number) - 1; $i >= 0; $i--) {
             $result = bcadd($result, bcmul(ord($number[$i]), $base));
-            $base   = bcmul($base, 256);
+            $base = bcmul($base, 256);
         }
-
         return $result;
     }
-
     /**
      * To evaluate if the stream is larger than a certain size. To restore
      * the stream, it has to be seekable, so will return true if the stream
@@ -688,35 +610,28 @@ class Utilities
     public static function isStreamLargerThanSizeOrNotSeekable(StreamInterface $stream, $size)
     {
         Validate::isInteger($size, 'size');
-        Validate::isTrue(
-            $stream instanceof StreamInterface,
-            sprintf(Resources::INVALID_PARAM_MSG, 'stream', 'Psr\Http\Message\StreamInterface')
-        );
-        $result = true;
+        Validate::isTrue($stream instanceof StreamInterface, sprintf(Resources::INVALID_PARAM_MSG, 'stream', 'XCloner\Psr\Http\Message\StreamInterface'));
+        $result = \true;
         if ($stream->isSeekable()) {
             $position = $stream->tell();
             try {
                 $stream->seek($size);
             } catch (\RuntimeException $e) {
-                $pos = strpos(
-                    $e->getMessage(),
-                    'to seek to stream position '
-                );
+                $pos = strpos($e->getMessage(), 'to seek to stream position ');
                 if ($pos == null) {
                     throw $e;
                 }
-                $result = false;
+                $result = \false;
             }
             if ($stream->eof()) {
-                $result = false;
+                $result = \false;
             } elseif ($stream->read(1) == '') {
-                $result = false;
+                $result = \false;
             }
             $stream->seek($position);
         }
         return $result;
     }
-
     /**
      * Gets metadata array by parsing them from given headers.
      *
@@ -728,25 +643,15 @@ class Utilities
     {
         $metadata = array();
         foreach ($headers as $key => $value) {
-            $isMetadataHeader = Utilities::startsWith(
-                strtolower($key),
-                Resources::X_MS_META_HEADER_PREFIX
-            );
-
+            $isMetadataHeader = Utilities::startsWith(strtolower($key), Resources::X_MS_META_HEADER_PREFIX);
             if ($isMetadataHeader) {
                 // Metadata name is case-presrved and case insensitive
-                $MetadataName = str_ireplace(
-                    Resources::X_MS_META_HEADER_PREFIX,
-                    Resources::EMPTY_STRING,
-                    $key
-                );
+                $MetadataName = str_ireplace(Resources::X_MS_META_HEADER_PREFIX, Resources::EMPTY_STRING, $key);
                 $metadata[$MetadataName] = $value;
             }
         }
-
         return $metadata;
     }
-
     /**
      * Validates the provided metadata array.
      *
@@ -761,13 +666,11 @@ class Utilities
         } else {
             $metadata = array();
         }
-
         foreach ($metadata as $key => $value) {
             Validate::canCastAsString($key, 'metadata key');
             Validate::canCastAsString($value, 'metadata value');
         }
     }
-
     /**
      * Append the content to file.
      * @param  string $path    The file to append to.
@@ -783,7 +686,6 @@ class Utilities
             fclose($resource);
         }
     }
-
     /**
      * Check if all the bytes are zero.
      *
@@ -793,17 +695,14 @@ class Utilities
     public static function allZero($content)
     {
         $size = strlen($content);
-
         // If all Zero, skip this range
         for ($i = 0; $i < $size; $i++) {
             if (ord($content[$i]) != 0) {
-                return false;
+                return \false;
             }
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * Append the delimiter to the string. The delimiter will not be added if
      * the string already ends with this delimiter.
@@ -818,10 +717,8 @@ class Utilities
         if (!self::endsWith($string, $delimiter)) {
             $string .= $delimiter;
         }
-
         return $string;
     }
-
     /**
      * Static function used to determine if the request is performed against
      * secondary endpoint.
@@ -833,19 +730,16 @@ class Utilities
      *
      * @return boolean
      */
-    public static function requestSentToSecondary(
-        \Psr\Http\Message\RequestInterface $request,
-        array $options
-    ) {
+    public static function requestSentToSecondary(\XCloner\Psr\Http\Message\RequestInterface $request, array $options)
+    {
         $uri = $request->getUri();
         $secondaryUri = $options[Resources::ROS_SECONDARY_URI];
-        $isSecondary = false;
-        if (strpos((string)$uri, (string)$secondaryUri) !== false) {
-            $isSecondary = true;
+        $isSecondary = \false;
+        if (strpos((string) $uri, (string) $secondaryUri) !== \false) {
+            $isSecondary = \true;
         }
         return $isSecondary;
     }
-
     /**
      * Gets the location value from the headers.
      *
@@ -855,11 +749,7 @@ class Utilities
      */
     public static function getLocationFromHeaders(array $headers)
     {
-        $value = Utilities::tryGetValue(
-            $headers,
-            Resources::X_MS_CONTINUATION_LOCATION_MODE
-        );
-
+        $value = Utilities::tryGetValue($headers, Resources::X_MS_CONTINUATION_LOCATION_MODE);
         $result = '';
         if (\is_string($value)) {
             $result = $value;
@@ -868,7 +758,6 @@ class Utilities
         }
         return $result;
     }
-
     /**
      * Gets if the value is a double value or string representation of a double
      * value
@@ -881,7 +770,6 @@ class Utilities
     {
         return is_numeric($value) && is_double($value + 0);
     }
-
     /**
      * Calculates the content MD5 which is base64 encoded. This should be align
      * with the server calculated MD5.
@@ -894,10 +782,8 @@ class Utilities
     {
         Validate::notNull($content, 'content');
         Validate::canCastAsString($content, 'content');
-
-        return base64_encode(md5($content, true));
+        return base64_encode(md5($content, \true));
     }
-
     /**
      * Return if the environment is in 64 bit PHP.
      *
@@ -905,6 +791,6 @@ class Utilities
      */
     public static function is64BitPHP()
     {
-        return PHP_INT_SIZE == 8;
+        return \PHP_INT_SIZE == 8;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * VpnServiceExceptionAction class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class VpnServiceExceptionAction extends Enum
 {
     /**
-    * The Enum VpnServiceExceptionAction
-    */
+     * The Enum VpnServiceExceptionAction
+     */
     const FORCE_TRAFFIC_VIA_VPN = "forceTrafficViaVPN";
     const ALLOW_TRAFFIC_OUTSIDE = "allowTrafficOutside";
     const DROP_TRAFFIC = "dropTraffic";

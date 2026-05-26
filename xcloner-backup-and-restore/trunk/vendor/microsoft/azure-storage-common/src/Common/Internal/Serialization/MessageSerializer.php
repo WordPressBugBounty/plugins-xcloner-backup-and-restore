@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Serialization;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use GuzzleHttp\Exception\RequestException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\GuzzleHttp\Exception\RequestException;
 /**
  * Provides functionality to serialize a message to a string.
  *
@@ -64,24 +62,17 @@ class MessageSerializer
         } elseif ($targetObject instanceof \Exception) {
             return self::serializeException($targetObject);
         }
-
         Validate::methodExists($targetObject, 'getHeaders', 'targetObject');
         Validate::methodExists($targetObject, 'getProtocolVersion', 'targetObject');
-
         // Serialize according to the implemented method.
-        if (method_exists($targetObject, 'getUri') &&
-            method_exists($targetObject, 'getMethod')) {
+        if (method_exists($targetObject, 'getUri') && method_exists($targetObject, 'getMethod')) {
             return self::serializeRequest($targetObject);
-        } elseif (method_exists($targetObject, 'getStatusCode') &&
-                   method_exists($targetObject, 'getReasonPhrase')) {
+        } elseif (method_exists($targetObject, 'getStatusCode') && method_exists($targetObject, 'getReasonPhrase')) {
             return self::serializeResponse($targetObject);
         } else {
-            throw new \InvalidArgumentException(
-                Resources::INVALID_MESSAGE_OBJECT_TO_SERIALIZE
-            );
+            throw new \InvalidArgumentException(Resources::INVALID_MESSAGE_OBJECT_TO_SERIALIZE);
         }
     }
-
     /**
      * Serialize the request type that implemented the following methods:
      * getHeaders()
@@ -97,16 +88,13 @@ class MessageSerializer
     {
         $headers = $request->getHeaders();
         $version = $request->getProtocolVersion();
-        $uri     = $request->getUri();
-        $method  = $request->getMethod();
-
+        $uri = $request->getUri();
+        $method = $request->getMethod();
         $resultString = "Request:\n";
         $resultString .= "URI: {$uri}\nHTTP Version: {$version}\nMethod: {$method}\n";
         $resultString .= self::serializeHeaders($headers);
-
         return $resultString;
     }
-
     /**
      * Serialize the response type that implemented the following methods:
      * getHeaders()
@@ -122,17 +110,14 @@ class MessageSerializer
     {
         $headers = $response->getHeaders();
         $version = $response->getProtocolVersion();
-        $status  = $response->getStatusCode();
-        $reason  = $response->getReasonPhrase();
-
+        $status = $response->getStatusCode();
+        $reason = $response->getReasonPhrase();
         $resultString = "Response:\n";
         $resultString .= "Status Code: {$status}\nReason: {$reason}\n";
         $resultString .= "HTTP Version: {$version}\n";
         $resultString .= self::serializeHeaders($headers);
-
         return $resultString;
     }
-
     /**
      * Serialize the message headers.
      *
@@ -146,10 +131,8 @@ class MessageSerializer
         foreach ($headers as $key => $value) {
             $resultString .= sprintf("%s: %s\n", $key, $value[0]);
         }
-
         return $resultString;
     }
-
     /**
      * Serialize the request exception.
      *
@@ -163,10 +146,8 @@ class MessageSerializer
         if ($e->hasResponse()) {
             $resultString .= self::serializeResponse($e->getResponse());
         }
-
         return $resultString;
     }
-
     /**
      * Serialize the general exception
      *

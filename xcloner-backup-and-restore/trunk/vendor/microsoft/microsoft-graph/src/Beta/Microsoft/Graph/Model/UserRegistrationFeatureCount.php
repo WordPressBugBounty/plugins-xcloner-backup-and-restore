@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserRegistrationFeatureCount class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class UserRegistrationFeatureCount extends Entity
 {
-
     /**
-    * Gets the feature
-    * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
-    *
-    * @return AuthenticationMethodFeature|null The feature
-    */
+     * Gets the feature
+     * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
+     *
+     * @return AuthenticationMethodFeature|null The feature
+     */
     public function getFeature()
     {
         if (array_key_exists("feature", $this->_propDict)) {
-            if (is_a($this->_propDict["feature"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodFeature") || is_null($this->_propDict["feature"])) {
+            if (is_a($this->_propDict["feature"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationMethodFeature") || is_null($this->_propDict["feature"])) {
                 return $this->_propDict["feature"];
             } else {
                 $this->_propDict["feature"] = new AuthenticationMethodFeature($this->_propDict["feature"]);
@@ -45,26 +46,25 @@ class UserRegistrationFeatureCount extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the feature
-    * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
-    *
-    * @param AuthenticationMethodFeature $val The value to assign to the feature
-    *
-    * @return UserRegistrationFeatureCount The UserRegistrationFeatureCount
-    */
+     * Sets the feature
+     * Number of users registered or capable for Multi-Factor Authentication, Self-Service Password Reset and Passwordless Authentication. Possible values are: ssprRegistered, ssprEnabled, ssprCapable, passwordlessCapable, mfaCapable.
+     *
+     * @param AuthenticationMethodFeature $val The value to assign to the feature
+     *
+     * @return UserRegistrationFeatureCount The UserRegistrationFeatureCount
+     */
     public function setFeature($val)
     {
         $this->_propDict["feature"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the userCount
-    * Number of users.
-    *
-    * @return int|null The userCount
-    */
+     * Gets the userCount
+     * Number of users.
+     *
+     * @return int|null The userCount
+     */
     public function getUserCount()
     {
         if (array_key_exists("userCount", $this->_propDict)) {
@@ -73,15 +73,14 @@ class UserRegistrationFeatureCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userCount
-    * Number of users.
-    *
-    * @param int $val The value of the userCount
-    *
-    * @return UserRegistrationFeatureCount
-    */
+     * Sets the userCount
+     * Number of users.
+     *
+     * @param int $val The value of the userCount
+     *
+     * @return UserRegistrationFeatureCount
+     */
     public function setUserCount($val)
     {
         $this->_propDict["userCount"] = $val;

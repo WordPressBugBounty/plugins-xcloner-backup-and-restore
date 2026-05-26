@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecureScoreControlProfile class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecureScoreControlProfile extends Entity
 {
     /**
-    * Gets the actionType
-    * Control action type (Config, Review, Behavior).
-    *
-    * @return string|null The actionType
-    */
+     * Gets the actionType
+     * Control action type (Config, Review, Behavior).
+     *
+     * @return string|null The actionType
+     */
     public function getActionType()
     {
         if (array_key_exists("actionType", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionType
-    * Control action type (Config, Review, Behavior).
-    *
-    * @param string $val The actionType
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the actionType
+     * Control action type (Config, Review, Behavior).
+     *
+     * @param string $val The actionType
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setActionType($val)
     {
         $this->_propDict["actionType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the actionUrl
-    * URL to where the control can be actioned.
-    *
-    * @return string|null The actionUrl
-    */
+     * Gets the actionUrl
+     * URL to where the control can be actioned.
+     *
+     * @return string|null The actionUrl
+     */
     public function getActionUrl()
     {
         if (array_key_exists("actionUrl", $this->_propDict)) {
@@ -70,27 +69,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionUrl
-    * URL to where the control can be actioned.
-    *
-    * @param string $val The actionUrl
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the actionUrl
+     * URL to where the control can be actioned.
+     *
+     * @param string $val The actionUrl
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setActionUrl($val)
     {
         $this->_propDict["actionUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureTenantId
-    * GUID string for tenant ID.
-    *
-    * @return string|null The azureTenantId
-    */
+     * Gets the azureTenantId
+     * GUID string for tenant ID.
+     *
+     * @return string|null The azureTenantId
+     */
     public function getAzureTenantId()
     {
         if (array_key_exists("azureTenantId", $this->_propDict)) {
@@ -99,57 +96,52 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureTenantId
-    * GUID string for tenant ID.
-    *
-    * @param string $val The azureTenantId
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the azureTenantId
+     * GUID string for tenant ID.
+     *
+     * @param string $val The azureTenantId
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setAzureTenantId($val)
     {
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the complianceInformation
-    * The collection of compliance information associated with secure score control
+     * The collection of compliance information associated with secure score control
      *
      * @return array|null The complianceInformation
      */
     public function getComplianceInformation()
     {
         if (array_key_exists("complianceInformation", $this->_propDict)) {
-           return $this->_propDict["complianceInformation"];
+            return $this->_propDict["complianceInformation"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the complianceInformation
-    * The collection of compliance information associated with secure score control
-    *
-    * @param ComplianceInformation[] $val The complianceInformation
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the complianceInformation
+     * The collection of compliance information associated with secure score control
+     *
+     * @param ComplianceInformation[] $val The complianceInformation
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setComplianceInformation($val)
     {
         $this->_propDict["complianceInformation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the controlCategory
-    * Control action category (Account, Data, Device, Apps, Infrastructure).
-    *
-    * @return string|null The controlCategory
-    */
+     * Gets the controlCategory
+     * Control action category (Account, Data, Device, Apps, Infrastructure).
+     *
+     * @return string|null The controlCategory
+     */
     public function getControlCategory()
     {
         if (array_key_exists("controlCategory", $this->_propDict)) {
@@ -158,57 +150,52 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the controlCategory
-    * Control action category (Account, Data, Device, Apps, Infrastructure).
-    *
-    * @param string $val The controlCategory
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the controlCategory
+     * Control action category (Account, Data, Device, Apps, Infrastructure).
+     *
+     * @param string $val The controlCategory
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setControlCategory($val)
     {
         $this->_propDict["controlCategory"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the controlStateUpdates
-    * Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
+     * Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
      *
      * @return array|null The controlStateUpdates
      */
     public function getControlStateUpdates()
     {
         if (array_key_exists("controlStateUpdates", $this->_propDict)) {
-           return $this->_propDict["controlStateUpdates"];
+            return $this->_propDict["controlStateUpdates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the controlStateUpdates
-    * Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
-    *
-    * @param SecureScoreControlStateUpdate[] $val The controlStateUpdates
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the controlStateUpdates
+     * Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).
+     *
+     * @param SecureScoreControlStateUpdate[] $val The controlStateUpdates
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setControlStateUpdates($val)
     {
         $this->_propDict["controlStateUpdates"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deprecated
-    * Flag to indicate if a control is depreciated.
-    *
-    * @return bool|null The deprecated
-    */
+     * Gets the deprecated
+     * Flag to indicate if a control is depreciated.
+     *
+     * @return bool|null The deprecated
+     */
     public function getDeprecated()
     {
         if (array_key_exists("deprecated", $this->_propDict)) {
@@ -217,27 +204,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deprecated
-    * Flag to indicate if a control is depreciated.
-    *
-    * @param bool $val The deprecated
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the deprecated
+     * Flag to indicate if a control is depreciated.
+     *
+     * @param bool $val The deprecated
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setDeprecated($val)
     {
         $this->_propDict["deprecated"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the implementationCost
-    * Resource cost of implemmentating control (low, moderate, high).
-    *
-    * @return string|null The implementationCost
-    */
+     * Gets the implementationCost
+     * Resource cost of implemmentating control (low, moderate, high).
+     *
+     * @return string|null The implementationCost
+     */
     public function getImplementationCost()
     {
         if (array_key_exists("implementationCost", $this->_propDict)) {
@@ -246,30 +231,28 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the implementationCost
-    * Resource cost of implemmentating control (low, moderate, high).
-    *
-    * @param string $val The implementationCost
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the implementationCost
+     * Resource cost of implemmentating control (low, moderate, high).
+     *
+     * @param string $val The implementationCost
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setImplementationCost($val)
     {
         $this->_propDict["implementationCost"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -278,26 +261,24 @@ class SecureScoreControlProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the maxScore
-    * Current obtained max score on specified date.
-    *
-    * @return float|null The maxScore
-    */
+     * Gets the maxScore
+     * Current obtained max score on specified date.
+     *
+     * @return float|null The maxScore
+     */
     public function getMaxScore()
     {
         if (array_key_exists("maxScore", $this->_propDict)) {
@@ -306,27 +287,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maxScore
-    * Current obtained max score on specified date.
-    *
-    * @param float $val The maxScore
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the maxScore
+     * Current obtained max score on specified date.
+     *
+     * @param float $val The maxScore
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setMaxScore($val)
     {
         $this->_propDict["maxScore"] = floatval($val);
         return $this;
     }
-
     /**
-    * Gets the rank
-    * Microsoft's stack ranking of control.
-    *
-    * @return int|null The rank
-    */
+     * Gets the rank
+     * Microsoft's stack ranking of control.
+     *
+     * @return int|null The rank
+     */
     public function getRank()
     {
         if (array_key_exists("rank", $this->_propDict)) {
@@ -335,27 +314,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the rank
-    * Microsoft's stack ranking of control.
-    *
-    * @param int $val The rank
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the rank
+     * Microsoft's stack ranking of control.
+     *
+     * @param int $val The rank
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setRank($val)
     {
         $this->_propDict["rank"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the remediation
-    * Description of what the control will help remediate.
-    *
-    * @return string|null The remediation
-    */
+     * Gets the remediation
+     * Description of what the control will help remediate.
+     *
+     * @return string|null The remediation
+     */
     public function getRemediation()
     {
         if (array_key_exists("remediation", $this->_propDict)) {
@@ -364,27 +341,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediation
-    * Description of what the control will help remediate.
-    *
-    * @param string $val The remediation
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the remediation
+     * Description of what the control will help remediate.
+     *
+     * @param string $val The remediation
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setRemediation($val)
     {
         $this->_propDict["remediation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the remediationImpact
-    * Description of the impact on users of the remediation.
-    *
-    * @return string|null The remediationImpact
-    */
+     * Gets the remediationImpact
+     * Description of the impact on users of the remediation.
+     *
+     * @return string|null The remediationImpact
+     */
     public function getRemediationImpact()
     {
         if (array_key_exists("remediationImpact", $this->_propDict)) {
@@ -393,27 +368,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediationImpact
-    * Description of the impact on users of the remediation.
-    *
-    * @param string $val The remediationImpact
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the remediationImpact
+     * Description of the impact on users of the remediation.
+     *
+     * @param string $val The remediationImpact
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setRemediationImpact($val)
     {
         $this->_propDict["remediationImpact"] = $val;
         return $this;
     }
-
     /**
-    * Gets the service
-    * Service that owns the control (Exchange, Sharepoint, Azure AD).
-    *
-    * @return string|null The service
-    */
+     * Gets the service
+     * Service that owns the control (Exchange, Sharepoint, Azure AD).
+     *
+     * @return string|null The service
+     */
     public function getService()
     {
         if (array_key_exists("service", $this->_propDict)) {
@@ -422,27 +395,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the service
-    * Service that owns the control (Exchange, Sharepoint, Azure AD).
-    *
-    * @param string $val The service
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the service
+     * Service that owns the control (Exchange, Sharepoint, Azure AD).
+     *
+     * @param string $val The service
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setService($val)
     {
         $this->_propDict["service"] = $val;
         return $this;
     }
-
     /**
-    * Gets the threats
-    * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
-    *
-    * @return array|null The threats
-    */
+     * Gets the threats
+     * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
+     *
+     * @return array|null The threats
+     */
     public function getThreats()
     {
         if (array_key_exists("threats", $this->_propDict)) {
@@ -451,27 +422,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the threats
-    * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
-    *
-    * @param string[] $val The threats
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the threats
+     * List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
+     *
+     * @param string[] $val The threats
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setThreats($val)
     {
         $this->_propDict["threats"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tier
-    * Control tier (Core, Defense in Depth, Advanced.)
-    *
-    * @return string|null The tier
-    */
+     * Gets the tier
+     * Control tier (Core, Defense in Depth, Advanced.)
+     *
+     * @return string|null The tier
+     */
     public function getTier()
     {
         if (array_key_exists("tier", $this->_propDict)) {
@@ -480,27 +449,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tier
-    * Control tier (Core, Defense in Depth, Advanced.)
-    *
-    * @param string $val The tier
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the tier
+     * Control tier (Core, Defense in Depth, Advanced.)
+     *
+     * @param string $val The tier
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setTier($val)
     {
         $this->_propDict["tier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the title
-    * Title of the control.
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * Title of the control.
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -509,27 +476,25 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * Title of the control.
-    *
-    * @param string $val The title
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the title
+     * Title of the control.
+     *
+     * @param string $val The title
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userImpact
-    * User impact of implementing control (low, moderate, high).
-    *
-    * @return string|null The userImpact
-    */
+     * Gets the userImpact
+     * User impact of implementing control (low, moderate, high).
+     *
+     * @return string|null The userImpact
+     */
     public function getUserImpact()
     {
         if (array_key_exists("userImpact", $this->_propDict)) {
@@ -538,30 +503,28 @@ class SecureScoreControlProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userImpact
-    * User impact of implementing control (low, moderate, high).
-    *
-    * @param string $val The userImpact
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the userImpact
+     * User impact of implementing control (low, moderate, high).
+     *
+     * @param string $val The userImpact
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setUserImpact($val)
     {
         $this->_propDict["userImpact"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vendorInformation
-    *
-    * @return SecurityVendorInformation|null The vendorInformation
-    */
+     * Gets the vendorInformation
+     *
+     * @return SecurityVendorInformation|null The vendorInformation
+     */
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);
@@ -570,18 +533,16 @@ class SecureScoreControlProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the vendorInformation
-    *
-    * @param SecurityVendorInformation $val The vendorInformation
-    *
-    * @return SecureScoreControlProfile
-    */
+     * Sets the vendorInformation
+     *
+     * @param SecurityVendorInformation $val The vendorInformation
+     *
+     * @return SecureScoreControlProfile
+     */
     public function setVendorInformation($val)
     {
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-
 }

@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Internal;
 
-namespace MicrosoftAzure\Storage\Blob\Internal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
 /**
  * Project resources.
  *
@@ -43,10 +41,8 @@ use MicrosoftAzure\Storage\Common\Internal\Resources;
 class BlobResources extends Resources
 {
     // @codingStandardsIgnoreStart
-
     const BLOB_SDK_VERSION = '1.5.4';
     const STORAGE_API_LATEST_VERSION = '2017-11-09';
-
     // Error messages
     const INVALID_BTE_MSG = "The blob block type must exist in %s";
     const INVALID_BLOB_PAT_MSG = 'The provided access type is invalid.';
@@ -56,7 +52,6 @@ class BlobResources extends Resources
     const ERROR_CONTAINER_NOT_EXIST = 'The specified container does not exist';
     const ERROR_BLOB_NOT_EXIST = 'The specified blob does not exist';
     const CONTENT_SIZE_TOO_LARGE = 'The content is too large for the selected blob type.';
-
     // Headers
     const X_MS_BLOB_PUBLIC_ACCESS = 'x-ms-blob-public-access';
     const X_MS_BLOB_SEQUENCE_NUMBER = 'x-ms-blob-sequence-number';
@@ -96,18 +91,12 @@ class BlobResources extends Resources
     const SEQUENCE_NUMBER_LESS_THAN = 'x-ms-if-sequence-number-lt';
     const SEQUENCE_NUMBER_EQUAL = 'x-ms-if-sequence-number-eq';
     const BLOB_CONTENT_MD5 = 'x-ms-blob-content-md5';
-
     // Query parameters
     const QP_DELIMITER = 'Delimiter';
     const QP_BLOCKID = 'blockid';
     const QP_BLOCK_LIST_TYPE = 'blocklisttype';
     const QP_PRE_SNAPSHOT = 'prevsnapshot';
-
     // Resource permissions
-    const ACCESS_PERMISSIONS = [
-        Resources::RESOURCE_TYPE_BLOB => ['r', 'a', 'c', 'w', 'd'],
-        Resources::RESOURCE_TYPE_CONTAINER => ['r', 'a', 'c', 'w', 'd', 'l']
-    ];
-
+    const ACCESS_PERMISSIONS = [Resources::RESOURCE_TYPE_BLOB => ['r', 'a', 'c', 'w', 'd'], Resources::RESOURCE_TYPE_CONTAINER => ['r', 'a', 'c', 'w', 'd', 'l']];
     // @codingStandardsIgnoreEnd
 }

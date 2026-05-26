@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileThreatDefenseConnector class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileThreatDefenseConnector extends Entity
 {
     /**
-    * Gets the androidDeviceBlockedOnMissingPartnerData
-    * For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
-    *
-    * @return bool|null The androidDeviceBlockedOnMissingPartnerData
-    */
+     * Gets the androidDeviceBlockedOnMissingPartnerData
+     * For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     *
+     * @return bool|null The androidDeviceBlockedOnMissingPartnerData
+     */
     public function getAndroidDeviceBlockedOnMissingPartnerData()
     {
         if (array_key_exists("androidDeviceBlockedOnMissingPartnerData", $this->_propDict)) {
@@ -41,27 +42,25 @@ class MobileThreatDefenseConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidDeviceBlockedOnMissingPartnerData
-    * For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
-    *
-    * @param bool $val The androidDeviceBlockedOnMissingPartnerData
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the androidDeviceBlockedOnMissingPartnerData
+     * For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     *
+     * @param bool $val The androidDeviceBlockedOnMissingPartnerData
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setAndroidDeviceBlockedOnMissingPartnerData($val)
     {
         $this->_propDict["androidDeviceBlockedOnMissingPartnerData"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the androidEnabled
-    * For Android, set whether data from the data sync partner should be used during compliance evaluations
-    *
-    * @return bool|null The androidEnabled
-    */
+     * Gets the androidEnabled
+     * For Android, set whether data from the data sync partner should be used during compliance evaluations
+     *
+     * @return bool|null The androidEnabled
+     */
     public function getAndroidEnabled()
     {
         if (array_key_exists("androidEnabled", $this->_propDict)) {
@@ -70,27 +69,25 @@ class MobileThreatDefenseConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the androidEnabled
-    * For Android, set whether data from the data sync partner should be used during compliance evaluations
-    *
-    * @param bool $val The androidEnabled
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the androidEnabled
+     * For Android, set whether data from the data sync partner should be used during compliance evaluations
+     *
+     * @param bool $val The androidEnabled
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setAndroidEnabled($val)
     {
         $this->_propDict["androidEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the iosDeviceBlockedOnMissingPartnerData
-    * For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
-    *
-    * @return bool|null The iosDeviceBlockedOnMissingPartnerData
-    */
+     * Gets the iosDeviceBlockedOnMissingPartnerData
+     * For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     *
+     * @return bool|null The iosDeviceBlockedOnMissingPartnerData
+     */
     public function getIosDeviceBlockedOnMissingPartnerData()
     {
         if (array_key_exists("iosDeviceBlockedOnMissingPartnerData", $this->_propDict)) {
@@ -99,27 +96,25 @@ class MobileThreatDefenseConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the iosDeviceBlockedOnMissingPartnerData
-    * For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
-    *
-    * @param bool $val The iosDeviceBlockedOnMissingPartnerData
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the iosDeviceBlockedOnMissingPartnerData
+     * For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     *
+     * @param bool $val The iosDeviceBlockedOnMissingPartnerData
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setIosDeviceBlockedOnMissingPartnerData($val)
     {
         $this->_propDict["iosDeviceBlockedOnMissingPartnerData"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the iosEnabled
-    * For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
-    *
-    * @return bool|null The iosEnabled
-    */
+     * Gets the iosEnabled
+     * For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
+     *
+     * @return bool|null The iosEnabled
+     */
     public function getIosEnabled()
     {
         if (array_key_exists("iosEnabled", $this->_propDict)) {
@@ -128,31 +123,29 @@ class MobileThreatDefenseConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the iosEnabled
-    * For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
-    *
-    * @param bool $val The iosEnabled
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the iosEnabled
+     * For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
+     *
+     * @param bool $val The iosEnabled
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setIosEnabled($val)
     {
         $this->_propDict["iosEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastHeartbeatDateTime
-    * DateTime of last Heartbeat recieved from the Data Sync Partner
-    *
-    * @return \DateTime|null The lastHeartbeatDateTime
-    */
+     * Gets the lastHeartbeatDateTime
+     * DateTime of last Heartbeat recieved from the Data Sync Partner
+     *
+     * @return \DateTime|null The lastHeartbeatDateTime
+     */
     public function getLastHeartbeatDateTime()
     {
         if (array_key_exists("lastHeartbeatDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastHeartbeatDateTime"], "\DateTime") || is_null($this->_propDict["lastHeartbeatDateTime"])) {
+            if (is_a($this->_propDict["lastHeartbeatDateTime"], "\\DateTime") || is_null($this->_propDict["lastHeartbeatDateTime"])) {
                 return $this->_propDict["lastHeartbeatDateTime"];
             } else {
                 $this->_propDict["lastHeartbeatDateTime"] = new \DateTime($this->_propDict["lastHeartbeatDateTime"]);
@@ -161,31 +154,29 @@ class MobileThreatDefenseConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastHeartbeatDateTime
-    * DateTime of last Heartbeat recieved from the Data Sync Partner
-    *
-    * @param \DateTime $val The lastHeartbeatDateTime
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the lastHeartbeatDateTime
+     * DateTime of last Heartbeat recieved from the Data Sync Partner
+     *
+     * @param \DateTime $val The lastHeartbeatDateTime
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setLastHeartbeatDateTime($val)
     {
         $this->_propDict["lastHeartbeatDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the partnerState
-    * Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
-    *
-    * @return MobileThreatPartnerTenantState|null The partnerState
-    */
+     * Gets the partnerState
+     * Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     *
+     * @return MobileThreatPartnerTenantState|null The partnerState
+     */
     public function getPartnerState()
     {
         if (array_key_exists("partnerState", $this->_propDict)) {
-            if (is_a($this->_propDict["partnerState"], "\Microsoft\Graph\Model\MobileThreatPartnerTenantState") || is_null($this->_propDict["partnerState"])) {
+            if (is_a($this->_propDict["partnerState"], "XCloner\\Microsoft\\Graph\\Model\\MobileThreatPartnerTenantState") || is_null($this->_propDict["partnerState"])) {
                 return $this->_propDict["partnerState"];
             } else {
                 $this->_propDict["partnerState"] = new MobileThreatPartnerTenantState($this->_propDict["partnerState"]);
@@ -194,27 +185,25 @@ class MobileThreatDefenseConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the partnerState
-    * Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
-    *
-    * @param MobileThreatPartnerTenantState $val The partnerState
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the partnerState
+     * Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     *
+     * @param MobileThreatPartnerTenantState $val The partnerState
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setPartnerState($val)
     {
         $this->_propDict["partnerState"] = $val;
         return $this;
     }
-
     /**
-    * Gets the partnerUnresponsivenessThresholdInDays
-    * Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
-    *
-    * @return int|null The partnerUnresponsivenessThresholdInDays
-    */
+     * Gets the partnerUnresponsivenessThresholdInDays
+     * Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
+     *
+     * @return int|null The partnerUnresponsivenessThresholdInDays
+     */
     public function getPartnerUnresponsivenessThresholdInDays()
     {
         if (array_key_exists("partnerUnresponsivenessThresholdInDays", $this->_propDict)) {
@@ -223,27 +212,25 @@ class MobileThreatDefenseConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the partnerUnresponsivenessThresholdInDays
-    * Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
-    *
-    * @param int $val The partnerUnresponsivenessThresholdInDays
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the partnerUnresponsivenessThresholdInDays
+     * Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
+     *
+     * @param int $val The partnerUnresponsivenessThresholdInDays
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setPartnerUnresponsivenessThresholdInDays($val)
     {
         $this->_propDict["partnerUnresponsivenessThresholdInDays"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the partnerUnsupportedOsVersionBlocked
-    * Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
-    *
-    * @return bool|null The partnerUnsupportedOsVersionBlocked
-    */
+     * Gets the partnerUnsupportedOsVersionBlocked
+     * Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
+     *
+     * @return bool|null The partnerUnsupportedOsVersionBlocked
+     */
     public function getPartnerUnsupportedOsVersionBlocked()
     {
         if (array_key_exists("partnerUnsupportedOsVersionBlocked", $this->_propDict)) {
@@ -252,19 +239,17 @@ class MobileThreatDefenseConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the partnerUnsupportedOsVersionBlocked
-    * Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
-    *
-    * @param bool $val The partnerUnsupportedOsVersionBlocked
-    *
-    * @return MobileThreatDefenseConnector
-    */
+     * Sets the partnerUnsupportedOsVersionBlocked
+     * Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
+     *
+     * @param bool $val The partnerUnsupportedOsVersionBlocked
+     *
+     * @return MobileThreatDefenseConnector
+     */
     public function setPartnerUnsupportedOsVersionBlocked($val)
     {
         $this->_propDict["partnerUnsupportedOsVersionBlocked"] = boolval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationConfigurationValidation class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AuthenticationConfigurationValidation extends Entity
 {
-
     /**
-    * Gets the errors
-    *
-    * @return GenericError|null The errors
-    */
+     * Gets the errors
+     *
+     * @return GenericError|null The errors
+     */
     public function getErrors()
     {
         if (array_key_exists("errors", $this->_propDict)) {
-            if (is_a($this->_propDict["errors"], "\Beta\Microsoft\Graph\Model\GenericError") || is_null($this->_propDict["errors"])) {
+            if (is_a($this->_propDict["errors"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GenericError") || is_null($this->_propDict["errors"])) {
                 return $this->_propDict["errors"];
             } else {
                 $this->_propDict["errors"] = new GenericError($this->_propDict["errors"]);
@@ -44,29 +45,27 @@ class AuthenticationConfigurationValidation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the errors
-    *
-    * @param GenericError $val The value to assign to the errors
-    *
-    * @return AuthenticationConfigurationValidation The AuthenticationConfigurationValidation
-    */
+     * Sets the errors
+     *
+     * @param GenericError $val The value to assign to the errors
+     *
+     * @return AuthenticationConfigurationValidation The AuthenticationConfigurationValidation
+     */
     public function setErrors($val)
     {
         $this->_propDict["errors"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the warnings
-    *
-    * @return GenericError|null The warnings
-    */
+     * Gets the warnings
+     *
+     * @return GenericError|null The warnings
+     */
     public function getWarnings()
     {
         if (array_key_exists("warnings", $this->_propDict)) {
-            if (is_a($this->_propDict["warnings"], "\Beta\Microsoft\Graph\Model\GenericError") || is_null($this->_propDict["warnings"])) {
+            if (is_a($this->_propDict["warnings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GenericError") || is_null($this->_propDict["warnings"])) {
                 return $this->_propDict["warnings"];
             } else {
                 $this->_propDict["warnings"] = new GenericError($this->_propDict["warnings"]);
@@ -75,17 +74,16 @@ class AuthenticationConfigurationValidation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the warnings
-    *
-    * @param GenericError $val The value to assign to the warnings
-    *
-    * @return AuthenticationConfigurationValidation The AuthenticationConfigurationValidation
-    */
+     * Sets the warnings
+     *
+     * @param GenericError $val The value to assign to the warnings
+     *
+     * @return AuthenticationConfigurationValidation The AuthenticationConfigurationValidation
+     */
     public function setWarnings($val)
     {
         $this->_propDict["warnings"] = $val;
-         return $this;
+        return $this;
     }
 }

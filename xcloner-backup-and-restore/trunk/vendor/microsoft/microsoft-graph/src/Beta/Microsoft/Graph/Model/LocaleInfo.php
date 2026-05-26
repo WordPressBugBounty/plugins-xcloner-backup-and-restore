@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LocaleInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LocaleInfo extends Entity
 {
     /**
-    * Gets the displayName
-    * A name representing the user's locale in natural language, for example, 'English (United States)'.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * A name representing the user's locale in natural language, for example, 'English (United States)'.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class LocaleInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * A name representing the user's locale in natural language, for example, 'English (United States)'.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return LocaleInfo
-    */
+     * Sets the displayName
+     * A name representing the user's locale in natural language, for example, 'English (United States)'.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return LocaleInfo
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the locale
-    * A locale representation for the user, which includes the user's preferred language and country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
-    *
-    * @return string|null The locale
-    */
+     * Gets the locale
+     * A locale representation for the user, which includes the user's preferred language and country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+     *
+     * @return string|null The locale
+     */
     public function getLocale()
     {
         if (array_key_exists("locale", $this->_propDict)) {
@@ -68,15 +69,14 @@ class LocaleInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the locale
-    * A locale representation for the user, which includes the user's preferred language and country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
-    *
-    * @param string $val The value of the locale
-    *
-    * @return LocaleInfo
-    */
+     * Sets the locale
+     * A locale representation for the user, which includes the user's preferred language and country/region. For example, 'en-us'. The language component follows 2-letter codes as defined in ISO 639-1, and the country component follows 2-letter codes as defined in ISO 3166-1 alpha-2.
+     *
+     * @param string $val The value of the locale
+     *
+     * @return LocaleInfo
+     */
     public function setLocale($val)
     {
         $this->_propDict["locale"] = $val;

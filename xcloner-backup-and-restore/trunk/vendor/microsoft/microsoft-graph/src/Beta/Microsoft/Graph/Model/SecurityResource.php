@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityResource class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecurityResource extends Entity
 {
     /**
-    * Gets the resource
-    * Name of the resource that is related to current alert. Required.
-    *
-    * @return string|null The resource
-    */
+     * Gets the resource
+     * Name of the resource that is related to current alert. Required.
+     *
+     * @return string|null The resource
+     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
@@ -40,31 +42,29 @@ class SecurityResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resource
-    * Name of the resource that is related to current alert. Required.
-    *
-    * @param string $val The value of the resource
-    *
-    * @return SecurityResource
-    */
+     * Sets the resource
+     * Name of the resource that is related to current alert. Required.
+     *
+     * @param string $val The value of the resource
+     *
+     * @return SecurityResource
+     */
     public function setResource($val)
     {
         $this->_propDict["resource"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceType
-    * Represents type of security resources related to an alert. Possible values are: attacked, related.
-    *
-    * @return SecurityResourceType|null The resourceType
-    */
+     * Gets the resourceType
+     * Represents type of security resources related to an alert. Possible values are: attacked, related.
+     *
+     * @return SecurityResourceType|null The resourceType
+     */
     public function getResourceType()
     {
         if (array_key_exists("resourceType", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceType"], "\Beta\Microsoft\Graph\Model\SecurityResourceType") || is_null($this->_propDict["resourceType"])) {
+            if (is_a($this->_propDict["resourceType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityResourceType") || is_null($this->_propDict["resourceType"])) {
                 return $this->_propDict["resourceType"];
             } else {
                 $this->_propDict["resourceType"] = new SecurityResourceType($this->_propDict["resourceType"]);
@@ -73,18 +73,17 @@ class SecurityResource extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resourceType
-    * Represents type of security resources related to an alert. Possible values are: attacked, related.
-    *
-    * @param SecurityResourceType $val The value to assign to the resourceType
-    *
-    * @return SecurityResource The SecurityResource
-    */
+     * Sets the resourceType
+     * Represents type of security resources related to an alert. Possible values are: attacked, related.
+     *
+     * @param SecurityResourceType $val The value to assign to the resourceType
+     *
+     * @return SecurityResource The SecurityResource
+     */
     public function setResourceType($val)
     {
         $this->_propDict["resourceType"] = $val;
-         return $this;
+        return $this;
     }
 }

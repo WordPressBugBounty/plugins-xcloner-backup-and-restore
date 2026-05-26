@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Represents blob copy state
  *
@@ -49,7 +47,6 @@ class CopyState
     private $_source;
     private $_bytesCopied;
     private $_totalBytes;
-
     /**
      * Creates CopyState object from $parsed response in array representation of XML elements
      *
@@ -62,33 +59,26 @@ class CopyState
     public static function createFromXml(array $parsed)
     {
         $result = new CopyState();
-        $clean  = array_change_key_case($parsed);
-
+        $clean = array_change_key_case($parsed);
         $copyCompletionTime = Utilities::tryGetValue($clean, 'copycompletiontime');
         if (!is_null($copyCompletionTime)) {
             $copyCompletionTime = Utilities::rfc1123ToDateTime($copyCompletionTime);
             $result->setCompletionTime($copyCompletionTime);
         }
-
         $result->setCopyId(Utilities::tryGetValue($clean, 'copyid'));
         $result->setStatus(Utilities::tryGetValue($clean, 'copystatus'));
         $result->setStatusDescription(Utilities::tryGetValue($clean, 'copystatusdescription'));
         $result->setSource(Utilities::tryGetValue($clean, 'copysource'));
-
         $copyProgress = Utilities::tryGetValue($clean, 'copyprogress');
-
-        if (!is_null($copyProgress) && strpos($copyProgress, '/') !== false) {
+        if (!is_null($copyProgress) && strpos($copyProgress, '/') !== \false) {
             $parts = explode('/', $copyProgress);
             $bytesCopied = intval($parts[0]);
             $totalBytes = intval($parts[1]);
-
             $result->setBytesCopied($bytesCopied);
             $result->setTotalBytes($totalBytes);
         }
-
         return $result;
     }
-
     /**
      * Creates CopyState object from $parsed response in array representation of http headers
      *
@@ -101,32 +91,26 @@ class CopyState
     public static function createFromHttpHeaders(array $parsed)
     {
         $result = new CopyState();
-        $clean  = array_change_key_case($parsed);
-
+        $clean = array_change_key_case($parsed);
         $copyCompletionTime = Utilities::tryGetValue($clean, Resources::X_MS_COPY_COMPLETION_TIME);
         if (!is_null($copyCompletionTime)) {
             $copyCompletionTime = Utilities::rfc1123ToDateTime($copyCompletionTime);
             $result->setCompletionTime($copyCompletionTime);
         }
-
         $result->setCopyId(Utilities::tryGetValue($clean, Resources::X_MS_COPY_ID));
         $result->setStatus(Utilities::tryGetValue($clean, Resources::X_MS_COPY_STATUS));
         $result->setStatusDescription(Utilities::tryGetValue($clean, Resources::X_MS_COPY_STATUS_DESCRIPTION));
         $result->setSource(Utilities::tryGetValue($clean, Resources::X_MS_COPY_SOURCE));
-
         $copyProgress = Utilities::tryGetValue($clean, Resources::X_MS_COPY_PROGRESS);
-        if (!is_null($copyProgress) && strpos($copyProgress, '/') !== false) {
+        if (!is_null($copyProgress) && strpos($copyProgress, '/') !== \false) {
             $parts = explode('/', $copyProgress);
             $bytesCopied = intval($parts[0]);
             $totalBytes = intval($parts[1]);
-
             $result->setBytesCopied($bytesCopied);
             $result->setTotalBytes($totalBytes);
         }
-
         return $result;
     }
-
     /**
      * Gets copy Id
      *
@@ -136,7 +120,6 @@ class CopyState
     {
         return $this->_copyId;
     }
-
     /**
      * Sets copy Id
      *
@@ -150,7 +133,6 @@ class CopyState
     {
         $this->_copyId = $copyId;
     }
-
     /**
      * Gets copy completion time
      *
@@ -160,7 +142,6 @@ class CopyState
     {
         return $this->_completionTime;
     }
-
     /**
      * Sets copy completion time
      *
@@ -174,7 +155,6 @@ class CopyState
     {
         $this->_completionTime = $completionTime;
     }
-
     /**
      * Gets copy status
      *
@@ -184,7 +164,6 @@ class CopyState
     {
         return $this->_status;
     }
-
     /**
      * Sets copy status
      *
@@ -198,7 +177,6 @@ class CopyState
     {
         $this->_status = $status;
     }
-
     /**
      * Gets copy status description
      *
@@ -208,7 +186,6 @@ class CopyState
     {
         return $this->_statusDescription;
     }
-
     /**
      * Sets copy status description
      *
@@ -222,7 +199,6 @@ class CopyState
     {
         $this->_statusDescription = $statusDescription;
     }
-
     /**
      * Gets copy source
      *
@@ -232,7 +208,6 @@ class CopyState
     {
         return $this->_source;
     }
-
     /**
      * Sets copy source
      *
@@ -246,7 +221,6 @@ class CopyState
     {
         $this->_source = $source;
     }
-
     /**
      * Gets bytes copied
      *
@@ -256,7 +230,6 @@ class CopyState
     {
         return $this->_bytesCopied;
     }
-
     /**
      * Sets bytes copied
      *
@@ -270,7 +243,6 @@ class CopyState
     {
         $this->_bytesCopied = $bytesCopied;
     }
-
     /**
      * Gets total bytes to be copied
      *
@@ -280,7 +252,6 @@ class CopyState
     {
         return $this->_bytesCopied;
     }
-
     /**
      * Sets total bytes to be copied
      *

@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property\VCard;
+namespace XCloner\Sabre\VObject\Property\VCard;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
 /**
  * LanguageTag property.
  *
@@ -30,7 +29,6 @@ class LanguageTag extends Property
     {
         $this->setValue($val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -40,7 +38,6 @@ class LanguageTag extends Property
     {
         return $this->getValue();
     }
-
     /**
      * Returns the type of value.
      *

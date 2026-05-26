@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserRegistrationMethodCount class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserRegistrationMethodCount extends Entity
 {
     /**
-    * Gets the authenticationMethod
-    * Name of authentication method.
-    *
-    * @return string|null The authenticationMethod
-    */
+     * Gets the authenticationMethod
+     * Name of authentication method.
+     *
+     * @return string|null The authenticationMethod
+     */
     public function getAuthenticationMethod()
     {
         if (array_key_exists("authenticationMethod", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserRegistrationMethodCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the authenticationMethod
-    * Name of authentication method.
-    *
-    * @param string $val The value of the authenticationMethod
-    *
-    * @return UserRegistrationMethodCount
-    */
+     * Sets the authenticationMethod
+     * Name of authentication method.
+     *
+     * @param string $val The value of the authenticationMethod
+     *
+     * @return UserRegistrationMethodCount
+     */
     public function setAuthenticationMethod($val)
     {
         $this->_propDict["authenticationMethod"] = $val;
         return $this;
     }
     /**
-    * Gets the userCount
-    * Number of users registered.
-    *
-    * @return int|null The userCount
-    */
+     * Gets the userCount
+     * Number of users registered.
+     *
+     * @return int|null The userCount
+     */
     public function getUserCount()
     {
         if (array_key_exists("userCount", $this->_propDict)) {
@@ -68,15 +69,14 @@ class UserRegistrationMethodCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userCount
-    * Number of users registered.
-    *
-    * @param int $val The value of the userCount
-    *
-    * @return UserRegistrationMethodCount
-    */
+     * Sets the userCount
+     * Number of users registered.
+     *
+     * @param int $val The value of the userCount
+     *
+     * @return UserRegistrationMethodCount
+     */
     public function setUserCount($val)
     {
         $this->_propDict["userCount"] = $val;

@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Middlewares;
 
-namespace MicrosoftAzure\Storage\Common\Middlewares;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class provides the stack that handles the logic of applying each
  * middlewares to the request or the response.
@@ -41,7 +40,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MiddlewareStack
 {
     private $middlewares = array();
-
     /**
      * Push the given middleware into the middleware stack.
      *
@@ -53,7 +51,6 @@ class MiddlewareStack
     {
         array_unshift($this->middlewares, $middleware);
     }
-
     /**
      * Apply the middlewares to the handler.
      *
@@ -67,7 +64,6 @@ class MiddlewareStack
         foreach ($this->middlewares as $middleware) {
             $result = $middleware($result);
         }
-
         return $result;
     }
 }

@@ -1,17 +1,13 @@
 <?php
-namespace Aws\Crypto;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 abstract class MaterialsProvider implements MaterialsProviderInterface
 {
-    private static $supportedKeySizes = [
-        128 => true,
-        192 => true,
-        256 => true,
-    ];
-
+    private static $supportedKeySizes = [128 => \true, 192 => \true, 256 => \true];
     /**
      * Returns if the requested size is supported by AES.
      *
@@ -23,7 +19,6 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
     {
         return isset(self::$supportedKeySizes[$keySize]);
     }
-
     /**
      * Performs further initialization of the MaterialsProvider based on the
      * data inside the MetadataEnvelope.
@@ -39,7 +34,6 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
      * @internal
      */
     abstract public function fromDecryptionEnvelope(MetadataEnvelope $envelope);
-
     /**
      * Returns the material description for this Provider so it can be verified
      * by encryption mechanisms.
@@ -47,14 +41,12 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
      * @return string
      */
     abstract public function getMaterialsDescription();
-
     /**
      * Returns the wrap algorithm name for this Provider.
      *
      * @return string
      */
     abstract public function getWrapAlgorithmName();
-
     /**
      * Takes a content encryption key (CEK) and description to return an
      * encrypted key according to the Provider's specifications.
@@ -68,7 +60,6 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
      * @return string
      */
     abstract public function encryptCek($unencryptedCek, $materialDescription);
-
     /**
      * Takes an encrypted content encryption key (CEK) and material description
      * for use decrypting the key according to the Provider's specifications.
@@ -81,7 +72,6 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
      * @return string
      */
     abstract public function decryptCek($encryptedCek, $materialDescription);
-
     /**
      * @param string $keySize Length of a cipher key in bits for generating a
      *                        random content encryption key (CEK).
@@ -92,7 +82,6 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
     {
         return openssl_random_pseudo_bytes($keySize / 8);
     }
-
     /**
      * @param string $openSslName Cipher OpenSSL name to use for generating
      *                            an initialization vector.
@@ -101,8 +90,6 @@ abstract class MaterialsProvider implements MaterialsProviderInterface
      */
     public function generateIv($openSslName)
     {
-        return openssl_random_pseudo_bytes(
-            openssl_cipher_iv_length($openSslName)
-        );
+        return openssl_random_pseudo_bytes(openssl_cipher_iv_length($openSslName));
     }
 }

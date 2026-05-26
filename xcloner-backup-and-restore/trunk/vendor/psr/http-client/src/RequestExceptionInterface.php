@@ -1,12 +1,11 @@
 <?php
 
-namespace Psr\Http\Client;
+namespace XCloner\Psr\Http\Client;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\RequestInterface;
 /**
  * Exception for when a request failed.
  *

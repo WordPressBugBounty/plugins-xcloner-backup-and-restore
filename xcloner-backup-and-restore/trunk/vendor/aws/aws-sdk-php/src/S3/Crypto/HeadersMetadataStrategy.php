@@ -1,12 +1,12 @@
 <?php
-namespace Aws\S3\Crypto;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3\Crypto;
 
-
-use \Aws\Crypto\MetadataStrategyInterface;
-use \Aws\Crypto\MetadataEnvelope;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Crypto\MetadataStrategyInterface;
+use XCloner\Aws\Crypto\MetadataEnvelope;
 class HeadersMetadataStrategy implements MetadataStrategyInterface
 {
     /**
@@ -22,13 +22,11 @@ class HeadersMetadataStrategy implements MetadataStrategyInterface
      */
     public function save(MetadataEnvelope $envelope, array $args)
     {
-        foreach ($envelope as $header=>$value) {
+        foreach ($envelope as $header => $value) {
             $args['Metadata'][$header] = $value;
         }
-
         return $args;
     }
-
     /**
      * Generates a MetadataEnvelope according to the metadata headers from the
      * GetObject result.
@@ -43,13 +41,11 @@ class HeadersMetadataStrategy implements MetadataStrategyInterface
     {
         $envelope = new MetadataEnvelope();
         $constantValues = MetadataEnvelope::getConstantValues();
-
         foreach ($constantValues as $constant) {
             if (!empty($args['Metadata'][$constant])) {
                 $envelope[$constant] = $args['Metadata'][$constant];
             }
         }
-
         return $envelope;
     }
 }

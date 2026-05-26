@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AlertDetection class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AlertDetection extends Entity
 {
     /**
-    * Gets the detectionType
-    *
-    * @return string|null The detectionType
-    */
+     * Gets the detectionType
+     *
+     * @return string|null The detectionType
+     */
     public function getDetectionType()
     {
         if (array_key_exists("detectionType", $this->_propDict)) {
@@ -39,24 +41,23 @@ class AlertDetection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the detectionType
-    *
-    * @param string $val The value of the detectionType
-    *
-    * @return AlertDetection
-    */
+     * Sets the detectionType
+     *
+     * @param string $val The value of the detectionType
+     *
+     * @return AlertDetection
+     */
     public function setDetectionType($val)
     {
         $this->_propDict["detectionType"] = $val;
         return $this;
     }
     /**
-    * Gets the method
-    *
-    * @return string|null The method
-    */
+     * Gets the method
+     *
+     * @return string|null The method
+     */
     public function getMethod()
     {
         if (array_key_exists("method", $this->_propDict)) {
@@ -65,24 +66,23 @@ class AlertDetection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the method
-    *
-    * @param string $val The value of the method
-    *
-    * @return AlertDetection
-    */
+     * Sets the method
+     *
+     * @param string $val The value of the method
+     *
+     * @return AlertDetection
+     */
     public function setMethod($val)
     {
         $this->_propDict["method"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -91,14 +91,13 @@ class AlertDetection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return AlertDetection
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return AlertDetection
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

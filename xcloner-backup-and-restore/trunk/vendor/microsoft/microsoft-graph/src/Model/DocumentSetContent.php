@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DocumentSetContent class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DocumentSetContent extends Entity
 {
-
     /**
-    * Gets the contentType
-    * Content type information of the file.
-    *
-    * @return ContentTypeInfo|null The contentType
-    */
+     * Gets the contentType
+     * Content type information of the file.
+     *
+     * @return ContentTypeInfo|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Microsoft\Graph\Model\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
+            if (is_a($this->_propDict["contentType"], "XCloner\\Microsoft\\Graph\\Model\\ContentTypeInfo") || is_null($this->_propDict["contentType"])) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new ContentTypeInfo($this->_propDict["contentType"]);
@@ -45,26 +46,25 @@ class DocumentSetContent extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the contentType
-    * Content type information of the file.
-    *
-    * @param ContentTypeInfo $val The value to assign to the contentType
-    *
-    * @return DocumentSetContent The DocumentSetContent
-    */
+     * Sets the contentType
+     * Content type information of the file.
+     *
+     * @param ContentTypeInfo $val The value to assign to the contentType
+     *
+     * @return DocumentSetContent The DocumentSetContent
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the fileName
-    * Name of the file in resource folder that should be added as a default content or a template in the document set.
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * Name of the file in resource folder that should be added as a default content or a template in the document set.
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -73,26 +73,25 @@ class DocumentSetContent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * Name of the file in resource folder that should be added as a default content or a template in the document set.
-    *
-    * @param string $val The value of the fileName
-    *
-    * @return DocumentSetContent
-    */
+     * Sets the fileName
+     * Name of the file in resource folder that should be added as a default content or a template in the document set.
+     *
+     * @param string $val The value of the fileName
+     *
+     * @return DocumentSetContent
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
     /**
-    * Gets the folderName
-    * Folder name in which the file will be placed when a new document set is created in the library.
-    *
-    * @return string|null The folderName
-    */
+     * Gets the folderName
+     * Folder name in which the file will be placed when a new document set is created in the library.
+     *
+     * @return string|null The folderName
+     */
     public function getFolderName()
     {
         if (array_key_exists("folderName", $this->_propDict)) {
@@ -101,15 +100,14 @@ class DocumentSetContent extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the folderName
-    * Folder name in which the file will be placed when a new document set is created in the library.
-    *
-    * @param string $val The value of the folderName
-    *
-    * @return DocumentSetContent
-    */
+     * Sets the folderName
+     * Folder name in which the file will be placed when a new document set is created in the library.
+     *
+     * @param string $val The value of the folderName
+     *
+     * @return DocumentSetContent
+     */
     public function setFolderName($val)
     {
         $this->_propDict["folderName"] = $val;

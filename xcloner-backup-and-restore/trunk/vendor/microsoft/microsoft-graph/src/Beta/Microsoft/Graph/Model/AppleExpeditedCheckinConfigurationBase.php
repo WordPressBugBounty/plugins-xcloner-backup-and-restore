@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppleExpeditedCheckinConfigurationBase class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration
 {
     /**
-    * Gets the enableExpeditedCheckin
-    * Gets or sets whether to enable expedited device check-ins.
-    *
-    * @return bool|null The enableExpeditedCheckin
-    */
+     * Gets the enableExpeditedCheckin
+     * Gets or sets whether to enable expedited device check-ins.
+     *
+     * @return bool|null The enableExpeditedCheckin
+     */
     public function getEnableExpeditedCheckin()
     {
         if (array_key_exists("enableExpeditedCheckin", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AppleExpeditedCheckinConfigurationBase extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the enableExpeditedCheckin
-    * Gets or sets whether to enable expedited device check-ins.
-    *
-    * @param bool $val The enableExpeditedCheckin
-    *
-    * @return AppleExpeditedCheckinConfigurationBase
-    */
+     * Sets the enableExpeditedCheckin
+     * Gets or sets whether to enable expedited device check-ins.
+     *
+     * @param bool $val The enableExpeditedCheckin
+     *
+     * @return AppleExpeditedCheckinConfigurationBase
+     */
     public function setEnableExpeditedCheckin($val)
     {
         $this->_propDict["enableExpeditedCheckin"] = boolval($val);
         return $this;
     }
-
 }

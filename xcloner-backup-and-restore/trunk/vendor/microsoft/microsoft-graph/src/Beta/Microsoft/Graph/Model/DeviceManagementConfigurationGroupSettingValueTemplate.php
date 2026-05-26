@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationGroupSettingValueTemplate class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementConfigurationGroupSettingValueTemplate extends Entity
 {
-
     /**
-    * Gets the children
-    * Group setting value children
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplate|null The children
-    */
+     * Gets the children
+     * Group setting value children
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplate|null The children
+     */
     public function getChildren()
     {
         if (array_key_exists("children", $this->_propDict)) {
-            if (is_a($this->_propDict["children"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplate") || is_null($this->_propDict["children"])) {
+            if (is_a($this->_propDict["children"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationSettingInstanceTemplate") || is_null($this->_propDict["children"])) {
                 return $this->_propDict["children"];
             } else {
                 $this->_propDict["children"] = new DeviceManagementConfigurationSettingInstanceTemplate($this->_propDict["children"]);
@@ -45,26 +46,25 @@ class DeviceManagementConfigurationGroupSettingValueTemplate extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the children
-    * Group setting value children
-    *
-    * @param DeviceManagementConfigurationSettingInstanceTemplate $val The value to assign to the children
-    *
-    * @return DeviceManagementConfigurationGroupSettingValueTemplate The DeviceManagementConfigurationGroupSettingValueTemplate
-    */
+     * Sets the children
+     * Group setting value children
+     *
+     * @param DeviceManagementConfigurationSettingInstanceTemplate $val The value to assign to the children
+     *
+     * @return DeviceManagementConfigurationGroupSettingValueTemplate The DeviceManagementConfigurationGroupSettingValueTemplate
+     */
     public function setChildren($val)
     {
         $this->_propDict["children"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the settingValueTemplateId
-    * Setting Value Template Id
-    *
-    * @return string|null The settingValueTemplateId
-    */
+     * Gets the settingValueTemplateId
+     * Setting Value Template Id
+     *
+     * @return string|null The settingValueTemplateId
+     */
     public function getSettingValueTemplateId()
     {
         if (array_key_exists("settingValueTemplateId", $this->_propDict)) {
@@ -73,15 +73,14 @@ class DeviceManagementConfigurationGroupSettingValueTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingValueTemplateId
-    * Setting Value Template Id
-    *
-    * @param string $val The value of the settingValueTemplateId
-    *
-    * @return DeviceManagementConfigurationGroupSettingValueTemplate
-    */
+     * Sets the settingValueTemplateId
+     * Setting Value Template Id
+     *
+     * @param string $val The value of the settingValueTemplateId
+     *
+     * @return DeviceManagementConfigurationGroupSettingValueTemplate
+     */
     public function setSettingValueTemplateId($val)
     {
         $this->_propDict["settingValueTemplateId"] = $val;

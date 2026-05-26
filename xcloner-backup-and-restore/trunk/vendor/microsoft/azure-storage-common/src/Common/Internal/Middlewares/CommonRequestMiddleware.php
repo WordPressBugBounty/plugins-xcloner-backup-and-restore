@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Middlewares;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Middlewares;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Middlewares\MiddlewareBase;
-use MicrosoftAzure\Storage\Common\Internal\Authentication\IAuthScheme;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Middlewares\MiddlewareBase;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Authentication\IAuthScheme;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\Psr\Http\Message\RequestInterface;
 /**
  * CommonRequestMiddleware is the middleware used to add the necessary headers
  * and to sign the request with provided authentication scheme. This middleware
@@ -51,7 +49,6 @@ class CommonRequestMiddleware extends MiddlewareBase
     private $headers;
     private $msVersion;
     private $userAgent;
-
     /**
      * Creates CommonRequestMiddleware with the passed scheme and headers to
      * be added.
@@ -62,18 +59,13 @@ class CommonRequestMiddleware extends MiddlewareBase
      * @param string      $serviceSDKVersion    Like '1.0.1' or '1.2.0'.
      * @param array       $headers              The headers to be added.
      */
-    public function __construct(
-        IAuthScheme $authenticationScheme = null,
-        $storageAPIVersion,
-        $serviceSDKVersion,
-        array $headers = array()
-    ) {
+    public function __construct(IAuthScheme $authenticationScheme = null, $storageAPIVersion, $serviceSDKVersion, array $headers = array())
+    {
         $this->authenticationScheme = $authenticationScheme;
-        $this->msVersion            = $storageAPIVersion;
-        $this->userAgent            = self::getUserAgent($serviceSDKVersion);
-        $this->headers              = $headers;
+        $this->msVersion = $storageAPIVersion;
+        $this->userAgent = self::getUserAgent($serviceSDKVersion);
+        $this->headers = $headers;
     }
-
     /**
      * Add the provided headers, the date, then sign the request using the
      * authentication scheme, and return it.
@@ -85,7 +77,6 @@ class CommonRequestMiddleware extends MiddlewareBase
     protected function onRequest(RequestInterface $request)
     {
         $result = $request;
-
         //Adding headers.
         foreach ($this->headers as $key => $value) {
             $headers = $result->getHeaders();
@@ -93,31 +84,20 @@ class CommonRequestMiddleware extends MiddlewareBase
                 $result = $result->withHeader($key, $value);
             }
         }
-
         //rewriting version and user-agent.
-        $result = $result->withHeader(
-            Resources::X_MS_VERSION,
-            $this->msVersion
-        );
-        $result = $result->withHeader(
-            Resources::USER_AGENT,
-            $this->userAgent
-        );
-
+        $result = $result->withHeader(Resources::X_MS_VERSION, $this->msVersion);
+        $result = $result->withHeader(Resources::USER_AGENT, $this->userAgent);
         //Adding date.
         $date = gmdate(Resources::AZURE_DATE_FORMAT, time());
         $result = $result->withHeader(Resources::DATE, $date);
-
         //Adding client request-ID if not specified by the user.
         if (!$result->hasHeader(Resources::X_MS_CLIENT_REQUEST_ID)) {
             $result = $result->withHeader(Resources::X_MS_CLIENT_REQUEST_ID, \uniqid());
         }
         //Sign the request if authentication scheme is not null.
-        $request = $this->authenticationScheme == null ?
-            $request : $this->authenticationScheme->signRequest($result);
+        $request = $this->authenticationScheme == null ? $request : $this->authenticationScheme->signRequest($result);
         return $request;
     }
-
     /**
      * Gets the user agent string used in request header.
      *
@@ -128,8 +108,6 @@ class CommonRequestMiddleware extends MiddlewareBase
     private static function getUserAgent($serviceSDKVersion)
     {
         // e.g. User-Agent: Azure-Storage/1.0.1-1.1.1 (PHP 5.5.32)/WINNT
-        return 'Azure-Storage/' . $serviceSDKVersion . '-' .
-            Resources::COMMON_SDK_VERSION .
-            ' (PHP ' . PHP_VERSION . ')' . '/' . php_uname("s");
+        return 'Azure-Storage/' . $serviceSDKVersion . '-' . Resources::COMMON_SDK_VERSION . ' (PHP ' . \PHP_VERSION . ')' . '/' . php_uname("s");
     }
 }

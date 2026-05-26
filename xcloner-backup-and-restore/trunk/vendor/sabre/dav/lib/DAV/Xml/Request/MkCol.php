@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Request;
 
-namespace Sabre\DAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * WebDAV Extended MKCOL request parser.
  *
@@ -29,7 +27,6 @@ class MkCol implements XmlDeserializable
      * @var array
      */
     protected $properties = [];
-
     /**
      * Returns a key=>value array with properties that are supposed to get set
      * during creation of the new collection.
@@ -40,7 +37,6 @@ class MkCol implements XmlDeserializable
     {
         return $this->properties;
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -64,20 +60,16 @@ class MkCol implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $self = new self();
-
         $elementMap = $reader->elementMap;
-        $elementMap['{DAV:}prop'] = 'Sabre\DAV\Xml\Element\Prop';
-        $elementMap['{DAV:}set'] = 'Sabre\Xml\Element\KeyValue';
-        $elementMap['{DAV:}remove'] = 'Sabre\Xml\Element\KeyValue';
-
+        $elementMap['{DAV:}prop'] = 'XCloner\Sabre\DAV\Xml\Element\Prop';
+        $elementMap['{DAV:}set'] = 'XCloner\Sabre\Xml\Element\KeyValue';
+        $elementMap['{DAV:}remove'] = 'XCloner\Sabre\Xml\Element\KeyValue';
         $elems = $reader->parseInnerTree($elementMap);
-
         foreach ($elems as $elem) {
             if ('{DAV:}set' === $elem['name']) {
                 $self->properties = array_merge($self->properties, $elem['value']['{DAV:}prop']);
             }
         }
-
         return $self;
     }
 }

@@ -116,12 +116,13 @@ class Xcloner_Settings
             $path = sys_get_temp_dir();
             if (!is_dir($path)) {
                 try {
-                    mkdir($path);
+                    wp_mkdir_p($path);
                 } catch (Exception $e) {
                     //silent catch
                 }
             }
             if (!is_dir($path) || !is_writeable($path)) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writeable
                 $path = $this->get_xcloner_store_path();
             }
         }
@@ -130,7 +131,7 @@ class Xcloner_Settings
         }
         if (!is_dir($path)) {
             try {
-                mkdir($path);
+                wp_mkdir_p($path);
             } catch (Exception $e) {
                 //silent catch
             }
@@ -187,7 +188,7 @@ class Xcloner_Settings
     }
     public function generate_new_hash()
     {
-        $hash = "-" . md5(rand());
+        $hash = "-" . md5(wp_rand());
         return substr($hash, 0, 6);
     }
     /**
@@ -197,7 +198,7 @@ class Xcloner_Settings
      */
     public function get_default_backup_name()
     {
-        $data = parse_url(get_site_url());
+        $data = wp_parse_url(get_site_url());
         return "backup_[domain]" . (isset($data['port']) ? "_" . $data['port'] : "") . "-[time]-" . ($this->get_enable_mysql_backup() ? "sql" : "nosql");
     }
     /**
@@ -234,25 +235,29 @@ class Xcloner_Settings
         }
         //ADDING SETTING SECTIONS
         //GENERAL section
-        add_settings_section('xcloner_general_settings_group', __(' '), array($this, 'xcloner_settings_section_cb'), 'xcloner_settings_page');
+        add_settings_section('xcloner_general_settings_group', ' ', array($this, 'xcloner_settings_section_cb'), 'xcloner_settings_page');
         //SYSTEM section
         add_settings_section('xcloner_system_settings_group', __('These are advanced options recommended for developers!', 'xcloner-backup-and-restore'), array($this, 'xcloner_settings_section_cb'), 'xcloner_system_settings_page');
         //CLEANUP section
         /*add_settings_section(
               'xcloner_cleanup_settings_group',
-              __(' '),
+              ' ',
               array($this, 'xcloner_settings_section_cb'),
               'xcloner_cleanup_settings_page'
           );*/
         //CRON section
-        add_settings_section('xcloner_cron_settings_group', __(' '), array($this, 'xcloner_settings_section_cb'), 'xcloner_cron_settings_page');
+        add_settings_section('xcloner_cron_settings_group', ' ', array($this, 'xcloner_settings_section_cb'), 'xcloner_cron_settings_page');
         //REGISTERING THE 'GENERAL SECTION' FIELDS
         register_setting('xcloner_general_settings_group', 'xcloner_backup_compression_level', array($this->xcloner_sanitization, "sanitize_input_as_int"));
         add_settings_field('xcloner_backup_compression_level', __('Backup Compression Level', 'xcloner-backup-and-restore'), array($this, 'do_form_range_field'), 'xcloner_settings_page', 'xcloner_general_settings_group', array('xcloner_backup_compression_level', __('Options between [0-9]. Value 0 means no compression, while 9 is maximum compression affecting cpu load', 'xcloner-backup-and-restore'), 0, 9));
         register_setting('xcloner_general_settings_group', 'xcloner_encryption_key', array($this->xcloner_sanitization, "sanitize_input_as_string"));
         add_settings_field('xcloner_encryption_key', __('Backup Encryption Key', 'xcloner-backup-and-restore'), array($this, 'do_form_text_field'), 'xcloner_settings_page', 'xcloner_general_settings_group', array('xcloner_encryption_key', __('Backup Encryption Key used to Encrypt/Decrypt backups, you might want to save this somewhere else as well.', 'xcloner-backup-and-restore'), $this->get_xcloner_encryption_key()));
         register_setting('xcloner_general_settings_group', 'xcloner_enable_log', array($this->xcloner_sanitization, "sanitize_input_as_int"));
-        add_settings_field('xcloner_enable_log', __('Enable XCloner Backup Log', 'xcloner-backup-and-restore'), array($this, 'do_form_switch_field'), 'xcloner_settings_page', 'xcloner_general_settings_group', array('xcloner_enable_log', sprintf(__('Enable the XCloner Backup log. You will find it stored unde the Backup Storage Location, file %s', 'xcloner-backup-and-restore'), $this->get_logger_filename())));
+        add_settings_field('xcloner_enable_log', __('Enable XCloner Backup Log', 'xcloner-backup-and-restore'), array($this, 'do_form_switch_field'), 'xcloner_settings_page', 'xcloner_general_settings_group', array(
+            'xcloner_enable_log',
+            /* translators: %1$s is a value */
+            sprintf(__('Enable the XCloner Backup log. You will find it stored under the Backup Storage Location, file %1$s', 'xcloner-backup-and-restore'), $this->get_logger_filename()),
+        ));
         register_setting('xcloner_general_settings_group', 'xcloner_enable_pre_update_backup', array($this->xcloner_sanitization, "sanitize_input_as_int"));
         add_settings_field('xcloner_enable_pre_update_backup', __('Generate Backups before Automatic WP Upgrades', 'xcloner-backup-and-restore'), array($this, 'do_form_switch_field'), 'xcloner_settings_page', 'xcloner_general_settings_group', array('xcloner_enable_pre_update_backup', sprintf(__('Attempt to generate a full site backup before applying automatic core updates.', 'xcloner-backup-and-restore'), $this->get_logger_filename())));
         register_setting('xcloner_general_settings_group', 'xcloner_regex_exclude', array($this->xcloner_sanitization, "sanitize_input_as_raw"));
@@ -281,11 +286,11 @@ class Xcloner_Settings
         add_settings_field('xcloner_exclude_files_larger_than_mb', __('Exclude files larger than (MB)', 'xcloner-backup-and-restore'), array($this, 'do_form_number_field'), 'xcloner_system_settings_page', 'xcloner_system_settings_group', array('xcloner_exclude_files_larger_than_mb', __('Use this option to automatically exclude files larger than a certain size in MB, or set to 0 to include all. Range 0-1000 MB', 'xcloner-backup-and-restore')));
         register_setting('xcloner_system_settings_group', 'xcloner_split_backup_limit', array($this->xcloner_sanitization, "sanitize_input_as_int"));
         add_settings_field('xcloner_split_backup_limit', __('Split Backup Archive Limit (MB)', 'xcloner-backup-and-restore'), array($this, 'do_form_number_field'), 'xcloner_system_settings_page', 'xcloner_system_settings_group', array('xcloner_split_backup_limit', __('Use this option to automatically split the backup archive into smaller parts. Range  0-10000 MB', 'xcloner-backup-and-restore')));
-        register_setting('xcloner_system_settings_group', 'xcloner_force_tmp_path_site_root');
+        register_setting('xcloner_system_settings_group', 'xcloner_force_tmp_path_site_root', array('sanitize_callback' => 'absint'));
         add_settings_field('xcloner_force_tmp_path_site_root', __('Force Temporary Path Within XCloner Storage', 'xcloner-backup-and-restore'), array($this, 'do_form_switch_field'), 'xcloner_system_settings_page', 'xcloner_system_settings_group', array('xcloner_force_tmp_path_site_root', __('Enable this option if you want the XCloner Temporary Path to be within your XCloner Storage Location', 'xcloner-backup-and-restore')));
-        register_setting('xcloner_system_settings_group', 'xcloner_disable_email_notification');
+        register_setting('xcloner_system_settings_group', 'xcloner_disable_email_notification', array('sanitize_callback' => 'absint'));
         add_settings_field('xcloner_disable_email_notification', __('Disable Email Notifications', 'xcloner-backup-and-restore'), array($this, 'do_form_switch_field'), 'xcloner_system_settings_page', 'xcloner_system_settings_group', array('xcloner_disable_email_notification', __('Enable this option if you want the XCloner to NOT send email notifications on successful backups', 'xcloner-backup-and-restore')));
-        register_setting('xcloner_system_settings_group', 'xcloner_restore_defaults');
+        register_setting('xcloner_system_settings_group', 'xcloner_restore_defaults', array('sanitize_callback' => 'absint'));
         add_settings_field('xcloner_restore_defaults', __('Restore Default Settings', 'xcloner-backup-and-restore'), array($this, 'do_form_switch_field'), 'xcloner_system_settings_page', 'xcloner_system_settings_group', array('xcloner_restore_defaults', __('This option will completelly remove all existing XCloner options and set them back to a default state.', 'xcloner-backup-and-restore')));
         //REGISTERING THE 'CLEANUP SECTION' FIELDS
         /*register_setting('xcloner_cleanup_settings_group', 'xcloner_cleanup_retention_limit_days', array(
@@ -370,8 +375,8 @@ class Xcloner_Settings
         );
         */
         //REGISTERING THE 'CRON SECTION' FIELDS
-        register_setting('xcloner_cron_settings_group', 'xcloner_cron_frequency');
-        add_settings_field('xcloner_cron_frequency', __('Cron frequency', 'xcloner-backup-and-restore'), array($this, 'do_form_text_field'), 'xcloner_cron_settings_page', 'xcloner_cron_settings_group', array('xcloner_cron_frequency', __('Cron frequency')));
+        register_setting('xcloner_cron_settings_group', 'xcloner_cron_frequency', array('sanitize_callback' => 'sanitize_text_field'));
+        add_settings_field('xcloner_cron_frequency', __('Cron frequency', 'xcloner-backup-and-restore'), array($this, 'do_form_text_field'), 'xcloner_cron_settings_page', 'xcloner_cron_settings_group', array('xcloner_cron_frequency', __('Cron frequency', 'xcloner-backup-and-restore')));
     }
     /**
      * callback functions
@@ -412,7 +417,7 @@ class Xcloner_Settings
         echo $disabled ? "disabled" : "";
         ?> name="<?php 
         echo esc_attr($fieldname);
-        ?>"
+        ?>" // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                        id="<?php 
         echo esc_attr($fieldname);
         ?>" type="text" class="validate"
@@ -457,7 +462,7 @@ class Xcloner_Settings
         echo $disabled ? "disabled" : "";
         ?> name="<?php 
         echo esc_attr($fieldname);
-        ?>"
+        ?>" // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                        id="<?php 
         echo esc_attr($fieldname);
         ?>" type="password" class="validate"
@@ -497,7 +502,7 @@ class Xcloner_Settings
         echo $disabled ? "disabled" : "";
         ?> name="<?php 
         echo esc_attr($fieldname);
-        ?>"
+        ?>" // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                           id="<?php 
         echo esc_attr($fieldname);
         ?>" type="text" class="validate"
@@ -515,45 +520,45 @@ class Xcloner_Settings
                 <ul class="xcloner_regex_exclude_limit">
                     <li>Exclude all except .php file: <span
                                 class="regex_pattern"><?php 
-        echo htmlentities('(.*)\.(.+)$(?<!(php))');
+        echo esc_html('(.*)\.(.+)$(?<!(php))');
         ?></span></li>
                     <li>Exclude all except .php and .txt: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(.*)\.(.+)$(?<!(php|txt))');
+        echo esc_html('(.*)\.(.+)$(?<!(php|txt))');
         ?></span>
                     </li>
                     <li>Exclude all .avi files: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(.*)\.(.+)$(?<=(avi))');
+        echo esc_html('(.*)\.(.+)$(?<=(avi))');
         ?></span></li>
                     <li>Exclude all .jpg,.gif and .png files: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(.*)\.(.+)$(?<=(gif|png|jpg))');
+        echo esc_html('(.*)\.(.+)$(?<=(gif|png|jpg))');
         ?></span>
                     </li>
                     <li>Exclude all .svn and .git: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(.*)\.(svn|git)(.*)$');
+        echo esc_html('(.*)\.(svn|git)(.*)$');
         ?></span></li>
                     <li>Exclude root directory /test: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('\/test(.*)$');
+        echo esc_html('\/test(.*)$');
         ?></span> or <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('test(.*)$');
+        echo esc_html('test(.*)$');
         ?></span></li>
                     <li>Exclude the wp-admin folder: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(\/wp-admin)(.*)$');
+        echo esc_html('(\/wp-admin)(.*)$');
         ?></span></li>
                     <li>Exclude the wp-content/uploads folder: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(\/wp-content\/uploads)(.*)$');
+        echo esc_html('(\/wp-content\/uploads)(.*)$');
         ?></span>
                     </li>
                     <li>Exclude the wp-admin, wp-includes and wp-config.php: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('\/(wp-admin|wp-includes|wp-config.php)(.*)$');
+        echo esc_html('\/(wp-admin|wp-includes|wp-config.php)(.*)$');
         ?></span>
                     </li>
                     <li>Exclude wp-content/updraft and wp/content/uploads/wp_all_backup folder :<span
@@ -561,17 +566,17 @@ class Xcloner_Settings
                     </li>
                     <li>Exclude all cache folders from wp-content/ and it's subdirectories: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('\/wp-content(.*)\/cache($|\/)(.*)');
+        echo esc_html('\/wp-content(.*)\/cache($|\/)(.*)');
         ?></span>
                     </li>
                     <li>Exclude wp-content/cache/ folder: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('\/wp-content\/cache(.*)');
+        echo esc_html('\/wp-content\/cache(.*)');
         ?></span>
                     </li>
                     <li>Exclude all error_log files: <span
                                 class="regex_pattern"> <?php 
-        echo htmlentities('(.*)error_log$');
+        echo esc_html('(.*)error_log$');
         ?></span></li>
                 </ul>
             </div>
@@ -601,7 +606,7 @@ class Xcloner_Settings
         echo $disabled ? "disabled" : "";
         ?> name="<?php 
         echo esc_attr($fieldname);
-        ?>"
+        ?>" // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                        id="<?php 
         echo esc_attr($fieldname);
         ?>" type="number" class="validate"
@@ -635,7 +640,7 @@ class Xcloner_Settings
         echo $disabled ? "disabled" : "";
         ?> type="range" name="<?php 
         echo esc_attr($fieldname);
-        ?>"
+        ?>" // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                          id="<?php 
         echo esc_attr($fieldname);
         ?>"
@@ -674,7 +679,7 @@ class Xcloner_Settings
                         Off
                         <input <?php 
         echo $disabled ? "disabled" : "";
-        ?> type="checkbox"
+        ?> type="checkbox" // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                                                                              name="<?php 
         echo esc_attr($fieldname);
         ?>"
@@ -683,7 +688,7 @@ class Xcloner_Settings
         ?>"
                                                                              value="1" <?php 
         echo $value ? 'checked="checked"' : '';
-        ?>
+        ?> // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         ">
                         <span class="lever"></span>
                         On

@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Xml\Element\Sharee;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Xml\Element\Sharee;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * This class represents the {DAV:}invite property.
  *
@@ -33,7 +31,6 @@ class Invite implements XmlSerializable
      * @var Sharee[]
      */
     public $sharees = [];
-
     /**
      * Creates the property.
      *
@@ -43,7 +40,6 @@ class Invite implements XmlSerializable
     {
         $this->sharees = $sharees;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *

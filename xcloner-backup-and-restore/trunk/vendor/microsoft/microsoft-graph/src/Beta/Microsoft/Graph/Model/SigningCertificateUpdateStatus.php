@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SigningCertificateUpdateStatus class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SigningCertificateUpdateStatus extends Entity
 {
     /**
-    * Gets the certificateUpdateResult
-    * Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
-    *
-    * @return string|null The certificateUpdateResult
-    */
+     * Gets the certificateUpdateResult
+     * Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
+     *
+     * @return string|null The certificateUpdateResult
+     */
     public function getCertificateUpdateResult()
     {
         if (array_key_exists("certificateUpdateResult", $this->_propDict)) {
@@ -40,31 +42,29 @@ class SigningCertificateUpdateStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the certificateUpdateResult
-    * Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
-    *
-    * @param string $val The value of the certificateUpdateResult
-    *
-    * @return SigningCertificateUpdateStatus
-    */
+     * Sets the certificateUpdateResult
+     * Status of the last certificate update. Read-only. For a list of statuses, see certificateUpdateResult status.
+     *
+     * @param string $val The value of the certificateUpdateResult
+     *
+     * @return SigningCertificateUpdateStatus
+     */
     public function setCertificateUpdateResult($val)
     {
         $this->_propDict["certificateUpdateResult"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastRunDateTime
-    * Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
-    *
-    * @return \DateTime|null The lastRunDateTime
-    */
+     * Gets the lastRunDateTime
+     * Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
+     *
+     * @return \DateTime|null The lastRunDateTime
+     */
     public function getLastRunDateTime()
     {
         if (array_key_exists("lastRunDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRunDateTime"], "\DateTime") || is_null($this->_propDict["lastRunDateTime"])) {
+            if (is_a($this->_propDict["lastRunDateTime"], "\\DateTime") || is_null($this->_propDict["lastRunDateTime"])) {
                 return $this->_propDict["lastRunDateTime"];
             } else {
                 $this->_propDict["lastRunDateTime"] = new \DateTime($this->_propDict["lastRunDateTime"]);
@@ -73,18 +73,17 @@ class SigningCertificateUpdateStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastRunDateTime
-    * Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the lastRunDateTime
-    *
-    * @return SigningCertificateUpdateStatus The SigningCertificateUpdateStatus
-    */
+     * Sets the lastRunDateTime
+     * Date and time in ISO 8601 format and in UTC time when the certificate was last updated. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the lastRunDateTime
+     *
+     * @return SigningCertificateUpdateStatus The SigningCertificateUpdateStatus
+     */
     public function setLastRunDateTime($val)
     {
         $this->_propDict["lastRunDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -58,9 +58,12 @@ class Xcloner_Requirements
                 return \false;
             }
             if (!is_writeable($path)) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writeable
                 @chmod($path, 0777);
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_chmod
             }
             return is_writeable($path);
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writeable
         }
         return $path;
     }
@@ -72,9 +75,12 @@ class Xcloner_Requirements
                 return \false;
             }
             if (!is_writeable($path)) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writeable
                 @chmod($path, 0777);
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_chmod
             }
             return is_writeable($path);
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writeable
         }
         return $path;
     }

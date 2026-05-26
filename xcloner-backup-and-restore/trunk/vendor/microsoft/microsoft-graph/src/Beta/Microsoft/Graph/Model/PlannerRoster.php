@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerRoster class
 *
@@ -27,64 +28,58 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PlannerRoster extends Entity
 {
-
-     /**
+    /**
      * Gets the members
-    * Retrieves the members of the plannerRoster.
+     * Retrieves the members of the plannerRoster.
      *
      * @return array|null The members
      */
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
+            return $this->_propDict["members"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the members
-    * Retrieves the members of the plannerRoster.
-    *
-    * @param PlannerRosterMember[] $val The members
-    *
-    * @return PlannerRoster
-    */
+     * Sets the members
+     * Retrieves the members of the plannerRoster.
+     *
+     * @param PlannerRosterMember[] $val The members
+     *
+     * @return PlannerRoster
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the plans
-    * Retrieves the plans contained by the plannerRoster.
+     * Retrieves the plans contained by the plannerRoster.
      *
      * @return array|null The plans
      */
     public function getPlans()
     {
         if (array_key_exists("plans", $this->_propDict)) {
-           return $this->_propDict["plans"];
+            return $this->_propDict["plans"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the plans
-    * Retrieves the plans contained by the plannerRoster.
-    *
-    * @param PlannerPlan[] $val The plans
-    *
-    * @return PlannerRoster
-    */
+     * Sets the plans
+     * Retrieves the plans contained by the plannerRoster.
+     *
+     * @param PlannerPlan[] $val The plans
+     *
+     * @return PlannerRoster
+     */
     public function setPlans($val)
     {
         $this->_propDict["plans"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationOrganization class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationOrganization extends Entity
 {
     /**
-    * Gets the description
-    * Organization description.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Organization description.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class EducationOrganization extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Organization description.
-    *
-    * @param string $val The description
-    *
-    * @return EducationOrganization
-    */
+     * Sets the description
+     * Organization description.
+     *
+     * @param string $val The description
+     *
+     * @return EducationOrganization
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Organization display name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Organization display name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,31 +69,29 @@ class EducationOrganization extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Organization display name.
-    *
-    * @param string $val The displayName
-    *
-    * @return EducationOrganization
-    */
+     * Sets the displayName
+     * Organization display name.
+     *
+     * @param string $val The displayName
+     *
+     * @return EducationOrganization
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the externalSource
-    * Source where this organization was created from. Possible values are: sis, manual.
-    *
-    * @return EducationExternalSource|null The externalSource
-    */
+     * Gets the externalSource
+     * Source where this organization was created from. Possible values are: sis, manual.
+     *
+     * @return EducationExternalSource|null The externalSource
+     */
     public function getExternalSource()
     {
         if (array_key_exists("externalSource", $this->_propDict)) {
-            if (is_a($this->_propDict["externalSource"], "\Microsoft\Graph\Model\EducationExternalSource") || is_null($this->_propDict["externalSource"])) {
+            if (is_a($this->_propDict["externalSource"], "XCloner\\Microsoft\\Graph\\Model\\EducationExternalSource") || is_null($this->_propDict["externalSource"])) {
                 return $this->_propDict["externalSource"];
             } else {
                 $this->_propDict["externalSource"] = new EducationExternalSource($this->_propDict["externalSource"]);
@@ -103,27 +100,25 @@ class EducationOrganization extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the externalSource
-    * Source where this organization was created from. Possible values are: sis, manual.
-    *
-    * @param EducationExternalSource $val The externalSource
-    *
-    * @return EducationOrganization
-    */
+     * Sets the externalSource
+     * Source where this organization was created from. Possible values are: sis, manual.
+     *
+     * @param EducationExternalSource $val The externalSource
+     *
+     * @return EducationOrganization
+     */
     public function setExternalSource($val)
     {
         $this->_propDict["externalSource"] = $val;
         return $this;
     }
-
     /**
-    * Gets the externalSourceDetail
-    * The name of the external source this resources was generated from.
-    *
-    * @return string|null The externalSourceDetail
-    */
+     * Gets the externalSourceDetail
+     * The name of the external source this resources was generated from.
+     *
+     * @return string|null The externalSourceDetail
+     */
     public function getExternalSourceDetail()
     {
         if (array_key_exists("externalSourceDetail", $this->_propDict)) {
@@ -132,19 +127,17 @@ class EducationOrganization extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the externalSourceDetail
-    * The name of the external source this resources was generated from.
-    *
-    * @param string $val The externalSourceDetail
-    *
-    * @return EducationOrganization
-    */
+     * Sets the externalSourceDetail
+     * The name of the external source this resources was generated from.
+     *
+     * @param string $val The externalSourceDetail
+     *
+     * @return EducationOrganization
+     */
     public function setExternalSourceDetail($val)
     {
         $this->_propDict["externalSourceDetail"] = $val;
         return $this;
     }
-
 }

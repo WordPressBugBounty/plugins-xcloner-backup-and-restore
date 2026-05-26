@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem;
+namespace XCloner\League\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * @internal
  */
@@ -14,7 +14,6 @@ trait ConfigAwareTrait
      * @var Config
      */
     protected $config;
-
     /**
      * Set the config.
      *
@@ -22,9 +21,8 @@ trait ConfigAwareTrait
      */
     protected function setConfig($config)
     {
-        $this->config = $config ? Util::ensureConfig($config) : new Config;
+        $this->config = $config ? Util::ensureConfig($config) : new Config();
     }
-
     /**
      * Get the Config.
      *
@@ -34,7 +32,6 @@ trait ConfigAwareTrait
     {
         return $this->config;
     }
-
     /**
      * Convert a config array to a Config object with the correct fallback.
      *
@@ -46,7 +43,6 @@ trait ConfigAwareTrait
     {
         $config = new Config($config);
         $config->setFallback($this->getConfig());
-
         return $config;
     }
 }

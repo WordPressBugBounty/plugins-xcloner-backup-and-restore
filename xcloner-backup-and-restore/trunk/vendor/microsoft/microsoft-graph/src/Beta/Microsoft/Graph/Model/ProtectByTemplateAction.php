@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProtectByTemplateAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProtectByTemplateAction extends InformationProtectionAction
 {
     /**
-    * Gets the templateId
-    * The GUID of the Azure Information Protection template to apply to the information.
-    *
-    * @return string|null The templateId
-    */
+     * Gets the templateId
+     * The GUID of the Azure Information Protection template to apply to the information.
+     *
+     * @return string|null The templateId
+     */
     public function getTemplateId()
     {
         if (array_key_exists("templateId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ProtectByTemplateAction extends InformationProtectionAction
             return null;
         }
     }
-
     /**
-    * Sets the templateId
-    * The GUID of the Azure Information Protection template to apply to the information.
-    *
-    * @param string $val The value of the templateId
-    *
-    * @return ProtectByTemplateAction
-    */
+     * Sets the templateId
+     * The GUID of the Azure Information Protection template to apply to the information.
+     *
+     * @param string $val The value of the templateId
+     *
+     * @return ProtectByTemplateAction
+     */
     public function setTemplateId($val)
     {
         $this->_propDict["templateId"] = $val;

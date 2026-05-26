@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Result from calling get service stats REST wrapper.
  *
@@ -44,7 +42,6 @@ class GetServiceStatsResult
 {
     private $status;
     private $lastSyncTime;
-
     /**
      * Creates object from $parsedResponse.
      *
@@ -56,30 +53,18 @@ class GetServiceStatsResult
     public static function create(array $parsedResponse)
     {
         $result = new GetServiceStatsResult();
-        if (Utilities::arrayKeyExistsInsensitive(
-            Resources::XTAG_GEO_REPLICATION,
-            $parsedResponse
-        )) {
+        if (Utilities::arrayKeyExistsInsensitive(Resources::XTAG_GEO_REPLICATION, $parsedResponse)) {
             $geoReplication = $parsedResponse[Resources::XTAG_GEO_REPLICATION];
-            if (Utilities::arrayKeyExistsInsensitive(
-                Resources::XTAG_STATUS,
-                $geoReplication
-            )) {
+            if (Utilities::arrayKeyExistsInsensitive(Resources::XTAG_STATUS, $geoReplication)) {
                 $result->setStatus($geoReplication[Resources::XTAG_STATUS]);
             }
-
-            if (Utilities::arrayKeyExistsInsensitive(
-                Resources::XTAG_LAST_SYNC_TIME,
-                $geoReplication
-            )) {
+            if (Utilities::arrayKeyExistsInsensitive(Resources::XTAG_LAST_SYNC_TIME, $geoReplication)) {
                 $lastSyncTime = $geoReplication[Resources::XTAG_LAST_SYNC_TIME];
                 $result->setLastSyncTime(Utilities::convertToDateTime($lastSyncTime));
             }
         }
-
         return $result;
     }
-
     /**
      * Gets status of the result.
      *
@@ -89,7 +74,6 @@ class GetServiceStatsResult
     {
         return $this->status;
     }
-
     /**
      * Gets the last sync time.
      * @return \DateTime
@@ -98,7 +82,6 @@ class GetServiceStatsResult
     {
         return $this->lastSyncTime;
     }
-
     /**
      * Sets status of the result.
      *
@@ -108,7 +91,6 @@ class GetServiceStatsResult
     {
         $this->status = $status;
     }
-
     /**
      * Sets the last sync time.
      *

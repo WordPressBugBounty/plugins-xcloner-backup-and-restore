@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Account class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Account extends Entity
 {
     /**
-    * Gets the blocked
-    *
-    * @return bool|null The blocked
-    */
+     * Gets the blocked
+     *
+     * @return bool|null The blocked
+     */
     public function getBlocked()
     {
         if (array_key_exists("blocked", $this->_propDict)) {
@@ -40,25 +41,23 @@ class Account extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the blocked
-    *
-    * @param bool $val The blocked
-    *
-    * @return Account
-    */
+     * Sets the blocked
+     *
+     * @param bool $val The blocked
+     *
+     * @return Account
+     */
     public function setBlocked($val)
     {
         $this->_propDict["blocked"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the category
-    *
-    * @return string|null The category
-    */
+     * Gets the category
+     *
+     * @return string|null The category
+     */
     public function getCategory()
     {
         if (array_key_exists("category", $this->_propDict)) {
@@ -67,25 +66,23 @@ class Account extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the category
-    *
-    * @param string $val The category
-    *
-    * @return Account
-    */
+     * Sets the category
+     *
+     * @param string $val The category
+     *
+     * @return Account
+     */
     public function setCategory($val)
     {
         $this->_propDict["category"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -94,29 +91,27 @@ class Account extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return Account
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return Account
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -125,25 +120,23 @@ class Account extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return Account
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return Account
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the number
-    *
-    * @return string|null The number
-    */
+     * Gets the number
+     *
+     * @return string|null The number
+     */
     public function getNumber()
     {
         if (array_key_exists("number", $this->_propDict)) {
@@ -152,25 +145,23 @@ class Account extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the number
-    *
-    * @param string $val The number
-    *
-    * @return Account
-    */
+     * Sets the number
+     *
+     * @param string $val The number
+     *
+     * @return Account
+     */
     public function setNumber($val)
     {
         $this->_propDict["number"] = $val;
         return $this;
     }
-
     /**
-    * Gets the subCategory
-    *
-    * @return string|null The subCategory
-    */
+     * Gets the subCategory
+     *
+     * @return string|null The subCategory
+     */
     public function getSubCategory()
     {
         if (array_key_exists("subCategory", $this->_propDict)) {
@@ -179,18 +170,16 @@ class Account extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the subCategory
-    *
-    * @param string $val The subCategory
-    *
-    * @return Account
-    */
+     * Sets the subCategory
+     *
+     * @param string $val The subCategory
+     *
+     * @return Account
+     */
     public function setSubCategory($val)
     {
         $this->_propDict["subCategory"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnifiedRoleManagementPolicyAuthenticationContextRule class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleManagementPolicyRule
 {
     /**
-    * Gets the claimValue
-    * The value of the authentication context claim.
-    *
-    * @return string|null The claimValue
-    */
+     * Gets the claimValue
+     * The value of the authentication context claim.
+     *
+     * @return string|null The claimValue
+     */
     public function getClaimValue()
     {
         if (array_key_exists("claimValue", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleMa
             return null;
         }
     }
-
     /**
-    * Sets the claimValue
-    * The value of the authentication context claim.
-    *
-    * @param string $val The claimValue
-    *
-    * @return UnifiedRoleManagementPolicyAuthenticationContextRule
-    */
+     * Sets the claimValue
+     * The value of the authentication context claim.
+     *
+     * @param string $val The claimValue
+     *
+     * @return UnifiedRoleManagementPolicyAuthenticationContextRule
+     */
     public function setClaimValue($val)
     {
         $this->_propDict["claimValue"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isEnabled
-    * Whether this rule is enabled.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Whether this rule is enabled.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -70,19 +69,17 @@ class UnifiedRoleManagementPolicyAuthenticationContextRule extends UnifiedRoleMa
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Whether this rule is enabled.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return UnifiedRoleManagementPolicyAuthenticationContextRule
-    */
+     * Sets the isEnabled
+     * Whether this rule is enabled.
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return UnifiedRoleManagementPolicyAuthenticationContextRule
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
 }

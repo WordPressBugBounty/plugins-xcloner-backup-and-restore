@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WinGetAppInstallTimeSettings class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WinGetAppInstallTimeSettings extends Entity
 {
-
     /**
-    * Gets the deadlineDateTime
-    * The time at which the app should be installed.
-    *
-    * @return \DateTime|null The deadlineDateTime
-    */
+     * Gets the deadlineDateTime
+     * The time at which the app should be installed.
+     *
+     * @return \DateTime|null The deadlineDateTime
+     */
     public function getDeadlineDateTime()
     {
         if (array_key_exists("deadlineDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deadlineDateTime"], "\DateTime") || is_null($this->_propDict["deadlineDateTime"])) {
+            if (is_a($this->_propDict["deadlineDateTime"], "\\DateTime") || is_null($this->_propDict["deadlineDateTime"])) {
                 return $this->_propDict["deadlineDateTime"];
             } else {
                 $this->_propDict["deadlineDateTime"] = new \DateTime($this->_propDict["deadlineDateTime"]);
@@ -45,26 +46,25 @@ class WinGetAppInstallTimeSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deadlineDateTime
-    * The time at which the app should be installed.
-    *
-    * @param \DateTime $val The value to assign to the deadlineDateTime
-    *
-    * @return WinGetAppInstallTimeSettings The WinGetAppInstallTimeSettings
-    */
+     * Sets the deadlineDateTime
+     * The time at which the app should be installed.
+     *
+     * @param \DateTime $val The value to assign to the deadlineDateTime
+     *
+     * @return WinGetAppInstallTimeSettings The WinGetAppInstallTimeSettings
+     */
     public function setDeadlineDateTime($val)
     {
         $this->_propDict["deadlineDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the useLocalTime
-    * Whether the local device time or UTC time should be used when determining the deadline times.
-    *
-    * @return bool|null The useLocalTime
-    */
+     * Gets the useLocalTime
+     * Whether the local device time or UTC time should be used when determining the deadline times.
+     *
+     * @return bool|null The useLocalTime
+     */
     public function getUseLocalTime()
     {
         if (array_key_exists("useLocalTime", $this->_propDict)) {
@@ -73,15 +73,14 @@ class WinGetAppInstallTimeSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the useLocalTime
-    * Whether the local device time or UTC time should be used when determining the deadline times.
-    *
-    * @param bool $val The value of the useLocalTime
-    *
-    * @return WinGetAppInstallTimeSettings
-    */
+     * Sets the useLocalTime
+     * Whether the local device time or UTC time should be used when determining the deadline times.
+     *
+     * @param bool $val The value of the useLocalTime
+     *
+     * @return WinGetAppInstallTimeSettings
+     */
     public function setUseLocalTime($val)
     {
         $this->_propDict["useLocalTime"] = $val;

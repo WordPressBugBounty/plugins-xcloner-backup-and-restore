@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppIntentAndState class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppIntentAndState extends Entity
 {
     /**
-    * Gets the managedDeviceIdentifier
-    * Device identifier created or collected by Intune.
-    *
-    * @return string|null The managedDeviceIdentifier
-    */
+     * Gets the managedDeviceIdentifier
+     * Device identifier created or collected by Intune.
+     *
+     * @return string|null The managedDeviceIdentifier
+     */
     public function getManagedDeviceIdentifier()
     {
         if (array_key_exists("managedDeviceIdentifier", $this->_propDict)) {
@@ -41,57 +42,52 @@ class MobileAppIntentAndState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceIdentifier
-    * Device identifier created or collected by Intune.
-    *
-    * @param string $val The managedDeviceIdentifier
-    *
-    * @return MobileAppIntentAndState
-    */
+     * Sets the managedDeviceIdentifier
+     * Device identifier created or collected by Intune.
+     *
+     * @param string $val The managedDeviceIdentifier
+     *
+     * @return MobileAppIntentAndState
+     */
     public function setManagedDeviceIdentifier($val)
     {
         $this->_propDict["managedDeviceIdentifier"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the mobileAppList
-    * The list of payload intents and states for the tenant.
+     * The list of payload intents and states for the tenant.
      *
      * @return array|null The mobileAppList
      */
     public function getMobileAppList()
     {
         if (array_key_exists("mobileAppList", $this->_propDict)) {
-           return $this->_propDict["mobileAppList"];
+            return $this->_propDict["mobileAppList"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the mobileAppList
-    * The list of payload intents and states for the tenant.
-    *
-    * @param MobileAppIntentAndStateDetail[] $val The mobileAppList
-    *
-    * @return MobileAppIntentAndState
-    */
+     * Sets the mobileAppList
+     * The list of payload intents and states for the tenant.
+     *
+     * @param MobileAppIntentAndStateDetail[] $val The mobileAppList
+     *
+     * @return MobileAppIntentAndState
+     */
     public function setMobileAppList($val)
     {
         $this->_propDict["mobileAppList"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * Identifier for the user that tried to enroll the device.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * Identifier for the user that tried to enroll the device.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -100,19 +96,17 @@ class MobileAppIntentAndState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * Identifier for the user that tried to enroll the device.
-    *
-    * @param string $val The userId
-    *
-    * @return MobileAppIntentAndState
-    */
+     * Sets the userId
+     * Identifier for the user that tried to enroll the device.
+     *
+     * @param string $val The userId
+     *
+     * @return MobileAppIntentAndState
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResponsibleSensitiveType class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResponsibleSensitiveType extends Entity
 {
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ResponsibleSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The value of the description
-    *
-    * @return ResponsibleSensitiveType
-    */
+     * Sets the description
+     *
+     * @param string $val The value of the description
+     *
+     * @return ResponsibleSensitiveType
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -65,24 +66,23 @@ class ResponsibleSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return ResponsibleSensitiveType
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return ResponsibleSensitiveType
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -91,24 +91,23 @@ class ResponsibleSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return ResponsibleSensitiveType
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return ResponsibleSensitiveType
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the publisherName
-    *
-    * @return string|null The publisherName
-    */
+     * Gets the publisherName
+     *
+     * @return string|null The publisherName
+     */
     public function getPublisherName()
     {
         if (array_key_exists("publisherName", $this->_propDict)) {
@@ -117,24 +116,23 @@ class ResponsibleSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the publisherName
-    *
-    * @param string $val The value of the publisherName
-    *
-    * @return ResponsibleSensitiveType
-    */
+     * Sets the publisherName
+     *
+     * @param string $val The value of the publisherName
+     *
+     * @return ResponsibleSensitiveType
+     */
     public function setPublisherName($val)
     {
         $this->_propDict["publisherName"] = $val;
         return $this;
     }
     /**
-    * Gets the rulePackageId
-    *
-    * @return string|null The rulePackageId
-    */
+     * Gets the rulePackageId
+     *
+     * @return string|null The rulePackageId
+     */
     public function getRulePackageId()
     {
         if (array_key_exists("rulePackageId", $this->_propDict)) {
@@ -143,24 +141,23 @@ class ResponsibleSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the rulePackageId
-    *
-    * @param string $val The value of the rulePackageId
-    *
-    * @return ResponsibleSensitiveType
-    */
+     * Sets the rulePackageId
+     *
+     * @param string $val The value of the rulePackageId
+     *
+     * @return ResponsibleSensitiveType
+     */
     public function setRulePackageId($val)
     {
         $this->_propDict["rulePackageId"] = $val;
         return $this;
     }
     /**
-    * Gets the rulePackageType
-    *
-    * @return string|null The rulePackageType
-    */
+     * Gets the rulePackageType
+     *
+     * @return string|null The rulePackageType
+     */
     public function getRulePackageType()
     {
         if (array_key_exists("rulePackageType", $this->_propDict)) {
@@ -169,14 +166,13 @@ class ResponsibleSensitiveType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the rulePackageType
-    *
-    * @param string $val The value of the rulePackageType
-    *
-    * @return ResponsibleSensitiveType
-    */
+     * Sets the rulePackageType
+     *
+     * @param string $val The value of the rulePackageType
+     *
+     * @return ResponsibleSensitiveType
+     */
     public function setRulePackageType($val)
     {
         $this->_propDict["rulePackageType"] = $val;

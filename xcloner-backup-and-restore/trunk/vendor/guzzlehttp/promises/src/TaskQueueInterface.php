@@ -1,10 +1,10 @@
 <?php
 
-namespace GuzzleHttp\Promise;
+namespace XCloner\GuzzleHttp\Promise;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 interface TaskQueueInterface
 {
     /**
@@ -13,13 +13,11 @@ interface TaskQueueInterface
      * @return bool
      */
     public function isEmpty();
-
     /**
      * Adds a task to the queue that will be executed the next time run is
      * called.
      */
     public function add(callable $task);
-
     /**
      * Execute all of the pending task in the queue.
      */

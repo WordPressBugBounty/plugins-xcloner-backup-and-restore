@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RotateBitLockerKeysDeviceActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult
 {
     /**
-    * Gets the errorCode
-    * RotateBitLockerKeys action error code
-    *
-    * @return int|null The errorCode
-    */
+     * Gets the errorCode
+     * RotateBitLockerKeys action error code
+     *
+     * @return int|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -40,15 +42,14 @@ class RotateBitLockerKeysDeviceActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * RotateBitLockerKeys action error code
-    *
-    * @param int $val The value of the errorCode
-    *
-    * @return RotateBitLockerKeysDeviceActionResult
-    */
+     * Sets the errorCode
+     * RotateBitLockerKeys action error code
+     *
+     * @param int $val The value of the errorCode
+     *
+     * @return RotateBitLockerKeysDeviceActionResult
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;

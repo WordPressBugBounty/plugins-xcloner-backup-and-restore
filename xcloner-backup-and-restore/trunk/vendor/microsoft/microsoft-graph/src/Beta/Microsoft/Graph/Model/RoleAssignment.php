@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RoleAssignment class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RoleAssignment extends Entity
 {
     /**
-    * Gets the description
-    * Description of the Role Assignment.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the Role Assignment.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the Role Assignment.
-    *
-    * @param string $val The description
-    *
-    * @return RoleAssignment
-    */
+     * Sets the description
+     * Description of the Role Assignment.
+     *
+     * @param string $val The description
+     *
+     * @return RoleAssignment
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display or friendly name of the role Assignment.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display or friendly name of the role Assignment.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display or friendly name of the role Assignment.
-    *
-    * @param string $val The displayName
-    *
-    * @return RoleAssignment
-    */
+     * Sets the displayName
+     * The display or friendly name of the role Assignment.
+     *
+     * @param string $val The displayName
+     *
+     * @return RoleAssignment
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceScopes
-    * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-    *
-    * @return array|null The resourceScopes
-    */
+     * Gets the resourceScopes
+     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+     *
+     * @return array|null The resourceScopes
+     */
     public function getResourceScopes()
     {
         if (array_key_exists("resourceScopes", $this->_propDict)) {
@@ -99,27 +96,25 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resourceScopes
-    * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-    *
-    * @param string[] $val The resourceScopes
-    *
-    * @return RoleAssignment
-    */
+     * Sets the resourceScopes
+     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+     *
+     * @param string[] $val The resourceScopes
+     *
+     * @return RoleAssignment
+     */
     public function setResourceScopes($val)
     {
         $this->_propDict["resourceScopes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scopeMembers
-    * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-    *
-    * @return array|null The scopeMembers
-    */
+     * Gets the scopeMembers
+     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+     *
+     * @return array|null The scopeMembers
+     */
     public function getScopeMembers()
     {
         if (array_key_exists("scopeMembers", $this->_propDict)) {
@@ -128,31 +123,29 @@ class RoleAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the scopeMembers
-    * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
-    *
-    * @param string[] $val The scopeMembers
-    *
-    * @return RoleAssignment
-    */
+     * Sets the scopeMembers
+     * List of ids of role scope member security groups.  These are IDs from Azure Active Directory.
+     *
+     * @param string[] $val The scopeMembers
+     *
+     * @return RoleAssignment
+     */
     public function setScopeMembers($val)
     {
         $this->_propDict["scopeMembers"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scopeType
-    * Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
-    *
-    * @return RoleAssignmentScopeType|null The scopeType
-    */
+     * Gets the scopeType
+     * Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
+     *
+     * @return RoleAssignmentScopeType|null The scopeType
+     */
     public function getScopeType()
     {
         if (array_key_exists("scopeType", $this->_propDict)) {
-            if (is_a($this->_propDict["scopeType"], "\Beta\Microsoft\Graph\Model\RoleAssignmentScopeType") || is_null($this->_propDict["scopeType"])) {
+            if (is_a($this->_propDict["scopeType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RoleAssignmentScopeType") || is_null($this->_propDict["scopeType"])) {
                 return $this->_propDict["scopeType"];
             } else {
                 $this->_propDict["scopeType"] = new RoleAssignmentScopeType($this->_propDict["scopeType"]);
@@ -161,31 +154,29 @@ class RoleAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the scopeType
-    * Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
-    *
-    * @param RoleAssignmentScopeType $val The scopeType
-    *
-    * @return RoleAssignment
-    */
+     * Sets the scopeType
+     * Specifies the type of scope for a Role Assignment. Default type 'ResourceScope' allows assignment of ResourceScopes. For 'AllDevices', 'AllLicensedUsers', and 'AllDevicesAndLicensedUsers', the ResourceScopes property should be left empty. Possible values are: resourceScope, allDevices, allLicensedUsers, allDevicesAndLicensedUsers.
+     *
+     * @param RoleAssignmentScopeType $val The scopeType
+     *
+     * @return RoleAssignment
+     */
     public function setScopeType($val)
     {
         $this->_propDict["scopeType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleDefinition
-    * Role definition this assignment is part of.
-    *
-    * @return RoleDefinition|null The roleDefinition
-    */
+     * Gets the roleDefinition
+     * Role definition this assignment is part of.
+     *
+     * @return RoleDefinition|null The roleDefinition
+     */
     public function getRoleDefinition()
     {
         if (array_key_exists("roleDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["roleDefinition"], "\Beta\Microsoft\Graph\Model\RoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
+            if (is_a($this->_propDict["roleDefinition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RoleDefinition") || is_null($this->_propDict["roleDefinition"])) {
                 return $this->_propDict["roleDefinition"];
             } else {
                 $this->_propDict["roleDefinition"] = new RoleDefinition($this->_propDict["roleDefinition"]);
@@ -194,19 +185,17 @@ class RoleAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the roleDefinition
-    * Role definition this assignment is part of.
-    *
-    * @param RoleDefinition $val The roleDefinition
-    *
-    * @return RoleAssignment
-    */
+     * Sets the roleDefinition
+     * Role definition this assignment is part of.
+     *
+     * @param RoleDefinition $val The roleDefinition
+     *
+     * @return RoleAssignment
+     */
     public function setRoleDefinition($val)
     {
         $this->_propDict["roleDefinition"] = $val;
         return $this;
     }
-
 }

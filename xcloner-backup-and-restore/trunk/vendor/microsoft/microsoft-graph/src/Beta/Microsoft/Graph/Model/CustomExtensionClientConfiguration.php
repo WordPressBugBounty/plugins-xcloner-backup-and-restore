@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CustomExtensionClientConfiguration class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CustomExtensionClientConfiguration extends Entity
 {
     /**
-    * Gets the timeoutInMilliseconds
-    * The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
-    *
-    * @return int|null The timeoutInMilliseconds
-    */
+     * Gets the timeoutInMilliseconds
+     * The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+     *
+     * @return int|null The timeoutInMilliseconds
+     */
     public function getTimeoutInMilliseconds()
     {
         if (array_key_exists("timeoutInMilliseconds", $this->_propDict)) {
@@ -40,15 +42,14 @@ class CustomExtensionClientConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the timeoutInMilliseconds
-    * The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
-    *
-    * @param int $val The value of the timeoutInMilliseconds
-    *
-    * @return CustomExtensionClientConfiguration
-    */
+     * Sets the timeoutInMilliseconds
+     * The max duration in milliseconds that Azure AD will wait for a response from the logic app before it shuts down the connection. The valid range is between 200 and 2000 milliseconds. Default duration is 1000.
+     *
+     * @param int $val The value of the timeoutInMilliseconds
+     *
+     * @return CustomExtensionClientConfiguration
+     */
     public function setTimeoutInMilliseconds($val)
     {
         $this->_propDict["timeoutInMilliseconds"] = $val;

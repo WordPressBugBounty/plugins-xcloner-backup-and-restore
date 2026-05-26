@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InboundSharedUserProfile class
 *
@@ -28,41 +29,38 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InboundSharedUserProfile implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new InboundSharedUserProfile
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new InboundSharedUserProfile
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the InboundSharedUserProfile
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the InboundSharedUserProfile
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -71,25 +69,23 @@ class InboundSharedUserProfile implements \JsonSerializable
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return InboundSharedUserProfile
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return InboundSharedUserProfile
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the homeTenantId
-    *
-    * @return string|null The homeTenantId
-    */
+     * Gets the homeTenantId
+     *
+     * @return string|null The homeTenantId
+     */
     public function getHomeTenantId()
     {
         if (array_key_exists("homeTenantId", $this->_propDict)) {
@@ -98,25 +94,23 @@ class InboundSharedUserProfile implements \JsonSerializable
             return null;
         }
     }
-
     /**
-    * Sets the homeTenantId
-    *
-    * @param string $val The homeTenantId
-    *
-    * @return InboundSharedUserProfile
-    */
+     * Sets the homeTenantId
+     *
+     * @param string $val The homeTenantId
+     *
+     * @return InboundSharedUserProfile
+     */
     public function setHomeTenantId($val)
     {
         $this->_propDict["homeTenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -125,25 +119,23 @@ class InboundSharedUserProfile implements \JsonSerializable
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    *
-    * @param string $val The userId
-    *
-    * @return InboundSharedUserProfile
-    */
+     * Sets the userId
+     *
+     * @param string $val The userId
+     *
+     * @return InboundSharedUserProfile
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -152,25 +144,23 @@ class InboundSharedUserProfile implements \JsonSerializable
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return InboundSharedUserProfile
-    */
+     * Sets the userPrincipalName
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return InboundSharedUserProfile
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -178,36 +168,34 @@ class InboundSharedUserProfile implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return InboundSharedUserProfile
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return InboundSharedUserProfile
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

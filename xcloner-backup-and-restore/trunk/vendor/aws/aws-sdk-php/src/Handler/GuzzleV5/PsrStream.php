@@ -1,13 +1,13 @@
 <?php
-namespace Aws\Handler\GuzzleV5;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Handler\GuzzleV5;
 
-
-use GuzzleHttp\Stream\StreamDecoratorTrait;
-use GuzzleHttp\Stream\StreamInterface as GuzzleStreamInterface;
-use Psr\Http\Message\StreamInterface as Psr7StreamInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Stream\StreamDecoratorTrait;
+use XCloner\GuzzleHttp\Stream\StreamInterface as GuzzleStreamInterface;
+use XCloner\Psr\Http\Message\StreamInterface as Psr7StreamInterface;
 /**
  * Adapts a Guzzle 5 Stream to a PSR-7 Stream.
  *
@@ -16,20 +16,16 @@ use Psr\Http\Message\StreamInterface as Psr7StreamInterface;
 class PsrStream implements Psr7StreamInterface
 {
     use StreamDecoratorTrait;
-
     /** @var GuzzleStreamInterface */
     private $stream;
-
     public function __construct(GuzzleStreamInterface $stream)
     {
         $this->stream = $stream;
     }
-
     public function rewind()
     {
         $this->stream->seek(0);
     }
-
     public function getContents()
     {
         return $this->stream->getContents();

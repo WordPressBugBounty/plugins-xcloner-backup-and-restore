@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidOmaCpConfiguration class
 *
@@ -28,36 +29,34 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidOmaCpConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the configurationXml
-    * Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The configurationXml
-    */
+     * Gets the configurationXml
+     * Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The configurationXml
+     */
     public function getConfigurationXml()
     {
         if (array_key_exists("configurationXml", $this->_propDict)) {
-            if (is_a($this->_propDict["configurationXml"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["configurationXml"])) {
+            if (is_a($this->_propDict["configurationXml"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["configurationXml"])) {
                 return $this->_propDict["configurationXml"];
             } else {
-                $this->_propDict["configurationXml"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["configurationXml"]);
+                $this->_propDict["configurationXml"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["configurationXml"]);
                 return $this->_propDict["configurationXml"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the configurationXml
-    * Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The configurationXml
-    *
-    * @return AndroidOmaCpConfiguration
-    */
+     * Sets the configurationXml
+     * Configuration XML that will be applied to the device. When it is read, it only provides a placeholder string since the original data is encrypted and stored.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The configurationXml
+     *
+     * @return AndroidOmaCpConfiguration
+     */
     public function setConfigurationXml($val)
     {
         $this->_propDict["configurationXml"] = $val;
         return $this;
     }
-
 }

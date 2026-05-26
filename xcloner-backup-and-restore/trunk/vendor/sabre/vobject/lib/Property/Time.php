@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\DateTimeParser;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\DateTimeParser;
 /**
  * Time property.
  *
@@ -25,7 +24,6 @@ class Time extends Text
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Returns the type of value.
      *
@@ -38,7 +36,6 @@ class Time extends Text
     {
         return 'TIME';
     }
-
     /**
      * Sets the JSON value, as it would appear in a jCard or jCal object.
      *
@@ -47,19 +44,13 @@ class Time extends Text
     public function setJsonValue(array $value)
     {
         // Removing colons from value.
-        $value = str_replace(
-            ':',
-            '',
-            $value
-        );
-
+        $value = str_replace(':', '', $value);
         if (1 === count($value)) {
             $this->setValue(reset($value));
         } else {
             $this->setValue($value);
         }
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -71,11 +62,9 @@ class Time extends Text
     {
         $parts = DateTimeParser::parseVCardTime($this->getValue());
         $timeStr = '';
-
         // Hour
         if (!is_null($parts['hour'])) {
             $timeStr .= $parts['hour'];
-
             if (!is_null($parts['minute'])) {
                 $timeStr .= ':';
             }
@@ -84,51 +73,39 @@ class Time extends Text
             // dash for an empty value.
             $timeStr .= '-';
         }
-
         // Minute
         if (!is_null($parts['minute'])) {
             $timeStr .= $parts['minute'];
-
             if (!is_null($parts['second'])) {
                 $timeStr .= ':';
             }
-        } else {
-            if (isset($parts['second'])) {
-                // Dash for empty minute
-                $timeStr .= '-';
-            }
+        } else if (isset($parts['second'])) {
+            // Dash for empty minute
+            $timeStr .= '-';
         }
-
         // Second
         if (!is_null($parts['second'])) {
             $timeStr .= $parts['second'];
         }
-
         // Timezone
         if (!is_null($parts['timezone'])) {
             if ('Z' === $parts['timezone']) {
                 $timeStr .= 'Z';
             } else {
-                $timeStr .=
-                    preg_replace('/([0-9]{2})([0-9]{2})$/', '$1:$2', $parts['timezone']);
+                $timeStr .= preg_replace('/([0-9]{2})([0-9]{2})$/', '$1:$2', $parts['timezone']);
             }
         }
-
         return [$timeStr];
     }
-
     /**
      * Hydrate data from a XML subtree, as it would appear in a xCard or xCal
      * object.
      */
     public function setXmlValue(array $value)
     {
-        $value = array_map(
-            function ($value) {
-                return str_replace(':', '', $value);
-            },
-            $value
-        );
+        $value = array_map(function ($value) {
+            return str_replace(':', '', $value);
+        }, $value);
         parent::setXmlValue($value);
     }
 }

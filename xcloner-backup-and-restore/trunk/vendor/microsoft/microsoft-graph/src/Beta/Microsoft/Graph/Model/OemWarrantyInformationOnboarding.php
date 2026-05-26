@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OemWarrantyInformationOnboarding class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OemWarrantyInformationOnboarding extends Entity
 {
     /**
-    * Gets the available
-    * Specifies whether warranty API is available. This property is read-only.
-    *
-    * @return bool|null The available
-    */
+     * Gets the available
+     * Specifies whether warranty API is available. This property is read-only.
+     *
+     * @return bool|null The available
+     */
     public function getAvailable()
     {
         if (array_key_exists("available", $this->_propDict)) {
@@ -41,27 +42,25 @@ class OemWarrantyInformationOnboarding extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the available
-    * Specifies whether warranty API is available. This property is read-only.
-    *
-    * @param bool $val The available
-    *
-    * @return OemWarrantyInformationOnboarding
-    */
+     * Sets the available
+     * Specifies whether warranty API is available. This property is read-only.
+     *
+     * @param bool $val The available
+     *
+     * @return OemWarrantyInformationOnboarding
+     */
     public function setAvailable($val)
     {
         $this->_propDict["available"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the enabled
-    * Specifies whether warranty query is enabled for given OEM. This property is read-only.
-    *
-    * @return bool|null The enabled
-    */
+     * Gets the enabled
+     * Specifies whether warranty query is enabled for given OEM. This property is read-only.
+     *
+     * @return bool|null The enabled
+     */
     public function getEnabled()
     {
         if (array_key_exists("enabled", $this->_propDict)) {
@@ -70,27 +69,25 @@ class OemWarrantyInformationOnboarding extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabled
-    * Specifies whether warranty query is enabled for given OEM. This property is read-only.
-    *
-    * @param bool $val The enabled
-    *
-    * @return OemWarrantyInformationOnboarding
-    */
+     * Sets the enabled
+     * Specifies whether warranty query is enabled for given OEM. This property is read-only.
+     *
+     * @param bool $val The enabled
+     *
+     * @return OemWarrantyInformationOnboarding
+     */
     public function setEnabled($val)
     {
         $this->_propDict["enabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the oemName
-    * OEM name. This property is read-only.
-    *
-    * @return string|null The oemName
-    */
+     * Gets the oemName
+     * OEM name. This property is read-only.
+     *
+     * @return string|null The oemName
+     */
     public function getOemName()
     {
         if (array_key_exists("oemName", $this->_propDict)) {
@@ -99,19 +96,17 @@ class OemWarrantyInformationOnboarding extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the oemName
-    * OEM name. This property is read-only.
-    *
-    * @param string $val The oemName
-    *
-    * @return OemWarrantyInformationOnboarding
-    */
+     * Sets the oemName
+     * OEM name. This property is read-only.
+     *
+     * @param string $val The oemName
+     *
+     * @return OemWarrantyInformationOnboarding
+     */
     public function setOemName($val)
     {
         $this->_propDict["oemName"] = $val;
         return $this;
     }
-
 }

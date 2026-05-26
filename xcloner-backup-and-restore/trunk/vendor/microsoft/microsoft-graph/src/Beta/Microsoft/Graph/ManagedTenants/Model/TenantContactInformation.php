@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TenantContactInformation class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TenantContactInformation extends \Beta\Microsoft\Graph\Model\Entity
+class TenantContactInformation extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the email
-    * The email address for the contact. Optional
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * The email address for the contact. Optional
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TenantContactInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * The email address for the contact. Optional
-    *
-    * @param string $val The value of the email
-    *
-    * @return TenantContactInformation
-    */
+     * Sets the email
+     * The email address for the contact. Optional
+     *
+     * @param string $val The value of the email
+     *
+     * @return TenantContactInformation
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The name for the contact. Required.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name for the contact. Required.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TenantContactInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name for the contact. Required.
-    *
-    * @param string $val The value of the name
-    *
-    * @return TenantContactInformation
-    */
+     * Sets the name
+     * The name for the contact. Required.
+     *
+     * @param string $val The value of the name
+     *
+     * @return TenantContactInformation
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the notes
-    * The notes associated with the contact. Optional
-    *
-    * @return string|null The notes
-    */
+     * Gets the notes
+     * The notes associated with the contact. Optional
+     *
+     * @return string|null The notes
+     */
     public function getNotes()
     {
         if (array_key_exists("notes", $this->_propDict)) {
@@ -96,26 +96,25 @@ class TenantContactInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the notes
-    * The notes associated with the contact. Optional
-    *
-    * @param string $val The value of the notes
-    *
-    * @return TenantContactInformation
-    */
+     * Sets the notes
+     * The notes associated with the contact. Optional
+     *
+     * @param string $val The value of the notes
+     *
+     * @return TenantContactInformation
+     */
     public function setNotes($val)
     {
         $this->_propDict["notes"] = $val;
         return $this;
     }
     /**
-    * Gets the phone
-    * The phone number for the contact. Optional.
-    *
-    * @return string|null The phone
-    */
+     * Gets the phone
+     * The phone number for the contact. Optional.
+     *
+     * @return string|null The phone
+     */
     public function getPhone()
     {
         if (array_key_exists("phone", $this->_propDict)) {
@@ -124,26 +123,25 @@ class TenantContactInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the phone
-    * The phone number for the contact. Optional.
-    *
-    * @param string $val The value of the phone
-    *
-    * @return TenantContactInformation
-    */
+     * Sets the phone
+     * The phone number for the contact. Optional.
+     *
+     * @param string $val The value of the phone
+     *
+     * @return TenantContactInformation
+     */
     public function setPhone($val)
     {
         $this->_propDict["phone"] = $val;
         return $this;
     }
     /**
-    * Gets the title
-    * The title for the contact. Required.
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * The title for the contact. Required.
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -152,15 +150,14 @@ class TenantContactInformation extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * The title for the contact. Required.
-    *
-    * @param string $val The value of the title
-    *
-    * @return TenantContactInformation
-    */
+     * Sets the title
+     * The title for the contact. Required.
+     *
+     * @param string $val The value of the title
+     *
+     * @return TenantContactInformation
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;

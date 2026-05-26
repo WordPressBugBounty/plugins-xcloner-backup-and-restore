@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UrlEvidence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UrlEvidence extends AlertEvidence
 {
     /**
-    * Gets the url
-    * The Unique Resource Locator (URL).
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * The Unique Resource Locator (URL).
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -40,15 +42,14 @@ class UrlEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * The Unique Resource Locator (URL).
-    *
-    * @param string $val The value of the url
-    *
-    * @return UrlEvidence
-    */
+     * Sets the url
+     * The Unique Resource Locator (URL).
+     *
+     * @param string $val The value of the url
+     *
+     * @return UrlEvidence
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppPolicySetItem class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppPolicySetItem extends PolicySetItem
 {
     /**
-    * Gets the intent
-    * Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
-    *
-    * @return InstallIntent|null The intent
-    */
+     * Gets the intent
+     * Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     *
+     * @return InstallIntent|null The intent
+     */
     public function getIntent()
     {
         if (array_key_exists("intent", $this->_propDict)) {
-            if (is_a($this->_propDict["intent"], "\Beta\Microsoft\Graph\Model\InstallIntent") || is_null($this->_propDict["intent"])) {
+            if (is_a($this->_propDict["intent"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\InstallIntent") || is_null($this->_propDict["intent"])) {
                 return $this->_propDict["intent"];
             } else {
                 $this->_propDict["intent"] = new InstallIntent($this->_propDict["intent"]);
@@ -45,31 +46,29 @@ class MobileAppPolicySetItem extends PolicySetItem
         }
         return null;
     }
-
     /**
-    * Sets the intent
-    * Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
-    *
-    * @param InstallIntent $val The intent
-    *
-    * @return MobileAppPolicySetItem
-    */
+     * Sets the intent
+     * Install intent of the MobileAppPolicySetItem. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     *
+     * @param InstallIntent $val The intent
+     *
+     * @return MobileAppPolicySetItem
+     */
     public function setIntent($val)
     {
         $this->_propDict["intent"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settings
-    * Settings of the MobileAppPolicySetItem.
-    *
-    * @return MobileAppAssignmentSettings|null The settings
-    */
+     * Gets the settings
+     * Settings of the MobileAppPolicySetItem.
+     *
+     * @return MobileAppAssignmentSettings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\MobileAppAssignmentSettings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppAssignmentSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new MobileAppAssignmentSettings($this->_propDict["settings"]);
@@ -78,19 +77,17 @@ class MobileAppPolicySetItem extends PolicySetItem
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    * Settings of the MobileAppPolicySetItem.
-    *
-    * @param MobileAppAssignmentSettings $val The settings
-    *
-    * @return MobileAppPolicySetItem
-    */
+     * Sets the settings
+     * Settings of the MobileAppPolicySetItem.
+     *
+     * @param MobileAppAssignmentSettings $val The settings
+     *
+     * @return MobileAppPolicySetItem
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

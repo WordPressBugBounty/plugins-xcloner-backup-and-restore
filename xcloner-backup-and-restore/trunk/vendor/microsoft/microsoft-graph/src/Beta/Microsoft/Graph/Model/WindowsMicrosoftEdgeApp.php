@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsMicrosoftEdgeApp class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsMicrosoftEdgeApp extends MobileApp
 {
     /**
-    * Gets the channel
-    * The channel to install on target devices. Possible values are: dev, beta, stable.
-    *
-    * @return MicrosoftEdgeChannel|null The channel
-    */
+     * Gets the channel
+     * The channel to install on target devices. Possible values are: dev, beta, stable.
+     *
+     * @return MicrosoftEdgeChannel|null The channel
+     */
     public function getChannel()
     {
         if (array_key_exists("channel", $this->_propDict)) {
-            if (is_a($this->_propDict["channel"], "\Beta\Microsoft\Graph\Model\MicrosoftEdgeChannel") || is_null($this->_propDict["channel"])) {
+            if (is_a($this->_propDict["channel"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MicrosoftEdgeChannel") || is_null($this->_propDict["channel"])) {
                 return $this->_propDict["channel"];
             } else {
                 $this->_propDict["channel"] = new MicrosoftEdgeChannel($this->_propDict["channel"]);
@@ -45,27 +46,25 @@ class WindowsMicrosoftEdgeApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the channel
-    * The channel to install on target devices. Possible values are: dev, beta, stable.
-    *
-    * @param MicrosoftEdgeChannel $val The channel
-    *
-    * @return WindowsMicrosoftEdgeApp
-    */
+     * Sets the channel
+     * The channel to install on target devices. Possible values are: dev, beta, stable.
+     *
+     * @param MicrosoftEdgeChannel $val The channel
+     *
+     * @return WindowsMicrosoftEdgeApp
+     */
     public function setChannel($val)
     {
         $this->_propDict["channel"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayLanguageLocale
-    * The language locale to use when the Edge app displays text to the user.
-    *
-    * @return string|null The displayLanguageLocale
-    */
+     * Gets the displayLanguageLocale
+     * The language locale to use when the Edge app displays text to the user.
+     *
+     * @return string|null The displayLanguageLocale
+     */
     public function getDisplayLanguageLocale()
     {
         if (array_key_exists("displayLanguageLocale", $this->_propDict)) {
@@ -74,19 +73,17 @@ class WindowsMicrosoftEdgeApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the displayLanguageLocale
-    * The language locale to use when the Edge app displays text to the user.
-    *
-    * @param string $val The displayLanguageLocale
-    *
-    * @return WindowsMicrosoftEdgeApp
-    */
+     * Sets the displayLanguageLocale
+     * The language locale to use when the Edge app displays text to the user.
+     *
+     * @param string $val The displayLanguageLocale
+     *
+     * @return WindowsMicrosoftEdgeApp
+     */
     public function setDisplayLanguageLocale($val)
     {
         $this->_propDict["displayLanguageLocale"] = $val;
         return $this;
     }
-
 }

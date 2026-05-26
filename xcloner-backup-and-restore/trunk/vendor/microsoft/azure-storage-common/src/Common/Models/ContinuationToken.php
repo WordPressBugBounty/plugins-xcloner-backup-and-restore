@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\LocationMode;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\LocationMode;
 /**
  * Provides functionality and data structure for continuation token.
  *
@@ -44,13 +42,10 @@ use MicrosoftAzure\Storage\Common\LocationMode;
 class ContinuationToken
 {
     private $location;
-
-    public function __construct(
-        $location = ''
-    ) {
+    public function __construct($location = '')
+    {
         $this->setLocation($location);
     }
-
     /**
      * Setter for location
      *
@@ -59,20 +54,9 @@ class ContinuationToken
     public function setLocation($location)
     {
         Validate::canCastAsString($location, 'location');
-        Validate::isTrue(
-            $location == LocationMode::PRIMARY_ONLY ||
-            $location == LocationMode::SECONDARY_ONLY ||
-            $location == '',
-            sprintf(
-                Resources::INVALID_VALUE_MSG,
-                'location',
-                LocationMode::PRIMARY_ONLY . ' or ' . LocationMode::SECONDARY_ONLY
-            )
-        );
-
+        Validate::isTrue($location == LocationMode::PRIMARY_ONLY || $location == LocationMode::SECONDARY_ONLY || $location == '', sprintf(Resources::INVALID_VALUE_MSG, 'location', LocationMode::PRIMARY_ONLY . ' or ' . LocationMode::SECONDARY_ONLY));
         $this->location = $location;
     }
-
     /**
      * Getter for location
      *

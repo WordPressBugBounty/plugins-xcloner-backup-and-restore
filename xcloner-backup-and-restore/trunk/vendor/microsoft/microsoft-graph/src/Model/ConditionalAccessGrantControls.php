@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessGrantControls class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessGrantControls extends Entity
 {
-
     /**
-    * Gets the builtInControls
-    * List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
-    *
-    * @return ConditionalAccessGrantControl|null The builtInControls
-    */
+     * Gets the builtInControls
+     * List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
+     *
+     * @return ConditionalAccessGrantControl|null The builtInControls
+     */
     public function getBuiltInControls()
     {
         if (array_key_exists("builtInControls", $this->_propDict)) {
-            if (is_a($this->_propDict["builtInControls"], "\Microsoft\Graph\Model\ConditionalAccessGrantControl") || is_null($this->_propDict["builtInControls"])) {
+            if (is_a($this->_propDict["builtInControls"], "XCloner\\Microsoft\\Graph\\Model\\ConditionalAccessGrantControl") || is_null($this->_propDict["builtInControls"])) {
                 return $this->_propDict["builtInControls"];
             } else {
                 $this->_propDict["builtInControls"] = new ConditionalAccessGrantControl($this->_propDict["builtInControls"]);
@@ -45,26 +46,25 @@ class ConditionalAccessGrantControls extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the builtInControls
-    * List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
-    *
-    * @param ConditionalAccessGrantControl $val The value to assign to the builtInControls
-    *
-    * @return ConditionalAccessGrantControls The ConditionalAccessGrantControls
-    */
+     * Sets the builtInControls
+     * List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.
+     *
+     * @param ConditionalAccessGrantControl $val The value to assign to the builtInControls
+     *
+     * @return ConditionalAccessGrantControls The ConditionalAccessGrantControls
+     */
     public function setBuiltInControls($val)
     {
         $this->_propDict["builtInControls"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the customAuthenticationFactors
-    * List of custom controls IDs required by the policy. For more information, see Custom controls.
-    *
-    * @return string|null The customAuthenticationFactors
-    */
+     * Gets the customAuthenticationFactors
+     * List of custom controls IDs required by the policy. For more information, see Custom controls.
+     *
+     * @return string|null The customAuthenticationFactors
+     */
     public function getCustomAuthenticationFactors()
     {
         if (array_key_exists("customAuthenticationFactors", $this->_propDict)) {
@@ -73,26 +73,25 @@ class ConditionalAccessGrantControls extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the customAuthenticationFactors
-    * List of custom controls IDs required by the policy. For more information, see Custom controls.
-    *
-    * @param string $val The value of the customAuthenticationFactors
-    *
-    * @return ConditionalAccessGrantControls
-    */
+     * Sets the customAuthenticationFactors
+     * List of custom controls IDs required by the policy. For more information, see Custom controls.
+     *
+     * @param string $val The value of the customAuthenticationFactors
+     *
+     * @return ConditionalAccessGrantControls
+     */
     public function setCustomAuthenticationFactors($val)
     {
         $this->_propDict["customAuthenticationFactors"] = $val;
         return $this;
     }
     /**
-    * Gets the operator
-    * Defines the relationship of the grant controls. Possible values: AND, OR.
-    *
-    * @return string|null The operator
-    */
+     * Gets the operator
+     * Defines the relationship of the grant controls. Possible values: AND, OR.
+     *
+     * @return string|null The operator
+     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
@@ -101,26 +100,25 @@ class ConditionalAccessGrantControls extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the operator
-    * Defines the relationship of the grant controls. Possible values: AND, OR.
-    *
-    * @param string $val The value of the operator
-    *
-    * @return ConditionalAccessGrantControls
-    */
+     * Sets the operator
+     * Defines the relationship of the grant controls. Possible values: AND, OR.
+     *
+     * @param string $val The value of the operator
+     *
+     * @return ConditionalAccessGrantControls
+     */
     public function setOperator($val)
     {
         $this->_propDict["operator"] = $val;
         return $this;
     }
     /**
-    * Gets the termsOfUse
-    * List of terms of use IDs required by the policy.
-    *
-    * @return string|null The termsOfUse
-    */
+     * Gets the termsOfUse
+     * List of terms of use IDs required by the policy.
+     *
+     * @return string|null The termsOfUse
+     */
     public function getTermsOfUse()
     {
         if (array_key_exists("termsOfUse", $this->_propDict)) {
@@ -129,15 +127,14 @@ class ConditionalAccessGrantControls extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the termsOfUse
-    * List of terms of use IDs required by the policy.
-    *
-    * @param string $val The value of the termsOfUse
-    *
-    * @return ConditionalAccessGrantControls
-    */
+     * Sets the termsOfUse
+     * List of terms of use IDs required by the policy.
+     *
+     * @param string $val The value of the termsOfUse
+     *
+     * @return ConditionalAccessGrantControls
+     */
     public function setTermsOfUse($val)
     {
         $this->_propDict["termsOfUse"] = $val;

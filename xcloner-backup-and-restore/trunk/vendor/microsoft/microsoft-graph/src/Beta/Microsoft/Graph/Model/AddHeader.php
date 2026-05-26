@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AddHeader class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AddHeader extends MarkContent
 {
-
     /**
-    * Gets the alignment
-    *
-    * @return Alignment|null The alignment
-    */
+     * Gets the alignment
+     *
+     * @return Alignment|null The alignment
+     */
     public function getAlignment()
     {
         if (array_key_exists("alignment", $this->_propDict)) {
-            if (is_a($this->_propDict["alignment"], "\Beta\Microsoft\Graph\Model\Alignment") || is_null($this->_propDict["alignment"])) {
+            if (is_a($this->_propDict["alignment"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Alignment") || is_null($this->_propDict["alignment"])) {
                 return $this->_propDict["alignment"];
             } else {
                 $this->_propDict["alignment"] = new Alignment($this->_propDict["alignment"]);
@@ -44,24 +45,23 @@ class AddHeader extends MarkContent
         }
         return null;
     }
-
     /**
-    * Sets the alignment
-    *
-    * @param Alignment $val The value to assign to the alignment
-    *
-    * @return AddHeader The AddHeader
-    */
+     * Sets the alignment
+     *
+     * @param Alignment $val The value to assign to the alignment
+     *
+     * @return AddHeader The AddHeader
+     */
     public function setAlignment($val)
     {
         $this->_propDict["alignment"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the margin
-    *
-    * @return int|null The margin
-    */
+     * Gets the margin
+     *
+     * @return int|null The margin
+     */
     public function getMargin()
     {
         if (array_key_exists("margin", $this->_propDict)) {
@@ -70,14 +70,13 @@ class AddHeader extends MarkContent
             return null;
         }
     }
-
     /**
-    * Sets the margin
-    *
-    * @param int $val The value of the margin
-    *
-    * @return AddHeader
-    */
+     * Sets the margin
+     *
+     * @param int $val The value of the margin
+     *
+     * @return AddHeader
+     */
     public function setMargin($val)
     {
         $this->_propDict["margin"] = $val;

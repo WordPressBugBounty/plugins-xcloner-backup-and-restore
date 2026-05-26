@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LicenseDetails class
 *
@@ -27,42 +28,39 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class LicenseDetails extends Entity
 {
-
-     /**
+    /**
      * Gets the servicePlans
-    * Information about the service plans assigned with the license. Read-only, Not nullable
+     * Information about the service plans assigned with the license. Read-only, Not nullable
      *
      * @return array|null The servicePlans
      */
     public function getServicePlans()
     {
         if (array_key_exists("servicePlans", $this->_propDict)) {
-           return $this->_propDict["servicePlans"];
+            return $this->_propDict["servicePlans"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the servicePlans
-    * Information about the service plans assigned with the license. Read-only, Not nullable
-    *
-    * @param ServicePlanInfo[] $val The servicePlans
-    *
-    * @return LicenseDetails
-    */
+     * Sets the servicePlans
+     * Information about the service plans assigned with the license. Read-only, Not nullable
+     *
+     * @param ServicePlanInfo[] $val The servicePlans
+     *
+     * @return LicenseDetails
+     */
     public function setServicePlans($val)
     {
         $this->_propDict["servicePlans"] = $val;
         return $this;
     }
-
     /**
-    * Gets the skuId
-    * Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
-    *
-    * @return string|null The skuId
-    */
+     * Gets the skuId
+     * Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
+     *
+     * @return string|null The skuId
+     */
     public function getSkuId()
     {
         if (array_key_exists("skuId", $this->_propDict)) {
@@ -71,27 +69,25 @@ class LicenseDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the skuId
-    * Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
-    *
-    * @param string $val The skuId
-    *
-    * @return LicenseDetails
-    */
+     * Sets the skuId
+     * Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
+     *
+     * @param string $val The skuId
+     *
+     * @return LicenseDetails
+     */
     public function setSkuId($val)
     {
         $this->_propDict["skuId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the skuPartNumber
-    * Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
-    *
-    * @return string|null The skuPartNumber
-    */
+     * Gets the skuPartNumber
+     * Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
+     *
+     * @return string|null The skuPartNumber
+     */
     public function getSkuPartNumber()
     {
         if (array_key_exists("skuPartNumber", $this->_propDict)) {
@@ -100,19 +96,17 @@ class LicenseDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the skuPartNumber
-    * Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
-    *
-    * @param string $val The skuPartNumber
-    *
-    * @return LicenseDetails
-    */
+     * Sets the skuPartNumber
+     * Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
+     *
+     * @param string $val The skuPartNumber
+     *
+     * @return LicenseDetails
+     */
     public function setSkuPartNumber($val)
     {
         $this->_propDict["skuPartNumber"] = $val;
         return $this;
     }
-
 }

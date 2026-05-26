@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Holds container properties fields
  *
@@ -48,7 +46,6 @@ class ContainerProperties
     private $leaseStatus;
     private $leaseState;
     private $publicAccess;
-
     /**
      * Gets container lastModified.
      *
@@ -58,7 +55,6 @@ class ContainerProperties
     {
         return $this->lastModified;
     }
-
     /**
      * Sets container lastModified.
      *
@@ -70,7 +66,6 @@ class ContainerProperties
     {
         $this->lastModified = $lastModified;
     }
-
     /**
      * Gets container etag.
      *
@@ -80,7 +75,6 @@ class ContainerProperties
     {
         return $this->etag;
     }
-
     /**
      * Sets container etag.
      *
@@ -92,7 +86,6 @@ class ContainerProperties
     {
         $this->etag = $etag;
     }
-
     /**
      * Gets blob leaseStatus.
      *
@@ -102,7 +95,6 @@ class ContainerProperties
     {
         return $this->leaseStatus;
     }
-
     /**
      * Sets blob leaseStatus.
      *
@@ -114,7 +106,6 @@ class ContainerProperties
     {
         $this->leaseStatus = $leaseStatus;
     }
-
     /**
      * Gets blob lease state.
      *
@@ -124,7 +115,6 @@ class ContainerProperties
     {
         return $this->leaseState;
     }
-
     /**
      * Sets blob lease state.
      *
@@ -136,7 +126,6 @@ class ContainerProperties
     {
         $this->leaseState = $leaseState;
     }
-
     /**
      * Gets blob lease duration.
      *
@@ -146,7 +135,6 @@ class ContainerProperties
     {
         return $this->leaseDuration;
     }
-
     /**
      * Sets blob leaseStatus.
      *
@@ -158,7 +146,6 @@ class ContainerProperties
     {
         $this->leaseDuration = $leaseDuration;
     }
-
     /**
      * Gets container publicAccess.
      *
@@ -168,7 +155,6 @@ class ContainerProperties
     {
         return $this->publicAccess;
     }
-
     /**
      * Sets container publicAccess.
      *
@@ -178,10 +164,7 @@ class ContainerProperties
      */
     public function setPublicAccess($publicAccess)
     {
-        Validate::isTrue(
-            PublicAccessType::isValid($publicAccess),
-            Resources::INVALID_BLOB_PAT_MSG
-        );
+        Validate::isTrue(PublicAccessType::isValid($publicAccess), Resources::INVALID_BLOB_PAT_MSG);
         $this->publicAccess = $publicAccess;
     }
 }

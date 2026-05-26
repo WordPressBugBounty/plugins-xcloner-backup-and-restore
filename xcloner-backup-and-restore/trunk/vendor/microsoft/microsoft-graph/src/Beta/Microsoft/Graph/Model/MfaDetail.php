@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MfaDetail class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MfaDetail extends Entity
 {
     /**
-    * Gets the authDetail
-    * Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
-    *
-    * @return string|null The authDetail
-    */
+     * Gets the authDetail
+     * Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
+     *
+     * @return string|null The authDetail
+     */
     public function getAuthDetail()
     {
         if (array_key_exists("authDetail", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MfaDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the authDetail
-    * Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
-    *
-    * @param string $val The value of the authDetail
-    *
-    * @return MfaDetail
-    */
+     * Sets the authDetail
+     * Indicates the MFA auth detail for the corresponding Sign-in activity when the MFA Required is 'Yes'.
+     *
+     * @param string $val The value of the authDetail
+     *
+     * @return MfaDetail
+     */
     public function setAuthDetail($val)
     {
         $this->_propDict["authDetail"] = $val;
         return $this;
     }
     /**
-    * Gets the authMethod
-    * Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
-    *
-    * @return string|null The authMethod
-    */
+     * Gets the authMethod
+     * Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
+     *
+     * @return string|null The authMethod
+     */
     public function getAuthMethod()
     {
         if (array_key_exists("authMethod", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MfaDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the authMethod
-    * Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
-    *
-    * @param string $val The value of the authMethod
-    *
-    * @return MfaDetail
-    */
+     * Sets the authMethod
+     * Indicates the MFA Auth methods (SMS, Phone, Authenticator App are some of the value) for the corresponding sign-in activity when the MFA Required field is 'Yes'.
+     *
+     * @param string $val The value of the authMethod
+     *
+     * @return MfaDetail
+     */
     public function setAuthMethod($val)
     {
         $this->_propDict["authMethod"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamFunSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamFunSettings extends Entity
 {
     /**
-    * Gets the allowCustomMemes
-    * If set to true, enables users to include custom memes.
-    *
-    * @return bool|null The allowCustomMemes
-    */
+     * Gets the allowCustomMemes
+     * If set to true, enables users to include custom memes.
+     *
+     * @return bool|null The allowCustomMemes
+     */
     public function getAllowCustomMemes()
     {
         if (array_key_exists("allowCustomMemes", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeamFunSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowCustomMemes
-    * If set to true, enables users to include custom memes.
-    *
-    * @param bool $val The value of the allowCustomMemes
-    *
-    * @return TeamFunSettings
-    */
+     * Sets the allowCustomMemes
+     * If set to true, enables users to include custom memes.
+     *
+     * @param bool $val The value of the allowCustomMemes
+     *
+     * @return TeamFunSettings
+     */
     public function setAllowCustomMemes($val)
     {
         $this->_propDict["allowCustomMemes"] = $val;
         return $this;
     }
     /**
-    * Gets the allowGiphy
-    * If set to true, enables Giphy use.
-    *
-    * @return bool|null The allowGiphy
-    */
+     * Gets the allowGiphy
+     * If set to true, enables Giphy use.
+     *
+     * @return bool|null The allowGiphy
+     */
     public function getAllowGiphy()
     {
         if (array_key_exists("allowGiphy", $this->_propDict)) {
@@ -68,26 +69,25 @@ class TeamFunSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowGiphy
-    * If set to true, enables Giphy use.
-    *
-    * @param bool $val The value of the allowGiphy
-    *
-    * @return TeamFunSettings
-    */
+     * Sets the allowGiphy
+     * If set to true, enables Giphy use.
+     *
+     * @param bool $val The value of the allowGiphy
+     *
+     * @return TeamFunSettings
+     */
     public function setAllowGiphy($val)
     {
         $this->_propDict["allowGiphy"] = $val;
         return $this;
     }
     /**
-    * Gets the allowStickersAndMemes
-    * If set to true, enables users to include stickers and memes.
-    *
-    * @return bool|null The allowStickersAndMemes
-    */
+     * Gets the allowStickersAndMemes
+     * If set to true, enables users to include stickers and memes.
+     *
+     * @return bool|null The allowStickersAndMemes
+     */
     public function getAllowStickersAndMemes()
     {
         if (array_key_exists("allowStickersAndMemes", $this->_propDict)) {
@@ -96,31 +96,29 @@ class TeamFunSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowStickersAndMemes
-    * If set to true, enables users to include stickers and memes.
-    *
-    * @param bool $val The value of the allowStickersAndMemes
-    *
-    * @return TeamFunSettings
-    */
+     * Sets the allowStickersAndMemes
+     * If set to true, enables users to include stickers and memes.
+     *
+     * @param bool $val The value of the allowStickersAndMemes
+     *
+     * @return TeamFunSettings
+     */
     public function setAllowStickersAndMemes($val)
     {
         $this->_propDict["allowStickersAndMemes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the giphyContentRating
-    * Giphy content rating. Possible values are: moderate, strict.
-    *
-    * @return GiphyRatingType|null The giphyContentRating
-    */
+     * Gets the giphyContentRating
+     * Giphy content rating. Possible values are: moderate, strict.
+     *
+     * @return GiphyRatingType|null The giphyContentRating
+     */
     public function getGiphyContentRating()
     {
         if (array_key_exists("giphyContentRating", $this->_propDict)) {
-            if (is_a($this->_propDict["giphyContentRating"], "\Beta\Microsoft\Graph\Model\GiphyRatingType") || is_null($this->_propDict["giphyContentRating"])) {
+            if (is_a($this->_propDict["giphyContentRating"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GiphyRatingType") || is_null($this->_propDict["giphyContentRating"])) {
                 return $this->_propDict["giphyContentRating"];
             } else {
                 $this->_propDict["giphyContentRating"] = new GiphyRatingType($this->_propDict["giphyContentRating"]);
@@ -129,18 +127,17 @@ class TeamFunSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the giphyContentRating
-    * Giphy content rating. Possible values are: moderate, strict.
-    *
-    * @param GiphyRatingType $val The value to assign to the giphyContentRating
-    *
-    * @return TeamFunSettings The TeamFunSettings
-    */
+     * Sets the giphyContentRating
+     * Giphy content rating. Possible values are: moderate, strict.
+     *
+     * @param GiphyRatingType $val The value to assign to the giphyContentRating
+     *
+     * @return TeamFunSettings The TeamFunSettings
+     */
     public function setGiphyContentRating($val)
     {
         $this->_propDict["giphyContentRating"] = $val;
-         return $this;
+        return $this;
     }
 }

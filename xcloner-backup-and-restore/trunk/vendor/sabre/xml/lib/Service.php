@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml;
 
-namespace Sabre\Xml;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * XML parsing and writing service.
  *
@@ -32,7 +31,6 @@ class Service
      * @var array
      */
     public $elementMap = [];
-
     /**
      * This is a list of namespaces that you want to give default prefixes.
      *
@@ -42,7 +40,6 @@ class Service
      * @var array
      */
     public $namespaceMap = [];
-
     /**
      * This is a list of custom serializers for specific classes.
      *
@@ -62,14 +59,12 @@ class Service
      * @var array
      */
     public $classMap = [];
-
     /**
      * A bitmask of the LIBXML_* constants.
      *
      * @var int
      */
     public $options = 0;
-
     /**
      * Returns a fresh XML Reader.
      */
@@ -77,10 +72,8 @@ class Service
     {
         $r = new Reader();
         $r->elementMap = $this->elementMap;
-
         return $r;
     }
-
     /**
      * Returns a fresh xml writer.
      */
@@ -89,10 +82,8 @@ class Service
         $w = new Writer();
         $w->namespaceMap = $this->namespaceMap;
         $w->classMap = $this->classMap;
-
         return $w;
     }
-
     /**
      * Parses a document in full.
      *
@@ -119,22 +110,17 @@ class Service
             // does, we can optimize this.
             $input = (string) stream_get_contents($input);
         }
-
         // If input is empty, then it's safe to throw an exception
         if (empty($input)) {
             throw new ParseException('The input element to parse is empty. Do not attempt to parse');
         }
-
         $r = $this->getReader();
         $r->contextUri = $contextUri;
         $r->XML($input, null, $this->options);
-
         $result = $r->parse();
         $rootElementName = $result['name'];
-
         return $result['value'];
     }
-
     /**
      * Parses a document in full, and specify what the expected root element
      * name is.
@@ -163,32 +149,25 @@ class Service
             // does, we can optimize this.
             $input = (string) stream_get_contents($input);
         }
-
         // If input is empty, then it's safe to throw an exception
         if (empty($input)) {
             throw new ParseException('The input element to parse is empty. Do not attempt to parse');
         }
-
         $r = $this->getReader();
         $r->contextUri = $contextUri;
         $r->XML($input, null, $this->options);
-
         $rootElementName = (array) $rootElementName;
-
         foreach ($rootElementName as &$rEl) {
             if ('{' !== $rEl[0]) {
-                $rEl = '{}'.$rEl;
+                $rEl = '{}' . $rEl;
             }
         }
-
         $result = $r->parse();
-        if (!in_array($result['name'], $rootElementName, true)) {
-            throw new ParseException('Expected '.implode(' or ', $rootElementName).' but received '.$result['name'].' as the root element');
+        if (!in_array($result['name'], $rootElementName, \true)) {
+            throw new ParseException('Expected ' . implode(' or ', $rootElementName) . ' but received ' . $result['name'] . ' as the root element');
         }
-
         return $result['value'];
     }
-
     /**
      * Generates an XML document in one go.
      *
@@ -212,13 +191,11 @@ class Service
         $w = $this->getWriter();
         $w->openMemory();
         $w->contextUri = $contextUri;
-        $w->setIndent(true);
+        $w->setIndent(\true);
         $w->startDocument();
         $w->writeElement($rootElementName, $value);
-
         return $w->outputMemory();
     }
-
     /**
      * Map an XML element to a PHP class.
      *
@@ -246,16 +223,14 @@ class Service
     public function mapValueObject(string $elementName, string $className)
     {
         list($namespace) = self::parseClarkNotation($elementName);
-
         $this->elementMap[$elementName] = function (Reader $reader) use ($className, $namespace) {
-            return \Sabre\Xml\Deserializer\valueObject($reader, $className, $namespace);
+            return \XCloner\Sabre\Xml\Deserializer\valueObject($reader, $className, $namespace);
         };
         $this->classMap[$className] = function (Writer $writer, $valueObject) use ($namespace) {
-            return \Sabre\Xml\Serializer\valueObject($writer, $valueObject, $namespace);
+            return \XCloner\Sabre\Xml\Serializer\valueObject($writer, $valueObject, $namespace);
         };
         $this->valueObjectMap[$className] = $elementName;
     }
-
     /**
      * Writes a value object.
      *
@@ -272,16 +247,10 @@ class Service
     public function writeValueObject($object, string $contextUri = null)
     {
         if (!isset($this->valueObjectMap[get_class($object)])) {
-            throw new \InvalidArgumentException('"'.get_class($object).'" is not a registered value object class. Register your class with mapValueObject.');
+            throw new \InvalidArgumentException('"' . get_class($object) . '" is not a registered value object class. Register your class with mapValueObject.');
         }
-
-        return $this->write(
-            $this->valueObjectMap[get_class($object)],
-            $object,
-            $contextUri
-        );
+        return $this->write($this->valueObjectMap[get_class($object)], $object, $contextUri);
     }
-
     /**
      * Parses a clark-notation string, and returns the namespace and element
      * name components.
@@ -293,21 +262,14 @@ class Service
     public static function parseClarkNotation(string $str): array
     {
         static $cache = [];
-
         if (!isset($cache[$str])) {
             if (!preg_match('/^{([^}]*)}(.*)$/', $str, $matches)) {
-                throw new \InvalidArgumentException('\''.$str.'\' is not a valid clark-notation formatted string');
+                throw new \InvalidArgumentException('\'' . $str . '\' is not a valid clark-notation formatted string');
             }
-
-            $cache[$str] = [
-                $matches[1],
-                $matches[2],
-            ];
+            $cache[$str] = [$matches[1], $matches[2]];
         }
-
         return $cache[$str];
     }
-
     /**
      * A list of classes and which XML elements they map to.
      */

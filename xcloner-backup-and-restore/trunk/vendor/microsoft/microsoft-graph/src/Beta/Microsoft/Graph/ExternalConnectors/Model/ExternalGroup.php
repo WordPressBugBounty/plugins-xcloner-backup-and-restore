@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ExternalConnectors\Model;
+namespace XCloner\Beta\Microsoft\Graph\ExternalConnectors\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExternalGroup class
 *
@@ -25,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
+class ExternalGroup extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the description
-    * The description of the external group. Optional.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the external group. Optional.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the external group. Optional.
-    *
-    * @param string $val The description
-    *
-    * @return ExternalGroup
-    */
+     * Sets the description
+     * The description of the external group. Optional.
+     *
+     * @param string $val The description
+     *
+     * @return ExternalGroup
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The friendly name of the external group. Optional.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The friendly name of the external group. Optional.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,49 +69,44 @@ class ExternalGroup extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The friendly name of the external group. Optional.
-    *
-    * @param string $val The displayName
-    *
-    * @return ExternalGroup
-    */
+     * Sets the displayName
+     * The friendly name of the external group. Optional.
+     *
+     * @param string $val The displayName
+     *
+     * @return ExternalGroup
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the members
-    * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+     * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
      *
      * @return array|null The members
      */
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
-           return $this->_propDict["members"];
+            return $this->_propDict["members"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the members
-    * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
-    *
-    * @param Identity[] $val The members
-    *
-    * @return ExternalGroup
-    */
+     * Sets the members
+     * A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+     *
+     * @param Identity[] $val The members
+     *
+     * @return ExternalGroup
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;
         return $this;
     }
-
 }

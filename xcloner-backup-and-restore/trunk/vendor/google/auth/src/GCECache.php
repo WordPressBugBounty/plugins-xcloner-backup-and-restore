@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2020 Google Inc.
  *
@@ -14,15 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth;
 
-namespace Google\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Google\Auth\Credentials\GCECredentials;
-use Psr\Cache\CacheItemPoolInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Google\Auth\Credentials\GCECredentials;
+use XCloner\Psr\Cache\CacheItemPoolInterface;
 /**
  * A class to implement caching for calls to GCECredentials::onGce. This class
  * is used automatically when you pass a `Psr\Cache\CacheItemPoolInterface`
@@ -41,24 +40,16 @@ use Psr\Cache\CacheItemPoolInterface;
 class GCECache
 {
     const GCE_CACHE_KEY = 'google_auth_on_gce_cache';
-
     use CacheTrait;
-
     /**
      * @param array<mixed> $cacheConfig Configuration for the cache
      * @param CacheItemPoolInterface $cache
      */
-    public function __construct(
-        array $cacheConfig = null,
-        CacheItemPoolInterface $cache = null
-    ) {
+    public function __construct(array $cacheConfig = null, CacheItemPoolInterface $cache = null)
+    {
         $this->cache = $cache;
-        $this->cacheConfig = array_merge([
-            'lifetime' => 1500,
-            'prefix' => '',
-        ], (array) $cacheConfig);
+        $this->cacheConfig = array_merge(['lifetime' => 1500, 'prefix' => ''], (array) $cacheConfig);
     }
-
     /**
      * Caches the result of onGce so the metadata server is not called multiple
      * times.
@@ -71,15 +62,12 @@ class GCECache
         if (is_null($this->cache)) {
             return GCECredentials::onGce($httpHandler);
         }
-
         $cacheKey = self::GCE_CACHE_KEY;
         $onGce = $this->getCachedValue($cacheKey);
-
         if (is_null($onGce)) {
             $onGce = GCECredentials::onGce($httpHandler);
             $this->setCachedValue($cacheKey, $onGce);
         }
-
         return $onGce;
     }
 }

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Node class.
  *
@@ -29,7 +28,6 @@ abstract class Node implements INode
     {
         return null;
     }
-
     /**
      * Deletes the current node.
      *
@@ -39,7 +37,6 @@ abstract class Node implements INode
     {
         throw new Exception\Forbidden('Permission denied to delete node');
     }
-
     /**
      * Renames the node.
      *

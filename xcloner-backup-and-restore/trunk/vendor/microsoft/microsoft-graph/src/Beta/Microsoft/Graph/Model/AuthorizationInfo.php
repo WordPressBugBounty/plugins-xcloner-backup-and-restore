@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthorizationInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AuthorizationInfo extends Entity
 {
     /**
-    * Gets the certificateUserIds
-    * The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
-    *
-    * @return string|null The certificateUserIds
-    */
+     * Gets the certificateUserIds
+     * The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
+     *
+     * @return string|null The certificateUserIds
+     */
     public function getCertificateUserIds()
     {
         if (array_key_exists("certificateUserIds", $this->_propDict)) {
@@ -40,15 +42,14 @@ class AuthorizationInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the certificateUserIds
-    * The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
-    *
-    * @param string $val The value of the certificateUserIds
-    *
-    * @return AuthorizationInfo
-    */
+     * Sets the certificateUserIds
+     * The collection of unique identifiers that can be associated with a user and can be used to bind the Azure AD user to a certificate for authentication and authorization into non-Azure AD environments. The identifiers must be unique in the tenant.
+     *
+     * @param string $val The value of the certificateUserIds
+     *
+     * @return AuthorizationInfo
+     */
     public function setCertificateUserIds($val)
     {
         $this->_propDict["certificateUserIds"] = $val;

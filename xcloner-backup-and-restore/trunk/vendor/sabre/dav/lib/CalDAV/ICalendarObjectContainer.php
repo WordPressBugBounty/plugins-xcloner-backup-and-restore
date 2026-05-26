@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV;
 
-namespace Sabre\CalDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This interface represents a node that may contain calendar objects.
  *
@@ -20,7 +19,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-interface ICalendarObjectContainer extends \Sabre\DAV\ICollection
+interface ICalendarObjectContainer extends \XCloner\Sabre\DAV\ICollection
 {
     /**
      * Performs a calendar-query on the contents of this calendar.

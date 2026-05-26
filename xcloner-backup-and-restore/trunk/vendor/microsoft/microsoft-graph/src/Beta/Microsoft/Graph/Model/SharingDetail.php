@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SharingDetail class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class SharingDetail extends Entity
 {
-
     /**
-    * Gets the sharedBy
-    * The user who shared the document.
-    *
-    * @return InsightIdentity|null The sharedBy
-    */
+     * Gets the sharedBy
+     * The user who shared the document.
+     *
+     * @return InsightIdentity|null The sharedBy
+     */
     public function getSharedBy()
     {
         if (array_key_exists("sharedBy", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedBy"], "\Beta\Microsoft\Graph\Model\InsightIdentity") || is_null($this->_propDict["sharedBy"])) {
+            if (is_a($this->_propDict["sharedBy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\InsightIdentity") || is_null($this->_propDict["sharedBy"])) {
                 return $this->_propDict["sharedBy"];
             } else {
                 $this->_propDict["sharedBy"] = new InsightIdentity($this->_propDict["sharedBy"]);
@@ -45,31 +46,29 @@ class SharingDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sharedBy
-    * The user who shared the document.
-    *
-    * @param InsightIdentity $val The value to assign to the sharedBy
-    *
-    * @return SharingDetail The SharingDetail
-    */
+     * Sets the sharedBy
+     * The user who shared the document.
+     *
+     * @param InsightIdentity $val The value to assign to the sharedBy
+     *
+     * @return SharingDetail The SharingDetail
+     */
     public function setSharedBy($val)
     {
         $this->_propDict["sharedBy"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the sharedDateTime
-    * The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @return \DateTime|null The sharedDateTime
-    */
+     * Gets the sharedDateTime
+     * The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @return \DateTime|null The sharedDateTime
+     */
     public function getSharedDateTime()
     {
         if (array_key_exists("sharedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedDateTime"], "\DateTime") || is_null($this->_propDict["sharedDateTime"])) {
+            if (is_a($this->_propDict["sharedDateTime"], "\\DateTime") || is_null($this->_propDict["sharedDateTime"])) {
                 return $this->_propDict["sharedDateTime"];
             } else {
                 $this->_propDict["sharedDateTime"] = new \DateTime($this->_propDict["sharedDateTime"]);
@@ -78,30 +77,28 @@ class SharingDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sharedDateTime
-    * The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the sharedDateTime
-    *
-    * @return SharingDetail The SharingDetail
-    */
+     * Sets the sharedDateTime
+     * The date and time the file was last shared. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the sharedDateTime
+     *
+     * @return SharingDetail The SharingDetail
+     */
     public function setSharedDateTime($val)
     {
         $this->_propDict["sharedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the sharingReference
-    *
-    * @return ResourceReference|null The sharingReference
-    */
+     * Gets the sharingReference
+     *
+     * @return ResourceReference|null The sharingReference
+     */
     public function getSharingReference()
     {
         if (array_key_exists("sharingReference", $this->_propDict)) {
-            if (is_a($this->_propDict["sharingReference"], "\Beta\Microsoft\Graph\Model\ResourceReference") || is_null($this->_propDict["sharingReference"])) {
+            if (is_a($this->_propDict["sharingReference"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResourceReference") || is_null($this->_propDict["sharingReference"])) {
                 return $this->_propDict["sharingReference"];
             } else {
                 $this->_propDict["sharingReference"] = new ResourceReference($this->_propDict["sharingReference"]);
@@ -110,25 +107,24 @@ class SharingDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sharingReference
-    *
-    * @param ResourceReference $val The value to assign to the sharingReference
-    *
-    * @return SharingDetail The SharingDetail
-    */
+     * Sets the sharingReference
+     *
+     * @param ResourceReference $val The value to assign to the sharingReference
+     *
+     * @return SharingDetail The SharingDetail
+     */
     public function setSharingReference($val)
     {
         $this->_propDict["sharingReference"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the sharingSubject
-    * The subject with which the document was shared.
-    *
-    * @return string|null The sharingSubject
-    */
+     * Gets the sharingSubject
+     * The subject with which the document was shared.
+     *
+     * @return string|null The sharingSubject
+     */
     public function getSharingSubject()
     {
         if (array_key_exists("sharingSubject", $this->_propDict)) {
@@ -137,26 +133,25 @@ class SharingDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sharingSubject
-    * The subject with which the document was shared.
-    *
-    * @param string $val The value of the sharingSubject
-    *
-    * @return SharingDetail
-    */
+     * Sets the sharingSubject
+     * The subject with which the document was shared.
+     *
+     * @param string $val The value of the sharingSubject
+     *
+     * @return SharingDetail
+     */
     public function setSharingSubject($val)
     {
         $this->_propDict["sharingSubject"] = $val;
         return $this;
     }
     /**
-    * Gets the sharingType
-    * Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.
-    *
-    * @return string|null The sharingType
-    */
+     * Gets the sharingType
+     * Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.
+     *
+     * @return string|null The sharingType
+     */
     public function getSharingType()
     {
         if (array_key_exists("sharingType", $this->_propDict)) {
@@ -165,15 +160,14 @@ class SharingDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sharingType
-    * Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.
-    *
-    * @param string $val The value of the sharingType
-    *
-    * @return SharingDetail
-    */
+     * Sets the sharingType
+     * Determines the way the document was shared, can be by a 'Link', 'Attachment', 'Group', 'Site'.
+     *
+     * @param string $val The value of the sharingType
+     *
+     * @return SharingDetail
+     */
     public function setSharingType($val)
     {
         $this->_propDict["sharingType"] = $val;

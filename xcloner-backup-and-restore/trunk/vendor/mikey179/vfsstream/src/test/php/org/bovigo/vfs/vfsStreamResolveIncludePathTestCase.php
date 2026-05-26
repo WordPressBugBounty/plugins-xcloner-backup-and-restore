@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,17 +8,18 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStream.
  *
  * @since  0.9.0
  * @group  issue_5
  */
-class vfsStreamResolveIncludePathTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamResolveIncludePathTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * include path to restore after test run
@@ -25,7 +27,6 @@ class vfsStreamResolveIncludePathTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  string
      */
     protected $backupIncludePath;
-
     /**
      * set up test environment
      */
@@ -33,10 +34,9 @@ class vfsStreamResolveIncludePathTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->backupIncludePath = get_include_path();
         vfsStream::setup();
-        mkdir('vfs://root/a/path', 0777, true);
-        set_include_path('vfs://root/a' . PATH_SEPARATOR . $this->backupIncludePath);
+        mkdir('vfs://root/a/path', 0777, \true);
+        set_include_path('vfs://root/a' . \PATH_SEPARATOR . $this->backupIncludePath);
     }
-
     /**
      * clean up test environment
      */
@@ -44,7 +44,6 @@ class vfsStreamResolveIncludePathTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         set_include_path($this->backupIncludePath);
     }
-
     /**
      * @test
      */
@@ -53,7 +52,6 @@ class vfsStreamResolveIncludePathTestCase extends \BC_PHPUnit_Framework_TestCase
         file_put_contents('vfs://root/a/path/knownFile.php', '<?php ?>');
         $this->assertEquals('vfs://root/a/path/knownFile.php', stream_resolve_include_path('path/knownFile.php'));
     }
-
     /**
      * @test
      */

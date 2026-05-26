@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintTaskStatus class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintTaskStatus extends Entity
 {
     /**
-    * Gets the description
-    * A human-readable description of the current processing state of the printTask.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * A human-readable description of the current processing state of the printTask.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PrintTaskStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * A human-readable description of the current processing state of the printTask.
-    *
-    * @param string $val The value of the description
-    *
-    * @return PrintTaskStatus
-    */
+     * Sets the description
+     * A human-readable description of the current processing state of the printTask.
+     *
+     * @param string $val The value of the description
+     *
+     * @return PrintTaskStatus
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The current processing state of the printTask. Valid values are described in the following table.
-    *
-    * @return PrintTaskProcessingState|null The state
-    */
+     * Gets the state
+     * The current processing state of the printTask. Valid values are described in the following table.
+     *
+     * @return PrintTaskProcessingState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrintTaskProcessingState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Microsoft\\Graph\\Model\\PrintTaskProcessingState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrintTaskProcessingState($this->_propDict["state"]);
@@ -73,18 +73,17 @@ class PrintTaskStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The current processing state of the printTask. Valid values are described in the following table.
-    *
-    * @param PrintTaskProcessingState $val The value to assign to the state
-    *
-    * @return PrintTaskStatus The PrintTaskStatus
-    */
+     * Sets the state
+     * The current processing state of the printTask. Valid values are described in the following table.
+     *
+     * @param PrintTaskProcessingState $val The value to assign to the state
+     *
+     * @return PrintTaskStatus The PrintTaskStatus
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
 }

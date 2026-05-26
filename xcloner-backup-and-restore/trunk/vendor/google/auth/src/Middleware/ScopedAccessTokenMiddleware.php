@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2015 Google Inc.
  *
@@ -14,16 +15,14 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth\Middleware;
 
-namespace Google\Auth\Middleware;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Google\Auth\CacheTrait;
-use Psr\Cache\CacheItemPoolInterface;
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Google\Auth\CacheTrait;
+use XCloner\Psr\Cache\CacheItemPoolInterface;
+use XCloner\Psr\Http\Message\RequestInterface;
 /**
  * ScopedAccessTokenMiddleware is a Guzzle Middleware that adds an Authorization
  * header provided by a closure.
@@ -39,19 +38,15 @@ use Psr\Http\Message\RequestInterface;
 class ScopedAccessTokenMiddleware
 {
     use CacheTrait;
-
     const DEFAULT_CACHE_LIFETIME = 1500;
-
     /**
      * @var callable
      */
     private $tokenFunc;
-
     /**
      * @var array<string>|string
      */
     private $scopes;
-
     /**
      * Creates a new ScopedAccessTokenMiddleware.
      *
@@ -60,29 +55,18 @@ class ScopedAccessTokenMiddleware
      * @param array<mixed> $cacheConfig configuration for the cache when it's present
      * @param CacheItemPoolInterface $cache an implementation of CacheItemPoolInterface
      */
-    public function __construct(
-        callable $tokenFunc,
-        $scopes,
-        array $cacheConfig = null,
-        CacheItemPoolInterface $cache = null
-    ) {
+    public function __construct(callable $tokenFunc, $scopes, array $cacheConfig = null, CacheItemPoolInterface $cache = null)
+    {
         $this->tokenFunc = $tokenFunc;
         if (!(is_string($scopes) || is_array($scopes))) {
-            throw new \InvalidArgumentException(
-                'wants scope should be string or array'
-            );
+            throw new \InvalidArgumentException('wants scope should be string or array');
         }
         $this->scopes = $scopes;
-
         if (!is_null($cache)) {
             $this->cache = $cache;
-            $this->cacheConfig = array_merge([
-                'lifetime' => self::DEFAULT_CACHE_LIFETIME,
-                'prefix' => '',
-            ], $cacheConfig);
+            $this->cacheConfig = array_merge(['lifetime' => self::DEFAULT_CACHE_LIFETIME, 'prefix' => ''], $cacheConfig);
         }
     }
-
     /**
      * Updates the request with an Authorization header when auth is 'scoped'.
      *
@@ -122,29 +106,23 @@ class ScopedAccessTokenMiddleware
             if (!isset($options['auth']) || $options['auth'] !== 'scoped') {
                 return $handler($request, $options);
             }
-
             $request = $request->withHeader('authorization', 'Bearer ' . $this->fetchToken());
-
             return $handler($request, $options);
         };
     }
-
     /**
      * @return string
      */
     private function getCacheKey()
     {
         $key = null;
-
         if (is_string($this->scopes)) {
             $key .= $this->scopes;
         } elseif (is_array($this->scopes)) {
             $key .= implode(':', $this->scopes);
         }
-
         return $key;
     }
-
     /**
      * Determine if token is available in the cache, if not call tokenFunc to
      * fetch it.
@@ -155,14 +133,11 @@ class ScopedAccessTokenMiddleware
     {
         $cacheKey = $this->getCacheKey();
         $cached = $this->getCachedValue($cacheKey);
-
         if (!empty($cached)) {
             return $cached;
         }
-
         $token = call_user_func($this->tokenFunc, $this->scopes);
         $this->setCachedValue($cacheKey, $token);
-
         return $token;
     }
 }

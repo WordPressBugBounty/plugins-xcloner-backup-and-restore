@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChatInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ChatInfo extends Entity
 {
     /**
-    * Gets the messageId
-    * The unique identifier for a message in a Microsoft Teams channel.
-    *
-    * @return string|null The messageId
-    */
+     * Gets the messageId
+     * The unique identifier for a message in a Microsoft Teams channel.
+     *
+     * @return string|null The messageId
+     */
     public function getMessageId()
     {
         if (array_key_exists("messageId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ChatInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the messageId
-    * The unique identifier for a message in a Microsoft Teams channel.
-    *
-    * @param string $val The value of the messageId
-    *
-    * @return ChatInfo
-    */
+     * Sets the messageId
+     * The unique identifier for a message in a Microsoft Teams channel.
+     *
+     * @param string $val The value of the messageId
+     *
+     * @return ChatInfo
+     */
     public function setMessageId($val)
     {
         $this->_propDict["messageId"] = $val;
         return $this;
     }
     /**
-    * Gets the replyChainMessageId
-    * The ID of the reply message.
-    *
-    * @return string|null The replyChainMessageId
-    */
+     * Gets the replyChainMessageId
+     * The ID of the reply message.
+     *
+     * @return string|null The replyChainMessageId
+     */
     public function getReplyChainMessageId()
     {
         if (array_key_exists("replyChainMessageId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ChatInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the replyChainMessageId
-    * The ID of the reply message.
-    *
-    * @param string $val The value of the replyChainMessageId
-    *
-    * @return ChatInfo
-    */
+     * Sets the replyChainMessageId
+     * The ID of the reply message.
+     *
+     * @param string $val The value of the replyChainMessageId
+     *
+     * @return ChatInfo
+     */
     public function setReplyChainMessageId($val)
     {
         $this->_propDict["replyChainMessageId"] = $val;
         return $this;
     }
     /**
-    * Gets the threadId
-    * The unique identifier for a thread in Microsoft Teams.
-    *
-    * @return string|null The threadId
-    */
+     * Gets the threadId
+     * The unique identifier for a thread in Microsoft Teams.
+     *
+     * @return string|null The threadId
+     */
     public function getThreadId()
     {
         if (array_key_exists("threadId", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ChatInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the threadId
-    * The unique identifier for a thread in Microsoft Teams.
-    *
-    * @param string $val The value of the threadId
-    *
-    * @return ChatInfo
-    */
+     * Sets the threadId
+     * The unique identifier for a thread in Microsoft Teams.
+     *
+     * @param string $val The value of the threadId
+     *
+     * @return ChatInfo
+     */
     public function setThreadId($val)
     {
         $this->_propDict["threadId"] = $val;

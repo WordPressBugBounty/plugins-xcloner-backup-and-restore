@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MessageSecurityState class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MessageSecurityState extends Entity
 {
     /**
-    * Gets the connectingIP
-    *
-    * @return string|null The connectingIP
-    */
+     * Gets the connectingIP
+     *
+     * @return string|null The connectingIP
+     */
     public function getConnectingIP()
     {
         if (array_key_exists("connectingIP", $this->_propDict)) {
@@ -39,24 +41,23 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the connectingIP
-    *
-    * @param string $val The value of the connectingIP
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the connectingIP
+     *
+     * @param string $val The value of the connectingIP
+     *
+     * @return MessageSecurityState
+     */
     public function setConnectingIP($val)
     {
         $this->_propDict["connectingIP"] = $val;
         return $this;
     }
     /**
-    * Gets the deliveryAction
-    *
-    * @return string|null The deliveryAction
-    */
+     * Gets the deliveryAction
+     *
+     * @return string|null The deliveryAction
+     */
     public function getDeliveryAction()
     {
         if (array_key_exists("deliveryAction", $this->_propDict)) {
@@ -65,24 +66,23 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deliveryAction
-    *
-    * @param string $val The value of the deliveryAction
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the deliveryAction
+     *
+     * @param string $val The value of the deliveryAction
+     *
+     * @return MessageSecurityState
+     */
     public function setDeliveryAction($val)
     {
         $this->_propDict["deliveryAction"] = $val;
         return $this;
     }
     /**
-    * Gets the deliveryLocation
-    *
-    * @return string|null The deliveryLocation
-    */
+     * Gets the deliveryLocation
+     *
+     * @return string|null The deliveryLocation
+     */
     public function getDeliveryLocation()
     {
         if (array_key_exists("deliveryLocation", $this->_propDict)) {
@@ -91,24 +91,23 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deliveryLocation
-    *
-    * @param string $val The value of the deliveryLocation
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the deliveryLocation
+     *
+     * @param string $val The value of the deliveryLocation
+     *
+     * @return MessageSecurityState
+     */
     public function setDeliveryLocation($val)
     {
         $this->_propDict["deliveryLocation"] = $val;
         return $this;
     }
     /**
-    * Gets the directionality
-    *
-    * @return string|null The directionality
-    */
+     * Gets the directionality
+     *
+     * @return string|null The directionality
+     */
     public function getDirectionality()
     {
         if (array_key_exists("directionality", $this->_propDict)) {
@@ -117,24 +116,23 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the directionality
-    *
-    * @param string $val The value of the directionality
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the directionality
+     *
+     * @param string $val The value of the directionality
+     *
+     * @return MessageSecurityState
+     */
     public function setDirectionality($val)
     {
         $this->_propDict["directionality"] = $val;
         return $this;
     }
     /**
-    * Gets the internetMessageId
-    *
-    * @return string|null The internetMessageId
-    */
+     * Gets the internetMessageId
+     *
+     * @return string|null The internetMessageId
+     */
     public function getInternetMessageId()
     {
         if (array_key_exists("internetMessageId", $this->_propDict)) {
@@ -143,24 +141,23 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the internetMessageId
-    *
-    * @param string $val The value of the internetMessageId
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the internetMessageId
+     *
+     * @param string $val The value of the internetMessageId
+     *
+     * @return MessageSecurityState
+     */
     public function setInternetMessageId($val)
     {
         $this->_propDict["internetMessageId"] = $val;
         return $this;
     }
     /**
-    * Gets the messageFingerprint
-    *
-    * @return string|null The messageFingerprint
-    */
+     * Gets the messageFingerprint
+     *
+     * @return string|null The messageFingerprint
+     */
     public function getMessageFingerprint()
     {
         if (array_key_exists("messageFingerprint", $this->_propDict)) {
@@ -169,29 +166,27 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the messageFingerprint
-    *
-    * @param string $val The value of the messageFingerprint
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the messageFingerprint
+     *
+     * @param string $val The value of the messageFingerprint
+     *
+     * @return MessageSecurityState
+     */
     public function setMessageFingerprint($val)
     {
         $this->_propDict["messageFingerprint"] = $val;
         return $this;
     }
-
     /**
-    * Gets the messageReceivedDateTime
-    *
-    * @return \DateTime|null The messageReceivedDateTime
-    */
+     * Gets the messageReceivedDateTime
+     *
+     * @return \DateTime|null The messageReceivedDateTime
+     */
     public function getMessageReceivedDateTime()
     {
         if (array_key_exists("messageReceivedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["messageReceivedDateTime"], "\DateTime") || is_null($this->_propDict["messageReceivedDateTime"])) {
+            if (is_a($this->_propDict["messageReceivedDateTime"], "\\DateTime") || is_null($this->_propDict["messageReceivedDateTime"])) {
                 return $this->_propDict["messageReceivedDateTime"];
             } else {
                 $this->_propDict["messageReceivedDateTime"] = new \DateTime($this->_propDict["messageReceivedDateTime"]);
@@ -200,24 +195,23 @@ class MessageSecurityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the messageReceivedDateTime
-    *
-    * @param \DateTime $val The value to assign to the messageReceivedDateTime
-    *
-    * @return MessageSecurityState The MessageSecurityState
-    */
+     * Sets the messageReceivedDateTime
+     *
+     * @param \DateTime $val The value to assign to the messageReceivedDateTime
+     *
+     * @return MessageSecurityState The MessageSecurityState
+     */
     public function setMessageReceivedDateTime($val)
     {
         $this->_propDict["messageReceivedDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the messageSubject
-    *
-    * @return string|null The messageSubject
-    */
+     * Gets the messageSubject
+     *
+     * @return string|null The messageSubject
+     */
     public function getMessageSubject()
     {
         if (array_key_exists("messageSubject", $this->_propDict)) {
@@ -226,24 +220,23 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the messageSubject
-    *
-    * @param string $val The value of the messageSubject
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the messageSubject
+     *
+     * @param string $val The value of the messageSubject
+     *
+     * @return MessageSecurityState
+     */
     public function setMessageSubject($val)
     {
         $this->_propDict["messageSubject"] = $val;
         return $this;
     }
     /**
-    * Gets the networkMessageId
-    *
-    * @return string|null The networkMessageId
-    */
+     * Gets the networkMessageId
+     *
+     * @return string|null The networkMessageId
+     */
     public function getNetworkMessageId()
     {
         if (array_key_exists("networkMessageId", $this->_propDict)) {
@@ -252,14 +245,13 @@ class MessageSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the networkMessageId
-    *
-    * @param string $val The value of the networkMessageId
-    *
-    * @return MessageSecurityState
-    */
+     * Sets the networkMessageId
+     *
+     * @param string $val The value of the networkMessageId
+     *
+     * @return MessageSecurityState
+     */
     public function setNetworkMessageId($val)
     {
         $this->_propDict["networkMessageId"] = $val;

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\League\MimeTypeDetection;
 
-namespace League\MimeTypeDetection;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 interface ExtensionToMimeTypeMap
 {
     public function lookupMimeType(string $extension): ?string;

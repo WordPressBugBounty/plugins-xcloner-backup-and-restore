@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IncomingContext class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IncomingContext extends Entity
 {
     /**
-    * Gets the observedParticipantId
-    * The id of the participant that is under observation. Read-only.
-    *
-    * @return string|null The observedParticipantId
-    */
+     * Gets the observedParticipantId
+     * The id of the participant that is under observation. Read-only.
+     *
+     * @return string|null The observedParticipantId
+     */
     public function getObservedParticipantId()
     {
         if (array_key_exists("observedParticipantId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class IncomingContext extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the observedParticipantId
-    * The id of the participant that is under observation. Read-only.
-    *
-    * @param string $val The value of the observedParticipantId
-    *
-    * @return IncomingContext
-    */
+     * Sets the observedParticipantId
+     * The id of the participant that is under observation. Read-only.
+     *
+     * @param string $val The value of the observedParticipantId
+     *
+     * @return IncomingContext
+     */
     public function setObservedParticipantId($val)
     {
         $this->_propDict["observedParticipantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the onBehalfOf
-    * The identity that the call is happening on behalf of.
-    *
-    * @return IdentitySet|null The onBehalfOf
-    */
+     * Gets the onBehalfOf
+     * The identity that the call is happening on behalf of.
+     *
+     * @return IdentitySet|null The onBehalfOf
+     */
     public function getOnBehalfOf()
     {
         if (array_key_exists("onBehalfOf", $this->_propDict)) {
-            if (is_a($this->_propDict["onBehalfOf"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["onBehalfOf"])) {
+            if (is_a($this->_propDict["onBehalfOf"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["onBehalfOf"])) {
                 return $this->_propDict["onBehalfOf"];
             } else {
                 $this->_propDict["onBehalfOf"] = new IdentitySet($this->_propDict["onBehalfOf"]);
@@ -73,26 +73,25 @@ class IncomingContext extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the onBehalfOf
-    * The identity that the call is happening on behalf of.
-    *
-    * @param IdentitySet $val The value to assign to the onBehalfOf
-    *
-    * @return IncomingContext The IncomingContext
-    */
+     * Sets the onBehalfOf
+     * The identity that the call is happening on behalf of.
+     *
+     * @param IdentitySet $val The value to assign to the onBehalfOf
+     *
+     * @return IncomingContext The IncomingContext
+     */
     public function setOnBehalfOf($val)
     {
         $this->_propDict["onBehalfOf"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the sourceParticipantId
-    * The id of the participant that triggered the incoming call. Read-only.
-    *
-    * @return string|null The sourceParticipantId
-    */
+     * Gets the sourceParticipantId
+     * The id of the participant that triggered the incoming call. Read-only.
+     *
+     * @return string|null The sourceParticipantId
+     */
     public function getSourceParticipantId()
     {
         if (array_key_exists("sourceParticipantId", $this->_propDict)) {
@@ -101,31 +100,29 @@ class IncomingContext extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceParticipantId
-    * The id of the participant that triggered the incoming call. Read-only.
-    *
-    * @param string $val The value of the sourceParticipantId
-    *
-    * @return IncomingContext
-    */
+     * Sets the sourceParticipantId
+     * The id of the participant that triggered the incoming call. Read-only.
+     *
+     * @param string $val The value of the sourceParticipantId
+     *
+     * @return IncomingContext
+     */
     public function setSourceParticipantId($val)
     {
         $this->_propDict["sourceParticipantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the transferor
-    * The identity that transferred the call.
-    *
-    * @return IdentitySet|null The transferor
-    */
+     * Gets the transferor
+     * The identity that transferred the call.
+     *
+     * @return IdentitySet|null The transferor
+     */
     public function getTransferor()
     {
         if (array_key_exists("transferor", $this->_propDict)) {
-            if (is_a($this->_propDict["transferor"], "\Beta\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["transferor"])) {
+            if (is_a($this->_propDict["transferor"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["transferor"])) {
                 return $this->_propDict["transferor"];
             } else {
                 $this->_propDict["transferor"] = new IdentitySet($this->_propDict["transferor"]);
@@ -134,18 +131,17 @@ class IncomingContext extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the transferor
-    * The identity that transferred the call.
-    *
-    * @param IdentitySet $val The value to assign to the transferor
-    *
-    * @return IncomingContext The IncomingContext
-    */
+     * Sets the transferor
+     * The identity that transferred the call.
+     *
+     * @param IdentitySet $val The value to assign to the transferor
+     *
+     * @return IncomingContext The IncomingContext
+     */
     public function setTransferor($val)
     {
         $this->_propDict["transferor"] = $val;
-         return $this;
+        return $this;
     }
 }

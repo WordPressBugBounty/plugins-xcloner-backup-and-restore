@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerRecentPlanReference class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PlannerRecentPlanReference extends Entity
 {
-
     /**
-    * Gets the lastAccessedDateTime
-    * The date and time the plan was last viewed by the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The lastAccessedDateTime
-    */
+     * Gets the lastAccessedDateTime
+     * The date and time the plan was last viewed by the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The lastAccessedDateTime
+     */
     public function getLastAccessedDateTime()
     {
         if (array_key_exists("lastAccessedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAccessedDateTime"], "\DateTime") || is_null($this->_propDict["lastAccessedDateTime"])) {
+            if (is_a($this->_propDict["lastAccessedDateTime"], "\\DateTime") || is_null($this->_propDict["lastAccessedDateTime"])) {
                 return $this->_propDict["lastAccessedDateTime"];
             } else {
                 $this->_propDict["lastAccessedDateTime"] = new \DateTime($this->_propDict["lastAccessedDateTime"]);
@@ -45,26 +46,25 @@ class PlannerRecentPlanReference extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastAccessedDateTime
-    * The date and time the plan was last viewed by the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the lastAccessedDateTime
-    *
-    * @return PlannerRecentPlanReference The PlannerRecentPlanReference
-    */
+     * Sets the lastAccessedDateTime
+     * The date and time the plan was last viewed by the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the lastAccessedDateTime
+     *
+     * @return PlannerRecentPlanReference The PlannerRecentPlanReference
+     */
     public function setLastAccessedDateTime($val)
     {
         $this->_propDict["lastAccessedDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the planTitle
-    * The title of the plan at the time the user viewed it.
-    *
-    * @return string|null The planTitle
-    */
+     * Gets the planTitle
+     * The title of the plan at the time the user viewed it.
+     *
+     * @return string|null The planTitle
+     */
     public function getPlanTitle()
     {
         if (array_key_exists("planTitle", $this->_propDict)) {
@@ -73,15 +73,14 @@ class PlannerRecentPlanReference extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the planTitle
-    * The title of the plan at the time the user viewed it.
-    *
-    * @param string $val The value of the planTitle
-    *
-    * @return PlannerRecentPlanReference
-    */
+     * Sets the planTitle
+     * The title of the plan at the time the user viewed it.
+     *
+     * @param string $val The value of the planTitle
+     *
+     * @return PlannerRecentPlanReference
+     */
     public function setPlanTitle($val)
     {
         $this->_propDict["planTitle"] = $val;

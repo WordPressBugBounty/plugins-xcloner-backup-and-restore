@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DomainRegistrant class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DomainRegistrant extends Entity
 {
     /**
-    * Gets the countryOrRegionCode
-    *
-    * @return string|null The countryOrRegionCode
-    */
+     * Gets the countryOrRegionCode
+     *
+     * @return string|null The countryOrRegionCode
+     */
     public function getCountryOrRegionCode()
     {
         if (array_key_exists("countryOrRegionCode", $this->_propDict)) {
@@ -39,24 +41,23 @@ class DomainRegistrant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countryOrRegionCode
-    *
-    * @param string $val The value of the countryOrRegionCode
-    *
-    * @return DomainRegistrant
-    */
+     * Sets the countryOrRegionCode
+     *
+     * @param string $val The value of the countryOrRegionCode
+     *
+     * @return DomainRegistrant
+     */
     public function setCountryOrRegionCode($val)
     {
         $this->_propDict["countryOrRegionCode"] = $val;
         return $this;
     }
     /**
-    * Gets the organization
-    *
-    * @return string|null The organization
-    */
+     * Gets the organization
+     *
+     * @return string|null The organization
+     */
     public function getOrganization()
     {
         if (array_key_exists("organization", $this->_propDict)) {
@@ -65,24 +66,23 @@ class DomainRegistrant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the organization
-    *
-    * @param string $val The value of the organization
-    *
-    * @return DomainRegistrant
-    */
+     * Sets the organization
+     *
+     * @param string $val The value of the organization
+     *
+     * @return DomainRegistrant
+     */
     public function setOrganization($val)
     {
         $this->_propDict["organization"] = $val;
         return $this;
     }
     /**
-    * Gets the url
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -91,24 +91,23 @@ class DomainRegistrant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    *
-    * @param string $val The value of the url
-    *
-    * @return DomainRegistrant
-    */
+     * Sets the url
+     *
+     * @param string $val The value of the url
+     *
+     * @return DomainRegistrant
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;
         return $this;
     }
     /**
-    * Gets the vendor
-    *
-    * @return string|null The vendor
-    */
+     * Gets the vendor
+     *
+     * @return string|null The vendor
+     */
     public function getVendor()
     {
         if (array_key_exists("vendor", $this->_propDict)) {
@@ -117,14 +116,13 @@ class DomainRegistrant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the vendor
-    *
-    * @param string $val The value of the vendor
-    *
-    * @return DomainRegistrant
-    */
+     * Sets the vendor
+     *
+     * @param string $val The value of the vendor
+     *
+     * @return DomainRegistrant
+     */
     public function setVendor($val)
     {
         $this->_propDict["vendor"] = $val;

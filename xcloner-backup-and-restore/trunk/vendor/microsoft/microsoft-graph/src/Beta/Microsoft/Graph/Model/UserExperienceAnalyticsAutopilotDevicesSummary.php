@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsAutopilotDevicesSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
 {
     /**
-    * Gets the devicesNotAutopilotRegistered
-    * The count of intune devices that are not autopilot registerd.
-    *
-    * @return int|null The devicesNotAutopilotRegistered
-    */
+     * Gets the devicesNotAutopilotRegistered
+     * The count of intune devices that are not autopilot registerd.
+     *
+     * @return int|null The devicesNotAutopilotRegistered
+     */
     public function getDevicesNotAutopilotRegistered()
     {
         if (array_key_exists("devicesNotAutopilotRegistered", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the devicesNotAutopilotRegistered
-    * The count of intune devices that are not autopilot registerd.
-    *
-    * @param int $val The value of the devicesNotAutopilotRegistered
-    *
-    * @return UserExperienceAnalyticsAutopilotDevicesSummary
-    */
+     * Sets the devicesNotAutopilotRegistered
+     * The count of intune devices that are not autopilot registerd.
+     *
+     * @param int $val The value of the devicesNotAutopilotRegistered
+     *
+     * @return UserExperienceAnalyticsAutopilotDevicesSummary
+     */
     public function setDevicesNotAutopilotRegistered($val)
     {
         $this->_propDict["devicesNotAutopilotRegistered"] = $val;
         return $this;
     }
     /**
-    * Gets the devicesWithoutAutopilotProfileAssigned
-    * The count of intune devices not autopilot profile assigned.
-    *
-    * @return int|null The devicesWithoutAutopilotProfileAssigned
-    */
+     * Gets the devicesWithoutAutopilotProfileAssigned
+     * The count of intune devices not autopilot profile assigned.
+     *
+     * @return int|null The devicesWithoutAutopilotProfileAssigned
+     */
     public function getDevicesWithoutAutopilotProfileAssigned()
     {
         if (array_key_exists("devicesWithoutAutopilotProfileAssigned", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the devicesWithoutAutopilotProfileAssigned
-    * The count of intune devices not autopilot profile assigned.
-    *
-    * @param int $val The value of the devicesWithoutAutopilotProfileAssigned
-    *
-    * @return UserExperienceAnalyticsAutopilotDevicesSummary
-    */
+     * Sets the devicesWithoutAutopilotProfileAssigned
+     * The count of intune devices not autopilot profile assigned.
+     *
+     * @param int $val The value of the devicesWithoutAutopilotProfileAssigned
+     *
+     * @return UserExperienceAnalyticsAutopilotDevicesSummary
+     */
     public function setDevicesWithoutAutopilotProfileAssigned($val)
     {
         $this->_propDict["devicesWithoutAutopilotProfileAssigned"] = $val;
         return $this;
     }
     /**
-    * Gets the totalWindows10DevicesWithoutTenantAttached
-    * The count of windows 10 devices that are Intune and Comanaged.
-    *
-    * @return int|null The totalWindows10DevicesWithoutTenantAttached
-    */
+     * Gets the totalWindows10DevicesWithoutTenantAttached
+     * The count of windows 10 devices that are Intune and Comanaged.
+     *
+     * @return int|null The totalWindows10DevicesWithoutTenantAttached
+     */
     public function getTotalWindows10DevicesWithoutTenantAttached()
     {
         if (array_key_exists("totalWindows10DevicesWithoutTenantAttached", $this->_propDict)) {
@@ -96,15 +96,14 @@ class UserExperienceAnalyticsAutopilotDevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalWindows10DevicesWithoutTenantAttached
-    * The count of windows 10 devices that are Intune and Comanaged.
-    *
-    * @param int $val The value of the totalWindows10DevicesWithoutTenantAttached
-    *
-    * @return UserExperienceAnalyticsAutopilotDevicesSummary
-    */
+     * Sets the totalWindows10DevicesWithoutTenantAttached
+     * The count of windows 10 devices that are Intune and Comanaged.
+     *
+     * @param int $val The value of the totalWindows10DevicesWithoutTenantAttached
+     *
+     * @return UserExperienceAnalyticsAutopilotDevicesSummary
+     */
     public function setTotalWindows10DevicesWithoutTenantAttached($val)
     {
         $this->_propDict["totalWindows10DevicesWithoutTenantAttached"] = $val;

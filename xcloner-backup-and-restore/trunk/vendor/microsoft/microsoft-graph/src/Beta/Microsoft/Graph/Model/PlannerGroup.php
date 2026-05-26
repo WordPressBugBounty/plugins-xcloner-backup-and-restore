@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerGroup class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PlannerGroup extends Entity
 {
-
-     /**
+    /**
      * Gets the plans
-    * Read-only. Nullable. Returns the plannerPlans owned by the group.
+     * Read-only. Nullable. Returns the plannerPlans owned by the group.
      *
      * @return array|null The plans
      */
     public function getPlans()
     {
         if (array_key_exists("plans", $this->_propDict)) {
-           return $this->_propDict["plans"];
+            return $this->_propDict["plans"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the plans
-    * Read-only. Nullable. Returns the plannerPlans owned by the group.
-    *
-    * @param PlannerPlan[] $val The plans
-    *
-    * @return PlannerGroup
-    */
+     * Sets the plans
+     * Read-only. Nullable. Returns the plannerPlans owned by the group.
+     *
+     * @param PlannerPlan[] $val The plans
+     *
+     * @return PlannerGroup
+     */
     public function setPlans($val)
     {
         $this->_propDict["plans"] = $val;
         return $this;
     }
-
 }

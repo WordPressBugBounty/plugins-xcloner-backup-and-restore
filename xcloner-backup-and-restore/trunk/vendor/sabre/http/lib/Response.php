@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class represents a single HTTP response.
  *
@@ -32,9 +31,12 @@ class Response extends Message implements ResponseInterface
         204 => 'No Content',
         205 => 'Reset Content',
         206 => 'Partial Content',
-        207 => 'Multi-Status', // RFC 4918
-        208 => 'Already Reported', // RFC 5842
-        226 => 'IM Used', // RFC 3229
+        207 => 'Multi-Status',
+        // RFC 4918
+        208 => 'Already Reported',
+        // RFC 5842
+        226 => 'IM Used',
+        // RFC 3229
         300 => 'Multiple Choices',
         301 => 'Moved Permanently',
         302 => 'Found',
@@ -61,16 +63,25 @@ class Response extends Message implements ResponseInterface
         415 => 'Unsupported Media Type',
         416 => 'Requested Range Not Satisfiable',
         417 => 'Expectation Failed',
-        418 => 'I\'m a teapot', // RFC 2324
-        421 => 'Misdirected Request', // RFC7540 (HTTP/2)
-        422 => 'Unprocessable Entity', // RFC 4918
-        423 => 'Locked', // RFC 4918
-        424 => 'Failed Dependency', // RFC 4918
+        418 => 'I\'m a teapot',
+        // RFC 2324
+        421 => 'Misdirected Request',
+        // RFC7540 (HTTP/2)
+        422 => 'Unprocessable Entity',
+        // RFC 4918
+        423 => 'Locked',
+        // RFC 4918
+        424 => 'Failed Dependency',
+        // RFC 4918
         426 => 'Upgrade Required',
-        428 => 'Precondition Required', // RFC 6585
-        429 => 'Too Many Requests', // RFC 6585
-        431 => 'Request Header Fields Too Large', // RFC 6585
-        451 => 'Unavailable For Legal Reasons', // draft-tbray-http-legally-restricted-status
+        428 => 'Precondition Required',
+        // RFC 6585
+        429 => 'Too Many Requests',
+        // RFC 6585
+        431 => 'Request Header Fields Too Large',
+        // RFC 6585
+        451 => 'Unavailable For Legal Reasons',
+        // draft-tbray-http-legally-restricted-status
         500 => 'Internal Server Error',
         501 => 'Not Implemented',
         502 => 'Bad Gateway',
@@ -78,27 +89,27 @@ class Response extends Message implements ResponseInterface
         504 => 'Gateway Timeout',
         505 => 'HTTP Version not supported',
         506 => 'Variant Also Negotiates',
-        507 => 'Insufficient Storage', // RFC 4918
-        508 => 'Loop Detected', // RFC 5842
-        509 => 'Bandwidth Limit Exceeded', // non-standard
+        507 => 'Insufficient Storage',
+        // RFC 4918
+        508 => 'Loop Detected',
+        // RFC 5842
+        509 => 'Bandwidth Limit Exceeded',
+        // non-standard
         510 => 'Not extended',
-        511 => 'Network Authentication Required', // RFC 6585
+        511 => 'Network Authentication Required',
     ];
-
     /**
      * HTTP status code.
      *
      * @var int
      */
     protected $status;
-
     /**
      * HTTP status text.
      *
      * @var string
      */
     protected $statusText;
-
     /**
      * Creates the response object.
      *
@@ -118,7 +129,6 @@ class Response extends Message implements ResponseInterface
             $this->setBody($body);
         }
     }
-
     /**
      * Returns the current HTTP status code.
      */
@@ -126,7 +136,6 @@ class Response extends Message implements ResponseInterface
     {
         return $this->status;
     }
-
     /**
      * Returns the human-readable status string.
      *
@@ -136,7 +145,6 @@ class Response extends Message implements ResponseInterface
     {
         return $this->statusText;
     }
-
     /**
      * Sets the HTTP status code.
      *
@@ -156,20 +164,15 @@ class Response extends Message implements ResponseInterface
             $statusCode = $status;
             $statusText = self::$statusCodes[$status] ?? 'Unknown';
         } else {
-            list(
-                $statusCode,
-                $statusText
-            ) = explode(' ', $status, 2);
+            list($statusCode, $statusText) = explode(' ', $status, 2);
             $statusCode = (int) $statusCode;
         }
         if ($statusCode < 100 || $statusCode > 999) {
             throw new \InvalidArgumentException('The HTTP status code must be exactly 3 digits');
         }
-
         $this->status = $statusCode;
         $this->statusText = $statusText;
     }
-
     /**
      * Serializes the response object as a string.
      *
@@ -177,15 +180,14 @@ class Response extends Message implements ResponseInterface
      */
     public function __toString(): string
     {
-        $str = 'HTTP/'.$this->httpVersion.' '.$this->getStatus().' '.$this->getStatusText()."\r\n";
+        $str = 'HTTP/' . $this->httpVersion . ' ' . $this->getStatus() . ' ' . $this->getStatusText() . "\r\n";
         foreach ($this->getHeaders() as $key => $value) {
             foreach ($value as $v) {
-                $str .= $key.': '.$v."\r\n";
+                $str .= $key . ': ' . $v . "\r\n";
             }
         }
         $str .= "\r\n";
         $str .= $this->getBodyAsString();
-
         return $str;
     }
 }

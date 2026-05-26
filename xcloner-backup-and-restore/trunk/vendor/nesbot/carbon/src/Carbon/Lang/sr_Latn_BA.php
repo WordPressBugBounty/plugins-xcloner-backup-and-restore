@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This file is part of the Carbon package.
  *
@@ -11,16 +13,4 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
-return array_replace_recursive(require __DIR__.'/sr_Latn.php', [
-    'formats' => [
-        'LT' => 'HH:mm',
-        'LTS' => 'HH:mm:ss',
-        'L' => 'D.M.yy.',
-        'LL' => 'DD.MM.YYYY.',
-        'LLL' => 'DD. MMMM YYYY. HH:mm',
-        'LLLL' => 'dddd, DD. MMMM YYYY. HH:mm',
-    ],
-    'weekdays' => ['nedjelja', 'ponedeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota'],
-    'weekdays_short' => ['ned.', 'pon.', 'ut.', 'sr.', 'čet.', 'pet.', 'sub.'],
-]);
+return \array_replace_recursive(require __DIR__ . '/sr_Latn.php', ['formats' => ['LT' => 'HH:mm', 'LTS' => 'HH:mm:ss', 'L' => 'D.M.yy.', 'LL' => 'DD.MM.YYYY.', 'LLL' => 'DD. MMMM YYYY. HH:mm', 'LLLL' => 'dddd, DD. MMMM YYYY. HH:mm'], 'weekdays' => ['nedjelja', 'ponedeljak', 'utorak', 'srijeda', 'četvrtak', 'petak', 'subota'], 'weekdays_short' => ['ned.', 'pon.', 'ut.', 'sr.', 'čet.', 'pet.', 'sub.']]);

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeliveryOptimizationBandwidthAbsolute class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidth
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deliveryOptimizationBandwidthAbsolute");
     }
-
     /**
-    * Gets the maximumDownloadBandwidthInKilobytesPerSecond
-    * The value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for downloads. Valid values 0 to 4294967295
-    *
-    * @return int|null The maximumDownloadBandwidthInKilobytesPerSecond
-    */
+     * Gets the maximumDownloadBandwidthInKilobytesPerSecond
+     * The value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for downloads. Valid values 0 to 4294967295
+     *
+     * @return int|null The maximumDownloadBandwidthInKilobytesPerSecond
+     */
     public function getMaximumDownloadBandwidthInKilobytesPerSecond()
     {
         if (array_key_exists("maximumDownloadBandwidthInKilobytesPerSecond", $this->_propDict)) {
@@ -51,26 +52,25 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
             return null;
         }
     }
-
     /**
-    * Sets the maximumDownloadBandwidthInKilobytesPerSecond
-    * The value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for downloads. Valid values 0 to 4294967295
-    *
-    * @param int $val The value of the maximumDownloadBandwidthInKilobytesPerSecond
-    *
-    * @return DeliveryOptimizationBandwidthAbsolute
-    */
+     * Sets the maximumDownloadBandwidthInKilobytesPerSecond
+     * The value 0 (zero) means that Delivery Optimization dynamically adjusts to use the available bandwidth for downloads. Valid values 0 to 4294967295
+     *
+     * @param int $val The value of the maximumDownloadBandwidthInKilobytesPerSecond
+     *
+     * @return DeliveryOptimizationBandwidthAbsolute
+     */
     public function setMaximumDownloadBandwidthInKilobytesPerSecond($val)
     {
         $this->_propDict["maximumDownloadBandwidthInKilobytesPerSecond"] = $val;
         return $this;
     }
     /**
-    * Gets the maximumUploadBandwidthInKilobytesPerSecond
-    * The default value is 0, which permits unlimited possible bandwidth (optimized for minimal usage of upload bandwidth). Valid values 0 to 4000000
-    *
-    * @return int|null The maximumUploadBandwidthInKilobytesPerSecond
-    */
+     * Gets the maximumUploadBandwidthInKilobytesPerSecond
+     * The default value is 0, which permits unlimited possible bandwidth (optimized for minimal usage of upload bandwidth). Valid values 0 to 4000000
+     *
+     * @return int|null The maximumUploadBandwidthInKilobytesPerSecond
+     */
     public function getMaximumUploadBandwidthInKilobytesPerSecond()
     {
         if (array_key_exists("maximumUploadBandwidthInKilobytesPerSecond", $this->_propDict)) {
@@ -79,15 +79,14 @@ class DeliveryOptimizationBandwidthAbsolute extends DeliveryOptimizationBandwidt
             return null;
         }
     }
-
     /**
-    * Sets the maximumUploadBandwidthInKilobytesPerSecond
-    * The default value is 0, which permits unlimited possible bandwidth (optimized for minimal usage of upload bandwidth). Valid values 0 to 4000000
-    *
-    * @param int $val The value of the maximumUploadBandwidthInKilobytesPerSecond
-    *
-    * @return DeliveryOptimizationBandwidthAbsolute
-    */
+     * Sets the maximumUploadBandwidthInKilobytesPerSecond
+     * The default value is 0, which permits unlimited possible bandwidth (optimized for minimal usage of upload bandwidth). Valid values 0 to 4000000
+     *
+     * @param int $val The value of the maximumUploadBandwidthInKilobytesPerSecond
+     *
+     * @return DeliveryOptimizationBandwidthAbsolute
+     */
     public function setMaximumUploadBandwidthInKilobytesPerSecond($val)
     {
         $this->_propDict["maximumUploadBandwidthInKilobytesPerSecond"] = $val;

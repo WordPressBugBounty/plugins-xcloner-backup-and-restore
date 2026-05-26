@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VpnDnsRule class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VpnDnsRule extends Entity
 {
     /**
-    * Gets the autoTrigger
-    * Automatically connect to the VPN when the device connects to this domain: Default False.
-    *
-    * @return bool|null The autoTrigger
-    */
+     * Gets the autoTrigger
+     * Automatically connect to the VPN when the device connects to this domain: Default False.
+     *
+     * @return bool|null The autoTrigger
+     */
     public function getAutoTrigger()
     {
         if (array_key_exists("autoTrigger", $this->_propDict)) {
@@ -40,26 +42,25 @@ class VpnDnsRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the autoTrigger
-    * Automatically connect to the VPN when the device connects to this domain: Default False.
-    *
-    * @param bool $val The value of the autoTrigger
-    *
-    * @return VpnDnsRule
-    */
+     * Sets the autoTrigger
+     * Automatically connect to the VPN when the device connects to this domain: Default False.
+     *
+     * @param bool $val The value of the autoTrigger
+     *
+     * @return VpnDnsRule
+     */
     public function setAutoTrigger($val)
     {
         $this->_propDict["autoTrigger"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * Name.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,26 +69,25 @@ class VpnDnsRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name.
-    *
-    * @param string $val The value of the name
-    *
-    * @return VpnDnsRule
-    */
+     * Sets the name
+     * Name.
+     *
+     * @param string $val The value of the name
+     *
+     * @return VpnDnsRule
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the persistent
-    * Keep this rule active even when the VPN is not connected: Default False
-    *
-    * @return bool|null The persistent
-    */
+     * Gets the persistent
+     * Keep this rule active even when the VPN is not connected: Default False
+     *
+     * @return bool|null The persistent
+     */
     public function getPersistent()
     {
         if (array_key_exists("persistent", $this->_propDict)) {
@@ -96,26 +96,25 @@ class VpnDnsRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the persistent
-    * Keep this rule active even when the VPN is not connected: Default False
-    *
-    * @param bool $val The value of the persistent
-    *
-    * @return VpnDnsRule
-    */
+     * Sets the persistent
+     * Keep this rule active even when the VPN is not connected: Default False
+     *
+     * @param bool $val The value of the persistent
+     *
+     * @return VpnDnsRule
+     */
     public function setPersistent($val)
     {
         $this->_propDict["persistent"] = $val;
         return $this;
     }
     /**
-    * Gets the proxyServerUri
-    * Proxy Server Uri.
-    *
-    * @return string|null The proxyServerUri
-    */
+     * Gets the proxyServerUri
+     * Proxy Server Uri.
+     *
+     * @return string|null The proxyServerUri
+     */
     public function getProxyServerUri()
     {
         if (array_key_exists("proxyServerUri", $this->_propDict)) {
@@ -124,26 +123,25 @@ class VpnDnsRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the proxyServerUri
-    * Proxy Server Uri.
-    *
-    * @param string $val The value of the proxyServerUri
-    *
-    * @return VpnDnsRule
-    */
+     * Sets the proxyServerUri
+     * Proxy Server Uri.
+     *
+     * @param string $val The value of the proxyServerUri
+     *
+     * @return VpnDnsRule
+     */
     public function setProxyServerUri($val)
     {
         $this->_propDict["proxyServerUri"] = $val;
         return $this;
     }
     /**
-    * Gets the servers
-    * Servers.
-    *
-    * @return string|null The servers
-    */
+     * Gets the servers
+     * Servers.
+     *
+     * @return string|null The servers
+     */
     public function getServers()
     {
         if (array_key_exists("servers", $this->_propDict)) {
@@ -152,15 +150,14 @@ class VpnDnsRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the servers
-    * Servers.
-    *
-    * @param string $val The value of the servers
-    *
-    * @return VpnDnsRule
-    */
+     * Sets the servers
+     * Servers.
+     *
+     * @param string $val The value of the servers
+     *
+     * @return VpnDnsRule
+     */
     public function setServers($val)
     {
         $this->_propDict["servers"] = $val;

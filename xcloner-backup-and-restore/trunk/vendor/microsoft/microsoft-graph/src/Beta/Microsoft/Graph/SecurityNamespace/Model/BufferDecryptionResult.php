@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BufferDecryptionResult class
 *
@@ -24,37 +26,35 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class BufferDecryptionResult extends \Beta\Microsoft\Graph\Model\Entity
+class BufferDecryptionResult extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the decryptedBuffer
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The decryptedBuffer
-    */
+     * Gets the decryptedBuffer
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The decryptedBuffer
+     */
     public function getDecryptedBuffer()
     {
         if (array_key_exists("decryptedBuffer", $this->_propDict)) {
-            if (is_a($this->_propDict["decryptedBuffer"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["decryptedBuffer"])) {
+            if (is_a($this->_propDict["decryptedBuffer"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["decryptedBuffer"])) {
                 return $this->_propDict["decryptedBuffer"];
             } else {
-                $this->_propDict["decryptedBuffer"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["decryptedBuffer"]);
+                $this->_propDict["decryptedBuffer"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["decryptedBuffer"]);
                 return $this->_propDict["decryptedBuffer"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the decryptedBuffer
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the decryptedBuffer
-    *
-    * @return BufferDecryptionResult The BufferDecryptionResult
-    */
+     * Sets the decryptedBuffer
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the decryptedBuffer
+     *
+     * @return BufferDecryptionResult The BufferDecryptionResult
+     */
     public function setDecryptedBuffer($val)
     {
         $this->_propDict["decryptedBuffer"] = $val;
-         return $this;
+        return $this;
     }
 }

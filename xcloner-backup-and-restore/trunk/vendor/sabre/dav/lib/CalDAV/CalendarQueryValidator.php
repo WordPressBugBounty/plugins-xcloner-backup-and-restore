@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV;
 
-namespace Sabre\CalDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTime;
-use Sabre\VObject;
-
+use XCloner\Sabre\VObject;
 /**
  * CalendarQuery Validator.
  *
@@ -37,14 +35,10 @@ class CalendarQueryValidator
         // The top level object is always a component filter.
         // We'll parse it manually, as it's pretty simple.
         if ($vObject->name !== $filters['name']) {
-            return false;
+            return \false;
         }
-
-        return
-            $this->validateCompFilters($vObject, $filters['comp-filters']) &&
-            $this->validatePropFilters($vObject, $filters['prop-filters']);
+        return $this->validateCompFilters($vObject, $filters['comp-filters']) && $this->validatePropFilters($vObject, $filters['prop-filters']);
     }
-
     /**
      * This method checks the validity of comp-filters.
      *
@@ -58,18 +52,16 @@ class CalendarQueryValidator
     {
         foreach ($filters as $filter) {
             $isDefined = isset($parent->{$filter['name']});
-
             if ($filter['is-not-defined']) {
                 if ($isDefined) {
-                    return false;
+                    return \false;
                 } else {
                     continue;
                 }
             }
             if (!$isDefined) {
-                return false;
+                return \false;
             }
-
             if (array_key_exists('time-range', $filter) && $filter['time-range']) {
                 foreach ($parent->{$filter['name']} as $subComponent) {
                     $start = null;
@@ -84,36 +76,28 @@ class CalendarQueryValidator
                         continue 2;
                     }
                 }
-
-                return false;
+                return \false;
             }
-
             if (!$filter['comp-filters'] && !$filter['prop-filters']) {
                 continue;
             }
-
             // If there are sub-filters, we need to find at least one component
             // for which the subfilters hold true.
             foreach ($parent->{$filter['name']} as $subComponent) {
-                if (
-                    $this->validateCompFilters($subComponent, $filter['comp-filters']) &&
-                    $this->validatePropFilters($subComponent, $filter['prop-filters'])) {
+                if ($this->validateCompFilters($subComponent, $filter['comp-filters']) && $this->validatePropFilters($subComponent, $filter['prop-filters'])) {
                     // We had a match, so this comp-filter succeeds
                     continue 2;
                 }
             }
-
             // If we got here it means there were sub-comp-filters or
             // sub-prop-filters and there was no match. This means this filter
             // needs to return false.
-            return false;
+            return \false;
         }
-
         // If we got here it means we got through all comp-filters alive so the
         // filters were all true.
-        return true;
+        return \true;
     }
-
     /**
      * This method checks the validity of prop-filters.
      *
@@ -127,18 +111,16 @@ class CalendarQueryValidator
     {
         foreach ($filters as $filter) {
             $isDefined = isset($parent->{$filter['name']});
-
             if ($filter['is-not-defined']) {
                 if ($isDefined) {
-                    return false;
+                    return \false;
                 } else {
                     continue;
                 }
             }
             if (!$isDefined) {
-                return false;
+                return \false;
             }
-
             if (array_key_exists('time-range', $filter) && $filter['time-range']) {
                 foreach ($parent->{$filter['name']} as $subComponent) {
                     $start = null;
@@ -153,37 +135,28 @@ class CalendarQueryValidator
                         continue 2;
                     }
                 }
-
-                return false;
+                return \false;
             }
-
             if (!$filter['param-filters'] && !$filter['text-match']) {
                 continue;
             }
-
             // If there are sub-filters, we need to find at least one property
             // for which the subfilters hold true.
             foreach ($parent->{$filter['name']} as $subComponent) {
-                if (
-                    $this->validateParamFilters($subComponent, $filter['param-filters']) &&
-                    (!$filter['text-match'] || $this->validateTextMatch($subComponent, $filter['text-match']))
-                ) {
+                if ($this->validateParamFilters($subComponent, $filter['param-filters']) && (!$filter['text-match'] || $this->validateTextMatch($subComponent, $filter['text-match']))) {
                     // We had a match, so this prop-filter succeeds
                     continue 2;
                 }
             }
-
             // If we got here it means there were sub-param-filters or
             // text-match filters and there was no match. This means the
             // filter needs to return false.
-            return false;
+            return \false;
         }
-
         // If we got here it means we got through all prop-filters alive so the
         // filters were all true.
-        return true;
+        return \true;
     }
-
     /**
      * This method checks the validity of param-filters.
      *
@@ -197,22 +170,19 @@ class CalendarQueryValidator
     {
         foreach ($filters as $filter) {
             $isDefined = isset($parent[$filter['name']]);
-
             if ($filter['is-not-defined']) {
                 if ($isDefined) {
-                    return false;
+                    return \false;
                 } else {
                     continue;
                 }
             }
             if (!$isDefined) {
-                return false;
+                return \false;
             }
-
             if (!$filter['text-match']) {
                 continue;
             }
-
             // If there are sub-filters, we need to find at least one parameter
             // for which the subfilters hold true.
             foreach ($parent[$filter['name']]->getParts() as $paramPart) {
@@ -221,17 +191,14 @@ class CalendarQueryValidator
                     continue 2;
                 }
             }
-
             // If we got here it means there was a text-match filter and there
             // were no matches. This means the filter needs to return false.
-            return false;
+            return \false;
         }
-
         // If we got here it means we got through all param-filters alive so the
         // filters were all true.
-        return true;
+        return \true;
     }
-
     /**
      * This method checks the validity of a text-match.
      *
@@ -247,12 +214,9 @@ class CalendarQueryValidator
         if ($check instanceof VObject\Node) {
             $check = $check->getValue();
         }
-
-        $isMatching = \Sabre\DAV\StringUtil::textMatch($check, $textMatch['value'], $textMatch['collation']);
-
+        $isMatching = \XCloner\Sabre\DAV\StringUtil::textMatch($check, $textMatch['value'], $textMatch['collation']);
         return $textMatch['negate-condition'] xor $isMatching;
     }
-
     /**
      * Validates if a component matches the given time range.
      *
@@ -272,13 +236,11 @@ class CalendarQueryValidator
         if (is_null($end)) {
             $end = new DateTime('3000-01-01');
         }
-
         switch ($component->name) {
             case 'VEVENT':
             case 'VTODO':
             case 'VJOURNAL':
                 return $component->isInTimeRange($start, $end);
-
             case 'VALARM':
                 // If the valarm is wrapped in a recurring event, we need to
                 // expand the recursions, and validate each.
@@ -291,7 +253,6 @@ class CalendarQueryValidator
                     $it = new VObject\Recur\EventIterator($component->parent->parent, (string) $component->parent->UID);
                     while ($it->valid()) {
                         $expandedEvent = $it->getEventObject();
-
                         // We need to check from these expanded alarms, which
                         // one is the first to trigger. Based on this, we can
                         // determine if we can 'give up' expanding events.
@@ -300,9 +261,8 @@ class CalendarQueryValidator
                             foreach ($expandedEvent->VALARM as $expandedAlarm) {
                                 $effectiveTrigger = $expandedAlarm->getEffectiveTriggerTime();
                                 if ($expandedAlarm->isInTimeRange($start, $end)) {
-                                    return true;
+                                    return \true;
                                 }
-
                                 if ('DATE-TIME' === (string) $expandedAlarm->TRIGGER['VALUE']) {
                                     // This is an alarm with a non-relative trigger
                                     // time, likely created by a buggy client. The
@@ -310,12 +270,8 @@ class CalendarQueryValidator
                                     // recurring event trigger at the exact same
                                     // time. It doesn't make sense to traverse
                                     // further.
-                                } else {
-                                    // We store the first alarm as a means to
-                                    // figure out when we can stop traversing.
-                                    if (!$firstAlarm || $effectiveTrigger < $firstAlarm) {
-                                        $firstAlarm = $effectiveTrigger;
-                                    }
+                                } else if (!$firstAlarm || $effectiveTrigger < $firstAlarm) {
+                                    $firstAlarm = $effectiveTrigger;
                                 }
                             }
                         }
@@ -325,22 +281,20 @@ class CalendarQueryValidator
                             // Or technically: No alarm that will change for
                             // every instance of the recurrence was found,
                             // which means we can assume there was no match.
-                            return false;
+                            return \false;
                         }
                         if ($firstAlarm > $end) {
-                            return false;
+                            return \false;
                         }
                         $it->next();
                     }
-
-                    return false;
+                    return \false;
                 } else {
                     return $component->isInTimeRange($start, $end);
                 }
-
-                // no break
+            // no break
             case 'VFREEBUSY':
-                throw new \Sabre\DAV\Exception\NotImplemented('time-range filters are currently not supported on '.$component->name.' components');
+                throw new \XCloner\Sabre\DAV\Exception\NotImplemented('time-range filters are currently not supported on ' . $component->name . ' components');
             case 'COMPLETED':
             case 'CREATED':
             case 'DTEND':
@@ -349,9 +303,8 @@ class CalendarQueryValidator
             case 'DUE':
             case 'LAST-MODIFIED':
                 return $start <= $component->getDateTime() && $end >= $component->getDateTime();
-
             default:
-                throw new \Sabre\DAV\Exception\BadRequest('You cannot create a time-range filter on a '.$component->name.' component');
+                throw new \XCloner\Sabre\DAV\Exception\BadRequest('You cannot create a time-range filter on a ' . $component->name . ' component');
         }
     }
 }

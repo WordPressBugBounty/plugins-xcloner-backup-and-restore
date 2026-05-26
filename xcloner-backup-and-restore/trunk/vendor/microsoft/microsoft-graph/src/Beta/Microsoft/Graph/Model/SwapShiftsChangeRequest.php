@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SwapShiftsChangeRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SwapShiftsChangeRequest extends OfferShiftRequest
 {
     /**
-    * Gets the recipientShiftId
-    * Shift ID for the recipient user with whom the request is to swap.
-    *
-    * @return string|null The recipientShiftId
-    */
+     * Gets the recipientShiftId
+     * Shift ID for the recipient user with whom the request is to swap.
+     *
+     * @return string|null The recipientShiftId
+     */
     public function getRecipientShiftId()
     {
         if (array_key_exists("recipientShiftId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class SwapShiftsChangeRequest extends OfferShiftRequest
             return null;
         }
     }
-
     /**
-    * Sets the recipientShiftId
-    * Shift ID for the recipient user with whom the request is to swap.
-    *
-    * @param string $val The recipientShiftId
-    *
-    * @return SwapShiftsChangeRequest
-    */
+     * Sets the recipientShiftId
+     * Shift ID for the recipient user with whom the request is to swap.
+     *
+     * @param string $val The recipientShiftId
+     *
+     * @return SwapShiftsChangeRequest
+     */
     public function setRecipientShiftId($val)
     {
         $this->_propDict["recipientShiftId"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsUniversalAppXContainedApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsUniversalAppXContainedApp extends MobileContainedApp
 {
     /**
-    * Gets the appUserModelId
-    * The app user model ID of the contained app of a WindowsUniversalAppX app.
-    *
-    * @return string|null The appUserModelId
-    */
+     * Gets the appUserModelId
+     * The app user model ID of the contained app of a WindowsUniversalAppX app.
+     *
+     * @return string|null The appUserModelId
+     */
     public function getAppUserModelId()
     {
         if (array_key_exists("appUserModelId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WindowsUniversalAppXContainedApp extends MobileContainedApp
             return null;
         }
     }
-
     /**
-    * Sets the appUserModelId
-    * The app user model ID of the contained app of a WindowsUniversalAppX app.
-    *
-    * @param string $val The appUserModelId
-    *
-    * @return WindowsUniversalAppXContainedApp
-    */
+     * Sets the appUserModelId
+     * The app user model ID of the contained app of a WindowsUniversalAppX app.
+     *
+     * @param string $val The appUserModelId
+     *
+     * @return WindowsUniversalAppXContainedApp
+     */
     public function setAppUserModelId($val)
     {
         $this->_propDict["appUserModelId"] = $val;
         return $this;
     }
-
 }

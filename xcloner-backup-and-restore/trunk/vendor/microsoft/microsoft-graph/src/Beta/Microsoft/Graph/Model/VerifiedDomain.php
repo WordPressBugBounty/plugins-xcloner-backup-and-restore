@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VerifiedDomain class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VerifiedDomain extends Entity
 {
     /**
-    * Gets the capabilities
-    * For example, Email, OfficeCommunicationsOnline.
-    *
-    * @return string|null The capabilities
-    */
+     * Gets the capabilities
+     * For example, Email, OfficeCommunicationsOnline.
+     *
+     * @return string|null The capabilities
+     */
     public function getCapabilities()
     {
         if (array_key_exists("capabilities", $this->_propDict)) {
@@ -40,26 +42,25 @@ class VerifiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the capabilities
-    * For example, Email, OfficeCommunicationsOnline.
-    *
-    * @param string $val The value of the capabilities
-    *
-    * @return VerifiedDomain
-    */
+     * Sets the capabilities
+     * For example, Email, OfficeCommunicationsOnline.
+     *
+     * @param string $val The value of the capabilities
+     *
+     * @return VerifiedDomain
+     */
     public function setCapabilities($val)
     {
         $this->_propDict["capabilities"] = $val;
         return $this;
     }
     /**
-    * Gets the isDefault
-    * true if this is the default domain associated with the tenant; otherwise, false.
-    *
-    * @return bool|null The isDefault
-    */
+     * Gets the isDefault
+     * true if this is the default domain associated with the tenant; otherwise, false.
+     *
+     * @return bool|null The isDefault
+     */
     public function getIsDefault()
     {
         if (array_key_exists("isDefault", $this->_propDict)) {
@@ -68,26 +69,25 @@ class VerifiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isDefault
-    * true if this is the default domain associated with the tenant; otherwise, false.
-    *
-    * @param bool $val The value of the isDefault
-    *
-    * @return VerifiedDomain
-    */
+     * Sets the isDefault
+     * true if this is the default domain associated with the tenant; otherwise, false.
+     *
+     * @param bool $val The value of the isDefault
+     *
+     * @return VerifiedDomain
+     */
     public function setIsDefault($val)
     {
         $this->_propDict["isDefault"] = $val;
         return $this;
     }
     /**
-    * Gets the isInitial
-    * true if this is the initial domain associated with the tenant; otherwise, false.
-    *
-    * @return bool|null The isInitial
-    */
+     * Gets the isInitial
+     * true if this is the initial domain associated with the tenant; otherwise, false.
+     *
+     * @return bool|null The isInitial
+     */
     public function getIsInitial()
     {
         if (array_key_exists("isInitial", $this->_propDict)) {
@@ -96,26 +96,25 @@ class VerifiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isInitial
-    * true if this is the initial domain associated with the tenant; otherwise, false.
-    *
-    * @param bool $val The value of the isInitial
-    *
-    * @return VerifiedDomain
-    */
+     * Sets the isInitial
+     * true if this is the initial domain associated with the tenant; otherwise, false.
+     *
+     * @param bool $val The value of the isInitial
+     *
+     * @return VerifiedDomain
+     */
     public function setIsInitial($val)
     {
         $this->_propDict["isInitial"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The domain name; for example, contoso.onmicrosoft.com.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The domain name; for example, contoso.onmicrosoft.com.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -124,26 +123,25 @@ class VerifiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The domain name; for example, contoso.onmicrosoft.com.
-    *
-    * @param string $val The value of the name
-    *
-    * @return VerifiedDomain
-    */
+     * Sets the name
+     * The domain name; for example, contoso.onmicrosoft.com.
+     *
+     * @param string $val The value of the name
+     *
+     * @return VerifiedDomain
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * For example, Managed.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * For example, Managed.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -152,15 +150,14 @@ class VerifiedDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * For example, Managed.
-    *
-    * @param string $val The value of the type
-    *
-    * @return VerifiedDomain
-    */
+     * Sets the type
+     * For example, Managed.
+     *
+     * @param string $val The value of the type
+     *
+     * @return VerifiedDomain
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

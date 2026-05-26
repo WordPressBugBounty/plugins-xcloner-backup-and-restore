@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\DAV\Sharing\Plugin as SharingPlugin;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\DAV\Sharing\Plugin as SharingPlugin;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * This class represents the {DAV:}share-access property.
  *
@@ -35,7 +33,6 @@ class ShareAccess implements Element
      * @var int
      */
     protected $value;
-
     /**
      * Creates the property.
      *
@@ -48,7 +45,6 @@ class ShareAccess implements Element
     {
         $this->value = $shareAccess;
     }
-
     /**
      * Returns the current value.
      *
@@ -58,7 +54,6 @@ class ShareAccess implements Element
     {
         return $this->value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -95,7 +90,6 @@ class ShareAccess implements Element
                 break;
         }
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *

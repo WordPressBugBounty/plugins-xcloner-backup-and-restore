@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UsedInsight class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UsedInsight extends Entity
 {
     /**
-    * Gets the lastUsed
-    * Information about when the item was last viewed or modified by the user. Read only.
-    *
-    * @return UsageDetails|null The lastUsed
-    */
+     * Gets the lastUsed
+     * Information about when the item was last viewed or modified by the user. Read only.
+     *
+     * @return UsageDetails|null The lastUsed
+     */
     public function getLastUsed()
     {
         if (array_key_exists("lastUsed", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUsed"], "\Microsoft\Graph\Model\UsageDetails") || is_null($this->_propDict["lastUsed"])) {
+            if (is_a($this->_propDict["lastUsed"], "XCloner\\Microsoft\\Graph\\Model\\UsageDetails") || is_null($this->_propDict["lastUsed"])) {
                 return $this->_propDict["lastUsed"];
             } else {
                 $this->_propDict["lastUsed"] = new UsageDetails($this->_propDict["lastUsed"]);
@@ -45,31 +46,29 @@ class UsedInsight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastUsed
-    * Information about when the item was last viewed or modified by the user. Read only.
-    *
-    * @param UsageDetails $val The lastUsed
-    *
-    * @return UsedInsight
-    */
+     * Sets the lastUsed
+     * Information about when the item was last viewed or modified by the user. Read only.
+     *
+     * @param UsageDetails $val The lastUsed
+     *
+     * @return UsedInsight
+     */
     public function setLastUsed($val)
     {
         $this->_propDict["lastUsed"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceReference
-    * Reference properties of the used document, such as the url and type of the document. Read-only
-    *
-    * @return ResourceReference|null The resourceReference
-    */
+     * Gets the resourceReference
+     * Reference properties of the used document, such as the url and type of the document. Read-only
+     *
+     * @return ResourceReference|null The resourceReference
+     */
     public function getResourceReference()
     {
         if (array_key_exists("resourceReference", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceReference"], "\Microsoft\Graph\Model\ResourceReference") || is_null($this->_propDict["resourceReference"])) {
+            if (is_a($this->_propDict["resourceReference"], "XCloner\\Microsoft\\Graph\\Model\\ResourceReference") || is_null($this->_propDict["resourceReference"])) {
                 return $this->_propDict["resourceReference"];
             } else {
                 $this->_propDict["resourceReference"] = new ResourceReference($this->_propDict["resourceReference"]);
@@ -78,31 +77,29 @@ class UsedInsight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resourceReference
-    * Reference properties of the used document, such as the url and type of the document. Read-only
-    *
-    * @param ResourceReference $val The resourceReference
-    *
-    * @return UsedInsight
-    */
+     * Sets the resourceReference
+     * Reference properties of the used document, such as the url and type of the document. Read-only
+     *
+     * @param ResourceReference $val The resourceReference
+     *
+     * @return UsedInsight
+     */
     public function setResourceReference($val)
     {
         $this->_propDict["resourceReference"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceVisualization
-    * Properties that you can use to visualize the document in your experience. Read-only
-    *
-    * @return ResourceVisualization|null The resourceVisualization
-    */
+     * Gets the resourceVisualization
+     * Properties that you can use to visualize the document in your experience. Read-only
+     *
+     * @return ResourceVisualization|null The resourceVisualization
+     */
     public function getResourceVisualization()
     {
         if (array_key_exists("resourceVisualization", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceVisualization"], "\Microsoft\Graph\Model\ResourceVisualization") || is_null($this->_propDict["resourceVisualization"])) {
+            if (is_a($this->_propDict["resourceVisualization"], "XCloner\\Microsoft\\Graph\\Model\\ResourceVisualization") || is_null($this->_propDict["resourceVisualization"])) {
                 return $this->_propDict["resourceVisualization"];
             } else {
                 $this->_propDict["resourceVisualization"] = new ResourceVisualization($this->_propDict["resourceVisualization"]);
@@ -111,31 +108,29 @@ class UsedInsight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resourceVisualization
-    * Properties that you can use to visualize the document in your experience. Read-only
-    *
-    * @param ResourceVisualization $val The resourceVisualization
-    *
-    * @return UsedInsight
-    */
+     * Sets the resourceVisualization
+     * Properties that you can use to visualize the document in your experience. Read-only
+     *
+     * @param ResourceVisualization $val The resourceVisualization
+     *
+     * @return UsedInsight
+     */
     public function setResourceVisualization($val)
     {
         $this->_propDict["resourceVisualization"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resource
-    * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
-    *
-    * @return Entity|null The resource
-    */
+     * Gets the resource
+     * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
+     *
+     * @return Entity|null The resource
+     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Microsoft\Graph\Model\Entity") || is_null($this->_propDict["resource"])) {
+            if (is_a($this->_propDict["resource"], "XCloner\\Microsoft\\Graph\\Model\\Entity") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new Entity($this->_propDict["resource"]);
@@ -144,19 +139,17 @@ class UsedInsight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resource
-    * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
-    *
-    * @param Entity $val The resource
-    *
-    * @return UsedInsight
-    */
+     * Sets the resource
+     * Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.
+     *
+     * @param Entity $val The resource
+     *
+     * @return UsedInsight
+     */
     public function setResource($val)
     {
         $this->_propDict["resource"] = $val;
         return $this;
     }
-
 }

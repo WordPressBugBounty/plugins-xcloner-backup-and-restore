@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * HybridAgentUpdaterConfiguration class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class HybridAgentUpdaterConfiguration extends Entity
 {
     /**
-    * Gets the allowUpdateConfigurationOverride
-    * Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
-    *
-    * @return bool|null The allowUpdateConfigurationOverride
-    */
+     * Gets the allowUpdateConfigurationOverride
+     * Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
+     *
+     * @return bool|null The allowUpdateConfigurationOverride
+     */
     public function getAllowUpdateConfigurationOverride()
     {
         if (array_key_exists("allowUpdateConfigurationOverride", $this->_propDict)) {
@@ -40,31 +42,29 @@ class HybridAgentUpdaterConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowUpdateConfigurationOverride
-    * Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
-    *
-    * @param bool $val The value of the allowUpdateConfigurationOverride
-    *
-    * @return HybridAgentUpdaterConfiguration
-    */
+     * Sets the allowUpdateConfigurationOverride
+     * Indicates if updater configuration will be skipped and the agent will receive an update when the next version of the agent is available.
+     *
+     * @param bool $val The value of the allowUpdateConfigurationOverride
+     *
+     * @return HybridAgentUpdaterConfiguration
+     */
     public function setAllowUpdateConfigurationOverride($val)
     {
         $this->_propDict["allowUpdateConfigurationOverride"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deferUpdateDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The deferUpdateDateTime
-    */
+     * Gets the deferUpdateDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The deferUpdateDateTime
+     */
     public function getDeferUpdateDateTime()
     {
         if (array_key_exists("deferUpdateDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["deferUpdateDateTime"], "\DateTime") || is_null($this->_propDict["deferUpdateDateTime"])) {
+            if (is_a($this->_propDict["deferUpdateDateTime"], "\\DateTime") || is_null($this->_propDict["deferUpdateDateTime"])) {
                 return $this->_propDict["deferUpdateDateTime"];
             } else {
                 $this->_propDict["deferUpdateDateTime"] = new \DateTime($this->_propDict["deferUpdateDateTime"]);
@@ -73,30 +73,28 @@ class HybridAgentUpdaterConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deferUpdateDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The value to assign to the deferUpdateDateTime
-    *
-    * @return HybridAgentUpdaterConfiguration The HybridAgentUpdaterConfiguration
-    */
+     * Sets the deferUpdateDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The value to assign to the deferUpdateDateTime
+     *
+     * @return HybridAgentUpdaterConfiguration The HybridAgentUpdaterConfiguration
+     */
     public function setDeferUpdateDateTime($val)
     {
         $this->_propDict["deferUpdateDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the updateWindow
-    *
-    * @return UpdateWindow|null The updateWindow
-    */
+     * Gets the updateWindow
+     *
+     * @return UpdateWindow|null The updateWindow
+     */
     public function getUpdateWindow()
     {
         if (array_key_exists("updateWindow", $this->_propDict)) {
-            if (is_a($this->_propDict["updateWindow"], "\Beta\Microsoft\Graph\Model\UpdateWindow") || is_null($this->_propDict["updateWindow"])) {
+            if (is_a($this->_propDict["updateWindow"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\UpdateWindow") || is_null($this->_propDict["updateWindow"])) {
                 return $this->_propDict["updateWindow"];
             } else {
                 $this->_propDict["updateWindow"] = new UpdateWindow($this->_propDict["updateWindow"]);
@@ -105,17 +103,16 @@ class HybridAgentUpdaterConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the updateWindow
-    *
-    * @param UpdateWindow $val The value to assign to the updateWindow
-    *
-    * @return HybridAgentUpdaterConfiguration The HybridAgentUpdaterConfiguration
-    */
+     * Sets the updateWindow
+     *
+     * @param UpdateWindow $val The value to assign to the updateWindow
+     *
+     * @return HybridAgentUpdaterConfiguration The HybridAgentUpdaterConfiguration
+     */
     public function setUpdateWindow($val)
     {
         $this->_propDict["updateWindow"] = $val;
-         return $this;
+        return $this;
     }
 }

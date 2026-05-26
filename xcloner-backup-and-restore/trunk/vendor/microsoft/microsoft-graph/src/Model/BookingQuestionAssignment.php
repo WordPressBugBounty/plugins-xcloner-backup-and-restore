@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BookingQuestionAssignment class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BookingQuestionAssignment extends Entity
 {
     /**
-    * Gets the isRequired
-    * The ID of the custom question.
-    *
-    * @return bool|null The isRequired
-    */
+     * Gets the isRequired
+     * The ID of the custom question.
+     *
+     * @return bool|null The isRequired
+     */
     public function getIsRequired()
     {
         if (array_key_exists("isRequired", $this->_propDict)) {
@@ -40,26 +42,25 @@ class BookingQuestionAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRequired
-    * The ID of the custom question.
-    *
-    * @param bool $val The value of the isRequired
-    *
-    * @return BookingQuestionAssignment
-    */
+     * Sets the isRequired
+     * The ID of the custom question.
+     *
+     * @param bool $val The value of the isRequired
+     *
+     * @return BookingQuestionAssignment
+     */
     public function setIsRequired($val)
     {
         $this->_propDict["isRequired"] = $val;
         return $this;
     }
     /**
-    * Gets the questionId
-    * Indicates whether it is mandatory to answer the custom question.
-    *
-    * @return string|null The questionId
-    */
+     * Gets the questionId
+     * Indicates whether it is mandatory to answer the custom question.
+     *
+     * @return string|null The questionId
+     */
     public function getQuestionId()
     {
         if (array_key_exists("questionId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class BookingQuestionAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the questionId
-    * Indicates whether it is mandatory to answer the custom question.
-    *
-    * @param string $val The value of the questionId
-    *
-    * @return BookingQuestionAssignment
-    */
+     * Sets the questionId
+     * Indicates whether it is mandatory to answer the custom question.
+     *
+     * @param string $val The value of the questionId
+     *
+     * @return BookingQuestionAssignment
+     */
     public function setQuestionId($val)
     {
         $this->_propDict["questionId"] = $val;

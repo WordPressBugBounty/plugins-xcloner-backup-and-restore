@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintMargin class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintMargin extends Entity
 {
     /**
-    * Gets the bottom
-    * The margin in microns from the bottom edge.
-    *
-    * @return int|null The bottom
-    */
+     * Gets the bottom
+     * The margin in microns from the bottom edge.
+     *
+     * @return int|null The bottom
+     */
     public function getBottom()
     {
         if (array_key_exists("bottom", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PrintMargin extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bottom
-    * The margin in microns from the bottom edge.
-    *
-    * @param int $val The value of the bottom
-    *
-    * @return PrintMargin
-    */
+     * Sets the bottom
+     * The margin in microns from the bottom edge.
+     *
+     * @param int $val The value of the bottom
+     *
+     * @return PrintMargin
+     */
     public function setBottom($val)
     {
         $this->_propDict["bottom"] = $val;
         return $this;
     }
     /**
-    * Gets the left
-    * The margin in microns from the left edge.
-    *
-    * @return int|null The left
-    */
+     * Gets the left
+     * The margin in microns from the left edge.
+     *
+     * @return int|null The left
+     */
     public function getLeft()
     {
         if (array_key_exists("left", $this->_propDict)) {
@@ -68,26 +69,25 @@ class PrintMargin extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the left
-    * The margin in microns from the left edge.
-    *
-    * @param int $val The value of the left
-    *
-    * @return PrintMargin
-    */
+     * Sets the left
+     * The margin in microns from the left edge.
+     *
+     * @param int $val The value of the left
+     *
+     * @return PrintMargin
+     */
     public function setLeft($val)
     {
         $this->_propDict["left"] = $val;
         return $this;
     }
     /**
-    * Gets the right
-    * The margin in microns from the right edge.
-    *
-    * @return int|null The right
-    */
+     * Gets the right
+     * The margin in microns from the right edge.
+     *
+     * @return int|null The right
+     */
     public function getRight()
     {
         if (array_key_exists("right", $this->_propDict)) {
@@ -96,26 +96,25 @@ class PrintMargin extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the right
-    * The margin in microns from the right edge.
-    *
-    * @param int $val The value of the right
-    *
-    * @return PrintMargin
-    */
+     * Sets the right
+     * The margin in microns from the right edge.
+     *
+     * @param int $val The value of the right
+     *
+     * @return PrintMargin
+     */
     public function setRight($val)
     {
         $this->_propDict["right"] = $val;
         return $this;
     }
     /**
-    * Gets the top
-    * The margin in microns from the top edge.
-    *
-    * @return int|null The top
-    */
+     * Gets the top
+     * The margin in microns from the top edge.
+     *
+     * @return int|null The top
+     */
     public function getTop()
     {
         if (array_key_exists("top", $this->_propDict)) {
@@ -124,15 +123,14 @@ class PrintMargin extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the top
-    * The margin in microns from the top edge.
-    *
-    * @param int $val The value of the top
-    *
-    * @return PrintMargin
-    */
+     * Sets the top
+     * The margin in microns from the top edge.
+     *
+     * @param int $val The value of the top
+     *
+     * @return PrintMargin
+     */
     public function setTop($val)
     {
         $this->_propDict["top"] = $val;

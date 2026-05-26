@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FileHash class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class FileHash extends Entity
 {
-
     /**
-    * Gets the hashType
-    * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
-    *
-    * @return FileHashType|null The hashType
-    */
+     * Gets the hashType
+     * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
+     *
+     * @return FileHashType|null The hashType
+     */
     public function getHashType()
     {
         if (array_key_exists("hashType", $this->_propDict)) {
-            if (is_a($this->_propDict["hashType"], "\Microsoft\Graph\Model\FileHashType") || is_null($this->_propDict["hashType"])) {
+            if (is_a($this->_propDict["hashType"], "XCloner\\Microsoft\\Graph\\Model\\FileHashType") || is_null($this->_propDict["hashType"])) {
                 return $this->_propDict["hashType"];
             } else {
                 $this->_propDict["hashType"] = new FileHashType($this->_propDict["hashType"]);
@@ -45,26 +46,25 @@ class FileHash extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the hashType
-    * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
-    *
-    * @param FileHashType $val The value to assign to the hashType
-    *
-    * @return FileHash The FileHash
-    */
+     * Sets the hashType
+     * File hash type. Possible values are: unknown, sha1, sha256, md5, authenticodeHash256, lsHash, ctph, peSha1, peSha256.
+     *
+     * @param FileHashType $val The value to assign to the hashType
+     *
+     * @return FileHash The FileHash
+     */
     public function setHashType($val)
     {
         $this->_propDict["hashType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the hashValue
-    * Value of the file hash.
-    *
-    * @return string|null The hashValue
-    */
+     * Gets the hashValue
+     * Value of the file hash.
+     *
+     * @return string|null The hashValue
+     */
     public function getHashValue()
     {
         if (array_key_exists("hashValue", $this->_propDict)) {
@@ -73,15 +73,14 @@ class FileHash extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hashValue
-    * Value of the file hash.
-    *
-    * @param string $val The value of the hashValue
-    *
-    * @return FileHash
-    */
+     * Sets the hashValue
+     * Value of the file hash.
+     *
+     * @param string $val The value of the hashValue
+     *
+     * @return FileHash
+     */
     public function setHashValue($val)
     {
         $this->_propDict["hashValue"] = $val;

@@ -1,12 +1,12 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
-use Psr\Http\Message\RequestInterface;
-use Aws\Exception\AwsException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\RequestInterface;
+use XCloner\Aws\Exception\AwsException;
 /**
  * Represents a history container that is required when using the history
  * middleware.
@@ -15,7 +15,6 @@ class History implements \Countable, \IteratorAggregate
 {
     private $maxEntries;
     private $entries = array();
-
     /**
      * @param int $maxEntries Maximum number of entries to store.
      */
@@ -23,7 +22,6 @@ class History implements \Countable, \IteratorAggregate
     {
         $this->maxEntries = $maxEntries;
     }
-
     /**
      * @return int
      */
@@ -32,13 +30,11 @@ class History implements \Countable, \IteratorAggregate
     {
         return count($this->entries);
     }
-
     #[\ReturnTypeWillChange]
     public function getIterator()
     {
         return new \ArrayIterator(array_values($this->entries));
     }
-
     /**
      * Get the last finished command seen by the history container.
      *
@@ -50,10 +46,8 @@ class History implements \Countable, \IteratorAggregate
         if (!$this->entries) {
             throw new \LogicException('No commands received');
         }
-
         return end($this->entries)['command'];
     }
-
     /**
      * Get the last finished request seen by the history container.
      *
@@ -65,10 +59,8 @@ class History implements \Countable, \IteratorAggregate
         if (!$this->entries) {
             throw new \LogicException('No requests received');
         }
-
         return end($this->entries)['request'];
     }
-
     /**
      * Get the last received result or exception.
      *
@@ -80,20 +72,15 @@ class History implements \Countable, \IteratorAggregate
         if (!$this->entries) {
             throw new \LogicException('No entries');
         }
-
         $last = end($this->entries);
-
         if (isset($last['result'])) {
             return $last['result'];
         }
-
         if (isset($last['exception'])) {
             return $last['exception'];
         }
-
         throw new \LogicException('No return value for last entry.');
     }
-
     /**
      * Initiate an entry being added to the history.
      *
@@ -105,16 +92,9 @@ class History implements \Countable, \IteratorAggregate
     public function start(CommandInterface $cmd, RequestInterface $req)
     {
         $ticket = uniqid();
-        $this->entries[$ticket] = [
-            'command'   => $cmd,
-            'request'   => $req,
-            'result'    => null,
-            'exception' => null,
-        ];
-
+        $this->entries[$ticket] = ['command' => $cmd, 'request' => $req, 'result' => null, 'exception' => null];
         return $ticket;
     }
-
     /**
      * Finish adding an entry to the history container.
      *
@@ -126,24 +106,18 @@ class History implements \Countable, \IteratorAggregate
         if (!isset($this->entries[$ticket])) {
             throw new \InvalidArgumentException('Invalid history ticket');
         }
-
-        if (isset($this->entries[$ticket]['result'])
-            || isset($this->entries[$ticket]['exception'])
-        ) {
+        if (isset($this->entries[$ticket]['result']) || isset($this->entries[$ticket]['exception'])) {
             throw new \LogicException('History entry is already finished');
         }
-
         if ($result instanceof \Exception) {
             $this->entries[$ticket]['exception'] = $result;
         } else {
             $this->entries[$ticket]['result'] = $result;
         }
-
         if (count($this->entries) >= $this->maxEntries) {
-            $this->entries = array_slice($this->entries, -$this->maxEntries, null, true);
+            $this->entries = array_slice($this->entries, -$this->maxEntries, null, \true);
         }
     }
-
     /**
      * Flush the history
      */
@@ -151,7 +125,6 @@ class History implements \Countable, \IteratorAggregate
     {
         $this->entries = [];
     }
-
     /**
      * Converts the history to an array.
      *

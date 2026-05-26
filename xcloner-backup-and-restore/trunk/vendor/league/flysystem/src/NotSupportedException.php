@@ -1,13 +1,12 @@
 <?php
 
-namespace League\Flysystem;
+namespace XCloner\League\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use RuntimeException;
 use SplFileInfo;
-
 class NotSupportedException extends RuntimeException implements FilesystemException
 {
     /**
@@ -20,10 +19,8 @@ class NotSupportedException extends RuntimeException implements FilesystemExcept
     public static function forLink(SplFileInfo $file)
     {
         $message = 'Links are not supported, encountered link at ';
-
         return new static($message . $file->getPathname());
     }
-
     /**
      * Create a new exception for a link.
      *
@@ -33,8 +30,7 @@ class NotSupportedException extends RuntimeException implements FilesystemExcept
      */
     public static function forFtpSystemType($systemType)
     {
-        $message = "The FTP system type '$systemType' is currently not supported.";
-
+        $message = "The FTP system type '{$systemType}' is currently not supported.";
         return new static($message);
     }
 }

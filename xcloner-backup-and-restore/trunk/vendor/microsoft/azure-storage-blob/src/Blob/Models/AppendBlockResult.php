@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * The result of calling appendBlock API.
  *
@@ -48,7 +46,6 @@ class AppendBlockResult
     private $etag;
     private $lastModified;
     private $requestServerEncrypted;
-
     /**
      * Creates AppendBlockResult object from the response of the put block request.
      *
@@ -61,57 +58,18 @@ class AppendBlockResult
     public static function create(array $headers)
     {
         $result = new AppendBlockResult();
-
-        $result->setAppendOffset(
-            intval(
-                Utilities::tryGetValueInsensitive(
-                    Resources::X_MS_BLOB_APPEND_OFFSET, $headers
-                )
-            )
-        );
-
-        $result->setCommittedBlockCount(
-            intval(
-                Utilities::tryGetValueInsensitive(
-                    Resources::X_MS_BLOB_COMMITTED_BLOCK_COUNT, $headers
-                )
-            )
-        );
-
-        $result->setContentMD5(
-            Utilities::tryGetValueInsensitive(Resources::CONTENT_MD5, $headers)
-        );
-
-        $result->setEtag(
-            Utilities::tryGetValueInsensitive(Resources::ETAG, $headers)
-        );
-
-        if (Utilities::arrayKeyExistsInsensitive(
-            Resources::LAST_MODIFIED,
-            $headers
-        )) {
-            $lastModified = Utilities::tryGetValueInsensitive(
-                Resources::LAST_MODIFIED,
-                $headers
-            );
+        $result->setAppendOffset(intval(Utilities::tryGetValueInsensitive(Resources::X_MS_BLOB_APPEND_OFFSET, $headers)));
+        $result->setCommittedBlockCount(intval(Utilities::tryGetValueInsensitive(Resources::X_MS_BLOB_COMMITTED_BLOCK_COUNT, $headers)));
+        $result->setContentMD5(Utilities::tryGetValueInsensitive(Resources::CONTENT_MD5, $headers));
+        $result->setEtag(Utilities::tryGetValueInsensitive(Resources::ETAG, $headers));
+        if (Utilities::arrayKeyExistsInsensitive(Resources::LAST_MODIFIED, $headers)) {
+            $lastModified = Utilities::tryGetValueInsensitive(Resources::LAST_MODIFIED, $headers);
             $lastModified = Utilities::rfc1123ToDateTime($lastModified);
-
             $result->setLastModified($lastModified);
         }
-
-        $result->setRequestServerEncrypted(
-            Utilities::toBoolean(
-                Utilities::tryGetValueInsensitive(
-                    Resources::X_MS_REQUEST_SERVER_ENCRYPTED,
-                    $headers
-                ),
-                true
-            )
-        );
-
+        $result->setRequestServerEncrypted(Utilities::toBoolean(Utilities::tryGetValueInsensitive(Resources::X_MS_REQUEST_SERVER_ENCRYPTED, $headers), \true));
         return $result;
     }
-
     /**
      * Gets Etag of the blob that the client can use to perform conditional
      * PUT operations by using the If-Match request header.
@@ -122,7 +80,6 @@ class AppendBlockResult
     {
         return $this->etag;
     }
-
     /**
      * Sets the etag value.
      *
@@ -134,7 +91,6 @@ class AppendBlockResult
     {
         $this->etag = $etag;
     }
-
     /**
      * Gets $lastModified value.
      *
@@ -144,7 +100,6 @@ class AppendBlockResult
     {
         return $this->lastModified;
     }
-
     /**
      * Sets the $lastModified value.
      *
@@ -156,7 +111,6 @@ class AppendBlockResult
     {
         $this->lastModified = $lastModified;
     }
-
     /**
      * Gets block content MD5.
      *
@@ -166,7 +120,6 @@ class AppendBlockResult
     {
         return $this->contentMD5;
     }
-
     /**
      * Sets the content MD5 value.
      *
@@ -178,7 +131,6 @@ class AppendBlockResult
     {
         $this->contentMD5 = $contentMD5;
     }
-
     /**
      * Gets the offset at which the block was committed, in bytes.
      *
@@ -188,7 +140,6 @@ class AppendBlockResult
     {
         return $this->appendOffset;
     }
-
     /**
      * Sets the offset at which the block was committed, in bytes.
      *
@@ -200,7 +151,6 @@ class AppendBlockResult
     {
         $this->appendOffset = $appendOffset;
     }
-
     /**
      * Gets the number of committed blocks present in the blob.
      *
@@ -210,7 +160,6 @@ class AppendBlockResult
     {
         return $this->committedBlockCount;
     }
-
     /**
      * Sets the number of committed blocks present in the blob.
      *
@@ -222,7 +171,6 @@ class AppendBlockResult
     {
         $this->committedBlockCount = $committedBlockCount;
     }
-
     /**
      * Gets the whether the contents of the request are successfully encrypted.
      *
@@ -232,7 +180,6 @@ class AppendBlockResult
     {
         return $this->requestServerEncrypted;
     }
-
     /**
      * Sets the request server encryption value.
      *

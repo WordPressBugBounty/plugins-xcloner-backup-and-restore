@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookChartSeriesFormat class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookChartSeriesFormat extends Entity
 {
     /**
-    * Gets the fill
-    * Represents the fill format of a chart series, which includes background formating information. Read-only.
-    *
-    * @return WorkbookChartFill|null The fill
-    */
+     * Gets the fill
+     * Represents the fill format of a chart series, which includes background formating information. Read-only.
+     *
+     * @return WorkbookChartFill|null The fill
+     */
     public function getFill()
     {
         if (array_key_exists("fill", $this->_propDict)) {
-            if (is_a($this->_propDict["fill"], "\Microsoft\Graph\Model\WorkbookChartFill") || is_null($this->_propDict["fill"])) {
+            if (is_a($this->_propDict["fill"], "XCloner\\Microsoft\\Graph\\Model\\WorkbookChartFill") || is_null($this->_propDict["fill"])) {
                 return $this->_propDict["fill"];
             } else {
                 $this->_propDict["fill"] = new WorkbookChartFill($this->_propDict["fill"]);
@@ -45,31 +46,29 @@ class WorkbookChartSeriesFormat extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the fill
-    * Represents the fill format of a chart series, which includes background formating information. Read-only.
-    *
-    * @param WorkbookChartFill $val The fill
-    *
-    * @return WorkbookChartSeriesFormat
-    */
+     * Sets the fill
+     * Represents the fill format of a chart series, which includes background formating information. Read-only.
+     *
+     * @param WorkbookChartFill $val The fill
+     *
+     * @return WorkbookChartSeriesFormat
+     */
     public function setFill($val)
     {
         $this->_propDict["fill"] = $val;
         return $this;
     }
-
     /**
-    * Gets the line
-    * Represents line formatting. Read-only.
-    *
-    * @return WorkbookChartLineFormat|null The line
-    */
+     * Gets the line
+     * Represents line formatting. Read-only.
+     *
+     * @return WorkbookChartLineFormat|null The line
+     */
     public function getLine()
     {
         if (array_key_exists("line", $this->_propDict)) {
-            if (is_a($this->_propDict["line"], "\Microsoft\Graph\Model\WorkbookChartLineFormat") || is_null($this->_propDict["line"])) {
+            if (is_a($this->_propDict["line"], "XCloner\\Microsoft\\Graph\\Model\\WorkbookChartLineFormat") || is_null($this->_propDict["line"])) {
                 return $this->_propDict["line"];
             } else {
                 $this->_propDict["line"] = new WorkbookChartLineFormat($this->_propDict["line"]);
@@ -78,19 +77,17 @@ class WorkbookChartSeriesFormat extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the line
-    * Represents line formatting. Read-only.
-    *
-    * @param WorkbookChartLineFormat $val The line
-    *
-    * @return WorkbookChartSeriesFormat
-    */
+     * Sets the line
+     * Represents line formatting. Read-only.
+     *
+     * @param WorkbookChartLineFormat $val The line
+     *
+     * @return WorkbookChartSeriesFormat
+     */
     public function setLine($val)
     {
         $this->_propDict["line"] = $val;
         return $this;
     }
-
 }

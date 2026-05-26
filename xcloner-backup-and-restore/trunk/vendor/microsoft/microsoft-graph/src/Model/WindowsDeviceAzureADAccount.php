@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDeviceAzureADAccount class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDeviceAzureADAccount extends WindowsDeviceAccount
 {
     /**
-    * Gets the userPrincipalName
-    * Not yet documented
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * Not yet documented
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -40,15 +42,14 @@ class WindowsDeviceAzureADAccount extends WindowsDeviceAccount
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * Not yet documented
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return WindowsDeviceAzureADAccount
-    */
+     * Sets the userPrincipalName
+     * Not yet documented
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return WindowsDeviceAzureADAccount
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

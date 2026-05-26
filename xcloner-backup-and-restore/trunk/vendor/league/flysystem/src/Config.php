@@ -1,22 +1,20 @@
 <?php
 
-namespace League\Flysystem;
+namespace XCloner\League\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class Config
 {
     /**
      * @var array
      */
     protected $settings = [];
-
     /**
      * @var Config|null
      */
     protected $fallback;
-
     /**
      * Constructor.
      *
@@ -26,7 +24,6 @@ class Config
     {
         $this->settings = $settings;
     }
-
     /**
      * Get a setting.
      *
@@ -37,13 +34,11 @@ class Config
      */
     public function get($key, $default = null)
     {
-        if ( ! array_key_exists($key, $this->settings)) {
+        if (!array_key_exists($key, $this->settings)) {
             return $this->getDefault($key, $default);
         }
-
         return $this->settings[$key];
     }
-
     /**
      * Check if an item exists by key.
      *
@@ -54,14 +49,10 @@ class Config
     public function has($key)
     {
         if (array_key_exists($key, $this->settings)) {
-            return true;
+            return \true;
         }
-
-        return $this->fallback instanceof Config
-            ? $this->fallback->has($key)
-            : false;
+        return $this->fallback instanceof Config ? $this->fallback->has($key) : \false;
     }
-
     /**
      * Try to retrieve a default setting from a config fallback.
      *
@@ -72,13 +63,11 @@ class Config
      */
     protected function getDefault($key, $default)
     {
-        if ( ! $this->fallback) {
+        if (!$this->fallback) {
             return $default;
         }
-
         return $this->fallback->get($key, $default);
     }
-
     /**
      * Set a setting.
      *
@@ -90,10 +79,8 @@ class Config
     public function set($key, $value)
     {
         $this->settings[$key] = $value;
-
         return $this;
     }
-
     /**
      * Set the fallback.
      *
@@ -104,7 +91,6 @@ class Config
     public function setFallback(Config $fallback)
     {
         $this->fallback = $fallback;
-
         return $this;
     }
 }

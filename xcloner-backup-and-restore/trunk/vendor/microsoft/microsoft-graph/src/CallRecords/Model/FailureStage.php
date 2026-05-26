@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\CallRecords\Model;
+namespace XCloner\Microsoft\Graph\CallRecords\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * FailureStage class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class FailureStage extends Enum
 {
     /**
-    * The Enum FailureStage
-    */
+     * The Enum FailureStage
+     */
     const UNKNOWN = "unknown";
     const CALL_SETUP = "callSetup";
     const MIDCALL = "midcall";

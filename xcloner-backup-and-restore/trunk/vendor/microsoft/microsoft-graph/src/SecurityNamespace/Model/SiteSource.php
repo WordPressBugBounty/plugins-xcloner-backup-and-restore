@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SiteSource class
 *
@@ -28,36 +29,34 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SiteSource extends DataSource
 {
     /**
-    * Gets the site
-    * The SharePoint site associated with the siteSource.
-    *
-    * @return \Microsoft\Graph\Model\Site|null The site
-    */
+     * Gets the site
+     * The SharePoint site associated with the siteSource.
+     *
+     * @return \Microsoft\Graph\Model\Site|null The site
+     */
     public function getSite()
     {
         if (array_key_exists("site", $this->_propDict)) {
-            if (is_a($this->_propDict["site"], "\Microsoft\Graph\Model\Site") || is_null($this->_propDict["site"])) {
+            if (is_a($this->_propDict["site"], "XCloner\\Microsoft\\Graph\\Model\\Site") || is_null($this->_propDict["site"])) {
                 return $this->_propDict["site"];
             } else {
-                $this->_propDict["site"] = new \Microsoft\Graph\Model\Site($this->_propDict["site"]);
+                $this->_propDict["site"] = new \XCloner\Microsoft\Graph\Model\Site($this->_propDict["site"]);
                 return $this->_propDict["site"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the site
-    * The SharePoint site associated with the siteSource.
-    *
-    * @param \Microsoft\Graph\Model\Site $val The site
-    *
-    * @return SiteSource
-    */
+     * Sets the site
+     * The SharePoint site associated with the siteSource.
+     *
+     * @param \Microsoft\Graph\Model\Site $val The site
+     *
+     * @return SiteSource
+     */
     public function setSite($val)
     {
         $this->_propDict["site"] = $val;
         return $this;
     }
-
 }

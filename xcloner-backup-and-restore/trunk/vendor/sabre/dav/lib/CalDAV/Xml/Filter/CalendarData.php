@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Filter;
 
-namespace Sabre\CalDAV\Xml\Filter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\VObject\DateTimeParser;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * CalendarData parser.
  *
@@ -54,20 +52,12 @@ class CalendarData implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $result = [
-            'contentType' => $reader->getAttribute('content-type') ?: 'text/calendar',
-            'version' => $reader->getAttribute('version') ?: '2.0',
-        ];
-
+        $result = ['contentType' => $reader->getAttribute('content-type') ?: 'text/calendar', 'version' => $reader->getAttribute('version') ?: '2.0'];
         $elems = (array) $reader->parseInnerTree();
         foreach ($elems as $elem) {
             switch ($elem['name']) {
-                case '{'.Plugin::NS_CALDAV.'}expand':
-                    $result['expand'] = [
-                        'start' => isset($elem['attributes']['start']) ? DateTimeParser::parseDateTime($elem['attributes']['start']) : null,
-                        'end' => isset($elem['attributes']['end']) ? DateTimeParser::parseDateTime($elem['attributes']['end']) : null,
-                    ];
-
+                case '{' . Plugin::NS_CALDAV . '}expand':
+                    $result['expand'] = ['start' => isset($elem['attributes']['start']) ? DateTimeParser::parseDateTime($elem['attributes']['start']) : null, 'end' => isset($elem['attributes']['end']) ? DateTimeParser::parseDateTime($elem['attributes']['end']) : null];
                     if (!$result['expand']['start'] || !$result['expand']['end']) {
                         throw new BadRequest('The "start" and "end" attributes are required when expanding calendar-data');
                     }
@@ -77,7 +67,6 @@ class CalendarData implements XmlDeserializable
                     break;
             }
         }
-
         return $result;
     }
 }

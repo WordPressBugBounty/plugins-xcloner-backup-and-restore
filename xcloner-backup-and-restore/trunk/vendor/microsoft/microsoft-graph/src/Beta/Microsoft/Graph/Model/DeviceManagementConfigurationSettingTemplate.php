@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSettingTemplate class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSettingTemplate extends Entity
 {
     /**
-    * Gets the settingInstanceTemplate
-    * Setting Instance Template
-    *
-    * @return DeviceManagementConfigurationSettingInstanceTemplate|null The settingInstanceTemplate
-    */
+     * Gets the settingInstanceTemplate
+     * Setting Instance Template
+     *
+     * @return DeviceManagementConfigurationSettingInstanceTemplate|null The settingInstanceTemplate
+     */
     public function getSettingInstanceTemplate()
     {
         if (array_key_exists("settingInstanceTemplate", $this->_propDict)) {
-            if (is_a($this->_propDict["settingInstanceTemplate"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationSettingInstanceTemplate") || is_null($this->_propDict["settingInstanceTemplate"])) {
+            if (is_a($this->_propDict["settingInstanceTemplate"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationSettingInstanceTemplate") || is_null($this->_propDict["settingInstanceTemplate"])) {
                 return $this->_propDict["settingInstanceTemplate"];
             } else {
                 $this->_propDict["settingInstanceTemplate"] = new DeviceManagementConfigurationSettingInstanceTemplate($this->_propDict["settingInstanceTemplate"]);
@@ -45,49 +46,44 @@ class DeviceManagementConfigurationSettingTemplate extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settingInstanceTemplate
-    * Setting Instance Template
-    *
-    * @param DeviceManagementConfigurationSettingInstanceTemplate $val The settingInstanceTemplate
-    *
-    * @return DeviceManagementConfigurationSettingTemplate
-    */
+     * Sets the settingInstanceTemplate
+     * Setting Instance Template
+     *
+     * @param DeviceManagementConfigurationSettingInstanceTemplate $val The settingInstanceTemplate
+     *
+     * @return DeviceManagementConfigurationSettingTemplate
+     */
     public function setSettingInstanceTemplate($val)
     {
         $this->_propDict["settingInstanceTemplate"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the settingDefinitions
-    * List of related Setting Definitions
+     * List of related Setting Definitions
      *
      * @return array|null The settingDefinitions
      */
     public function getSettingDefinitions()
     {
         if (array_key_exists("settingDefinitions", $this->_propDict)) {
-           return $this->_propDict["settingDefinitions"];
+            return $this->_propDict["settingDefinitions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the settingDefinitions
-    * List of related Setting Definitions
-    *
-    * @param DeviceManagementConfigurationSettingDefinition[] $val The settingDefinitions
-    *
-    * @return DeviceManagementConfigurationSettingTemplate
-    */
+     * Sets the settingDefinitions
+     * List of related Setting Definitions
+     *
+     * @param DeviceManagementConfigurationSettingDefinition[] $val The settingDefinitions
+     *
+     * @return DeviceManagementConfigurationSettingTemplate
+     */
     public function setSettingDefinitions($val)
     {
         $this->_propDict["settingDefinitions"] = $val;
         return $this;
     }
-
 }

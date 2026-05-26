@@ -1,12 +1,11 @@
 <?php
 
-namespace League\Flysystem\Cached;
+namespace XCloner\League\Flysystem\Cached;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use League\Flysystem\ReadInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\League\Flysystem\ReadInterface;
 interface CacheInterface extends ReadInterface
 {
     /**
@@ -18,7 +17,6 @@ interface CacheInterface extends ReadInterface
      * @return bool
      */
     public function isComplete($dirname, $recursive);
-
     /**
      * Set a directory to completely listed.
      *
@@ -26,7 +24,6 @@ interface CacheInterface extends ReadInterface
      * @param bool   $recursive
      */
     public function setComplete($dirname, $recursive);
-
     /**
      * Store the contents of a directory.
      *
@@ -35,27 +32,22 @@ interface CacheInterface extends ReadInterface
      * @param bool   $recursive
      */
     public function storeContents($directory, array $contents, $recursive);
-
     /**
      * Flush the cache.
      */
     public function flush();
-
     /**
      * Autosave trigger.
      */
     public function autosave();
-
     /**
      * Store the cache.
      */
     public function save();
-
     /**
      * Load the cache.
      */
     public function load();
-
     /**
      * Rename a file.
      *
@@ -63,7 +55,6 @@ interface CacheInterface extends ReadInterface
      * @param string $newpath
      */
     public function rename($path, $newpath);
-
     /**
      * Copy a file.
      *
@@ -71,21 +62,18 @@ interface CacheInterface extends ReadInterface
      * @param string $newpath
      */
     public function copy($path, $newpath);
-
     /**
      * Delete an object from cache.
      *
      * @param string $path object path
      */
     public function delete($path);
-
     /**
      * Delete all objects from from a directory.
      *
      * @param string $dirname directory path
      */
     public function deleteDir($dirname);
-
     /**
      * Update the metadata for an object.
      *
@@ -93,8 +81,7 @@ interface CacheInterface extends ReadInterface
      * @param array  $object   object metadata
      * @param bool   $autosave whether to trigger the autosave routine
      */
-    public function updateObject($path, array $object, $autosave = false);
-
+    public function updateObject($path, array $object, $autosave = \false);
     /**
      * Store object hit miss.
      *

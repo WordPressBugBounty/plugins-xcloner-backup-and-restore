@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IpReferenceData class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IpReferenceData extends Entity
 {
     /**
-    * Gets the asn
-    *
-    * @return int|null The asn
-    */
+     * Gets the asn
+     *
+     * @return int|null The asn
+     */
     public function getAsn()
     {
         if (array_key_exists("asn", $this->_propDict)) {
@@ -39,24 +41,23 @@ class IpReferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the asn
-    *
-    * @param int $val The value of the asn
-    *
-    * @return IpReferenceData
-    */
+     * Sets the asn
+     *
+     * @param int $val The value of the asn
+     *
+     * @return IpReferenceData
+     */
     public function setAsn($val)
     {
         $this->_propDict["asn"] = $val;
         return $this;
     }
     /**
-    * Gets the city
-    *
-    * @return string|null The city
-    */
+     * Gets the city
+     *
+     * @return string|null The city
+     */
     public function getCity()
     {
         if (array_key_exists("city", $this->_propDict)) {
@@ -65,24 +66,23 @@ class IpReferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the city
-    *
-    * @param string $val The value of the city
-    *
-    * @return IpReferenceData
-    */
+     * Sets the city
+     *
+     * @param string $val The value of the city
+     *
+     * @return IpReferenceData
+     */
     public function setCity($val)
     {
         $this->_propDict["city"] = $val;
         return $this;
     }
     /**
-    * Gets the countryOrRegionCode
-    *
-    * @return string|null The countryOrRegionCode
-    */
+     * Gets the countryOrRegionCode
+     *
+     * @return string|null The countryOrRegionCode
+     */
     public function getCountryOrRegionCode()
     {
         if (array_key_exists("countryOrRegionCode", $this->_propDict)) {
@@ -91,24 +91,23 @@ class IpReferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countryOrRegionCode
-    *
-    * @param string $val The value of the countryOrRegionCode
-    *
-    * @return IpReferenceData
-    */
+     * Sets the countryOrRegionCode
+     *
+     * @param string $val The value of the countryOrRegionCode
+     *
+     * @return IpReferenceData
+     */
     public function setCountryOrRegionCode($val)
     {
         $this->_propDict["countryOrRegionCode"] = $val;
         return $this;
     }
     /**
-    * Gets the organization
-    *
-    * @return string|null The organization
-    */
+     * Gets the organization
+     *
+     * @return string|null The organization
+     */
     public function getOrganization()
     {
         if (array_key_exists("organization", $this->_propDict)) {
@@ -117,24 +116,23 @@ class IpReferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the organization
-    *
-    * @param string $val The value of the organization
-    *
-    * @return IpReferenceData
-    */
+     * Sets the organization
+     *
+     * @param string $val The value of the organization
+     *
+     * @return IpReferenceData
+     */
     public function setOrganization($val)
     {
         $this->_propDict["organization"] = $val;
         return $this;
     }
     /**
-    * Gets the state
-    *
-    * @return string|null The state
-    */
+     * Gets the state
+     *
+     * @return string|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
@@ -143,24 +141,23 @@ class IpReferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the state
-    *
-    * @param string $val The value of the state
-    *
-    * @return IpReferenceData
-    */
+     * Sets the state
+     *
+     * @param string $val The value of the state
+     *
+     * @return IpReferenceData
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
     /**
-    * Gets the vendor
-    *
-    * @return string|null The vendor
-    */
+     * Gets the vendor
+     *
+     * @return string|null The vendor
+     */
     public function getVendor()
     {
         if (array_key_exists("vendor", $this->_propDict)) {
@@ -169,14 +166,13 @@ class IpReferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the vendor
-    *
-    * @param string $val The value of the vendor
-    *
-    * @return IpReferenceData
-    */
+     * Sets the vendor
+     *
+     * @param string $val The value of the vendor
+     *
+     * @return IpReferenceData
+     */
     public function setVendor($val)
     {
         $this->_propDict["vendor"] = $val;

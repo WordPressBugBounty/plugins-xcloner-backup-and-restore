@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintSettings extends Entity
 {
     /**
-    * Gets the documentConversionEnabled
-    * Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.
-    *
-    * @return bool|null The documentConversionEnabled
-    */
+     * Gets the documentConversionEnabled
+     * Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.
+     *
+     * @return bool|null The documentConversionEnabled
+     */
     public function getDocumentConversionEnabled()
     {
         if (array_key_exists("documentConversionEnabled", $this->_propDict)) {
@@ -40,15 +42,14 @@ class PrintSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the documentConversionEnabled
-    * Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.
-    *
-    * @param bool $val The value of the documentConversionEnabled
-    *
-    * @return PrintSettings
-    */
+     * Sets the documentConversionEnabled
+     * Specifies whether document conversion is enabled for the tenant. If document conversion is enabled, Universal Print service will automatically convert documents into a format compatible with the printer (xps to pdf) when needed.
+     *
+     * @param bool $val The value of the documentConversionEnabled
+     *
+     * @return PrintSettings
+     */
     public function setDocumentConversionEnabled($val)
     {
         $this->_propDict["documentConversionEnabled"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RichLongRunningOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RichLongRunningOperation extends LongRunningOperation
 {
     /**
-    * Gets the error
-    * Error that caused the operation to fail.
-    *
-    * @return PublicError|null The error
-    */
+     * Gets the error
+     * Error that caused the operation to fail.
+     *
+     * @return PublicError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Microsoft\Graph\Model\PublicError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Microsoft\\Graph\\Model\\PublicError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new PublicError($this->_propDict["error"]);
@@ -45,27 +46,25 @@ class RichLongRunningOperation extends LongRunningOperation
         }
         return null;
     }
-
     /**
-    * Sets the error
-    * Error that caused the operation to fail.
-    *
-    * @param PublicError $val The error
-    *
-    * @return RichLongRunningOperation
-    */
+     * Sets the error
+     * Error that caused the operation to fail.
+     *
+     * @param PublicError $val The error
+     *
+     * @return RichLongRunningOperation
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
-
     /**
-    * Gets the percentageComplete
-    * A value between 0 and 100 that indicates the progress of the operation.
-    *
-    * @return int|null The percentageComplete
-    */
+     * Gets the percentageComplete
+     * A value between 0 and 100 that indicates the progress of the operation.
+     *
+     * @return int|null The percentageComplete
+     */
     public function getPercentageComplete()
     {
         if (array_key_exists("percentageComplete", $this->_propDict)) {
@@ -74,27 +73,25 @@ class RichLongRunningOperation extends LongRunningOperation
             return null;
         }
     }
-
     /**
-    * Sets the percentageComplete
-    * A value between 0 and 100 that indicates the progress of the operation.
-    *
-    * @param int $val The percentageComplete
-    *
-    * @return RichLongRunningOperation
-    */
+     * Sets the percentageComplete
+     * A value between 0 and 100 that indicates the progress of the operation.
+     *
+     * @param int $val The percentageComplete
+     *
+     * @return RichLongRunningOperation
+     */
     public function setPercentageComplete($val)
     {
         $this->_propDict["percentageComplete"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the resourceId
-    * The unique identifier for the result.
-    *
-    * @return string|null The resourceId
-    */
+     * Gets the resourceId
+     * The unique identifier for the result.
+     *
+     * @return string|null The resourceId
+     */
     public function getResourceId()
     {
         if (array_key_exists("resourceId", $this->_propDict)) {
@@ -103,27 +100,25 @@ class RichLongRunningOperation extends LongRunningOperation
             return null;
         }
     }
-
     /**
-    * Sets the resourceId
-    * The unique identifier for the result.
-    *
-    * @param string $val The resourceId
-    *
-    * @return RichLongRunningOperation
-    */
+     * Sets the resourceId
+     * The unique identifier for the result.
+     *
+     * @param string $val The resourceId
+     *
+     * @return RichLongRunningOperation
+     */
     public function setResourceId($val)
     {
         $this->_propDict["resourceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * The type of the operation.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * The type of the operation.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -132,19 +127,17 @@ class RichLongRunningOperation extends LongRunningOperation
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * The type of the operation.
-    *
-    * @param string $val The type
-    *
-    * @return RichLongRunningOperation
-    */
+     * Sets the type
+     * The type of the operation.
+     *
+     * @param string $val The type
+     *
+     * @return RichLongRunningOperation
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ApprovalWorkflowProvider class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ApprovalWorkflowProvider extends Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,22 +41,19 @@ class ApprovalWorkflowProvider extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return ApprovalWorkflowProvider
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return ApprovalWorkflowProvider
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the businessFlows
      *
      * @return array|null The businessFlows
@@ -63,27 +61,24 @@ class ApprovalWorkflowProvider extends Entity
     public function getBusinessFlows()
     {
         if (array_key_exists("businessFlows", $this->_propDict)) {
-           return $this->_propDict["businessFlows"];
+            return $this->_propDict["businessFlows"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the businessFlows
-    *
-    * @param BusinessFlow[] $val The businessFlows
-    *
-    * @return ApprovalWorkflowProvider
-    */
+     * Sets the businessFlows
+     *
+     * @param BusinessFlow[] $val The businessFlows
+     *
+     * @return ApprovalWorkflowProvider
+     */
     public function setBusinessFlows($val)
     {
         $this->_propDict["businessFlows"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the businessFlowsWithRequestsAwaitingMyDecision
      *
      * @return array|null The businessFlowsWithRequestsAwaitingMyDecision
@@ -91,27 +86,24 @@ class ApprovalWorkflowProvider extends Entity
     public function getBusinessFlowsWithRequestsAwaitingMyDecision()
     {
         if (array_key_exists("businessFlowsWithRequestsAwaitingMyDecision", $this->_propDict)) {
-           return $this->_propDict["businessFlowsWithRequestsAwaitingMyDecision"];
+            return $this->_propDict["businessFlowsWithRequestsAwaitingMyDecision"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the businessFlowsWithRequestsAwaitingMyDecision
-    *
-    * @param BusinessFlow[] $val The businessFlowsWithRequestsAwaitingMyDecision
-    *
-    * @return ApprovalWorkflowProvider
-    */
+     * Sets the businessFlowsWithRequestsAwaitingMyDecision
+     *
+     * @param BusinessFlow[] $val The businessFlowsWithRequestsAwaitingMyDecision
+     *
+     * @return ApprovalWorkflowProvider
+     */
     public function setBusinessFlowsWithRequestsAwaitingMyDecision($val)
     {
         $this->_propDict["businessFlowsWithRequestsAwaitingMyDecision"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the policyTemplates
      *
      * @return array|null The policyTemplates
@@ -119,23 +111,21 @@ class ApprovalWorkflowProvider extends Entity
     public function getPolicyTemplates()
     {
         if (array_key_exists("policyTemplates", $this->_propDict)) {
-           return $this->_propDict["policyTemplates"];
+            return $this->_propDict["policyTemplates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the policyTemplates
-    *
-    * @param GovernancePolicyTemplate[] $val The policyTemplates
-    *
-    * @return ApprovalWorkflowProvider
-    */
+     * Sets the policyTemplates
+     *
+     * @param GovernancePolicyTemplate[] $val The policyTemplates
+     *
+     * @return ApprovalWorkflowProvider
+     */
     public function setPolicyTemplates($val)
     {
         $this->_propDict["policyTemplates"] = $val;
         return $this;
     }
-
 }

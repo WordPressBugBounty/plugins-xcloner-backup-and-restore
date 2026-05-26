@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\TermStore\Model;
+namespace XCloner\Beta\Microsoft\Graph\TermStore\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Term class
 *
@@ -25,18 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Term extends \Beta\Microsoft\Graph\Model\Entity
+class Term extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the createdDateTime
-    * Date and time of term creation. Read-only.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Date and time of term creation. Read-only.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,91 +46,83 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Date and time of term creation. Read-only.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return Term
-    */
+     * Sets the createdDateTime
+     * Date and time of term creation. Read-only.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return Term
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the descriptions
-    * Description about term that is dependent on the languageTag.
+     * Description about term that is dependent on the languageTag.
      *
      * @return array|null The descriptions
      */
     public function getDescriptions()
     {
         if (array_key_exists("descriptions", $this->_propDict)) {
-           return $this->_propDict["descriptions"];
+            return $this->_propDict["descriptions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the descriptions
-    * Description about term that is dependent on the languageTag.
-    *
-    * @param LocalizedDescription[] $val The descriptions
-    *
-    * @return Term
-    */
+     * Sets the descriptions
+     * Description about term that is dependent on the languageTag.
+     *
+     * @param LocalizedDescription[] $val The descriptions
+     *
+     * @return Term
+     */
     public function setDescriptions($val)
     {
         $this->_propDict["descriptions"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the labels
-    * Label metadata for a term.
+     * Label metadata for a term.
      *
      * @return array|null The labels
      */
     public function getLabels()
     {
         if (array_key_exists("labels", $this->_propDict)) {
-           return $this->_propDict["labels"];
+            return $this->_propDict["labels"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the labels
-    * Label metadata for a term.
-    *
-    * @param LocalizedLabel[] $val The labels
-    *
-    * @return Term
-    */
+     * Sets the labels
+     * Label metadata for a term.
+     *
+     * @param LocalizedLabel[] $val The labels
+     *
+     * @return Term
+     */
     public function setLabels($val)
     {
         $this->_propDict["labels"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Last date and time of term modification. Read-only.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Last date and time of term modification. Read-only.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -138,121 +131,110 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Last date and time of term modification. Read-only.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return Term
-    */
+     * Sets the lastModifiedDateTime
+     * Last date and time of term modification. Read-only.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return Term
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the termProperties
-    * Collection of properties on the term.
+     * Collection of properties on the term.
      *
      * @return array|null The termProperties
      */
     public function getTermProperties()
     {
         if (array_key_exists("properties", $this->_propDict)) {
-           return $this->_propDict["properties"];
+            return $this->_propDict["properties"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the termProperties
-    * Collection of properties on the term.
-    *
-    * @param \Beta\Microsoft\Graph\Model\KeyValue[] $val The termProperties
-    *
-    * @return Term
-    */
+     * Sets the termProperties
+     * Collection of properties on the term.
+     *
+     * @param \Beta\Microsoft\Graph\Model\KeyValue[] $val The termProperties
+     *
+     * @return Term
+     */
     public function setTermProperties($val)
     {
         $this->_propDict["properties"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the children
-    * Children of current term.
+     * Children of current term.
      *
      * @return array|null The children
      */
     public function getChildren()
     {
         if (array_key_exists("children", $this->_propDict)) {
-           return $this->_propDict["children"];
+            return $this->_propDict["children"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the children
-    * Children of current term.
-    *
-    * @param Term[] $val The children
-    *
-    * @return Term
-    */
+     * Sets the children
+     * Children of current term.
+     *
+     * @param Term[] $val The children
+     *
+     * @return Term
+     */
     public function setChildren($val)
     {
         $this->_propDict["children"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the relations
-    * To indicate which terms are related to the current term as either pinned or reused.
+     * To indicate which terms are related to the current term as either pinned or reused.
      *
      * @return array|null The relations
      */
     public function getRelations()
     {
         if (array_key_exists("relations", $this->_propDict)) {
-           return $this->_propDict["relations"];
+            return $this->_propDict["relations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the relations
-    * To indicate which terms are related to the current term as either pinned or reused.
-    *
-    * @param Relation[] $val The relations
-    *
-    * @return Term
-    */
+     * Sets the relations
+     * To indicate which terms are related to the current term as either pinned or reused.
+     *
+     * @param Relation[] $val The relations
+     *
+     * @return Term
+     */
     public function setRelations($val)
     {
         $this->_propDict["relations"] = $val;
         return $this;
     }
-
     /**
-    * Gets the set
-    * The [set] in which the term is created.
-    *
-    * @return Set|null The set
-    */
+     * Gets the set
+     * The [set] in which the term is created.
+     *
+     * @return Set|null The set
+     */
     public function getSet()
     {
         if (array_key_exists("set", $this->_propDict)) {
-            if (is_a($this->_propDict["set"], "\Beta\Microsoft\Graph\TermStore\Model\Set") || is_null($this->_propDict["set"])) {
+            if (is_a($this->_propDict["set"], "XCloner\\Beta\\Microsoft\\Graph\\TermStore\\Model\\Set") || is_null($this->_propDict["set"])) {
                 return $this->_propDict["set"];
             } else {
                 $this->_propDict["set"] = new Set($this->_propDict["set"]);
@@ -261,19 +243,17 @@ class Term extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the set
-    * The [set] in which the term is created.
-    *
-    * @param Set $val The set
-    *
-    * @return Term
-    */
+     * Sets the set
+     * The [set] in which the term is created.
+     *
+     * @param Set $val The set
+     *
+     * @return Term
+     */
     public function setSet($val)
     {
         $this->_propDict["set"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsInformationProtectionApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsInformationProtectionApp extends Entity
 {
     /**
-    * Gets the denied
-    * If true, app is denied protection or exemption.
-    *
-    * @return bool|null The denied
-    */
+     * Gets the denied
+     * If true, app is denied protection or exemption.
+     *
+     * @return bool|null The denied
+     */
     public function getDenied()
     {
         if (array_key_exists("denied", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsInformationProtectionApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the denied
-    * If true, app is denied protection or exemption.
-    *
-    * @param bool $val The value of the denied
-    *
-    * @return WindowsInformationProtectionApp
-    */
+     * Sets the denied
+     * If true, app is denied protection or exemption.
+     *
+     * @param bool $val The value of the denied
+     *
+     * @return WindowsInformationProtectionApp
+     */
     public function setDenied($val)
     {
         $this->_propDict["denied"] = $val;
         return $this;
     }
     /**
-    * Gets the description
-    * The app's description.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The app's description.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -68,26 +69,25 @@ class WindowsInformationProtectionApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The app's description.
-    *
-    * @param string $val The value of the description
-    *
-    * @return WindowsInformationProtectionApp
-    */
+     * Sets the description
+     * The app's description.
+     *
+     * @param string $val The value of the description
+     *
+     * @return WindowsInformationProtectionApp
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * App display name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * App display name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -96,26 +96,25 @@ class WindowsInformationProtectionApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * App display name.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return WindowsInformationProtectionApp
-    */
+     * Sets the displayName
+     * App display name.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return WindowsInformationProtectionApp
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the productName
-    * The product name.
-    *
-    * @return string|null The productName
-    */
+     * Gets the productName
+     * The product name.
+     *
+     * @return string|null The productName
+     */
     public function getProductName()
     {
         if (array_key_exists("productName", $this->_propDict)) {
@@ -124,26 +123,25 @@ class WindowsInformationProtectionApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the productName
-    * The product name.
-    *
-    * @param string $val The value of the productName
-    *
-    * @return WindowsInformationProtectionApp
-    */
+     * Sets the productName
+     * The product name.
+     *
+     * @param string $val The value of the productName
+     *
+     * @return WindowsInformationProtectionApp
+     */
     public function setProductName($val)
     {
         $this->_propDict["productName"] = $val;
         return $this;
     }
     /**
-    * Gets the publisherName
-    * The publisher name
-    *
-    * @return string|null The publisherName
-    */
+     * Gets the publisherName
+     * The publisher name
+     *
+     * @return string|null The publisherName
+     */
     public function getPublisherName()
     {
         if (array_key_exists("publisherName", $this->_propDict)) {
@@ -152,15 +150,14 @@ class WindowsInformationProtectionApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the publisherName
-    * The publisher name
-    *
-    * @param string $val The value of the publisherName
-    *
-    * @return WindowsInformationProtectionApp
-    */
+     * Sets the publisherName
+     * The publisher name
+     *
+     * @param string $val The value of the publisherName
+     *
+     * @return WindowsInformationProtectionApp
+     */
     public function setPublisherName($val)
     {
         $this->_propDict["publisherName"] = $val;

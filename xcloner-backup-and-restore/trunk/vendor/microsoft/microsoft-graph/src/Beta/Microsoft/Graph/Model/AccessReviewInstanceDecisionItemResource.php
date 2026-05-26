@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewInstanceDecisionItemResource class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewInstanceDecisionItemResource extends Entity
 {
     /**
-    * Gets the displayName
-    * Display name of the resource
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the resource
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AccessReviewInstanceDecisionItemResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the resource
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AccessReviewInstanceDecisionItemResource
-    */
+     * Sets the displayName
+     * Display name of the resource
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AccessReviewInstanceDecisionItemResource
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    * Resource ID
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * Resource ID
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AccessReviewInstanceDecisionItemResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * Resource ID
-    *
-    * @param string $val The value of the id
-    *
-    * @return AccessReviewInstanceDecisionItemResource
-    */
+     * Sets the id
+     * Resource ID
+     *
+     * @param string $val The value of the id
+     *
+     * @return AccessReviewInstanceDecisionItemResource
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -96,15 +96,14 @@ class AccessReviewInstanceDecisionItemResource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
-    *
-    * @param string $val The value of the type
-    *
-    * @return AccessReviewInstanceDecisionItemResource
-    */
+     * Sets the type
+     * Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.
+     *
+     * @param string $val The value of the type
+     *
+     * @return AccessReviewInstanceDecisionItemResource
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

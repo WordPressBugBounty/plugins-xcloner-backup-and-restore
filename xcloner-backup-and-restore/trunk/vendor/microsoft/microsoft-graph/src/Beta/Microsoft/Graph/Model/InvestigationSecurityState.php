@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InvestigationSecurityState class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InvestigationSecurityState extends Entity
 {
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -39,24 +41,23 @@ class InvestigationSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return InvestigationSecurityState
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return InvestigationSecurityState
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the status
-    *
-    * @return string|null The status
-    */
+     * Gets the status
+     *
+     * @return string|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
@@ -65,14 +66,13 @@ class InvestigationSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the status
-    *
-    * @param string $val The value of the status
-    *
-    * @return InvestigationSecurityState
-    */
+     * Sets the status
+     *
+     * @param string $val The value of the status
+     *
+     * @return InvestigationSecurityState
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;

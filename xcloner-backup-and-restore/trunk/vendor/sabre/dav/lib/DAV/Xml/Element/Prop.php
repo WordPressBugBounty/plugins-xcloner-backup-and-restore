@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Element;
 
-namespace Sabre\DAV\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Xml\Property\Complex;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Xml\Property\Complex;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * This class is responsible for decoding the {DAV:}prop element as it appears
  * in {DAV:}property-update.
@@ -49,12 +47,9 @@ class Prop implements XmlDeserializable
         // If there's no children, we don't do anything.
         if ($reader->isEmptyElement) {
             $reader->next();
-
             return [];
         }
-
         $values = [];
-
         $reader->read();
         do {
             if (Reader::ELEMENT === $reader->nodeType) {
@@ -64,12 +59,9 @@ class Prop implements XmlDeserializable
                 $reader->read();
             }
         } while (Reader::END_ELEMENT !== $reader->nodeType);
-
         $reader->read();
-
         return $values;
     }
-
     /**
      * This function behaves similar to Sabre\Xml\Reader::parseCurrentElement,
      * but instead of creating deep xml array structures, it will turn any
@@ -85,29 +77,24 @@ class Prop implements XmlDeserializable
     private static function parseCurrentElement(Reader $reader)
     {
         $name = $reader->getClark();
-
         if (array_key_exists($name, $reader->elementMap)) {
             $deserializer = $reader->elementMap[$name];
-            if (is_subclass_of($deserializer, 'Sabre\\Xml\\XmlDeserializable')) {
+            if (is_subclass_of($deserializer, 'XCloner\Sabre\Xml\XmlDeserializable')) {
                 $value = call_user_func([$deserializer, 'xmlDeserialize'], $reader);
             } elseif (is_callable($deserializer)) {
                 $value = call_user_func($deserializer, $reader);
             } else {
                 $type = gettype($deserializer);
                 if ('string' === $type) {
-                    $type .= ' ('.$deserializer.')';
+                    $type .= ' (' . $deserializer . ')';
                 } elseif ('object' === $type) {
-                    $type .= ' ('.get_class($deserializer).')';
+                    $type .= ' (' . get_class($deserializer) . ')';
                 }
-                throw new \LogicException('Could not use this type as a deserializer: '.$type);
+                throw new \LogicException('Could not use this type as a deserializer: ' . $type);
             }
         } else {
             $value = Complex::xmlDeserialize($reader);
         }
-
-        return [
-            'name' => $name,
-            'value' => $value,
-        ];
+        return ['name' => $name, 'value' => $value];
     }
 }

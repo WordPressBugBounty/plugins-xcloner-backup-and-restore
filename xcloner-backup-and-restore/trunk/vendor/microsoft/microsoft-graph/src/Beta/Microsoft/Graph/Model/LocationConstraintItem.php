@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LocationConstraintItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LocationConstraintItem extends Location
 {
     /**
-    * Gets the resolveAvailability
-    * If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
-    *
-    * @return bool|null The resolveAvailability
-    */
+     * Gets the resolveAvailability
+     * If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
+     *
+     * @return bool|null The resolveAvailability
+     */
     public function getResolveAvailability()
     {
         if (array_key_exists("resolveAvailability", $this->_propDict)) {
@@ -40,15 +42,14 @@ class LocationConstraintItem extends Location
             return null;
         }
     }
-
     /**
-    * Sets the resolveAvailability
-    * If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
-    *
-    * @param bool $val The value of the resolveAvailability
-    *
-    * @return LocationConstraintItem
-    */
+     * Sets the resolveAvailability
+     * If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
+     *
+     * @param bool $val The value of the resolveAvailability
+     *
+     * @return LocationConstraintItem
+     */
     public function setResolveAvailability($val)
     {
         $this->_propDict["resolveAvailability"] = $val;

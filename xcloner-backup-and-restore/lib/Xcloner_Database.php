@@ -77,7 +77,7 @@ class Xcloner_Database extends wpdb
     {
         $return['finished'] = 0;
         $return['stats'] = array("total_records" => 0, "tables_count" => 0, "database_count" => 0);
-        $this->logger->debug(__("Starting database backup process"));
+        $this->logger->debug(__("Starting database backup process", 'xcloner-backup-and-restore'));
         $this->init($params, $init);
         if ($init) {
             $db_count = 0;
@@ -150,7 +150,7 @@ class Xcloner_Database extends wpdb
      */
     private function headers()
     {
-        $this->logger->debug(__("Setting mysql headers"));
+        $this->logger->debug(__("Setting mysql headers", 'xcloner-backup-and-restore'));
         $this->query("SET SQL_QUOTE_SHOW_CREATE=1;");
         //$this->log();
         $this->query("SET sql_mode = 0;");
@@ -160,7 +160,9 @@ class Xcloner_Database extends wpdb
     }
     public function get_database_num_tables($database)
     {
-        $this->logger->debug(sprintf(__("Getting number of tables in %s"), $database));
+        /* translators: %1$s is a value */
+        $this->logger->debug(sprintf(__('Getting number of tables in %1$s', 'xcloner-backup-and-restore'), $database));
+        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
         $query = "show tables in `" . $database . "`";
         $res = $this->get_results($query);
         $this->log();
@@ -221,7 +223,9 @@ class Xcloner_Database extends wpdb
                 $dbTable = $database . "." . $table;
                 if (!in_array($table, $included) && !in_array($dbTable, $included)) {
                     $tablesList[$inc]['excluded'] = 1;
-                    $this->log(sprintf(__("Excluding table %s.%s from backup"), $table, $database));
+                    /* translators: %1$s is a value, %2$s is a value */
+                    $this->log(sprintf(__('Excluding table %1$s.%2$s from backup', 'xcloner-backup-and-restore'), $table, $database));
+                    // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                 }
             }
             $inc++;
@@ -235,7 +239,7 @@ class Xcloner_Database extends wpdb
     {
         $return['total_records'] = 0;
         $return['tables_count'] = 0;
-        $this->log(__("Preparing the database recursion file"));
+        $this->log(__("Preparing the database recursion file", 'xcloner-backup-and-restore'));
         $tables = $this->list_tables($dbname, $incl_tables, 1);
         if ($this->dbname != $dbname) {
             $dumpfile = $dbname . "-backup.sql";
@@ -305,7 +309,9 @@ class Xcloner_Database extends wpdb
                         $return['dumpsize'] = $this->data_footers($dumpfile);
                     }
                     $dumpfile = $tableInfo[2];
-                    $this->log(sprintf(__("Starting new backup dump to file %s"), $dumpfile));
+                    /* translators: %1$s is a value */
+                    $this->log(sprintf(__('Starting new backup dump to file %1$s', 'xcloner-backup-and-restore'), $dumpfile));
+                    // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
                     $this->data_headers($dumpfile, $tableInfo[1]);
                     $dumpfile = $tableInfo[2];
                     $startAtLine++;
@@ -393,12 +399,10 @@ class Xcloner_Database extends wpdb
         $limit = intval($limit);
         //exporting the table content now
         $query = "SELECT * from `{$databaseName}`.`{$tableName}` Limit {$start}, {$limit} ;";
-        $result = mysqli_query($this->dbh, $query);
-        $mysql_fetch_function = "mysqli_fetch_array";
-        //$result = $this->get_results($query, ARRAY_N);
-        //print_r($result); exit;
-        if ($result) {
-            while ($row = $mysql_fetch_function($result, \MYSQLI_ASSOC)) {
+        $results = $this->get_results($query, \ARRAY_A);
+        // phpcs:ignore WordPress.DB.PreparedSQL.NotPrepared
+        if ($results) {
+            foreach ($results as $row) {
                 $this->fs->get_tmp_filesystem_append()->write($dumpfile, "INSERT INTO `{$tableName}` VALUES (");
                 $arr = $row;
                 $buffer = "";
@@ -420,7 +424,9 @@ class Xcloner_Database extends wpdb
                 $records++;
             }
         }
-        $this->log(sprintf(__("Dumping %s records starting position %s from %s.%s table"), $records, $start, $databaseName, $tableName));
+        /* translators: %1$s is a value, %2$s is a value, %3$s is a value, %4$s is a value */
+        $this->log(sprintf(__('Dumping %1$s records starting position %2$s from %3$s.%4$s table', 'xcloner-backup-and-restore'), $records, $start, $databaseName, $tableName));
+        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
         return $records;
     }
     /**
@@ -428,7 +434,9 @@ class Xcloner_Database extends wpdb
      */
     public function dump_structure($databaseName, $tableName, $dumpfile)
     {
-        $this->log(sprintf(__("Dumping the structure for %s.%s table"), $databaseName, $tableName));
+        /* translators: %1$s is a value, %2$s is a value */
+        $this->log(sprintf(__('Dumping the structure for %1$s.%2$s table', 'xcloner-backup-and-restore'), $databaseName, $tableName));
+        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
         $line = "\n#\n# Table structure for table `{$tableName}`\n#\n\n";
         $this->fs->get_tmp_filesystem_append()->write($dumpfile, $line);
         if ($this->dbDropSyntax) {
@@ -454,7 +462,7 @@ class Xcloner_Database extends wpdb
     {
         $this->logger->debug("Writing dump footers in file", array($dumpfile));
         // we finished the dump file, not return the size of it
-        $this->fs->get_tmp_filesystem_append()->write($dumpfile, "\n#\n# Finished at: " . date("M j, Y \\a\\t H:i") . "\n#");
+        $this->fs->get_tmp_filesystem_append()->write($dumpfile, "\n#\n# Finished at: " . gmdate("M j, Y \\a\\t H:i") . "\n#");
         $size = $this->fs->get_tmp_filesystem_append()->getSize($dumpfile);
         $metadata_dumpfile = $this->fs->get_tmp_filesystem()->getMetadata($dumpfile);
         //adding dump file to the included files list
@@ -481,7 +489,7 @@ class Xcloner_Database extends wpdb
         $return .= "# https://www.xcloner.com\n";
         $return .= "#\n";
         $return .= "# Host: " . get_site_url() . "\n";
-        $return .= "# Generation Time: " . date("M j, Y \\a\\t H:i") . "\n";
+        $return .= "# Generation Time: " . gmdate("M j, Y \\a\\t H:i") . "\n";
         $return .= "# PHP Version: " . phpversion() . "\n";
         $return .= "# Database Charset: " . $this->charset . "\n";
         $results = $this->get_results("SHOW VARIABLES LIKE \"%version%\";", \ARRAY_N);
@@ -497,7 +505,9 @@ class Xcloner_Database extends wpdb
         }
         $return .= "SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';" . str_repeat(\PHP_EOL, 2);
         $return .= "#\n# Database : `" . $database . "`\n# --------------------------------------------------------\n\n";
-        $this->log(sprintf(__("Writing %s database dump headers"), $database));
+        /* translators: %1$s is a value */
+        $this->log(sprintf(__('Writing %1$s database dump headers', 'xcloner-backup-and-restore'), $database));
+        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
         $this->fs->get_tmp_filesystem()->write($file, $return);
     }
 }

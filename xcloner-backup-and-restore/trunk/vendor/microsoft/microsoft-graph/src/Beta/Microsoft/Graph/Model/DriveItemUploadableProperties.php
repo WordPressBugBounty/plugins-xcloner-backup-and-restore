@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DriveItemUploadableProperties class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DriveItemUploadableProperties extends Entity
 {
     /**
-    * Gets the description
-    * Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DriveItemUploadableProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.
-    *
-    * @param string $val The value of the description
-    *
-    * @return DriveItemUploadableProperties
-    */
+     * Sets the description
+     * Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.
+     *
+     * @param string $val The value of the description
+     *
+     * @return DriveItemUploadableProperties
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the fileSize
-    * Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.
-    *
-    * @return int|null The fileSize
-    */
+     * Gets the fileSize
+     * Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.
+     *
+     * @return int|null The fileSize
+     */
     public function getFileSize()
     {
         if (array_key_exists("fileSize", $this->_propDict)) {
@@ -68,31 +69,29 @@ class DriveItemUploadableProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileSize
-    * Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.
-    *
-    * @param int $val The value of the fileSize
-    *
-    * @return DriveItemUploadableProperties
-    */
+     * Sets the fileSize
+     * Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.
+     *
+     * @param int $val The value of the fileSize
+     *
+     * @return DriveItemUploadableProperties
+     */
     public function setFileSize($val)
     {
         $this->_propDict["fileSize"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fileSystemInfo
-    * File system information on client. Read-write.
-    *
-    * @return FileSystemInfo|null The fileSystemInfo
-    */
+     * Gets the fileSystemInfo
+     * File system information on client. Read-write.
+     *
+     * @return FileSystemInfo|null The fileSystemInfo
+     */
     public function getFileSystemInfo()
     {
         if (array_key_exists("fileSystemInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["fileSystemInfo"], "\Beta\Microsoft\Graph\Model\FileSystemInfo") || is_null($this->_propDict["fileSystemInfo"])) {
+            if (is_a($this->_propDict["fileSystemInfo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\FileSystemInfo") || is_null($this->_propDict["fileSystemInfo"])) {
                 return $this->_propDict["fileSystemInfo"];
             } else {
                 $this->_propDict["fileSystemInfo"] = new FileSystemInfo($this->_propDict["fileSystemInfo"]);
@@ -101,26 +100,25 @@ class DriveItemUploadableProperties extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the fileSystemInfo
-    * File system information on client. Read-write.
-    *
-    * @param FileSystemInfo $val The value to assign to the fileSystemInfo
-    *
-    * @return DriveItemUploadableProperties The DriveItemUploadableProperties
-    */
+     * Sets the fileSystemInfo
+     * File system information on client. Read-write.
+     *
+     * @param FileSystemInfo $val The value to assign to the fileSystemInfo
+     *
+     * @return DriveItemUploadableProperties The DriveItemUploadableProperties
+     */
     public function setFileSystemInfo($val)
     {
         $this->_propDict["fileSystemInfo"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * The name of the item (filename and extension). Read-write.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the item (filename and extension). Read-write.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -129,15 +127,14 @@ class DriveItemUploadableProperties extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the item (filename and extension). Read-write.
-    *
-    * @param string $val The value of the name
-    *
-    * @return DriveItemUploadableProperties
-    */
+     * Sets the name
+     * The name of the item (filename and extension). Read-write.
+     *
+     * @param string $val The value of the name
+     *
+     * @return DriveItemUploadableProperties
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\Property\VCard;
+namespace XCloner\Sabre\VObject\Property\VCard;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Date property.
  *
@@ -28,7 +28,6 @@ class Date extends DateAndOrTime
     {
         return 'DATE';
     }
-
     /**
      * Sets the property as a DateTime object.
      */

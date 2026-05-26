@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeletedTeam class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeletedTeam extends Entity
 {
-
-     /**
+    /**
      * Gets the channels
-    * The channels those are either shared with this deleted team or created in this deleted team.
+     * The channels those are either shared with this deleted team or created in this deleted team.
      *
      * @return array|null The channels
      */
     public function getChannels()
     {
         if (array_key_exists("channels", $this->_propDict)) {
-           return $this->_propDict["channels"];
+            return $this->_propDict["channels"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the channels
-    * The channels those are either shared with this deleted team or created in this deleted team.
-    *
-    * @param Channel[] $val The channels
-    *
-    * @return DeletedTeam
-    */
+     * Sets the channels
+     * The channels those are either shared with this deleted team or created in this deleted team.
+     *
+     * @param Channel[] $val The channels
+     *
+     * @return DeletedTeam
+     */
     public function setChannels($val)
     {
         $this->_propDict["channels"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AzureActiveDirectoryTenant class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AzureActiveDirectoryTenant extends IdentitySource
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.azureActiveDirectoryTenant");
     }
-
     /**
-    * Gets the displayName
-    * The name of the Azure Active Directory tenant. Read only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the Azure Active Directory tenant. Read only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -51,26 +52,25 @@ class AzureActiveDirectoryTenant extends IdentitySource
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the Azure Active Directory tenant. Read only.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AzureActiveDirectoryTenant
-    */
+     * Sets the displayName
+     * The name of the Azure Active Directory tenant. Read only.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AzureActiveDirectoryTenant
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the tenantId
-    * The ID of the Azure Active Directory tenant. Read only.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The ID of the Azure Active Directory tenant. Read only.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -79,15 +79,14 @@ class AzureActiveDirectoryTenant extends IdentitySource
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The ID of the Azure Active Directory tenant. Read only.
-    *
-    * @param string $val The value of the tenantId
-    *
-    * @return AzureActiveDirectoryTenant
-    */
+     * Sets the tenantId
+     * The ID of the Azure Active Directory tenant. Read only.
+     *
+     * @param string $val The value of the tenantId
+     *
+     * @return AzureActiveDirectoryTenant
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;

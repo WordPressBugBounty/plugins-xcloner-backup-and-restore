@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Component;
+namespace XCloner\Sabre\VObject\Component;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeInterface;
-use Sabre\VObject;
-
+use XCloner\Sabre\VObject;
 /**
  * VTodo component.
  *
@@ -35,16 +34,12 @@ class VTodo extends VObject\Component
         $due = isset($this->DUE) ? $this->DUE->getDateTime() : null;
         $completed = isset($this->COMPLETED) ? $this->COMPLETED->getDateTime() : null;
         $created = isset($this->CREATED) ? $this->CREATED->getDateTime() : null;
-
         if ($dtstart) {
             if ($duration) {
                 $effectiveEnd = $dtstart->add($duration);
-
                 return $start <= $effectiveEnd && $end > $dtstart;
             } elseif ($due) {
-                return
-                    ($start < $due || $start <= $dtstart) &&
-                    ($end > $dtstart || $end >= $due);
+                return ($start < $due || $start <= $dtstart) && ($end > $dtstart || $end >= $due);
             } else {
                 return $start <= $dtstart && $end > $dtstart;
             }
@@ -53,9 +48,7 @@ class VTodo extends VObject\Component
             return $start < $due && $end >= $due;
         }
         if ($completed && $created) {
-            return
-                ($start <= $created || $start <= $completed) &&
-                ($end >= $created || $end >= $completed);
+            return ($start <= $created || $start <= $completed) && ($end >= $created || $end >= $completed);
         }
         if ($completed) {
             return $start <= $completed && $end >= $completed;
@@ -63,10 +56,8 @@ class VTodo extends VObject\Component
         if ($created) {
             return $end > $created;
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * A simple list of validation rules.
      *
@@ -84,44 +75,8 @@ class VTodo extends VObject\Component
      */
     public function getValidationRules()
     {
-        return [
-            'UID' => 1,
-            'DTSTAMP' => 1,
-
-            'CLASS' => '?',
-            'COMPLETED' => '?',
-            'CREATED' => '?',
-            'DESCRIPTION' => '?',
-            'DTSTART' => '?',
-            'GEO' => '?',
-            'LAST-MODIFIED' => '?',
-            'LOCATION' => '?',
-            'ORGANIZER' => '?',
-            'PERCENT' => '?',
-            'PRIORITY' => '?',
-            'RECURRENCE-ID' => '?',
-            'SEQUENCE' => '?',
-            'STATUS' => '?',
-            'SUMMARY' => '?',
-            'URL' => '?',
-
-            'RRULE' => '?',
-            'DUE' => '?',
-            'DURATION' => '?',
-
-            'ATTACH' => '*',
-            'ATTENDEE' => '*',
-            'CATEGORIES' => '*',
-            'COMMENT' => '*',
-            'CONTACT' => '*',
-            'EXDATE' => '*',
-            'REQUEST-STATUS' => '*',
-            'RELATED-TO' => '*',
-            'RESOURCES' => '*',
-            'RDATE' => '*',
-        ];
+        return ['UID' => 1, 'DTSTAMP' => 1, 'CLASS' => '?', 'COMPLETED' => '?', 'CREATED' => '?', 'DESCRIPTION' => '?', 'DTSTART' => '?', 'GEO' => '?', 'LAST-MODIFIED' => '?', 'LOCATION' => '?', 'ORGANIZER' => '?', 'PERCENT' => '?', 'PRIORITY' => '?', 'RECURRENCE-ID' => '?', 'SEQUENCE' => '?', 'STATUS' => '?', 'SUMMARY' => '?', 'URL' => '?', 'RRULE' => '?', 'DUE' => '?', 'DURATION' => '?', 'ATTACH' => '*', 'ATTENDEE' => '*', 'CATEGORIES' => '*', 'COMMENT' => '*', 'CONTACT' => '*', 'EXDATE' => '*', 'REQUEST-STATUS' => '*', 'RELATED-TO' => '*', 'RESOURCES' => '*', 'RDATE' => '*'];
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -150,25 +105,14 @@ class VTodo extends VObject\Component
         if (isset($this->DUE) && isset($this->DTSTART)) {
             $due = $this->DUE;
             $dtStart = $this->DTSTART;
-
             if ($due->getValueType() !== $dtStart->getValueType()) {
-                $result[] = [
-                    'level' => 3,
-                    'message' => 'The value type (DATE or DATE-TIME) must be identical for DUE and DTSTART',
-                    'node' => $due,
-                ];
+                $result[] = ['level' => 3, 'message' => 'The value type (DATE or DATE-TIME) must be identical for DUE and DTSTART', 'node' => $due];
             } elseif ($due->getDateTime() < $dtStart->getDateTime()) {
-                $result[] = [
-                    'level' => 3,
-                    'message' => 'DUE must occur after DTSTART',
-                    'node' => $due,
-                ];
+                $result[] = ['level' => 3, 'message' => 'DUE must occur after DTSTART', 'node' => $due];
             }
         }
-
         return $result;
     }
-
     /**
      * This method should return a list of default property values.
      *
@@ -176,9 +120,6 @@ class VTodo extends VObject\Component
      */
     protected function getDefaults()
     {
-        return [
-            'UID' => 'sabre-vobject-'.VObject\UUIDUtil::getUUID(),
-            'DTSTAMP' => date('Ymd\\THis\\Z'),
-        ];
+        return ['UID' => 'sabre-vobject-' . VObject\UUIDUtil::getUUID(), 'DTSTAMP' => date('Ymd\THis\Z')];
     }
 }

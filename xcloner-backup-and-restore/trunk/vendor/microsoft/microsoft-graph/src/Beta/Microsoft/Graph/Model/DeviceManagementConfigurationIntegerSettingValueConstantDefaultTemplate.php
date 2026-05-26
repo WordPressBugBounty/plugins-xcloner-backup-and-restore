@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate extends DeviceManagementConfigurationIntegerSettingValueDefaultTemplate
 {
     /**
-    * Gets the constantValue
-    * Default Constant Value. Valid values -2147483648 to 2147483647
-    *
-    * @return int|null The constantValue
-    */
+     * Gets the constantValue
+     * Default Constant Value. Valid values -2147483648 to 2147483647
+     *
+     * @return int|null The constantValue
+     */
     public function getConstantValue()
     {
         if (array_key_exists("constantValue", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate ex
             return null;
         }
     }
-
     /**
-    * Sets the constantValue
-    * Default Constant Value. Valid values -2147483648 to 2147483647
-    *
-    * @param int $val The value of the constantValue
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate
-    */
+     * Sets the constantValue
+     * Default Constant Value. Valid values -2147483648 to 2147483647
+     *
+     * @param int $val The value of the constantValue
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueConstantDefaultTemplate
+     */
     public function setConstantValue($val)
     {
         $this->_propDict["constantValue"] = $val;

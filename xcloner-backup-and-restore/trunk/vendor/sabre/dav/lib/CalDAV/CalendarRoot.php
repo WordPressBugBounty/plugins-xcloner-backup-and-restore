@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV;
 
-namespace Sabre\CalDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAVACL\PrincipalBackend;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAVACL\PrincipalBackend;
 /**
  * Calendars collection.
  *
@@ -22,7 +20,7 @@ use Sabre\DAVACL\PrincipalBackend;
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-class CalendarRoot extends \Sabre\DAVACL\AbstractPrincipalCollection
+class CalendarRoot extends \XCloner\Sabre\DAVACL\AbstractPrincipalCollection
 {
     /**
      * CalDAV backend.
@@ -30,7 +28,6 @@ class CalendarRoot extends \Sabre\DAVACL\AbstractPrincipalCollection
      * @var Backend\BackendInterface
      */
     protected $caldavBackend;
-
     /**
      * Constructor.
      *
@@ -48,7 +45,6 @@ class CalendarRoot extends \Sabre\DAVACL\AbstractPrincipalCollection
         parent::__construct($principalBackend, $principalPrefix);
         $this->caldavBackend = $caldavBackend;
     }
-
     /**
      * Returns the nodename.
      *
@@ -61,7 +57,6 @@ class CalendarRoot extends \Sabre\DAVACL\AbstractPrincipalCollection
     {
         return Plugin::CALENDAR_ROOT;
     }
-
     /**
      * This method returns a node for a principal.
      *

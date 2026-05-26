@@ -1,11 +1,11 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
-use JmesPath\Env as JmesPath;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\JmesPath\Env as JmesPath;
 /**
  * AWS result.
  */
@@ -13,30 +13,25 @@ class Result implements ResultInterface, MonitoringEventsInterface
 {
     use HasDataTrait;
     use HasMonitoringEventsTrait;
-
     public function __construct(array $data = [])
     {
         $this->data = $data;
     }
-
     public function hasKey($name)
     {
         return isset($this->data[$name]);
     }
-
     public function get($key)
     {
         return $this[$key];
     }
-
     public function search($expression)
     {
         return JmesPath::search($expression, $this->toArray());
     }
-
     public function __toString()
     {
-        $jsonData = json_encode($this->toArray(), JSON_PRETTY_PRINT);
+        $jsonData = json_encode($this->toArray(), \JSON_PRETTY_PRINT);
         return <<<EOT
 Model Data
 ----------
@@ -49,7 +44,6 @@ expressions on the result data using the search() method.
 
 EOT;
     }
-
     /**
      * @deprecated
      */

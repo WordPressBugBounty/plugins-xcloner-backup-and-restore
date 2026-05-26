@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintUsage class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintUsage extends Entity
 {
     /**
-    * Gets the completedBlackAndWhiteJobCount
-    *
-    * @return int|null The completedBlackAndWhiteJobCount
-    */
+     * Gets the completedBlackAndWhiteJobCount
+     *
+     * @return int|null The completedBlackAndWhiteJobCount
+     */
     public function getCompletedBlackAndWhiteJobCount()
     {
         if (array_key_exists("completedBlackAndWhiteJobCount", $this->_propDict)) {
@@ -40,25 +41,23 @@ class PrintUsage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedBlackAndWhiteJobCount
-    *
-    * @param int $val The completedBlackAndWhiteJobCount
-    *
-    * @return PrintUsage
-    */
+     * Sets the completedBlackAndWhiteJobCount
+     *
+     * @param int $val The completedBlackAndWhiteJobCount
+     *
+     * @return PrintUsage
+     */
     public function setCompletedBlackAndWhiteJobCount($val)
     {
         $this->_propDict["completedBlackAndWhiteJobCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the completedColorJobCount
-    *
-    * @return int|null The completedColorJobCount
-    */
+     * Gets the completedColorJobCount
+     *
+     * @return int|null The completedColorJobCount
+     */
     public function getCompletedColorJobCount()
     {
         if (array_key_exists("completedColorJobCount", $this->_propDict)) {
@@ -67,25 +66,23 @@ class PrintUsage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedColorJobCount
-    *
-    * @param int $val The completedColorJobCount
-    *
-    * @return PrintUsage
-    */
+     * Sets the completedColorJobCount
+     *
+     * @param int $val The completedColorJobCount
+     *
+     * @return PrintUsage
+     */
     public function setCompletedColorJobCount($val)
     {
         $this->_propDict["completedColorJobCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the incompleteJobCount
-    *
-    * @return int|null The incompleteJobCount
-    */
+     * Gets the incompleteJobCount
+     *
+     * @return int|null The incompleteJobCount
+     */
     public function getIncompleteJobCount()
     {
         if (array_key_exists("incompleteJobCount", $this->_propDict)) {
@@ -94,29 +91,27 @@ class PrintUsage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the incompleteJobCount
-    *
-    * @param int $val The incompleteJobCount
-    *
-    * @return PrintUsage
-    */
+     * Sets the incompleteJobCount
+     *
+     * @param int $val The incompleteJobCount
+     *
+     * @return PrintUsage
+     */
     public function setIncompleteJobCount($val)
     {
         $this->_propDict["incompleteJobCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the usageDate
-    *
-    * @return \DateTime|null The usageDate
-    */
+     * Gets the usageDate
+     *
+     * @return \DateTime|null The usageDate
+     */
     public function getUsageDate()
     {
         if (array_key_exists("usageDate", $this->_propDict)) {
-            if (is_a($this->_propDict["usageDate"], "\DateTime") || is_null($this->_propDict["usageDate"])) {
+            if (is_a($this->_propDict["usageDate"], "\\DateTime") || is_null($this->_propDict["usageDate"])) {
                 return $this->_propDict["usageDate"];
             } else {
                 $this->_propDict["usageDate"] = new \DateTime($this->_propDict["usageDate"]);
@@ -125,18 +120,16 @@ class PrintUsage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the usageDate
-    *
-    * @param \DateTime $val The usageDate
-    *
-    * @return PrintUsage
-    */
+     * Sets the usageDate
+     *
+     * @param \DateTime $val The usageDate
+     *
+     * @return PrintUsage
+     */
     public function setUsageDate($val)
     {
         $this->_propDict["usageDate"] = $val;
         return $this;
     }
-
 }

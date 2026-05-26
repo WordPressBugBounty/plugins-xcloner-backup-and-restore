@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Middlewares;
 
-namespace MicrosoftAzure\Storage\Common\Middlewares;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\Promise\RejectedPromise;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\RequestInterface;
+use XCloner\Psr\Http\Message\ResponseInterface;
+use XCloner\GuzzleHttp\Promise\RejectedPromise;
 /**
  * This class provides the base structure of middleware that can be used for
  * doing customized behavior including modifying the request, response or
@@ -45,7 +43,6 @@ use GuzzleHttp\Promise\RejectedPromise;
  */
 class MiddlewareBase implements IMiddleware
 {
-
     /**
      * Middleware augments the functionality of handlers by invoking them
      * in the process of generating responses. And it returns a function
@@ -62,13 +59,9 @@ class MiddlewareBase implements IMiddleware
         $reflection = $this;
         return function ($request, $options) use ($handler, $reflection) {
             $request = $reflection->onRequest($request);
-            return $handler($request, $options)->then(
-                $reflection->onFulfilled($request, $options),
-                $reflection->onRejected($request, $options)
-            );
+            return $handler($request, $options)->then($reflection->onFulfilled($request, $options), $reflection->onRejected($request, $options));
         };
     }
-
     /**
      * This function will be executed before the request is sent.
      *
@@ -81,7 +74,6 @@ class MiddlewareBase implements IMiddleware
         //do nothing
         return $request;
     }
-
     /**
      * This function will be invoked after the request is sent, if
      * the promise is fulfilled.
@@ -98,7 +90,6 @@ class MiddlewareBase implements IMiddleware
             return $response;
         };
     }
-
     /**
      * This function will be executed after the request is sent, if
      * the promise is rejected.

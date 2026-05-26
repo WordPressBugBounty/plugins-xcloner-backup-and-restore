@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * JoinMeetingIdSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class JoinMeetingIdSettings extends Entity
 {
     /**
-    * Gets the isPasscodeRequired
-    * Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
-    *
-    * @return bool|null The isPasscodeRequired
-    */
+     * Gets the isPasscodeRequired
+     * Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
+     *
+     * @return bool|null The isPasscodeRequired
+     */
     public function getIsPasscodeRequired()
     {
         if (array_key_exists("isPasscodeRequired", $this->_propDict)) {
@@ -40,26 +42,25 @@ class JoinMeetingIdSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isPasscodeRequired
-    * Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
-    *
-    * @param bool $val The value of the isPasscodeRequired
-    *
-    * @return JoinMeetingIdSettings
-    */
+     * Sets the isPasscodeRequired
+     * Indicates whether a passcode is required to join a meeting when using joinMeetingId. Optional.
+     *
+     * @param bool $val The value of the isPasscodeRequired
+     *
+     * @return JoinMeetingIdSettings
+     */
     public function setIsPasscodeRequired($val)
     {
         $this->_propDict["isPasscodeRequired"] = $val;
         return $this;
     }
     /**
-    * Gets the joinMeetingId
-    * The meeting ID to be used to join a meeting. Optional. Read-only.
-    *
-    * @return string|null The joinMeetingId
-    */
+     * Gets the joinMeetingId
+     * The meeting ID to be used to join a meeting. Optional. Read-only.
+     *
+     * @return string|null The joinMeetingId
+     */
     public function getJoinMeetingId()
     {
         if (array_key_exists("joinMeetingId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class JoinMeetingIdSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the joinMeetingId
-    * The meeting ID to be used to join a meeting. Optional. Read-only.
-    *
-    * @param string $val The value of the joinMeetingId
-    *
-    * @return JoinMeetingIdSettings
-    */
+     * Sets the joinMeetingId
+     * The meeting ID to be used to join a meeting. Optional. Read-only.
+     *
+     * @param string $val The value of the joinMeetingId
+     *
+     * @return JoinMeetingIdSettings
+     */
     public function setJoinMeetingId($val)
     {
         $this->_propDict["joinMeetingId"] = $val;
         return $this;
     }
     /**
-    * Gets the passcode
-    * The passcode to join a meeting.  Optional. Read-only.
-    *
-    * @return string|null The passcode
-    */
+     * Gets the passcode
+     * The passcode to join a meeting.  Optional. Read-only.
+     *
+     * @return string|null The passcode
+     */
     public function getPasscode()
     {
         if (array_key_exists("passcode", $this->_propDict)) {
@@ -96,15 +96,14 @@ class JoinMeetingIdSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the passcode
-    * The passcode to join a meeting.  Optional. Read-only.
-    *
-    * @param string $val The value of the passcode
-    *
-    * @return JoinMeetingIdSettings
-    */
+     * Sets the passcode
+     * The passcode to join a meeting.  Optional. Read-only.
+     *
+     * @param string $val The value of the passcode
+     *
+     * @return JoinMeetingIdSettings
+     */
     public function setPasscode($val)
     {
         $this->_propDict["passcode"] = $val;

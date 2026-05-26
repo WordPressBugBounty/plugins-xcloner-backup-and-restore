@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidManagedStoreAppConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfiguration
 {
     /**
-    * Gets the appSupportsOemConfig
-    * Whether or not this AppConfig is an OEMConfig policy.
-    *
-    * @return bool|null The appSupportsOemConfig
-    */
+     * Gets the appSupportsOemConfig
+     * Whether or not this AppConfig is an OEMConfig policy.
+     *
+     * @return bool|null The appSupportsOemConfig
+     */
     public function getAppSupportsOemConfig()
     {
         if (array_key_exists("appSupportsOemConfig", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
             return null;
         }
     }
-
     /**
-    * Sets the appSupportsOemConfig
-    * Whether or not this AppConfig is an OEMConfig policy.
-    *
-    * @param bool $val The appSupportsOemConfig
-    *
-    * @return AndroidManagedStoreAppConfiguration
-    */
+     * Sets the appSupportsOemConfig
+     * Whether or not this AppConfig is an OEMConfig policy.
+     *
+     * @param bool $val The appSupportsOemConfig
+     *
+     * @return AndroidManagedStoreAppConfiguration
+     */
     public function setAppSupportsOemConfig($val)
     {
         $this->_propDict["appSupportsOemConfig"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the connectedAppsEnabled
-    * Setting to specify whether to allow ConnectedApps experience for this app.
-    *
-    * @return bool|null The connectedAppsEnabled
-    */
+     * Gets the connectedAppsEnabled
+     * Setting to specify whether to allow ConnectedApps experience for this app.
+     *
+     * @return bool|null The connectedAppsEnabled
+     */
     public function getConnectedAppsEnabled()
     {
         if (array_key_exists("connectedAppsEnabled", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
             return null;
         }
     }
-
     /**
-    * Sets the connectedAppsEnabled
-    * Setting to specify whether to allow ConnectedApps experience for this app.
-    *
-    * @param bool $val The connectedAppsEnabled
-    *
-    * @return AndroidManagedStoreAppConfiguration
-    */
+     * Sets the connectedAppsEnabled
+     * Setting to specify whether to allow ConnectedApps experience for this app.
+     *
+     * @param bool $val The connectedAppsEnabled
+     *
+     * @return AndroidManagedStoreAppConfiguration
+     */
     public function setConnectedAppsEnabled($val)
     {
         $this->_propDict["connectedAppsEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the packageId
-    * Android Enterprise app configuration package id.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * Android Enterprise app configuration package id.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -99,27 +96,25 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * Android Enterprise app configuration package id.
-    *
-    * @param string $val The packageId
-    *
-    * @return AndroidManagedStoreAppConfiguration
-    */
+     * Sets the packageId
+     * Android Enterprise app configuration package id.
+     *
+     * @param string $val The packageId
+     *
+     * @return AndroidManagedStoreAppConfiguration
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the payloadJson
-    * Android Enterprise app configuration JSON payload.
-    *
-    * @return string|null The payloadJson
-    */
+     * Gets the payloadJson
+     * Android Enterprise app configuration JSON payload.
+     *
+     * @return string|null The payloadJson
+     */
     public function getPayloadJson()
     {
         if (array_key_exists("payloadJson", $this->_propDict)) {
@@ -128,61 +123,56 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
             return null;
         }
     }
-
     /**
-    * Sets the payloadJson
-    * Android Enterprise app configuration JSON payload.
-    *
-    * @param string $val The payloadJson
-    *
-    * @return AndroidManagedStoreAppConfiguration
-    */
+     * Sets the payloadJson
+     * Android Enterprise app configuration JSON payload.
+     *
+     * @param string $val The payloadJson
+     *
+     * @return AndroidManagedStoreAppConfiguration
+     */
     public function setPayloadJson($val)
     {
         $this->_propDict["payloadJson"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the permissionActions
-    * List of Android app permissions and corresponding permission actions.
+     * List of Android app permissions and corresponding permission actions.
      *
      * @return array|null The permissionActions
      */
     public function getPermissionActions()
     {
         if (array_key_exists("permissionActions", $this->_propDict)) {
-           return $this->_propDict["permissionActions"];
+            return $this->_propDict["permissionActions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the permissionActions
-    * List of Android app permissions and corresponding permission actions.
-    *
-    * @param AndroidPermissionAction[] $val The permissionActions
-    *
-    * @return AndroidManagedStoreAppConfiguration
-    */
+     * Sets the permissionActions
+     * List of Android app permissions and corresponding permission actions.
+     *
+     * @param AndroidPermissionAction[] $val The permissionActions
+     *
+     * @return AndroidManagedStoreAppConfiguration
+     */
     public function setPermissionActions($val)
     {
         $this->_propDict["permissionActions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the profileApplicability
-    * Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
-    *
-    * @return AndroidProfileApplicability|null The profileApplicability
-    */
+     * Gets the profileApplicability
+     * Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
+     *
+     * @return AndroidProfileApplicability|null The profileApplicability
+     */
     public function getProfileApplicability()
     {
         if (array_key_exists("profileApplicability", $this->_propDict)) {
-            if (is_a($this->_propDict["profileApplicability"], "\Beta\Microsoft\Graph\Model\AndroidProfileApplicability") || is_null($this->_propDict["profileApplicability"])) {
+            if (is_a($this->_propDict["profileApplicability"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AndroidProfileApplicability") || is_null($this->_propDict["profileApplicability"])) {
                 return $this->_propDict["profileApplicability"];
             } else {
                 $this->_propDict["profileApplicability"] = new AndroidProfileApplicability($this->_propDict["profileApplicability"]);
@@ -191,19 +181,17 @@ class AndroidManagedStoreAppConfiguration extends ManagedDeviceMobileAppConfigur
         }
         return null;
     }
-
     /**
-    * Sets the profileApplicability
-    * Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
-    *
-    * @param AndroidProfileApplicability $val The profileApplicability
-    *
-    * @return AndroidManagedStoreAppConfiguration
-    */
+     * Sets the profileApplicability
+     * Android Enterprise profile applicability (AndroidWorkProfile, DeviceOwner, or default (applies to both)). Possible values are: default, androidWorkProfile, androidDeviceOwner.
+     *
+     * @param AndroidProfileApplicability $val The profileApplicability
+     *
+     * @return AndroidManagedStoreAppConfiguration
+     */
     public function setProfileApplicability($val)
     {
         $this->_propDict["profileApplicability"] = $val;
         return $this;
     }
-
 }

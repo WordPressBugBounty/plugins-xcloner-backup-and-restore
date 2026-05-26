@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Bitlocker class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Bitlocker extends Entity
 {
-
-     /**
+    /**
      * Gets the recoveryKeys
-    * The recovery keys associated with the bitlocker entity.
+     * The recovery keys associated with the bitlocker entity.
      *
      * @return array|null The recoveryKeys
      */
     public function getRecoveryKeys()
     {
         if (array_key_exists("recoveryKeys", $this->_propDict)) {
-           return $this->_propDict["recoveryKeys"];
+            return $this->_propDict["recoveryKeys"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the recoveryKeys
-    * The recovery keys associated with the bitlocker entity.
-    *
-    * @param BitlockerRecoveryKey[] $val The recoveryKeys
-    *
-    * @return Bitlocker
-    */
+     * Sets the recoveryKeys
+     * The recovery keys associated with the bitlocker entity.
+     *
+     * @param BitlockerRecoveryKey[] $val The recoveryKeys
+     *
+     * @return Bitlocker
+     */
     public function setRecoveryKeys($val)
     {
         $this->_propDict["recoveryKeys"] = $val;
         return $this;
     }
-
 }

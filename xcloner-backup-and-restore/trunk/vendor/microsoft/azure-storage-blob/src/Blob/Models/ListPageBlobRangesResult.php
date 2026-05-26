@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Models\Range;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Models\Range;
 /**
  * Holds result of calling listPageBlobRanges wrapper
  *
@@ -48,7 +46,6 @@ class ListPageBlobRangesResult
     private $_etag;
     private $_contentLength;
     private $_pageRanges;
-
     /**
      * Creates BlobProperties object from $parsed response in array representation
      *
@@ -61,34 +58,26 @@ class ListPageBlobRangesResult
      */
     public static function create(array $headers, array $parsed = null)
     {
-        $result  = new ListPageBlobRangesResult();
+        $result = new ListPageBlobRangesResult();
         $headers = array_change_key_case($headers);
-
-        $date          = $headers[Resources::LAST_MODIFIED];
-        $date          = Utilities::rfc1123ToDateTime($date);
-        $blobLength    = intval($headers[Resources::X_MS_BLOB_CONTENT_LENGTH]);
+        $date = $headers[Resources::LAST_MODIFIED];
+        $date = Utilities::rfc1123ToDateTime($date);
+        $blobLength = intval($headers[Resources::X_MS_BLOB_CONTENT_LENGTH]);
         $rawRanges = array();
-
         if (!empty($parsed[Resources::XTAG_PAGE_RANGE])) {
-            $parsed        = array_change_key_case($parsed);
+            $parsed = array_change_key_case($parsed);
             $rawRanges = Utilities::getArray($parsed[strtolower(RESOURCES::XTAG_PAGE_RANGE)]);
         }
-
         $pageRanges = array();
         foreach ($rawRanges as $value) {
-            $pageRanges[] = new Range(
-                intval($value[Resources::XTAG_RANGE_START]),
-                intval($value[Resources::XTAG_RANGE_END])
-            );
+            $pageRanges[] = new Range(intval($value[Resources::XTAG_RANGE_START]), intval($value[Resources::XTAG_RANGE_END]));
         }
         $result->setRanges($pageRanges);
         $result->setContentLength($blobLength);
         $result->setETag($headers[Resources::ETAG]);
         $result->setLastModified($date);
-
         return $result;
     }
-
     /**
      * Gets blob lastModified.
      *
@@ -98,7 +87,6 @@ class ListPageBlobRangesResult
     {
         return $this->_lastModified;
     }
-
     /**
      * Sets blob lastModified.
      *
@@ -111,7 +99,6 @@ class ListPageBlobRangesResult
         Validate::isDate($lastModified);
         $this->_lastModified = $lastModified;
     }
-
     /**
      * Gets blob etag.
      *
@@ -121,7 +108,6 @@ class ListPageBlobRangesResult
     {
         return $this->_etag;
     }
-
     /**
      * Sets blob etag.
      *
@@ -134,7 +120,6 @@ class ListPageBlobRangesResult
         Validate::canCastAsString($etag, 'etag');
         $this->_etag = $etag;
     }
-
     /**
      * Gets blob contentLength.
      *
@@ -144,7 +129,6 @@ class ListPageBlobRangesResult
     {
         return $this->_contentLength;
     }
-
     /**
      * Sets blob contentLength.
      *
@@ -157,7 +141,6 @@ class ListPageBlobRangesResult
         Validate::isInteger($contentLength, 'contentLength');
         $this->_contentLength = $contentLength;
     }
-
     /**
      * Gets page ranges
      *
@@ -167,7 +150,6 @@ class ListPageBlobRangesResult
     {
         return $this->_pageRanges;
     }
-
     /**
      * Sets page ranges
      *

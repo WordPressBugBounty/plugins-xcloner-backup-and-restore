@@ -1,13 +1,12 @@
 <?php
 
-namespace Psr\Http\Client;
+namespace XCloner\Psr\Http\Client;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\RequestInterface;
+use XCloner\Psr\Http\Message\ResponseInterface;
 interface ClientInterface
 {
     /**

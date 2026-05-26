@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationAssignmentIndividualRecipient class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipient
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.educationAssignmentIndividualRecipient");
     }
-
     /**
-    * Gets the recipients
-    * A collection of ids of the recipients.
-    *
-    * @return string|null The recipients
-    */
+     * Gets the recipients
+     * A collection of ids of the recipients.
+     *
+     * @return string|null The recipients
+     */
     public function getRecipients()
     {
         if (array_key_exists("recipients", $this->_propDict)) {
@@ -51,15 +52,14 @@ class EducationAssignmentIndividualRecipient extends EducationAssignmentRecipien
             return null;
         }
     }
-
     /**
-    * Sets the recipients
-    * A collection of ids of the recipients.
-    *
-    * @param string $val The value of the recipients
-    *
-    * @return EducationAssignmentIndividualRecipient
-    */
+     * Sets the recipients
+     * A collection of ids of the recipients.
+     *
+     * @param string $val The value of the recipients
+     *
+     * @return EducationAssignmentIndividualRecipient
+     */
     public function setRecipients($val)
     {
         $this->_propDict["recipients"] = $val;

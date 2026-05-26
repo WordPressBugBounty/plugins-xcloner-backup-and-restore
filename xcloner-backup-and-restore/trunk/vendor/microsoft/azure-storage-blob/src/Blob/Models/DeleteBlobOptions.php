@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Optional parameters for deleteBlob wrapper
  *
@@ -43,7 +41,6 @@ class DeleteBlobOptions extends BlobServiceOptions
 {
     private $_snapshot;
     private $_deleteSnaphotsOnly;
-
     /**
      * Gets blob snapshot.
      *
@@ -53,7 +50,6 @@ class DeleteBlobOptions extends BlobServiceOptions
     {
         return $this->_snapshot;
     }
-
     /**
      * Sets blob snapshot.
      *
@@ -65,7 +61,6 @@ class DeleteBlobOptions extends BlobServiceOptions
     {
         $this->_snapshot = $snapshot;
     }
-
     /**
      * Gets blob deleteSnaphotsOnly.
      *
@@ -75,7 +70,6 @@ class DeleteBlobOptions extends BlobServiceOptions
     {
         return $this->_deleteSnaphotsOnly;
     }
-
     /**
      * Sets blob deleteSnaphotsOnly.
      *

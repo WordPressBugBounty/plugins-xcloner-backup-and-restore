@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationStringSettingValueDefinition class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceManagementConfigurationSettingValueDefinition
 {
     /**
-    * Gets the fileTypes
-    * Supported file types for this setting.
-    *
-    * @return string|null The fileTypes
-    */
+     * Gets the fileTypes
+     * Supported file types for this setting.
+     *
+     * @return string|null The fileTypes
+     */
     public function getFileTypes()
     {
         if (array_key_exists("fileTypes", $this->_propDict)) {
@@ -40,31 +42,29 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
             return null;
         }
     }
-
     /**
-    * Sets the fileTypes
-    * Supported file types for this setting.
-    *
-    * @param string $val The value of the fileTypes
-    *
-    * @return DeviceManagementConfigurationStringSettingValueDefinition
-    */
+     * Sets the fileTypes
+     * Supported file types for this setting.
+     *
+     * @param string $val The value of the fileTypes
+     *
+     * @return DeviceManagementConfigurationStringSettingValueDefinition
+     */
     public function setFileTypes($val)
     {
         $this->_propDict["fileTypes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the format
-    * Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
-    *
-    * @return DeviceManagementConfigurationStringFormat|null The format
-    */
+     * Gets the format
+     * Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
+     *
+     * @return DeviceManagementConfigurationStringFormat|null The format
+     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationStringFormat") || is_null($this->_propDict["format"])) {
+            if (is_a($this->_propDict["format"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationStringFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new DeviceManagementConfigurationStringFormat($this->_propDict["format"]);
@@ -73,26 +73,25 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
         }
         return null;
     }
-
     /**
-    * Sets the format
-    * Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
-    *
-    * @param DeviceManagementConfigurationStringFormat $val The value to assign to the format
-    *
-    * @return DeviceManagementConfigurationStringSettingValueDefinition The DeviceManagementConfigurationStringSettingValueDefinition
-    */
+     * Sets the format
+     * Pre-defined format of the string. Possible values are: none, email, guid, ip, base64, url, version, xml, date, time, binary, regEx, json, dateTime, surfaceHub.
+     *
+     * @param DeviceManagementConfigurationStringFormat $val The value to assign to the format
+     *
+     * @return DeviceManagementConfigurationStringSettingValueDefinition The DeviceManagementConfigurationStringSettingValueDefinition
+     */
     public function setFormat($val)
     {
         $this->_propDict["format"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the inputValidationSchema
-    * Regular expression or any xml or json schema that the input string should match
-    *
-    * @return string|null The inputValidationSchema
-    */
+     * Gets the inputValidationSchema
+     * Regular expression or any xml or json schema that the input string should match
+     *
+     * @return string|null The inputValidationSchema
+     */
     public function getInputValidationSchema()
     {
         if (array_key_exists("inputValidationSchema", $this->_propDict)) {
@@ -101,26 +100,25 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
             return null;
         }
     }
-
     /**
-    * Sets the inputValidationSchema
-    * Regular expression or any xml or json schema that the input string should match
-    *
-    * @param string $val The value of the inputValidationSchema
-    *
-    * @return DeviceManagementConfigurationStringSettingValueDefinition
-    */
+     * Sets the inputValidationSchema
+     * Regular expression or any xml or json schema that the input string should match
+     *
+     * @param string $val The value of the inputValidationSchema
+     *
+     * @return DeviceManagementConfigurationStringSettingValueDefinition
+     */
     public function setInputValidationSchema($val)
     {
         $this->_propDict["inputValidationSchema"] = $val;
         return $this;
     }
     /**
-    * Gets the isSecret
-    * Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
-    *
-    * @return bool|null The isSecret
-    */
+     * Gets the isSecret
+     * Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
+     *
+     * @return bool|null The isSecret
+     */
     public function getIsSecret()
     {
         if (array_key_exists("isSecret", $this->_propDict)) {
@@ -129,26 +127,25 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
             return null;
         }
     }
-
     /**
-    * Sets the isSecret
-    * Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
-    *
-    * @param bool $val The value of the isSecret
-    *
-    * @return DeviceManagementConfigurationStringSettingValueDefinition
-    */
+     * Sets the isSecret
+     * Specifies whether the setting needs to be treated as a secret. Settings marked as yes will be encrypted in transit and at rest and will be displayed as asterisks when represented in the UX.
+     *
+     * @param bool $val The value of the isSecret
+     *
+     * @return DeviceManagementConfigurationStringSettingValueDefinition
+     */
     public function setIsSecret($val)
     {
         $this->_propDict["isSecret"] = $val;
         return $this;
     }
     /**
-    * Gets the maximumLength
-    * Maximum length of string. Valid values 0 to 87516
-    *
-    * @return int|null The maximumLength
-    */
+     * Gets the maximumLength
+     * Maximum length of string. Valid values 0 to 87516
+     *
+     * @return int|null The maximumLength
+     */
     public function getMaximumLength()
     {
         if (array_key_exists("maximumLength", $this->_propDict)) {
@@ -157,26 +154,25 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
             return null;
         }
     }
-
     /**
-    * Sets the maximumLength
-    * Maximum length of string. Valid values 0 to 87516
-    *
-    * @param int $val The value of the maximumLength
-    *
-    * @return DeviceManagementConfigurationStringSettingValueDefinition
-    */
+     * Sets the maximumLength
+     * Maximum length of string. Valid values 0 to 87516
+     *
+     * @param int $val The value of the maximumLength
+     *
+     * @return DeviceManagementConfigurationStringSettingValueDefinition
+     */
     public function setMaximumLength($val)
     {
         $this->_propDict["maximumLength"] = $val;
         return $this;
     }
     /**
-    * Gets the minimumLength
-    * Minimum length of string. Valid values 0 to 87516
-    *
-    * @return int|null The minimumLength
-    */
+     * Gets the minimumLength
+     * Minimum length of string. Valid values 0 to 87516
+     *
+     * @return int|null The minimumLength
+     */
     public function getMinimumLength()
     {
         if (array_key_exists("minimumLength", $this->_propDict)) {
@@ -185,15 +181,14 @@ class DeviceManagementConfigurationStringSettingValueDefinition extends DeviceMa
             return null;
         }
     }
-
     /**
-    * Sets the minimumLength
-    * Minimum length of string. Valid values 0 to 87516
-    *
-    * @param int $val The value of the minimumLength
-    *
-    * @return DeviceManagementConfigurationStringSettingValueDefinition
-    */
+     * Sets the minimumLength
+     * Minimum length of string. Valid values 0 to 87516
+     *
+     * @param int $val The value of the minimumLength
+     *
+     * @return DeviceManagementConfigurationStringSettingValueDefinition
+     */
     public function setMinimumLength($val)
     {
         $this->_propDict["minimumLength"] = $val;

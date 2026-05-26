@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PaymentTerm class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PaymentTerm extends Entity
 {
     /**
-    * Gets the calculateDiscountOnCreditMemos
-    *
-    * @return bool|null The calculateDiscountOnCreditMemos
-    */
+     * Gets the calculateDiscountOnCreditMemos
+     *
+     * @return bool|null The calculateDiscountOnCreditMemos
+     */
     public function getCalculateDiscountOnCreditMemos()
     {
         if (array_key_exists("calculateDiscountOnCreditMemos", $this->_propDict)) {
@@ -40,25 +41,23 @@ class PaymentTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the calculateDiscountOnCreditMemos
-    *
-    * @param bool $val The calculateDiscountOnCreditMemos
-    *
-    * @return PaymentTerm
-    */
+     * Sets the calculateDiscountOnCreditMemos
+     *
+     * @param bool $val The calculateDiscountOnCreditMemos
+     *
+     * @return PaymentTerm
+     */
     public function setCalculateDiscountOnCreditMemos($val)
     {
         $this->_propDict["calculateDiscountOnCreditMemos"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the code
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -67,25 +66,23 @@ class PaymentTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    *
-    * @param string $val The code
-    *
-    * @return PaymentTerm
-    */
+     * Sets the code
+     *
+     * @param string $val The code
+     *
+     * @return PaymentTerm
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
-
     /**
-    * Gets the discountDateCalculation
-    *
-    * @return string|null The discountDateCalculation
-    */
+     * Gets the discountDateCalculation
+     *
+     * @return string|null The discountDateCalculation
+     */
     public function getDiscountDateCalculation()
     {
         if (array_key_exists("discountDateCalculation", $this->_propDict)) {
@@ -94,29 +91,27 @@ class PaymentTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the discountDateCalculation
-    *
-    * @param string $val The discountDateCalculation
-    *
-    * @return PaymentTerm
-    */
+     * Sets the discountDateCalculation
+     *
+     * @param string $val The discountDateCalculation
+     *
+     * @return PaymentTerm
+     */
     public function setDiscountDateCalculation($val)
     {
         $this->_propDict["discountDateCalculation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the discountPercent
-    *
-    * @return Decimal|null The discountPercent
-    */
+     * Gets the discountPercent
+     *
+     * @return Decimal|null The discountPercent
+     */
     public function getDiscountPercent()
     {
         if (array_key_exists("discountPercent", $this->_propDict)) {
-            if (is_a($this->_propDict["discountPercent"], "\Beta\Microsoft\Graph\Model\Decimal") || is_null($this->_propDict["discountPercent"])) {
+            if (is_a($this->_propDict["discountPercent"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Decimal") || is_null($this->_propDict["discountPercent"])) {
                 return $this->_propDict["discountPercent"];
             } else {
                 $this->_propDict["discountPercent"] = new Decimal($this->_propDict["discountPercent"]);
@@ -125,25 +120,23 @@ class PaymentTerm extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the discountPercent
-    *
-    * @param Decimal $val The discountPercent
-    *
-    * @return PaymentTerm
-    */
+     * Sets the discountPercent
+     *
+     * @param Decimal $val The discountPercent
+     *
+     * @return PaymentTerm
+     */
     public function setDiscountPercent($val)
     {
         $this->_propDict["discountPercent"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -152,25 +145,23 @@ class PaymentTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return PaymentTerm
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return PaymentTerm
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the dueDateCalculation
-    *
-    * @return string|null The dueDateCalculation
-    */
+     * Gets the dueDateCalculation
+     *
+     * @return string|null The dueDateCalculation
+     */
     public function getDueDateCalculation()
     {
         if (array_key_exists("dueDateCalculation", $this->_propDict)) {
@@ -179,29 +170,27 @@ class PaymentTerm extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dueDateCalculation
-    *
-    * @param string $val The dueDateCalculation
-    *
-    * @return PaymentTerm
-    */
+     * Sets the dueDateCalculation
+     *
+     * @param string $val The dueDateCalculation
+     *
+     * @return PaymentTerm
+     */
     public function setDueDateCalculation($val)
     {
         $this->_propDict["dueDateCalculation"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -210,18 +199,16 @@ class PaymentTerm extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return PaymentTerm
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return PaymentTerm
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
 }

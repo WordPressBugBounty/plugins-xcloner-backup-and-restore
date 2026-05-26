@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSIncludedApp class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSIncludedApp extends Entity
 {
     /**
-    * Gets the bundleId
-    * The CFBundleIdentifier.
-    *
-    * @return string|null The bundleId
-    */
+     * Gets the bundleId
+     * The CFBundleIdentifier.
+     *
+     * @return string|null The bundleId
+     */
     public function getBundleId()
     {
         if (array_key_exists("bundleId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MacOSIncludedApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bundleId
-    * The CFBundleIdentifier.
-    *
-    * @param string $val The value of the bundleId
-    *
-    * @return MacOSIncludedApp
-    */
+     * Sets the bundleId
+     * The CFBundleIdentifier.
+     *
+     * @param string $val The value of the bundleId
+     *
+     * @return MacOSIncludedApp
+     */
     public function setBundleId($val)
     {
         $this->_propDict["bundleId"] = $val;
         return $this;
     }
     /**
-    * Gets the bundleVersion
-    * The CFBundleVersion.
-    *
-    * @return string|null The bundleVersion
-    */
+     * Gets the bundleVersion
+     * The CFBundleVersion.
+     *
+     * @return string|null The bundleVersion
+     */
     public function getBundleVersion()
     {
         if (array_key_exists("bundleVersion", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MacOSIncludedApp extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bundleVersion
-    * The CFBundleVersion.
-    *
-    * @param string $val The value of the bundleVersion
-    *
-    * @return MacOSIncludedApp
-    */
+     * Sets the bundleVersion
+     * The CFBundleVersion.
+     *
+     * @param string $val The value of the bundleVersion
+     *
+     * @return MacOSIncludedApp
+     */
     public function setBundleVersion($val)
     {
         $this->_propDict["bundleVersion"] = $val;

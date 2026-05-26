@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessPolicyDetail class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessPolicyDetail extends Entity
 {
-
     /**
-    * Gets the conditions
-    *
-    * @return ConditionalAccessConditionSet|null The conditions
-    */
+     * Gets the conditions
+     *
+     * @return ConditionalAccessConditionSet|null The conditions
+     */
     public function getConditions()
     {
         if (array_key_exists("conditions", $this->_propDict)) {
-            if (is_a($this->_propDict["conditions"], "\Beta\Microsoft\Graph\Model\ConditionalAccessConditionSet") || is_null($this->_propDict["conditions"])) {
+            if (is_a($this->_propDict["conditions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessConditionSet") || is_null($this->_propDict["conditions"])) {
                 return $this->_propDict["conditions"];
             } else {
                 $this->_propDict["conditions"] = new ConditionalAccessConditionSet($this->_propDict["conditions"]);
@@ -44,29 +45,27 @@ class ConditionalAccessPolicyDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the conditions
-    *
-    * @param ConditionalAccessConditionSet $val The value to assign to the conditions
-    *
-    * @return ConditionalAccessPolicyDetail The ConditionalAccessPolicyDetail
-    */
+     * Sets the conditions
+     *
+     * @param ConditionalAccessConditionSet $val The value to assign to the conditions
+     *
+     * @return ConditionalAccessPolicyDetail The ConditionalAccessPolicyDetail
+     */
     public function setConditions($val)
     {
         $this->_propDict["conditions"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the grantControls
-    *
-    * @return ConditionalAccessGrantControls|null The grantControls
-    */
+     * Gets the grantControls
+     *
+     * @return ConditionalAccessGrantControls|null The grantControls
+     */
     public function getGrantControls()
     {
         if (array_key_exists("grantControls", $this->_propDict)) {
-            if (is_a($this->_propDict["grantControls"], "\Beta\Microsoft\Graph\Model\ConditionalAccessGrantControls") || is_null($this->_propDict["grantControls"])) {
+            if (is_a($this->_propDict["grantControls"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessGrantControls") || is_null($this->_propDict["grantControls"])) {
                 return $this->_propDict["grantControls"];
             } else {
                 $this->_propDict["grantControls"] = new ConditionalAccessGrantControls($this->_propDict["grantControls"]);
@@ -75,29 +74,27 @@ class ConditionalAccessPolicyDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the grantControls
-    *
-    * @param ConditionalAccessGrantControls $val The value to assign to the grantControls
-    *
-    * @return ConditionalAccessPolicyDetail The ConditionalAccessPolicyDetail
-    */
+     * Sets the grantControls
+     *
+     * @param ConditionalAccessGrantControls $val The value to assign to the grantControls
+     *
+     * @return ConditionalAccessPolicyDetail The ConditionalAccessPolicyDetail
+     */
     public function setGrantControls($val)
     {
         $this->_propDict["grantControls"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the sessionControls
-    *
-    * @return ConditionalAccessSessionControls|null The sessionControls
-    */
+     * Gets the sessionControls
+     *
+     * @return ConditionalAccessSessionControls|null The sessionControls
+     */
     public function getSessionControls()
     {
         if (array_key_exists("sessionControls", $this->_propDict)) {
-            if (is_a($this->_propDict["sessionControls"], "\Beta\Microsoft\Graph\Model\ConditionalAccessSessionControls") || is_null($this->_propDict["sessionControls"])) {
+            if (is_a($this->_propDict["sessionControls"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessSessionControls") || is_null($this->_propDict["sessionControls"])) {
                 return $this->_propDict["sessionControls"];
             } else {
                 $this->_propDict["sessionControls"] = new ConditionalAccessSessionControls($this->_propDict["sessionControls"]);
@@ -106,17 +103,16 @@ class ConditionalAccessPolicyDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sessionControls
-    *
-    * @param ConditionalAccessSessionControls $val The value to assign to the sessionControls
-    *
-    * @return ConditionalAccessPolicyDetail The ConditionalAccessPolicyDetail
-    */
+     * Sets the sessionControls
+     *
+     * @param ConditionalAccessSessionControls $val The value to assign to the sessionControls
+     *
+     * @return ConditionalAccessPolicyDetail The ConditionalAccessPolicyDetail
+     */
     public function setSessionControls($val)
     {
         $this->_propDict["sessionControls"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Request;
 
-namespace Sabre\DAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * WebDAV PROPPATCH request parser.
  *
@@ -32,7 +30,6 @@ class PropPatch implements Element
      * @var array
      */
     public $properties = [];
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -63,7 +60,6 @@ class PropPatch implements Element
             }
         }
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -87,14 +83,11 @@ class PropPatch implements Element
     public static function xmlDeserialize(Reader $reader)
     {
         $self = new self();
-
         $elementMap = $reader->elementMap;
-        $elementMap['{DAV:}prop'] = 'Sabre\DAV\Xml\Element\Prop';
-        $elementMap['{DAV:}set'] = 'Sabre\Xml\Element\KeyValue';
-        $elementMap['{DAV:}remove'] = 'Sabre\Xml\Element\KeyValue';
-
+        $elementMap['{DAV:}prop'] = 'XCloner\Sabre\DAV\Xml\Element\Prop';
+        $elementMap['{DAV:}set'] = 'XCloner\Sabre\Xml\Element\KeyValue';
+        $elementMap['{DAV:}remove'] = 'XCloner\Sabre\Xml\Element\KeyValue';
         $elems = $reader->parseInnerTree($elementMap);
-
         foreach ($elems as $elem) {
             if ('{DAV:}set' === $elem['name']) {
                 $self->properties = array_merge($self->properties, $elem['value']['{DAV:}prop']);
@@ -106,7 +99,6 @@ class PropPatch implements Element
                 }
             }
         }
-
         return $self;
     }
 }

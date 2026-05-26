@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,51 +15,48 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class ModifyLabelsResponse extends \Google\Collection
-{
-  protected $collection_key = 'modifiedLabels';
-  /**
-   * @var string
-   */
-  public $kind;
-  protected $modifiedLabelsType = Label::class;
-  protected $modifiedLabelsDataType = 'array';
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param Label[]
-   */
-  public function setModifiedLabels($modifiedLabels)
-  {
-    $this->modifiedLabels = $modifiedLabels;
-  }
-  /**
-   * @return Label[]
-   */
-  public function getModifiedLabels()
-  {
-    return $this->modifiedLabels;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class ModifyLabelsResponse extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'modifiedLabels';
+    /**
+     * @var string
+     */
+    public $kind;
+    protected $modifiedLabelsType = Label::class;
+    protected $modifiedLabelsDataType = 'array';
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param Label[]
+     */
+    public function setModifiedLabels($modifiedLabels)
+    {
+        $this->modifiedLabels = $modifiedLabels;
+    }
+    /**
+     * @return Label[]
+     */
+    public function getModifiedLabels()
+    {
+        return $this->modifiedLabels;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(ModifyLabelsResponse::class, 'Google_Service_Drive_ModifyLabelsResponse');
+class_alias(ModifyLabelsResponse::class, 'XCloner\Google_Service_Drive_ModifyLabelsResponse');

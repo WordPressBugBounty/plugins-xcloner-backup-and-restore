@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageAssignmentApprovalSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageAssignmentApprovalSettings extends Entity
 {
     /**
-    * Gets the isApprovalRequiredForAdd
-    * If false, then approval is not required for new requests in this policy.
-    *
-    * @return bool|null The isApprovalRequiredForAdd
-    */
+     * Gets the isApprovalRequiredForAdd
+     * If false, then approval is not required for new requests in this policy.
+     *
+     * @return bool|null The isApprovalRequiredForAdd
+     */
     public function getIsApprovalRequiredForAdd()
     {
         if (array_key_exists("isApprovalRequiredForAdd", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AccessPackageAssignmentApprovalSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isApprovalRequiredForAdd
-    * If false, then approval is not required for new requests in this policy.
-    *
-    * @param bool $val The value of the isApprovalRequiredForAdd
-    *
-    * @return AccessPackageAssignmentApprovalSettings
-    */
+     * Sets the isApprovalRequiredForAdd
+     * If false, then approval is not required for new requests in this policy.
+     *
+     * @param bool $val The value of the isApprovalRequiredForAdd
+     *
+     * @return AccessPackageAssignmentApprovalSettings
+     */
     public function setIsApprovalRequiredForAdd($val)
     {
         $this->_propDict["isApprovalRequiredForAdd"] = $val;
         return $this;
     }
     /**
-    * Gets the isApprovalRequiredForUpdate
-    * If false, then approval is not required for updates to requests in this policy.
-    *
-    * @return bool|null The isApprovalRequiredForUpdate
-    */
+     * Gets the isApprovalRequiredForUpdate
+     * If false, then approval is not required for updates to requests in this policy.
+     *
+     * @return bool|null The isApprovalRequiredForUpdate
+     */
     public function getIsApprovalRequiredForUpdate()
     {
         if (array_key_exists("isApprovalRequiredForUpdate", $this->_propDict)) {
@@ -68,31 +69,29 @@ class AccessPackageAssignmentApprovalSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isApprovalRequiredForUpdate
-    * If false, then approval is not required for updates to requests in this policy.
-    *
-    * @param bool $val The value of the isApprovalRequiredForUpdate
-    *
-    * @return AccessPackageAssignmentApprovalSettings
-    */
+     * Sets the isApprovalRequiredForUpdate
+     * If false, then approval is not required for updates to requests in this policy.
+     *
+     * @param bool $val The value of the isApprovalRequiredForUpdate
+     *
+     * @return AccessPackageAssignmentApprovalSettings
+     */
     public function setIsApprovalRequiredForUpdate($val)
     {
         $this->_propDict["isApprovalRequiredForUpdate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the stages
-    * If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
-    *
-    * @return AccessPackageApprovalStage|null The stages
-    */
+     * Gets the stages
+     * If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
+     *
+     * @return AccessPackageApprovalStage|null The stages
+     */
     public function getStages()
     {
         if (array_key_exists("stages", $this->_propDict)) {
-            if (is_a($this->_propDict["stages"], "\Microsoft\Graph\Model\AccessPackageApprovalStage") || is_null($this->_propDict["stages"])) {
+            if (is_a($this->_propDict["stages"], "XCloner\\Microsoft\\Graph\\Model\\AccessPackageApprovalStage") || is_null($this->_propDict["stages"])) {
                 return $this->_propDict["stages"];
             } else {
                 $this->_propDict["stages"] = new AccessPackageApprovalStage($this->_propDict["stages"]);
@@ -101,18 +100,17 @@ class AccessPackageAssignmentApprovalSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the stages
-    * If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
-    *
-    * @param AccessPackageApprovalStage $val The value to assign to the stages
-    *
-    * @return AccessPackageAssignmentApprovalSettings The AccessPackageAssignmentApprovalSettings
-    */
+     * Sets the stages
+     * If approval is required, the one, two or three elements of this collection define each of the stages of approval. An empty array is present if no approval is required.
+     *
+     * @param AccessPackageApprovalStage $val The value to assign to the stages
+     *
+     * @return AccessPackageAssignmentApprovalSettings The AccessPackageAssignmentApprovalSettings
+     */
     public function setStages($val)
     {
         $this->_propDict["stages"] = $val;
-         return $this;
+        return $this;
     }
 }

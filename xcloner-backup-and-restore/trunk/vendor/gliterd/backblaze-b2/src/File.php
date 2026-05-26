@@ -1,10 +1,10 @@
 <?php
 
-namespace BackblazeB2;
+namespace XCloner\BackblazeB2;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class File implements \JsonSerializable
 {
     protected $id;
@@ -16,7 +16,6 @@ class File implements \JsonSerializable
     protected $bucketId;
     protected $action;
     protected $uploadTimestamp;
-
     /**
      * File constructor.
      *
@@ -42,25 +41,13 @@ class File implements \JsonSerializable
         $this->action = $action;
         $this->uploadTimestamp = $uploadTimestamp;
     }
-
     /**
      * @return array
      * */
     public function jsonSerialize(): mixed
     {
-        return [
-            'id'              => $this->getId(),
-            'name'            => $this->getName(),
-            'hash'            => $this->getHash(),
-            'size'            => $this->getSize(),
-            'type'            => $this->getType(),
-            'info'            => $this->getInfo(),
-            'bucketId'        => $this->getBucketId(),
-            'action'          => $this->getAction(),
-            'uploadTimestamp' => $this->getUploadTimestamp(),
-        ];
+        return ['id' => $this->getId(), 'name' => $this->getName(), 'hash' => $this->getHash(), 'size' => $this->getSize(), 'type' => $this->getType(), 'info' => $this->getInfo(), 'bucketId' => $this->getBucketId(), 'action' => $this->getAction(), 'uploadTimestamp' => $this->getUploadTimestamp()];
     }
-
     /**
      * @return string
      */
@@ -68,7 +55,6 @@ class File implements \JsonSerializable
     {
         return $this->id;
     }
-
     /**
      * @return string
      */
@@ -76,7 +62,6 @@ class File implements \JsonSerializable
     {
         return $this->name;
     }
-
     /**
      * @return string
      */
@@ -84,7 +69,6 @@ class File implements \JsonSerializable
     {
         return $this->hash;
     }
-
     /**
      * @return int
      */
@@ -92,7 +76,6 @@ class File implements \JsonSerializable
     {
         return $this->size;
     }
-
     /**
      * @return string
      */
@@ -100,7 +83,6 @@ class File implements \JsonSerializable
     {
         return $this->type;
     }
-
     /**
      * @return array
      */
@@ -108,7 +90,6 @@ class File implements \JsonSerializable
     {
         return $this->info;
     }
-
     /**
      * @return string
      */
@@ -116,7 +97,6 @@ class File implements \JsonSerializable
     {
         return $this->bucketId;
     }
-
     /**
      * @return string
      */
@@ -124,7 +104,6 @@ class File implements \JsonSerializable
     {
         return $this->action;
     }
-
     /**
      * @return string
      */

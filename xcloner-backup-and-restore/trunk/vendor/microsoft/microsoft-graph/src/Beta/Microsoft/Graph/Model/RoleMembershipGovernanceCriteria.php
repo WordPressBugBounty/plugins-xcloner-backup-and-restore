@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RoleMembershipGovernanceCriteria class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RoleMembershipGovernanceCriteria extends GovernanceCriteria
 {
     /**
-    * Gets the roleId
-    *
-    * @return string|null The roleId
-    */
+     * Gets the roleId
+     *
+     * @return string|null The roleId
+     */
     public function getRoleId()
     {
         if (array_key_exists("roleId", $this->_propDict)) {
@@ -39,24 +41,23 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria
             return null;
         }
     }
-
     /**
-    * Sets the roleId
-    *
-    * @param string $val The value of the roleId
-    *
-    * @return RoleMembershipGovernanceCriteria
-    */
+     * Sets the roleId
+     *
+     * @param string $val The value of the roleId
+     *
+     * @return RoleMembershipGovernanceCriteria
+     */
     public function setRoleId($val)
     {
         $this->_propDict["roleId"] = $val;
         return $this;
     }
     /**
-    * Gets the roleTemplateId
-    *
-    * @return string|null The roleTemplateId
-    */
+     * Gets the roleTemplateId
+     *
+     * @return string|null The roleTemplateId
+     */
     public function getRoleTemplateId()
     {
         if (array_key_exists("roleTemplateId", $this->_propDict)) {
@@ -65,14 +66,13 @@ class RoleMembershipGovernanceCriteria extends GovernanceCriteria
             return null;
         }
     }
-
     /**
-    * Sets the roleTemplateId
-    *
-    * @param string $val The value of the roleTemplateId
-    *
-    * @return RoleMembershipGovernanceCriteria
-    */
+     * Sets the roleTemplateId
+     *
+     * @param string $val The value of the roleTemplateId
+     *
+     * @return RoleMembershipGovernanceCriteria
+     */
     public function setRoleTemplateId($val)
     {
         $this->_propDict["roleTemplateId"] = $val;

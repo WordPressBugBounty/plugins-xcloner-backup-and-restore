@@ -1,16 +1,16 @@
 <?php
-namespace Aws\Arn;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn;
 
-
-use Aws\Arn\S3\AccessPointArn as S3AccessPointArn;
-use Aws\Arn\ObjectLambdaAccessPointArn;
-use Aws\Arn\S3\MultiRegionAccessPointArn;
-use Aws\Arn\S3\OutpostsBucketArn;
-use Aws\Arn\S3\RegionalBucketArn;
-use Aws\Arn\S3\OutpostsAccessPointArn;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Arn\S3\AccessPointArn as S3AccessPointArn;
+use XCloner\Aws\Arn\ObjectLambdaAccessPointArn;
+use XCloner\Aws\Arn\S3\MultiRegionAccessPointArn;
+use XCloner\Aws\Arn\S3\OutpostsBucketArn;
+use XCloner\Aws\Arn\S3\RegionalBucketArn;
+use XCloner\Aws\Arn\S3\OutpostsAccessPointArn;
 /**
  * This class provides functionality to parse ARN strings and return a
  * corresponding ARN object. ARN-parsing logic may be subject to change in the
@@ -28,7 +28,6 @@ class ArnParser
     {
         return $string !== null && strpos($string, 'arn:') === 0;
     }
-
     /**
      * Parses a string and returns an instance of ArnInterface. Returns a
      * specific type of Arn object if it has a specific class representation
@@ -61,12 +60,10 @@ class ArnParser
             }
             return new AccessPointArn($string);
         }
-
         return new Arn($data);
     }
-
     private static function explodeResourceComponent($resource)
     {
-        return preg_split("/[\/:]/", $resource);
+        return preg_split("/[\\/:]/", $resource);
     }
 }

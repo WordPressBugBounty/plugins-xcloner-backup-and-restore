@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Process class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Process extends Entity
 {
     /**
-    * Gets the accountName
-    * User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.
-    *
-    * @return string|null The accountName
-    */
+     * Gets the accountName
+     * User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.
+     *
+     * @return string|null The accountName
+     */
     public function getAccountName()
     {
         if (array_key_exists("accountName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the accountName
-    * User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.
-    *
-    * @param string $val The value of the accountName
-    *
-    * @return Process
-    */
+     * Sets the accountName
+     * User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.
+     *
+     * @param string $val The value of the accountName
+     *
+     * @return Process
+     */
     public function setAccountName($val)
     {
         $this->_propDict["accountName"] = $val;
         return $this;
     }
     /**
-    * Gets the commandLine
-    * The full process invocation commandline including all parameters.
-    *
-    * @return string|null The commandLine
-    */
+     * Gets the commandLine
+     * The full process invocation commandline including all parameters.
+     *
+     * @return string|null The commandLine
+     */
     public function getCommandLine()
     {
         if (array_key_exists("commandLine", $this->_propDict)) {
@@ -68,31 +69,29 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the commandLine
-    * The full process invocation commandline including all parameters.
-    *
-    * @param string $val The value of the commandLine
-    *
-    * @return Process
-    */
+     * Sets the commandLine
+     * The full process invocation commandline including all parameters.
+     *
+     * @param string $val The value of the commandLine
+     *
+     * @return Process
+     */
     public function setCommandLine($val)
     {
         $this->_propDict["commandLine"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -101,31 +100,29 @@ class Process extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the createdDateTime
-    *
-    * @return Process The Process
-    */
+     * Sets the createdDateTime
+     * Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the createdDateTime
+     *
+     * @return Process The Process
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the fileHash
-    * Complex type containing file hashes (cryptographic and location-sensitive).
-    *
-    * @return FileHash|null The fileHash
-    */
+     * Gets the fileHash
+     * Complex type containing file hashes (cryptographic and location-sensitive).
+     *
+     * @return FileHash|null The fileHash
+     */
     public function getFileHash()
     {
         if (array_key_exists("fileHash", $this->_propDict)) {
-            if (is_a($this->_propDict["fileHash"], "\Microsoft\Graph\Model\FileHash") || is_null($this->_propDict["fileHash"])) {
+            if (is_a($this->_propDict["fileHash"], "XCloner\\Microsoft\\Graph\\Model\\FileHash") || is_null($this->_propDict["fileHash"])) {
                 return $this->_propDict["fileHash"];
             } else {
                 $this->_propDict["fileHash"] = new FileHash($this->_propDict["fileHash"]);
@@ -134,31 +131,29 @@ class Process extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the fileHash
-    * Complex type containing file hashes (cryptographic and location-sensitive).
-    *
-    * @param FileHash $val The value to assign to the fileHash
-    *
-    * @return Process The Process
-    */
+     * Sets the fileHash
+     * Complex type containing file hashes (cryptographic and location-sensitive).
+     *
+     * @param FileHash $val The value to assign to the fileHash
+     *
+     * @return Process The Process
+     */
     public function setFileHash($val)
     {
         $this->_propDict["fileHash"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the integrityLevel
-    * The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
-    *
-    * @return ProcessIntegrityLevel|null The integrityLevel
-    */
+     * Gets the integrityLevel
+     * The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
+     *
+     * @return ProcessIntegrityLevel|null The integrityLevel
+     */
     public function getIntegrityLevel()
     {
         if (array_key_exists("integrityLevel", $this->_propDict)) {
-            if (is_a($this->_propDict["integrityLevel"], "\Microsoft\Graph\Model\ProcessIntegrityLevel") || is_null($this->_propDict["integrityLevel"])) {
+            if (is_a($this->_propDict["integrityLevel"], "XCloner\\Microsoft\\Graph\\Model\\ProcessIntegrityLevel") || is_null($this->_propDict["integrityLevel"])) {
                 return $this->_propDict["integrityLevel"];
             } else {
                 $this->_propDict["integrityLevel"] = new ProcessIntegrityLevel($this->_propDict["integrityLevel"]);
@@ -167,26 +162,25 @@ class Process extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the integrityLevel
-    * The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
-    *
-    * @param ProcessIntegrityLevel $val The value to assign to the integrityLevel
-    *
-    * @return Process The Process
-    */
+     * Sets the integrityLevel
+     * The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.
+     *
+     * @param ProcessIntegrityLevel $val The value to assign to the integrityLevel
+     *
+     * @return Process The Process
+     */
     public function setIntegrityLevel($val)
     {
         $this->_propDict["integrityLevel"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the isElevated
-    * True if the process is elevated.
-    *
-    * @return bool|null The isElevated
-    */
+     * Gets the isElevated
+     * True if the process is elevated.
+     *
+     * @return bool|null The isElevated
+     */
     public function getIsElevated()
     {
         if (array_key_exists("isElevated", $this->_propDict)) {
@@ -195,26 +189,25 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isElevated
-    * True if the process is elevated.
-    *
-    * @param bool $val The value of the isElevated
-    *
-    * @return Process
-    */
+     * Sets the isElevated
+     * True if the process is elevated.
+     *
+     * @param bool $val The value of the isElevated
+     *
+     * @return Process
+     */
     public function setIsElevated($val)
     {
         $this->_propDict["isElevated"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The name of the process' Image file.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the process' Image file.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -223,31 +216,29 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the process' Image file.
-    *
-    * @param string $val The value of the name
-    *
-    * @return Process
-    */
+     * Sets the name
+     * The name of the process' Image file.
+     *
+     * @param string $val The value of the name
+     *
+     * @return Process
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the parentProcessCreatedDateTime
-    * DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @return \DateTime|null The parentProcessCreatedDateTime
-    */
+     * Gets the parentProcessCreatedDateTime
+     * DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @return \DateTime|null The parentProcessCreatedDateTime
+     */
     public function getParentProcessCreatedDateTime()
     {
         if (array_key_exists("parentProcessCreatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["parentProcessCreatedDateTime"], "\DateTime") || is_null($this->_propDict["parentProcessCreatedDateTime"])) {
+            if (is_a($this->_propDict["parentProcessCreatedDateTime"], "\\DateTime") || is_null($this->_propDict["parentProcessCreatedDateTime"])) {
                 return $this->_propDict["parentProcessCreatedDateTime"];
             } else {
                 $this->_propDict["parentProcessCreatedDateTime"] = new \DateTime($this->_propDict["parentProcessCreatedDateTime"]);
@@ -256,26 +247,25 @@ class Process extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the parentProcessCreatedDateTime
-    * DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-    *
-    * @param \DateTime $val The value to assign to the parentProcessCreatedDateTime
-    *
-    * @return Process The Process
-    */
+     * Sets the parentProcessCreatedDateTime
+     * DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     *
+     * @param \DateTime $val The value to assign to the parentProcessCreatedDateTime
+     *
+     * @return Process The Process
+     */
     public function setParentProcessCreatedDateTime($val)
     {
         $this->_propDict["parentProcessCreatedDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the parentProcessId
-    * The Process ID (PID) of the parent process.
-    *
-    * @return int|null The parentProcessId
-    */
+     * Gets the parentProcessId
+     * The Process ID (PID) of the parent process.
+     *
+     * @return int|null The parentProcessId
+     */
     public function getParentProcessId()
     {
         if (array_key_exists("parentProcessId", $this->_propDict)) {
@@ -284,26 +274,25 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the parentProcessId
-    * The Process ID (PID) of the parent process.
-    *
-    * @param int $val The value of the parentProcessId
-    *
-    * @return Process
-    */
+     * Sets the parentProcessId
+     * The Process ID (PID) of the parent process.
+     *
+     * @param int $val The value of the parentProcessId
+     *
+     * @return Process
+     */
     public function setParentProcessId($val)
     {
         $this->_propDict["parentProcessId"] = $val;
         return $this;
     }
     /**
-    * Gets the parentProcessName
-    * The name of the image file of the parent process.
-    *
-    * @return string|null The parentProcessName
-    */
+     * Gets the parentProcessName
+     * The name of the image file of the parent process.
+     *
+     * @return string|null The parentProcessName
+     */
     public function getParentProcessName()
     {
         if (array_key_exists("parentProcessName", $this->_propDict)) {
@@ -312,26 +301,25 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the parentProcessName
-    * The name of the image file of the parent process.
-    *
-    * @param string $val The value of the parentProcessName
-    *
-    * @return Process
-    */
+     * Sets the parentProcessName
+     * The name of the image file of the parent process.
+     *
+     * @param string $val The value of the parentProcessName
+     *
+     * @return Process
+     */
     public function setParentProcessName($val)
     {
         $this->_propDict["parentProcessName"] = $val;
         return $this;
     }
     /**
-    * Gets the path
-    * Full path, including filename.
-    *
-    * @return string|null The path
-    */
+     * Gets the path
+     * Full path, including filename.
+     *
+     * @return string|null The path
+     */
     public function getPath()
     {
         if (array_key_exists("path", $this->_propDict)) {
@@ -340,26 +328,25 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the path
-    * Full path, including filename.
-    *
-    * @param string $val The value of the path
-    *
-    * @return Process
-    */
+     * Sets the path
+     * Full path, including filename.
+     *
+     * @param string $val The value of the path
+     *
+     * @return Process
+     */
     public function setPath($val)
     {
         $this->_propDict["path"] = $val;
         return $this;
     }
     /**
-    * Gets the processId
-    * The Process ID (PID) of the process.
-    *
-    * @return int|null The processId
-    */
+     * Gets the processId
+     * The Process ID (PID) of the process.
+     *
+     * @return int|null The processId
+     */
     public function getProcessId()
     {
         if (array_key_exists("processId", $this->_propDict)) {
@@ -368,15 +355,14 @@ class Process extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the processId
-    * The Process ID (PID) of the process.
-    *
-    * @param int $val The value of the processId
-    *
-    * @return Process
-    */
+     * Sets the processId
+     * The Process ID (PID) of the process.
+     *
+     * @param int $val The value of the processId
+     *
+     * @return Process
+     */
     public function setProcessId($val)
     {
         $this->_propDict["processId"] = $val;

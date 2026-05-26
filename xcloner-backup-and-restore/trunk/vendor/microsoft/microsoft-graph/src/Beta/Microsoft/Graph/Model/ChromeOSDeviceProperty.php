@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChromeOSDeviceProperty class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ChromeOSDeviceProperty extends Entity
 {
     /**
-    * Gets the name
-    * Name of the property
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the property
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ChromeOSDeviceProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the property
-    *
-    * @param string $val The value of the name
-    *
-    * @return ChromeOSDeviceProperty
-    */
+     * Sets the name
+     * Name of the property
+     *
+     * @param string $val The value of the name
+     *
+     * @return ChromeOSDeviceProperty
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the updatable
-    * Whether this property is updatable
-    *
-    * @return bool|null The updatable
-    */
+     * Gets the updatable
+     * Whether this property is updatable
+     *
+     * @return bool|null The updatable
+     */
     public function getUpdatable()
     {
         if (array_key_exists("updatable", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ChromeOSDeviceProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the updatable
-    * Whether this property is updatable
-    *
-    * @param bool $val The value of the updatable
-    *
-    * @return ChromeOSDeviceProperty
-    */
+     * Sets the updatable
+     * Whether this property is updatable
+     *
+     * @param bool $val The value of the updatable
+     *
+     * @return ChromeOSDeviceProperty
+     */
     public function setUpdatable($val)
     {
         $this->_propDict["updatable"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Value of the property
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Value of the property
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -96,26 +96,25 @@ class ChromeOSDeviceProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Value of the property
-    *
-    * @param string $val The value of the value
-    *
-    * @return ChromeOSDeviceProperty
-    */
+     * Sets the value
+     * Value of the property
+     *
+     * @param string $val The value of the value
+     *
+     * @return ChromeOSDeviceProperty
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
         return $this;
     }
     /**
-    * Gets the valueType
-    * Type of the value
-    *
-    * @return string|null The valueType
-    */
+     * Gets the valueType
+     * Type of the value
+     *
+     * @return string|null The valueType
+     */
     public function getValueType()
     {
         if (array_key_exists("valueType", $this->_propDict)) {
@@ -124,15 +123,14 @@ class ChromeOSDeviceProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the valueType
-    * Type of the value
-    *
-    * @param string $val The value of the valueType
-    *
-    * @return ChromeOSDeviceProperty
-    */
+     * Sets the valueType
+     * Type of the value
+     *
+     * @param string $val The value of the valueType
+     *
+     * @return ChromeOSDeviceProperty
+     */
     public function setValueType($val)
     {
         $this->_propDict["valueType"] = $val;

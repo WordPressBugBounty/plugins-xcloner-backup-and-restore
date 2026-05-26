@@ -1,9 +1,16 @@
 {
-    "name": "symfony/translation-contracts",
+    "name": "symfony\/translation-contracts",
     "type": "library",
     "description": "Generic abstractions related to translation",
-    "keywords": ["abstractions", "contracts", "decoupling", "interfaces", "interoperability", "standards"],
-    "homepage": "https://symfony.com",
+    "keywords": [
+        "abstractions",
+        "contracts",
+        "decoupling",
+        "interfaces",
+        "interoperability",
+        "standards"
+    ],
+    "homepage": "https:\/\/symfony.com",
     "license": "MIT",
     "authors": [
         {
@@ -12,17 +19,19 @@
         },
         {
             "name": "Symfony Community",
-            "homepage": "https://symfony.com/contributors"
+            "homepage": "https:\/\/symfony.com\/contributors"
         }
     ],
     "require": {
         "php": ">=7.2.5"
     },
     "suggest": {
-        "symfony/translation-implementation": ""
+        "symfony\/translation-implementation": ""
     },
     "autoload": {
-        "psr-4": { "Symfony\\Contracts\\Translation\\": "" }
+        "psr-4": {
+            "XCloner\\Symfony\\Contracts\\Translation\\": ""
+        }
     },
     "minimum-stability": "dev",
     "extra": {
@@ -30,8 +39,8 @@
             "dev-main": "2.5-dev"
         },
         "thanks": {
-            "name": "symfony/contracts",
-            "url": "https://github.com/symfony/contracts"
+            "name": "symfony\/contracts",
+            "url": "https:\/\/github.com\/symfony\/contracts"
         }
     }
 }

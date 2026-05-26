@@ -1,12 +1,11 @@
 <?php
 
-namespace As247\CloudStorages\Exception;
+namespace XCloner\As247\CloudStorages\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use InvalidArgumentException;
-
 class InvalidStreamProvided extends InvalidArgumentException implements FilesystemException
 {
 }

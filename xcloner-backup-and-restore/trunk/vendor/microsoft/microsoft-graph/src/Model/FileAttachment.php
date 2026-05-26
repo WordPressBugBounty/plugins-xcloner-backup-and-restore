@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FileAttachment class
 *
@@ -28,44 +29,42 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FileAttachment extends Attachment
 {
     /**
-    * Gets the contentBytes
-    * The base64-encoded contents of the file.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The contentBytes
-    */
+     * Gets the contentBytes
+     * The base64-encoded contents of the file.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The contentBytes
+     */
     public function getContentBytes()
     {
         if (array_key_exists("contentBytes", $this->_propDict)) {
-            if (is_a($this->_propDict["contentBytes"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["contentBytes"])) {
+            if (is_a($this->_propDict["contentBytes"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["contentBytes"])) {
                 return $this->_propDict["contentBytes"];
             } else {
-                $this->_propDict["contentBytes"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["contentBytes"]);
+                $this->_propDict["contentBytes"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["contentBytes"]);
                 return $this->_propDict["contentBytes"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the contentBytes
-    * The base64-encoded contents of the file.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The contentBytes
-    *
-    * @return FileAttachment
-    */
+     * Sets the contentBytes
+     * The base64-encoded contents of the file.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The contentBytes
+     *
+     * @return FileAttachment
+     */
     public function setContentBytes($val)
     {
         $this->_propDict["contentBytes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentId
-    * The ID of the attachment in the Exchange store.
-    *
-    * @return string|null The contentId
-    */
+     * Gets the contentId
+     * The ID of the attachment in the Exchange store.
+     *
+     * @return string|null The contentId
+     */
     public function getContentId()
     {
         if (array_key_exists("contentId", $this->_propDict)) {
@@ -74,27 +73,25 @@ class FileAttachment extends Attachment
             return null;
         }
     }
-
     /**
-    * Sets the contentId
-    * The ID of the attachment in the Exchange store.
-    *
-    * @param string $val The contentId
-    *
-    * @return FileAttachment
-    */
+     * Sets the contentId
+     * The ID of the attachment in the Exchange store.
+     *
+     * @param string $val The contentId
+     *
+     * @return FileAttachment
+     */
     public function setContentId($val)
     {
         $this->_propDict["contentId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentLocation
-    * Do not use this property as it is not supported.
-    *
-    * @return string|null The contentLocation
-    */
+     * Gets the contentLocation
+     * Do not use this property as it is not supported.
+     *
+     * @return string|null The contentLocation
+     */
     public function getContentLocation()
     {
         if (array_key_exists("contentLocation", $this->_propDict)) {
@@ -103,19 +100,17 @@ class FileAttachment extends Attachment
             return null;
         }
     }
-
     /**
-    * Sets the contentLocation
-    * Do not use this property as it is not supported.
-    *
-    * @param string $val The contentLocation
-    *
-    * @return FileAttachment
-    */
+     * Sets the contentLocation
+     * Do not use this property as it is not supported.
+     *
+     * @param string $val The contentLocation
+     *
+     * @return FileAttachment
+     */
     public function setContentLocation($val)
     {
         $this->_propDict["contentLocation"] = $val;
         return $this;
     }
-
 }

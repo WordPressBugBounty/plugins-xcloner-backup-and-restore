@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Media class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Media extends Entity
 {
     /**
-    * Gets the isTranscriptionShown
-    * If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
-    *
-    * @return bool|null The isTranscriptionShown
-    */
+     * Gets the isTranscriptionShown
+     * If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
+     *
+     * @return bool|null The isTranscriptionShown
+     */
     public function getIsTranscriptionShown()
     {
         if (array_key_exists("isTranscriptionShown", $this->_propDict)) {
@@ -40,31 +42,29 @@ class Media extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isTranscriptionShown
-    * If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
-    *
-    * @param bool $val The value of the isTranscriptionShown
-    *
-    * @return Media
-    */
+     * Sets the isTranscriptionShown
+     * If a file has a transcript, this setting controls if the closed captions / transcription for the media file should be shown to people during viewing. Read-Write.
+     *
+     * @param bool $val The value of the isTranscriptionShown
+     *
+     * @return Media
+     */
     public function setIsTranscriptionShown($val)
     {
         $this->_propDict["isTranscriptionShown"] = $val;
         return $this;
     }
-
     /**
-    * Gets the mediaSource
-    * Information about the source of media. Read-only.
-    *
-    * @return MediaSource|null The mediaSource
-    */
+     * Gets the mediaSource
+     * Information about the source of media. Read-only.
+     *
+     * @return MediaSource|null The mediaSource
+     */
     public function getMediaSource()
     {
         if (array_key_exists("mediaSource", $this->_propDict)) {
-            if (is_a($this->_propDict["mediaSource"], "\Beta\Microsoft\Graph\Model\MediaSource") || is_null($this->_propDict["mediaSource"])) {
+            if (is_a($this->_propDict["mediaSource"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MediaSource") || is_null($this->_propDict["mediaSource"])) {
                 return $this->_propDict["mediaSource"];
             } else {
                 $this->_propDict["mediaSource"] = new MediaSource($this->_propDict["mediaSource"]);
@@ -73,18 +73,17 @@ class Media extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mediaSource
-    * Information about the source of media. Read-only.
-    *
-    * @param MediaSource $val The value to assign to the mediaSource
-    *
-    * @return Media The Media
-    */
+     * Sets the mediaSource
+     * Information about the source of media. Read-only.
+     *
+     * @param MediaSource $val The value to assign to the mediaSource
+     *
+     * @return Media The Media
+     */
     public function setMediaSource($val)
     {
         $this->_propDict["mediaSource"] = $val;
-         return $this;
+        return $this;
     }
 }

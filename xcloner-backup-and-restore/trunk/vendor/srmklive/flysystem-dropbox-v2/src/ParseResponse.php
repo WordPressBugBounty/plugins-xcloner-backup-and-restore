@@ -1,10 +1,10 @@
 <?php
 
-namespace Srmklive\Dropbox;
+namespace XCloner\Srmklive\Dropbox;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 trait ParseResponse
 {
     /**
@@ -17,16 +17,12 @@ trait ParseResponse
     protected function normalizeResponse($response)
     {
         $normalizedPath = ltrim($this->removePathPrefix($response['path_display']), '/');
-
         $normalizedResponse = ['path' => $normalizedPath];
-        $normalizedResponse['timestamp'] = isset($response['server_modified']) ?
-            strtotime($response['server_modified']) : null;
+        $normalizedResponse['timestamp'] = isset($response['server_modified']) ? strtotime($response['server_modified']) : null;
         $normalizedResponse['size'] = isset($response['size']) ? $response['size'] : null;
         $normalizedResponse['bytes'] = isset($response['size']) ? $response['size'] : null;
-
-        $type = ($response['.tag'] === 'folder' ? 'dir' : 'file');
+        $type = $response['.tag'] === 'folder' ? 'dir' : 'file';
         $normalizedResponse['type'] = $type;
-
         return array_filter($normalizedResponse);
     }
 }

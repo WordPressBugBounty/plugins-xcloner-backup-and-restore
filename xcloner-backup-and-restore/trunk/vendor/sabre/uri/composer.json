@@ -1,12 +1,12 @@
 {
-    "name": "sabre/uri",
+    "name": "sabre\/uri",
     "description": "Functions for making sense out of URIs.",
     "keywords": [
         "URI",
         "URL",
         "rfc3986"
     ],
-    "homepage": "http://sabre.io/uri/",
+    "homepage": "http:\/\/sabre.io\/uri\/",
     "license": "BSD-3-Clause",
     "require": {
         "php": "^7.1 || ^8.0"
@@ -15,31 +15,31 @@
         {
             "name": "Evert Pot",
             "email": "me@evertpot.com",
-            "homepage": "http://evertpot.com/",
+            "homepage": "http:\/\/evertpot.com\/",
             "role": "Developer"
         }
     ],
     "support": {
-        "forum": "https://groups.google.com/group/sabredav-discuss",
-        "source": "https://github.com/fruux/sabre-uri"
+        "forum": "https:\/\/groups.google.com\/group\/sabredav-discuss",
+        "source": "https:\/\/github.com\/fruux\/sabre-uri"
     },
     "autoload": {
-        "files" : [
-            "lib/functions.php"
+        "files": [
+            "lib\/functions.php"
         ],
-        "psr-4" : {
-            "Sabre\\Uri\\" : "lib/"
+        "psr-4": {
+            "XCloner\\Sabre\\Uri\\": "lib\/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Sabre\\Uri\\": "tests/Uri"
+            "XCloner\\Sabre\\Uri\\": "tests\/Uri"
         }
     },
     "require-dev": {
-        "friendsofphp/php-cs-fixer": "~2.19.3",
-        "phpstan/phpstan": "^0.12",
-        "phpunit/phpunit" : "^7.5 || ^8.5 || ^9.0"
+        "friendsofphp\/php-cs-fixer": "~2.19.3",
+        "phpstan\/phpstan": "^0.12",
+        "phpunit\/phpunit": "^7.5 || ^8.5 || ^9.0"
     },
     "scripts": {
         "phpstan": [
@@ -49,7 +49,7 @@
             "php-cs-fixer fix"
         ],
         "phpunit": [
-            "phpunit --configuration tests/phpunit.xml"
+            "phpunit --configuration tests\/phpunit.xml"
         ],
         "test": [
             "composer phpstan",

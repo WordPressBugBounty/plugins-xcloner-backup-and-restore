@@ -1,25 +1,22 @@
 <?php
 
-namespace League\Flysystem\Cached;
+namespace XCloner\League\Flysystem\Cached;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use League\Flysystem\AdapterInterface;
-use League\Flysystem\Config;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\League\Flysystem\AdapterInterface;
+use XCloner\League\Flysystem\Config;
 class CachedAdapter implements AdapterInterface
 {
     /**
      * @var AdapterInterface
      */
     private $adapter;
-
     /**
      * @var CacheInterface
      */
     private $cache;
-
     /**
      * Constructor.
      *
@@ -32,7 +29,6 @@ class CachedAdapter implements AdapterInterface
         $this->cache = $cache;
         $this->cache->load();
     }
-
     /**
      * Get the underlying Adapter implementation.
      *
@@ -42,7 +38,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->adapter;
     }
-
     /**
      * Get the used Cache implementation.
      *
@@ -52,178 +47,142 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->cache;
     }
-
     /**
      * {@inheritdoc}
      */
     public function write($path, $contents, Config $config)
     {
         $result = $this->adapter->write($path, $contents, $config);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $result['type'] = 'file';
-            $this->cache->updateObject($path, $result + compact('path', 'contents'), true);
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function writeStream($path, $resource, Config $config)
     {
         $result = $this->adapter->writeStream($path, $resource, $config);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $result['type'] = 'file';
-            $contents = false;
-            $this->cache->updateObject($path, $result + compact('path', 'contents'), true);
+            $contents = \false;
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function update($path, $contents, Config $config)
     {
         $result = $this->adapter->update($path, $contents, $config);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $result['type'] = 'file';
-            $this->cache->updateObject($path, $result + compact('path', 'contents'), true);
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function updateStream($path, $resource, Config $config)
     {
         $result = $this->adapter->updateStream($path, $resource, $config);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $result['type'] = 'file';
-            $contents = false;
-            $this->cache->updateObject($path, $result + compact('path', 'contents'), true);
+            $contents = \false;
+            $this->cache->updateObject($path, $result + compact('path', 'contents'), \true);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function rename($path, $newPath)
     {
         $result = $this->adapter->rename($path, $newPath);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $this->cache->rename($path, $newPath);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function copy($path, $newpath)
     {
         $result = $this->adapter->copy($path, $newpath);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $this->cache->copy($path, $newpath);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function delete($path)
     {
         $result = $this->adapter->delete($path);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $this->cache->delete($path);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function deleteDir($dirname)
     {
         $result = $this->adapter->deleteDir($dirname);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $this->cache->deleteDir($dirname);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function createDir($dirname, Config $config)
     {
         $result = $this->adapter->createDir($dirname, $config);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $type = 'dir';
             $path = $dirname;
-            $this->cache->updateObject($dirname, compact('path', 'type'), true);
+            $this->cache->updateObject($dirname, compact('path', 'type'), \true);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function setVisibility($path, $visibility)
     {
         $result = $this->adapter->setVisibility($path, $visibility);
-
-        if ($result !== false) {
-            $this->cache->updateObject($path, compact('path', 'visibility'), true);
+        if ($result !== \false) {
+            $this->cache->updateObject($path, compact('path', 'visibility'), \true);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
     public function has($path)
     {
         $cacheHas = $this->cache->has($path);
-
         if ($cacheHas !== null) {
             return $cacheHas;
         }
-
         $adapterResponse = $this->adapter->has($path);
-
-        if (! $adapterResponse) {
+        if (!$adapterResponse) {
             $this->cache->storeMiss($path);
         } else {
             $cacheEntry = is_array($adapterResponse) ? $adapterResponse : compact('path');
-            $this->cache->updateObject($path, $cacheEntry, true);
+            $this->cache->updateObject($path, $cacheEntry, \true);
         }
-
         return $adapterResponse;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -231,7 +190,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->callWithFallback('contents', $path, 'read');
     }
-
     /**
      * {@inheritdoc}
      */
@@ -239,7 +197,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->adapter->readStream($path);
     }
-
     /**
      * Get the path prefix.
      *
@@ -249,7 +206,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->adapter->getPathPrefix();
     }
-
     /**
      * Prefix a path.
      *
@@ -261,25 +217,20 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->adapter->applyPathPrefix($path);
     }
-
     /**
      * {@inheritdoc}
      */
-    public function listContents($directory = '', $recursive = false)
+    public function listContents($directory = '', $recursive = \false)
     {
         if ($this->cache->isComplete($directory, $recursive)) {
             return $this->cache->listContents($directory, $recursive);
         }
-
         $result = $this->adapter->listContents($directory, $recursive);
-
-        if ($result !== false) {
+        if ($result !== \false) {
             $this->cache->storeContents($directory, $result, $recursive);
         }
-
         return $result;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -287,7 +238,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->callWithFallback(null, $path, 'getMetadata');
     }
-
     /**
      * {@inheritdoc}
      */
@@ -295,7 +245,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->callWithFallback('size', $path, 'getSize');
     }
-
     /**
      * {@inheritdoc}
      */
@@ -303,7 +252,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->callWithFallback('mimetype', $path, 'getMimetype');
     }
-
     /**
      * {@inheritdoc}
      */
@@ -311,7 +259,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->callWithFallback('timestamp', $path, 'getTimestamp');
     }
-
     /**
      * {@inheritdoc}
      */
@@ -319,7 +266,6 @@ class CachedAdapter implements AdapterInterface
     {
         return $this->callWithFallback('visibility', $path, 'getVisibility');
     }
-
     /**
      * Call a method and cache the response.
      *
@@ -332,18 +278,14 @@ class CachedAdapter implements AdapterInterface
     protected function callWithFallback($property, $path, $method)
     {
         $result = $this->cache->{$method}($path);
-
-        if ($result !== false && ($property === null || array_key_exists($property, $result))) {
+        if ($result !== \false && ($property === null || array_key_exists($property, $result))) {
             return $result;
         }
-
         $result = $this->adapter->{$method}($path);
-
         if ($result) {
             $object = $result + compact('path');
-            $this->cache->updateObject($path, $object, true);
+            $this->cache->updateObject($path, $object, \true);
         }
-
         return $result;
     }
 }

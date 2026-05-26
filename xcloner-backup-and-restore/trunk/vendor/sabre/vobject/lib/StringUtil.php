@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Useful utilities for working with various strings.
  *
@@ -25,12 +25,10 @@ class StringUtil
     {
         // Control characters
         if (preg_match('%[\x00-\x08\x0B-\x0C\x0E\x0F]%', $str)) {
-            return false;
+            return \false;
         }
-
         return (bool) preg_match('%%u', $str);
     }
-
     /**
      * This method tries its best to convert the input string to UTF-8.
      *
@@ -46,7 +44,6 @@ class StringUtil
         if (!mb_check_encoding($str, 'UTF-8') && mb_check_encoding($str, 'ISO-8859-1')) {
             $str = mb_convert_encoding($str, 'UTF-8', 'ISO-8859-1');
         }
-
         // Removing any control characters
         return preg_replace('%(?:[\x00-\x08\x0B-\x0C\x0E-\x1F\x7F])%', '', $str);
     }

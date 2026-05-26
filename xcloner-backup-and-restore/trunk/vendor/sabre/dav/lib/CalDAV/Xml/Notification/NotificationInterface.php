@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Notification;
 
-namespace Sabre\CalDAV\Xml\Notification;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * This interface reflects a single notification type.
  *
@@ -24,7 +22,6 @@ interface NotificationInterface extends XmlSerializable
      * response body.
      */
     public function xmlSerializeFull(Writer $writer);
-
     /**
      * Returns a unique id for this notification.
      *
@@ -34,7 +31,6 @@ interface NotificationInterface extends XmlSerializable
      * @return string
      */
     public function getId();
-
     /**
      * Returns the ETag for this notification.
      *

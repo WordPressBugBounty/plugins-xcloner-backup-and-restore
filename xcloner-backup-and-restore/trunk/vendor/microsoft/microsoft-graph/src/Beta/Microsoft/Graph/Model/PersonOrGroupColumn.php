@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PersonOrGroupColumn class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PersonOrGroupColumn extends Entity
 {
     /**
-    * Gets the allowMultipleSelection
-    * Indicates whether multiple values can be selected from the source.
-    *
-    * @return bool|null The allowMultipleSelection
-    */
+     * Gets the allowMultipleSelection
+     * Indicates whether multiple values can be selected from the source.
+     *
+     * @return bool|null The allowMultipleSelection
+     */
     public function getAllowMultipleSelection()
     {
         if (array_key_exists("allowMultipleSelection", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PersonOrGroupColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowMultipleSelection
-    * Indicates whether multiple values can be selected from the source.
-    *
-    * @param bool $val The value of the allowMultipleSelection
-    *
-    * @return PersonOrGroupColumn
-    */
+     * Sets the allowMultipleSelection
+     * Indicates whether multiple values can be selected from the source.
+     *
+     * @param bool $val The value of the allowMultipleSelection
+     *
+     * @return PersonOrGroupColumn
+     */
     public function setAllowMultipleSelection($val)
     {
         $this->_propDict["allowMultipleSelection"] = $val;
         return $this;
     }
     /**
-    * Gets the chooseFromType
-    * Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
-    *
-    * @return string|null The chooseFromType
-    */
+     * Gets the chooseFromType
+     * Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
+     *
+     * @return string|null The chooseFromType
+     */
     public function getChooseFromType()
     {
         if (array_key_exists("chooseFromType", $this->_propDict)) {
@@ -68,26 +69,25 @@ class PersonOrGroupColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the chooseFromType
-    * Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
-    *
-    * @param string $val The value of the chooseFromType
-    *
-    * @return PersonOrGroupColumn
-    */
+     * Sets the chooseFromType
+     * Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
+     *
+     * @param string $val The value of the chooseFromType
+     *
+     * @return PersonOrGroupColumn
+     */
     public function setChooseFromType($val)
     {
         $this->_propDict["chooseFromType"] = $val;
         return $this;
     }
     /**
-    * Gets the displayAs
-    * How to display the information about the person or group chosen. See below.
-    *
-    * @return string|null The displayAs
-    */
+     * Gets the displayAs
+     * How to display the information about the person or group chosen. See below.
+     *
+     * @return string|null The displayAs
+     */
     public function getDisplayAs()
     {
         if (array_key_exists("displayAs", $this->_propDict)) {
@@ -96,15 +96,14 @@ class PersonOrGroupColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayAs
-    * How to display the information about the person or group chosen. See below.
-    *
-    * @param string $val The value of the displayAs
-    *
-    * @return PersonOrGroupColumn
-    */
+     * Sets the displayAs
+     * How to display the information about the person or group chosen. See below.
+     *
+     * @param string $val The value of the displayAs
+     *
+     * @return PersonOrGroupColumn
+     */
     public function setDisplayAs($val)
     {
         $this->_propDict["displayAs"] = $val;

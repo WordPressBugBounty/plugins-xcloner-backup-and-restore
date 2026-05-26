@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamGuestSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamGuestSettings extends Entity
 {
     /**
-    * Gets the allowCreateUpdateChannels
-    * If set to true, guests can add and update channels.
-    *
-    * @return bool|null The allowCreateUpdateChannels
-    */
+     * Gets the allowCreateUpdateChannels
+     * If set to true, guests can add and update channels.
+     *
+     * @return bool|null The allowCreateUpdateChannels
+     */
     public function getAllowCreateUpdateChannels()
     {
         if (array_key_exists("allowCreateUpdateChannels", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TeamGuestSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowCreateUpdateChannels
-    * If set to true, guests can add and update channels.
-    *
-    * @param bool $val The value of the allowCreateUpdateChannels
-    *
-    * @return TeamGuestSettings
-    */
+     * Sets the allowCreateUpdateChannels
+     * If set to true, guests can add and update channels.
+     *
+     * @param bool $val The value of the allowCreateUpdateChannels
+     *
+     * @return TeamGuestSettings
+     */
     public function setAllowCreateUpdateChannels($val)
     {
         $this->_propDict["allowCreateUpdateChannels"] = $val;
         return $this;
     }
     /**
-    * Gets the allowDeleteChannels
-    * If set to true, guests can delete channels.
-    *
-    * @return bool|null The allowDeleteChannels
-    */
+     * Gets the allowDeleteChannels
+     * If set to true, guests can delete channels.
+     *
+     * @return bool|null The allowDeleteChannels
+     */
     public function getAllowDeleteChannels()
     {
         if (array_key_exists("allowDeleteChannels", $this->_propDict)) {
@@ -68,15 +69,14 @@ class TeamGuestSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowDeleteChannels
-    * If set to true, guests can delete channels.
-    *
-    * @param bool $val The value of the allowDeleteChannels
-    *
-    * @return TeamGuestSettings
-    */
+     * Sets the allowDeleteChannels
+     * If set to true, guests can delete channels.
+     *
+     * @param bool $val The value of the allowDeleteChannels
+     *
+     * @return TeamGuestSettings
+     */
     public function setAllowDeleteChannels($val)
     {
         $this->_propDict["allowDeleteChannels"] = $val;

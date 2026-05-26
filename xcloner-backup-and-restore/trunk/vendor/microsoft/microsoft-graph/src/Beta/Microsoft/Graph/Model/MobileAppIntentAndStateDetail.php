@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppIntentAndStateDetail class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppIntentAndStateDetail extends Entity
 {
     /**
-    * Gets the applicationId
-    * MobieApp identifier.
-    *
-    * @return string|null The applicationId
-    */
+     * Gets the applicationId
+     * MobieApp identifier.
+     *
+     * @return string|null The applicationId
+     */
     public function getApplicationId()
     {
         if (array_key_exists("applicationId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MobileAppIntentAndStateDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the applicationId
-    * MobieApp identifier.
-    *
-    * @param string $val The value of the applicationId
-    *
-    * @return MobileAppIntentAndStateDetail
-    */
+     * Sets the applicationId
+     * MobieApp identifier.
+     *
+     * @param string $val The value of the applicationId
+     *
+     * @return MobileAppIntentAndStateDetail
+     */
     public function setApplicationId($val)
     {
         $this->_propDict["applicationId"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * The admin provided or imported title of the app.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The admin provided or imported title of the app.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class MobileAppIntentAndStateDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The admin provided or imported title of the app.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return MobileAppIntentAndStateDetail
-    */
+     * Sets the displayName
+     * The admin provided or imported title of the app.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return MobileAppIntentAndStateDetail
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the displayVersion
-    * Human readable version of the application
-    *
-    * @return string|null The displayVersion
-    */
+     * Gets the displayVersion
+     * Human readable version of the application
+     *
+     * @return string|null The displayVersion
+     */
     public function getDisplayVersion()
     {
         if (array_key_exists("displayVersion", $this->_propDict)) {
@@ -96,31 +96,29 @@ class MobileAppIntentAndStateDetail extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayVersion
-    * Human readable version of the application
-    *
-    * @param string $val The value of the displayVersion
-    *
-    * @return MobileAppIntentAndStateDetail
-    */
+     * Sets the displayVersion
+     * Human readable version of the application
+     *
+     * @param string $val The value of the displayVersion
+     *
+     * @return MobileAppIntentAndStateDetail
+     */
     public function setDisplayVersion($val)
     {
         $this->_propDict["displayVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the installState
-    * The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
-    *
-    * @return ResultantAppState|null The installState
-    */
+     * Gets the installState
+     * The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     *
+     * @return ResultantAppState|null The installState
+     */
     public function getInstallState()
     {
         if (array_key_exists("installState", $this->_propDict)) {
-            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState") || is_null($this->_propDict["installState"])) {
+            if (is_a($this->_propDict["installState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResultantAppState") || is_null($this->_propDict["installState"])) {
                 return $this->_propDict["installState"];
             } else {
                 $this->_propDict["installState"] = new ResultantAppState($this->_propDict["installState"]);
@@ -129,31 +127,29 @@ class MobileAppIntentAndStateDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the installState
-    * The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
-    *
-    * @param ResultantAppState $val The value to assign to the installState
-    *
-    * @return MobileAppIntentAndStateDetail The MobileAppIntentAndStateDetail
-    */
+     * Sets the installState
+     * The install state of the app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     *
+     * @param ResultantAppState $val The value to assign to the installState
+     *
+     * @return MobileAppIntentAndStateDetail The MobileAppIntentAndStateDetail
+     */
     public function setInstallState($val)
     {
         $this->_propDict["installState"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the mobileAppIntent
-    * Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
-    *
-    * @return MobileAppIntent|null The mobileAppIntent
-    */
+     * Gets the mobileAppIntent
+     * Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
+     *
+     * @return MobileAppIntent|null The mobileAppIntent
+     */
     public function getMobileAppIntent()
     {
         if (array_key_exists("mobileAppIntent", $this->_propDict)) {
-            if (is_a($this->_propDict["mobileAppIntent"], "\Beta\Microsoft\Graph\Model\MobileAppIntent") || is_null($this->_propDict["mobileAppIntent"])) {
+            if (is_a($this->_propDict["mobileAppIntent"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppIntent") || is_null($this->_propDict["mobileAppIntent"])) {
                 return $this->_propDict["mobileAppIntent"];
             } else {
                 $this->_propDict["mobileAppIntent"] = new MobileAppIntent($this->_propDict["mobileAppIntent"]);
@@ -162,31 +158,29 @@ class MobileAppIntentAndStateDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mobileAppIntent
-    * Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
-    *
-    * @param MobileAppIntent $val The value to assign to the mobileAppIntent
-    *
-    * @return MobileAppIntentAndStateDetail The MobileAppIntentAndStateDetail
-    */
+     * Sets the mobileAppIntent
+     * Mobile App Intent. Possible values are: available, notAvailable, requiredInstall, requiredUninstall, requiredAndAvailableInstall, availableInstallWithoutEnrollment, exclude.
+     *
+     * @param MobileAppIntent $val The value to assign to the mobileAppIntent
+     *
+     * @return MobileAppIntentAndStateDetail The MobileAppIntentAndStateDetail
+     */
     public function setMobileAppIntent($val)
     {
         $this->_propDict["mobileAppIntent"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the supportedDeviceTypes
-    * The supported platforms for the app.
-    *
-    * @return MobileAppSupportedDeviceType|null The supportedDeviceTypes
-    */
+     * Gets the supportedDeviceTypes
+     * The supported platforms for the app.
+     *
+     * @return MobileAppSupportedDeviceType|null The supportedDeviceTypes
+     */
     public function getSupportedDeviceTypes()
     {
         if (array_key_exists("supportedDeviceTypes", $this->_propDict)) {
-            if (is_a($this->_propDict["supportedDeviceTypes"], "\Beta\Microsoft\Graph\Model\MobileAppSupportedDeviceType") || is_null($this->_propDict["supportedDeviceTypes"])) {
+            if (is_a($this->_propDict["supportedDeviceTypes"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppSupportedDeviceType") || is_null($this->_propDict["supportedDeviceTypes"])) {
                 return $this->_propDict["supportedDeviceTypes"];
             } else {
                 $this->_propDict["supportedDeviceTypes"] = new MobileAppSupportedDeviceType($this->_propDict["supportedDeviceTypes"]);
@@ -195,18 +189,17 @@ class MobileAppIntentAndStateDetail extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the supportedDeviceTypes
-    * The supported platforms for the app.
-    *
-    * @param MobileAppSupportedDeviceType $val The value to assign to the supportedDeviceTypes
-    *
-    * @return MobileAppIntentAndStateDetail The MobileAppIntentAndStateDetail
-    */
+     * Sets the supportedDeviceTypes
+     * The supported platforms for the app.
+     *
+     * @param MobileAppSupportedDeviceType $val The value to assign to the supportedDeviceTypes
+     *
+     * @return MobileAppIntentAndStateDetail The MobileAppIntentAndStateDetail
+     */
     public function setSupportedDeviceTypes($val)
     {
         $this->_propDict["supportedDeviceTypes"] = $val;
-         return $this;
+        return $this;
     }
 }

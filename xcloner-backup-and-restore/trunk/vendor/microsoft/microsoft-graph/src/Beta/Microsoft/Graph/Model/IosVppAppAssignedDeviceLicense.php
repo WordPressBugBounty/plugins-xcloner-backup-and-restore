@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosVppAppAssignedDeviceLicense class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense
 {
     /**
-    * Gets the deviceName
-    * The device name.
-    *
-    * @return string|null The deviceName
-    */
+     * Gets the deviceName
+     * The device name.
+     *
+     * @return string|null The deviceName
+     */
     public function getDeviceName()
     {
         if (array_key_exists("deviceName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense
             return null;
         }
     }
-
     /**
-    * Sets the deviceName
-    * The device name.
-    *
-    * @param string $val The deviceName
-    *
-    * @return IosVppAppAssignedDeviceLicense
-    */
+     * Sets the deviceName
+     * The device name.
+     *
+     * @param string $val The deviceName
+     *
+     * @return IosVppAppAssignedDeviceLicense
+     */
     public function setDeviceName($val)
     {
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceId
-    * The managed device ID.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * The managed device ID.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -70,19 +69,17 @@ class IosVppAppAssignedDeviceLicense extends IosVppAppAssignedLicense
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * The managed device ID.
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return IosVppAppAssignedDeviceLicense
-    */
+     * Sets the managedDeviceId
+     * The managed device ID.
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return IosVppAppAssignedDeviceLicense
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
 }

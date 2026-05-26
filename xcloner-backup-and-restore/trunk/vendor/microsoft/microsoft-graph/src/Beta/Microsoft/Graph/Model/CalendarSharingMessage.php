@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CalendarSharingMessage class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CalendarSharingMessage extends Message
 {
     /**
-    * Gets the canAccept
-    *
-    * @return bool|null The canAccept
-    */
+     * Gets the canAccept
+     *
+     * @return bool|null The canAccept
+     */
     public function getCanAccept()
     {
         if (array_key_exists("canAccept", $this->_propDict)) {
@@ -40,29 +41,27 @@ class CalendarSharingMessage extends Message
             return null;
         }
     }
-
     /**
-    * Sets the canAccept
-    *
-    * @param bool $val The canAccept
-    *
-    * @return CalendarSharingMessage
-    */
+     * Sets the canAccept
+     *
+     * @param bool $val The canAccept
+     *
+     * @return CalendarSharingMessage
+     */
     public function setCanAccept($val)
     {
         $this->_propDict["canAccept"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the sharingMessageAction
-    *
-    * @return CalendarSharingMessageAction|null The sharingMessageAction
-    */
+     * Gets the sharingMessageAction
+     *
+     * @return CalendarSharingMessageAction|null The sharingMessageAction
+     */
     public function getSharingMessageAction()
     {
         if (array_key_exists("sharingMessageAction", $this->_propDict)) {
-            if (is_a($this->_propDict["sharingMessageAction"], "\Beta\Microsoft\Graph\Model\CalendarSharingMessageAction") || is_null($this->_propDict["sharingMessageAction"])) {
+            if (is_a($this->_propDict["sharingMessageAction"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CalendarSharingMessageAction") || is_null($this->_propDict["sharingMessageAction"])) {
                 return $this->_propDict["sharingMessageAction"];
             } else {
                 $this->_propDict["sharingMessageAction"] = new CalendarSharingMessageAction($this->_propDict["sharingMessageAction"]);
@@ -71,22 +70,19 @@ class CalendarSharingMessage extends Message
         }
         return null;
     }
-
     /**
-    * Sets the sharingMessageAction
-    *
-    * @param CalendarSharingMessageAction $val The sharingMessageAction
-    *
-    * @return CalendarSharingMessage
-    */
+     * Sets the sharingMessageAction
+     *
+     * @param CalendarSharingMessageAction $val The sharingMessageAction
+     *
+     * @return CalendarSharingMessage
+     */
     public function setSharingMessageAction($val)
     {
         $this->_propDict["sharingMessageAction"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the sharingMessageActions
      *
      * @return array|null The sharingMessageActions
@@ -94,30 +90,28 @@ class CalendarSharingMessage extends Message
     public function getSharingMessageActions()
     {
         if (array_key_exists("sharingMessageActions", $this->_propDict)) {
-           return $this->_propDict["sharingMessageActions"];
+            return $this->_propDict["sharingMessageActions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the sharingMessageActions
-    *
-    * @param CalendarSharingMessageAction[] $val The sharingMessageActions
-    *
-    * @return CalendarSharingMessage
-    */
+     * Sets the sharingMessageActions
+     *
+     * @param CalendarSharingMessageAction[] $val The sharingMessageActions
+     *
+     * @return CalendarSharingMessage
+     */
     public function setSharingMessageActions($val)
     {
         $this->_propDict["sharingMessageActions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the suggestedCalendarName
-    *
-    * @return string|null The suggestedCalendarName
-    */
+     * Gets the suggestedCalendarName
+     *
+     * @return string|null The suggestedCalendarName
+     */
     public function getSuggestedCalendarName()
     {
         if (array_key_exists("suggestedCalendarName", $this->_propDict)) {
@@ -126,18 +120,16 @@ class CalendarSharingMessage extends Message
             return null;
         }
     }
-
     /**
-    * Sets the suggestedCalendarName
-    *
-    * @param string $val The suggestedCalendarName
-    *
-    * @return CalendarSharingMessage
-    */
+     * Sets the suggestedCalendarName
+     *
+     * @param string $val The suggestedCalendarName
+     *
+     * @return CalendarSharingMessage
+     */
     public function setSuggestedCalendarName($val)
     {
         $this->_propDict["suggestedCalendarName"] = $val;
         return $this;
     }
-
 }

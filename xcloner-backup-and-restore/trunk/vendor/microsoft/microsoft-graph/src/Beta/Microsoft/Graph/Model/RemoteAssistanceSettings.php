@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RemoteAssistanceSettings class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RemoteAssistanceSettings extends Entity
 {
     /**
-    * Gets the allowSessionsToUnenrolledDevices
-    * Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
-    *
-    * @return bool|null The allowSessionsToUnenrolledDevices
-    */
+     * Gets the allowSessionsToUnenrolledDevices
+     * Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
+     *
+     * @return bool|null The allowSessionsToUnenrolledDevices
+     */
     public function getAllowSessionsToUnenrolledDevices()
     {
         if (array_key_exists("allowSessionsToUnenrolledDevices", $this->_propDict)) {
@@ -41,27 +42,25 @@ class RemoteAssistanceSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowSessionsToUnenrolledDevices
-    * Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
-    *
-    * @param bool $val The allowSessionsToUnenrolledDevices
-    *
-    * @return RemoteAssistanceSettings
-    */
+     * Sets the allowSessionsToUnenrolledDevices
+     * Indicates if sessions to unenrolled devices are allowed for the account. This setting is configurable by the admin. Default value is false.
+     *
+     * @param bool $val The allowSessionsToUnenrolledDevices
+     *
+     * @return RemoteAssistanceSettings
+     */
     public function setAllowSessionsToUnenrolledDevices($val)
     {
         $this->_propDict["allowSessionsToUnenrolledDevices"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the blockChat
-    * Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
-    *
-    * @return bool|null The blockChat
-    */
+     * Gets the blockChat
+     * Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+     *
+     * @return bool|null The blockChat
+     */
     public function getBlockChat()
     {
         if (array_key_exists("blockChat", $this->_propDict)) {
@@ -70,31 +69,29 @@ class RemoteAssistanceSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the blockChat
-    * Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
-    *
-    * @param bool $val The blockChat
-    *
-    * @return RemoteAssistanceSettings
-    */
+     * Sets the blockChat
+     * Indicates if sessions to block chat function. This setting is configurable by the admin. Default value is false.
+     *
+     * @param bool $val The blockChat
+     *
+     * @return RemoteAssistanceSettings
+     */
     public function setBlockChat($val)
     {
         $this->_propDict["blockChat"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the remoteAssistanceState
-    * The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
-    *
-    * @return RemoteAssistanceState|null The remoteAssistanceState
-    */
+     * Gets the remoteAssistanceState
+     * The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
+     *
+     * @return RemoteAssistanceState|null The remoteAssistanceState
+     */
     public function getRemoteAssistanceState()
     {
         if (array_key_exists("remoteAssistanceState", $this->_propDict)) {
-            if (is_a($this->_propDict["remoteAssistanceState"], "\Beta\Microsoft\Graph\Model\RemoteAssistanceState") || is_null($this->_propDict["remoteAssistanceState"])) {
+            if (is_a($this->_propDict["remoteAssistanceState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RemoteAssistanceState") || is_null($this->_propDict["remoteAssistanceState"])) {
                 return $this->_propDict["remoteAssistanceState"];
             } else {
                 $this->_propDict["remoteAssistanceState"] = new RemoteAssistanceState($this->_propDict["remoteAssistanceState"]);
@@ -103,19 +100,17 @@ class RemoteAssistanceSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the remoteAssistanceState
-    * The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
-    *
-    * @param RemoteAssistanceState $val The remoteAssistanceState
-    *
-    * @return RemoteAssistanceSettings
-    */
+     * Sets the remoteAssistanceState
+     * The current state of remote assistance for the account. Possible values are: disabled, enabled. This setting is configurable by the admin. Remote assistance settings that have not yet been configured by the admin have a disabled state. Returned by default. Possible values are: disabled, enabled.
+     *
+     * @param RemoteAssistanceState $val The remoteAssistanceState
+     *
+     * @return RemoteAssistanceSettings
+     */
     public function setRemoteAssistanceState($val)
     {
         $this->_propDict["remoteAssistanceState"] = $val;
         return $this;
     }
-
 }

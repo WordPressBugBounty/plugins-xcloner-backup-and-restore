@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * NumberColumn class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class NumberColumn extends Entity
 {
     /**
-    * Gets the decimalPlaces
-    * How many decimal places to display. See below for information about the possible values.
-    *
-    * @return string|null The decimalPlaces
-    */
+     * Gets the decimalPlaces
+     * How many decimal places to display. See below for information about the possible values.
+     *
+     * @return string|null The decimalPlaces
+     */
     public function getDecimalPlaces()
     {
         if (array_key_exists("decimalPlaces", $this->_propDict)) {
@@ -40,26 +42,25 @@ class NumberColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the decimalPlaces
-    * How many decimal places to display. See below for information about the possible values.
-    *
-    * @param string $val The value of the decimalPlaces
-    *
-    * @return NumberColumn
-    */
+     * Sets the decimalPlaces
+     * How many decimal places to display. See below for information about the possible values.
+     *
+     * @param string $val The value of the decimalPlaces
+     *
+     * @return NumberColumn
+     */
     public function setDecimalPlaces($val)
     {
         $this->_propDict["decimalPlaces"] = $val;
         return $this;
     }
     /**
-    * Gets the displayAs
-    * How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.
-    *
-    * @return string|null The displayAs
-    */
+     * Gets the displayAs
+     * How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.
+     *
+     * @return string|null The displayAs
+     */
     public function getDisplayAs()
     {
         if (array_key_exists("displayAs", $this->_propDict)) {
@@ -68,26 +69,25 @@ class NumberColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayAs
-    * How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.
-    *
-    * @param string $val The value of the displayAs
-    *
-    * @return NumberColumn
-    */
+     * Sets the displayAs
+     * How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.
+     *
+     * @param string $val The value of the displayAs
+     *
+     * @return NumberColumn
+     */
     public function setDisplayAs($val)
     {
         $this->_propDict["displayAs"] = $val;
         return $this;
     }
     /**
-    * Gets the maximum
-    * The maximum permitted value.
-    *
-    * @return float|null The maximum
-    */
+     * Gets the maximum
+     * The maximum permitted value.
+     *
+     * @return float|null The maximum
+     */
     public function getMaximum()
     {
         if (array_key_exists("maximum", $this->_propDict)) {
@@ -96,26 +96,25 @@ class NumberColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maximum
-    * The maximum permitted value.
-    *
-    * @param float $val The value of the maximum
-    *
-    * @return NumberColumn
-    */
+     * Sets the maximum
+     * The maximum permitted value.
+     *
+     * @param float $val The value of the maximum
+     *
+     * @return NumberColumn
+     */
     public function setMaximum($val)
     {
         $this->_propDict["maximum"] = $val;
         return $this;
     }
     /**
-    * Gets the minimum
-    * The minimum permitted value.
-    *
-    * @return float|null The minimum
-    */
+     * Gets the minimum
+     * The minimum permitted value.
+     *
+     * @return float|null The minimum
+     */
     public function getMinimum()
     {
         if (array_key_exists("minimum", $this->_propDict)) {
@@ -124,15 +123,14 @@ class NumberColumn extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the minimum
-    * The minimum permitted value.
-    *
-    * @param float $val The value of the minimum
-    *
-    * @return NumberColumn
-    */
+     * Sets the minimum
+     * The minimum permitted value.
+     *
+     * @param float $val The value of the minimum
+     *
+     * @return NumberColumn
+     */
     public function setMinimum($val)
     {
         $this->_propDict["minimum"] = $val;

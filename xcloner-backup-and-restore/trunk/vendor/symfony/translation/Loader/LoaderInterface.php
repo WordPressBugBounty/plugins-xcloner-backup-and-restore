@@ -8,16 +8,14 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Loader;
 
-namespace Symfony\Component\Translation\Loader;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\Exception\InvalidResourceException;
-use Symfony\Component\Translation\Exception\NotFoundResourceException;
-use Symfony\Component\Translation\MessageCatalogue;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\Exception\InvalidResourceException;
+use XCloner\Symfony\Component\Translation\Exception\NotFoundResourceException;
+use XCloner\Symfony\Component\Translation\MessageCatalogue;
 /**
  * LoaderInterface is the interface implemented by all translation loaders.
  *

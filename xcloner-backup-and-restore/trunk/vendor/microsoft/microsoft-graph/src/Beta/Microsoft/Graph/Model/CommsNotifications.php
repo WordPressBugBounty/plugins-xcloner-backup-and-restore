@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CommsNotifications class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CommsNotifications extends Entity
 {
-
     /**
-    * Gets the value
-    * The notification of a change in the resource.
-    *
-    * @return CommsNotification|null The value
-    */
+     * Gets the value
+     * The notification of a change in the resource.
+     *
+     * @return CommsNotification|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
-            if (is_a($this->_propDict["value"], "\Beta\Microsoft\Graph\Model\CommsNotification") || is_null($this->_propDict["value"])) {
+            if (is_a($this->_propDict["value"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CommsNotification") || is_null($this->_propDict["value"])) {
                 return $this->_propDict["value"];
             } else {
                 $this->_propDict["value"] = new CommsNotification($this->_propDict["value"]);
@@ -45,18 +46,17 @@ class CommsNotifications extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the value
-    * The notification of a change in the resource.
-    *
-    * @param CommsNotification $val The value to assign to the value
-    *
-    * @return CommsNotifications The CommsNotifications
-    */
+     * Sets the value
+     * The notification of a change in the resource.
+     *
+     * @param CommsNotification $val The value to assign to the value
+     *
+     * @return CommsNotifications The CommsNotifications
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
-         return $this;
+        return $this;
     }
 }

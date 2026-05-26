@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows10NetworkProxyServer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows10NetworkProxyServer extends Entity
 {
     /**
-    * Gets the address
-    * Address to the proxy server. Specify an address in the format [':']
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     * Address to the proxy server. Specify an address in the format [':']
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Windows10NetworkProxyServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    * Address to the proxy server. Specify an address in the format [':']
-    *
-    * @param string $val The value of the address
-    *
-    * @return Windows10NetworkProxyServer
-    */
+     * Sets the address
+     * Address to the proxy server. Specify an address in the format [':']
+     *
+     * @param string $val The value of the address
+     *
+     * @return Windows10NetworkProxyServer
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
     /**
-    * Gets the exceptions
-    * Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node.
-    *
-    * @return string|null The exceptions
-    */
+     * Gets the exceptions
+     * Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node.
+     *
+     * @return string|null The exceptions
+     */
     public function getExceptions()
     {
         if (array_key_exists("exceptions", $this->_propDict)) {
@@ -68,26 +69,25 @@ class Windows10NetworkProxyServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the exceptions
-    * Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node.
-    *
-    * @param string $val The value of the exceptions
-    *
-    * @return Windows10NetworkProxyServer
-    */
+     * Sets the exceptions
+     * Addresses that should not use the proxy server. The system will not use the proxy server for addresses beginning with what is specified in this node.
+     *
+     * @param string $val The value of the exceptions
+     *
+     * @return Windows10NetworkProxyServer
+     */
     public function setExceptions($val)
     {
         $this->_propDict["exceptions"] = $val;
         return $this;
     }
     /**
-    * Gets the useForLocalAddresses
-    * Specifies whether the proxy server should be used for local (intranet) addresses.
-    *
-    * @return bool|null The useForLocalAddresses
-    */
+     * Gets the useForLocalAddresses
+     * Specifies whether the proxy server should be used for local (intranet) addresses.
+     *
+     * @return bool|null The useForLocalAddresses
+     */
     public function getUseForLocalAddresses()
     {
         if (array_key_exists("useForLocalAddresses", $this->_propDict)) {
@@ -96,15 +96,14 @@ class Windows10NetworkProxyServer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the useForLocalAddresses
-    * Specifies whether the proxy server should be used for local (intranet) addresses.
-    *
-    * @param bool $val The value of the useForLocalAddresses
-    *
-    * @return Windows10NetworkProxyServer
-    */
+     * Sets the useForLocalAddresses
+     * Specifies whether the proxy server should be used for local (intranet) addresses.
+     *
+     * @param bool $val The value of the useForLocalAddresses
+     *
+     * @return Windows10NetworkProxyServer
+     */
     public function setUseForLocalAddresses($val)
     {
         $this->_propDict["useForLocalAddresses"] = $val;

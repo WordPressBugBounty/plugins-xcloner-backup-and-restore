@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,70 +15,67 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class AboutTeamDriveThemes extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $backgroundImageLink;
-  /**
-   * @var string
-   */
-  public $colorRgb;
-  /**
-   * @var string
-   */
-  public $id;
-
-  /**
-   * @param string
-   */
-  public function setBackgroundImageLink($backgroundImageLink)
-  {
-    $this->backgroundImageLink = $backgroundImageLink;
-  }
-  /**
-   * @return string
-   */
-  public function getBackgroundImageLink()
-  {
-    return $this->backgroundImageLink;
-  }
-  /**
-   * @param string
-   */
-  public function setColorRgb($colorRgb)
-  {
-    $this->colorRgb = $colorRgb;
-  }
-  /**
-   * @return string
-   */
-  public function getColorRgb()
-  {
-    return $this->colorRgb;
-  }
-  /**
-   * @param string
-   */
-  public function setId($id)
-  {
-    $this->id = $id;
-  }
-  /**
-   * @return string
-   */
-  public function getId()
-  {
-    return $this->id;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class AboutTeamDriveThemes extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $backgroundImageLink;
+    /**
+     * @var string
+     */
+    public $colorRgb;
+    /**
+     * @var string
+     */
+    public $id;
+    /**
+     * @param string
+     */
+    public function setBackgroundImageLink($backgroundImageLink)
+    {
+        $this->backgroundImageLink = $backgroundImageLink;
+    }
+    /**
+     * @return string
+     */
+    public function getBackgroundImageLink()
+    {
+        return $this->backgroundImageLink;
+    }
+    /**
+     * @param string
+     */
+    public function setColorRgb($colorRgb)
+    {
+        $this->colorRgb = $colorRgb;
+    }
+    /**
+     * @return string
+     */
+    public function getColorRgb()
+    {
+        return $this->colorRgb;
+    }
+    /**
+     * @param string
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+    /**
+     * @return string
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(AboutTeamDriveThemes::class, 'Google_Service_Drive_AboutTeamDriveThemes');
+class_alias(AboutTeamDriveThemes::class, 'XCloner\Google_Service_Drive_AboutTeamDriveThemes');

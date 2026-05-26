@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WinGetAppInstallExperience class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WinGetAppInstallExperience extends Entity
 {
-
     /**
-    * Gets the runAsAccount
-    * Indicates the type of execution context the app setup runs in on target devices. Options include values of the RunAsAccountType enum, which are System and User. Required at creation time, cannot be modified on existing objects. Possible values are: system, user.
-    *
-    * @return RunAsAccountType|null The runAsAccount
-    */
+     * Gets the runAsAccount
+     * Indicates the type of execution context the app setup runs in on target devices. Options include values of the RunAsAccountType enum, which are System and User. Required at creation time, cannot be modified on existing objects. Possible values are: system, user.
+     *
+     * @return RunAsAccountType|null The runAsAccount
+     */
     public function getRunAsAccount()
     {
         if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
+            if (is_a($this->_propDict["runAsAccount"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);
@@ -45,18 +46,17 @@ class WinGetAppInstallExperience extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the runAsAccount
-    * Indicates the type of execution context the app setup runs in on target devices. Options include values of the RunAsAccountType enum, which are System and User. Required at creation time, cannot be modified on existing objects. Possible values are: system, user.
-    *
-    * @param RunAsAccountType $val The value to assign to the runAsAccount
-    *
-    * @return WinGetAppInstallExperience The WinGetAppInstallExperience
-    */
+     * Sets the runAsAccount
+     * Indicates the type of execution context the app setup runs in on target devices. Options include values of the RunAsAccountType enum, which are System and User. Required at creation time, cannot be modified on existing objects. Possible values are: system, user.
+     *
+     * @param RunAsAccountType $val The value to assign to the runAsAccount
+     *
+     * @return WinGetAppInstallExperience The WinGetAppInstallExperience
+     */
     public function setRunAsAccount($val)
     {
         $this->_propDict["runAsAccount"] = $val;
-         return $this;
+        return $this;
     }
 }

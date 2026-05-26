@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExternalLink class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExternalLink extends Entity
 {
     /**
-    * Gets the href
-    * The url of the link.
-    *
-    * @return string|null The href
-    */
+     * Gets the href
+     * The url of the link.
+     *
+     * @return string|null The href
+     */
     public function getHref()
     {
         if (array_key_exists("href", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ExternalLink extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the href
-    * The url of the link.
-    *
-    * @param string $val The value of the href
-    *
-    * @return ExternalLink
-    */
+     * Sets the href
+     * The url of the link.
+     *
+     * @param string $val The value of the href
+     *
+     * @return ExternalLink
+     */
     public function setHref($val)
     {
         $this->_propDict["href"] = $val;

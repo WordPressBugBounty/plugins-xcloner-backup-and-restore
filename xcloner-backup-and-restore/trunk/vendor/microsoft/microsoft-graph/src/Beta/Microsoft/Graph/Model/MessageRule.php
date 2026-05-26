@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MessageRule class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MessageRule extends Entity
 {
     /**
-    * Gets the actions
-    * Actions to be taken on a message when the corresponding conditions are fulfilled.
-    *
-    * @return MessageRuleActions|null The actions
-    */
+     * Gets the actions
+     * Actions to be taken on a message when the corresponding conditions are fulfilled.
+     *
+     * @return MessageRuleActions|null The actions
+     */
     public function getActions()
     {
         if (array_key_exists("actions", $this->_propDict)) {
-            if (is_a($this->_propDict["actions"], "\Beta\Microsoft\Graph\Model\MessageRuleActions") || is_null($this->_propDict["actions"])) {
+            if (is_a($this->_propDict["actions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MessageRuleActions") || is_null($this->_propDict["actions"])) {
                 return $this->_propDict["actions"];
             } else {
                 $this->_propDict["actions"] = new MessageRuleActions($this->_propDict["actions"]);
@@ -45,31 +46,29 @@ class MessageRule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actions
-    * Actions to be taken on a message when the corresponding conditions are fulfilled.
-    *
-    * @param MessageRuleActions $val The actions
-    *
-    * @return MessageRule
-    */
+     * Sets the actions
+     * Actions to be taken on a message when the corresponding conditions are fulfilled.
+     *
+     * @param MessageRuleActions $val The actions
+     *
+     * @return MessageRule
+     */
     public function setActions($val)
     {
         $this->_propDict["actions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the conditions
-    * Conditions that when fulfilled, will trigger the corresponding actions for that rule.
-    *
-    * @return MessageRulePredicates|null The conditions
-    */
+     * Gets the conditions
+     * Conditions that when fulfilled, will trigger the corresponding actions for that rule.
+     *
+     * @return MessageRulePredicates|null The conditions
+     */
     public function getConditions()
     {
         if (array_key_exists("conditions", $this->_propDict)) {
-            if (is_a($this->_propDict["conditions"], "\Beta\Microsoft\Graph\Model\MessageRulePredicates") || is_null($this->_propDict["conditions"])) {
+            if (is_a($this->_propDict["conditions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MessageRulePredicates") || is_null($this->_propDict["conditions"])) {
                 return $this->_propDict["conditions"];
             } else {
                 $this->_propDict["conditions"] = new MessageRulePredicates($this->_propDict["conditions"]);
@@ -78,27 +77,25 @@ class MessageRule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the conditions
-    * Conditions that when fulfilled, will trigger the corresponding actions for that rule.
-    *
-    * @param MessageRulePredicates $val The conditions
-    *
-    * @return MessageRule
-    */
+     * Sets the conditions
+     * Conditions that when fulfilled, will trigger the corresponding actions for that rule.
+     *
+     * @param MessageRulePredicates $val The conditions
+     *
+     * @return MessageRule
+     */
     public function setConditions($val)
     {
         $this->_propDict["conditions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name of the rule.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the rule.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -107,31 +104,29 @@ class MessageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the rule.
-    *
-    * @param string $val The displayName
-    *
-    * @return MessageRule
-    */
+     * Sets the displayName
+     * The display name of the rule.
+     *
+     * @param string $val The displayName
+     *
+     * @return MessageRule
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the exceptions
-    * Exception conditions for the rule.
-    *
-    * @return MessageRulePredicates|null The exceptions
-    */
+     * Gets the exceptions
+     * Exception conditions for the rule.
+     *
+     * @return MessageRulePredicates|null The exceptions
+     */
     public function getExceptions()
     {
         if (array_key_exists("exceptions", $this->_propDict)) {
-            if (is_a($this->_propDict["exceptions"], "\Beta\Microsoft\Graph\Model\MessageRulePredicates") || is_null($this->_propDict["exceptions"])) {
+            if (is_a($this->_propDict["exceptions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MessageRulePredicates") || is_null($this->_propDict["exceptions"])) {
                 return $this->_propDict["exceptions"];
             } else {
                 $this->_propDict["exceptions"] = new MessageRulePredicates($this->_propDict["exceptions"]);
@@ -140,27 +135,25 @@ class MessageRule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the exceptions
-    * Exception conditions for the rule.
-    *
-    * @param MessageRulePredicates $val The exceptions
-    *
-    * @return MessageRule
-    */
+     * Sets the exceptions
+     * Exception conditions for the rule.
+     *
+     * @param MessageRulePredicates $val The exceptions
+     *
+     * @return MessageRule
+     */
     public function setExceptions($val)
     {
         $this->_propDict["exceptions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the hasError
-    * Indicates whether the rule is in an error condition. Read-only.
-    *
-    * @return bool|null The hasError
-    */
+     * Gets the hasError
+     * Indicates whether the rule is in an error condition. Read-only.
+     *
+     * @return bool|null The hasError
+     */
     public function getHasError()
     {
         if (array_key_exists("hasError", $this->_propDict)) {
@@ -169,27 +162,25 @@ class MessageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hasError
-    * Indicates whether the rule is in an error condition. Read-only.
-    *
-    * @param bool $val The hasError
-    *
-    * @return MessageRule
-    */
+     * Sets the hasError
+     * Indicates whether the rule is in an error condition. Read-only.
+     *
+     * @param bool $val The hasError
+     *
+     * @return MessageRule
+     */
     public function setHasError($val)
     {
         $this->_propDict["hasError"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isEnabled
-    * Indicates whether the rule is enabled to be applied to messages.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * Indicates whether the rule is enabled to be applied to messages.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -198,27 +189,25 @@ class MessageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * Indicates whether the rule is enabled to be applied to messages.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return MessageRule
-    */
+     * Sets the isEnabled
+     * Indicates whether the rule is enabled to be applied to messages.
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return MessageRule
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isReadOnly
-    * Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
-    *
-    * @return bool|null The isReadOnly
-    */
+     * Gets the isReadOnly
+     * Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
+     *
+     * @return bool|null The isReadOnly
+     */
     public function getIsReadOnly()
     {
         if (array_key_exists("isReadOnly", $this->_propDict)) {
@@ -227,27 +216,25 @@ class MessageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isReadOnly
-    * Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
-    *
-    * @param bool $val The isReadOnly
-    *
-    * @return MessageRule
-    */
+     * Sets the isReadOnly
+     * Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.
+     *
+     * @param bool $val The isReadOnly
+     *
+     * @return MessageRule
+     */
     public function setIsReadOnly($val)
     {
         $this->_propDict["isReadOnly"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the sequence
-    * Indicates the order in which the rule is executed, among other rules.
-    *
-    * @return int|null The sequence
-    */
+     * Gets the sequence
+     * Indicates the order in which the rule is executed, among other rules.
+     *
+     * @return int|null The sequence
+     */
     public function getSequence()
     {
         if (array_key_exists("sequence", $this->_propDict)) {
@@ -256,19 +243,17 @@ class MessageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sequence
-    * Indicates the order in which the rule is executed, among other rules.
-    *
-    * @param int $val The sequence
-    *
-    * @return MessageRule
-    */
+     * Sets the sequence
+     * Indicates the order in which the rule is executed, among other rules.
+     *
+     * @param int $val The sequence
+     *
+     * @return MessageRule
+     */
     public function setSequence($val)
     {
         $this->_propDict["sequence"] = intval($val);
         return $this;
     }
-
 }

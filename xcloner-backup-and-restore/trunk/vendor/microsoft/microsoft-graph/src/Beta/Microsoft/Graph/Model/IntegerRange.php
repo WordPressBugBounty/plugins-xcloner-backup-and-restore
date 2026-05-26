@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IntegerRange class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IntegerRange extends Entity
 {
     /**
-    * Gets the end
-    * The inclusive upper bound of the integer range.
-    *
-    * @return int|null The end
-    */
+     * Gets the end
+     * The inclusive upper bound of the integer range.
+     *
+     * @return int|null The end
+     */
     public function getEnd()
     {
         if (array_key_exists("end", $this->_propDict)) {
@@ -40,25 +42,24 @@ class IntegerRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the end
-    * The inclusive upper bound of the integer range.
-    *
-    * @param int $val The value of the end
-    *
-    * @return IntegerRange
-    */
+     * Sets the end
+     * The inclusive upper bound of the integer range.
+     *
+     * @param int $val The value of the end
+     *
+     * @return IntegerRange
+     */
     public function setEnd($val)
     {
         $this->_propDict["end"] = $val;
         return $this;
     }
     /**
-    * Gets the maximum
-    *
-    * @return int|null The maximum
-    */
+     * Gets the maximum
+     *
+     * @return int|null The maximum
+     */
     public function getMaximum()
     {
         if (array_key_exists("maximum", $this->_propDict)) {
@@ -67,24 +68,23 @@ class IntegerRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maximum
-    *
-    * @param int $val The value of the maximum
-    *
-    * @return IntegerRange
-    */
+     * Sets the maximum
+     *
+     * @param int $val The value of the maximum
+     *
+     * @return IntegerRange
+     */
     public function setMaximum($val)
     {
         $this->_propDict["maximum"] = $val;
         return $this;
     }
     /**
-    * Gets the minimum
-    *
-    * @return int|null The minimum
-    */
+     * Gets the minimum
+     *
+     * @return int|null The minimum
+     */
     public function getMinimum()
     {
         if (array_key_exists("minimum", $this->_propDict)) {
@@ -93,25 +93,24 @@ class IntegerRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the minimum
-    *
-    * @param int $val The value of the minimum
-    *
-    * @return IntegerRange
-    */
+     * Sets the minimum
+     *
+     * @param int $val The value of the minimum
+     *
+     * @return IntegerRange
+     */
     public function setMinimum($val)
     {
         $this->_propDict["minimum"] = $val;
         return $this;
     }
     /**
-    * Gets the start
-    * The inclusive lower bound of the integer range.
-    *
-    * @return int|null The start
-    */
+     * Gets the start
+     * The inclusive lower bound of the integer range.
+     *
+     * @return int|null The start
+     */
     public function getStart()
     {
         if (array_key_exists("start", $this->_propDict)) {
@@ -120,15 +119,14 @@ class IntegerRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the start
-    * The inclusive lower bound of the integer range.
-    *
-    * @param int $val The value of the start
-    *
-    * @return IntegerRange
-    */
+     * Sets the start
+     * The inclusive lower bound of the integer range.
+     *
+     * @param int $val The value of the start
+     *
+     * @return IntegerRange
+     */
     public function setStart($val)
     {
         $this->_propDict["start"] = $val;

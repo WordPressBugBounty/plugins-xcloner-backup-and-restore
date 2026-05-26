@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosBookmark class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosBookmark extends Entity
 {
     /**
-    * Gets the bookmarkFolder
-    * The folder into which the bookmark should be added in Safari
-    *
-    * @return string|null The bookmarkFolder
-    */
+     * Gets the bookmarkFolder
+     * The folder into which the bookmark should be added in Safari
+     *
+     * @return string|null The bookmarkFolder
+     */
     public function getBookmarkFolder()
     {
         if (array_key_exists("bookmarkFolder", $this->_propDict)) {
@@ -40,26 +42,25 @@ class IosBookmark extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the bookmarkFolder
-    * The folder into which the bookmark should be added in Safari
-    *
-    * @param string $val The value of the bookmarkFolder
-    *
-    * @return IosBookmark
-    */
+     * Sets the bookmarkFolder
+     * The folder into which the bookmark should be added in Safari
+     *
+     * @param string $val The value of the bookmarkFolder
+     *
+     * @return IosBookmark
+     */
     public function setBookmarkFolder($val)
     {
         $this->_propDict["bookmarkFolder"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * The display name of the bookmark
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the bookmark
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class IosBookmark extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the bookmark
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return IosBookmark
-    */
+     * Sets the displayName
+     * The display name of the bookmark
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return IosBookmark
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the url
-    * URL allowed to access
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * URL allowed to access
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -96,15 +96,14 @@ class IosBookmark extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * URL allowed to access
-    *
-    * @param string $val The value of the url
-    *
-    * @return IosBookmark
-    */
+     * Sets the url
+     * URL allowed to access
+     *
+     * @param string $val The value of the url
+     *
+     * @return IosBookmark
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;

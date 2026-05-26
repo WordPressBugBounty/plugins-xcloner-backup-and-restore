@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDefenderAdvancedThreatProtectionConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the allowSampleSharing
-    * Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
-    *
-    * @return bool|null The allowSampleSharing
-    */
+     * Gets the allowSampleSharing
+     * Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
+     *
+     * @return bool|null The allowSampleSharing
+     */
     public function getAllowSampleSharing()
     {
         if (array_key_exists("allowSampleSharing", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
             return null;
         }
     }
-
     /**
-    * Sets the allowSampleSharing
-    * Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
-    *
-    * @param bool $val The allowSampleSharing
-    *
-    * @return WindowsDefenderAdvancedThreatProtectionConfiguration
-    */
+     * Sets the allowSampleSharing
+     * Windows Defender AdvancedThreatProtection 'Allow Sample Sharing' Rule
+     *
+     * @param bool $val The allowSampleSharing
+     *
+     * @return WindowsDefenderAdvancedThreatProtectionConfiguration
+     */
     public function setAllowSampleSharing($val)
     {
         $this->_propDict["allowSampleSharing"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the enableExpeditedTelemetryReporting
-    * Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
-    *
-    * @return bool|null The enableExpeditedTelemetryReporting
-    */
+     * Gets the enableExpeditedTelemetryReporting
+     * Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
+     *
+     * @return bool|null The enableExpeditedTelemetryReporting
+     */
     public function getEnableExpeditedTelemetryReporting()
     {
         if (array_key_exists("enableExpeditedTelemetryReporting", $this->_propDict)) {
@@ -70,19 +69,17 @@ class WindowsDefenderAdvancedThreatProtectionConfiguration extends DeviceConfigu
             return null;
         }
     }
-
     /**
-    * Sets the enableExpeditedTelemetryReporting
-    * Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
-    *
-    * @param bool $val The enableExpeditedTelemetryReporting
-    *
-    * @return WindowsDefenderAdvancedThreatProtectionConfiguration
-    */
+     * Sets the enableExpeditedTelemetryReporting
+     * Expedite Windows Defender Advanced Threat Protection telemetry reporting frequency.
+     *
+     * @param bool $val The enableExpeditedTelemetryReporting
+     *
+     * @return WindowsDefenderAdvancedThreatProtectionConfiguration
+     */
     public function setEnableExpeditedTelemetryReporting($val)
     {
         $this->_propDict["enableExpeditedTelemetryReporting"] = boolval($val);
         return $this;
     }
-
 }

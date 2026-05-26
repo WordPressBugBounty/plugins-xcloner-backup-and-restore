@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnenoteOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OnenoteOperation extends Operation
 {
     /**
-    * Gets the error
-    * The error returned by the operation.
-    *
-    * @return OnenoteOperationError|null The error
-    */
+     * Gets the error
+     * The error returned by the operation.
+     *
+     * @return OnenoteOperationError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Microsoft\Graph\Model\OnenoteOperationError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Microsoft\\Graph\\Model\\OnenoteOperationError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new OnenoteOperationError($this->_propDict["error"]);
@@ -45,27 +46,25 @@ class OnenoteOperation extends Operation
         }
         return null;
     }
-
     /**
-    * Sets the error
-    * The error returned by the operation.
-    *
-    * @param OnenoteOperationError $val The error
-    *
-    * @return OnenoteOperation
-    */
+     * Sets the error
+     * The error returned by the operation.
+     *
+     * @param OnenoteOperationError $val The error
+     *
+     * @return OnenoteOperation
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
-
     /**
-    * Gets the percentComplete
-    * The operation percent complete if the operation is still in running status.
-    *
-    * @return string|null The percentComplete
-    */
+     * Gets the percentComplete
+     * The operation percent complete if the operation is still in running status.
+     *
+     * @return string|null The percentComplete
+     */
     public function getPercentComplete()
     {
         if (array_key_exists("percentComplete", $this->_propDict)) {
@@ -74,27 +73,25 @@ class OnenoteOperation extends Operation
             return null;
         }
     }
-
     /**
-    * Sets the percentComplete
-    * The operation percent complete if the operation is still in running status.
-    *
-    * @param string $val The percentComplete
-    *
-    * @return OnenoteOperation
-    */
+     * Sets the percentComplete
+     * The operation percent complete if the operation is still in running status.
+     *
+     * @param string $val The percentComplete
+     *
+     * @return OnenoteOperation
+     */
     public function setPercentComplete($val)
     {
         $this->_propDict["percentComplete"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceId
-    * The resource id.
-    *
-    * @return string|null The resourceId
-    */
+     * Gets the resourceId
+     * The resource id.
+     *
+     * @return string|null The resourceId
+     */
     public function getResourceId()
     {
         if (array_key_exists("resourceId", $this->_propDict)) {
@@ -103,27 +100,25 @@ class OnenoteOperation extends Operation
             return null;
         }
     }
-
     /**
-    * Sets the resourceId
-    * The resource id.
-    *
-    * @param string $val The resourceId
-    *
-    * @return OnenoteOperation
-    */
+     * Sets the resourceId
+     * The resource id.
+     *
+     * @param string $val The resourceId
+     *
+     * @return OnenoteOperation
+     */
     public function setResourceId($val)
     {
         $this->_propDict["resourceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceLocation
-    * The resource URI for the object. For example, the resource URI for a copied page or section.
-    *
-    * @return string|null The resourceLocation
-    */
+     * Gets the resourceLocation
+     * The resource URI for the object. For example, the resource URI for a copied page or section.
+     *
+     * @return string|null The resourceLocation
+     */
     public function getResourceLocation()
     {
         if (array_key_exists("resourceLocation", $this->_propDict)) {
@@ -132,19 +127,17 @@ class OnenoteOperation extends Operation
             return null;
         }
     }
-
     /**
-    * Sets the resourceLocation
-    * The resource URI for the object. For example, the resource URI for a copied page or section.
-    *
-    * @param string $val The resourceLocation
-    *
-    * @return OnenoteOperation
-    */
+     * Sets the resourceLocation
+     * The resource URI for the object. For example, the resource URI for a copied page or section.
+     *
+     * @param string $val The resourceLocation
+     *
+     * @return OnenoteOperation
+     */
     public function setResourceLocation($val)
     {
         $this->_propDict["resourceLocation"] = $val;
         return $this;
     }
-
 }

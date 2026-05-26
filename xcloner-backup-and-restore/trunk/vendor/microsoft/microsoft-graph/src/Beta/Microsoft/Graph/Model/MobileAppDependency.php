@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppDependency class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppDependency extends MobileAppRelationship
 {
     /**
-    * Gets the dependencyType
-    * The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
-    *
-    * @return MobileAppDependencyType|null The dependencyType
-    */
+     * Gets the dependencyType
+     * The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
+     *
+     * @return MobileAppDependencyType|null The dependencyType
+     */
     public function getDependencyType()
     {
         if (array_key_exists("dependencyType", $this->_propDict)) {
-            if (is_a($this->_propDict["dependencyType"], "\Beta\Microsoft\Graph\Model\MobileAppDependencyType") || is_null($this->_propDict["dependencyType"])) {
+            if (is_a($this->_propDict["dependencyType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppDependencyType") || is_null($this->_propDict["dependencyType"])) {
                 return $this->_propDict["dependencyType"];
             } else {
                 $this->_propDict["dependencyType"] = new MobileAppDependencyType($this->_propDict["dependencyType"]);
@@ -45,27 +46,25 @@ class MobileAppDependency extends MobileAppRelationship
         }
         return null;
     }
-
     /**
-    * Sets the dependencyType
-    * The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
-    *
-    * @param MobileAppDependencyType $val The dependencyType
-    *
-    * @return MobileAppDependency
-    */
+     * Sets the dependencyType
+     * The type of dependency relationship between the parent and child apps. Possible values are: detect, autoInstall.
+     *
+     * @param MobileAppDependencyType $val The dependencyType
+     *
+     * @return MobileAppDependency
+     */
     public function setDependencyType($val)
     {
         $this->_propDict["dependencyType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the dependentAppCount
-    * The total number of apps that directly or indirectly depend on the parent app.
-    *
-    * @return int|null The dependentAppCount
-    */
+     * Gets the dependentAppCount
+     * The total number of apps that directly or indirectly depend on the parent app.
+     *
+     * @return int|null The dependentAppCount
+     */
     public function getDependentAppCount()
     {
         if (array_key_exists("dependentAppCount", $this->_propDict)) {
@@ -74,27 +73,25 @@ class MobileAppDependency extends MobileAppRelationship
             return null;
         }
     }
-
     /**
-    * Sets the dependentAppCount
-    * The total number of apps that directly or indirectly depend on the parent app.
-    *
-    * @param int $val The dependentAppCount
-    *
-    * @return MobileAppDependency
-    */
+     * Sets the dependentAppCount
+     * The total number of apps that directly or indirectly depend on the parent app.
+     *
+     * @param int $val The dependentAppCount
+     *
+     * @return MobileAppDependency
+     */
     public function setDependentAppCount($val)
     {
         $this->_propDict["dependentAppCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the dependsOnAppCount
-    * The total number of apps the child app directly or indirectly depends on.
-    *
-    * @return int|null The dependsOnAppCount
-    */
+     * Gets the dependsOnAppCount
+     * The total number of apps the child app directly or indirectly depends on.
+     *
+     * @return int|null The dependsOnAppCount
+     */
     public function getDependsOnAppCount()
     {
         if (array_key_exists("dependsOnAppCount", $this->_propDict)) {
@@ -103,19 +100,17 @@ class MobileAppDependency extends MobileAppRelationship
             return null;
         }
     }
-
     /**
-    * Sets the dependsOnAppCount
-    * The total number of apps the child app directly or indirectly depends on.
-    *
-    * @param int $val The dependsOnAppCount
-    *
-    * @return MobileAppDependency
-    */
+     * Sets the dependsOnAppCount
+     * The total number of apps the child app directly or indirectly depends on.
+     *
+     * @param int $val The dependsOnAppCount
+     *
+     * @return MobileAppDependency
+     */
     public function setDependsOnAppCount($val)
     {
         $this->_propDict["dependsOnAppCount"] = intval($val);
         return $this;
     }
-
 }

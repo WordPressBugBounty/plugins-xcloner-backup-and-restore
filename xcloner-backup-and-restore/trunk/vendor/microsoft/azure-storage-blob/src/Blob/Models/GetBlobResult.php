@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\StreamInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\StreamInterface;
 /**
  * Holds result of GetBlob API.
  *
@@ -44,7 +42,6 @@ class GetBlobResult
     private $properties;
     private $metadata;
     private $contentStream;
-
     /**
      * Creates GetBlobResult from getBlob call.
      *
@@ -56,19 +53,14 @@ class GetBlobResult
      *
      * @return GetBlobResult
      */
-    public static function create(
-        array $headers,
-        StreamInterface $body,
-        array $metadata
-    ) {
+    public static function create(array $headers, StreamInterface $body, array $metadata)
+    {
         $result = new GetBlobResult();
         $result->setContentStream($body->detach());
         $result->setProperties(BlobProperties::createFromHttpHeaders($headers));
         $result->setMetadata(is_null($metadata) ? array() : $metadata);
-
         return $result;
     }
-
     /**
      * Gets blob metadata.
      *
@@ -78,7 +70,6 @@ class GetBlobResult
     {
         return $this->metadata;
     }
-
     /**
      * Sets blob metadata.
      *
@@ -90,7 +81,6 @@ class GetBlobResult
     {
         $this->metadata = $metadata;
     }
-
     /**
      * Gets blob properties.
      *
@@ -100,7 +90,6 @@ class GetBlobResult
     {
         return $this->properties;
     }
-
     /**
      * Sets blob properties.
      *
@@ -112,7 +101,6 @@ class GetBlobResult
     {
         $this->properties = $properties;
     }
-
     /**
      * Gets blob contentStream.
      *
@@ -122,7 +110,6 @@ class GetBlobResult
     {
         return $this->contentStream;
     }
-
     /**
      * Sets blob contentStream.
      *

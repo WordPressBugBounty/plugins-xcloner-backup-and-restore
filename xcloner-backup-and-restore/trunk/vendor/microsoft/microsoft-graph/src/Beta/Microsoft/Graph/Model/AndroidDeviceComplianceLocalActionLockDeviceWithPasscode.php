@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidDeviceComplianceLocalActionLockDeviceWithPasscode class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDeviceComplianceLocalActionBase
 {
     /**
-    * Gets the passcode
-    * Passcode to reset to Android device. This property is read-only.
-    *
-    * @return string|null The passcode
-    */
+     * Gets the passcode
+     * Passcode to reset to Android device. This property is read-only.
+     *
+     * @return string|null The passcode
+     */
     public function getPasscode()
     {
         if (array_key_exists("passcode", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
             return null;
         }
     }
-
     /**
-    * Sets the passcode
-    * Passcode to reset to Android device. This property is read-only.
-    *
-    * @param string $val The passcode
-    *
-    * @return AndroidDeviceComplianceLocalActionLockDeviceWithPasscode
-    */
+     * Sets the passcode
+     * Passcode to reset to Android device. This property is read-only.
+     *
+     * @param string $val The passcode
+     *
+     * @return AndroidDeviceComplianceLocalActionLockDeviceWithPasscode
+     */
     public function setPasscode($val)
     {
         $this->_propDict["passcode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the passcodeSignInFailureCountBeforeWipe
-    * Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
-    *
-    * @return int|null The passcodeSignInFailureCountBeforeWipe
-    */
+     * Gets the passcodeSignInFailureCountBeforeWipe
+     * Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
+     *
+     * @return int|null The passcodeSignInFailureCountBeforeWipe
+     */
     public function getPasscodeSignInFailureCountBeforeWipe()
     {
         if (array_key_exists("passcodeSignInFailureCountBeforeWipe", $this->_propDict)) {
@@ -70,19 +69,17 @@ class AndroidDeviceComplianceLocalActionLockDeviceWithPasscode extends AndroidDe
             return null;
         }
     }
-
     /**
-    * Sets the passcodeSignInFailureCountBeforeWipe
-    * Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
-    *
-    * @param int $val The passcodeSignInFailureCountBeforeWipe
-    *
-    * @return AndroidDeviceComplianceLocalActionLockDeviceWithPasscode
-    */
+     * Sets the passcodeSignInFailureCountBeforeWipe
+     * Number of sign in failures before wiping device, the value can be 4-11. Valid values 4 to 11
+     *
+     * @param int $val The passcodeSignInFailureCountBeforeWipe
+     *
+     * @return AndroidDeviceComplianceLocalActionLockDeviceWithPasscode
+     */
     public function setPasscodeSignInFailureCountBeforeWipe($val)
     {
         $this->_propDict["passcodeSignInFailureCountBeforeWipe"] = intval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MachineLearningDetectedSensitiveContent class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent
 {
-
     /**
-    * Gets the matchTolerance
-    *
-    * @return MlClassificationMatchTolerance|null The matchTolerance
-    */
+     * Gets the matchTolerance
+     *
+     * @return MlClassificationMatchTolerance|null The matchTolerance
+     */
     public function getMatchTolerance()
     {
         if (array_key_exists("matchTolerance", $this->_propDict)) {
-            if (is_a($this->_propDict["matchTolerance"], "\Beta\Microsoft\Graph\Model\MlClassificationMatchTolerance") || is_null($this->_propDict["matchTolerance"])) {
+            if (is_a($this->_propDict["matchTolerance"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MlClassificationMatchTolerance") || is_null($this->_propDict["matchTolerance"])) {
                 return $this->_propDict["matchTolerance"];
             } else {
                 $this->_propDict["matchTolerance"] = new MlClassificationMatchTolerance($this->_propDict["matchTolerance"]);
@@ -44,24 +45,23 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent
         }
         return null;
     }
-
     /**
-    * Sets the matchTolerance
-    *
-    * @param MlClassificationMatchTolerance $val The value to assign to the matchTolerance
-    *
-    * @return MachineLearningDetectedSensitiveContent The MachineLearningDetectedSensitiveContent
-    */
+     * Sets the matchTolerance
+     *
+     * @param MlClassificationMatchTolerance $val The value to assign to the matchTolerance
+     *
+     * @return MachineLearningDetectedSensitiveContent The MachineLearningDetectedSensitiveContent
+     */
     public function setMatchTolerance($val)
     {
         $this->_propDict["matchTolerance"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the modelVersion
-    *
-    * @return string|null The modelVersion
-    */
+     * Gets the modelVersion
+     *
+     * @return string|null The modelVersion
+     */
     public function getModelVersion()
     {
         if (array_key_exists("modelVersion", $this->_propDict)) {
@@ -70,14 +70,13 @@ class MachineLearningDetectedSensitiveContent extends DetectedSensitiveContent
             return null;
         }
     }
-
     /**
-    * Sets the modelVersion
-    *
-    * @param string $val The value of the modelVersion
-    *
-    * @return MachineLearningDetectedSensitiveContent
-    */
+     * Sets the modelVersion
+     *
+     * @param string $val The value of the modelVersion
+     *
+     * @return MachineLearningDetectedSensitiveContent
+     */
     public function setModelVersion($val)
     {
         $this->_propDict["modelVersion"] = $val;

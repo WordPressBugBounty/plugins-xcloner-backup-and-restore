@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsManagementAppHealthState class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsManagementAppHealthState extends Entity
 {
     /**
-    * Gets the deviceName
-    * Name of the device on which Windows management app is installed.
-    *
-    * @return string|null The deviceName
-    */
+     * Gets the deviceName
+     * Name of the device on which Windows management app is installed.
+     *
+     * @return string|null The deviceName
+     */
     public function getDeviceName()
     {
         if (array_key_exists("deviceName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WindowsManagementAppHealthState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceName
-    * Name of the device on which Windows management app is installed.
-    *
-    * @param string $val The deviceName
-    *
-    * @return WindowsManagementAppHealthState
-    */
+     * Sets the deviceName
+     * Name of the device on which Windows management app is installed.
+     *
+     * @param string $val The deviceName
+     *
+     * @return WindowsManagementAppHealthState
+     */
     public function setDeviceName($val)
     {
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceOSVersion
-    * Windows 10 OS version of the device on which Windows management app is installed.
-    *
-    * @return string|null The deviceOSVersion
-    */
+     * Gets the deviceOSVersion
+     * Windows 10 OS version of the device on which Windows management app is installed.
+     *
+     * @return string|null The deviceOSVersion
+     */
     public function getDeviceOSVersion()
     {
         if (array_key_exists("deviceOSVersion", $this->_propDict)) {
@@ -70,31 +69,29 @@ class WindowsManagementAppHealthState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceOSVersion
-    * Windows 10 OS version of the device on which Windows management app is installed.
-    *
-    * @param string $val The deviceOSVersion
-    *
-    * @return WindowsManagementAppHealthState
-    */
+     * Sets the deviceOSVersion
+     * Windows 10 OS version of the device on which Windows management app is installed.
+     *
+     * @param string $val The deviceOSVersion
+     *
+     * @return WindowsManagementAppHealthState
+     */
     public function setDeviceOSVersion($val)
     {
         $this->_propDict["deviceOSVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the healthState
-    * Windows management app health state. Possible values are: unknown, healthy, unhealthy.
-    *
-    * @return HealthState|null The healthState
-    */
+     * Gets the healthState
+     * Windows management app health state. Possible values are: unknown, healthy, unhealthy.
+     *
+     * @return HealthState|null The healthState
+     */
     public function getHealthState()
     {
         if (array_key_exists("healthState", $this->_propDict)) {
-            if (is_a($this->_propDict["healthState"], "\Beta\Microsoft\Graph\Model\HealthState") || is_null($this->_propDict["healthState"])) {
+            if (is_a($this->_propDict["healthState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\HealthState") || is_null($this->_propDict["healthState"])) {
                 return $this->_propDict["healthState"];
             } else {
                 $this->_propDict["healthState"] = new HealthState($this->_propDict["healthState"]);
@@ -103,27 +100,25 @@ class WindowsManagementAppHealthState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the healthState
-    * Windows management app health state. Possible values are: unknown, healthy, unhealthy.
-    *
-    * @param HealthState $val The healthState
-    *
-    * @return WindowsManagementAppHealthState
-    */
+     * Sets the healthState
+     * Windows management app health state. Possible values are: unknown, healthy, unhealthy.
+     *
+     * @param HealthState $val The healthState
+     *
+     * @return WindowsManagementAppHealthState
+     */
     public function setHealthState($val)
     {
         $this->_propDict["healthState"] = $val;
         return $this;
     }
-
     /**
-    * Gets the installedVersion
-    * Windows management app installed version.
-    *
-    * @return string|null The installedVersion
-    */
+     * Gets the installedVersion
+     * Windows management app installed version.
+     *
+     * @return string|null The installedVersion
+     */
     public function getInstalledVersion()
     {
         if (array_key_exists("installedVersion", $this->_propDict)) {
@@ -132,31 +127,29 @@ class WindowsManagementAppHealthState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the installedVersion
-    * Windows management app installed version.
-    *
-    * @param string $val The installedVersion
-    *
-    * @return WindowsManagementAppHealthState
-    */
+     * Sets the installedVersion
+     * Windows management app installed version.
+     *
+     * @param string $val The installedVersion
+     *
+     * @return WindowsManagementAppHealthState
+     */
     public function setInstalledVersion($val)
     {
         $this->_propDict["installedVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastCheckInDateTime
-    * Windows management app last check-in time.
-    *
-    * @return \DateTime|null The lastCheckInDateTime
-    */
+     * Gets the lastCheckInDateTime
+     * Windows management app last check-in time.
+     *
+     * @return \DateTime|null The lastCheckInDateTime
+     */
     public function getLastCheckInDateTime()
     {
         if (array_key_exists("lastCheckInDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastCheckInDateTime"], "\DateTime") || is_null($this->_propDict["lastCheckInDateTime"])) {
+            if (is_a($this->_propDict["lastCheckInDateTime"], "\\DateTime") || is_null($this->_propDict["lastCheckInDateTime"])) {
                 return $this->_propDict["lastCheckInDateTime"];
             } else {
                 $this->_propDict["lastCheckInDateTime"] = new \DateTime($this->_propDict["lastCheckInDateTime"]);
@@ -165,19 +158,17 @@ class WindowsManagementAppHealthState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastCheckInDateTime
-    * Windows management app last check-in time.
-    *
-    * @param \DateTime $val The lastCheckInDateTime
-    *
-    * @return WindowsManagementAppHealthState
-    */
+     * Sets the lastCheckInDateTime
+     * Windows management app last check-in time.
+     *
+     * @param \DateTime $val The lastCheckInDateTime
+     *
+     * @return WindowsManagementAppHealthState
+     */
     public function setLastCheckInDateTime($val)
     {
         $this->_propDict["lastCheckInDateTime"] = $val;
         return $this;
     }
-
 }

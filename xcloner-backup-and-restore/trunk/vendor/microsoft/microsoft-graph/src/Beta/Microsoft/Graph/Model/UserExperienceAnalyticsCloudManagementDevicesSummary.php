@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsCloudManagementDevicesSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
 {
     /**
-    * Gets the coManagedDeviceCount
-    * Total number of  co-managed devices.
-    *
-    * @return int|null The coManagedDeviceCount
-    */
+     * Gets the coManagedDeviceCount
+     * Total number of  co-managed devices.
+     *
+     * @return int|null The coManagedDeviceCount
+     */
     public function getCoManagedDeviceCount()
     {
         if (array_key_exists("coManagedDeviceCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the coManagedDeviceCount
-    * Total number of  co-managed devices.
-    *
-    * @param int $val The value of the coManagedDeviceCount
-    *
-    * @return UserExperienceAnalyticsCloudManagementDevicesSummary
-    */
+     * Sets the coManagedDeviceCount
+     * Total number of  co-managed devices.
+     *
+     * @param int $val The value of the coManagedDeviceCount
+     *
+     * @return UserExperienceAnalyticsCloudManagementDevicesSummary
+     */
     public function setCoManagedDeviceCount($val)
     {
         $this->_propDict["coManagedDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the intuneDeviceCount
-    * The count of intune devices that are not autopilot registerd.
-    *
-    * @return int|null The intuneDeviceCount
-    */
+     * Gets the intuneDeviceCount
+     * The count of intune devices that are not autopilot registerd.
+     *
+     * @return int|null The intuneDeviceCount
+     */
     public function getIntuneDeviceCount()
     {
         if (array_key_exists("intuneDeviceCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the intuneDeviceCount
-    * The count of intune devices that are not autopilot registerd.
-    *
-    * @param int $val The value of the intuneDeviceCount
-    *
-    * @return UserExperienceAnalyticsCloudManagementDevicesSummary
-    */
+     * Sets the intuneDeviceCount
+     * The count of intune devices that are not autopilot registerd.
+     *
+     * @param int $val The value of the intuneDeviceCount
+     *
+     * @return UserExperienceAnalyticsCloudManagementDevicesSummary
+     */
     public function setIntuneDeviceCount($val)
     {
         $this->_propDict["intuneDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the tenantAttachDeviceCount
-    * Total count of tenant attach devices.
-    *
-    * @return int|null The tenantAttachDeviceCount
-    */
+     * Gets the tenantAttachDeviceCount
+     * Total count of tenant attach devices.
+     *
+     * @return int|null The tenantAttachDeviceCount
+     */
     public function getTenantAttachDeviceCount()
     {
         if (array_key_exists("tenantAttachDeviceCount", $this->_propDict)) {
@@ -96,15 +96,14 @@ class UserExperienceAnalyticsCloudManagementDevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantAttachDeviceCount
-    * Total count of tenant attach devices.
-    *
-    * @param int $val The value of the tenantAttachDeviceCount
-    *
-    * @return UserExperienceAnalyticsCloudManagementDevicesSummary
-    */
+     * Sets the tenantAttachDeviceCount
+     * Total count of tenant attach devices.
+     *
+     * @param int $val The value of the tenantAttachDeviceCount
+     *
+     * @return UserExperienceAnalyticsCloudManagementDevicesSummary
+     */
     public function setTenantAttachDeviceCount($val)
     {
         $this->_propDict["tenantAttachDeviceCount"] = $val;

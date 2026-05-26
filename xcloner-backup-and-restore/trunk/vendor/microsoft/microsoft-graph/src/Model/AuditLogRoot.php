@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuditLogRoot class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AuditLogRoot extends Entity
 {
-
-     /**
+    /**
      * Gets the directoryAudits
      *
      * @return array|null The directoryAudits
@@ -36,27 +36,24 @@ class AuditLogRoot extends Entity
     public function getDirectoryAudits()
     {
         if (array_key_exists("directoryAudits", $this->_propDict)) {
-           return $this->_propDict["directoryAudits"];
+            return $this->_propDict["directoryAudits"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the directoryAudits
-    *
-    * @param DirectoryAudit[] $val The directoryAudits
-    *
-    * @return AuditLogRoot
-    */
+     * Sets the directoryAudits
+     *
+     * @param DirectoryAudit[] $val The directoryAudits
+     *
+     * @return AuditLogRoot
+     */
     public function setDirectoryAudits($val)
     {
         $this->_propDict["directoryAudits"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the provisioning
      *
      * @return array|null The provisioning
@@ -64,27 +61,24 @@ class AuditLogRoot extends Entity
     public function getProvisioning()
     {
         if (array_key_exists("provisioning", $this->_propDict)) {
-           return $this->_propDict["provisioning"];
+            return $this->_propDict["provisioning"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the provisioning
-    *
-    * @param ProvisioningObjectSummary[] $val The provisioning
-    *
-    * @return AuditLogRoot
-    */
+     * Sets the provisioning
+     *
+     * @param ProvisioningObjectSummary[] $val The provisioning
+     *
+     * @return AuditLogRoot
+     */
     public function setProvisioning($val)
     {
         $this->_propDict["provisioning"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the signIns
      *
      * @return array|null The signIns
@@ -92,23 +86,21 @@ class AuditLogRoot extends Entity
     public function getSignIns()
     {
         if (array_key_exists("signIns", $this->_propDict)) {
-           return $this->_propDict["signIns"];
+            return $this->_propDict["signIns"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the signIns
-    *
-    * @param SignIn[] $val The signIns
-    *
-    * @return AuditLogRoot
-    */
+     * Sets the signIns
+     *
+     * @param SignIn[] $val The signIns
+     *
+     * @return AuditLogRoot
+     */
     public function setSignIns($val)
     {
         $this->_propDict["signIns"] = $val;
         return $this;
     }
-
 }

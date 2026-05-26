@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BitlockerRecoveryKey class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BitlockerRecoveryKey extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * The date and time when the key was originally backed up to Azure Active Directory.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time when the key was originally backed up to Azure Active Directory.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class BitlockerRecoveryKey extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time when the key was originally backed up to Azure Active Directory.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return BitlockerRecoveryKey
-    */
+     * Sets the createdDateTime
+     * The date and time when the key was originally backed up to Azure Active Directory.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return BitlockerRecoveryKey
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceId
-    * ID of the device the BitLocker key is originally backed up from.
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * ID of the device the BitLocker key is originally backed up from.
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -74,27 +73,25 @@ class BitlockerRecoveryKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * ID of the device the BitLocker key is originally backed up from.
-    *
-    * @param string $val The deviceId
-    *
-    * @return BitlockerRecoveryKey
-    */
+     * Sets the deviceId
+     * ID of the device the BitLocker key is originally backed up from.
+     *
+     * @param string $val The deviceId
+     *
+     * @return BitlockerRecoveryKey
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the key
-    * The BitLocker recovery key.
-    *
-    * @return string|null The key
-    */
+     * Gets the key
+     * The BitLocker recovery key.
+     *
+     * @return string|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
@@ -103,31 +100,29 @@ class BitlockerRecoveryKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the key
-    * The BitLocker recovery key.
-    *
-    * @param string $val The key
-    *
-    * @return BitlockerRecoveryKey
-    */
+     * Sets the key
+     * The BitLocker recovery key.
+     *
+     * @param string $val The key
+     *
+     * @return BitlockerRecoveryKey
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;
         return $this;
     }
-
     /**
-    * Gets the volumeType
-    * Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
-    *
-    * @return VolumeType|null The volumeType
-    */
+     * Gets the volumeType
+     * Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
+     *
+     * @return VolumeType|null The volumeType
+     */
     public function getVolumeType()
     {
         if (array_key_exists("volumeType", $this->_propDict)) {
-            if (is_a($this->_propDict["volumeType"], "\Beta\Microsoft\Graph\Model\VolumeType") || is_null($this->_propDict["volumeType"])) {
+            if (is_a($this->_propDict["volumeType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VolumeType") || is_null($this->_propDict["volumeType"])) {
                 return $this->_propDict["volumeType"];
             } else {
                 $this->_propDict["volumeType"] = new VolumeType($this->_propDict["volumeType"]);
@@ -136,19 +131,17 @@ class BitlockerRecoveryKey extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the volumeType
-    * Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
-    *
-    * @param VolumeType $val The volumeType
-    *
-    * @return BitlockerRecoveryKey
-    */
+     * Sets the volumeType
+     * Indicates the type of volume the BitLocker key is associated with. Possible values are: operatingSystemVolume, fixedDataVolume, removableDataVolume, unknownFutureValue.
+     *
+     * @param VolumeType $val The volumeType
+     *
+     * @return BitlockerRecoveryKey
+     */
     public function setVolumeType($val)
     {
         $this->_propDict["volumeType"] = $val;
         return $this;
     }
-
 }

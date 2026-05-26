@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Note class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Note extends OutlookItem
 {
     /**
-    * Gets the body
-    *
-    * @return ItemBody|null The body
-    */
+     * Gets the body
+     *
+     * @return ItemBody|null The body
+     */
     public function getBody()
     {
         if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ItemBody") || is_null($this->_propDict["body"])) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -44,25 +45,23 @@ class Note extends OutlookItem
         }
         return null;
     }
-
     /**
-    * Sets the body
-    *
-    * @param ItemBody $val The body
-    *
-    * @return Note
-    */
+     * Sets the body
+     *
+     * @param ItemBody $val The body
+     *
+     * @return Note
+     */
     public function setBody($val)
     {
         $this->_propDict["body"] = $val;
         return $this;
     }
-
     /**
-    * Gets the hasAttachments
-    *
-    * @return bool|null The hasAttachments
-    */
+     * Gets the hasAttachments
+     *
+     * @return bool|null The hasAttachments
+     */
     public function getHasAttachments()
     {
         if (array_key_exists("hasAttachments", $this->_propDict)) {
@@ -71,25 +70,23 @@ class Note extends OutlookItem
             return null;
         }
     }
-
     /**
-    * Sets the hasAttachments
-    *
-    * @param bool $val The hasAttachments
-    *
-    * @return Note
-    */
+     * Sets the hasAttachments
+     *
+     * @param bool $val The hasAttachments
+     *
+     * @return Note
+     */
     public function setHasAttachments($val)
     {
         $this->_propDict["hasAttachments"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the isDeleted
-    *
-    * @return bool|null The isDeleted
-    */
+     * Gets the isDeleted
+     *
+     * @return bool|null The isDeleted
+     */
     public function getIsDeleted()
     {
         if (array_key_exists("isDeleted", $this->_propDict)) {
@@ -98,25 +95,23 @@ class Note extends OutlookItem
             return null;
         }
     }
-
     /**
-    * Sets the isDeleted
-    *
-    * @param bool $val The isDeleted
-    *
-    * @return Note
-    */
+     * Sets the isDeleted
+     *
+     * @param bool $val The isDeleted
+     *
+     * @return Note
+     */
     public function setIsDeleted($val)
     {
         $this->_propDict["isDeleted"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the subject
-    *
-    * @return string|null The subject
-    */
+     * Gets the subject
+     *
+     * @return string|null The subject
+     */
     public function getSubject()
     {
         if (array_key_exists("subject", $this->_propDict)) {
@@ -125,22 +120,19 @@ class Note extends OutlookItem
             return null;
         }
     }
-
     /**
-    * Sets the subject
-    *
-    * @param string $val The subject
-    *
-    * @return Note
-    */
+     * Sets the subject
+     *
+     * @param string $val The subject
+     *
+     * @return Note
+     */
     public function setSubject($val)
     {
         $this->_propDict["subject"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the attachments
      *
      * @return array|null The attachments
@@ -148,27 +140,24 @@ class Note extends OutlookItem
     public function getAttachments()
     {
         if (array_key_exists("attachments", $this->_propDict)) {
-           return $this->_propDict["attachments"];
+            return $this->_propDict["attachments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the attachments
-    *
-    * @param Attachment[] $val The attachments
-    *
-    * @return Note
-    */
+     * Sets the attachments
+     *
+     * @param Attachment[] $val The attachments
+     *
+     * @return Note
+     */
     public function setAttachments($val)
     {
         $this->_propDict["attachments"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the extensions
      *
      * @return array|null The extensions
@@ -176,27 +165,24 @@ class Note extends OutlookItem
     public function getExtensions()
     {
         if (array_key_exists("extensions", $this->_propDict)) {
-           return $this->_propDict["extensions"];
+            return $this->_propDict["extensions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the extensions
-    *
-    * @param Extension[] $val The extensions
-    *
-    * @return Note
-    */
+     * Sets the extensions
+     *
+     * @param Extension[] $val The extensions
+     *
+     * @return Note
+     */
     public function setExtensions($val)
     {
         $this->_propDict["extensions"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the multiValueExtendedProperties
      *
      * @return array|null The multiValueExtendedProperties
@@ -204,27 +190,24 @@ class Note extends OutlookItem
     public function getMultiValueExtendedProperties()
     {
         if (array_key_exists("multiValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["multiValueExtendedProperties"];
+            return $this->_propDict["multiValueExtendedProperties"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the multiValueExtendedProperties
-    *
-    * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
-    *
-    * @return Note
-    */
+     * Sets the multiValueExtendedProperties
+     *
+     * @param MultiValueLegacyExtendedProperty[] $val The multiValueExtendedProperties
+     *
+     * @return Note
+     */
     public function setMultiValueExtendedProperties($val)
     {
         $this->_propDict["multiValueExtendedProperties"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the singleValueExtendedProperties
      *
      * @return array|null The singleValueExtendedProperties
@@ -232,23 +215,21 @@ class Note extends OutlookItem
     public function getSingleValueExtendedProperties()
     {
         if (array_key_exists("singleValueExtendedProperties", $this->_propDict)) {
-           return $this->_propDict["singleValueExtendedProperties"];
+            return $this->_propDict["singleValueExtendedProperties"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the singleValueExtendedProperties
-    *
-    * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
-    *
-    * @return Note
-    */
+     * Sets the singleValueExtendedProperties
+     *
+     * @param SingleValueLegacyExtendedProperty[] $val The singleValueExtendedProperties
+     *
+     * @return Note
+     */
     public function setSingleValueExtendedProperties($val)
     {
         $this->_propDict["singleValueExtendedProperties"] = $val;
         return $this;
     }
-
 }

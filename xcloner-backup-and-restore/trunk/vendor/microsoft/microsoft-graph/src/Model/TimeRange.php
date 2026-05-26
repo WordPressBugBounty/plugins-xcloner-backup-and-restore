@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeRange class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TimeRange extends Entity
 {
-
     /**
-    * Gets the endTime
-    * End time for the time range.
-    *
-    * @return TimeOfDay|null The endTime
-    */
+     * Gets the endTime
+     * End time for the time range.
+     *
+     * @return TimeOfDay|null The endTime
+     */
     public function getEndTime()
     {
         if (array_key_exists("endTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endTime"], "\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["endTime"])) {
+            if (is_a($this->_propDict["endTime"], "XCloner\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["endTime"])) {
                 return $this->_propDict["endTime"];
             } else {
                 $this->_propDict["endTime"] = new TimeOfDay($this->_propDict["endTime"]);
@@ -45,31 +46,29 @@ class TimeRange extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endTime
-    * End time for the time range.
-    *
-    * @param TimeOfDay $val The value to assign to the endTime
-    *
-    * @return TimeRange The TimeRange
-    */
+     * Sets the endTime
+     * End time for the time range.
+     *
+     * @param TimeOfDay $val The value to assign to the endTime
+     *
+     * @return TimeRange The TimeRange
+     */
     public function setEndTime($val)
     {
         $this->_propDict["endTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the startTime
-    * Start time for the time range.
-    *
-    * @return TimeOfDay|null The startTime
-    */
+     * Gets the startTime
+     * Start time for the time range.
+     *
+     * @return TimeOfDay|null The startTime
+     */
     public function getStartTime()
     {
         if (array_key_exists("startTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startTime"], "\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["startTime"])) {
+            if (is_a($this->_propDict["startTime"], "XCloner\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["startTime"])) {
                 return $this->_propDict["startTime"];
             } else {
                 $this->_propDict["startTime"] = new TimeOfDay($this->_propDict["startTime"]);
@@ -78,18 +77,17 @@ class TimeRange extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startTime
-    * Start time for the time range.
-    *
-    * @param TimeOfDay $val The value to assign to the startTime
-    *
-    * @return TimeRange The TimeRange
-    */
+     * Sets the startTime
+     * Start time for the time range.
+     *
+     * @param TimeOfDay $val The value to assign to the startTime
+     *
+     * @return TimeRange The TimeRange
+     */
     public function setStartTime($val)
     {
         $this->_propDict["startTime"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BookingPerson class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BookingPerson extends BookingNamedEntity
 {
     /**
-    * Gets the emailAddress
-    * The email address of the person.
-    *
-    * @return string|null The emailAddress
-    */
+     * Gets the emailAddress
+     * The email address of the person.
+     *
+     * @return string|null The emailAddress
+     */
     public function getEmailAddress()
     {
         if (array_key_exists("emailAddress", $this->_propDict)) {
@@ -41,19 +42,17 @@ class BookingPerson extends BookingNamedEntity
             return null;
         }
     }
-
     /**
-    * Sets the emailAddress
-    * The email address of the person.
-    *
-    * @param string $val The emailAddress
-    *
-    * @return BookingPerson
-    */
+     * Sets the emailAddress
+     * The email address of the person.
+     *
+     * @param string $val The emailAddress
+     *
+     * @return BookingPerson
+     */
     public function setEmailAddress($val)
     {
         $this->_propDict["emailAddress"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsDeviceStartupProcess class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsDeviceStartupProcess extends Entity
 {
     /**
-    * Gets the managedDeviceId
-    * The user experience analytics device id.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * The user experience analytics device id.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * The user experience analytics device id.
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return UserExperienceAnalyticsDeviceStartupProcess
-    */
+     * Sets the managedDeviceId
+     * The user experience analytics device id.
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return UserExperienceAnalyticsDeviceStartupProcess
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the processName
-    * User experience analytics device startup process name.
-    *
-    * @return string|null The processName
-    */
+     * Gets the processName
+     * User experience analytics device startup process name.
+     *
+     * @return string|null The processName
+     */
     public function getProcessName()
     {
         if (array_key_exists("processName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the processName
-    * User experience analytics device startup process name.
-    *
-    * @param string $val The processName
-    *
-    * @return UserExperienceAnalyticsDeviceStartupProcess
-    */
+     * Sets the processName
+     * User experience analytics device startup process name.
+     *
+     * @param string $val The processName
+     *
+     * @return UserExperienceAnalyticsDeviceStartupProcess
+     */
     public function setProcessName($val)
     {
         $this->_propDict["processName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the productName
-    * The user experience analytics device startup process product name.
-    *
-    * @return string|null The productName
-    */
+     * Gets the productName
+     * The user experience analytics device startup process product name.
+     *
+     * @return string|null The productName
+     */
     public function getProductName()
     {
         if (array_key_exists("productName", $this->_propDict)) {
@@ -99,27 +96,25 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the productName
-    * The user experience analytics device startup process product name.
-    *
-    * @param string $val The productName
-    *
-    * @return UserExperienceAnalyticsDeviceStartupProcess
-    */
+     * Sets the productName
+     * The user experience analytics device startup process product name.
+     *
+     * @param string $val The productName
+     *
+     * @return UserExperienceAnalyticsDeviceStartupProcess
+     */
     public function setProductName($val)
     {
         $this->_propDict["productName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the publisher
-    * The User experience analytics device startup process publisher.
-    *
-    * @return string|null The publisher
-    */
+     * Gets the publisher
+     * The User experience analytics device startup process publisher.
+     *
+     * @return string|null The publisher
+     */
     public function getPublisher()
     {
         if (array_key_exists("publisher", $this->_propDict)) {
@@ -128,27 +123,25 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the publisher
-    * The User experience analytics device startup process publisher.
-    *
-    * @param string $val The publisher
-    *
-    * @return UserExperienceAnalyticsDeviceStartupProcess
-    */
+     * Sets the publisher
+     * The User experience analytics device startup process publisher.
+     *
+     * @param string $val The publisher
+     *
+     * @return UserExperienceAnalyticsDeviceStartupProcess
+     */
     public function setPublisher($val)
     {
         $this->_propDict["publisher"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startupImpactInMs
-    * User experience analytics device startup process impact in milliseconds.
-    *
-    * @return int|null The startupImpactInMs
-    */
+     * Gets the startupImpactInMs
+     * User experience analytics device startup process impact in milliseconds.
+     *
+     * @return int|null The startupImpactInMs
+     */
     public function getStartupImpactInMs()
     {
         if (array_key_exists("startupImpactInMs", $this->_propDict)) {
@@ -157,19 +150,17 @@ class UserExperienceAnalyticsDeviceStartupProcess extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the startupImpactInMs
-    * User experience analytics device startup process impact in milliseconds.
-    *
-    * @param int $val The startupImpactInMs
-    *
-    * @return UserExperienceAnalyticsDeviceStartupProcess
-    */
+     * Sets the startupImpactInMs
+     * User experience analytics device startup process impact in milliseconds.
+     *
+     * @param int $val The startupImpactInMs
+     *
+     * @return UserExperienceAnalyticsDeviceStartupProcess
+     */
     public function setStartupImpactInMs($val)
     {
         $this->_propDict["startupImpactInMs"] = intval($val);
         return $this;
     }
-
 }

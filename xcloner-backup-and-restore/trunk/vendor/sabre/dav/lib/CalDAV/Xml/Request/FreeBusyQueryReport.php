@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Request;
 
-namespace Sabre\CalDAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\VObject\DateTimeParser;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * FreeBusyQueryReport.
  *
@@ -32,14 +30,12 @@ class FreeBusyQueryReport implements XmlDeserializable
      * @var \DateTime|null
      */
     public $start;
-
     /**
      * End time of report.
      *
      * @var \DateTime|null
      */
     public $end;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -62,16 +58,13 @@ class FreeBusyQueryReport implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $timeRange = '{'.Plugin::NS_CALDAV.'}time-range';
-
+        $timeRange = '{' . Plugin::NS_CALDAV . '}time-range';
         $start = null;
         $end = null;
-
         foreach ((array) $reader->parseInnerTree([]) as $elem) {
             if ($elem['name'] !== $timeRange) {
                 continue;
             }
-
             $start = empty($elem['attributes']['start']) ?: $elem['attributes']['start'];
             $end = empty($elem['attributes']['end']) ?: $elem['attributes']['end'];
         }
@@ -87,7 +80,6 @@ class FreeBusyQueryReport implements XmlDeserializable
         $result = new self();
         $result->start = $start;
         $result->end = $end;
-
         return $result;
     }
 }

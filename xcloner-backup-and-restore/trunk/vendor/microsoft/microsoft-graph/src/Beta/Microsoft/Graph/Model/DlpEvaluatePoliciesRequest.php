@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DlpEvaluatePoliciesRequest class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DlpEvaluatePoliciesRequest extends Entity
 {
-
     /**
-    * Gets the evaluationInput
-    *
-    * @return DlpEvaluationInput|null The evaluationInput
-    */
+     * Gets the evaluationInput
+     *
+     * @return DlpEvaluationInput|null The evaluationInput
+     */
     public function getEvaluationInput()
     {
         if (array_key_exists("evaluationInput", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationInput"], "\Beta\Microsoft\Graph\Model\DlpEvaluationInput") || is_null($this->_propDict["evaluationInput"])) {
+            if (is_a($this->_propDict["evaluationInput"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DlpEvaluationInput") || is_null($this->_propDict["evaluationInput"])) {
                 return $this->_propDict["evaluationInput"];
             } else {
                 $this->_propDict["evaluationInput"] = new DlpEvaluationInput($this->_propDict["evaluationInput"]);
@@ -44,29 +45,27 @@ class DlpEvaluatePoliciesRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the evaluationInput
-    *
-    * @param DlpEvaluationInput $val The value to assign to the evaluationInput
-    *
-    * @return DlpEvaluatePoliciesRequest The DlpEvaluatePoliciesRequest
-    */
+     * Sets the evaluationInput
+     *
+     * @param DlpEvaluationInput $val The value to assign to the evaluationInput
+     *
+     * @return DlpEvaluatePoliciesRequest The DlpEvaluatePoliciesRequest
+     */
     public function setEvaluationInput($val)
     {
         $this->_propDict["evaluationInput"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the notificationInfo
-    *
-    * @return DlpNotification|null The notificationInfo
-    */
+     * Gets the notificationInfo
+     *
+     * @return DlpNotification|null The notificationInfo
+     */
     public function getNotificationInfo()
     {
         if (array_key_exists("notificationInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationInfo"], "\Beta\Microsoft\Graph\Model\DlpNotification") || is_null($this->_propDict["notificationInfo"])) {
+            if (is_a($this->_propDict["notificationInfo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DlpNotification") || is_null($this->_propDict["notificationInfo"])) {
                 return $this->_propDict["notificationInfo"];
             } else {
                 $this->_propDict["notificationInfo"] = new DlpNotification($this->_propDict["notificationInfo"]);
@@ -75,24 +74,23 @@ class DlpEvaluatePoliciesRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the notificationInfo
-    *
-    * @param DlpNotification $val The value to assign to the notificationInfo
-    *
-    * @return DlpEvaluatePoliciesRequest The DlpEvaluatePoliciesRequest
-    */
+     * Sets the notificationInfo
+     *
+     * @param DlpNotification $val The value to assign to the notificationInfo
+     *
+     * @return DlpEvaluatePoliciesRequest The DlpEvaluatePoliciesRequest
+     */
     public function setNotificationInfo($val)
     {
         $this->_propDict["notificationInfo"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the target
-    *
-    * @return string|null The target
-    */
+     * Gets the target
+     *
+     * @return string|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
@@ -101,14 +99,13 @@ class DlpEvaluatePoliciesRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the target
-    *
-    * @param string $val The value of the target
-    *
-    * @return DlpEvaluatePoliciesRequest
-    */
+     * Sets the target
+     *
+     * @param string $val The value of the target
+     *
+     * @return DlpEvaluatePoliciesRequest
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;

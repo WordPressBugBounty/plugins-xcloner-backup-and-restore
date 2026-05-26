@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookApplication class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookApplication extends Entity
 {
     /**
-    * Gets the calculationMode
-    * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
-    *
-    * @return string|null The calculationMode
-    */
+     * Gets the calculationMode
+     * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
+     *
+     * @return string|null The calculationMode
+     */
     public function getCalculationMode()
     {
         if (array_key_exists("calculationMode", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WorkbookApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the calculationMode
-    * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
-    *
-    * @param string $val The calculationMode
-    *
-    * @return WorkbookApplication
-    */
+     * Sets the calculationMode
+     * Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.
+     *
+     * @param string $val The calculationMode
+     *
+     * @return WorkbookApplication
+     */
     public function setCalculationMode($val)
     {
         $this->_propDict["calculationMode"] = $val;
         return $this;
     }
-
 }

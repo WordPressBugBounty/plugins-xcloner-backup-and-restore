@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DaylightTimeZoneOffset class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DaylightTimeZoneOffset extends StandardTimeZoneOffset
 {
     /**
-    * Gets the daylightBias
-    * The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.
-    *
-    * @return int|null The daylightBias
-    */
+     * Gets the daylightBias
+     * The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.
+     *
+     * @return int|null The daylightBias
+     */
     public function getDaylightBias()
     {
         if (array_key_exists("daylightBias", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DaylightTimeZoneOffset extends StandardTimeZoneOffset
             return null;
         }
     }
-
     /**
-    * Sets the daylightBias
-    * The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.
-    *
-    * @param int $val The value of the daylightBias
-    *
-    * @return DaylightTimeZoneOffset
-    */
+     * Sets the daylightBias
+     * The time offset from Coordinated Universal Time (UTC) for daylight saving time. This value is in minutes.
+     *
+     * @param int $val The value of the daylightBias
+     *
+     * @return DaylightTimeZoneOffset
+     */
     public function setDaylightBias($val)
     {
         $this->_propDict["daylightBias"] = $val;

@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Collection class.
  *
@@ -42,9 +41,8 @@ abstract class Collection extends Node implements ICollection
                 return $child;
             }
         }
-        throw new Exception\NotFound('File not found: '.$name);
+        throw new Exception\NotFound('File not found: ' . $name);
     }
-
     /**
      * Checks is a child-node exists.
      *
@@ -58,13 +56,11 @@ abstract class Collection extends Node implements ICollection
     {
         try {
             $this->getChild($name);
-
-            return true;
+            return \true;
         } catch (Exception\NotFound $e) {
-            return false;
+            return \false;
         }
     }
-
     /**
      * Creates a new file in the directory.
      *
@@ -92,9 +88,8 @@ abstract class Collection extends Node implements ICollection
      */
     public function createFile($name, $data = null)
     {
-        throw new Exception\Forbidden('Permission denied to create file (filename '.$name.')');
+        throw new Exception\Forbidden('Permission denied to create file (filename ' . $name . ')');
     }
-
     /**
      * Creates a new subdirectory.
      *

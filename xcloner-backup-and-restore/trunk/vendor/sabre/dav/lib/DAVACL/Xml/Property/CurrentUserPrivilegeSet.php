@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Property;
 
-namespace Sabre\DAVACL\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Browser\HtmlOutput;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Browser\HtmlOutput;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * CurrentUserPrivilegeSet.
  *
@@ -31,7 +29,6 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
      * @var array
      */
     private $privileges;
-
     /**
      * Creates the object.
      *
@@ -41,7 +38,6 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
     {
         $this->privileges = $privileges;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -66,7 +62,6 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
             $writer->endElement();
         }
     }
-
     /**
      * Returns true or false, whether the specified principal appears in the
      * list.
@@ -79,7 +74,6 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
     {
         return in_array($privilegeName, $this->privileges);
     }
-
     /**
      * Returns the list of privileges.
      *
@@ -89,7 +83,6 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
     {
         return $this->privileges;
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -113,18 +106,15 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
     public static function xmlDeserialize(Reader $reader)
     {
         $result = [];
-
-        $tree = $reader->parseInnerTree(['{DAV:}privilege' => 'Sabre\\Xml\\Element\\Elements']);
+        $tree = $reader->parseInnerTree(['{DAV:}privilege' => 'XCloner\Sabre\Xml\Element\Elements']);
         foreach ($tree as $element) {
             if ('{DAV:}privilege' !== $element['name']) {
                 continue;
             }
             $result[] = $element['value'][0];
         }
-
         return new self($result);
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -140,9 +130,6 @@ class CurrentUserPrivilegeSet implements Element, HtmlOutput
      */
     public function toHtml(HtmlOutputHelper $html)
     {
-        return implode(
-            ', ',
-            array_map([$html, 'xmlName'], $this->getValue())
-        );
+        return implode(', ', array_map([$html, 'xmlName'], $this->getValue()));
     }
 }

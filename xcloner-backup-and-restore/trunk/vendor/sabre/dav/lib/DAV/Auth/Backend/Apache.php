@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * Apache (or NGINX) authenticator.
  *
@@ -30,7 +28,6 @@ class Apache implements BackendInterface
      * @var string
      */
     protected $principalPrefix = 'principals/';
-
     /**
      * When this method is called, the backend must check if authentication was
      * successful.
@@ -67,12 +64,10 @@ class Apache implements BackendInterface
             $remoteUser = $request->getRawServerValue('PHP_AUTH_USER');
         }
         if (is_null($remoteUser)) {
-            return [false, 'No REMOTE_USER, REDIRECT_REMOTE_USER, or PHP_AUTH_USER property was found in the PHP $_SERVER super-global. This likely means your server is not configured correctly'];
+            return [\false, 'No REMOTE_USER, REDIRECT_REMOTE_USER, or PHP_AUTH_USER property was found in the PHP $_SERVER super-global. This likely means your server is not configured correctly'];
         }
-
-        return [true, $this->principalPrefix.$remoteUser];
+        return [\true, $this->principalPrefix . $remoteUser];
     }
-
     /**
      * This method is called when a user could not be authenticated, and
      * authentication was required for the current request.

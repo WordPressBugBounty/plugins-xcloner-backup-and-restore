@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CustomQuestionAnswer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CustomQuestionAnswer extends Entity
 {
     /**
-    * Gets the displayName
-    * Display name of the custom registration question. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the custom registration question. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class CustomQuestionAnswer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the custom registration question. Read-only.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return CustomQuestionAnswer
-    */
+     * Sets the displayName
+     * Display name of the custom registration question. Read-only.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return CustomQuestionAnswer
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the questionId
-    * ID the custom registration question. Read-only.
-    *
-    * @return string|null The questionId
-    */
+     * Gets the questionId
+     * ID the custom registration question. Read-only.
+     *
+     * @return string|null The questionId
+     */
     public function getQuestionId()
     {
         if (array_key_exists("questionId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class CustomQuestionAnswer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the questionId
-    * ID the custom registration question. Read-only.
-    *
-    * @param string $val The value of the questionId
-    *
-    * @return CustomQuestionAnswer
-    */
+     * Sets the questionId
+     * ID the custom registration question. Read-only.
+     *
+     * @param string $val The value of the questionId
+     *
+     * @return CustomQuestionAnswer
+     */
     public function setQuestionId($val)
     {
         $this->_propDict["questionId"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Answer to the custom registration question.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Answer to the custom registration question.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -96,15 +96,14 @@ class CustomQuestionAnswer extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Answer to the custom registration question.
-    *
-    * @param string $val The value of the value
-    *
-    * @return CustomQuestionAnswer
-    */
+     * Sets the value
+     * Answer to the custom registration question.
+     *
+     * @param string $val The value of the value
+     *
+     * @return CustomQuestionAnswer
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

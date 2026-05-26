@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,17 +8,18 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test that using windows directory separator works correct.
  *
  * @since  0.9.0
  * @group  issue_8
  */
-class vfsStreamWrapperDirSeparatorTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperDirSeparatorTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * root diretory
@@ -25,7 +27,6 @@ class vfsStreamWrapperDirSeparatorTestCase extends \BC_PHPUnit_Framework_TestCas
      * @var  vfsStreamDirectory
      */
     protected $root;
-
     /**
      * set up test environment
      */
@@ -33,43 +34,31 @@ class vfsStreamWrapperDirSeparatorTestCase extends \BC_PHPUnit_Framework_TestCas
     {
         $this->root = vfsStream::setup();
     }
-
     /**
      * @test
      */
     public function fileCanBeAccessedUsingWinDirSeparator()
     {
-        vfsStream::newFile('foo/bar/baz.txt')
-                 ->at($this->root)
-                 ->withContent('test');
+        vfsStream::newFile('foo/bar/baz.txt')->at($this->root)->withContent('test');
         $this->assertEquals('test', file_get_contents('vfs://root/foo\bar\baz.txt'));
     }
-
-
     /**
      * @test
      */
     public function directoryCanBeCreatedUsingWinDirSeparator()
     {
-        mkdir('vfs://root/dir\bar\foo', true, 0777);
+        mkdir('vfs://root/dir\bar\foo', \true, 0777);
         $this->assertTrue($this->root->hasChild('dir'));
         $this->assertTrue($this->root->getChild('dir')->hasChild('bar'));
         $this->assertTrue($this->root->getChild('dir/bar')->hasChild('foo'));
     }
-
     /**
      * @test
      */
     public function directoryExitsTestUsingTrailingWinDirSeparator()
     {
-        $structure = array(
-            'dir' => array(
-                'bar' => array(
-                )
-            )
-        );
+        $structure = array('dir' => array('bar' => array()));
         vfsStream::create($structure, $this->root);
-
-        $this->assertTrue(file_exists(vfsStream::url('root/').'dir\\'));
+        $this->assertTrue(file_exists(vfsStream::url('root/') . 'dir\\'));
     }
 }

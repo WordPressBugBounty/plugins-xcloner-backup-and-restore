@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Subscriptions;
 
-namespace Sabre\CalDAV\Subscriptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\ICollection;
-use Sabre\DAV\IProperties;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\ICollection;
+use XCloner\Sabre\DAV\IProperties;
 /**
  * ISubscription.
  *

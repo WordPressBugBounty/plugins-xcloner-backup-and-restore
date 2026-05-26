@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CommunicationsApplicationIdentity class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CommunicationsApplicationIdentity extends Identity
 {
     /**
-    * Gets the applicationType
-    * First party Microsoft application presenting this identity.
-    *
-    * @return string|null The applicationType
-    */
+     * Gets the applicationType
+     * First party Microsoft application presenting this identity.
+     *
+     * @return string|null The applicationType
+     */
     public function getApplicationType()
     {
         if (array_key_exists("applicationType", $this->_propDict)) {
@@ -40,26 +42,25 @@ class CommunicationsApplicationIdentity extends Identity
             return null;
         }
     }
-
     /**
-    * Sets the applicationType
-    * First party Microsoft application presenting this identity.
-    *
-    * @param string $val The value of the applicationType
-    *
-    * @return CommunicationsApplicationIdentity
-    */
+     * Sets the applicationType
+     * First party Microsoft application presenting this identity.
+     *
+     * @param string $val The value of the applicationType
+     *
+     * @return CommunicationsApplicationIdentity
+     */
     public function setApplicationType($val)
     {
         $this->_propDict["applicationType"] = $val;
         return $this;
     }
     /**
-    * Gets the hidden
-    * True if the participant would not like to be shown in other participants' rosters.
-    *
-    * @return bool|null The hidden
-    */
+     * Gets the hidden
+     * True if the participant would not like to be shown in other participants' rosters.
+     *
+     * @return bool|null The hidden
+     */
     public function getHidden()
     {
         if (array_key_exists("hidden", $this->_propDict)) {
@@ -68,15 +69,14 @@ class CommunicationsApplicationIdentity extends Identity
             return null;
         }
     }
-
     /**
-    * Sets the hidden
-    * True if the participant would not like to be shown in other participants' rosters.
-    *
-    * @param bool $val The value of the hidden
-    *
-    * @return CommunicationsApplicationIdentity
-    */
+     * Sets the hidden
+     * True if the participant would not like to be shown in other participants' rosters.
+     *
+     * @param bool $val The value of the hidden
+     *
+     * @return CommunicationsApplicationIdentity
+     */
     public function setHidden($val)
     {
         $this->_propDict["hidden"] = $val;

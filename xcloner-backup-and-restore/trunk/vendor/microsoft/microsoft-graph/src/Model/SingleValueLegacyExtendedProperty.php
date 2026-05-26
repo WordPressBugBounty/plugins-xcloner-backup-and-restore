@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SingleValueLegacyExtendedProperty class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SingleValueLegacyExtendedProperty extends Entity
 {
     /**
-    * Gets the value
-    * A property value.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * A property value.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -41,19 +42,17 @@ class SingleValueLegacyExtendedProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * A property value.
-    *
-    * @param string $val The value
-    *
-    * @return SingleValueLegacyExtendedProperty
-    */
+     * Sets the value
+     * A property value.
+     *
+     * @param string $val The value
+     *
+     * @return SingleValueLegacyExtendedProperty
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
         return $this;
     }
-
 }

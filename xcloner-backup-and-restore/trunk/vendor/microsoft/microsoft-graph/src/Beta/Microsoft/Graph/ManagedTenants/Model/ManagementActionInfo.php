@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagementActionInfo class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ManagementActionInfo extends \Beta\Microsoft\Graph\Model\Entity
+class ManagementActionInfo extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the managementActionId
-    * The identifier for the management action. Required. Read-only.
-    *
-    * @return string|null The managementActionId
-    */
+     * Gets the managementActionId
+     * The identifier for the management action. Required. Read-only.
+     *
+     * @return string|null The managementActionId
+     */
     public function getManagementActionId()
     {
         if (array_key_exists("managementActionId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ManagementActionInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the managementActionId
-    * The identifier for the management action. Required. Read-only.
-    *
-    * @param string $val The value of the managementActionId
-    *
-    * @return ManagementActionInfo
-    */
+     * Sets the managementActionId
+     * The identifier for the management action. Required. Read-only.
+     *
+     * @param string $val The value of the managementActionId
+     *
+     * @return ManagementActionInfo
+     */
     public function setManagementActionId($val)
     {
         $this->_propDict["managementActionId"] = $val;
         return $this;
     }
     /**
-    * Gets the managementTemplateId
-    * The identifier for the management template. Required. Read-only.
-    *
-    * @return string|null The managementTemplateId
-    */
+     * Gets the managementTemplateId
+     * The identifier for the management template. Required. Read-only.
+     *
+     * @return string|null The managementTemplateId
+     */
     public function getManagementTemplateId()
     {
         if (array_key_exists("managementTemplateId", $this->_propDict)) {
@@ -68,25 +69,24 @@ class ManagementActionInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the managementTemplateId
-    * The identifier for the management template. Required. Read-only.
-    *
-    * @param string $val The value of the managementTemplateId
-    *
-    * @return ManagementActionInfo
-    */
+     * Sets the managementTemplateId
+     * The identifier for the management template. Required. Read-only.
+     *
+     * @param string $val The value of the managementTemplateId
+     *
+     * @return ManagementActionInfo
+     */
     public function setManagementTemplateId($val)
     {
         $this->_propDict["managementTemplateId"] = $val;
         return $this;
     }
     /**
-    * Gets the managementTemplateVersion
-    *
-    * @return int|null The managementTemplateVersion
-    */
+     * Gets the managementTemplateVersion
+     *
+     * @return int|null The managementTemplateVersion
+     */
     public function getManagementTemplateVersion()
     {
         if (array_key_exists("managementTemplateVersion", $this->_propDict)) {
@@ -95,14 +95,13 @@ class ManagementActionInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the managementTemplateVersion
-    *
-    * @param int $val The value of the managementTemplateVersion
-    *
-    * @return ManagementActionInfo
-    */
+     * Sets the managementTemplateVersion
+     *
+     * @param int $val The value of the managementTemplateVersion
+     *
+     * @return ManagementActionInfo
+     */
     public function setManagementTemplateVersion($val)
     {
         $this->_propDict["managementTemplateVersion"] = $val;

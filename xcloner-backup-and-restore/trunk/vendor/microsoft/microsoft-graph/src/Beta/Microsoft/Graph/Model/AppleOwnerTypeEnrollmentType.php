@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppleOwnerTypeEnrollmentType class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppleOwnerTypeEnrollmentType extends Entity
 {
-
     /**
-    * Gets the enrollmentType
-    * The enrollment type. Possible values are: unknown, device, user.
-    *
-    * @return AppleUserInitiatedEnrollmentType|null The enrollmentType
-    */
+     * Gets the enrollmentType
+     * The enrollment type. Possible values are: unknown, device, user.
+     *
+     * @return AppleUserInitiatedEnrollmentType|null The enrollmentType
+     */
     public function getEnrollmentType()
     {
         if (array_key_exists("enrollmentType", $this->_propDict)) {
-            if (is_a($this->_propDict["enrollmentType"], "\Beta\Microsoft\Graph\Model\AppleUserInitiatedEnrollmentType") || is_null($this->_propDict["enrollmentType"])) {
+            if (is_a($this->_propDict["enrollmentType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppleUserInitiatedEnrollmentType") || is_null($this->_propDict["enrollmentType"])) {
                 return $this->_propDict["enrollmentType"];
             } else {
                 $this->_propDict["enrollmentType"] = new AppleUserInitiatedEnrollmentType($this->_propDict["enrollmentType"]);
@@ -45,31 +46,29 @@ class AppleOwnerTypeEnrollmentType extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the enrollmentType
-    * The enrollment type. Possible values are: unknown, device, user.
-    *
-    * @param AppleUserInitiatedEnrollmentType $val The value to assign to the enrollmentType
-    *
-    * @return AppleOwnerTypeEnrollmentType The AppleOwnerTypeEnrollmentType
-    */
+     * Sets the enrollmentType
+     * The enrollment type. Possible values are: unknown, device, user.
+     *
+     * @param AppleUserInitiatedEnrollmentType $val The value to assign to the enrollmentType
+     *
+     * @return AppleOwnerTypeEnrollmentType The AppleOwnerTypeEnrollmentType
+     */
     public function setEnrollmentType($val)
     {
         $this->_propDict["enrollmentType"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the ownerType
-    * The owner type. Possible values are: unknown, company, personal.
-    *
-    * @return ManagedDeviceOwnerType|null The ownerType
-    */
+     * Gets the ownerType
+     * The owner type. Possible values are: unknown, company, personal.
+     *
+     * @return ManagedDeviceOwnerType|null The ownerType
+     */
     public function getOwnerType()
     {
         if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\ManagedDeviceOwnerType") || is_null($this->_propDict["ownerType"])) {
+            if (is_a($this->_propDict["ownerType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ManagedDeviceOwnerType") || is_null($this->_propDict["ownerType"])) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new ManagedDeviceOwnerType($this->_propDict["ownerType"]);
@@ -78,18 +77,17 @@ class AppleOwnerTypeEnrollmentType extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the ownerType
-    * The owner type. Possible values are: unknown, company, personal.
-    *
-    * @param ManagedDeviceOwnerType $val The value to assign to the ownerType
-    *
-    * @return AppleOwnerTypeEnrollmentType The AppleOwnerTypeEnrollmentType
-    */
+     * Sets the ownerType
+     * The owner type. Possible values are: unknown, company, personal.
+     *
+     * @param ManagedDeviceOwnerType $val The value to assign to the ownerType
+     *
+     * @return AppleOwnerTypeEnrollmentType The AppleOwnerTypeEnrollmentType
+     */
     public function setOwnerType($val)
     {
         $this->_propDict["ownerType"] = $val;
-         return $this;
+        return $this;
     }
 }

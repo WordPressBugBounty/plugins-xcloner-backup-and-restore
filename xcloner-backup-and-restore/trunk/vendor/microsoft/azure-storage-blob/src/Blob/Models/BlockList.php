@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Serialization\XmlSerializer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization\XmlSerializer;
 /**
  * Holds block list used for commitBlobBlocks
  *
@@ -45,7 +43,6 @@ class BlockList
 {
     private $entries;
     private static $xmlRootName = 'BlockList';
-
     /**
      * Creates block list from array of blocks.
      *
@@ -56,14 +53,11 @@ class BlockList
     public static function create(array $array)
     {
         $blockList = new BlockList();
-
         foreach ($array as $value) {
             $blockList->addEntry($value->getBlockId(), $value->getType());
         }
-
         return $blockList;
     }
-
     /**
      * Adds new entry to the block list entries.
      *
@@ -75,17 +69,12 @@ class BlockList
     public function addEntry($blockId, $type)
     {
         Validate::canCastAsString($blockId, 'blockId');
-        Validate::isTrue(
-            BlobBlockType::isValid($type),
-            sprintf(Resources::INVALID_BTE_MSG, get_class(new BlobBlockType()))
-        );
+        Validate::isTrue(BlobBlockType::isValid($type), sprintf(Resources::INVALID_BTE_MSG, get_class(new BlobBlockType())));
         $block = new Block();
         $block->setBlockId($blockId);
         $block->setType($type);
-
         $this->entries[] = $block;
     }
-
     /**
      * Addds committed block entry.
      *
@@ -97,7 +86,6 @@ class BlockList
     {
         $this->addEntry($blockId, BlobBlockType::COMMITTED_TYPE);
     }
-
     /**
      * Addds uncommitted block entry.
      *
@@ -109,7 +97,6 @@ class BlockList
     {
         $this->addEntry($blockId, BlobBlockType::UNCOMMITTED_TYPE);
     }
-
     /**
      * Addds latest block entry.
      *
@@ -121,7 +108,6 @@ class BlockList
     {
         $this->addEntry($blockId, BlobBlockType::LATEST_TYPE);
     }
-
     /**
      * Gets blob block entry.
      *
@@ -136,10 +122,8 @@ class BlockList
                 return $value;
             }
         }
-
         return null;
     }
-
     /**
      * Gets all blob block entries.
      *
@@ -149,7 +133,6 @@ class BlockList
     {
         return $this->entries;
     }
-
     /**
      * Converts the  BlockList object to XML representation
      *
@@ -162,14 +145,10 @@ class BlockList
     public function toXml(XmlSerializer $xmlSerializer)
     {
         $properties = array(XmlSerializer::ROOT_NAME => self::$xmlRootName);
-        $array      = array();
-
+        $array = array();
         foreach ($this->entries as $value) {
-            $array[] = array(
-                $value->getType() => $value->getBlockId()
-            );
+            $array[] = array($value->getType() => $value->getBlockId());
         }
-
         return $xmlSerializer->serialize($array, $properties);
     }
 }

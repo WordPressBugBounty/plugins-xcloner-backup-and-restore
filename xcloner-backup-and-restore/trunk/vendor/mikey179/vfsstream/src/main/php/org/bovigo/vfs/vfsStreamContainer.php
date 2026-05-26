@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Interface for stream contents that are able to store other stream contents.
  */
@@ -22,7 +24,6 @@ interface vfsStreamContainer extends \IteratorAggregate
      * @param  vfsStreamContent  $child
      */
     public function addChild(vfsStreamContent $child);
-
     /**
      * removes child from the directory
      *
@@ -30,7 +31,6 @@ interface vfsStreamContainer extends \IteratorAggregate
      * @return  bool
      */
     public function removeChild($name);
-
     /**
      * checks whether the container contains a child with the given name
      *
@@ -38,7 +38,6 @@ interface vfsStreamContainer extends \IteratorAggregate
      * @return  bool
      */
     public function hasChild($name);
-
     /**
      * returns the child with the given name
      *
@@ -46,7 +45,6 @@ interface vfsStreamContainer extends \IteratorAggregate
      * @return  vfsStreamContent
      */
     public function getChild($name);
-
     /**
      * checks whether directory contains any children
      *
@@ -54,7 +52,6 @@ interface vfsStreamContainer extends \IteratorAggregate
      * @since   0.10.0
      */
     public function hasChildren();
-
     /**
      * returns a list of children for this directory
      *

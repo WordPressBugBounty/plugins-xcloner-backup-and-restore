@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RubricQualityFeedbackModel class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RubricQualityFeedbackModel extends Entity
 {
-
     /**
-    * Gets the feedback
-    * Specific feedback for one quality of this rubric.
-    *
-    * @return EducationItemBody|null The feedback
-    */
+     * Gets the feedback
+     * Specific feedback for one quality of this rubric.
+     *
+     * @return EducationItemBody|null The feedback
+     */
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "\Microsoft\Graph\Model\EducationItemBody") || is_null($this->_propDict["feedback"])) {
+            if (is_a($this->_propDict["feedback"], "XCloner\\Microsoft\\Graph\\Model\\EducationItemBody") || is_null($this->_propDict["feedback"])) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new EducationItemBody($this->_propDict["feedback"]);
@@ -45,26 +46,25 @@ class RubricQualityFeedbackModel extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the feedback
-    * Specific feedback for one quality of this rubric.
-    *
-    * @param EducationItemBody $val The value to assign to the feedback
-    *
-    * @return RubricQualityFeedbackModel The RubricQualityFeedbackModel
-    */
+     * Sets the feedback
+     * Specific feedback for one quality of this rubric.
+     *
+     * @param EducationItemBody $val The value to assign to the feedback
+     *
+     * @return RubricQualityFeedbackModel The RubricQualityFeedbackModel
+     */
     public function setFeedback($val)
     {
         $this->_propDict["feedback"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the qualityId
-    * The ID of the rubricQuality that this feedback is related to.
-    *
-    * @return string|null The qualityId
-    */
+     * Gets the qualityId
+     * The ID of the rubricQuality that this feedback is related to.
+     *
+     * @return string|null The qualityId
+     */
     public function getQualityId()
     {
         if (array_key_exists("qualityId", $this->_propDict)) {
@@ -73,15 +73,14 @@ class RubricQualityFeedbackModel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the qualityId
-    * The ID of the rubricQuality that this feedback is related to.
-    *
-    * @param string $val The value of the qualityId
-    *
-    * @return RubricQualityFeedbackModel
-    */
+     * Sets the qualityId
+     * The ID of the rubricQuality that this feedback is related to.
+     *
+     * @param string $val The value of the qualityId
+     *
+     * @return RubricQualityFeedbackModel
+     */
     public function setQualityId($val)
     {
         $this->_propDict["qualityId"] = $val;

@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP\Auth;
 
-namespace Sabre\HTTP\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * HTTP Authentication base class.
  *
@@ -27,21 +25,18 @@ abstract class AbstractAuth
      * @var string
      */
     protected $realm;
-
     /**
      * Request object.
      *
      * @var RequestInterface
      */
     protected $request;
-
     /**
      * Response object.
      *
      * @var ResponseInterface
      */
     protected $response;
-
     /**
      * Creates the object.
      */
@@ -51,13 +46,11 @@ abstract class AbstractAuth
         $this->request = $request;
         $this->response = $response;
     }
-
     /**
      * This method sends the needed HTTP header and status code (401) to force
      * the user to login.
      */
     abstract public function requireLogin();
-
     /**
      * Returns the HTTP realm.
      */

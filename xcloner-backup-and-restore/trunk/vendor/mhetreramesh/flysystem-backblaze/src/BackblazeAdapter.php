@@ -1,33 +1,27 @@
 <?php
 
-namespace Mhetreramesh\Flysystem;
+namespace XCloner\Mhetreramesh\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use BackblazeB2\Client;
-use GuzzleHttp\Psr7;
-use League\Flysystem\Adapter\AbstractAdapter;
-use League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
-use League\Flysystem\Config;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\BackblazeB2\Client;
+use XCloner\GuzzleHttp\Psr7;
+use XCloner\League\Flysystem\Adapter\AbstractAdapter;
+use XCloner\League\Flysystem\Adapter\Polyfill\NotSupportingVisibilityTrait;
+use XCloner\League\Flysystem\Config;
 class BackblazeAdapter extends AbstractAdapter
 {
     use NotSupportingVisibilityTrait;
-
     protected $client;
-
     protected $bucketName;
-
     protected $bucketId;
-
     public function __construct(Client $client, $bucketName, $bucketId = null)
     {
         $this->client = $client;
         $this->bucketName = $bucketName;
         $this->bucketId = $bucketId;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -35,128 +29,76 @@ class BackblazeAdapter extends AbstractAdapter
     {
         return $this->getClient()->fileExists(['FileName' => $path, 'BucketId' => $this->bucketId, 'BucketName' => $this->bucketName]);
     }
-
     /**
      * {@inheritdoc}
      */
     public function write($path, $contents, Config $config)
     {
-        $file = $this->getClient()->upload([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-            'Body'       => $contents,
-        ]);
-
+        $file = $this->getClient()->upload(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path, 'Body' => $contents]);
         return $this->getFileInfo($file);
     }
-
     /**
      * {@inheritdoc}
      */
     public function writeStream($path, $resource, Config $config)
     {
-        $file = $this->getClient()->upload([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-            'Body'       => $resource,
-        ]);
-
+        $file = $this->getClient()->upload(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path, 'Body' => $resource]);
         return $this->getFileInfo($file);
     }
-
     /**
      * {@inheritdoc}
      */
     public function update($path, $contents, Config $config)
     {
-        $file = $this->getClient()->upload([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-            'Body'       => $contents,
-        ]);
-
+        $file = $this->getClient()->upload(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path, 'Body' => $contents]);
         return $this->getFileInfo($file);
     }
-
     /**
      * {@inheritdoc}
      */
     public function updateStream($path, $resource, Config $config)
     {
-        $file = $this->getClient()->upload([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-            'Body'       => $resource,
-        ]);
-
+        $file = $this->getClient()->upload(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path, 'Body' => $resource]);
         return $this->getFileInfo($file);
     }
-
     /**
      * {@inheritdoc}
      */
     public function read($path)
     {
-        $file = $this->getClient()->getFile([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-        ]);
-        $fileContent = $this->getClient()->download([
-            'FileId' => $file->getId(),
-        ]);
-
+        $file = $this->getClient()->getFile(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path]);
+        $fileContent = $this->getClient()->download(['FileId' => $file->getId()]);
         return ['contents' => $fileContent];
     }
-
     /**
      * {@inheritdoc}
      */
     public function readStream($path)
     {
         $stream = Psr7\stream_for();
-        $download = $this->getClient()->download([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-            'SaveAs'     => $stream,
-        ]);
+        $download = $this->getClient()->download(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path, 'SaveAs' => $stream]);
         $stream->seek(0);
-
         try {
             $resource = Psr7\StreamWrapper::getResource($stream);
         } catch (InvalidArgumentException $e) {
-            return false;
+            return \false;
         }
-
-        return $download === true ? ['stream' => $resource] : false;
+        return $download === \true ? ['stream' => $resource] : \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function rename($path, $newpath)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function copy($path, $newPath)
     {
-        return $this->getClient()->upload([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $newPath,
-            'Body'       => @file_get_contents($path),
-        ]);
+        return $this->getClient()->upload(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $newPath, 'Body' => @file_get_contents($path)]);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -164,7 +106,6 @@ class BackblazeAdapter extends AbstractAdapter
     {
         return $this->getClient()->deleteFile(['FileName' => $path, 'BucketId' => $this->bucketId, 'BucketName' => $this->bucketName]);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -172,56 +113,43 @@ class BackblazeAdapter extends AbstractAdapter
     {
         return $this->getClient()->deleteFile(['FileName' => $path, 'BucketId' => $this->bucketId, 'BucketName' => $this->bucketName]);
     }
-
     /**
      * {@inheritdoc}
      */
     public function createDir($path, Config $config)
     {
-        return $this->getClient()->upload([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-            'FileName'   => $path,
-            'Body'       => '',
-        ]);
+        return $this->getClient()->upload(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName, 'FileName' => $path, 'Body' => '']);
     }
-
     /**
      * {@inheritdoc}
      */
     public function getMetadata($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function getMimetype($path)
     {
-        return false;
+        return \false;
     }
-
     /**
      * {@inheritdoc}
      */
     public function getSize($path)
     {
         $file = $this->getClient()->getFile(['FileName' => $path, 'BucketId' => $this->bucketId, 'BucketName' => $this->bucketName]);
-
         return $this->getFileInfo($file);
     }
-
     /**
      * {@inheritdoc}
      */
     public function getTimestamp($path)
     {
         $file = $this->getClient()->getFile(['FileName' => $path, 'BucketId' => $this->bucketId, 'BucketName' => $this->bucketName]);
-
         return $this->getFileInfo($file);
     }
-
     /**
      * {@inheritdoc}
      */
@@ -229,24 +157,20 @@ class BackblazeAdapter extends AbstractAdapter
     {
         return $this->client;
     }
-
     /**
      * {@inheritdoc}
      */
-    public function listContents($directory = '', $recursive = false)
+    public function listContents($directory = '', $recursive = \false)
     {
-        $fileObjects = $this->getClient()->listFiles([
-            'BucketId'   => $this->bucketId,
-            'BucketName' => $this->bucketName,
-        ]);
-        if ($recursive === true && $directory === '') {
+        $fileObjects = $this->getClient()->listFiles(['BucketId' => $this->bucketId, 'BucketName' => $this->bucketName]);
+        if ($recursive === \true && $directory === '') {
             $regex = '/^.*$/';
-        } elseif ($recursive === true && $directory !== '') {
-            $regex = '/^'.preg_quote($directory).'\/.*$/';
-        } elseif ($recursive === false && $directory === '') {
-            $regex = '/^(?!.*\\/).*$/';
-        } elseif ($recursive === false && $directory !== '') {
-            $regex = '/^'.preg_quote($directory).'\/(?!.*\\/).*$/';
+        } elseif ($recursive === \true && $directory !== '') {
+            $regex = '/^' . preg_quote($directory) . '\/.*$/';
+        } elseif ($recursive === \false && $directory === '') {
+            $regex = '/^(?!.*\/).*$/';
+        } elseif ($recursive === \false && $directory !== '') {
+            $regex = '/^' . preg_quote($directory) . '\/(?!.*\/).*$/';
         } else {
             throw new \InvalidArgumentException();
         }
@@ -256,10 +180,8 @@ class BackblazeAdapter extends AbstractAdapter
         $normalized = array_map(function ($fileObject) {
             return $this->getFileInfo($fileObject);
         }, $fileObjects);
-
         return array_values($normalized);
     }
-
     /**
      * Get file info.
      *
@@ -269,13 +191,7 @@ class BackblazeAdapter extends AbstractAdapter
      */
     protected function getFileInfo($file)
     {
-        $normalized = [
-            'type'      => 'file',
-            'path'      => $file->getName(),
-            'timestamp' => substr($file->getUploadTimestamp(), 0, -3),
-            'size'      => $file->getSize(),
-        ];
-
+        $normalized = ['type' => 'file', 'path' => $file->getName(), 'timestamp' => substr($file->getUploadTimestamp(), 0, -3), 'size' => $file->getSize()];
         return $normalized;
     }
 }

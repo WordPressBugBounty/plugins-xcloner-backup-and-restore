@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LanguageProficiency class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LanguageProficiency extends ItemFacet
 {
     /**
-    * Gets the displayName
-    * Contains the long-form name for the language.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Contains the long-form name for the language.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,30 +42,28 @@ class LanguageProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Contains the long-form name for the language.
-    *
-    * @param string $val The displayName
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the displayName
+     * Contains the long-form name for the language.
+     *
+     * @param string $val The displayName
+     *
+     * @return LanguageProficiency
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the proficiency
-    *
-    * @return LanguageProficiencyLevel|null The proficiency
-    */
+     * Gets the proficiency
+     *
+     * @return LanguageProficiencyLevel|null The proficiency
+     */
     public function getProficiency()
     {
         if (array_key_exists("proficiency", $this->_propDict)) {
-            if (is_a($this->_propDict["proficiency"], "\Beta\Microsoft\Graph\Model\LanguageProficiencyLevel") || is_null($this->_propDict["proficiency"])) {
+            if (is_a($this->_propDict["proficiency"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LanguageProficiencyLevel") || is_null($this->_propDict["proficiency"])) {
                 return $this->_propDict["proficiency"];
             } else {
                 $this->_propDict["proficiency"] = new LanguageProficiencyLevel($this->_propDict["proficiency"]);
@@ -73,30 +72,28 @@ class LanguageProficiency extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the proficiency
-    *
-    * @param LanguageProficiencyLevel $val The proficiency
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the proficiency
+     *
+     * @param LanguageProficiencyLevel $val The proficiency
+     *
+     * @return LanguageProficiency
+     */
     public function setProficiency($val)
     {
         $this->_propDict["proficiency"] = $val;
         return $this;
     }
-
     /**
-    * Gets the reading
-    * Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    *
-    * @return LanguageProficiencyLevel|null The reading
-    */
+     * Gets the reading
+     * Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     *
+     * @return LanguageProficiencyLevel|null The reading
+     */
     public function getReading()
     {
         if (array_key_exists("reading", $this->_propDict)) {
-            if (is_a($this->_propDict["reading"], "\Beta\Microsoft\Graph\Model\LanguageProficiencyLevel") || is_null($this->_propDict["reading"])) {
+            if (is_a($this->_propDict["reading"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LanguageProficiencyLevel") || is_null($this->_propDict["reading"])) {
                 return $this->_propDict["reading"];
             } else {
                 $this->_propDict["reading"] = new LanguageProficiencyLevel($this->_propDict["reading"]);
@@ -105,31 +102,29 @@ class LanguageProficiency extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the reading
-    * Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    *
-    * @param LanguageProficiencyLevel $val The reading
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the reading
+     * Represents the users reading comprehension for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     *
+     * @param LanguageProficiencyLevel $val The reading
+     *
+     * @return LanguageProficiency
+     */
     public function setReading($val)
     {
         $this->_propDict["reading"] = $val;
         return $this;
     }
-
     /**
-    * Gets the spoken
-    * Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    *
-    * @return LanguageProficiencyLevel|null The spoken
-    */
+     * Gets the spoken
+     * Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     *
+     * @return LanguageProficiencyLevel|null The spoken
+     */
     public function getSpoken()
     {
         if (array_key_exists("spoken", $this->_propDict)) {
-            if (is_a($this->_propDict["spoken"], "\Beta\Microsoft\Graph\Model\LanguageProficiencyLevel") || is_null($this->_propDict["spoken"])) {
+            if (is_a($this->_propDict["spoken"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LanguageProficiencyLevel") || is_null($this->_propDict["spoken"])) {
                 return $this->_propDict["spoken"];
             } else {
                 $this->_propDict["spoken"] = new LanguageProficiencyLevel($this->_propDict["spoken"]);
@@ -138,27 +133,25 @@ class LanguageProficiency extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the spoken
-    * Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    *
-    * @param LanguageProficiencyLevel $val The spoken
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the spoken
+     * Represents the users spoken proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     *
+     * @param LanguageProficiencyLevel $val The spoken
+     *
+     * @return LanguageProficiency
+     */
     public function setSpoken($val)
     {
         $this->_propDict["spoken"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tag
-    * Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
-    *
-    * @return string|null The tag
-    */
+     * Gets the tag
+     * Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
+     *
+     * @return string|null The tag
+     */
     public function getTag()
     {
         if (array_key_exists("tag", $this->_propDict)) {
@@ -167,26 +160,24 @@ class LanguageProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the tag
-    * Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
-    *
-    * @param string $val The tag
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the tag
+     * Contains the four-character BCP47 name for the language (en-US, no-NB, en-AU).
+     *
+     * @param string $val The tag
+     *
+     * @return LanguageProficiency
+     */
     public function setTag($val)
     {
         $this->_propDict["tag"] = $val;
         return $this;
     }
-
     /**
-    * Gets the thumbnailUrl
-    *
-    * @return string|null The thumbnailUrl
-    */
+     * Gets the thumbnailUrl
+     *
+     * @return string|null The thumbnailUrl
+     */
     public function getThumbnailUrl()
     {
         if (array_key_exists("thumbnailUrl", $this->_propDict)) {
@@ -195,30 +186,28 @@ class LanguageProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the thumbnailUrl
-    *
-    * @param string $val The thumbnailUrl
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the thumbnailUrl
+     *
+     * @param string $val The thumbnailUrl
+     *
+     * @return LanguageProficiency
+     */
     public function setThumbnailUrl($val)
     {
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the written
-    * Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    *
-    * @return LanguageProficiencyLevel|null The written
-    */
+     * Gets the written
+     * Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     *
+     * @return LanguageProficiencyLevel|null The written
+     */
     public function getWritten()
     {
         if (array_key_exists("written", $this->_propDict)) {
-            if (is_a($this->_propDict["written"], "\Beta\Microsoft\Graph\Model\LanguageProficiencyLevel") || is_null($this->_propDict["written"])) {
+            if (is_a($this->_propDict["written"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LanguageProficiencyLevel") || is_null($this->_propDict["written"])) {
                 return $this->_propDict["written"];
             } else {
                 $this->_propDict["written"] = new LanguageProficiencyLevel($this->_propDict["written"]);
@@ -227,19 +216,17 @@ class LanguageProficiency extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the written
-    * Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
-    *
-    * @param LanguageProficiencyLevel $val The written
-    *
-    * @return LanguageProficiency
-    */
+     * Sets the written
+     * Represents the users written proficiency for the language represented by the object. Possible values are: elementary, conversational, limitedWorking, professionalWorking, fullProfessional, nativeOrBilingual, unknownFutureValue.
+     *
+     * @param LanguageProficiencyLevel $val The written
+     *
+     * @return LanguageProficiency
+     */
     public function setWritten($val)
     {
         $this->_propDict["written"] = $val;
         return $this;
     }
-
 }

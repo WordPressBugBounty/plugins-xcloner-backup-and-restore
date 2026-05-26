@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SharedAppleDeviceUser class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SharedAppleDeviceUser extends Entity
 {
     /**
-    * Gets the dataQuota
-    * Data quota
-    *
-    * @return int|null The dataQuota
-    */
+     * Gets the dataQuota
+     * Data quota
+     *
+     * @return int|null The dataQuota
+     */
     public function getDataQuota()
     {
         if (array_key_exists("dataQuota", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SharedAppleDeviceUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dataQuota
-    * Data quota
-    *
-    * @param int $val The value of the dataQuota
-    *
-    * @return SharedAppleDeviceUser
-    */
+     * Sets the dataQuota
+     * Data quota
+     *
+     * @param int $val The value of the dataQuota
+     *
+     * @return SharedAppleDeviceUser
+     */
     public function setDataQuota($val)
     {
         $this->_propDict["dataQuota"] = $val;
         return $this;
     }
     /**
-    * Gets the dataToSync
-    * Data to sync
-    *
-    * @return bool|null The dataToSync
-    */
+     * Gets the dataToSync
+     * Data to sync
+     *
+     * @return bool|null The dataToSync
+     */
     public function getDataToSync()
     {
         if (array_key_exists("dataToSync", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SharedAppleDeviceUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dataToSync
-    * Data to sync
-    *
-    * @param bool $val The value of the dataToSync
-    *
-    * @return SharedAppleDeviceUser
-    */
+     * Sets the dataToSync
+     * Data to sync
+     *
+     * @param bool $val The value of the dataToSync
+     *
+     * @return SharedAppleDeviceUser
+     */
     public function setDataToSync($val)
     {
         $this->_propDict["dataToSync"] = $val;
         return $this;
     }
     /**
-    * Gets the dataUsed
-    * Data quota
-    *
-    * @return int|null The dataUsed
-    */
+     * Gets the dataUsed
+     * Data quota
+     *
+     * @return int|null The dataUsed
+     */
     public function getDataUsed()
     {
         if (array_key_exists("dataUsed", $this->_propDict)) {
@@ -96,26 +96,25 @@ class SharedAppleDeviceUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dataUsed
-    * Data quota
-    *
-    * @param int $val The value of the dataUsed
-    *
-    * @return SharedAppleDeviceUser
-    */
+     * Sets the dataUsed
+     * Data quota
+     *
+     * @param int $val The value of the dataUsed
+     *
+     * @return SharedAppleDeviceUser
+     */
     public function setDataUsed($val)
     {
         $this->_propDict["dataUsed"] = $val;
         return $this;
     }
     /**
-    * Gets the userPrincipalName
-    * User name
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * User name
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -124,15 +123,14 @@ class SharedAppleDeviceUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * User name
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return SharedAppleDeviceUser
-    */
+     * Sets the userPrincipalName
+     * User name
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return SharedAppleDeviceUser
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

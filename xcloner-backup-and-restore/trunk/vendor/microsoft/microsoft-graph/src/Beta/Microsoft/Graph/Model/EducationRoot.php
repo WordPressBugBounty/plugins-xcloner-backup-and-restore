@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationRoot class
 *
@@ -28,38 +29,34 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationRoot implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new EducationRoot
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new EducationRoot
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the EducationRoot
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the EducationRoot
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
-
-     /**
+    /**
      * Gets the synchronizationProfiles
      *
      * @return array|null The synchronizationProfiles
@@ -67,27 +64,24 @@ class EducationRoot implements \JsonSerializable
     public function getSynchronizationProfiles()
     {
         if (array_key_exists("synchronizationProfiles", $this->_propDict)) {
-           return $this->_propDict["synchronizationProfiles"];
+            return $this->_propDict["synchronizationProfiles"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the synchronizationProfiles
-    *
-    * @param EducationSynchronizationProfile[] $val The synchronizationProfiles
-    *
-    * @return EducationRoot
-    */
+     * Sets the synchronizationProfiles
+     *
+     * @param EducationSynchronizationProfile[] $val The synchronizationProfiles
+     *
+     * @return EducationRoot
+     */
     public function setSynchronizationProfiles($val)
     {
         $this->_propDict["synchronizationProfiles"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the classes
      *
      * @return array|null The classes
@@ -95,34 +89,32 @@ class EducationRoot implements \JsonSerializable
     public function getClasses()
     {
         if (array_key_exists("classes", $this->_propDict)) {
-           return $this->_propDict["classes"];
+            return $this->_propDict["classes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the classes
-    *
-    * @param EducationClass[] $val The classes
-    *
-    * @return EducationRoot
-    */
+     * Sets the classes
+     *
+     * @param EducationClass[] $val The classes
+     *
+     * @return EducationRoot
+     */
     public function setClasses($val)
     {
         $this->_propDict["classes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the me
-    *
-    * @return EducationUser|null The me
-    */
+     * Gets the me
+     *
+     * @return EducationUser|null The me
+     */
     public function getMe()
     {
         if (array_key_exists("me", $this->_propDict)) {
-            if (is_a($this->_propDict["me"], "\Beta\Microsoft\Graph\Model\EducationUser") || is_null($this->_propDict["me"])) {
+            if (is_a($this->_propDict["me"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationUser") || is_null($this->_propDict["me"])) {
                 return $this->_propDict["me"];
             } else {
                 $this->_propDict["me"] = new EducationUser($this->_propDict["me"]);
@@ -131,22 +123,19 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the me
-    *
-    * @param EducationUser $val The me
-    *
-    * @return EducationRoot
-    */
+     * Sets the me
+     *
+     * @param EducationUser $val The me
+     *
+     * @return EducationRoot
+     */
     public function setMe($val)
     {
         $this->_propDict["me"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the schools
      *
      * @return array|null The schools
@@ -154,27 +143,24 @@ class EducationRoot implements \JsonSerializable
     public function getSchools()
     {
         if (array_key_exists("schools", $this->_propDict)) {
-           return $this->_propDict["schools"];
+            return $this->_propDict["schools"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the schools
-    *
-    * @param EducationSchool[] $val The schools
-    *
-    * @return EducationRoot
-    */
+     * Sets the schools
+     *
+     * @param EducationSchool[] $val The schools
+     *
+     * @return EducationRoot
+     */
     public function setSchools($val)
     {
         $this->_propDict["schools"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the users
      *
      * @return array|null The users
@@ -182,30 +168,28 @@ class EducationRoot implements \JsonSerializable
     public function getUsers()
     {
         if (array_key_exists("users", $this->_propDict)) {
-           return $this->_propDict["users"];
+            return $this->_propDict["users"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the users
-    *
-    * @param EducationUser[] $val The users
-    *
-    * @return EducationRoot
-    */
+     * Sets the users
+     *
+     * @param EducationUser[] $val The users
+     *
+     * @return EducationRoot
+     */
     public function setUsers($val)
     {
         $this->_propDict["users"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -213,36 +197,34 @@ class EducationRoot implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return EducationRoot
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return EducationRoot
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

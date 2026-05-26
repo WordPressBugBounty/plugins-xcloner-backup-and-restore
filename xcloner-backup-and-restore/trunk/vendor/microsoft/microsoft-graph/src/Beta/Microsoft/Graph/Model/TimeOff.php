@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeOff class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TimeOff extends ChangeTrackedEntity
 {
     /**
-    * Gets the draftTimeOff
-    * The draft version of this timeOff that is viewable by managers. Required.
-    *
-    * @return TimeOffItem|null The draftTimeOff
-    */
+     * Gets the draftTimeOff
+     * The draft version of this timeOff that is viewable by managers. Required.
+     *
+     * @return TimeOffItem|null The draftTimeOff
+     */
     public function getDraftTimeOff()
     {
         if (array_key_exists("draftTimeOff", $this->_propDict)) {
-            if (is_a($this->_propDict["draftTimeOff"], "\Beta\Microsoft\Graph\Model\TimeOffItem") || is_null($this->_propDict["draftTimeOff"])) {
+            if (is_a($this->_propDict["draftTimeOff"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeOffItem") || is_null($this->_propDict["draftTimeOff"])) {
                 return $this->_propDict["draftTimeOff"];
             } else {
                 $this->_propDict["draftTimeOff"] = new TimeOffItem($this->_propDict["draftTimeOff"]);
@@ -45,26 +46,24 @@ class TimeOff extends ChangeTrackedEntity
         }
         return null;
     }
-
     /**
-    * Sets the draftTimeOff
-    * The draft version of this timeOff that is viewable by managers. Required.
-    *
-    * @param TimeOffItem $val The draftTimeOff
-    *
-    * @return TimeOff
-    */
+     * Sets the draftTimeOff
+     * The draft version of this timeOff that is viewable by managers. Required.
+     *
+     * @param TimeOffItem $val The draftTimeOff
+     *
+     * @return TimeOff
+     */
     public function setDraftTimeOff($val)
     {
         $this->_propDict["draftTimeOff"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isStagedForDeletion
-    *
-    * @return bool|null The isStagedForDeletion
-    */
+     * Gets the isStagedForDeletion
+     *
+     * @return bool|null The isStagedForDeletion
+     */
     public function getIsStagedForDeletion()
     {
         if (array_key_exists("isStagedForDeletion", $this->_propDict)) {
@@ -73,30 +72,28 @@ class TimeOff extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the isStagedForDeletion
-    *
-    * @param bool $val The isStagedForDeletion
-    *
-    * @return TimeOff
-    */
+     * Sets the isStagedForDeletion
+     *
+     * @param bool $val The isStagedForDeletion
+     *
+     * @return TimeOff
+     */
     public function setIsStagedForDeletion($val)
     {
         $this->_propDict["isStagedForDeletion"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the sharedTimeOff
-    * The shared version of this timeOff that is viewable by both employees and managers. Required.
-    *
-    * @return TimeOffItem|null The sharedTimeOff
-    */
+     * Gets the sharedTimeOff
+     * The shared version of this timeOff that is viewable by both employees and managers. Required.
+     *
+     * @return TimeOffItem|null The sharedTimeOff
+     */
     public function getSharedTimeOff()
     {
         if (array_key_exists("sharedTimeOff", $this->_propDict)) {
-            if (is_a($this->_propDict["sharedTimeOff"], "\Beta\Microsoft\Graph\Model\TimeOffItem") || is_null($this->_propDict["sharedTimeOff"])) {
+            if (is_a($this->_propDict["sharedTimeOff"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeOffItem") || is_null($this->_propDict["sharedTimeOff"])) {
                 return $this->_propDict["sharedTimeOff"];
             } else {
                 $this->_propDict["sharedTimeOff"] = new TimeOffItem($this->_propDict["sharedTimeOff"]);
@@ -105,27 +102,25 @@ class TimeOff extends ChangeTrackedEntity
         }
         return null;
     }
-
     /**
-    * Sets the sharedTimeOff
-    * The shared version of this timeOff that is viewable by both employees and managers. Required.
-    *
-    * @param TimeOffItem $val The sharedTimeOff
-    *
-    * @return TimeOff
-    */
+     * Sets the sharedTimeOff
+     * The shared version of this timeOff that is viewable by both employees and managers. Required.
+     *
+     * @param TimeOffItem $val The sharedTimeOff
+     *
+     * @return TimeOff
+     */
     public function setSharedTimeOff($val)
     {
         $this->_propDict["sharedTimeOff"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * ID of the user assigned to the timeOff. Required.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * ID of the user assigned to the timeOff. Required.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -134,19 +129,17 @@ class TimeOff extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * ID of the user assigned to the timeOff. Required.
-    *
-    * @param string $val The userId
-    *
-    * @return TimeOff
-    */
+     * Sets the userId
+     * ID of the user assigned to the timeOff. Required.
+     *
+     * @param string $val The userId
+     *
+     * @return TimeOff
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

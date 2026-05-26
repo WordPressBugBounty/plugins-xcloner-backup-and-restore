@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamInfo class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TeamInfo extends Entity
 {
     /**
-    * Gets the displayName
-    * The name of the team.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the team.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class TeamInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the team.
-    *
-    * @param string $val The displayName
-    *
-    * @return TeamInfo
-    */
+     * Sets the displayName
+     * The name of the team.
+     *
+     * @param string $val The displayName
+     *
+     * @return TeamInfo
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * The ID of the Azure Active Directory tenant.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The ID of the Azure Active Directory tenant.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -70,30 +69,28 @@ class TeamInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The ID of the Azure Active Directory tenant.
-    *
-    * @param string $val The tenantId
-    *
-    * @return TeamInfo
-    */
+     * Sets the tenantId
+     * The ID of the Azure Active Directory tenant.
+     *
+     * @param string $val The tenantId
+     *
+     * @return TeamInfo
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the team
-    *
-    * @return Team|null The team
-    */
+     * Gets the team
+     *
+     * @return Team|null The team
+     */
     public function getTeam()
     {
         if (array_key_exists("team", $this->_propDict)) {
-            if (is_a($this->_propDict["team"], "\Microsoft\Graph\Model\Team") || is_null($this->_propDict["team"])) {
+            if (is_a($this->_propDict["team"], "XCloner\\Microsoft\\Graph\\Model\\Team") || is_null($this->_propDict["team"])) {
                 return $this->_propDict["team"];
             } else {
                 $this->_propDict["team"] = new Team($this->_propDict["team"]);
@@ -102,18 +99,16 @@ class TeamInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the team
-    *
-    * @param Team $val The team
-    *
-    * @return TeamInfo
-    */
+     * Sets the team
+     *
+     * @param Team $val The team
+     *
+     * @return TeamInfo
+     */
     public function setTeam($val)
     {
         $this->_propDict["team"] = $val;
         return $this;
     }
-
 }

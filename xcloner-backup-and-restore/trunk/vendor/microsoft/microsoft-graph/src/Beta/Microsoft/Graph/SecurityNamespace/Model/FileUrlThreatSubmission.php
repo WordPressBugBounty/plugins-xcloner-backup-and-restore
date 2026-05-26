@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FileUrlThreatSubmission class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FileUrlThreatSubmission extends FileThreatSubmission
 {
     /**
-    * Gets the fileUrl
-    * It specifies the URL of the file which needs to be submitted.
-    *
-    * @return string|null The fileUrl
-    */
+     * Gets the fileUrl
+     * It specifies the URL of the file which needs to be submitted.
+     *
+     * @return string|null The fileUrl
+     */
     public function getFileUrl()
     {
         if (array_key_exists("fileUrl", $this->_propDict)) {
@@ -41,19 +42,17 @@ class FileUrlThreatSubmission extends FileThreatSubmission
             return null;
         }
     }
-
     /**
-    * Sets the fileUrl
-    * It specifies the URL of the file which needs to be submitted.
-    *
-    * @param string $val The fileUrl
-    *
-    * @return FileUrlThreatSubmission
-    */
+     * Sets the fileUrl
+     * It specifies the URL of the file which needs to be submitted.
+     *
+     * @param string $val The fileUrl
+     *
+     * @return FileUrlThreatSubmission
+     */
     public function setFileUrl($val)
     {
         $this->_propDict["fileUrl"] = $val;
         return $this;
     }
-
 }

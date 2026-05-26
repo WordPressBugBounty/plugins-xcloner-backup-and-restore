@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * optional parameters for createXXXBlob wrapper
  *
@@ -50,7 +48,6 @@ class CreateBlobOptions extends BlobServiceOptions
     private $_metadata;
     private $_sequenceNumber;
     private $_numberOfConcurrency;
-
     /**
      * Gets blob contentType.
      *
@@ -60,7 +57,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_contentType;
     }
-
     /**
      * Sets blob contentType.
      *
@@ -72,7 +68,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_contentType = $contentType;
     }
-
     /**
      * Gets contentEncoding.
      *
@@ -82,7 +77,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_contentEncoding;
     }
-
     /**
      * Sets contentEncoding.
      *
@@ -94,7 +88,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_contentEncoding = $contentEncoding;
     }
-
     /**
      * Gets contentLanguage.
      *
@@ -104,7 +97,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_contentLanguage;
     }
-
     /**
      * Sets contentLanguage.
      *
@@ -116,7 +108,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_contentLanguage = $contentLanguage;
     }
-
     /**
      * Gets contentMD5.
      *
@@ -126,7 +117,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_contentMD5;
     }
-
     /**
      * Sets contentMD5.
      *
@@ -138,7 +128,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_contentMD5 = $contentMD5;
     }
-
     /**
      * Gets cacheControl.
      *
@@ -148,7 +137,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_cacheControl;
     }
-
     /**
      * Sets cacheControl.
      *
@@ -160,7 +148,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_cacheControl = $cacheControl;
     }
-
     /**
      * Gets content disposition.
      *
@@ -170,7 +157,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_contentDisposition;
     }
-
     /**
      * Sets content disposition.
      *
@@ -182,7 +168,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_contentDisposition = $contentDisposition;
     }
-
     /**
      * Gets blob metadata.
      *
@@ -192,7 +177,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_metadata;
     }
-
     /**
      * Sets blob metadata.
      *
@@ -204,7 +188,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         $this->_metadata = $metadata;
     }
-
     /**
      * Gets blob sequenceNumber.
      *
@@ -214,7 +197,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_sequenceNumber;
     }
-
     /**
      * Sets blob sequenceNumber.
      *
@@ -227,7 +209,6 @@ class CreateBlobOptions extends BlobServiceOptions
         Validate::isInteger($sequenceNumber, 'sequenceNumber');
         $this->_sequenceNumber = $sequenceNumber;
     }
-
     /**
      * Gets number of concurrency for sending a blob.
      *
@@ -237,7 +218,6 @@ class CreateBlobOptions extends BlobServiceOptions
     {
         return $this->_numberOfConcurrency;
     }
-
     /**
      * Sets number of concurrency for sending a blob.
      *

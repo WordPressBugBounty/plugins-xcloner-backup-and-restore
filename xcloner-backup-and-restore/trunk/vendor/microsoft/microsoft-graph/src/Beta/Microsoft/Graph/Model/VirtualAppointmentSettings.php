@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VirtualAppointmentSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VirtualAppointmentSettings extends Entity
 {
     /**
-    * Gets the allowClientToJoinUsingBrowser
-    * Indicates whether the client can use the browser to join a virtual appointment. If set to false, the client can only use Microsoft Teams to join. Optional.
-    *
-    * @return bool|null The allowClientToJoinUsingBrowser
-    */
+     * Gets the allowClientToJoinUsingBrowser
+     * Indicates whether the client can use the browser to join a virtual appointment. If set to false, the client can only use Microsoft Teams to join. Optional.
+     *
+     * @return bool|null The allowClientToJoinUsingBrowser
+     */
     public function getAllowClientToJoinUsingBrowser()
     {
         if (array_key_exists("allowClientToJoinUsingBrowser", $this->_propDict)) {
@@ -40,15 +42,14 @@ class VirtualAppointmentSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowClientToJoinUsingBrowser
-    * Indicates whether the client can use the browser to join a virtual appointment. If set to false, the client can only use Microsoft Teams to join. Optional.
-    *
-    * @param bool $val The value of the allowClientToJoinUsingBrowser
-    *
-    * @return VirtualAppointmentSettings
-    */
+     * Sets the allowClientToJoinUsingBrowser
+     * Indicates whether the client can use the browser to join a virtual appointment. If set to false, the client can only use Microsoft Teams to join. Optional.
+     *
+     * @param bool $val The value of the allowClientToJoinUsingBrowser
+     *
+     * @return VirtualAppointmentSettings
+     */
     public function setAllowClientToJoinUsingBrowser($val)
     {
         $this->_propDict["allowClientToJoinUsingBrowser"] = $val;

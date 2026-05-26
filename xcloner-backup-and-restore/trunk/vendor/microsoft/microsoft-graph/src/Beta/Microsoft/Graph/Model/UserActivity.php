@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserActivity class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserActivity extends Entity
 {
     /**
-    * Gets the activationUrl
-    *
-    * @return string|null The activationUrl
-    */
+     * Gets the activationUrl
+     *
+     * @return string|null The activationUrl
+     */
     public function getActivationUrl()
     {
         if (array_key_exists("activationUrl", $this->_propDict)) {
@@ -40,25 +41,23 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activationUrl
-    *
-    * @param string $val The activationUrl
-    *
-    * @return UserActivity
-    */
+     * Sets the activationUrl
+     *
+     * @param string $val The activationUrl
+     *
+     * @return UserActivity
+     */
     public function setActivationUrl($val)
     {
         $this->_propDict["activationUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the activitySourceHost
-    *
-    * @return string|null The activitySourceHost
-    */
+     * Gets the activitySourceHost
+     *
+     * @return string|null The activitySourceHost
+     */
     public function getActivitySourceHost()
     {
         if (array_key_exists("activitySourceHost", $this->_propDict)) {
@@ -67,25 +66,23 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activitySourceHost
-    *
-    * @param string $val The activitySourceHost
-    *
-    * @return UserActivity
-    */
+     * Sets the activitySourceHost
+     *
+     * @param string $val The activitySourceHost
+     *
+     * @return UserActivity
+     */
     public function setActivitySourceHost($val)
     {
         $this->_propDict["activitySourceHost"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appActivityId
-    *
-    * @return string|null The appActivityId
-    */
+     * Gets the appActivityId
+     *
+     * @return string|null The appActivityId
+     */
     public function getAppActivityId()
     {
         if (array_key_exists("appActivityId", $this->_propDict)) {
@@ -94,25 +91,23 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appActivityId
-    *
-    * @param string $val The appActivityId
-    *
-    * @return UserActivity
-    */
+     * Sets the appActivityId
+     *
+     * @param string $val The appActivityId
+     *
+     * @return UserActivity
+     */
     public function setAppActivityId($val)
     {
         $this->_propDict["appActivityId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appDisplayName
-    *
-    * @return string|null The appDisplayName
-    */
+     * Gets the appDisplayName
+     *
+     * @return string|null The appDisplayName
+     */
     public function getAppDisplayName()
     {
         if (array_key_exists("appDisplayName", $this->_propDict)) {
@@ -121,25 +116,23 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appDisplayName
-    *
-    * @param string $val The appDisplayName
-    *
-    * @return UserActivity
-    */
+     * Sets the appDisplayName
+     *
+     * @param string $val The appDisplayName
+     *
+     * @return UserActivity
+     */
     public function setAppDisplayName($val)
     {
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentInfo
-    *
-    * @return string|null The contentInfo
-    */
+     * Gets the contentInfo
+     *
+     * @return string|null The contentInfo
+     */
     public function getContentInfo()
     {
         if (array_key_exists("contentInfo", $this->_propDict)) {
@@ -148,25 +141,23 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentInfo
-    *
-    * @param string $val The contentInfo
-    *
-    * @return UserActivity
-    */
+     * Sets the contentInfo
+     *
+     * @param string $val The contentInfo
+     *
+     * @return UserActivity
+     */
     public function setContentInfo($val)
     {
         $this->_propDict["contentInfo"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentUrl
-    *
-    * @return string|null The contentUrl
-    */
+     * Gets the contentUrl
+     *
+     * @return string|null The contentUrl
+     */
     public function getContentUrl()
     {
         if (array_key_exists("contentUrl", $this->_propDict)) {
@@ -175,29 +166,27 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentUrl
-    *
-    * @param string $val The contentUrl
-    *
-    * @return UserActivity
-    */
+     * Sets the contentUrl
+     *
+     * @param string $val The contentUrl
+     *
+     * @return UserActivity
+     */
     public function setContentUrl($val)
     {
         $this->_propDict["contentUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -206,29 +195,27 @@ class UserActivity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return UserActivity
-    */
+     * Sets the createdDateTime
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return UserActivity
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the expirationDateTime
-    *
-    * @return \DateTime|null The expirationDateTime
-    */
+     * Gets the expirationDateTime
+     *
+     * @return \DateTime|null The expirationDateTime
+     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -237,25 +224,23 @@ class UserActivity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the expirationDateTime
-    *
-    * @param \DateTime $val The expirationDateTime
-    *
-    * @return UserActivity
-    */
+     * Sets the expirationDateTime
+     *
+     * @param \DateTime $val The expirationDateTime
+     *
+     * @return UserActivity
+     */
     public function setExpirationDateTime($val)
     {
         $this->_propDict["expirationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fallbackUrl
-    *
-    * @return string|null The fallbackUrl
-    */
+     * Gets the fallbackUrl
+     *
+     * @return string|null The fallbackUrl
+     */
     public function getFallbackUrl()
     {
         if (array_key_exists("fallbackUrl", $this->_propDict)) {
@@ -264,29 +249,27 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fallbackUrl
-    *
-    * @param string $val The fallbackUrl
-    *
-    * @return UserActivity
-    */
+     * Sets the fallbackUrl
+     *
+     * @param string $val The fallbackUrl
+     *
+     * @return UserActivity
+     */
     public function setFallbackUrl($val)
     {
         $this->_propDict["fallbackUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -295,29 +278,27 @@ class UserActivity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return UserActivity
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return UserActivity
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    *
-    * @return Status|null The status
-    */
+     * Gets the status
+     *
+     * @return Status|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\Status") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Status") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new Status($this->_propDict["status"]);
@@ -326,25 +307,23 @@ class UserActivity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    *
-    * @param Status $val The status
-    *
-    * @return UserActivity
-    */
+     * Sets the status
+     *
+     * @param Status $val The status
+     *
+     * @return UserActivity
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userTimezone
-    *
-    * @return string|null The userTimezone
-    */
+     * Gets the userTimezone
+     *
+     * @return string|null The userTimezone
+     */
     public function getUserTimezone()
     {
         if (array_key_exists("userTimezone", $this->_propDict)) {
@@ -353,29 +332,27 @@ class UserActivity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userTimezone
-    *
-    * @param string $val The userTimezone
-    *
-    * @return UserActivity
-    */
+     * Sets the userTimezone
+     *
+     * @param string $val The userTimezone
+     *
+     * @return UserActivity
+     */
     public function setUserTimezone($val)
     {
         $this->_propDict["userTimezone"] = $val;
         return $this;
     }
-
     /**
-    * Gets the visualElements
-    *
-    * @return VisualInfo|null The visualElements
-    */
+     * Gets the visualElements
+     *
+     * @return VisualInfo|null The visualElements
+     */
     public function getVisualElements()
     {
         if (array_key_exists("visualElements", $this->_propDict)) {
-            if (is_a($this->_propDict["visualElements"], "\Beta\Microsoft\Graph\Model\VisualInfo") || is_null($this->_propDict["visualElements"])) {
+            if (is_a($this->_propDict["visualElements"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\VisualInfo") || is_null($this->_propDict["visualElements"])) {
                 return $this->_propDict["visualElements"];
             } else {
                 $this->_propDict["visualElements"] = new VisualInfo($this->_propDict["visualElements"]);
@@ -384,22 +361,19 @@ class UserActivity extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the visualElements
-    *
-    * @param VisualInfo $val The visualElements
-    *
-    * @return UserActivity
-    */
+     * Sets the visualElements
+     *
+     * @param VisualInfo $val The visualElements
+     *
+     * @return UserActivity
+     */
     public function setVisualElements($val)
     {
         $this->_propDict["visualElements"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the historyItems
      *
      * @return array|null The historyItems
@@ -407,23 +381,21 @@ class UserActivity extends Entity
     public function getHistoryItems()
     {
         if (array_key_exists("historyItems", $this->_propDict)) {
-           return $this->_propDict["historyItems"];
+            return $this->_propDict["historyItems"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the historyItems
-    *
-    * @param ActivityHistoryItem[] $val The historyItems
-    *
-    * @return UserActivity
-    */
+     * Sets the historyItems
+     *
+     * @param ActivityHistoryItem[] $val The historyItems
+     *
+     * @return UserActivity
+     */
     public function setHistoryItems($val)
     {
         $this->_propDict["historyItems"] = $val;
         return $this;
     }
-
 }

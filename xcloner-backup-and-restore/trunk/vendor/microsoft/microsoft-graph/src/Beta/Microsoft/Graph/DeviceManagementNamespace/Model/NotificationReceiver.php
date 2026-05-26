@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\DeviceManagementNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\DeviceManagementNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * NotificationReceiver class
 *
@@ -24,13 +26,13 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class NotificationReceiver extends \Beta\Microsoft\Graph\Model\Entity
+class NotificationReceiver extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the contactInformation
-    *
-    * @return string|null The contactInformation
-    */
+     * Gets the contactInformation
+     *
+     * @return string|null The contactInformation
+     */
     public function getContactInformation()
     {
         if (array_key_exists("contactInformation", $this->_propDict)) {
@@ -39,24 +41,23 @@ class NotificationReceiver extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the contactInformation
-    *
-    * @param string $val The value of the contactInformation
-    *
-    * @return NotificationReceiver
-    */
+     * Sets the contactInformation
+     *
+     * @param string $val The value of the contactInformation
+     *
+     * @return NotificationReceiver
+     */
     public function setContactInformation($val)
     {
         $this->_propDict["contactInformation"] = $val;
         return $this;
     }
     /**
-    * Gets the locale
-    *
-    * @return string|null The locale
-    */
+     * Gets the locale
+     *
+     * @return string|null The locale
+     */
     public function getLocale()
     {
         if (array_key_exists("locale", $this->_propDict)) {
@@ -65,14 +66,13 @@ class NotificationReceiver extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the locale
-    *
-    * @param string $val The value of the locale
-    *
-    * @return NotificationReceiver
-    */
+     * Sets the locale
+     *
+     * @param string $val The value of the locale
+     *
+     * @return NotificationReceiver
+     */
     public function setLocale($val)
     {
         $this->_propDict["locale"] = $val;

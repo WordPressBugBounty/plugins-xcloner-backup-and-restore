@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackage class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackage extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class AccessPackage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return AccessPackage
-    */
+     * Sets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return AccessPackage
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * The description of the access package.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the access package.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -74,27 +73,25 @@ class AccessPackage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the access package.
-    *
-    * @param string $val The description
-    *
-    * @return AccessPackage
-    */
+     * Sets the description
+     * The description of the access package.
+     *
+     * @param string $val The description
+     *
+     * @return AccessPackage
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name of the access package. Supports $filter (eq, contains).
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the access package. Supports $filter (eq, contains).
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -103,27 +100,25 @@ class AccessPackage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the access package. Supports $filter (eq, contains).
-    *
-    * @param string $val The displayName
-    *
-    * @return AccessPackage
-    */
+     * Sets the displayName
+     * The display name of the access package. Supports $filter (eq, contains).
+     *
+     * @param string $val The displayName
+     *
+     * @return AccessPackage
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isHidden
-    * Whether the access package is hidden from the requestor.
-    *
-    * @return bool|null The isHidden
-    */
+     * Gets the isHidden
+     * Whether the access package is hidden from the requestor.
+     *
+     * @return bool|null The isHidden
+     */
     public function getIsHidden()
     {
         if (array_key_exists("isHidden", $this->_propDict)) {
@@ -132,31 +127,29 @@ class AccessPackage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isHidden
-    * Whether the access package is hidden from the requestor.
-    *
-    * @param bool $val The isHidden
-    *
-    * @return AccessPackage
-    */
+     * Sets the isHidden
+     * Whether the access package is hidden from the requestor.
+     *
+     * @param bool $val The isHidden
+     *
+     * @return AccessPackage
+     */
     public function setIsHidden($val)
     {
         $this->_propDict["isHidden"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the modifiedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @return \DateTime|null The modifiedDateTime
-    */
+     * Gets the modifiedDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @return \DateTime|null The modifiedDateTime
+     */
     public function getModifiedDateTime()
     {
         if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -165,23 +158,20 @@ class AccessPackage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the modifiedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @param \DateTime $val The modifiedDateTime
-    *
-    * @return AccessPackage
-    */
+     * Sets the modifiedDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @param \DateTime $val The modifiedDateTime
+     *
+     * @return AccessPackage
+     */
     public function setModifiedDateTime($val)
     {
         $this->_propDict["modifiedDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the accessPackagesIncompatibleWith
      *
      * @return array|null The accessPackagesIncompatibleWith
@@ -189,27 +179,24 @@ class AccessPackage extends Entity
     public function getAccessPackagesIncompatibleWith()
     {
         if (array_key_exists("accessPackagesIncompatibleWith", $this->_propDict)) {
-           return $this->_propDict["accessPackagesIncompatibleWith"];
+            return $this->_propDict["accessPackagesIncompatibleWith"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the accessPackagesIncompatibleWith
-    *
-    * @param AccessPackage[] $val The accessPackagesIncompatibleWith
-    *
-    * @return AccessPackage
-    */
+     * Sets the accessPackagesIncompatibleWith
+     *
+     * @param AccessPackage[] $val The accessPackagesIncompatibleWith
+     *
+     * @return AccessPackage
+     */
     public function setAccessPackagesIncompatibleWith($val)
     {
         $this->_propDict["accessPackagesIncompatibleWith"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignmentPolicies
      *
      * @return array|null The assignmentPolicies
@@ -217,34 +204,32 @@ class AccessPackage extends Entity
     public function getAssignmentPolicies()
     {
         if (array_key_exists("assignmentPolicies", $this->_propDict)) {
-           return $this->_propDict["assignmentPolicies"];
+            return $this->_propDict["assignmentPolicies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignmentPolicies
-    *
-    * @param AccessPackageAssignmentPolicy[] $val The assignmentPolicies
-    *
-    * @return AccessPackage
-    */
+     * Sets the assignmentPolicies
+     *
+     * @param AccessPackageAssignmentPolicy[] $val The assignmentPolicies
+     *
+     * @return AccessPackage
+     */
     public function setAssignmentPolicies($val)
     {
         $this->_propDict["assignmentPolicies"] = $val;
         return $this;
     }
-
     /**
-    * Gets the catalog
-    *
-    * @return AccessPackageCatalog|null The catalog
-    */
+     * Gets the catalog
+     *
+     * @return AccessPackageCatalog|null The catalog
+     */
     public function getCatalog()
     {
         if (array_key_exists("catalog", $this->_propDict)) {
-            if (is_a($this->_propDict["catalog"], "\Microsoft\Graph\Model\AccessPackageCatalog") || is_null($this->_propDict["catalog"])) {
+            if (is_a($this->_propDict["catalog"], "XCloner\\Microsoft\\Graph\\Model\\AccessPackageCatalog") || is_null($this->_propDict["catalog"])) {
                 return $this->_propDict["catalog"];
             } else {
                 $this->_propDict["catalog"] = new AccessPackageCatalog($this->_propDict["catalog"]);
@@ -253,22 +238,19 @@ class AccessPackage extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the catalog
-    *
-    * @param AccessPackageCatalog $val The catalog
-    *
-    * @return AccessPackage
-    */
+     * Sets the catalog
+     *
+     * @param AccessPackageCatalog $val The catalog
+     *
+     * @return AccessPackage
+     */
     public function setCatalog($val)
     {
         $this->_propDict["catalog"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the incompatibleAccessPackages
      *
      * @return array|null The incompatibleAccessPackages
@@ -276,27 +258,24 @@ class AccessPackage extends Entity
     public function getIncompatibleAccessPackages()
     {
         if (array_key_exists("incompatibleAccessPackages", $this->_propDict)) {
-           return $this->_propDict["incompatibleAccessPackages"];
+            return $this->_propDict["incompatibleAccessPackages"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the incompatibleAccessPackages
-    *
-    * @param AccessPackage[] $val The incompatibleAccessPackages
-    *
-    * @return AccessPackage
-    */
+     * Sets the incompatibleAccessPackages
+     *
+     * @param AccessPackage[] $val The incompatibleAccessPackages
+     *
+     * @return AccessPackage
+     */
     public function setIncompatibleAccessPackages($val)
     {
         $this->_propDict["incompatibleAccessPackages"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the incompatibleGroups
      *
      * @return array|null The incompatibleGroups
@@ -304,23 +283,21 @@ class AccessPackage extends Entity
     public function getIncompatibleGroups()
     {
         if (array_key_exists("incompatibleGroups", $this->_propDict)) {
-           return $this->_propDict["incompatibleGroups"];
+            return $this->_propDict["incompatibleGroups"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the incompatibleGroups
-    *
-    * @param Group[] $val The incompatibleGroups
-    *
-    * @return AccessPackage
-    */
+     * Sets the incompatibleGroups
+     *
+     * @param Group[] $val The incompatibleGroups
+     *
+     * @return AccessPackage
+     */
     public function setIncompatibleGroups($val)
     {
         $this->_propDict["incompatibleGroups"] = $val;
         return $this;
     }
-
 }

@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV\Xml\Filter;
 
-namespace Sabre\CardDAV\Xml\Filter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * AddressData parser.
  *
@@ -50,20 +48,14 @@ class AddressData implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $result = [
-            'contentType' => $reader->getAttribute('content-type') ?: 'text/vcard',
-            'version' => $reader->getAttribute('version') ?: '3.0',
-        ];
-
+        $result = ['contentType' => $reader->getAttribute('content-type') ?: 'text/vcard', 'version' => $reader->getAttribute('version') ?: '3.0'];
         $elems = (array) $reader->parseInnerTree();
         $elems = array_filter($elems, function ($element) {
-            return '{urn:ietf:params:xml:ns:carddav}prop' === $element['name'] &&
-                isset($element['attributes']['name']);
+            return '{urn:ietf:params:xml:ns:carddav}prop' === $element['name'] && isset($element['attributes']['name']);
         });
         $result['addressDataProperties'] = array_map(function ($element) {
             return $element['attributes']['name'];
         }, $elems);
-
         return $result;
     }
 }

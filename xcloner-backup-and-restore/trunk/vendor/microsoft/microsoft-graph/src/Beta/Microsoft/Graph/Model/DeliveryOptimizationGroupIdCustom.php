@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeliveryOptimizationGroupIdCustom class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSource
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deliveryOptimizationGroupIdCustom");
     }
-
     /**
-    * Gets the groupIdCustom
-    * Specifies an arbitrary group ID that the device belongs to
-    *
-    * @return string|null The groupIdCustom
-    */
+     * Gets the groupIdCustom
+     * Specifies an arbitrary group ID that the device belongs to
+     *
+     * @return string|null The groupIdCustom
+     */
     public function getGroupIdCustom()
     {
         if (array_key_exists("groupIdCustom", $this->_propDict)) {
@@ -51,15 +52,14 @@ class DeliveryOptimizationGroupIdCustom extends DeliveryOptimizationGroupIdSourc
             return null;
         }
     }
-
     /**
-    * Sets the groupIdCustom
-    * Specifies an arbitrary group ID that the device belongs to
-    *
-    * @param string $val The value of the groupIdCustom
-    *
-    * @return DeliveryOptimizationGroupIdCustom
-    */
+     * Sets the groupIdCustom
+     * Specifies an arbitrary group ID that the device belongs to
+     *
+     * @param string $val The value of the groupIdCustom
+     *
+     * @return DeliveryOptimizationGroupIdCustom
+     */
     public function setGroupIdCustom($val)
     {
         $this->_propDict["groupIdCustom"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SinglePropertySchema class
 *
@@ -24,13 +26,13 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
+class SinglePropertySchema extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -39,24 +41,23 @@ class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return SinglePropertySchema
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return SinglePropertySchema
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -65,14 +66,13 @@ class SinglePropertySchema extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The value of the type
-    *
-    * @return SinglePropertySchema
-    */
+     * Sets the type
+     *
+     * @param string $val The value of the type
+     *
+     * @return SinglePropertySchema
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

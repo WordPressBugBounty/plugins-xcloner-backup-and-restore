@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.
 * Licensed under the MIT License.  See License in the project root
@@ -14,13 +15,12 @@
 * @version   GIT: 0.1.0
 * @link      https://graph.microsoft.io/
 */
-namespace Microsoft\Graph\Core;
+namespace XCloner\Microsoft\Graph\Core;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Exception\GraphException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Exception\GraphException;
 /**
  * Class Enum
  *
@@ -33,27 +33,25 @@ abstract class Enum
 {
     private static $constants = [];
     /**
-    * The value of the enum
-    *
-    * @var string
-    */
+     * The value of the enum
+     *
+     * @var string
+     */
     private $_value;
-
     /**
-    * Create a new enum
-    *
-    * @param string $value The value of the enum
+     * Create a new enum
+     *
+     * @param string $value The value of the enum
      *
      * @throws GraphException if enum value is invalid
-    */
+     */
     public function __construct($value)
     {
         if (!self::has($value)) {
-            throw new GraphException("Invalid enum value $value");
+            throw new GraphException("Invalid enum value {$value}");
         }
         $this->_value = $value;
     }
-
     /**
      * Check if the enum has the given value
      *
@@ -62,44 +60,39 @@ abstract class Enum
      */
     public function has($value)
     {
-        return in_array($value, self::toArray(), true);
+        return in_array($value, self::toArray(), \true);
     }
-
     /**
-    * Check if the enum is defined
-    *
-    * @param string $value the value of the enum
-    *
-    * @return bool True if the value is defined
-    */
+     * Check if the enum is defined
+     *
+     * @param string $value the value of the enum
+     *
+     * @return bool True if the value is defined
+     */
     public function is($value)
     {
         return $this->_value === $value;
     }
-
-	/**
-	 * Create a new class for the enum in question
-	 *
-	 * @return mixed
-	 * @throws \ReflectionException
-	 */
+    /**
+     * Create a new class for the enum in question
+     *
+     * @return mixed
+     * @throws \ReflectionException
+     */
     public function toArray()
     {
         $class = get_called_class();
-
-        if (!(array_key_exists($class, self::$constants)))
-        {
+        if (!array_key_exists($class, self::$constants)) {
             $reflectionObj = new \ReflectionClass($class);
             self::$constants[$class] = $reflectionObj->getConstants();
         }
         return self::$constants[$class];
     }
-
     /**
-    * Get the value of the enum
-    *
-    * @return string value of the enum
-    */
+     * Get the value of the enum
+     *
+     * @return string value of the enum
+     */
     public function value()
     {
         return $this->_value;

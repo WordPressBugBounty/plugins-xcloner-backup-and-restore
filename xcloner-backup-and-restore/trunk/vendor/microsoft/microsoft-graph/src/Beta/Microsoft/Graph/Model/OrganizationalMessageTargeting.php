@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OrganizationalMessageTargeting class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OrganizationalMessageTargeting extends Entity
 {
     /**
-    * Gets the excludeIds
-    * The groups that will not receive the message. If a user from an excluded group is part of an included group, it will not receive the message
-    *
-    * @return string|null The excludeIds
-    */
+     * Gets the excludeIds
+     * The groups that will not receive the message. If a user from an excluded group is part of an included group, it will not receive the message
+     *
+     * @return string|null The excludeIds
+     */
     public function getExcludeIds()
     {
         if (array_key_exists("excludeIds", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OrganizationalMessageTargeting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludeIds
-    * The groups that will not receive the message. If a user from an excluded group is part of an included group, it will not receive the message
-    *
-    * @param string $val The value of the excludeIds
-    *
-    * @return OrganizationalMessageTargeting
-    */
+     * Sets the excludeIds
+     * The groups that will not receive the message. If a user from an excluded group is part of an included group, it will not receive the message
+     *
+     * @param string $val The value of the excludeIds
+     *
+     * @return OrganizationalMessageTargeting
+     */
     public function setExcludeIds($val)
     {
         $this->_propDict["excludeIds"] = $val;
         return $this;
     }
     /**
-    * Gets the includeIds
-    * The groups that will be targeted and receive the message
-    *
-    * @return string|null The includeIds
-    */
+     * Gets the includeIds
+     * The groups that will be targeted and receive the message
+     *
+     * @return string|null The includeIds
+     */
     public function getIncludeIds()
     {
         if (array_key_exists("includeIds", $this->_propDict)) {
@@ -68,31 +69,29 @@ class OrganizationalMessageTargeting extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeIds
-    * The groups that will be targeted and receive the message
-    *
-    * @param string $val The value of the includeIds
-    *
-    * @return OrganizationalMessageTargeting
-    */
+     * Sets the includeIds
+     * The groups that will be targeted and receive the message
+     *
+     * @param string $val The value of the includeIds
+     *
+     * @return OrganizationalMessageTargeting
+     */
     public function setIncludeIds($val)
     {
         $this->_propDict["includeIds"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetingType
-    * Indicates the type of targeting. Possible values are: aadGroup, unknownFutureValue.
-    *
-    * @return OrganizationalMessageTargetingType|null The targetingType
-    */
+     * Gets the targetingType
+     * Indicates the type of targeting. Possible values are: aadGroup, unknownFutureValue.
+     *
+     * @return OrganizationalMessageTargetingType|null The targetingType
+     */
     public function getTargetingType()
     {
         if (array_key_exists("targetingType", $this->_propDict)) {
-            if (is_a($this->_propDict["targetingType"], "\Beta\Microsoft\Graph\Model\OrganizationalMessageTargetingType") || is_null($this->_propDict["targetingType"])) {
+            if (is_a($this->_propDict["targetingType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OrganizationalMessageTargetingType") || is_null($this->_propDict["targetingType"])) {
                 return $this->_propDict["targetingType"];
             } else {
                 $this->_propDict["targetingType"] = new OrganizationalMessageTargetingType($this->_propDict["targetingType"]);
@@ -101,18 +100,17 @@ class OrganizationalMessageTargeting extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the targetingType
-    * Indicates the type of targeting. Possible values are: aadGroup, unknownFutureValue.
-    *
-    * @param OrganizationalMessageTargetingType $val The value to assign to the targetingType
-    *
-    * @return OrganizationalMessageTargeting The OrganizationalMessageTargeting
-    */
+     * Sets the targetingType
+     * Indicates the type of targeting. Possible values are: aadGroup, unknownFutureValue.
+     *
+     * @param OrganizationalMessageTargetingType $val The value to assign to the targetingType
+     *
+     * @return OrganizationalMessageTargeting The OrganizationalMessageTargeting
+     */
     public function setTargetingType($val)
     {
         $this->_propDict["targetingType"] = $val;
-         return $this;
+        return $this;
     }
 }

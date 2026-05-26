@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2019 Google LLC
  *
@@ -14,19 +15,17 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth;
 
-namespace Google\Auth;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * An interface implemented by objects that can get quota projects.
  */
 interface GetQuotaProjectInterface
 {
     const X_GOOG_USER_PROJECT_HEADER = 'X-Goog-User-Project';
-
     /**
      * Get the quota project used for this API request
      *

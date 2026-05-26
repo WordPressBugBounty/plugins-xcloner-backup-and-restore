@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\ExternalConnectors\Model;
+namespace XCloner\Microsoft\Graph\ExternalConnectors\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Configuration class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Configuration extends \Microsoft\Graph\Model\Entity
+class Configuration extends \XCloner\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the authorizedAppIds
-    * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
-    *
-    * @return string|null The authorizedAppIds
-    */
+     * Gets the authorizedAppIds
+     * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
+     *
+     * @return string|null The authorizedAppIds
+     */
     public function getAuthorizedAppIds()
     {
         if (array_key_exists("authorizedAppIds", $this->_propDict)) {
@@ -40,15 +42,14 @@ class Configuration extends \Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the authorizedAppIds
-    * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
-    *
-    * @param string $val The value of the authorizedAppIds
-    *
-    * @return Configuration
-    */
+     * Sets the authorizedAppIds
+     * A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
+     *
+     * @param string $val The value of the authorizedAppIds
+     *
+     * @return Configuration
+     */
     public function setAuthorizedAppIds($val)
     {
         $this->_propDict["authorizedAppIds"] = $val;

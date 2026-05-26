@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExtractSensitivityLabelsResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ExtractSensitivityLabelsResult extends Entity
 {
-
     /**
-    * Gets the labels
-    * List of sensitivity labels assigned to a file.
-    *
-    * @return SensitivityLabelAssignment|null The labels
-    */
+     * Gets the labels
+     * List of sensitivity labels assigned to a file.
+     *
+     * @return SensitivityLabelAssignment|null The labels
+     */
     public function getLabels()
     {
         if (array_key_exists("labels", $this->_propDict)) {
-            if (is_a($this->_propDict["labels"], "\Beta\Microsoft\Graph\Model\SensitivityLabelAssignment") || is_null($this->_propDict["labels"])) {
+            if (is_a($this->_propDict["labels"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SensitivityLabelAssignment") || is_null($this->_propDict["labels"])) {
                 return $this->_propDict["labels"];
             } else {
                 $this->_propDict["labels"] = new SensitivityLabelAssignment($this->_propDict["labels"]);
@@ -45,18 +46,17 @@ class ExtractSensitivityLabelsResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the labels
-    * List of sensitivity labels assigned to a file.
-    *
-    * @param SensitivityLabelAssignment $val The value to assign to the labels
-    *
-    * @return ExtractSensitivityLabelsResult The ExtractSensitivityLabelsResult
-    */
+     * Sets the labels
+     * List of sensitivity labels assigned to a file.
+     *
+     * @param SensitivityLabelAssignment $val The value to assign to the labels
+     *
+     * @return ExtractSensitivityLabelsResult The ExtractSensitivityLabelsResult
+     */
     public function setLabels($val)
     {
         $this->_propDict["labels"] = $val;
-         return $this;
+        return $this;
     }
 }

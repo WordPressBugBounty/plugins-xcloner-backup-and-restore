@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Copyright 2015 Google Inc. All Rights Reserved.
  *
@@ -14,15 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\AuthHandler;
 
-namespace Google\AuthHandler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Exception;
-use GuzzleHttp\ClientInterface;
-
+use XCloner\GuzzleHttp\ClientInterface;
 class AuthHandlerFactory
 {
     /**
@@ -34,13 +33,12 @@ class AuthHandlerFactory
     public static function build($cache = null, array $cacheConfig = [])
     {
         $guzzleVersion = null;
-        if (defined('\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
+        if (defined('XCloner\GuzzleHttp\ClientInterface::MAJOR_VERSION')) {
             $guzzleVersion = ClientInterface::MAJOR_VERSION;
-        } elseif (defined('\GuzzleHttp\ClientInterface::VERSION')) {
+        } elseif (defined('XCloner\GuzzleHttp\ClientInterface::VERSION')) {
             // @phpstan-ignore-next-line
             $guzzleVersion = (int) substr(ClientInterface::VERSION, 0, 1);
         }
-
         switch ($guzzleVersion) {
             case 5:
                 return new Guzzle5AuthHandler($cache, $cacheConfig);

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Website class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Website extends Entity
 {
     /**
-    * Gets the address
-    * The URL of the website.
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     * The URL of the website.
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Website extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    * The URL of the website.
-    *
-    * @param string $val The value of the address
-    *
-    * @return Website
-    */
+     * Sets the address
+     * The URL of the website.
+     *
+     * @param string $val The value of the address
+     *
+     * @return Website
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * The display name of the web site.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the web site.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,31 +69,29 @@ class Website extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the web site.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return Website
-    */
+     * Sets the displayName
+     * The display name of the web site.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return Website
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * Possible values are: other, home, work, blog, profile.
-    *
-    * @return WebsiteType|null The type
-    */
+     * Gets the type
+     * Possible values are: other, home, work, blog, profile.
+     *
+     * @return WebsiteType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\WebsiteType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WebsiteType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new WebsiteType($this->_propDict["type"]);
@@ -101,18 +100,17 @@ class Website extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * Possible values are: other, home, work, blog, profile.
-    *
-    * @param WebsiteType $val The value to assign to the type
-    *
-    * @return Website The Website
-    */
+     * Sets the type
+     * Possible values are: other, home, work, blog, profile.
+     *
+     * @param WebsiteType $val The value to assign to the type
+     *
+     * @return Website The Website
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

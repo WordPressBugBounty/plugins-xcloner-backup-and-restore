@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsDeviceWithoutCloudIdentity class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity
 {
     /**
-    * Gets the azureAdDeviceId
-    * Azure Active Directory Device Id
-    *
-    * @return string|null The azureAdDeviceId
-    */
+     * Gets the azureAdDeviceId
+     * Azure Active Directory Device Id
+     *
+     * @return string|null The azureAdDeviceId
+     */
     public function getAzureAdDeviceId()
     {
         if (array_key_exists("azureAdDeviceId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureAdDeviceId
-    * Azure Active Directory Device Id
-    *
-    * @param string $val The azureAdDeviceId
-    *
-    * @return UserExperienceAnalyticsDeviceWithoutCloudIdentity
-    */
+     * Sets the azureAdDeviceId
+     * Azure Active Directory Device Id
+     *
+     * @param string $val The azureAdDeviceId
+     *
+     * @return UserExperienceAnalyticsDeviceWithoutCloudIdentity
+     */
     public function setAzureAdDeviceId($val)
     {
         $this->_propDict["azureAdDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceName
-    * The tenant attach device's name.
-    *
-    * @return string|null The deviceName
-    */
+     * Gets the deviceName
+     * The tenant attach device's name.
+     *
+     * @return string|null The deviceName
+     */
     public function getDeviceName()
     {
         if (array_key_exists("deviceName", $this->_propDict)) {
@@ -70,19 +69,17 @@ class UserExperienceAnalyticsDeviceWithoutCloudIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceName
-    * The tenant attach device's name.
-    *
-    * @param string $val The deviceName
-    *
-    * @return UserExperienceAnalyticsDeviceWithoutCloudIdentity
-    */
+     * Sets the deviceName
+     * The tenant attach device's name.
+     *
+     * @param string $val The deviceName
+     *
+     * @return UserExperienceAnalyticsDeviceWithoutCloudIdentity
+     */
     public function setDeviceName($val)
     {
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-
 }

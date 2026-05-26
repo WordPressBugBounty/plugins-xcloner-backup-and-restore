@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AlternativeSecurityId class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AlternativeSecurityId extends Entity
 {
     /**
-    * Gets the identityProvider
-    * For internal use only
-    *
-    * @return string|null The identityProvider
-    */
+     * Gets the identityProvider
+     * For internal use only
+     *
+     * @return string|null The identityProvider
+     */
     public function getIdentityProvider()
     {
         if (array_key_exists("identityProvider", $this->_propDict)) {
@@ -40,59 +42,56 @@ class AlternativeSecurityId extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the identityProvider
-    * For internal use only
-    *
-    * @param string $val The value of the identityProvider
-    *
-    * @return AlternativeSecurityId
-    */
+     * Sets the identityProvider
+     * For internal use only
+     *
+     * @param string $val The value of the identityProvider
+     *
+     * @return AlternativeSecurityId
+     */
     public function setIdentityProvider($val)
     {
         $this->_propDict["identityProvider"] = $val;
         return $this;
     }
-
     /**
-    * Gets the key
-    * For internal use only
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The key
-    */
+     * Gets the key
+     * For internal use only
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
-            if (is_a($this->_propDict["key"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["key"])) {
+            if (is_a($this->_propDict["key"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["key"])) {
                 return $this->_propDict["key"];
             } else {
-                $this->_propDict["key"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["key"]);
+                $this->_propDict["key"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["key"]);
                 return $this->_propDict["key"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the key
-    * For internal use only
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the key
-    *
-    * @return AlternativeSecurityId The AlternativeSecurityId
-    */
+     * Sets the key
+     * For internal use only
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the key
+     *
+     * @return AlternativeSecurityId The AlternativeSecurityId
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the type
-    * For internal use only
-    *
-    * @return int|null The type
-    */
+     * Gets the type
+     * For internal use only
+     *
+     * @return int|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -101,15 +100,14 @@ class AlternativeSecurityId extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * For internal use only
-    *
-    * @param int $val The value of the type
-    *
-    * @return AlternativeSecurityId
-    */
+     * Sets the type
+     * For internal use only
+     *
+     * @param int $val The value of the type
+     *
+     * @return AlternativeSecurityId
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

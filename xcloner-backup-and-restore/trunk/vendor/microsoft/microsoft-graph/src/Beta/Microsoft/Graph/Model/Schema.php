@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Schema class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Schema extends Entity
 {
     /**
-    * Gets the baseType
-    *
-    * @return string|null The baseType
-    */
+     * Gets the baseType
+     *
+     * @return string|null The baseType
+     */
     public function getBaseType()
     {
         if (array_key_exists("baseType", $this->_propDict)) {
@@ -40,22 +41,19 @@ class Schema extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the baseType
-    *
-    * @param string $val The baseType
-    *
-    * @return Schema
-    */
+     * Sets the baseType
+     *
+     * @param string $val The baseType
+     *
+     * @return Schema
+     */
     public function setBaseType($val)
     {
         $this->_propDict["baseType"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the schemaProperties
      *
      * @return array|null The schemaProperties
@@ -63,23 +61,21 @@ class Schema extends Entity
     public function getSchemaProperties()
     {
         if (array_key_exists("properties", $this->_propDict)) {
-           return $this->_propDict["properties"];
+            return $this->_propDict["properties"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the schemaProperties
-    *
-    * @param Property[] $val The schemaProperties
-    *
-    * @return Schema
-    */
+     * Sets the schemaProperties
+     *
+     * @param Property[] $val The schemaProperties
+     *
+     * @return Schema
+     */
     public function setSchemaProperties($val)
     {
         $this->_propDict["properties"] = $val;
         return $this;
     }
-
 }

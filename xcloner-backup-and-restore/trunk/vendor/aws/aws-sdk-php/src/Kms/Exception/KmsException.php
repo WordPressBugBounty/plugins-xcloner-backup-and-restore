@@ -1,12 +1,14 @@
 <?php
-namespace Aws\Kms\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Kms\Exception;
 
-
-use Aws\Exception\AwsException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Exception\AwsException;
 /**
  * Represents an error interacting with the AWS Key Management Service.
  */
-class KmsException extends AwsException {}
+class KmsException extends AwsException
+{
+}

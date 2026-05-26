@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SynchronizationLinkedObjects class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class SynchronizationLinkedObjects extends Entity
 {
-
     /**
-    * Gets the manager
-    *
-    * @return SynchronizationJobSubject|null The manager
-    */
+     * Gets the manager
+     *
+     * @return SynchronizationJobSubject|null The manager
+     */
     public function getManager()
     {
         if (array_key_exists("manager", $this->_propDict)) {
-            if (is_a($this->_propDict["manager"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject") || is_null($this->_propDict["manager"])) {
+            if (is_a($this->_propDict["manager"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationJobSubject") || is_null($this->_propDict["manager"])) {
                 return $this->_propDict["manager"];
             } else {
                 $this->_propDict["manager"] = new SynchronizationJobSubject($this->_propDict["manager"]);
@@ -44,30 +45,28 @@ class SynchronizationLinkedObjects extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the manager
-    *
-    * @param SynchronizationJobSubject $val The value to assign to the manager
-    *
-    * @return SynchronizationLinkedObjects The SynchronizationLinkedObjects
-    */
+     * Sets the manager
+     *
+     * @param SynchronizationJobSubject $val The value to assign to the manager
+     *
+     * @return SynchronizationLinkedObjects The SynchronizationLinkedObjects
+     */
     public function setManager($val)
     {
         $this->_propDict["manager"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the members
-    * All group members that you would like to provision.
-    *
-    * @return SynchronizationJobSubject|null The members
-    */
+     * Gets the members
+     * All group members that you would like to provision.
+     *
+     * @return SynchronizationJobSubject|null The members
+     */
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
-            if (is_a($this->_propDict["members"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject") || is_null($this->_propDict["members"])) {
+            if (is_a($this->_propDict["members"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationJobSubject") || is_null($this->_propDict["members"])) {
                 return $this->_propDict["members"];
             } else {
                 $this->_propDict["members"] = new SynchronizationJobSubject($this->_propDict["members"]);
@@ -76,30 +75,28 @@ class SynchronizationLinkedObjects extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the members
-    * All group members that you would like to provision.
-    *
-    * @param SynchronizationJobSubject $val The value to assign to the members
-    *
-    * @return SynchronizationLinkedObjects The SynchronizationLinkedObjects
-    */
+     * Sets the members
+     * All group members that you would like to provision.
+     *
+     * @param SynchronizationJobSubject $val The value to assign to the members
+     *
+     * @return SynchronizationLinkedObjects The SynchronizationLinkedObjects
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the owners
-    *
-    * @return SynchronizationJobSubject|null The owners
-    */
+     * Gets the owners
+     *
+     * @return SynchronizationJobSubject|null The owners
+     */
     public function getOwners()
     {
         if (array_key_exists("owners", $this->_propDict)) {
-            if (is_a($this->_propDict["owners"], "\Beta\Microsoft\Graph\Model\SynchronizationJobSubject") || is_null($this->_propDict["owners"])) {
+            if (is_a($this->_propDict["owners"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationJobSubject") || is_null($this->_propDict["owners"])) {
                 return $this->_propDict["owners"];
             } else {
                 $this->_propDict["owners"] = new SynchronizationJobSubject($this->_propDict["owners"]);
@@ -108,17 +105,16 @@ class SynchronizationLinkedObjects extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the owners
-    *
-    * @param SynchronizationJobSubject $val The value to assign to the owners
-    *
-    * @return SynchronizationLinkedObjects The SynchronizationLinkedObjects
-    */
+     * Sets the owners
+     *
+     * @param SynchronizationJobSubject $val The value to assign to the owners
+     *
+     * @return SynchronizationLinkedObjects The SynchronizationLinkedObjects
+     */
     public function setOwners($val)
     {
         $this->_propDict["owners"] = $val;
-         return $this;
+        return $this;
     }
 }

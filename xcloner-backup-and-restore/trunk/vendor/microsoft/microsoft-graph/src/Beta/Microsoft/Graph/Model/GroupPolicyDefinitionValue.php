@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyDefinitionValue class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyDefinitionValue extends Entity
 {
     /**
-    * Gets the configurationType
-    * Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
-    *
-    * @return GroupPolicyConfigurationType|null The configurationType
-    */
+     * Gets the configurationType
+     * Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
+     *
+     * @return GroupPolicyConfigurationType|null The configurationType
+     */
     public function getConfigurationType()
     {
         if (array_key_exists("configurationType", $this->_propDict)) {
-            if (is_a($this->_propDict["configurationType"], "\Beta\Microsoft\Graph\Model\GroupPolicyConfigurationType") || is_null($this->_propDict["configurationType"])) {
+            if (is_a($this->_propDict["configurationType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicyConfigurationType") || is_null($this->_propDict["configurationType"])) {
                 return $this->_propDict["configurationType"];
             } else {
                 $this->_propDict["configurationType"] = new GroupPolicyConfigurationType($this->_propDict["configurationType"]);
@@ -45,31 +46,29 @@ class GroupPolicyDefinitionValue extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the configurationType
-    * Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
-    *
-    * @param GroupPolicyConfigurationType $val The configurationType
-    *
-    * @return GroupPolicyDefinitionValue
-    */
+     * Sets the configurationType
+     * Specifies how the value should be configured. This can be either as a Policy or as a Preference. Possible values are: policy, preference.
+     *
+     * @param GroupPolicyConfigurationType $val The configurationType
+     *
+     * @return GroupPolicyDefinitionValue
+     */
     public function setConfigurationType($val)
     {
         $this->_propDict["configurationType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The date and time the object was created.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time the object was created.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -78,27 +77,25 @@ class GroupPolicyDefinitionValue extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time the object was created.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return GroupPolicyDefinitionValue
-    */
+     * Sets the createdDateTime
+     * The date and time the object was created.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return GroupPolicyDefinitionValue
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the enabled
-    * Enables or disables the associated group policy definition.
-    *
-    * @return bool|null The enabled
-    */
+     * Gets the enabled
+     * Enables or disables the associated group policy definition.
+     *
+     * @return bool|null The enabled
+     */
     public function getEnabled()
     {
         if (array_key_exists("enabled", $this->_propDict)) {
@@ -107,31 +104,29 @@ class GroupPolicyDefinitionValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabled
-    * Enables or disables the associated group policy definition.
-    *
-    * @param bool $val The enabled
-    *
-    * @return GroupPolicyDefinitionValue
-    */
+     * Sets the enabled
+     * Enables or disables the associated group policy definition.
+     *
+     * @param bool $val The enabled
+     *
+     * @return GroupPolicyDefinitionValue
+     */
     public function setEnabled($val)
     {
         $this->_propDict["enabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -140,31 +135,29 @@ class GroupPolicyDefinitionValue extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return GroupPolicyDefinitionValue
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return GroupPolicyDefinitionValue
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the definition
-    * The associated group policy definition with the value.
-    *
-    * @return GroupPolicyDefinition|null The definition
-    */
+     * Gets the definition
+     * The associated group policy definition with the value.
+     *
+     * @return GroupPolicyDefinition|null The definition
+     */
     public function getDefinition()
     {
         if (array_key_exists("definition", $this->_propDict)) {
-            if (is_a($this->_propDict["definition"], "\Beta\Microsoft\Graph\Model\GroupPolicyDefinition") || is_null($this->_propDict["definition"])) {
+            if (is_a($this->_propDict["definition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicyDefinition") || is_null($this->_propDict["definition"])) {
                 return $this->_propDict["definition"];
             } else {
                 $this->_propDict["definition"] = new GroupPolicyDefinition($this->_propDict["definition"]);
@@ -173,49 +166,44 @@ class GroupPolicyDefinitionValue extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the definition
-    * The associated group policy definition with the value.
-    *
-    * @param GroupPolicyDefinition $val The definition
-    *
-    * @return GroupPolicyDefinitionValue
-    */
+     * Sets the definition
+     * The associated group policy definition with the value.
+     *
+     * @param GroupPolicyDefinition $val The definition
+     *
+     * @return GroupPolicyDefinitionValue
+     */
     public function setDefinition($val)
     {
         $this->_propDict["definition"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the presentationValues
-    * The associated group policy presentation values with the definition value.
+     * The associated group policy presentation values with the definition value.
      *
      * @return array|null The presentationValues
      */
     public function getPresentationValues()
     {
         if (array_key_exists("presentationValues", $this->_propDict)) {
-           return $this->_propDict["presentationValues"];
+            return $this->_propDict["presentationValues"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the presentationValues
-    * The associated group policy presentation values with the definition value.
-    *
-    * @param GroupPolicyPresentationValue[] $val The presentationValues
-    *
-    * @return GroupPolicyDefinitionValue
-    */
+     * Sets the presentationValues
+     * The associated group policy presentation values with the definition value.
+     *
+     * @param GroupPolicyPresentationValue[] $val The presentationValues
+     *
+     * @return GroupPolicyDefinitionValue
+     */
     public function setPresentationValues($val)
     {
         $this->_propDict["presentationValues"] = $val;
         return $this;
     }
-
 }

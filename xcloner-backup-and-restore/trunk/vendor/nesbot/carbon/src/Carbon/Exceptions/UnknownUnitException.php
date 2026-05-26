@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Exceptions;
 
-namespace Carbon\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Throwable;
-
 class UnknownUnitException extends UnitException
 {
     /**
@@ -24,7 +22,6 @@ class UnknownUnitException extends UnitException
      * @var string
      */
     protected $unit;
-
     /**
      * Constructor.
      *
@@ -35,10 +32,8 @@ class UnknownUnitException extends UnitException
     public function __construct($unit, $code = 0, Throwable $previous = null)
     {
         $this->unit = $unit;
-
-        parent::__construct("Unknown unit '$unit'.", $code, $previous);
+        parent::__construct("Unknown unit '{$unit}'.", $code, $previous);
     }
-
     /**
      * Get the unit.
      *

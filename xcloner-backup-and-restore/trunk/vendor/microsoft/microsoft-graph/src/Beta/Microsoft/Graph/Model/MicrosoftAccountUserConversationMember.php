@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MicrosoftAccountUserConversationMember class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MicrosoftAccountUserConversationMember extends ConversationMember
 {
     /**
-    * Gets the userId
-    * ID of the user.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * ID of the user.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class MicrosoftAccountUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * ID of the user.
-    *
-    * @param string $val The userId
-    *
-    * @return MicrosoftAccountUserConversationMember
-    */
+     * Sets the userId
+     * ID of the user.
+     *
+     * @param string $val The userId
+     *
+     * @return MicrosoftAccountUserConversationMember
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

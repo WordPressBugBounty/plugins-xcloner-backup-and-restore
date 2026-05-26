@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceAndAppManagementAssignmentTarget class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceAndAppManagementAssignmentTarget extends Entity
 {
     /**
-    * Gets the deviceAndAppManagementAssignmentFilterId
-    * The Id of the filter for the target assignment.
-    *
-    * @return string|null The deviceAndAppManagementAssignmentFilterId
-    */
+     * Gets the deviceAndAppManagementAssignmentFilterId
+     * The Id of the filter for the target assignment.
+     *
+     * @return string|null The deviceAndAppManagementAssignmentFilterId
+     */
     public function getDeviceAndAppManagementAssignmentFilterId()
     {
         if (array_key_exists("deviceAndAppManagementAssignmentFilterId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class DeviceAndAppManagementAssignmentTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceAndAppManagementAssignmentFilterId
-    * The Id of the filter for the target assignment.
-    *
-    * @param string $val The value of the deviceAndAppManagementAssignmentFilterId
-    *
-    * @return DeviceAndAppManagementAssignmentTarget
-    */
+     * Sets the deviceAndAppManagementAssignmentFilterId
+     * The Id of the filter for the target assignment.
+     *
+     * @param string $val The value of the deviceAndAppManagementAssignmentFilterId
+     *
+     * @return DeviceAndAppManagementAssignmentTarget
+     */
     public function setDeviceAndAppManagementAssignmentFilterId($val)
     {
         $this->_propDict["deviceAndAppManagementAssignmentFilterId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceAndAppManagementAssignmentFilterType
-    * The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
-    *
-    * @return DeviceAndAppManagementAssignmentFilterType|null The deviceAndAppManagementAssignmentFilterType
-    */
+     * Gets the deviceAndAppManagementAssignmentFilterType
+     * The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
+     *
+     * @return DeviceAndAppManagementAssignmentFilterType|null The deviceAndAppManagementAssignmentFilterType
+     */
     public function getDeviceAndAppManagementAssignmentFilterType()
     {
         if (array_key_exists("deviceAndAppManagementAssignmentFilterType", $this->_propDict)) {
-            if (is_a($this->_propDict["deviceAndAppManagementAssignmentFilterType"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentFilterType") || is_null($this->_propDict["deviceAndAppManagementAssignmentFilterType"])) {
+            if (is_a($this->_propDict["deviceAndAppManagementAssignmentFilterType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentFilterType") || is_null($this->_propDict["deviceAndAppManagementAssignmentFilterType"])) {
                 return $this->_propDict["deviceAndAppManagementAssignmentFilterType"];
             } else {
                 $this->_propDict["deviceAndAppManagementAssignmentFilterType"] = new DeviceAndAppManagementAssignmentFilterType($this->_propDict["deviceAndAppManagementAssignmentFilterType"]);
@@ -73,18 +73,17 @@ class DeviceAndAppManagementAssignmentTarget extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the deviceAndAppManagementAssignmentFilterType
-    * The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
-    *
-    * @param DeviceAndAppManagementAssignmentFilterType $val The value to assign to the deviceAndAppManagementAssignmentFilterType
-    *
-    * @return DeviceAndAppManagementAssignmentTarget The DeviceAndAppManagementAssignmentTarget
-    */
+     * Sets the deviceAndAppManagementAssignmentFilterType
+     * The type of filter of the target assignment i.e. Exclude or Include. Possible values are: none, include, exclude.
+     *
+     * @param DeviceAndAppManagementAssignmentFilterType $val The value to assign to the deviceAndAppManagementAssignmentFilterType
+     *
+     * @return DeviceAndAppManagementAssignmentTarget The DeviceAndAppManagementAssignmentTarget
+     */
     public function setDeviceAndAppManagementAssignmentFilterType($val)
     {
         $this->_propDict["deviceAndAppManagementAssignmentFilterType"] = $val;
-         return $this;
+        return $this;
     }
 }

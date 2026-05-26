@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamDirectory.
  */
-class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamDirectoryTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * instance to test
@@ -22,7 +24,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamDirectory
      */
     protected $dir;
-
     /**
      * set up test environment
      */
@@ -30,7 +31,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->dir = new vfsStreamDirectory('foo');
     }
-
     /**
      * assure that a directory seperator inside the name throws an exception
      *
@@ -41,7 +41,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $dir = new vfsStreamDirectory('foo/bar');
     }
-
     /**
      * test default values and methods
      *
@@ -56,7 +55,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse($this->dir->appliesTo('bar'));
         $this->assertEquals(array(), $this->dir->getChildren());
     }
-
     /**
      * test renaming the directory
      *
@@ -70,7 +68,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse($this->dir->appliesTo('foo/bar'));
         $this->assertTrue($this->dir->appliesTo('bar'));
     }
-
     /**
      * renaming the directory to an invalid name throws a vfsStreamException
      *
@@ -81,7 +78,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->dir->rename('foo/baz');
     }
-
     /**
      * @test
      * @since  0.10.0
@@ -90,24 +86,18 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->dir->hasChildren());
     }
-
     /**
      * @test
      * @since  0.10.0
      */
     public function hasChildrenReturnsTrueIfAtLeastOneChildPresent()
     {
-        $mockChild = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild->expects($this->any())
-                  ->method('appliesTo')
-                  ->will($this->returnValue(false));
-        $mockChild->expects($this->any())
-                  ->method('getName')
-                  ->will($this->returnValue('baz'));
+        $mockChild = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild->expects($this->any())->method('appliesTo')->will($this->returnValue(\false));
+        $mockChild->expects($this->any())->method('getName')->will($this->returnValue('baz'));
         $this->dir->addChild($mockChild);
         $this->assertTrue($this->dir->hasChildren());
     }
-
     /**
      * @test
      */
@@ -115,7 +105,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->dir->hasChild('bar'));
     }
-
     /**
      * @test
      */
@@ -123,7 +112,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertNull($this->dir->getChild('bar'));
     }
-
     /**
      * @test
      */
@@ -131,23 +119,17 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->dir->removeChild('bar'));
     }
-
     /**
      * @test
      */
     public function nonExistingChild()
     {
-        $mockChild = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild->expects($this->any())
-                  ->method('appliesTo')
-                  ->will($this->returnValue(false));
-        $mockChild->expects($this->any())
-                  ->method('getName')
-                  ->will($this->returnValue('baz'));
+        $mockChild = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild->expects($this->any())->method('appliesTo')->will($this->returnValue(\false));
+        $mockChild->expects($this->any())->method('getName')->will($this->returnValue('baz'));
         $this->dir->addChild($mockChild);
         $this->assertFalse($this->dir->removeChild('bar'));
     }
-
     /**
      * test that adding, handling and removing of a child works as expected
      *
@@ -155,20 +137,11 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function childHandling()
     {
-        $mockChild = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild->expects($this->any())
-                  ->method('getType')
-                  ->will($this->returnValue(vfsStreamContent::TYPE_FILE));
-        $mockChild->expects($this->any())
-                  ->method('getName')
-                  ->will($this->returnValue('bar'));
-        $mockChild->expects($this->any())
-                  ->method('appliesTo')
-                  ->with($this->equalTo('bar'))
-                  ->will($this->returnValue(true));
-        $mockChild->expects($this->once())
-                  ->method('size')
-                  ->will($this->returnValue(5));
+        $mockChild = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild->expects($this->any())->method('getType')->will($this->returnValue(vfsStreamContent::TYPE_FILE));
+        $mockChild->expects($this->any())->method('getName')->will($this->returnValue('bar'));
+        $mockChild->expects($this->any())->method('appliesTo')->with($this->equalTo('bar'))->will($this->returnValue(\true));
+        $mockChild->expects($this->once())->method('size')->will($this->returnValue(5));
         $this->dir->addChild($mockChild);
         $this->assertTrue($this->dir->hasChild('bar'));
         $bar = $this->dir->getChild('bar');
@@ -181,7 +154,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(0, $this->dir->size());
         $this->assertEquals(0, $this->dir->sizeSummarized());
     }
-
     /**
      * test that adding, handling and removing of a child works as expected
      *
@@ -189,16 +161,10 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function childHandlingWithSubdirectory()
     {
-        $mockChild = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild->expects($this->any())
-                  ->method('getType')
-                  ->will($this->returnValue(vfsStreamContent::TYPE_FILE));
-        $mockChild->expects($this->any())
-                  ->method('getName')
-                  ->will($this->returnValue('bar'));
-        $mockChild->expects($this->once())
-                  ->method('size')
-                  ->will($this->returnValue(5));
+        $mockChild = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild->expects($this->any())->method('getType')->will($this->returnValue(vfsStreamContent::TYPE_FILE));
+        $mockChild->expects($this->any())->method('getName')->will($this->returnValue('bar'));
+        $mockChild->expects($this->once())->method('size')->will($this->returnValue(5));
         $subdir = new vfsStreamDirectory('subdir');
         $subdir->addChild($mockChild);
         $this->dir->addChild($subdir);
@@ -212,7 +178,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(0, $this->dir->size());
         $this->assertEquals(0, $this->dir->sizeSummarized());
     }
-
     /**
      * dd
      *
@@ -222,20 +187,12 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function addChildReplacesChildWithSameName_Bug_5()
     {
-        $mockChild1 = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild1->expects($this->any())
-                   ->method('getType')
-                   ->will($this->returnValue(vfsStreamContent::TYPE_FILE));
-        $mockChild1->expects($this->any())
-                   ->method('getName')
-                   ->will($this->returnValue('bar'));
-        $mockChild2 = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild2->expects($this->any())
-                   ->method('getType')
-                   ->will($this->returnValue(vfsStreamContent::TYPE_FILE));
-        $mockChild2->expects($this->any())
-                   ->method('getName')
-                   ->will($this->returnValue('bar'));
+        $mockChild1 = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild1->expects($this->any())->method('getType')->will($this->returnValue(vfsStreamContent::TYPE_FILE));
+        $mockChild1->expects($this->any())->method('getName')->will($this->returnValue('bar'));
+        $mockChild2 = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild2->expects($this->any())->method('getType')->will($this->returnValue(vfsStreamContent::TYPE_FILE));
+        $mockChild2->expects($this->any())->method('getName')->will($this->returnValue('bar'));
         $this->dir->addChild($mockChild1);
         $this->assertTrue($this->dir->hasChild('bar'));
         $this->assertSame($mockChild1, $this->dir->getChild('bar'));
@@ -243,7 +200,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($this->dir->hasChild('bar'));
         $this->assertSame($mockChild2, $this->dir->getChild('bar'));
     }
-
     /**
      * When testing for a nested path, verify that directory separators are respected properly
      * so that subdir1/subdir2 is not considered equal to subdir1Xsubdir2.
@@ -254,30 +210,20 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function explicitTestForSeparatorWithNestedPaths_Bug_24()
     {
-        $mockChild = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockChild->expects($this->any())
-                  ->method('getType')
-                  ->will($this->returnValue(vfsStreamContent::TYPE_FILE));
-        $mockChild->expects($this->any())
-                  ->method('getName')
-                  ->will($this->returnValue('bar'));
-
+        $mockChild = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockChild->expects($this->any())->method('getType')->will($this->returnValue(vfsStreamContent::TYPE_FILE));
+        $mockChild->expects($this->any())->method('getName')->will($this->returnValue('bar'));
         $subdir1 = new vfsStreamDirectory('subdir1');
         $this->dir->addChild($subdir1);
-
         $subdir2 = new vfsStreamDirectory('subdir2');
         $subdir1->addChild($subdir2);
-
         $subdir2->addChild($mockChild);
-
         $this->assertTrue($this->dir->hasChild('subdir1'), "Level 1 path with separator exists");
         $this->assertTrue($this->dir->hasChild('subdir1/subdir2'), "Level 2 path with separator exists");
         $this->assertTrue($this->dir->hasChild('subdir1/subdir2/bar'), "Level 3 path with separator exists");
         $this->assertFalse($this->dir->hasChild('subdir1.subdir2'), "Path with period does not exist");
         $this->assertFalse($this->dir->hasChild('subdir1.subdir2/bar'), "Nested path with period does not exist");
     }
-
-
     /**
      * setting and retrieving permissions for a directory
      *
@@ -290,7 +236,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertSame($this->dir, $this->dir->chmod(0755));
         $this->assertEquals(0755, $this->dir->getPermissions());
     }
-
     /**
      * setting and retrieving permissions for a directory
      *
@@ -304,7 +249,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertSame($this->dir, $this->dir->chmod(0700));
         $this->assertEquals(0700, $this->dir->getPermissions());
     }
-
     /**
      * setting and retrieving owner of a file
      *
@@ -319,7 +263,6 @@ class vfsStreamDirectoryTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(vfsStream::OWNER_USER_1, $this->dir->getUser());
         $this->assertTrue($this->dir->isOwnedByUser(vfsStream::OWNER_USER_1));
     }
-
     /**
      * setting and retrieving owner group of a file
      *

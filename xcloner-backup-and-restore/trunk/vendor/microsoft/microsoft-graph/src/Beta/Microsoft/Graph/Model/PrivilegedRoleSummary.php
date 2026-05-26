@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrivilegedRoleSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrivilegedRoleSummary extends Entity
 {
     /**
-    * Gets the elevatedCount
-    * The number of users that have the role assigned and the role is activated.
-    *
-    * @return int|null The elevatedCount
-    */
+     * Gets the elevatedCount
+     * The number of users that have the role assigned and the role is activated.
+     *
+     * @return int|null The elevatedCount
+     */
     public function getElevatedCount()
     {
         if (array_key_exists("elevatedCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class PrivilegedRoleSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the elevatedCount
-    * The number of users that have the role assigned and the role is activated.
-    *
-    * @param int $val The elevatedCount
-    *
-    * @return PrivilegedRoleSummary
-    */
+     * Sets the elevatedCount
+     * The number of users that have the role assigned and the role is activated.
+     *
+     * @param int $val The elevatedCount
+     *
+     * @return PrivilegedRoleSummary
+     */
     public function setElevatedCount($val)
     {
         $this->_propDict["elevatedCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the managedCount
-    * The number of users that have the role assigned but the role is deactivated.
-    *
-    * @return int|null The managedCount
-    */
+     * Gets the managedCount
+     * The number of users that have the role assigned but the role is deactivated.
+     *
+     * @return int|null The managedCount
+     */
     public function getManagedCount()
     {
         if (array_key_exists("managedCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class PrivilegedRoleSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedCount
-    * The number of users that have the role assigned but the role is deactivated.
-    *
-    * @param int $val The managedCount
-    *
-    * @return PrivilegedRoleSummary
-    */
+     * Sets the managedCount
+     * The number of users that have the role assigned but the role is deactivated.
+     *
+     * @param int $val The managedCount
+     *
+     * @return PrivilegedRoleSummary
+     */
     public function setManagedCount($val)
     {
         $this->_propDict["managedCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the mfaEnabled
-    * true if the role activation requires MFA. false if the role activation doesn't require MFA.
-    *
-    * @return bool|null The mfaEnabled
-    */
+     * Gets the mfaEnabled
+     * true if the role activation requires MFA. false if the role activation doesn't require MFA.
+     *
+     * @return bool|null The mfaEnabled
+     */
     public function getMfaEnabled()
     {
         if (array_key_exists("mfaEnabled", $this->_propDict)) {
@@ -99,31 +96,29 @@ class PrivilegedRoleSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mfaEnabled
-    * true if the role activation requires MFA. false if the role activation doesn't require MFA.
-    *
-    * @param bool $val The mfaEnabled
-    *
-    * @return PrivilegedRoleSummary
-    */
+     * Sets the mfaEnabled
+     * true if the role activation requires MFA. false if the role activation doesn't require MFA.
+     *
+     * @param bool $val The mfaEnabled
+     *
+     * @return PrivilegedRoleSummary
+     */
     public function setMfaEnabled($val)
     {
         $this->_propDict["mfaEnabled"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the status
-    * Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
-    *
-    * @return RoleSummaryStatus|null The status
-    */
+     * Gets the status
+     * Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
+     *
+     * @return RoleSummaryStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\RoleSummaryStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RoleSummaryStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new RoleSummaryStatus($this->_propDict["status"]);
@@ -132,27 +127,25 @@ class PrivilegedRoleSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
-    *
-    * @param RoleSummaryStatus $val The status
-    *
-    * @return PrivilegedRoleSummary
-    */
+     * Sets the status
+     * Possible values are: ok, bad. The value depends on the ratio of (managedCount / usersCount). If the ratio is less than a predefined threshold, ok is returned. Otherwise, bad is returned.
+     *
+     * @param RoleSummaryStatus $val The status
+     *
+     * @return PrivilegedRoleSummary
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the usersCount
-    * The number of users that are assigned with the role.
-    *
-    * @return int|null The usersCount
-    */
+     * Gets the usersCount
+     * The number of users that are assigned with the role.
+     *
+     * @return int|null The usersCount
+     */
     public function getUsersCount()
     {
         if (array_key_exists("usersCount", $this->_propDict)) {
@@ -161,19 +154,17 @@ class PrivilegedRoleSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the usersCount
-    * The number of users that are assigned with the role.
-    *
-    * @param int $val The usersCount
-    *
-    * @return PrivilegedRoleSummary
-    */
+     * Sets the usersCount
+     * The number of users that are assigned with the role.
+     *
+     * @param int $val The usersCount
+     *
+     * @return PrivilegedRoleSummary
+     */
     public function setUsersCount($val)
     {
         $this->_propDict["usersCount"] = intval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,13 +8,14 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\visitor;
+namespace XCloner\org\bovigo\vfs\visitor;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\vfsStream;
-use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\vfsStreamFile;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\vfsStream;
+use XCloner\org\bovigo\vfs\vfsStreamDirectory;
+use XCloner\org\bovigo\vfs\vfsStreamFile;
 /**
  * Test for org\bovigo\vfs\visitor\vfsStreamPrintVisitor.
  *
@@ -21,7 +23,7 @@ use org\bovigo\vfs\vfsStreamFile;
  * @see    https://github.com/mikey179/vfsStream/issues/10
  * @group  issue_10
  */
-class vfsStreamPrintVisitorTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamPrintVisitorTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -31,7 +33,6 @@ class vfsStreamPrintVisitorTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         new vfsStreamPrintVisitor('invalid');
     }
-
     /**
      * @test
      * @expectedException  \InvalidArgumentException
@@ -40,66 +41,44 @@ class vfsStreamPrintVisitorTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         new vfsStreamPrintVisitor(xml_parser_create());
     }
-
     /**
      * @test
      */
     public function visitFileWritesFileNameToStream()
     {
-        $output       = vfsStream::newFile('foo.txt')
-                                       ->at(vfsStream::setup());
+        $output = vfsStream::newFile('foo.txt')->at(vfsStream::setup());
         $printVisitor = new vfsStreamPrintVisitor(fopen('vfs://root/foo.txt', 'wb'));
-        $this->assertSame($printVisitor,
-                          $printVisitor->visitFile(vfsStream::newFile('bar.txt'))
-        );
+        $this->assertSame($printVisitor, $printVisitor->visitFile(vfsStream::newFile('bar.txt')));
         $this->assertEquals("- bar.txt\n", $output->getContent());
     }
-
     /**
      * @test
      */
     public function visitFileWritesBlockDeviceToStream()
     {
-        $output       = vfsStream::newFile('foo.txt')
-                                       ->at(vfsStream::setup());
+        $output = vfsStream::newFile('foo.txt')->at(vfsStream::setup());
         $printVisitor = new vfsStreamPrintVisitor(fopen('vfs://root/foo.txt', 'wb'));
-        $this->assertSame($printVisitor,
-                          $printVisitor->visitBlockDevice(vfsStream::newBlock('bar'))
-        );
+        $this->assertSame($printVisitor, $printVisitor->visitBlockDevice(vfsStream::newBlock('bar')));
         $this->assertEquals("- [bar]\n", $output->getContent());
     }
-
     /**
      * @test
      */
     public function visitDirectoryWritesDirectoryNameToStream()
     {
-        $output       = vfsStream::newFile('foo.txt')
-                                       ->at(vfsStream::setup());
+        $output = vfsStream::newFile('foo.txt')->at(vfsStream::setup());
         $printVisitor = new vfsStreamPrintVisitor(fopen('vfs://root/foo.txt', 'wb'));
-        $this->assertSame($printVisitor,
-                          $printVisitor->visitDirectory(vfsStream::newDirectory('baz'))
-        );
+        $this->assertSame($printVisitor, $printVisitor->visitDirectory(vfsStream::newDirectory('baz')));
         $this->assertEquals("- baz\n", $output->getContent());
     }
-
     /**
      * @test
      */
     public function visitRecursiveDirectoryStructure()
     {
-        $root         = vfsStream::setup('root',
-                                         null,
-                                         array('test' => array('foo'     => array('test.txt' => 'hello'),
-                                                               'baz.txt' => 'world'
-                                                           ),
-                                               'foo.txt' => ''
-                                         )
-                        );
+        $root = vfsStream::setup('root', null, array('test' => array('foo' => array('test.txt' => 'hello'), 'baz.txt' => 'world'), 'foo.txt' => ''));
         $printVisitor = new vfsStreamPrintVisitor(fopen('vfs://root/foo.txt', 'wb'));
-        $this->assertSame($printVisitor,
-                          $printVisitor->visitDirectory($root)
-        );
+        $this->assertSame($printVisitor, $printVisitor->visitDirectory($root));
         $this->assertEquals("- root\n  - test\n    - foo\n      - test.txt\n    - baz.txt\n  - foo.txt\n", file_get_contents('vfs://root/foo.txt'));
     }
 }

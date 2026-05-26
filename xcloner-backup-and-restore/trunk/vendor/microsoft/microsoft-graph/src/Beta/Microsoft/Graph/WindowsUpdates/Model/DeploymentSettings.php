@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeploymentSettings class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
+class DeploymentSettings extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the monitoring
-    * Settings governing conditions to monitor and automated actions to take.
-    *
-    * @return MonitoringSettings|null The monitoring
-    */
+     * Gets the monitoring
+     * Settings governing conditions to monitor and automated actions to take.
+     *
+     * @return MonitoringSettings|null The monitoring
+     */
     public function getMonitoring()
     {
         if (array_key_exists("monitoring", $this->_propDict)) {
-            if (is_a($this->_propDict["monitoring"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\MonitoringSettings") || is_null($this->_propDict["monitoring"])) {
+            if (is_a($this->_propDict["monitoring"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\MonitoringSettings") || is_null($this->_propDict["monitoring"])) {
                 return $this->_propDict["monitoring"];
             } else {
                 $this->_propDict["monitoring"] = new MonitoringSettings($this->_propDict["monitoring"]);
@@ -45,31 +46,29 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the monitoring
-    * Settings governing conditions to monitor and automated actions to take.
-    *
-    * @param MonitoringSettings $val The value to assign to the monitoring
-    *
-    * @return DeploymentSettings The DeploymentSettings
-    */
+     * Sets the monitoring
+     * Settings governing conditions to monitor and automated actions to take.
+     *
+     * @param MonitoringSettings $val The value to assign to the monitoring
+     *
+     * @return DeploymentSettings The DeploymentSettings
+     */
     public function setMonitoring($val)
     {
         $this->_propDict["monitoring"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the rollout
-    * Settings governing how the content is rolled out.
-    *
-    * @return RolloutSettings|null The rollout
-    */
+     * Gets the rollout
+     * Settings governing how the content is rolled out.
+     *
+     * @return RolloutSettings|null The rollout
+     */
     public function getRollout()
     {
         if (array_key_exists("rollout", $this->_propDict)) {
-            if (is_a($this->_propDict["rollout"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\RolloutSettings") || is_null($this->_propDict["rollout"])) {
+            if (is_a($this->_propDict["rollout"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\RolloutSettings") || is_null($this->_propDict["rollout"])) {
                 return $this->_propDict["rollout"];
             } else {
                 $this->_propDict["rollout"] = new RolloutSettings($this->_propDict["rollout"]);
@@ -78,31 +77,29 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the rollout
-    * Settings governing how the content is rolled out.
-    *
-    * @param RolloutSettings $val The value to assign to the rollout
-    *
-    * @return DeploymentSettings The DeploymentSettings
-    */
+     * Sets the rollout
+     * Settings governing how the content is rolled out.
+     *
+     * @param RolloutSettings $val The value to assign to the rollout
+     *
+     * @return DeploymentSettings The DeploymentSettings
+     */
     public function setRollout($val)
     {
         $this->_propDict["rollout"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the safeguard
-    * Settings governing safeguard holds on offering content.
-    *
-    * @return SafeguardSettings|null The safeguard
-    */
+     * Gets the safeguard
+     * Settings governing safeguard holds on offering content.
+     *
+     * @return SafeguardSettings|null The safeguard
+     */
     public function getSafeguard()
     {
         if (array_key_exists("safeguard", $this->_propDict)) {
-            if (is_a($this->_propDict["safeguard"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\SafeguardSettings") || is_null($this->_propDict["safeguard"])) {
+            if (is_a($this->_propDict["safeguard"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\SafeguardSettings") || is_null($this->_propDict["safeguard"])) {
                 return $this->_propDict["safeguard"];
             } else {
                 $this->_propDict["safeguard"] = new SafeguardSettings($this->_propDict["safeguard"]);
@@ -111,18 +108,17 @@ class DeploymentSettings extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the safeguard
-    * Settings governing safeguard holds on offering content.
-    *
-    * @param SafeguardSettings $val The value to assign to the safeguard
-    *
-    * @return DeploymentSettings The DeploymentSettings
-    */
+     * Sets the safeguard
+     * Settings governing safeguard holds on offering content.
+     *
+     * @param SafeguardSettings $val The value to assign to the safeguard
+     *
+     * @return DeploymentSettings The DeploymentSettings
+     */
     public function setSafeguard($val)
     {
         $this->_propDict["safeguard"] = $val;
-         return $this;
+        return $this;
     }
 }

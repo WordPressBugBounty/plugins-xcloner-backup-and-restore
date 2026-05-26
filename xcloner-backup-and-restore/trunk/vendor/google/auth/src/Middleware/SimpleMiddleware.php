@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2015 Google Inc.
  *
@@ -14,15 +15,13 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth\Middleware;
 
-namespace Google\Auth\Middleware;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\Psr7\Query;
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Psr7\Query;
+use XCloner\Psr\Http\Message\RequestInterface;
 /**
  * SimpleMiddleware is a Guzzle Middleware that implements Google's Simple API
  * access.
@@ -35,7 +34,6 @@ class SimpleMiddleware
      * @var array<mixed>
      */
     private $config;
-
     /**
      * Create a new Simple plugin.
      *
@@ -49,10 +47,8 @@ class SimpleMiddleware
         if (!isset($config['key'])) {
             throw new \InvalidArgumentException('requires a key to have been set');
         }
-
         $this->config = array_merge(['key' => null], $config);
     }
-
     /**
      * Updates the request query with the developer key if auth is set to simple.
      *
@@ -83,12 +79,10 @@ class SimpleMiddleware
             if (!isset($options['auth']) || $options['auth'] !== 'simple') {
                 return $handler($request, $options);
             }
-
             $query = Query::parse($request->getUri()->getQuery());
             $params = array_merge($query, $this->config);
             $uri = $request->getUri()->withQuery(Query::build($params));
             $request = $request->withUri($uri);
-
             return $handler($request, $options);
         };
     }

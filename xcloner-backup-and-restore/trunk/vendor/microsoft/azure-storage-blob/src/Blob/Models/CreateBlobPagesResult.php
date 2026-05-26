@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Holds result of calling create or clear blob pages
  *
@@ -48,7 +46,6 @@ class CreateBlobPagesResult
     private $lastModified;
     private $requestServerEncrypted;
     private $sequenceNumber;
-
     /**
      * Creates CreateBlobPagesResult object from $parsed response in array
      * representation
@@ -62,39 +59,16 @@ class CreateBlobPagesResult
     public static function create(array $headers)
     {
         $result = new CreateBlobPagesResult();
-        $clean  = array_change_key_case($headers);
-
+        $clean = array_change_key_case($headers);
         $date = $clean[Resources::LAST_MODIFIED];
         $date = Utilities::rfc1123ToDateTime($date);
         $result->setETag($clean[Resources::ETAG]);
         $result->setLastModified($date);
-
-        $result->setContentMD5(
-            Utilities::tryGetValue($clean, Resources::CONTENT_MD5)
-        );
-
-        $result->setRequestServerEncrypted(
-            Utilities::toBoolean(
-                Utilities::tryGetValueInsensitive(
-                    Resources::X_MS_REQUEST_SERVER_ENCRYPTED,
-                    $headers
-                ),
-                true
-            )
-        );
-
-        $result->setSequenceNumber(
-            intval(
-                Utilities::tryGetValue(
-                    $clean,
-                    Resources::X_MS_BLOB_SEQUENCE_NUMBER
-                )
-            )
-        );
-
+        $result->setContentMD5(Utilities::tryGetValue($clean, Resources::CONTENT_MD5));
+        $result->setRequestServerEncrypted(Utilities::toBoolean(Utilities::tryGetValueInsensitive(Resources::X_MS_REQUEST_SERVER_ENCRYPTED, $headers), \true));
+        $result->setSequenceNumber(intval(Utilities::tryGetValue($clean, Resources::X_MS_BLOB_SEQUENCE_NUMBER)));
         return $result;
     }
-
     /**
      * Gets blob lastModified.
      *
@@ -104,7 +78,6 @@ class CreateBlobPagesResult
     {
         return $this->lastModified;
     }
-
     /**
      * Sets blob lastModified.
      *
@@ -117,7 +90,6 @@ class CreateBlobPagesResult
         Validate::isDate($lastModified);
         $this->lastModified = $lastModified;
     }
-
     /**
      * Gets blob etag.
      *
@@ -127,7 +99,6 @@ class CreateBlobPagesResult
     {
         return $this->etag;
     }
-
     /**
      * Sets blob etag.
      *
@@ -140,7 +111,6 @@ class CreateBlobPagesResult
         Validate::canCastAsString($etag, 'etag');
         $this->etag = $etag;
     }
-
     /**
      * Gets blob contentMD5.
      *
@@ -150,7 +120,6 @@ class CreateBlobPagesResult
     {
         return $this->contentMD5;
     }
-
     /**
      * Sets blob contentMD5.
      *
@@ -162,7 +131,6 @@ class CreateBlobPagesResult
     {
         $this->contentMD5 = $contentMD5;
     }
-
     /**
      * Gets the whether the contents of the request are successfully encrypted.
      *
@@ -172,7 +140,6 @@ class CreateBlobPagesResult
     {
         return $this->requestServerEncrypted;
     }
-
     /**
      * Sets the request server encryption value.
      *
@@ -184,7 +151,6 @@ class CreateBlobPagesResult
     {
         $this->requestServerEncrypted = $requestServerEncrypted;
     }
-
     /**
      * Gets blob sequenceNumber.
      *
@@ -194,7 +160,6 @@ class CreateBlobPagesResult
     {
         return $this->sequenceNumber;
     }
-
     /**
      * Sets blob sequenceNumber.
      *

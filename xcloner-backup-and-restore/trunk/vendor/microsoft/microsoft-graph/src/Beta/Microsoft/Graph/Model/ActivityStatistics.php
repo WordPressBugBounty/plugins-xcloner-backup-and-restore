@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ActivityStatistics class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ActivityStatistics extends Entity
 {
     /**
-    * Gets the activity
-    * The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
-    *
-    * @return AnalyticsActivityType|null The activity
-    */
+     * Gets the activity
+     * The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
+     *
+     * @return AnalyticsActivityType|null The activity
+     */
     public function getActivity()
     {
         if (array_key_exists("activity", $this->_propDict)) {
-            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\AnalyticsActivityType") || is_null($this->_propDict["activity"])) {
+            if (is_a($this->_propDict["activity"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AnalyticsActivityType") || is_null($this->_propDict["activity"])) {
                 return $this->_propDict["activity"];
             } else {
                 $this->_propDict["activity"] = new AnalyticsActivityType($this->_propDict["activity"]);
@@ -45,31 +46,29 @@ class ActivityStatistics extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the activity
-    * The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
-    *
-    * @param AnalyticsActivityType $val The activity
-    *
-    * @return ActivityStatistics
-    */
+     * Sets the activity
+     * The type of activity for which statistics are returned. The possible values are: call, chat, email, focus, and meeting.
+     *
+     * @param AnalyticsActivityType $val The activity
+     *
+     * @return ActivityStatistics
+     */
     public function setActivity($val)
     {
         $this->_propDict["activity"] = $val;
         return $this;
     }
-
     /**
-    * Gets the duration
-    * Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
-    *
-    * @return \DateInterval|null The duration
-    */
+     * Gets the duration
+     * Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
+     *
+     * @return \DateInterval|null The duration
+     */
     public function getDuration()
     {
         if (array_key_exists("duration", $this->_propDict)) {
-            if (is_a($this->_propDict["duration"], "\DateInterval") || is_null($this->_propDict["duration"])) {
+            if (is_a($this->_propDict["duration"], "\\DateInterval") || is_null($this->_propDict["duration"])) {
                 return $this->_propDict["duration"];
             } else {
                 $this->_propDict["duration"] = new \DateInterval($this->_propDict["duration"]);
@@ -78,31 +77,29 @@ class ActivityStatistics extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the duration
-    * Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
-    *
-    * @param \DateInterval $val The duration
-    *
-    * @return ActivityStatistics
-    */
+     * Sets the duration
+     * Total hours spent on the activity. The value is represented in ISO 8601 format for durations.
+     *
+     * @param \DateInterval $val The duration
+     *
+     * @return ActivityStatistics
+     */
     public function setDuration($val)
     {
         $this->_propDict["duration"] = $val;
         return $this;
     }
-
     /**
-    * Gets the endDate
-    * Date when the activity ended, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-03' that follows the YYYY-MM-DD format.
-    *
-    * @return \DateTime|null The endDate
-    */
+     * Gets the endDate
+     * Date when the activity ended, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-03' that follows the YYYY-MM-DD format.
+     *
+     * @return \DateTime|null The endDate
+     */
     public function getEndDate()
     {
         if (array_key_exists("endDate", $this->_propDict)) {
-            if (is_a($this->_propDict["endDate"], "\DateTime") || is_null($this->_propDict["endDate"])) {
+            if (is_a($this->_propDict["endDate"], "\\DateTime") || is_null($this->_propDict["endDate"])) {
                 return $this->_propDict["endDate"];
             } else {
                 $this->_propDict["endDate"] = new \DateTime($this->_propDict["endDate"]);
@@ -111,31 +108,29 @@ class ActivityStatistics extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDate
-    * Date when the activity ended, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-03' that follows the YYYY-MM-DD format.
-    *
-    * @param \DateTime $val The endDate
-    *
-    * @return ActivityStatistics
-    */
+     * Sets the endDate
+     * Date when the activity ended, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-03' that follows the YYYY-MM-DD format.
+     *
+     * @param \DateTime $val The endDate
+     *
+     * @return ActivityStatistics
+     */
     public function setEndDate($val)
     {
         $this->_propDict["endDate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDate
-    * Date when the activity started, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-04' that follows the YYYY-MM-DD format.
-    *
-    * @return \DateTime|null The startDate
-    */
+     * Gets the startDate
+     * Date when the activity started, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-04' that follows the YYYY-MM-DD format.
+     *
+     * @return \DateTime|null The startDate
+     */
     public function getStartDate()
     {
         if (array_key_exists("startDate", $this->_propDict)) {
-            if (is_a($this->_propDict["startDate"], "\DateTime") || is_null($this->_propDict["startDate"])) {
+            if (is_a($this->_propDict["startDate"], "\\DateTime") || is_null($this->_propDict["startDate"])) {
                 return $this->_propDict["startDate"];
             } else {
                 $this->_propDict["startDate"] = new \DateTime($this->_propDict["startDate"]);
@@ -144,27 +139,25 @@ class ActivityStatistics extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDate
-    * Date when the activity started, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-04' that follows the YYYY-MM-DD format.
-    *
-    * @param \DateTime $val The startDate
-    *
-    * @return ActivityStatistics
-    */
+     * Sets the startDate
+     * Date when the activity started, expressed in ISO 8601 format for calendar dates. For example, the property value could be '2019-07-04' that follows the YYYY-MM-DD format.
+     *
+     * @param \DateTime $val The startDate
+     *
+     * @return ActivityStatistics
+     */
     public function setStartDate($val)
     {
         $this->_propDict["startDate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the timeZoneUsed
-    * The time zone that the user sets in Microsoft Outlook is used for the computation. For example, the property value could be 'Pacific Standard Time.'
-    *
-    * @return string|null The timeZoneUsed
-    */
+     * Gets the timeZoneUsed
+     * The time zone that the user sets in Microsoft Outlook is used for the computation. For example, the property value could be 'Pacific Standard Time.'
+     *
+     * @return string|null The timeZoneUsed
+     */
     public function getTimeZoneUsed()
     {
         if (array_key_exists("timeZoneUsed", $this->_propDict)) {
@@ -173,19 +166,17 @@ class ActivityStatistics extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the timeZoneUsed
-    * The time zone that the user sets in Microsoft Outlook is used for the computation. For example, the property value could be 'Pacific Standard Time.'
-    *
-    * @param string $val The timeZoneUsed
-    *
-    * @return ActivityStatistics
-    */
+     * Sets the timeZoneUsed
+     * The time zone that the user sets in Microsoft Outlook is used for the computation. For example, the property value could be 'Pacific Standard Time.'
+     *
+     * @param string $val The timeZoneUsed
+     *
+     * @return ActivityStatistics
+     */
     public function setTimeZoneUsed($val)
     {
         $this->_propDict["timeZoneUsed"] = $val;
         return $this;
     }
-
 }

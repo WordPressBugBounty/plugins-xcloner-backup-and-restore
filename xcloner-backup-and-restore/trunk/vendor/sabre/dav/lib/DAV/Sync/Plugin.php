@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Sync;
 
-namespace Sabre\DAV\Sync;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\Xml\Request\SyncCollectionReport;
-use Sabre\HTTP\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Xml\Request\SyncCollectionReport;
+use XCloner\Sabre\HTTP\RequestInterface;
 /**
  * This plugin all WebDAV-sync capabilities to the Server.
  *
@@ -31,9 +29,7 @@ class Plugin extends DAV\ServerPlugin
      * @var DAV\Server
      */
     protected $server;
-
     const SYNCTOKEN_PREFIX = 'http://sabre.io/ns/sync/';
-
     /**
      * Returns a plugin name.
      *
@@ -46,7 +42,6 @@ class Plugin extends DAV\ServerPlugin
     {
         return 'sync';
     }
-
     /**
      * Initializes the plugin.
      *
@@ -55,23 +50,18 @@ class Plugin extends DAV\ServerPlugin
     public function initialize(DAV\Server $server)
     {
         $this->server = $server;
-        $server->xml->elementMap['{DAV:}sync-collection'] = 'Sabre\\DAV\\Xml\\Request\\SyncCollectionReport';
-
+        $server->xml->elementMap['{DAV:}sync-collection'] = 'XCloner\Sabre\DAV\Xml\Request\SyncCollectionReport';
         $self = $this;
-
         $server->on('report', function ($reportName, $dom, $uri) use ($self) {
             if ('{DAV:}sync-collection' === $reportName) {
                 $this->server->transactionType = 'report-sync-collection';
                 $self->syncCollection($uri, $dom);
-
-                return false;
+                return \false;
             }
         });
-
         $server->on('propFind', [$this, 'propFind']);
         $server->on('validateTokens', [$this, 'validateTokens']);
     }
-
     /**
      * Returns a list of reports this plugin supports.
      *
@@ -87,14 +77,10 @@ class Plugin extends DAV\ServerPlugin
     {
         $node = $this->server->tree->getNodeForPath($uri);
         if ($node instanceof ISyncCollection && $node->getSyncToken()) {
-            return [
-                '{DAV:}sync-collection',
-            ];
+            return ['{DAV:}sync-collection'];
         }
-
         return [];
     }
-
     /**
      * This method handles the {DAV:}sync-collection HTTP REPORT.
      *
@@ -111,80 +97,58 @@ class Plugin extends DAV\ServerPlugin
         if (!$token) {
             throw new DAV\Exception\ReportNotSupported('No sync information is available at this node');
         }
-
         $syncToken = $report->syncToken;
         if (!is_null($syncToken)) {
             // Sync-token must start with our prefix
             if (self::SYNCTOKEN_PREFIX !== substr($syncToken, 0, strlen(self::SYNCTOKEN_PREFIX))) {
                 throw new DAV\Exception\InvalidSyncToken('Invalid or unknown sync token');
             }
-
             $syncToken = substr($syncToken, strlen(self::SYNCTOKEN_PREFIX));
         }
         $changeInfo = $node->getChanges($syncToken, $report->syncLevel, $report->limit);
-
         if (is_null($changeInfo)) {
             throw new DAV\Exception\InvalidSyncToken('Invalid or unknown sync token');
         }
-
         if (!array_key_exists('result_truncated', $changeInfo)) {
-            $changeInfo['result_truncated'] = false;
+            $changeInfo['result_truncated'] = \false;
         }
-
         // Encoding the response
-        $this->sendSyncCollectionResponse(
-            $changeInfo['syncToken'],
-            $uri,
-            $changeInfo['added'],
-            $changeInfo['modified'],
-            $changeInfo['deleted'],
-            $report->properties,
-            $changeInfo['result_truncated']
-        );
+        $this->sendSyncCollectionResponse($changeInfo['syncToken'], $uri, $changeInfo['added'], $changeInfo['modified'], $changeInfo['deleted'], $report->properties, $changeInfo['result_truncated']);
     }
-
     /**
      * Sends the response to a sync-collection request.
      *
      * @param string $syncToken
      * @param string $collectionUrl
      */
-    protected function sendSyncCollectionResponse($syncToken, $collectionUrl, array $added, array $modified, array $deleted, array $properties, bool $resultTruncated = false)
+    protected function sendSyncCollectionResponse($syncToken, $collectionUrl, array $added, array $modified, array $deleted, array $properties, bool $resultTruncated = \false)
     {
         $fullPaths = [];
-
         // Pre-fetching children, if this is possible.
         foreach (array_merge($added, $modified) as $item) {
-            $fullPath = $collectionUrl.'/'.$item;
+            $fullPath = $collectionUrl . '/' . $item;
             $fullPaths[] = $fullPath;
         }
-
         $responses = [];
         foreach ($this->server->getPropertiesForMultiplePaths($fullPaths, $properties) as $fullPath => $props) {
             // The 'Property_Response' class is responsible for generating a
             // single {DAV:}response xml element.
             $responses[] = new DAV\Xml\Element\Response($fullPath, $props);
         }
-
         // Deleted items also show up as 'responses'. They have no properties,
         // and a single {DAV:}status element set as 'HTTP/1.1 404 Not Found'.
         foreach ($deleted as $item) {
-            $fullPath = $collectionUrl.'/'.$item;
+            $fullPath = $collectionUrl . '/' . $item;
             $responses[] = new DAV\Xml\Element\Response($fullPath, [], 404);
         }
         if ($resultTruncated) {
-            $responses[] = new DAV\Xml\Element\Response($collectionUrl.'/', [], 507);
+            $responses[] = new DAV\Xml\Element\Response($collectionUrl . '/', [], 507);
         }
-
-        $multiStatus = new DAV\Xml\Response\MultiStatus($responses, self::SYNCTOKEN_PREFIX.$syncToken);
-
+        $multiStatus = new DAV\Xml\Response\MultiStatus($responses, self::SYNCTOKEN_PREFIX . $syncToken);
         $this->server->httpResponse->setStatus(207);
         $this->server->httpResponse->setHeader('Content-Type', 'application/xml; charset=utf-8');
-        $this->server->httpResponse->setBody(
-            $this->server->xml->write('{DAV:}multistatus', $multiStatus, $this->server->getBaseUri())
-        );
+        $this->server->httpResponse->setBody($this->server->xml->write('{DAV:}multistatus', $multiStatus, $this->server->getBaseUri()));
     }
-
     /**
      * This method is triggered whenever properties are requested for a node.
      * We intercept this to see if we must return a {DAV:}sync-token.
@@ -195,11 +159,9 @@ class Plugin extends DAV\ServerPlugin
             if (!$node instanceof ISyncCollection || !$token = $node->getSyncToken()) {
                 return;
             }
-
-            return self::SYNCTOKEN_PREFIX.$token;
+            return self::SYNCTOKEN_PREFIX . $token;
         });
     }
-
     /**
      * The validateTokens event is triggered before every request.
      *
@@ -216,20 +178,14 @@ class Plugin extends DAV\ServerPlugin
                 if (self::SYNCTOKEN_PREFIX !== substr($token['token'], 0, strlen(self::SYNCTOKEN_PREFIX))) {
                     continue;
                 }
-
                 // Checking if the token is a match.
                 $node = $this->server->tree->getNodeForPath($condition['uri']);
-
-                if (
-                    $node instanceof ISyncCollection &&
-                    $node->getSyncToken() == substr($token['token'], strlen(self::SYNCTOKEN_PREFIX))
-                ) {
-                    $conditions[$kk]['tokens'][$ii]['validToken'] = true;
+                if ($node instanceof ISyncCollection && $node->getSyncToken() == substr($token['token'], strlen(self::SYNCTOKEN_PREFIX))) {
+                    $conditions[$kk]['tokens'][$ii]['validToken'] = \true;
                 }
             }
         }
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -243,10 +199,6 @@ class Plugin extends DAV\ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'Adds support for WebDAV Collection Sync (rfc6578)',
-            'link' => 'http://sabre.io/dav/sync/',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'Adds support for WebDAV Collection Sync (rfc6578)', 'link' => 'http://sabre.io/dav/sync/'];
     }
 }

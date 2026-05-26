@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SignInLocation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SignInLocation extends Entity
 {
     /**
-    * Gets the city
-    * Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @return string|null The city
-    */
+     * Gets the city
+     * Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+     *
+     * @return string|null The city
+     */
     public function getCity()
     {
         if (array_key_exists("city", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SignInLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the city
-    * Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @param string $val The value of the city
-    *
-    * @return SignInLocation
-    */
+     * Sets the city
+     * Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+     *
+     * @param string $val The value of the city
+     *
+     * @return SignInLocation
+     */
     public function setCity($val)
     {
         $this->_propDict["city"] = $val;
         return $this;
     }
     /**
-    * Gets the countryOrRegion
-    * Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @return string|null The countryOrRegion
-    */
+     * Gets the countryOrRegion
+     * Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
+     *
+     * @return string|null The countryOrRegion
+     */
     public function getCountryOrRegion()
     {
         if (array_key_exists("countryOrRegion", $this->_propDict)) {
@@ -68,31 +69,29 @@ class SignInLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countryOrRegion
-    * Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @param string $val The value of the countryOrRegion
-    *
-    * @return SignInLocation
-    */
+     * Sets the countryOrRegion
+     * Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.
+     *
+     * @param string $val The value of the countryOrRegion
+     *
+     * @return SignInLocation
+     */
     public function setCountryOrRegion($val)
     {
         $this->_propDict["countryOrRegion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the geoCoordinates
-    * Provides the latitude, longitude and altitude where the sign-in originated.
-    *
-    * @return GeoCoordinates|null The geoCoordinates
-    */
+     * Gets the geoCoordinates
+     * Provides the latitude, longitude and altitude where the sign-in originated.
+     *
+     * @return GeoCoordinates|null The geoCoordinates
+     */
     public function getGeoCoordinates()
     {
         if (array_key_exists("geoCoordinates", $this->_propDict)) {
-            if (is_a($this->_propDict["geoCoordinates"], "\Beta\Microsoft\Graph\Model\GeoCoordinates") || is_null($this->_propDict["geoCoordinates"])) {
+            if (is_a($this->_propDict["geoCoordinates"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GeoCoordinates") || is_null($this->_propDict["geoCoordinates"])) {
                 return $this->_propDict["geoCoordinates"];
             } else {
                 $this->_propDict["geoCoordinates"] = new GeoCoordinates($this->_propDict["geoCoordinates"]);
@@ -101,26 +100,25 @@ class SignInLocation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the geoCoordinates
-    * Provides the latitude, longitude and altitude where the sign-in originated.
-    *
-    * @param GeoCoordinates $val The value to assign to the geoCoordinates
-    *
-    * @return SignInLocation The SignInLocation
-    */
+     * Sets the geoCoordinates
+     * Provides the latitude, longitude and altitude where the sign-in originated.
+     *
+     * @param GeoCoordinates $val The value to assign to the geoCoordinates
+     *
+     * @return SignInLocation The SignInLocation
+     */
     public function setGeoCoordinates($val)
     {
         $this->_propDict["geoCoordinates"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the state
-    * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @return string|null The state
-    */
+     * Gets the state
+     * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+     *
+     * @return string|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
@@ -129,15 +127,14 @@ class SignInLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the state
-    * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
-    *
-    * @param string $val The value of the state
-    *
-    * @return SignInLocation
-    */
+     * Sets the state
+     * Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.
+     *
+     * @param string $val The value of the state
+     *
+     * @return SignInLocation
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;

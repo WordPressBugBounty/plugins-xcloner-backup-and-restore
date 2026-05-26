@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsKioskSingleWin32App class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration
 {
-
     /**
-    * Gets the win32App
-    * This is the win32 app that will be available to launch use while in Kiosk Mode
-    *
-    * @return WindowsKioskWin32App|null The win32App
-    */
+     * Gets the win32App
+     * This is the win32 app that will be available to launch use while in Kiosk Mode
+     *
+     * @return WindowsKioskWin32App|null The win32App
+     */
     public function getWin32App()
     {
         if (array_key_exists("win32App", $this->_propDict)) {
-            if (is_a($this->_propDict["win32App"], "\Beta\Microsoft\Graph\Model\WindowsKioskWin32App") || is_null($this->_propDict["win32App"])) {
+            if (is_a($this->_propDict["win32App"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsKioskWin32App") || is_null($this->_propDict["win32App"])) {
                 return $this->_propDict["win32App"];
             } else {
                 $this->_propDict["win32App"] = new WindowsKioskWin32App($this->_propDict["win32App"]);
@@ -45,18 +46,17 @@ class WindowsKioskSingleWin32App extends WindowsKioskAppConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the win32App
-    * This is the win32 app that will be available to launch use while in Kiosk Mode
-    *
-    * @param WindowsKioskWin32App $val The value to assign to the win32App
-    *
-    * @return WindowsKioskSingleWin32App The WindowsKioskSingleWin32App
-    */
+     * Sets the win32App
+     * This is the win32 app that will be available to launch use while in Kiosk Mode
+     *
+     * @param WindowsKioskWin32App $val The value to assign to the win32App
+     *
+     * @return WindowsKioskSingleWin32App The WindowsKioskSingleWin32App
+     */
     public function setWin32App($val)
     {
         $this->_propDict["win32App"] = $val;
-         return $this;
+        return $this;
     }
 }

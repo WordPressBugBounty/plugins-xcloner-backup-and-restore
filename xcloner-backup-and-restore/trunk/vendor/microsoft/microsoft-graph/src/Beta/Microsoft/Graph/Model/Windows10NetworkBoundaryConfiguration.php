@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows10NetworkBoundaryConfiguration class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the windowsNetworkIsolationPolicy
-    * Windows Network Isolation Policy
-    *
-    * @return WindowsNetworkIsolationPolicy|null The windowsNetworkIsolationPolicy
-    */
+     * Gets the windowsNetworkIsolationPolicy
+     * Windows Network Isolation Policy
+     *
+     * @return WindowsNetworkIsolationPolicy|null The windowsNetworkIsolationPolicy
+     */
     public function getWindowsNetworkIsolationPolicy()
     {
         if (array_key_exists("windowsNetworkIsolationPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["windowsNetworkIsolationPolicy"], "\Beta\Microsoft\Graph\Model\WindowsNetworkIsolationPolicy") || is_null($this->_propDict["windowsNetworkIsolationPolicy"])) {
+            if (is_a($this->_propDict["windowsNetworkIsolationPolicy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsNetworkIsolationPolicy") || is_null($this->_propDict["windowsNetworkIsolationPolicy"])) {
                 return $this->_propDict["windowsNetworkIsolationPolicy"];
             } else {
                 $this->_propDict["windowsNetworkIsolationPolicy"] = new WindowsNetworkIsolationPolicy($this->_propDict["windowsNetworkIsolationPolicy"]);
@@ -45,19 +46,17 @@ class Windows10NetworkBoundaryConfiguration extends DeviceConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the windowsNetworkIsolationPolicy
-    * Windows Network Isolation Policy
-    *
-    * @param WindowsNetworkIsolationPolicy $val The windowsNetworkIsolationPolicy
-    *
-    * @return Windows10NetworkBoundaryConfiguration
-    */
+     * Sets the windowsNetworkIsolationPolicy
+     * Windows Network Isolation Policy
+     *
+     * @param WindowsNetworkIsolationPolicy $val The windowsNetworkIsolationPolicy
+     *
+     * @return Windows10NetworkBoundaryConfiguration
+     */
     public function setWindowsNetworkIsolationPolicy($val)
     {
         $this->_propDict["windowsNetworkIsolationPolicy"] = $val;
         return $this;
     }
-
 }

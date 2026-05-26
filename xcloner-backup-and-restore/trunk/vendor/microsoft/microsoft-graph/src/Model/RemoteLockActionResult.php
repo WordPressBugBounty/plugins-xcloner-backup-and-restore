@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RemoteLockActionResult class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RemoteLockActionResult extends DeviceActionResult
 {
     /**
-    * Gets the unlockPin
-    * Pin to unlock the client
-    *
-    * @return string|null The unlockPin
-    */
+     * Gets the unlockPin
+     * Pin to unlock the client
+     *
+     * @return string|null The unlockPin
+     */
     public function getUnlockPin()
     {
         if (array_key_exists("unlockPin", $this->_propDict)) {
@@ -40,15 +42,14 @@ class RemoteLockActionResult extends DeviceActionResult
             return null;
         }
     }
-
     /**
-    * Sets the unlockPin
-    * Pin to unlock the client
-    *
-    * @param string $val The value of the unlockPin
-    *
-    * @return RemoteLockActionResult
-    */
+     * Sets the unlockPin
+     * Pin to unlock the client
+     *
+     * @param string $val The value of the unlockPin
+     *
+     * @return RemoteLockActionResult
+     */
     public function setUnlockPin($val)
     {
         $this->_propDict["unlockPin"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookFunctionResult class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookFunctionResult extends Entity
 {
     /**
-    * Gets the error
-    *
-    * @return string|null The error
-    */
+     * Gets the error
+     *
+     * @return string|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
@@ -40,25 +41,23 @@ class WorkbookFunctionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the error
-    *
-    * @param string $val The error
-    *
-    * @return WorkbookFunctionResult
-    */
+     * Sets the error
+     *
+     * @param string $val The error
+     *
+     * @return WorkbookFunctionResult
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
-
     /**
-    * Gets the value
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -67,18 +66,16 @@ class WorkbookFunctionResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    *
-    * @param string $val The value
-    *
-    * @return WorkbookFunctionResult
-    */
+     * Sets the value
+     *
+     * @param string $val The value
+     *
+     * @return WorkbookFunctionResult
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TicketInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TicketInfo extends Entity
 {
     /**
-    * Gets the ticketNumber
-    * The ticket number.
-    *
-    * @return string|null The ticketNumber
-    */
+     * Gets the ticketNumber
+     * The ticket number.
+     *
+     * @return string|null The ticketNumber
+     */
     public function getTicketNumber()
     {
         if (array_key_exists("ticketNumber", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TicketInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ticketNumber
-    * The ticket number.
-    *
-    * @param string $val The value of the ticketNumber
-    *
-    * @return TicketInfo
-    */
+     * Sets the ticketNumber
+     * The ticket number.
+     *
+     * @param string $val The value of the ticketNumber
+     *
+     * @return TicketInfo
+     */
     public function setTicketNumber($val)
     {
         $this->_propDict["ticketNumber"] = $val;
         return $this;
     }
     /**
-    * Gets the ticketSystem
-    * The description of the ticket system.
-    *
-    * @return string|null The ticketSystem
-    */
+     * Gets the ticketSystem
+     * The description of the ticket system.
+     *
+     * @return string|null The ticketSystem
+     */
     public function getTicketSystem()
     {
         if (array_key_exists("ticketSystem", $this->_propDict)) {
@@ -68,15 +69,14 @@ class TicketInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the ticketSystem
-    * The description of the ticket system.
-    *
-    * @param string $val The value of the ticketSystem
-    *
-    * @return TicketInfo
-    */
+     * Sets the ticketSystem
+     * The description of the ticket system.
+     *
+     * @param string $val The value of the ticketSystem
+     *
+     * @return TicketInfo
+     */
     public function setTicketSystem($val)
     {
         $this->_propDict["ticketSystem"] = $val;

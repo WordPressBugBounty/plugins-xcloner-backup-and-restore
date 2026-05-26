@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,22 +8,22 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for permissions related functionality.
  *
  * @group  permissions
  */
-class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
+class PermissionsTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * @type  vfsStreamDirectory
      */
     private $root;
-
     /**
      * set up test environment
      */
@@ -31,7 +32,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $structure = array('test_directory' => array('test.file' => ''));
         $this->root = vfsStream::setup('root', null, $structure);
     }
-
     /**
      * @test
      * @group  issue_52
@@ -41,7 +41,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->getChild('test_directory')->chmod(0444);
         $this->assertFalse(@chmod(vfsStream::url('root/test_directory/test.file'), 0777));
     }
-
     /**
      * @test
      * @group  issue_53
@@ -51,7 +50,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->getChild('test_directory')->getChild('test.file')->chown(vfsStream::OWNER_USER_1);
         $this->assertFalse(@chmod(vfsStream::url('root/test_directory/test.file'), 0777));
     }
-
     /**
      * @test
      * @group  issue_52
@@ -61,7 +59,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->getChild('test_directory')->chmod(0444);
         $this->assertFalse(@chown(vfsStream::url('root/test_directory/test.file'), vfsStream::OWNER_USER_2));
     }
-
     /**
      * @test
      * @group  issue_53
@@ -71,7 +68,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->getChild('test_directory')->getChild('test.file')->chown(vfsStream::OWNER_USER_1);
         $this->assertFalse(@chown(vfsStream::url('root/test_directory/test.file'), vfsStream::OWNER_USER_2));
     }
-
     /**
      * @test
      * @group  issue_52
@@ -81,7 +77,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->getChild('test_directory')->chmod(0444);
         $this->assertFalse(@chgrp(vfsStream::url('root/test_directory/test.file'), vfsStream::GROUP_USER_2));
     }
-
     /**
      * @test
      * @group  issue_53
@@ -91,7 +86,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->getChild('test_directory')->getChild('test.file')->chown(vfsStream::OWNER_USER_1);
         $this->assertFalse(@chgrp(vfsStream::url('root/test_directory/test.file'), vfsStream::GROUP_USER_2));
     }
-
     /**
      * @test
      * @group  issue_107
@@ -105,7 +99,6 @@ class PermissionsTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root->chmod(0555);
         touch($this->root->url() . '/touch.txt');
     }
-
     /**
      * @test
      * @group  issue_107

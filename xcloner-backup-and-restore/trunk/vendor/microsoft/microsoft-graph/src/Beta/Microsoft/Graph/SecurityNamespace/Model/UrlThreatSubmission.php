@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UrlThreatSubmission class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UrlThreatSubmission extends ThreatSubmission
 {
     /**
-    * Gets the webUrl
-    * Denotes the webUrl that needs to be submitted.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Denotes the webUrl that needs to be submitted.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -41,19 +42,17 @@ class UrlThreatSubmission extends ThreatSubmission
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Denotes the webUrl that needs to be submitted.
-    *
-    * @param string $val The webUrl
-    *
-    * @return UrlThreatSubmission
-    */
+     * Sets the webUrl
+     * Denotes the webUrl that needs to be submitted.
+     *
+     * @param string $val The webUrl
+     *
+     * @return UrlThreatSubmission
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-
 }

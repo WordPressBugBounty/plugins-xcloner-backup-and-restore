@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemPreviewInfo class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemPreviewInfo extends Entity
 {
     /**
-    * Gets the getUrl
-    *
-    * @return string|null The getUrl
-    */
+     * Gets the getUrl
+     *
+     * @return string|null The getUrl
+     */
     public function getGetUrl()
     {
         if (array_key_exists("getUrl", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ItemPreviewInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the getUrl
-    *
-    * @param string $val The value of the getUrl
-    *
-    * @return ItemPreviewInfo
-    */
+     * Sets the getUrl
+     *
+     * @param string $val The value of the getUrl
+     *
+     * @return ItemPreviewInfo
+     */
     public function setGetUrl($val)
     {
         $this->_propDict["getUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the postParameters
-    *
-    * @return string|null The postParameters
-    */
+     * Gets the postParameters
+     *
+     * @return string|null The postParameters
+     */
     public function getPostParameters()
     {
         if (array_key_exists("postParameters", $this->_propDict)) {
@@ -65,24 +66,23 @@ class ItemPreviewInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the postParameters
-    *
-    * @param string $val The value of the postParameters
-    *
-    * @return ItemPreviewInfo
-    */
+     * Sets the postParameters
+     *
+     * @param string $val The value of the postParameters
+     *
+     * @return ItemPreviewInfo
+     */
     public function setPostParameters($val)
     {
         $this->_propDict["postParameters"] = $val;
         return $this;
     }
     /**
-    * Gets the postUrl
-    *
-    * @return string|null The postUrl
-    */
+     * Gets the postUrl
+     *
+     * @return string|null The postUrl
+     */
     public function getPostUrl()
     {
         if (array_key_exists("postUrl", $this->_propDict)) {
@@ -91,14 +91,13 @@ class ItemPreviewInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the postUrl
-    *
-    * @param string $val The value of the postUrl
-    *
-    * @return ItemPreviewInfo
-    */
+     * Sets the postUrl
+     *
+     * @param string $val The value of the postUrl
+     *
+     * @return ItemPreviewInfo
+     */
     public function setPostUrl($val)
     {
         $this->_propDict["postUrl"] = $val;

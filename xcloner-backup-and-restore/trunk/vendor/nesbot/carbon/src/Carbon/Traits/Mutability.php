@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Traits;
 
-namespace Carbon\Traits;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Carbon\Carbon;
-use Carbon\CarbonImmutable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Carbon\Carbon;
+use XCloner\Carbon\CarbonImmutable;
 /**
  * Trait Mutability.
  *
@@ -25,7 +23,6 @@ use Carbon\CarbonImmutable;
 trait Mutability
 {
     use Cast;
-
     /**
      * Returns true if the current class/instance is mutable.
      *
@@ -33,9 +30,8 @@ trait Mutability
      */
     public static function isMutable()
     {
-        return false;
+        return \false;
     }
-
     /**
      * Returns true if the current class/instance is immutable.
      *
@@ -45,7 +41,6 @@ trait Mutability
     {
         return !static::isMutable();
     }
-
     /**
      * Return a mutable copy of the instance.
      *
@@ -55,10 +50,8 @@ trait Mutability
     {
         /** @var Carbon $date */
         $date = $this->cast(Carbon::class);
-
         return $date;
     }
-
     /**
      * Return a immutable copy of the instance.
      *
@@ -68,7 +61,6 @@ trait Mutability
     {
         /** @var CarbonImmutable $date */
         $date = $this->cast(CarbonImmutable::class);
-
         return $date;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FileSecurityState class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class FileSecurityState extends Entity
 {
-
     /**
-    * Gets the fileHash
-    * Complex type containing file hashes (cryptographic and location-sensitive).
-    *
-    * @return FileHash|null The fileHash
-    */
+     * Gets the fileHash
+     * Complex type containing file hashes (cryptographic and location-sensitive).
+     *
+     * @return FileHash|null The fileHash
+     */
     public function getFileHash()
     {
         if (array_key_exists("fileHash", $this->_propDict)) {
-            if (is_a($this->_propDict["fileHash"], "\Beta\Microsoft\Graph\Model\FileHash") || is_null($this->_propDict["fileHash"])) {
+            if (is_a($this->_propDict["fileHash"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\FileHash") || is_null($this->_propDict["fileHash"])) {
                 return $this->_propDict["fileHash"];
             } else {
                 $this->_propDict["fileHash"] = new FileHash($this->_propDict["fileHash"]);
@@ -45,26 +46,25 @@ class FileSecurityState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the fileHash
-    * Complex type containing file hashes (cryptographic and location-sensitive).
-    *
-    * @param FileHash $val The value to assign to the fileHash
-    *
-    * @return FileSecurityState The FileSecurityState
-    */
+     * Sets the fileHash
+     * Complex type containing file hashes (cryptographic and location-sensitive).
+     *
+     * @param FileHash $val The value to assign to the fileHash
+     *
+     * @return FileSecurityState The FileSecurityState
+     */
     public function setFileHash($val)
     {
         $this->_propDict["fileHash"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * File name (without path).
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * File name (without path).
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -73,26 +73,25 @@ class FileSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * File name (without path).
-    *
-    * @param string $val The value of the name
-    *
-    * @return FileSecurityState
-    */
+     * Sets the name
+     * File name (without path).
+     *
+     * @param string $val The value of the name
+     *
+     * @return FileSecurityState
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the path
-    * Full file path of the file/imageFile.
-    *
-    * @return string|null The path
-    */
+     * Gets the path
+     * Full file path of the file/imageFile.
+     *
+     * @return string|null The path
+     */
     public function getPath()
     {
         if (array_key_exists("path", $this->_propDict)) {
@@ -101,26 +100,25 @@ class FileSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the path
-    * Full file path of the file/imageFile.
-    *
-    * @param string $val The value of the path
-    *
-    * @return FileSecurityState
-    */
+     * Sets the path
+     * Full file path of the file/imageFile.
+     *
+     * @param string $val The value of the path
+     *
+     * @return FileSecurityState
+     */
     public function setPath($val)
     {
         $this->_propDict["path"] = $val;
         return $this;
     }
     /**
-    * Gets the riskScore
-    * Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage.
-    *
-    * @return string|null The riskScore
-    */
+     * Gets the riskScore
+     * Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage.
+     *
+     * @return string|null The riskScore
+     */
     public function getRiskScore()
     {
         if (array_key_exists("riskScore", $this->_propDict)) {
@@ -129,15 +127,14 @@ class FileSecurityState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskScore
-    * Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage.
-    *
-    * @param string $val The value of the riskScore
-    *
-    * @return FileSecurityState
-    */
+     * Sets the riskScore
+     * Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage.
+     *
+     * @param string $val The value of the riskScore
+     *
+     * @return FileSecurityState
+     */
     public function setRiskScore($val)
     {
         $this->_propDict["riskScore"] = $val;

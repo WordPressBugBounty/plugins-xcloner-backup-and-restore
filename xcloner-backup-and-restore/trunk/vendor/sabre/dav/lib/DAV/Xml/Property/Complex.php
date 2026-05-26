@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Element\XmlFragment;
-use Sabre\Xml\Reader;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Element\XmlFragment;
+use XCloner\Sabre\Xml\Reader;
 /**
  * This class represents a 'complex' property that didn't have a default
  * decoder.
@@ -45,25 +43,21 @@ class Complex extends XmlFragment
     public static function xmlDeserialize(Reader $reader)
     {
         $xml = $reader->readInnerXml();
-
         if (Reader::ELEMENT === $reader->nodeType && $reader->isEmptyElement) {
             // Easy!
             $reader->next();
-
             return null;
         }
         // Now we have a copy of the inner xml, we need to traverse it to get
         // all the strings. If there's no non-string data, we just return the
         // string, otherwise we return an instance of this class.
         $reader->read();
-
-        $nonText = false;
+        $nonText = \false;
         $text = '';
-
-        while (true) {
+        while (\true) {
             switch ($reader->nodeType) {
                 case Reader::ELEMENT:
-                    $nonText = true;
+                    $nonText = \true;
                     $reader->next();
                     continue 2;
                 case Reader::TEXT:
@@ -75,13 +69,10 @@ class Complex extends XmlFragment
             }
             $reader->read();
         }
-
         // Make sure we advance the cursor one step further.
         $reader->read();
-
         if ($nonText) {
             $new = new self($xml);
-
             return $new;
         } else {
             return $text;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnifiedRoleManagementPolicyRuleTarget class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnifiedRoleManagementPolicyRuleTarget extends Entity
 {
     /**
-    * Gets the caller
-    * The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
-    *
-    * @return string|null The caller
-    */
+     * Gets the caller
+     * The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
+     *
+     * @return string|null The caller
+     */
     public function getCaller()
     {
         if (array_key_exists("caller", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the caller
-    * The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
-    *
-    * @param string $val The value of the caller
-    *
-    * @return UnifiedRoleManagementPolicyRuleTarget
-    */
+     * Sets the caller
+     * The type of caller that's the target of the policy rule. Allowed values are: None, Admin, EndUser.
+     *
+     * @param string $val The value of the caller
+     *
+     * @return UnifiedRoleManagementPolicyRuleTarget
+     */
     public function setCaller($val)
     {
         $this->_propDict["caller"] = $val;
         return $this;
     }
     /**
-    * Gets the enforcedSettings
-    * The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
-    *
-    * @return string|null The enforcedSettings
-    */
+     * Gets the enforcedSettings
+     * The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
+     *
+     * @return string|null The enforcedSettings
+     */
     public function getEnforcedSettings()
     {
         if (array_key_exists("enforcedSettings", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enforcedSettings
-    * The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
-    *
-    * @param string $val The value of the enforcedSettings
-    *
-    * @return UnifiedRoleManagementPolicyRuleTarget
-    */
+     * Sets the enforcedSettings
+     * The list of role settings that are enforced and cannot be overridden by child scopes. Use All for all settings.
+     *
+     * @param string $val The value of the enforcedSettings
+     *
+     * @return UnifiedRoleManagementPolicyRuleTarget
+     */
     public function setEnforcedSettings($val)
     {
         $this->_propDict["enforcedSettings"] = $val;
         return $this;
     }
     /**
-    * Gets the inheritableSettings
-    * The list of role settings that can be inherited by child scopes. Use All for all settings.
-    *
-    * @return string|null The inheritableSettings
-    */
+     * Gets the inheritableSettings
+     * The list of role settings that can be inherited by child scopes. Use All for all settings.
+     *
+     * @return string|null The inheritableSettings
+     */
     public function getInheritableSettings()
     {
         if (array_key_exists("inheritableSettings", $this->_propDict)) {
@@ -96,26 +96,25 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the inheritableSettings
-    * The list of role settings that can be inherited by child scopes. Use All for all settings.
-    *
-    * @param string $val The value of the inheritableSettings
-    *
-    * @return UnifiedRoleManagementPolicyRuleTarget
-    */
+     * Sets the inheritableSettings
+     * The list of role settings that can be inherited by child scopes. Use All for all settings.
+     *
+     * @param string $val The value of the inheritableSettings
+     *
+     * @return UnifiedRoleManagementPolicyRuleTarget
+     */
     public function setInheritableSettings($val)
     {
         $this->_propDict["inheritableSettings"] = $val;
         return $this;
     }
     /**
-    * Gets the level
-    * The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
-    *
-    * @return string|null The level
-    */
+     * Gets the level
+     * The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
+     *
+     * @return string|null The level
+     */
     public function getLevel()
     {
         if (array_key_exists("level", $this->_propDict)) {
@@ -124,26 +123,25 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the level
-    * The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
-    *
-    * @param string $val The value of the level
-    *
-    * @return UnifiedRoleManagementPolicyRuleTarget
-    */
+     * Sets the level
+     * The role assignment type that's the target of policy rule. Allowed values are: Eligibility, Assignment.
+     *
+     * @param string $val The value of the level
+     *
+     * @return UnifiedRoleManagementPolicyRuleTarget
+     */
     public function setLevel($val)
     {
         $this->_propDict["level"] = $val;
         return $this;
     }
     /**
-    * Gets the operations
-    * The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
-    *
-    * @return string|null The operations
-    */
+     * Gets the operations
+     * The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+     *
+     * @return string|null The operations
+     */
     public function getOperations()
     {
         if (array_key_exists("operations", $this->_propDict)) {
@@ -152,30 +150,28 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the operations
-    * The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
-    *
-    * @param string $val The value of the operations
-    *
-    * @return UnifiedRoleManagementPolicyRuleTarget
-    */
+     * Sets the operations
+     * The role management operations that are the target of the policy rule. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
+     *
+     * @param string $val The value of the operations
+     *
+     * @return UnifiedRoleManagementPolicyRuleTarget
+     */
     public function setOperations($val)
     {
         $this->_propDict["operations"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetObjects
-    *
-    * @return DirectoryObject|null The targetObjects
-    */
+     * Gets the targetObjects
+     *
+     * @return DirectoryObject|null The targetObjects
+     */
     public function getTargetObjects()
     {
         if (array_key_exists("targetObjects", $this->_propDict)) {
-            if (is_a($this->_propDict["targetObjects"], "\Beta\Microsoft\Graph\Model\DirectoryObject") || is_null($this->_propDict["targetObjects"])) {
+            if (is_a($this->_propDict["targetObjects"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DirectoryObject") || is_null($this->_propDict["targetObjects"])) {
                 return $this->_propDict["targetObjects"];
             } else {
                 $this->_propDict["targetObjects"] = new DirectoryObject($this->_propDict["targetObjects"]);
@@ -184,17 +180,16 @@ class UnifiedRoleManagementPolicyRuleTarget extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the targetObjects
-    *
-    * @param DirectoryObject $val The value to assign to the targetObjects
-    *
-    * @return UnifiedRoleManagementPolicyRuleTarget The UnifiedRoleManagementPolicyRuleTarget
-    */
+     * Sets the targetObjects
+     *
+     * @param DirectoryObject $val The value to assign to the targetObjects
+     *
+     * @return UnifiedRoleManagementPolicyRuleTarget The UnifiedRoleManagementPolicyRuleTarget
+     */
     public function setTargetObjects($val)
     {
         $this->_propDict["targetObjects"] = $val;
-         return $this;
+        return $this;
     }
 }

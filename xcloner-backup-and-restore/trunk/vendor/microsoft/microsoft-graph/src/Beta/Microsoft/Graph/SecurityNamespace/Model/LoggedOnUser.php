@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LoggedOnUser class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class LoggedOnUser extends \Beta\Microsoft\Graph\Model\Entity
+class LoggedOnUser extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the accountName
-    * User account name of the logged-on user.
-    *
-    * @return string|null The accountName
-    */
+     * Gets the accountName
+     * User account name of the logged-on user.
+     *
+     * @return string|null The accountName
+     */
     public function getAccountName()
     {
         if (array_key_exists("accountName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class LoggedOnUser extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the accountName
-    * User account name of the logged-on user.
-    *
-    * @param string $val The value of the accountName
-    *
-    * @return LoggedOnUser
-    */
+     * Sets the accountName
+     * User account name of the logged-on user.
+     *
+     * @param string $val The value of the accountName
+     *
+     * @return LoggedOnUser
+     */
     public function setAccountName($val)
     {
         $this->_propDict["accountName"] = $val;
         return $this;
     }
     /**
-    * Gets the domainName
-    * User account domain of the logged-on user.
-    *
-    * @return string|null The domainName
-    */
+     * Gets the domainName
+     * User account domain of the logged-on user.
+     *
+     * @return string|null The domainName
+     */
     public function getDomainName()
     {
         if (array_key_exists("domainName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class LoggedOnUser extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the domainName
-    * User account domain of the logged-on user.
-    *
-    * @param string $val The value of the domainName
-    *
-    * @return LoggedOnUser
-    */
+     * Sets the domainName
+     * User account domain of the logged-on user.
+     *
+     * @param string $val The value of the domainName
+     *
+     * @return LoggedOnUser
+     */
     public function setDomainName($val)
     {
         $this->_propDict["domainName"] = $val;

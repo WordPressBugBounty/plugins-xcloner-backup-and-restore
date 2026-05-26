@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\FS;
 
-namespace Sabre\DAVACL\FS;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAVACL\AbstractPrincipalCollection;
-use Sabre\DAVACL\ACLTrait;
-use Sabre\DAVACL\IACL;
-use Sabre\DAVACL\PrincipalBackend\BackendInterface;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAVACL\AbstractPrincipalCollection;
+use XCloner\Sabre\DAVACL\ACLTrait;
+use XCloner\Sabre\DAVACL\IACL;
+use XCloner\Sabre\DAVACL\PrincipalBackend\BackendInterface;
+use XCloner\Sabre\Uri;
 /**
  * This collection contains a collection for every principal.
  * It is similar to /home on many unix systems.
@@ -27,21 +25,18 @@ use Sabre\Uri;
 class HomeCollection extends AbstractPrincipalCollection implements IACL
 {
     use ACLTrait;
-
     /**
      * Name of this collection.
      *
      * @var string
      */
     public $collectionName = 'home';
-
     /**
      * Path to where the users' files are actually stored.
      *
      * @var string
      */
     protected $storagePath;
-
     /**
      * Creates the home collection.
      *
@@ -53,7 +48,6 @@ class HomeCollection extends AbstractPrincipalCollection implements IACL
         parent::__construct($principalBackend, $principalPrefix);
         $this->storagePath = $storagePath;
     }
-
     /**
      * Returns the name of the node.
      *
@@ -65,7 +59,6 @@ class HomeCollection extends AbstractPrincipalCollection implements IACL
     {
         return $this->collectionName;
     }
-
     /**
      * Returns a principals' collection of files.
      *
@@ -78,29 +71,14 @@ class HomeCollection extends AbstractPrincipalCollection implements IACL
     public function getChildForPrincipal(array $principalInfo)
     {
         $owner = $principalInfo['uri'];
-        $acl = [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => '{DAV:}owner',
-                'protected' => true,
-            ],
-        ];
-
+        $acl = [['privilege' => '{DAV:}all', 'principal' => '{DAV:}owner', 'protected' => \true]];
         list(, $principalBaseName) = Uri\split($owner);
-
-        $path = $this->storagePath.'/'.$principalBaseName;
-
+        $path = $this->storagePath . '/' . $principalBaseName;
         if (!is_dir($path)) {
-            mkdir($path, 0777, true);
+            mkdir($path, 0777, \true);
         }
-
-        return new Collection(
-            $path,
-            $acl,
-            $owner
-        );
+        return new Collection($path, $acl, $owner);
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -115,12 +93,6 @@ class HomeCollection extends AbstractPrincipalCollection implements IACL
      */
     public function getACL()
     {
-        return [
-            [
-                'principal' => '{DAV:}authenticated',
-                'privilege' => '{DAV:}read',
-                'protected' => true,
-            ],
-        ];
+        return [['principal' => '{DAV:}authenticated', 'privilege' => '{DAV:}read', 'protected' => \true]];
     }
 }

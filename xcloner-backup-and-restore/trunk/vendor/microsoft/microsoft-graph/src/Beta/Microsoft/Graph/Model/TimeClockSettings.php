@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeClockSettings class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TimeClockSettings extends Entity
 {
-
     /**
-    * Gets the approvedLocation
-    * The aprroved location of the timeClock.
-    *
-    * @return GeoCoordinates|null The approvedLocation
-    */
+     * Gets the approvedLocation
+     * The aprroved location of the timeClock.
+     *
+     * @return GeoCoordinates|null The approvedLocation
+     */
     public function getApprovedLocation()
     {
         if (array_key_exists("approvedLocation", $this->_propDict)) {
-            if (is_a($this->_propDict["approvedLocation"], "\Beta\Microsoft\Graph\Model\GeoCoordinates") || is_null($this->_propDict["approvedLocation"])) {
+            if (is_a($this->_propDict["approvedLocation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GeoCoordinates") || is_null($this->_propDict["approvedLocation"])) {
                 return $this->_propDict["approvedLocation"];
             } else {
                 $this->_propDict["approvedLocation"] = new GeoCoordinates($this->_propDict["approvedLocation"]);
@@ -45,18 +46,17 @@ class TimeClockSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the approvedLocation
-    * The aprroved location of the timeClock.
-    *
-    * @param GeoCoordinates $val The value to assign to the approvedLocation
-    *
-    * @return TimeClockSettings The TimeClockSettings
-    */
+     * Sets the approvedLocation
+     * The aprroved location of the timeClock.
+     *
+     * @param GeoCoordinates $val The value to assign to the approvedLocation
+     *
+     * @return TimeClockSettings The TimeClockSettings
+     */
     public function setApprovedLocation($val)
     {
         $this->_propDict["approvedLocation"] = $val;
-         return $this;
+        return $this;
     }
 }

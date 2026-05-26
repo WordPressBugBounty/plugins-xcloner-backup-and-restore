@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Diagnostic class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Diagnostic extends Entity
 {
     /**
-    * Gets the message
-    * The message describing the condition that triggered the error or warning.
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     * The message describing the condition that triggered the error or warning.
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Diagnostic extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    * The message describing the condition that triggered the error or warning.
-    *
-    * @param string $val The value of the message
-    *
-    * @return Diagnostic
-    */
+     * Sets the message
+     * The message describing the condition that triggered the error or warning.
+     *
+     * @param string $val The value of the message
+     *
+     * @return Diagnostic
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;
         return $this;
     }
     /**
-    * Gets the url
-    * The link to the documentation for this issue.
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * The link to the documentation for this issue.
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -68,15 +69,14 @@ class Diagnostic extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * The link to the documentation for this issue.
-    *
-    * @param string $val The value of the url
-    *
-    * @return Diagnostic
-    */
+     * Sets the url
+     * The link to the documentation for this issue.
+     *
+     * @param string $val The value of the url
+     *
+     * @return Diagnostic
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOSSoftwareUpdateStateSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOSSoftwareUpdateStateSummary extends Entity
 {
     /**
-    * Gets the displayName
-    * Human readable name of the software update
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Human readable name of the software update
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class MacOSSoftwareUpdateStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Human readable name of the software update
-    *
-    * @param string $val The displayName
-    *
-    * @return MacOSSoftwareUpdateStateSummary
-    */
+     * Sets the displayName
+     * Human readable name of the software update
+     *
+     * @param string $val The displayName
+     *
+     * @return MacOSSoftwareUpdateStateSummary
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastUpdatedDateTime
-    * Last date time the report for this device and product key was updated.
-    *
-    * @return \DateTime|null The lastUpdatedDateTime
-    */
+     * Gets the lastUpdatedDateTime
+     * Last date time the report for this device and product key was updated.
+     *
+     * @return \DateTime|null The lastUpdatedDateTime
+     */
     public function getLastUpdatedDateTime()
     {
         if (array_key_exists("lastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["lastUpdatedDateTime"], "\\DateTime") || is_null($this->_propDict["lastUpdatedDateTime"])) {
                 return $this->_propDict["lastUpdatedDateTime"];
             } else {
                 $this->_propDict["lastUpdatedDateTime"] = new \DateTime($this->_propDict["lastUpdatedDateTime"]);
@@ -74,27 +73,25 @@ class MacOSSoftwareUpdateStateSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastUpdatedDateTime
-    * Last date time the report for this device and product key was updated.
-    *
-    * @param \DateTime $val The lastUpdatedDateTime
-    *
-    * @return MacOSSoftwareUpdateStateSummary
-    */
+     * Sets the lastUpdatedDateTime
+     * Last date time the report for this device and product key was updated.
+     *
+     * @param \DateTime $val The lastUpdatedDateTime
+     *
+     * @return MacOSSoftwareUpdateStateSummary
+     */
     public function setLastUpdatedDateTime($val)
     {
         $this->_propDict["lastUpdatedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the productKey
-    * Product key of the software update.
-    *
-    * @return string|null The productKey
-    */
+     * Gets the productKey
+     * Product key of the software update.
+     *
+     * @return string|null The productKey
+     */
     public function getProductKey()
     {
         if (array_key_exists("productKey", $this->_propDict)) {
@@ -103,31 +100,29 @@ class MacOSSoftwareUpdateStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the productKey
-    * Product key of the software update.
-    *
-    * @param string $val The productKey
-    *
-    * @return MacOSSoftwareUpdateStateSummary
-    */
+     * Sets the productKey
+     * Product key of the software update.
+     *
+     * @param string $val The productKey
+     *
+     * @return MacOSSoftwareUpdateStateSummary
+     */
     public function setProductKey($val)
     {
         $this->_propDict["productKey"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
-    *
-    * @return MacOSSoftwareUpdateState|null The state
-    */
+     * Gets the state
+     * State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
+     *
+     * @return MacOSSoftwareUpdateState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MacOSSoftwareUpdateState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new MacOSSoftwareUpdateState($this->_propDict["state"]);
@@ -136,31 +131,29 @@ class MacOSSoftwareUpdateStateSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
-    *
-    * @param MacOSSoftwareUpdateState $val The state
-    *
-    * @return MacOSSoftwareUpdateStateSummary
-    */
+     * Sets the state
+     * State of the software update. Possible values are: success, downloading, downloaded, installing, idle, available, scheduled, downloadFailed, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installInsufficientSpace, installInsufficientPower, installFailed, commandFailed.
+     *
+     * @param MacOSSoftwareUpdateState $val The state
+     *
+     * @return MacOSSoftwareUpdateStateSummary
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the updateCategory
-    * Software update category. Possible values are: critical, configurationDataFile, firmware, other.
-    *
-    * @return MacOSSoftwareUpdateCategory|null The updateCategory
-    */
+     * Gets the updateCategory
+     * Software update category. Possible values are: critical, configurationDataFile, firmware, other.
+     *
+     * @return MacOSSoftwareUpdateCategory|null The updateCategory
+     */
     public function getUpdateCategory()
     {
         if (array_key_exists("updateCategory", $this->_propDict)) {
-            if (is_a($this->_propDict["updateCategory"], "\Beta\Microsoft\Graph\Model\MacOSSoftwareUpdateCategory") || is_null($this->_propDict["updateCategory"])) {
+            if (is_a($this->_propDict["updateCategory"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MacOSSoftwareUpdateCategory") || is_null($this->_propDict["updateCategory"])) {
                 return $this->_propDict["updateCategory"];
             } else {
                 $this->_propDict["updateCategory"] = new MacOSSoftwareUpdateCategory($this->_propDict["updateCategory"]);
@@ -169,27 +162,25 @@ class MacOSSoftwareUpdateStateSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the updateCategory
-    * Software update category. Possible values are: critical, configurationDataFile, firmware, other.
-    *
-    * @param MacOSSoftwareUpdateCategory $val The updateCategory
-    *
-    * @return MacOSSoftwareUpdateStateSummary
-    */
+     * Sets the updateCategory
+     * Software update category. Possible values are: critical, configurationDataFile, firmware, other.
+     *
+     * @param MacOSSoftwareUpdateCategory $val The updateCategory
+     *
+     * @return MacOSSoftwareUpdateStateSummary
+     */
     public function setUpdateCategory($val)
     {
         $this->_propDict["updateCategory"] = $val;
         return $this;
     }
-
     /**
-    * Gets the updateVersion
-    * Version of the software update
-    *
-    * @return string|null The updateVersion
-    */
+     * Gets the updateVersion
+     * Version of the software update
+     *
+     * @return string|null The updateVersion
+     */
     public function getUpdateVersion()
     {
         if (array_key_exists("updateVersion", $this->_propDict)) {
@@ -198,19 +189,17 @@ class MacOSSoftwareUpdateStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the updateVersion
-    * Version of the software update
-    *
-    * @param string $val The updateVersion
-    *
-    * @return MacOSSoftwareUpdateStateSummary
-    */
+     * Sets the updateVersion
+     * Version of the software update
+     *
+     * @param string $val The updateVersion
+     *
+     * @return MacOSSoftwareUpdateStateSummary
+     */
     public function setUpdateVersion($val)
     {
         $this->_propDict["updateVersion"] = $val;
         return $this;
     }
-
 }

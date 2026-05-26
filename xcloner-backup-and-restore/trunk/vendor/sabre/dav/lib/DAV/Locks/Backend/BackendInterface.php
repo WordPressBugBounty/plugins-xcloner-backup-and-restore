@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Locks\Backend;
 
-namespace Sabre\DAV\Locks\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Locks;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Locks;
 /**
  * If you are defining your own Locks backend, you must implement this
  * interface.
@@ -34,7 +32,6 @@ interface BackendInterface
      * @return array
      */
     public function getLocks($uri, $returnChildLocks);
-
     /**
      * Locks a uri.
      *
@@ -43,7 +40,6 @@ interface BackendInterface
      * @return bool
      */
     public function lock($uri, Locks\LockInfo $lockInfo);
-
     /**
      * Removes a lock from a uri.
      *

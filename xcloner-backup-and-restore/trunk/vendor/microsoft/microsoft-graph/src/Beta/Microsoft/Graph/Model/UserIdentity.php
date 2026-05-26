@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserIdentity class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserIdentity extends Identity
 {
     /**
-    * Gets the ipAddress
-    * Indicates the client IP address used by user performing the activity (audit log only).
-    *
-    * @return string|null The ipAddress
-    */
+     * Gets the ipAddress
+     * Indicates the client IP address used by user performing the activity (audit log only).
+     *
+     * @return string|null The ipAddress
+     */
     public function getIpAddress()
     {
         if (array_key_exists("ipAddress", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UserIdentity extends Identity
             return null;
         }
     }
-
     /**
-    * Sets the ipAddress
-    * Indicates the client IP address used by user performing the activity (audit log only).
-    *
-    * @param string $val The value of the ipAddress
-    *
-    * @return UserIdentity
-    */
+     * Sets the ipAddress
+     * Indicates the client IP address used by user performing the activity (audit log only).
+     *
+     * @param string $val The value of the ipAddress
+     *
+     * @return UserIdentity
+     */
     public function setIpAddress($val)
     {
         $this->_propDict["ipAddress"] = $val;
         return $this;
     }
     /**
-    * Gets the userPrincipalName
-    * The userPrincipalName attribute of the user.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The userPrincipalName attribute of the user.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class UserIdentity extends Identity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The userPrincipalName attribute of the user.
-    *
-    * @param string $val The value of the userPrincipalName
-    *
-    * @return UserIdentity
-    */
+     * Sets the userPrincipalName
+     * The userPrincipalName attribute of the user.
+     *
+     * @param string $val The value of the userPrincipalName
+     *
+     * @return UserIdentity
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;

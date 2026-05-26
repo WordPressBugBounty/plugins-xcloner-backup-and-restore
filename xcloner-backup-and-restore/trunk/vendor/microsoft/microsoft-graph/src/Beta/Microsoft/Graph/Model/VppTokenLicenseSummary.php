@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VppTokenLicenseSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VppTokenLicenseSummary extends Entity
 {
     /**
-    * Gets the appleId
-    * The Apple Id associated with the given Apple Volume Purchase Program Token.
-    *
-    * @return string|null The appleId
-    */
+     * Gets the appleId
+     * The Apple Id associated with the given Apple Volume Purchase Program Token.
+     *
+     * @return string|null The appleId
+     */
     public function getAppleId()
     {
         if (array_key_exists("appleId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class VppTokenLicenseSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appleId
-    * The Apple Id associated with the given Apple Volume Purchase Program Token.
-    *
-    * @param string $val The value of the appleId
-    *
-    * @return VppTokenLicenseSummary
-    */
+     * Sets the appleId
+     * The Apple Id associated with the given Apple Volume Purchase Program Token.
+     *
+     * @param string $val The value of the appleId
+     *
+     * @return VppTokenLicenseSummary
+     */
     public function setAppleId($val)
     {
         $this->_propDict["appleId"] = $val;
         return $this;
     }
     /**
-    * Gets the availableLicenseCount
-    * The number of VPP licenses available.
-    *
-    * @return int|null The availableLicenseCount
-    */
+     * Gets the availableLicenseCount
+     * The number of VPP licenses available.
+     *
+     * @return int|null The availableLicenseCount
+     */
     public function getAvailableLicenseCount()
     {
         if (array_key_exists("availableLicenseCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class VppTokenLicenseSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the availableLicenseCount
-    * The number of VPP licenses available.
-    *
-    * @param int $val The value of the availableLicenseCount
-    *
-    * @return VppTokenLicenseSummary
-    */
+     * Sets the availableLicenseCount
+     * The number of VPP licenses available.
+     *
+     * @param int $val The value of the availableLicenseCount
+     *
+     * @return VppTokenLicenseSummary
+     */
     public function setAvailableLicenseCount($val)
     {
         $this->_propDict["availableLicenseCount"] = $val;
         return $this;
     }
     /**
-    * Gets the organizationName
-    * The organization associated with the Apple Volume Purchase Program Token.
-    *
-    * @return string|null The organizationName
-    */
+     * Gets the organizationName
+     * The organization associated with the Apple Volume Purchase Program Token.
+     *
+     * @return string|null The organizationName
+     */
     public function getOrganizationName()
     {
         if (array_key_exists("organizationName", $this->_propDict)) {
@@ -96,26 +96,25 @@ class VppTokenLicenseSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the organizationName
-    * The organization associated with the Apple Volume Purchase Program Token.
-    *
-    * @param string $val The value of the organizationName
-    *
-    * @return VppTokenLicenseSummary
-    */
+     * Sets the organizationName
+     * The organization associated with the Apple Volume Purchase Program Token.
+     *
+     * @param string $val The value of the organizationName
+     *
+     * @return VppTokenLicenseSummary
+     */
     public function setOrganizationName($val)
     {
         $this->_propDict["organizationName"] = $val;
         return $this;
     }
     /**
-    * Gets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @return int|null The usedLicenseCount
-    */
+     * Gets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @return int|null The usedLicenseCount
+     */
     public function getUsedLicenseCount()
     {
         if (array_key_exists("usedLicenseCount", $this->_propDict)) {
@@ -124,26 +123,25 @@ class VppTokenLicenseSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @param int $val The value of the usedLicenseCount
-    *
-    * @return VppTokenLicenseSummary
-    */
+     * Sets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @param int $val The value of the usedLicenseCount
+     *
+     * @return VppTokenLicenseSummary
+     */
     public function setUsedLicenseCount($val)
     {
         $this->_propDict["usedLicenseCount"] = $val;
         return $this;
     }
     /**
-    * Gets the vppTokenId
-    * Identifier of the VPP token.
-    *
-    * @return string|null The vppTokenId
-    */
+     * Gets the vppTokenId
+     * Identifier of the VPP token.
+     *
+     * @return string|null The vppTokenId
+     */
     public function getVppTokenId()
     {
         if (array_key_exists("vppTokenId", $this->_propDict)) {
@@ -152,15 +150,14 @@ class VppTokenLicenseSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the vppTokenId
-    * Identifier of the VPP token.
-    *
-    * @param string $val The value of the vppTokenId
-    *
-    * @return VppTokenLicenseSummary
-    */
+     * Sets the vppTokenId
+     * Identifier of the VPP token.
+     *
+     * @param string $val The value of the vppTokenId
+     *
+     * @return VppTokenLicenseSummary
+     */
     public function setVppTokenId($val)
     {
         $this->_propDict["vppTokenId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ThreatSubmissionRoot class
 *
@@ -25,10 +26,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ThreatSubmissionRoot extends \Beta\Microsoft\Graph\Model\Entity
+class ThreatSubmissionRoot extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the emailThreats
      *
      * @return array|null The emailThreats
@@ -36,27 +36,24 @@ class ThreatSubmissionRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getEmailThreats()
     {
         if (array_key_exists("emailThreats", $this->_propDict)) {
-           return $this->_propDict["emailThreats"];
+            return $this->_propDict["emailThreats"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the emailThreats
-    *
-    * @param EmailThreatSubmission[] $val The emailThreats
-    *
-    * @return ThreatSubmissionRoot
-    */
+     * Sets the emailThreats
+     *
+     * @param EmailThreatSubmission[] $val The emailThreats
+     *
+     * @return ThreatSubmissionRoot
+     */
     public function setEmailThreats($val)
     {
         $this->_propDict["emailThreats"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the emailThreatSubmissionPolicies
      *
      * @return array|null The emailThreatSubmissionPolicies
@@ -64,27 +61,24 @@ class ThreatSubmissionRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getEmailThreatSubmissionPolicies()
     {
         if (array_key_exists("emailThreatSubmissionPolicies", $this->_propDict)) {
-           return $this->_propDict["emailThreatSubmissionPolicies"];
+            return $this->_propDict["emailThreatSubmissionPolicies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the emailThreatSubmissionPolicies
-    *
-    * @param EmailThreatSubmissionPolicy[] $val The emailThreatSubmissionPolicies
-    *
-    * @return ThreatSubmissionRoot
-    */
+     * Sets the emailThreatSubmissionPolicies
+     *
+     * @param EmailThreatSubmissionPolicy[] $val The emailThreatSubmissionPolicies
+     *
+     * @return ThreatSubmissionRoot
+     */
     public function setEmailThreatSubmissionPolicies($val)
     {
         $this->_propDict["emailThreatSubmissionPolicies"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the fileThreats
      *
      * @return array|null The fileThreats
@@ -92,27 +86,24 @@ class ThreatSubmissionRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getFileThreats()
     {
         if (array_key_exists("fileThreats", $this->_propDict)) {
-           return $this->_propDict["fileThreats"];
+            return $this->_propDict["fileThreats"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the fileThreats
-    *
-    * @param FileThreatSubmission[] $val The fileThreats
-    *
-    * @return ThreatSubmissionRoot
-    */
+     * Sets the fileThreats
+     *
+     * @param FileThreatSubmission[] $val The fileThreats
+     *
+     * @return ThreatSubmissionRoot
+     */
     public function setFileThreats($val)
     {
         $this->_propDict["fileThreats"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the urlThreats
      *
      * @return array|null The urlThreats
@@ -120,23 +111,21 @@ class ThreatSubmissionRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getUrlThreats()
     {
         if (array_key_exists("urlThreats", $this->_propDict)) {
-           return $this->_propDict["urlThreats"];
+            return $this->_propDict["urlThreats"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the urlThreats
-    *
-    * @param UrlThreatSubmission[] $val The urlThreats
-    *
-    * @return ThreatSubmissionRoot
-    */
+     * Sets the urlThreats
+     *
+     * @param UrlThreatSubmission[] $val The urlThreats
+     *
+     * @return ThreatSubmissionRoot
+     */
     public function setUrlThreats($val)
     {
         $this->_propDict["urlThreats"] = $val;
         return $this;
     }
-
 }

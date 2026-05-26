@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewInstanceDecisionItemServicePrincipalResource class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessReviewInstanceDecisionItemResource
 {
     /**
-    * Gets the appId
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -39,14 +41,13 @@ class AccessReviewInstanceDecisionItemServicePrincipalResource extends AccessRev
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    *
-    * @param string $val The value of the appId
-    *
-    * @return AccessReviewInstanceDecisionItemServicePrincipalResource
-    */
+     * Sets the appId
+     *
+     * @param string $val The value of the appId
+     *
+     * @return AccessReviewInstanceDecisionItemServicePrincipalResource
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;

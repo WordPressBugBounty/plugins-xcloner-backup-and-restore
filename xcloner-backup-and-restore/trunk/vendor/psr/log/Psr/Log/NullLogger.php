@@ -1,10 +1,10 @@
 <?php
 
-namespace Psr\Log;
+namespace XCloner\Psr\Log;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This Logger can be used to avoid conditional log calls.
  *

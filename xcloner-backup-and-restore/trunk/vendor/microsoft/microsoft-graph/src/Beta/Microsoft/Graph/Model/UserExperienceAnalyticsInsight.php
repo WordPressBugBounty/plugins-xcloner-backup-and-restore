@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsInsight class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsInsight extends Entity
 {
     /**
-    * Gets the insightId
-    * The unique identifier of the user experience analytics insight.
-    *
-    * @return string|null The insightId
-    */
+     * Gets the insightId
+     * The unique identifier of the user experience analytics insight.
+     *
+     * @return string|null The insightId
+     */
     public function getInsightId()
     {
         if (array_key_exists("insightId", $this->_propDict)) {
@@ -40,31 +42,29 @@ class UserExperienceAnalyticsInsight extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the insightId
-    * The unique identifier of the user experience analytics insight.
-    *
-    * @param string $val The value of the insightId
-    *
-    * @return UserExperienceAnalyticsInsight
-    */
+     * Sets the insightId
+     * The unique identifier of the user experience analytics insight.
+     *
+     * @param string $val The value of the insightId
+     *
+     * @return UserExperienceAnalyticsInsight
+     */
     public function setInsightId($val)
     {
         $this->_propDict["insightId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the severity
-    * The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
-    *
-    * @return UserExperienceAnalyticsInsightSeverity|null The severity
-    */
+     * Gets the severity
+     * The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
+     *
+     * @return UserExperienceAnalyticsInsightSeverity|null The severity
+     */
     public function getSeverity()
     {
         if (array_key_exists("severity", $this->_propDict)) {
-            if (is_a($this->_propDict["severity"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightSeverity") || is_null($this->_propDict["severity"])) {
+            if (is_a($this->_propDict["severity"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\UserExperienceAnalyticsInsightSeverity") || is_null($this->_propDict["severity"])) {
                 return $this->_propDict["severity"];
             } else {
                 $this->_propDict["severity"] = new UserExperienceAnalyticsInsightSeverity($this->_propDict["severity"]);
@@ -73,26 +73,25 @@ class UserExperienceAnalyticsInsight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the severity
-    * The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
-    *
-    * @param UserExperienceAnalyticsInsightSeverity $val The value to assign to the severity
-    *
-    * @return UserExperienceAnalyticsInsight The UserExperienceAnalyticsInsight
-    */
+     * Sets the severity
+     * The value of the user experience analytics insight. Possible values are: none, informational, warning, error.
+     *
+     * @param UserExperienceAnalyticsInsightSeverity $val The value to assign to the severity
+     *
+     * @return UserExperienceAnalyticsInsight The UserExperienceAnalyticsInsight
+     */
     public function setSeverity($val)
     {
         $this->_propDict["severity"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the userExperienceAnalyticsMetricId
-    * The unique identifier of the user experience analytics insight.
-    *
-    * @return string|null The userExperienceAnalyticsMetricId
-    */
+     * Gets the userExperienceAnalyticsMetricId
+     * The unique identifier of the user experience analytics insight.
+     *
+     * @return string|null The userExperienceAnalyticsMetricId
+     */
     public function getUserExperienceAnalyticsMetricId()
     {
         if (array_key_exists("userExperienceAnalyticsMetricId", $this->_propDict)) {
@@ -101,31 +100,29 @@ class UserExperienceAnalyticsInsight extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userExperienceAnalyticsMetricId
-    * The unique identifier of the user experience analytics insight.
-    *
-    * @param string $val The value of the userExperienceAnalyticsMetricId
-    *
-    * @return UserExperienceAnalyticsInsight
-    */
+     * Sets the userExperienceAnalyticsMetricId
+     * The unique identifier of the user experience analytics insight.
+     *
+     * @param string $val The value of the userExperienceAnalyticsMetricId
+     *
+     * @return UserExperienceAnalyticsInsight
+     */
     public function setUserExperienceAnalyticsMetricId($val)
     {
         $this->_propDict["userExperienceAnalyticsMetricId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the values
-    * The value of the user experience analytics insight.
-    *
-    * @return UserExperienceAnalyticsInsightValue|null The values
-    */
+     * Gets the values
+     * The value of the user experience analytics insight.
+     *
+     * @return UserExperienceAnalyticsInsightValue|null The values
+     */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
-            if (is_a($this->_propDict["values"], "\Beta\Microsoft\Graph\Model\UserExperienceAnalyticsInsightValue") || is_null($this->_propDict["values"])) {
+            if (is_a($this->_propDict["values"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\UserExperienceAnalyticsInsightValue") || is_null($this->_propDict["values"])) {
                 return $this->_propDict["values"];
             } else {
                 $this->_propDict["values"] = new UserExperienceAnalyticsInsightValue($this->_propDict["values"]);
@@ -134,18 +131,17 @@ class UserExperienceAnalyticsInsight extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the values
-    * The value of the user experience analytics insight.
-    *
-    * @param UserExperienceAnalyticsInsightValue $val The value to assign to the values
-    *
-    * @return UserExperienceAnalyticsInsight The UserExperienceAnalyticsInsight
-    */
+     * Sets the values
+     * The value of the user experience analytics insight.
+     *
+     * @param UserExperienceAnalyticsInsightValue $val The value to assign to the values
+     *
+     * @return UserExperienceAnalyticsInsight The UserExperienceAnalyticsInsight
+     */
     public function setValues($val)
     {
         $this->_propDict["values"] = $val;
-         return $this;
+        return $this;
     }
 }

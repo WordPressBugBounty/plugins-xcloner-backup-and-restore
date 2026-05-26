@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Recipient class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Recipient extends Entity
 {
-
     /**
-    * Gets the emailAddress
-    * The recipient's email address.
-    *
-    * @return EmailAddress|null The emailAddress
-    */
+     * Gets the emailAddress
+     * The recipient's email address.
+     *
+     * @return EmailAddress|null The emailAddress
+     */
     public function getEmailAddress()
     {
         if (array_key_exists("emailAddress", $this->_propDict)) {
-            if (is_a($this->_propDict["emailAddress"], "\Beta\Microsoft\Graph\Model\EmailAddress") || is_null($this->_propDict["emailAddress"])) {
+            if (is_a($this->_propDict["emailAddress"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EmailAddress") || is_null($this->_propDict["emailAddress"])) {
                 return $this->_propDict["emailAddress"];
             } else {
                 $this->_propDict["emailAddress"] = new EmailAddress($this->_propDict["emailAddress"]);
@@ -45,18 +46,17 @@ class Recipient extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the emailAddress
-    * The recipient's email address.
-    *
-    * @param EmailAddress $val The value to assign to the emailAddress
-    *
-    * @return Recipient The Recipient
-    */
+     * Sets the emailAddress
+     * The recipient's email address.
+     *
+     * @param EmailAddress $val The value to assign to the emailAddress
+     *
+     * @return Recipient The Recipient
+     */
     public function setEmailAddress($val)
     {
         $this->_propDict["emailAddress"] = $val;
-         return $this;
+        return $this;
     }
 }

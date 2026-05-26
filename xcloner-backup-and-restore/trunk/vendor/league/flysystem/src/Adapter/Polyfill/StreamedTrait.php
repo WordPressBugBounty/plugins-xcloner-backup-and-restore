@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem\Adapter\Polyfill;
+namespace XCloner\League\Flysystem\Adapter\Polyfill;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 trait StreamedTrait
 {
     use StreamedReadingTrait;

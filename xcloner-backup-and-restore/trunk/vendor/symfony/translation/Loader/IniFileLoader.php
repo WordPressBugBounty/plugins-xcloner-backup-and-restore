@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Loader;
 
-namespace Symfony\Component\Translation\Loader;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * IniFileLoader loads translations from an ini file.
  *
@@ -26,6 +25,6 @@ class IniFileLoader extends FileLoader
      */
     protected function loadResource(string $resource)
     {
-        return parse_ini_file($resource, true);
+        return parse_ini_file($resource, \true);
     }
 }

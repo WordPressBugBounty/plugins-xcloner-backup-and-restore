@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamWrapper.
  */
-class vfsStreamWrapperWithoutRootTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperWithoutRootTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * set up test environment
@@ -23,7 +25,6 @@ class vfsStreamWrapperWithoutRootTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         vfsStreamWrapper::register();
     }
-
     /**
      * no root > no directory to open
      *
@@ -33,7 +34,6 @@ class vfsStreamWrapperWithoutRootTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse(@dir(vfsStream::url('foo')));
     }
-
     /**
      * can not unlink without root
      *
@@ -43,7 +43,6 @@ class vfsStreamWrapperWithoutRootTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse(@unlink(vfsStream::url('foo')));
     }
-
     /**
      * can not open a file without root
      *
@@ -53,7 +52,6 @@ class vfsStreamWrapperWithoutRootTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse(@fopen(vfsStream::url('foo'), 'r'));
     }
-
     /**
      * can not rename a file without root
      *

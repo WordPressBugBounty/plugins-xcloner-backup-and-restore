@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
 /**
  * Holds access policy elements
  *
@@ -47,14 +45,12 @@ abstract class AccessPolicy
     private $expiry;
     private $permission;
     private $resourceType;
-
     /**
      * Get the valid permissions for the given resource.
      *
      * @return array
      */
     abstract protected static function getResourceValidPermissions();
-
     /**
      * Constructor
      *
@@ -63,19 +59,9 @@ abstract class AccessPolicy
     public function __construct($resourceType)
     {
         Validate::canCastAsString($resourceType, 'resourceType');
-        Validate::isTrue(
-            $resourceType == Resources::RESOURCE_TYPE_BLOB      ||
-            $resourceType == Resources::RESOURCE_TYPE_CONTAINER ||
-            $resourceType == Resources::RESOURCE_TYPE_QUEUE     ||
-            $resourceType == Resources::RESOURCE_TYPE_TABLE     ||
-            $resourceType == Resources::RESOURCE_TYPE_FILE      ||
-            $resourceType == Resources::RESOURCE_TYPE_SHARE,
-            Resources::ERROR_RESOURCE_TYPE_NOT_SUPPORTED
-        );
-
+        Validate::isTrue($resourceType == Resources::RESOURCE_TYPE_BLOB || $resourceType == Resources::RESOURCE_TYPE_CONTAINER || $resourceType == Resources::RESOURCE_TYPE_QUEUE || $resourceType == Resources::RESOURCE_TYPE_TABLE || $resourceType == Resources::RESOURCE_TYPE_FILE || $resourceType == Resources::RESOURCE_TYPE_SHARE, Resources::ERROR_RESOURCE_TYPE_NOT_SUPPORTED);
         $this->resourceType = $resourceType;
     }
-
     /**
      * Gets start.
      *
@@ -85,7 +71,6 @@ abstract class AccessPolicy
     {
         return $this->start;
     }
-
     /**
      * Sets start.
      *
@@ -100,7 +85,6 @@ abstract class AccessPolicy
         }
         $this->start = $start;
     }
-
     /**
      * Gets expiry.
      *
@@ -110,7 +94,6 @@ abstract class AccessPolicy
     {
         return $this->expiry;
     }
-
     /**
      * Sets expiry.
      *
@@ -123,7 +106,6 @@ abstract class AccessPolicy
         Validate::isDate($expiry);
         $this->expiry = $expiry;
     }
-
     /**
      * Gets permission.
      *
@@ -133,7 +115,6 @@ abstract class AccessPolicy
     {
         return $this->permission;
     }
-
     /**
      * Sets permission.
      *
@@ -147,7 +128,6 @@ abstract class AccessPolicy
     {
         $this->permission = $this->validatePermission($permission);
     }
-
     /**
      * Gets resource type.
      *
@@ -157,7 +137,6 @@ abstract class AccessPolicy
     {
         return $this->resourceType;
     }
-
     /**
      * Validate the permission against its corresponding allowed permissions
      *
@@ -172,31 +151,18 @@ abstract class AccessPolicy
         $validPermissions = static::getResourceValidPermissions();
         $result = '';
         foreach ($validPermissions as $validPermission) {
-            if (strpos($permission, $validPermission) !== false) {
+            if (strpos($permission, $validPermission) !== \false) {
                 //append the valid permission to result.
                 $result .= $validPermission;
                 //remove all the character that represents the permission.
-                $permission = str_replace(
-                    $validPermission,
-                    '',
-                    $permission
-                );
+                $permission = str_replace($validPermission, '', $permission);
             }
         }
         //After filtering all the permissions, if there is still characters
         //left in the given permission, throw exception.
-        Validate::isTrue(
-            $permission == '',
-            sprintf(
-                Resources::INVALID_PERMISSION_PROVIDED,
-                $this->getResourceType(),
-                implode(', ', $validPermissions)
-            )
-        );
-
+        Validate::isTrue($permission == '', sprintf(Resources::INVALID_PERMISSION_PROVIDED, $this->getResourceType(), implode(', ', $validPermissions)));
         return $result;
     }
-
     /**
      * Converts this current object to XML representation.
      *
@@ -207,15 +173,11 @@ abstract class AccessPolicy
     public function toArray()
     {
         $array = array();
-
         if ($this->getStart() != null) {
-            $array[Resources::XTAG_SIGNED_START] =
-                Utilities::convertToEdmDateTime($this->getStart());
+            $array[Resources::XTAG_SIGNED_START] = Utilities::convertToEdmDateTime($this->getStart());
         }
-        $array[Resources::XTAG_SIGNED_EXPIRY]     =
-            Utilities::convertToEdmDateTime($this->getExpiry());
+        $array[Resources::XTAG_SIGNED_EXPIRY] = Utilities::convertToEdmDateTime($this->getExpiry());
         $array[Resources::XTAG_SIGNED_PERMISSION] = $this->getPermission();
-
         return $array;
     }
 }

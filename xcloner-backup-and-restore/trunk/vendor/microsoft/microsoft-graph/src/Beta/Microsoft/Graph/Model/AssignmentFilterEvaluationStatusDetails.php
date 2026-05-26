@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AssignmentFilterEvaluationStatusDetails class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AssignmentFilterEvaluationStatusDetails extends Entity
 {
     /**
-    * Gets the payloadId
-    * PayloadId on which filter has been applied.
-    *
-    * @return string|null The payloadId
-    */
+     * Gets the payloadId
+     * PayloadId on which filter has been applied.
+     *
+     * @return string|null The payloadId
+     */
     public function getPayloadId()
     {
         if (array_key_exists("payloadId", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AssignmentFilterEvaluationStatusDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the payloadId
-    * PayloadId on which filter has been applied.
-    *
-    * @param string $val The payloadId
-    *
-    * @return AssignmentFilterEvaluationStatusDetails
-    */
+     * Sets the payloadId
+     * PayloadId on which filter has been applied.
+     *
+     * @param string $val The payloadId
+     *
+     * @return AssignmentFilterEvaluationStatusDetails
+     */
     public function setPayloadId($val)
     {
         $this->_propDict["payloadId"] = $val;
         return $this;
     }
-
 }

@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * This class represents the {DAV:}supportedlock property.
  *
@@ -43,13 +41,7 @@ class SupportedLock implements XmlSerializable
      */
     public function xmlSerialize(Writer $writer)
     {
-        $writer->writeElement('{DAV:}lockentry', [
-            '{DAV:}lockscope' => ['{DAV:}exclusive' => null],
-            '{DAV:}locktype' => ['{DAV:}write' => null],
-        ]);
-        $writer->writeElement('{DAV:}lockentry', [
-            '{DAV:}lockscope' => ['{DAV:}shared' => null],
-            '{DAV:}locktype' => ['{DAV:}write' => null],
-        ]);
+        $writer->writeElement('{DAV:}lockentry', ['{DAV:}lockscope' => ['{DAV:}exclusive' => null], '{DAV:}locktype' => ['{DAV:}write' => null]]);
+        $writer->writeElement('{DAV:}lockentry', ['{DAV:}lockscope' => ['{DAV:}shared' => null], '{DAV:}locktype' => ['{DAV:}write' => null]]);
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidStoreApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidStoreApp extends MobileApp
 {
     /**
-    * Gets the appIdentifier
-    * The Identity Name.
-    *
-    * @return string|null The appIdentifier
-    */
+     * Gets the appIdentifier
+     * The Identity Name.
+     *
+     * @return string|null The appIdentifier
+     */
     public function getAppIdentifier()
     {
         if (array_key_exists("appIdentifier", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appIdentifier
-    * The Identity Name.
-    *
-    * @param string $val The appIdentifier
-    *
-    * @return AndroidStoreApp
-    */
+     * Sets the appIdentifier
+     * The Identity Name.
+     *
+     * @param string $val The appIdentifier
+     *
+     * @return AndroidStoreApp
+     */
     public function setAppIdentifier($val)
     {
         $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appStoreUrl
-    * The Android app store URL.
-    *
-    * @return string|null The appStoreUrl
-    */
+     * Gets the appStoreUrl
+     * The Android app store URL.
+     *
+     * @return string|null The appStoreUrl
+     */
     public function getAppStoreUrl()
     {
         if (array_key_exists("appStoreUrl", $this->_propDict)) {
@@ -70,31 +69,29 @@ class AndroidStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appStoreUrl
-    * The Android app store URL.
-    *
-    * @param string $val The appStoreUrl
-    *
-    * @return AndroidStoreApp
-    */
+     * Sets the appStoreUrl
+     * The Android app store URL.
+     *
+     * @param string $val The appStoreUrl
+     *
+     * @return AndroidStoreApp
+     */
     public function setAppStoreUrl($val)
     {
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
-    */
+     * Gets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
+     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Beta\Microsoft\Graph\Model\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new AndroidMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -103,27 +100,25 @@ class AndroidStoreApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @param AndroidMinimumOperatingSystem $val The minimumSupportedOperatingSystem
-    *
-    * @return AndroidStoreApp
-    */
+     * Sets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @param AndroidMinimumOperatingSystem $val The minimumSupportedOperatingSystem
+     *
+     * @return AndroidStoreApp
+     */
     public function setMinimumSupportedOperatingSystem($val)
     {
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-
     /**
-    * Gets the packageId
-    * The package identifier.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * The package identifier.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -132,19 +127,17 @@ class AndroidStoreApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * The package identifier.
-    *
-    * @param string $val The packageId
-    *
-    * @return AndroidStoreApp
-    */
+     * Sets the packageId
+     * The package identifier.
+     *
+     * @param string $val The packageId
+     *
+     * @return AndroidStoreApp
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-
 }

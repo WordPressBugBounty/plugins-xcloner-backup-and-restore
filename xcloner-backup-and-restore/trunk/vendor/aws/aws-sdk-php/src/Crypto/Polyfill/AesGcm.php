@@ -1,13 +1,13 @@
 <?php
-namespace Aws\Crypto\Polyfill;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto\Polyfill;
 
-
-use Aws\Exception\CryptoPolyfillException;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Exception\CryptoPolyfillException;
 use InvalidArgumentException;
 use RangeException;
-
 /**
  * Class AesGcm
  *
@@ -23,16 +23,12 @@ use RangeException;
 class AesGcm
 {
     use NeedsTrait;
-
     /** @var Key $aesKey */
     private $aesKey;
-
     /** @var int $keySize */
     private $keySize;
-
     /** @var int $blockSize */
     protected $blockSize = 8192;
-
     /**
      * AesGcm constructor.
      *
@@ -47,24 +43,12 @@ class AesGcm
     public function __construct(Key $aesKey, $keySize = 256, $blockSize = 8192)
     {
         /* Preconditions: */
-        self::needs(
-            \in_array($keySize, [128, 192, 256], true),
-            "Key size must be 128, 192, or 256 bits; {$keySize} given",
-            InvalidArgumentException::class
-        );
-        self::needs(
-            \is_int($blockSize) && $blockSize > 0 && $blockSize <= PHP_INT_MAX,
-            'Block size must be a positive integer.',
-            RangeException::class
-        );
-        self::needs(
-            $aesKey->length() << 3 === $keySize,
-            'Incorrect key size; expected ' . $keySize . ' bits, got ' . ($aesKey->length() << 3) . ' bits.'
-        );
+        self::needs(\in_array($keySize, [128, 192, 256], \true), "Key size must be 128, 192, or 256 bits; {$keySize} given", InvalidArgumentException::class);
+        self::needs(\is_int($blockSize) && $blockSize > 0 && $blockSize <= \PHP_INT_MAX, 'Block size must be a positive integer.', RangeException::class);
+        self::needs($aesKey->length() << 3 === $keySize, 'Incorrect key size; expected ' . $keySize . ' bits, got ' . ($aesKey->length() << 3) . ' bits.');
         $this->aesKey = $aesKey;
         $this->keySize = $keySize;
     }
-
     /**
      * Encryption interface for AES-GCM
      *
@@ -78,32 +62,12 @@ class AesGcm
      * @return string
      * @throws InvalidArgumentException
      */
-    public static function encrypt(
-        $plaintext,
-        $nonce,
-        Key $key,
-        $aad,
-        &$tag,
-        $keySize = 256,
-        $blockSize = 8192
-    ) {
-        self::needs(
-            self::strlen($nonce) === 12,
-            'Nonce must be exactly 12 bytes',
-            InvalidArgumentException::class
-        );
-
+    public static function encrypt($plaintext, $nonce, Key $key, $aad, &$tag, $keySize = 256, $blockSize = 8192)
+    {
+        self::needs(self::strlen($nonce) === 12, 'Nonce must be exactly 12 bytes', InvalidArgumentException::class);
         $encryptor = new AesGcm($key, $keySize, $blockSize);
         list($aadLength, $gmac) = $encryptor->gmacInit($nonce, $aad);
-
-        $ciphertext = \openssl_encrypt(
-            $plaintext,
-            "aes-{$encryptor->keySize}-ctr",
-            $key->get(),
-            OPENSSL_NO_PADDING | OPENSSL_RAW_DATA,
-            $nonce . "\x00\x00\x00\x02"
-        );
-
+        $ciphertext = \openssl_encrypt($plaintext, "aes-{$encryptor->keySize}-ctr", $key->get(), \OPENSSL_NO_PADDING | \OPENSSL_RAW_DATA, $nonce . "\x00\x00\x00\x02");
         /* Calculate auth tag in a streaming fashion to minimize memory usage: */
         $ciphertextLength = self::strlen($ciphertext);
         for ($i = 0; $i < $ciphertextLength; $i += $encryptor->blockSize) {
@@ -113,7 +77,6 @@ class AesGcm
         $tag = $gmac->finish($aadLength, $ciphertextLength)->toString();
         return $ciphertext;
     }
-
     /**
      * Decryption interface for AES-GCM
      *
@@ -129,47 +92,25 @@ class AesGcm
      * @throws CryptoPolyfillException
      * @throws InvalidArgumentException
      */
-    public static function decrypt(
-        $ciphertext,
-        $nonce,
-        Key $key,
-        $aad,
-        &$tag,
-        $keySize = 256,
-        $blockSize = 8192
-    ) {
+    public static function decrypt($ciphertext, $nonce, Key $key, $aad, &$tag, $keySize = 256, $blockSize = 8192)
+    {
         /* Precondition: */
-        self::needs(
-            self::strlen($nonce) === 12,
-            'Nonce must be exactly 12 bytes',
-            InvalidArgumentException::class
-        );
-
+        self::needs(self::strlen($nonce) === 12, 'Nonce must be exactly 12 bytes', InvalidArgumentException::class);
         $encryptor = new AesGcm($key, $keySize, $blockSize);
         list($aadLength, $gmac) = $encryptor->gmacInit($nonce, $aad);
-
         /* Calculate auth tag in a streaming fashion to minimize memory usage: */
         $ciphertextLength = self::strlen($ciphertext);
         for ($i = 0; $i < $ciphertextLength; $i += $encryptor->blockSize) {
             $cBlock = new ByteArray(self::substr($ciphertext, $i, $encryptor->blockSize));
             $gmac->update($cBlock);
         }
-
         /* Validate auth tag in constant-time: */
         $calc = $gmac->finish($aadLength, $ciphertextLength);
         $expected = new ByteArray($tag);
         self::needs($calc->equals($expected), 'Invalid authentication tag');
-
         /* Return plaintext if auth tag check succeeded: */
-        return \openssl_decrypt(
-            $ciphertext,
-            "aes-{$encryptor->keySize}-ctr",
-            $key->get(),
-            OPENSSL_NO_PADDING | OPENSSL_RAW_DATA,
-            $nonce . "\x00\x00\x00\x02"
-        );
+        return \openssl_decrypt($ciphertext, "aes-{$encryptor->keySize}-ctr", $key->get(), \OPENSSL_NO_PADDING | \OPENSSL_RAW_DATA, $nonce . "\x00\x00\x00\x02");
     }
-
     /**
      * Initialize a Gmac object with the nonce and this object's key.
      *
@@ -179,18 +120,13 @@ class AesGcm
      */
     protected function gmacInit($nonce, $aad = null)
     {
-        $gmac = new Gmac(
-            $this->aesKey,
-            $nonce . "\x00\x00\x00\x01",
-            $this->keySize
-        );
+        $gmac = new Gmac($this->aesKey, $nonce . "\x00\x00\x00\x01", $this->keySize);
         $aadBlock = new ByteArray($aad);
         $aadLength = $aadBlock->count();
         $gmac->update($aadBlock);
         $gmac->flush();
         return [$aadLength, $gmac];
     }
-
     /**
      * Calculate the length of a string.
      *
@@ -202,12 +138,11 @@ class AesGcm
      */
     protected static function strlen($string)
     {
-        if (\is_callable('\\mb_strlen')) {
+        if (\is_callable('\mb_strlen')) {
             return (int) \mb_strlen($string, '8bit');
         }
         return (int) \strlen($string);
     }
-
     /**
      * Return a substring of the provided string.
      *
@@ -221,7 +156,7 @@ class AesGcm
      */
     protected static function substr($string, $offset = 0, $length = null)
     {
-        if (\is_callable('\\mb_substr')) {
+        if (\is_callable('\mb_substr')) {
             return \mb_substr($string, $offset, $length, '8bit');
         } elseif (!\is_null($length)) {
             return \substr($string, $offset, $length);

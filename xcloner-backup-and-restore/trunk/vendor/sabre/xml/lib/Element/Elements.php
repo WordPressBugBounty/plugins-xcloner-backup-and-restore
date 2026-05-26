@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Element;
 
-namespace Sabre\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml;
-use Sabre\Xml\Deserializer;
-use Sabre\Xml\Serializer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml;
+use XCloner\Sabre\Xml\Deserializer;
+use XCloner\Sabre\Xml\Serializer;
 /**
  * 'Elements' is a simple list of elements, without values or attributes.
  * For example, Elements will parse:.
@@ -46,7 +44,6 @@ class Elements implements Xml\Element
      * @var array
      */
     protected $value;
-
     /**
      * Constructor.
      */
@@ -54,7 +51,6 @@ class Elements implements Xml\Element
     {
         $this->value = $value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -75,7 +71,6 @@ class Elements implements Xml\Element
     {
         Serializer\enum($writer, $this->value);
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *

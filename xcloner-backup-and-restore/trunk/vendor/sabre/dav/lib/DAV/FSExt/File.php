@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\FSExt;
 
-namespace Sabre\DAV\FSExt;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\FS\Node;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\FS\Node;
 /**
  * File class.
  *
@@ -31,11 +29,9 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
     public function put($data)
     {
         file_put_contents($this->path, $data);
-        clearstatcache(true, $this->path);
-
+        clearstatcache(\true, $this->path);
         return $this->getETag();
     }
-
     /**
      * Updates the file based on a range specification.
      *
@@ -76,7 +72,7 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
                 break;
             case 3:
                 $f = fopen($this->path, 'c');
-                fseek($f, $offset, SEEK_END);
+                fseek($f, $offset, \SEEK_END);
                 break;
             default:
                 $f = fopen($this->path, 'a');
@@ -88,11 +84,9 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
             stream_copy_to_stream($data, $f);
         }
         fclose($f);
-        clearstatcache(true, $this->path);
-
+        clearstatcache(\true, $this->path);
         return $this->getETag();
     }
-
     /**
      * Returns the data.
      *
@@ -102,7 +96,6 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
     {
         return fopen($this->path, 'r');
     }
-
     /**
      * Delete the current file.
      *
@@ -112,7 +105,6 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
     {
         return unlink($this->path);
     }
-
     /**
      * Returns the ETag for a file.
      *
@@ -125,13 +117,8 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
      */
     public function getETag()
     {
-        return '"'.sha1(
-            fileinode($this->path).
-            filesize($this->path).
-            filemtime($this->path)
-        ).'"';
+        return '"' . sha1(fileinode($this->path) . filesize($this->path) . filemtime($this->path)) . '"';
     }
-
     /**
      * Returns the mime-type for a file.
      *
@@ -143,7 +130,6 @@ class File extends Node implements DAV\PartialUpdate\IPatchSupport
     {
         return null;
     }
-
     /**
      * Returns the size of the file, in bytes.
      *

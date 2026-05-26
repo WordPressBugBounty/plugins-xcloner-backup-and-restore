@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Formatter;
 
-namespace Monolog\Formatter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Encodes message information into JSON in a format compatible with Loggly.
  *
@@ -27,11 +26,10 @@ class LogglyFormatter extends JsonFormatter
      *
      * @param int $batchMode
      */
-    public function __construct($batchMode = self::BATCH_MODE_NEWLINES, $appendNewline = false)
+    public function __construct($batchMode = self::BATCH_MODE_NEWLINES, $appendNewline = \false)
     {
         parent::__construct($batchMode, $appendNewline);
     }
-
     /**
      * Appends the 'timestamp' parameter for indexing by Loggly.
      *
@@ -40,11 +38,10 @@ class LogglyFormatter extends JsonFormatter
      */
     public function format(array $record)
     {
-        if (isset($record["datetime"]) && ($record["datetime"] instanceof \DateTime)) {
-            $record["timestamp"] = $record["datetime"]->format("Y-m-d\TH:i:s.uO");
+        if (isset($record["datetime"]) && $record["datetime"] instanceof \DateTime) {
+            $record["timestamp"] = $record["datetime"]->format("Y-m-d\\TH:i:s.uO");
             // TODO 2.0 unset the 'datetime' parameter, retained for BC
         }
-
         return parent::format($record);
     }
 }

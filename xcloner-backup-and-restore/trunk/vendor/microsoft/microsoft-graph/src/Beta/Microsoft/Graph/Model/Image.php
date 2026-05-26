@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Image class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Image extends Entity
 {
     /**
-    * Gets the height
-    * Optional. Height of the image, in pixels. Read-only.
-    *
-    * @return int|null The height
-    */
+     * Gets the height
+     * Optional. Height of the image, in pixels. Read-only.
+     *
+     * @return int|null The height
+     */
     public function getHeight()
     {
         if (array_key_exists("height", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Image extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the height
-    * Optional. Height of the image, in pixels. Read-only.
-    *
-    * @param int $val The value of the height
-    *
-    * @return Image
-    */
+     * Sets the height
+     * Optional. Height of the image, in pixels. Read-only.
+     *
+     * @param int $val The value of the height
+     *
+     * @return Image
+     */
     public function setHeight($val)
     {
         $this->_propDict["height"] = $val;
         return $this;
     }
     /**
-    * Gets the width
-    * Optional. Width of the image, in pixels. Read-only.
-    *
-    * @return int|null The width
-    */
+     * Gets the width
+     * Optional. Width of the image, in pixels. Read-only.
+     *
+     * @return int|null The width
+     */
     public function getWidth()
     {
         if (array_key_exists("width", $this->_propDict)) {
@@ -68,15 +69,14 @@ class Image extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the width
-    * Optional. Width of the image, in pixels. Read-only.
-    *
-    * @param int $val The value of the width
-    *
-    * @return Image
-    */
+     * Sets the width
+     * Optional. Width of the image, in pixels. Read-only.
+     *
+     * @param int $val The value of the width
+     *
+     * @return Image
+     */
     public function setWidth($val)
     {
         $this->_propDict["width"] = $val;

@@ -1,11 +1,13 @@
-=== Backup, Restore and Migrate WordPress Sites With the XCloner Plugin ===
+=== Backup, Restore and Migrate your sites with XCloner ===
 Contributors: watchful
 Donate link: http://www.xcloner.com
 Tags: backup, database backup, cloud backup, WordPress backup, WordPress migration
 Requires at least: 5.1
 Requires PHP: 7.3
-Tested up to: 6.6.1
-Stable tag: 4.7.5
+Tested up to: 7.0
+Stable tag: 4.8.6
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
 
 XCloner is a backup plugin that allows you to safely back up and restore your WordPress sites. You can send site backups to SFTP, Dropbox, Amazon, Google Drive, Backblaze and other locations.
@@ -117,8 +119,13 @@ Of course, schedules can be adjusted accordingly to how often you update your si
 
 == Changelog ==
 
-= 4.7.5 =
-* Move changelog to a separate file (https://github.com/watchfulli/XCloner-Wordpress/issues/315)
+= 4.8.7 =
+* Restrict OneDrive auth token access to users with manage_options capability
+* Improve output escaping for security compliance
+* Add ABSPATH check to prevent direct access to plugin files
+* Remove obsolete assets
+* Add translation domain to various strings to enhance translation
+* Improve date handling for consistency
 
 [See changelog for all versions](https://raw.githubusercontent.com/watchfulli/XCloner-Wordpress/master/xcloner-backup-and-restore/CHANGELOG.txt).
 

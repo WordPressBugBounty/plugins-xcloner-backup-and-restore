@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppSupportedDeviceType class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppSupportedDeviceType extends Entity
 {
     /**
-    * Gets the maximumOperatingSystemVersion
-    * Maximum OS version
-    *
-    * @return string|null The maximumOperatingSystemVersion
-    */
+     * Gets the maximumOperatingSystemVersion
+     * Maximum OS version
+     *
+     * @return string|null The maximumOperatingSystemVersion
+     */
     public function getMaximumOperatingSystemVersion()
     {
         if (array_key_exists("maximumOperatingSystemVersion", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MobileAppSupportedDeviceType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the maximumOperatingSystemVersion
-    * Maximum OS version
-    *
-    * @param string $val The value of the maximumOperatingSystemVersion
-    *
-    * @return MobileAppSupportedDeviceType
-    */
+     * Sets the maximumOperatingSystemVersion
+     * Maximum OS version
+     *
+     * @param string $val The value of the maximumOperatingSystemVersion
+     *
+     * @return MobileAppSupportedDeviceType
+     */
     public function setMaximumOperatingSystemVersion($val)
     {
         $this->_propDict["maximumOperatingSystemVersion"] = $val;
         return $this;
     }
     /**
-    * Gets the minimumOperatingSystemVersion
-    * Minimum OS version
-    *
-    * @return string|null The minimumOperatingSystemVersion
-    */
+     * Gets the minimumOperatingSystemVersion
+     * Minimum OS version
+     *
+     * @return string|null The minimumOperatingSystemVersion
+     */
     public function getMinimumOperatingSystemVersion()
     {
         if (array_key_exists("minimumOperatingSystemVersion", $this->_propDict)) {
@@ -68,31 +69,29 @@ class MobileAppSupportedDeviceType extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the minimumOperatingSystemVersion
-    * Minimum OS version
-    *
-    * @param string $val The value of the minimumOperatingSystemVersion
-    *
-    * @return MobileAppSupportedDeviceType
-    */
+     * Sets the minimumOperatingSystemVersion
+     * Minimum OS version
+     *
+     * @param string $val The value of the minimumOperatingSystemVersion
+     *
+     * @return MobileAppSupportedDeviceType
+     */
     public function setMinimumOperatingSystemVersion($val)
     {
         $this->_propDict["minimumOperatingSystemVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
-    *
-    * @return DeviceType|null The type
-    */
+     * Gets the type
+     * Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     *
+     * @return DeviceType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\DeviceType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new DeviceType($this->_propDict["type"]);
@@ -101,18 +100,17 @@ class MobileAppSupportedDeviceType extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
-    *
-    * @param DeviceType $val The value to assign to the type
-    *
-    * @return MobileAppSupportedDeviceType The MobileAppSupportedDeviceType
-    */
+     * Sets the type
+     * Device type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     *
+     * @param DeviceType $val The value to assign to the type
+     *
+     * @return MobileAppSupportedDeviceType The MobileAppSupportedDeviceType
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

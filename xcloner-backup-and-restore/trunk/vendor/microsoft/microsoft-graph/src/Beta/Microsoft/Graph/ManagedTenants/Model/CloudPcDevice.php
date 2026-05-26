@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcDevice class
 *
@@ -25,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
+class CloudPcDevice extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the cloudPcStatus
-    * The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
-    *
-    * @return string|null The cloudPcStatus
-    */
+     * Gets the cloudPcStatus
+     * The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
+     *
+     * @return string|null The cloudPcStatus
+     */
     public function getCloudPcStatus()
     {
         if (array_key_exists("cloudPcStatus", $this->_propDict)) {
@@ -41,27 +42,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the cloudPcStatus
-    * The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
-    *
-    * @param string $val The cloudPcStatus
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the cloudPcStatus
+     * The status of the cloud PC. Possible values are: notProvisioned, provisioning, provisioned, upgrading, inGracePeriod, deprovisioning, failed. Required. Read-only.
+     *
+     * @param string $val The cloudPcStatus
+     *
+     * @return CloudPcDevice
+     */
     public function setCloudPcStatus($val)
     {
         $this->_propDict["cloudPcStatus"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceSpecification
-    * The specification of the cloud PC device. Required. Read-only.
-    *
-    * @return string|null The deviceSpecification
-    */
+     * Gets the deviceSpecification
+     * The specification of the cloud PC device. Required. Read-only.
+     *
+     * @return string|null The deviceSpecification
+     */
     public function getDeviceSpecification()
     {
         if (array_key_exists("deviceSpecification", $this->_propDict)) {
@@ -70,27 +69,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceSpecification
-    * The specification of the cloud PC device. Required. Read-only.
-    *
-    * @param string $val The deviceSpecification
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the deviceSpecification
+     * The specification of the cloud PC device. Required. Read-only.
+     *
+     * @param string $val The deviceSpecification
+     *
+     * @return CloudPcDevice
+     */
     public function setDeviceSpecification($val)
     {
         $this->_propDict["deviceSpecification"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name  of the cloud PC device. Required. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name  of the cloud PC device. Required. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -99,31 +96,29 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name  of the cloud PC device. Required. Read-only.
-    *
-    * @param string $val The displayName
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the displayName
+     * The display name  of the cloud PC device. Required. Read-only.
+     *
+     * @param string $val The displayName
+     *
+     * @return CloudPcDevice
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastRefreshedDateTime
-    * Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
-    *
-    * @return \DateTime|null The lastRefreshedDateTime
-    */
+     * Gets the lastRefreshedDateTime
+     * Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
+     *
+     * @return \DateTime|null The lastRefreshedDateTime
+     */
     public function getLastRefreshedDateTime()
     {
         if (array_key_exists("lastRefreshedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRefreshedDateTime"], "\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
+            if (is_a($this->_propDict["lastRefreshedDateTime"], "\\DateTime") || is_null($this->_propDict["lastRefreshedDateTime"])) {
                 return $this->_propDict["lastRefreshedDateTime"];
             } else {
                 $this->_propDict["lastRefreshedDateTime"] = new \DateTime($this->_propDict["lastRefreshedDateTime"]);
@@ -132,27 +127,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastRefreshedDateTime
-    * Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
-    *
-    * @param \DateTime $val The lastRefreshedDateTime
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the lastRefreshedDateTime
+     * Date and time the entity was last updated in the multi-tenant management platform. Required. Read-only.
+     *
+     * @param \DateTime $val The lastRefreshedDateTime
+     *
+     * @return CloudPcDevice
+     */
     public function setLastRefreshedDateTime($val)
     {
         $this->_propDict["lastRefreshedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceId
-    * The managed device identifier of the cloud PC device. Optional. Read-only.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * The managed device identifier of the cloud PC device. Optional. Read-only.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -161,27 +154,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * The managed device identifier of the cloud PC device. Optional. Read-only.
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the managedDeviceId
+     * The managed device identifier of the cloud PC device. Optional. Read-only.
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return CloudPcDevice
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceName
-    * The managed device display name of the cloud PC device. Optional. Read-only.
-    *
-    * @return string|null The managedDeviceName
-    */
+     * Gets the managedDeviceName
+     * The managed device display name of the cloud PC device. Optional. Read-only.
+     *
+     * @return string|null The managedDeviceName
+     */
     public function getManagedDeviceName()
     {
         if (array_key_exists("managedDeviceName", $this->_propDict)) {
@@ -190,27 +181,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceName
-    * The managed device display name of the cloud PC device. Optional. Read-only.
-    *
-    * @param string $val The managedDeviceName
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the managedDeviceName
+     * The managed device display name of the cloud PC device. Optional. Read-only.
+     *
+     * @param string $val The managedDeviceName
+     *
+     * @return CloudPcDevice
+     */
     public function setManagedDeviceName($val)
     {
         $this->_propDict["managedDeviceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the provisioningPolicyId
-    * The provisioning policy identifier for the cloud PC device. Required. Read-only.
-    *
-    * @return string|null The provisioningPolicyId
-    */
+     * Gets the provisioningPolicyId
+     * The provisioning policy identifier for the cloud PC device. Required. Read-only.
+     *
+     * @return string|null The provisioningPolicyId
+     */
     public function getProvisioningPolicyId()
     {
         if (array_key_exists("provisioningPolicyId", $this->_propDict)) {
@@ -219,27 +208,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the provisioningPolicyId
-    * The provisioning policy identifier for the cloud PC device. Required. Read-only.
-    *
-    * @param string $val The provisioningPolicyId
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the provisioningPolicyId
+     * The provisioning policy identifier for the cloud PC device. Required. Read-only.
+     *
+     * @param string $val The provisioningPolicyId
+     *
+     * @return CloudPcDevice
+     */
     public function setProvisioningPolicyId($val)
     {
         $this->_propDict["provisioningPolicyId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the servicePlanName
-    * The service plan name of the cloud PC device. Required. Read-only.
-    *
-    * @return string|null The servicePlanName
-    */
+     * Gets the servicePlanName
+     * The service plan name of the cloud PC device. Required. Read-only.
+     *
+     * @return string|null The servicePlanName
+     */
     public function getServicePlanName()
     {
         if (array_key_exists("servicePlanName", $this->_propDict)) {
@@ -248,27 +235,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the servicePlanName
-    * The service plan name of the cloud PC device. Required. Read-only.
-    *
-    * @param string $val The servicePlanName
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the servicePlanName
+     * The service plan name of the cloud PC device. Required. Read-only.
+     *
+     * @param string $val The servicePlanName
+     *
+     * @return CloudPcDevice
+     */
     public function setServicePlanName($val)
     {
         $this->_propDict["servicePlanName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the servicePlanType
-    * The service plan type of the cloud PC device. Required. Read-only.
-    *
-    * @return string|null The servicePlanType
-    */
+     * Gets the servicePlanType
+     * The service plan type of the cloud PC device. Required. Read-only.
+     *
+     * @return string|null The servicePlanType
+     */
     public function getServicePlanType()
     {
         if (array_key_exists("servicePlanType", $this->_propDict)) {
@@ -277,27 +262,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the servicePlanType
-    * The service plan type of the cloud PC device. Required. Read-only.
-    *
-    * @param string $val The servicePlanType
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the servicePlanType
+     * The service plan type of the cloud PC device. Required. Read-only.
+     *
+     * @param string $val The servicePlanType
+     *
+     * @return CloudPcDevice
+     */
     public function setServicePlanType($val)
     {
         $this->_propDict["servicePlanType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantDisplayName
-    * The display name for the managed tenant. Required. Read-only.
-    *
-    * @return string|null The tenantDisplayName
-    */
+     * Gets the tenantDisplayName
+     * The display name for the managed tenant. Required. Read-only.
+     *
+     * @return string|null The tenantDisplayName
+     */
     public function getTenantDisplayName()
     {
         if (array_key_exists("tenantDisplayName", $this->_propDict)) {
@@ -306,27 +289,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantDisplayName
-    * The display name for the managed tenant. Required. Read-only.
-    *
-    * @param string $val The tenantDisplayName
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the tenantDisplayName
+     * The display name for the managed tenant. Required. Read-only.
+     *
+     * @param string $val The tenantDisplayName
+     *
+     * @return CloudPcDevice
+     */
     public function setTenantDisplayName($val)
     {
         $this->_propDict["tenantDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -335,27 +316,25 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
-    *
-    * @param string $val The tenantId
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the tenantId
+     * The Azure Active Directory tenant identifier for the managed tenant. Required. Read-only.
+     *
+     * @param string $val The tenantId
+     *
+     * @return CloudPcDevice
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -364,19 +343,17 @@ class CloudPcDevice extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return CloudPcDevice
-    */
+     * Sets the userPrincipalName
+     * The user principal name (UPN) of the user assigned to the cloud PC device. Required. Read-only.
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return CloudPcDevice
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

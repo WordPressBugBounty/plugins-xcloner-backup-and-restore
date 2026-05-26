@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Exception;
 
-namespace Sabre\DAV\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * Locked.
  *
@@ -26,7 +24,6 @@ class Locked extends DAV\Exception
      * @var \Sabre\DAV\Locks\LockInfo
      */
     protected $lock;
-
     /**
      * Creates the exception.
      *
@@ -38,10 +35,8 @@ class Locked extends DAV\Exception
     public function __construct(DAV\Locks\LockInfo $lock = null)
     {
         parent::__construct();
-
         $this->lock = $lock;
     }
-
     /**
      * Returns the HTTP statuscode for this exception.
      *
@@ -51,7 +46,6 @@ class Locked extends DAV\Exception
     {
         return 423;
     }
-
     /**
      * This method allows the exception to include additional information into the WebDAV error response.
      */
@@ -60,12 +54,9 @@ class Locked extends DAV\Exception
         if ($this->lock) {
             $error = $errorNode->ownerDocument->createElementNS('DAV:', 'd:lock-token-submitted');
             $errorNode->appendChild($error);
-
             $href = $errorNode->ownerDocument->createElementNS('DAV:', 'd:href');
             $href->appendChild($errorNode->ownerDocument->createTextNode($this->lock->uri));
-            $error->appendChild(
-                $href
-            );
+            $error->appendChild($href);
         }
     }
 }

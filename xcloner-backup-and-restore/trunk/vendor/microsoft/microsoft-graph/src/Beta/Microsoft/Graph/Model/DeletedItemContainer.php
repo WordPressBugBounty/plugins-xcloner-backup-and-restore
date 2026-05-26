@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeletedItemContainer class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeletedItemContainer extends Entity
 {
-
-     /**
+    /**
      * Gets the workflows
-    * Deleted workflows that end up in the deletedItemsContainer.
+     * Deleted workflows that end up in the deletedItemsContainer.
      *
      * @return array|null The workflows
      */
     public function getWorkflows()
     {
         if (array_key_exists("workflows", $this->_propDict)) {
-           return $this->_propDict["workflows"];
+            return $this->_propDict["workflows"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the workflows
-    * Deleted workflows that end up in the deletedItemsContainer.
-    *
-    * @param \Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\Workflow[] $val The workflows
-    *
-    * @return DeletedItemContainer
-    */
+     * Sets the workflows
+     * Deleted workflows that end up in the deletedItemsContainer.
+     *
+     * @param \Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model\Workflow[] $val The workflows
+     *
+     * @return DeletedItemContainer
+     */
     public function setWorkflows($val)
     {
         $this->_propDict["workflows"] = $val;
         return $this;
     }
-
 }

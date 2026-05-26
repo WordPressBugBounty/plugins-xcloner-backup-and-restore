@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Helper class for the test.
  */
@@ -26,7 +28,6 @@ class TestvfsStreamAbstractContent extends vfsStreamAbstractContent
     {
         return 0777;
     }
-
     /**
      * returns size of content
      *
@@ -40,7 +41,7 @@ class TestvfsStreamAbstractContent extends vfsStreamAbstractContent
 /**
  * Test for org\bovigo\vfs\vfsStreamAbstractContent.
  */
-class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamAbstractContentTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * @test
@@ -49,45 +50,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function noPermissionsForEveryone()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0000);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 00);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -96,44 +69,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function executePermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0100);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -141,45 +86,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function executePermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0010);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 010);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -187,45 +104,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function executePermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0001);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         -1
-                                            )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 01);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -234,44 +123,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function writePermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0200);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -279,45 +140,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function writePermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0020);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 020);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -325,45 +158,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function writePermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0002);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 02);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -372,44 +177,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function executeAndWritePermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0300);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -417,45 +194,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function executeAndWritePermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0030);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 030);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -463,45 +212,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function executeAndWritePermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0003);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         -1
-                                            )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 03);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -510,44 +231,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function readPermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0400);
-        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -555,45 +248,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function readPermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0040);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 040);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -601,45 +266,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function readPermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0004);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 04);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -648,44 +285,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function readAndExecutePermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0500);
-        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -693,45 +302,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function readAndExecutePermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0050);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 050);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -739,45 +320,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function readAndExecutePermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0005);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         -1
-                                            )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 05);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -786,44 +339,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function readAndWritePermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0600);
-        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -831,45 +356,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function readAndWritePermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0060);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 060);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -877,45 +374,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function readAndWritePermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0006);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 06);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -924,44 +393,16 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function allPermissionsForUser()
     {
         $abstractContent = new TestvfsStreamAbstractContent('foo', 0700);
-        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $this->assertTrue($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertTrue($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertTrue($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -969,45 +410,17 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function allPermissionsForGroup()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0070);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        -1
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         vfsStream::getCurrentGroup()
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          -1
-                                             )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 070);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, -1));
     }
-
     /**
      * @test
      * @group  permissions
@@ -1015,42 +428,15 @@ class vfsStreamAbstractContentTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function allPermissionsForOther()
     {
-        $abstractContent = new TestvfsStreamAbstractContent('foo', 0007);
-        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isReadable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isReadable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(),
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isWritable(-1,
-                                                        vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isWritable(-1,
-                                                       -1
-                                            )
-               );
-        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(),
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertFalse($abstractContent->isExecutable(-1,
-                                                          vfsStream::getCurrentGroup()
-                                             )
-               );
-        $this->assertTrue($abstractContent->isExecutable(-1,
-                                                         -1
-                                            )
-               );
+        $abstractContent = new TestvfsStreamAbstractContent('foo', 07);
+        $this->assertFalse($abstractContent->isReadable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isReadable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isReadable(-1, -1));
+        $this->assertFalse($abstractContent->isWritable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isWritable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isWritable(-1, -1));
+        $this->assertFalse($abstractContent->isExecutable(vfsStream::getCurrentUser(), vfsStream::getCurrentGroup()));
+        $this->assertFalse($abstractContent->isExecutable(-1, vfsStream::getCurrentGroup()));
+        $this->assertTrue($abstractContent->isExecutable(-1, -1));
     }
 }

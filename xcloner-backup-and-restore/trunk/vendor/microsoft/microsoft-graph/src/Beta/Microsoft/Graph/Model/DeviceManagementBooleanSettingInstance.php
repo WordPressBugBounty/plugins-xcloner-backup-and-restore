@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementBooleanSettingInstance class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementBooleanSettingInstance extends DeviceManagementSettingInstance
 {
     /**
-    * Gets the value
-    * The boolean value
-    *
-    * @return bool|null The value
-    */
+     * Gets the value
+     * The boolean value
+     *
+     * @return bool|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DeviceManagementBooleanSettingInstance extends DeviceManagementSettingInst
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The boolean value
-    *
-    * @param bool $val The value
-    *
-    * @return DeviceManagementBooleanSettingInstance
-    */
+     * Sets the value
+     * The boolean value
+     *
+     * @param bool $val The value
+     *
+     * @return DeviceManagementBooleanSettingInstance
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = boolval($val);
         return $this;
     }
-
 }

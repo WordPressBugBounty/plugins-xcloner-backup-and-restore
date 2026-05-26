@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * KeyRealValuePair class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class KeyRealValuePair extends KeyTypedValuePair
 {
     /**
-    * Gets the value
-    * The real (floating-point) value of the key-value pair.
-    *
-    * @return float|null The value
-    */
+     * Gets the value
+     * The real (floating-point) value of the key-value pair.
+     *
+     * @return float|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -40,15 +42,14 @@ class KeyRealValuePair extends KeyTypedValuePair
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The real (floating-point) value of the key-value pair.
-    *
-    * @param float $val The value of the value
-    *
-    * @return KeyRealValuePair
-    */
+     * Sets the value
+     * The real (floating-point) value of the key-value pair.
+     *
+     * @param float $val The value of the value
+     *
+     * @return KeyRealValuePair
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

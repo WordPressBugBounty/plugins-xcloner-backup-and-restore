@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AggregationOption class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AggregationOption extends Entity
 {
-
     /**
-    * Gets the bucketDefinition
-    * Specifies the criteria to compute an aggregation. Optional.
-    *
-    * @return BucketAggregationDefinition|null The bucketDefinition
-    */
+     * Gets the bucketDefinition
+     * Specifies the criteria to compute an aggregation. Optional.
+     *
+     * @return BucketAggregationDefinition|null The bucketDefinition
+     */
     public function getBucketDefinition()
     {
         if (array_key_exists("bucketDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["bucketDefinition"], "\Beta\Microsoft\Graph\Model\BucketAggregationDefinition") || is_null($this->_propDict["bucketDefinition"])) {
+            if (is_a($this->_propDict["bucketDefinition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\BucketAggregationDefinition") || is_null($this->_propDict["bucketDefinition"])) {
                 return $this->_propDict["bucketDefinition"];
             } else {
                 $this->_propDict["bucketDefinition"] = new BucketAggregationDefinition($this->_propDict["bucketDefinition"]);
@@ -45,26 +46,25 @@ class AggregationOption extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the bucketDefinition
-    * Specifies the criteria to compute an aggregation. Optional.
-    *
-    * @param BucketAggregationDefinition $val The value to assign to the bucketDefinition
-    *
-    * @return AggregationOption The AggregationOption
-    */
+     * Sets the bucketDefinition
+     * Specifies the criteria to compute an aggregation. Optional.
+     *
+     * @param BucketAggregationDefinition $val The value to assign to the bucketDefinition
+     *
+     * @return AggregationOption The AggregationOption
+     */
     public function setBucketDefinition($val)
     {
         $this->_propDict["bucketDefinition"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the field
-    * Computes aggregation on the field while the field exists in current entity type. Required.
-    *
-    * @return string|null The field
-    */
+     * Gets the field
+     * Computes aggregation on the field while the field exists in current entity type. Required.
+     *
+     * @return string|null The field
+     */
     public function getField()
     {
         if (array_key_exists("field", $this->_propDict)) {
@@ -73,26 +73,25 @@ class AggregationOption extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the field
-    * Computes aggregation on the field while the field exists in current entity type. Required.
-    *
-    * @param string $val The value of the field
-    *
-    * @return AggregationOption
-    */
+     * Sets the field
+     * Computes aggregation on the field while the field exists in current entity type. Required.
+     *
+     * @param string $val The value of the field
+     *
+     * @return AggregationOption
+     */
     public function setField($val)
     {
         $this->_propDict["field"] = $val;
         return $this;
     }
     /**
-    * Gets the size
-    * The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     * The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -101,15 +100,14 @@ class AggregationOption extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the size
-    * The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
-    *
-    * @param int $val The value of the size
-    *
-    * @return AggregationOption
-    */
+     * Sets the size
+     * The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
+     *
+     * @param int $val The value of the size
+     *
+     * @return AggregationOption
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = $val;

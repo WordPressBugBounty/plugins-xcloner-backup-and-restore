@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeOffItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TimeOffItem extends ScheduleEntity
 {
     /**
-    * Gets the timeOffReasonId
-    * ID of the timeOffReason for this timeOffItem. Required.
-    *
-    * @return string|null The timeOffReasonId
-    */
+     * Gets the timeOffReasonId
+     * ID of the timeOffReason for this timeOffItem. Required.
+     *
+     * @return string|null The timeOffReasonId
+     */
     public function getTimeOffReasonId()
     {
         if (array_key_exists("timeOffReasonId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class TimeOffItem extends ScheduleEntity
             return null;
         }
     }
-
     /**
-    * Sets the timeOffReasonId
-    * ID of the timeOffReason for this timeOffItem. Required.
-    *
-    * @param string $val The value of the timeOffReasonId
-    *
-    * @return TimeOffItem
-    */
+     * Sets the timeOffReasonId
+     * ID of the timeOffReason for this timeOffItem. Required.
+     *
+     * @param string $val The value of the timeOffReasonId
+     *
+     * @return TimeOffItem
+     */
     public function setTimeOffReasonId($val)
     {
         $this->_propDict["timeOffReasonId"] = $val;

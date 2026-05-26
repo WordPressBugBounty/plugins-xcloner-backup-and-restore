@@ -1,53 +1,43 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
-use Aws\Api\ApiProvider;
-use Aws\Api\DocModel;
-use Aws\Api\Service;
-use Aws\ClientSideMonitoring\ApiCallAttemptMonitoringMiddleware;
-use Aws\ClientSideMonitoring\ApiCallMonitoringMiddleware;
-use Aws\ClientSideMonitoring\ConfigurationProvider;
-use Aws\EndpointDiscovery\EndpointDiscoveryMiddleware;
-use Aws\Signature\SignatureProvider;
-use GuzzleHttp\Psr7\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Api\ApiProvider;
+use XCloner\Aws\Api\DocModel;
+use XCloner\Aws\Api\Service;
+use XCloner\Aws\ClientSideMonitoring\ApiCallAttemptMonitoringMiddleware;
+use XCloner\Aws\ClientSideMonitoring\ApiCallMonitoringMiddleware;
+use XCloner\Aws\ClientSideMonitoring\ConfigurationProvider;
+use XCloner\Aws\EndpointDiscovery\EndpointDiscoveryMiddleware;
+use XCloner\Aws\Signature\SignatureProvider;
+use XCloner\GuzzleHttp\Psr7\Uri;
 /**
  * Default AWS client implementation
  */
 class AwsClient implements AwsClientInterface
 {
     use AwsClientTrait;
-
     /** @var array */
     private $aliases;
-
     /** @var array */
     private $config;
-
     /** @var string */
     private $region;
-
     /** @var string */
     private $endpoint;
-
     /** @var Service */
     private $api;
-
     /** @var callable */
     private $signatureProvider;
-
     /** @var callable */
     private $credentialProvider;
-
     /** @var HandlerList */
     private $handlerList;
-
     /** @var array*/
     private $defaultRequestOptions;
-
     /**
      * Get an array of client constructor arguments used by the client.
      *
@@ -57,7 +47,6 @@ class AwsClient implements AwsClientInterface
     {
         return ClientResolver::getDefaultArguments();
     }
-
     /**
      * The client constructor accepts the following options:
      *
@@ -214,72 +203,55 @@ class AwsClient implements AwsClientInterface
         $this->loadAliases();
         $this->addStreamRequestPayload();
         $this->addRecursionDetection();
-
         if (isset($args['with_resolved'])) {
             $args['with_resolved']($config);
         }
     }
-
     public function getHandlerList()
     {
         return $this->handlerList;
     }
-
     public function getConfig($option = null)
     {
-        return $option === null
-            ? $this->config
-            : (isset($this->config[$option])
-                ? $this->config[$option]
-                : null);
+        return $option === null ? $this->config : (isset($this->config[$option]) ? $this->config[$option] : null);
     }
-
     public function getCredentials()
     {
         $fn = $this->credentialProvider;
         return $fn();
     }
-
     public function getEndpoint()
     {
         return $this->endpoint;
     }
-
     public function getRegion()
     {
         return $this->region;
     }
-
     public function getApi()
     {
         return $this->api;
     }
-
     public function getCommand($name, array $args = [])
     {
         // Fail fast if the command cannot be found in the description.
         if (!isset($this->getApi()['operations'][$name])) {
             $name = ucfirst($name);
             if (!isset($this->getApi()['operations'][$name])) {
-                throw new \InvalidArgumentException("Operation not found: $name");
+                throw new \InvalidArgumentException("Operation not found: {$name}");
             }
         }
-
         if (!isset($args['@http'])) {
             $args['@http'] = $this->defaultRequestOptions;
         } else {
             $args['@http'] += $this->defaultRequestOptions;
         }
-
         return new Command($name, $args, clone $this->getHandlerList());
     }
-
     public function __sleep()
     {
-        throw new \RuntimeException('Instances of ' . static::class
-            . ' cannot be serialized');
+        throw new \RuntimeException('Instances of ' . static::class . ' cannot be serialized');
     }
-
     /**
      * Get the signature_provider function of the client.
      *
@@ -289,7 +261,6 @@ class AwsClient implements AwsClientInterface
     {
         return $this->signatureProvider;
     }
-
     /**
      * Parse the class name and setup the custom exception class of the client
      * and return the "service" name of the client and "exception_class".
@@ -299,48 +270,26 @@ class AwsClient implements AwsClientInterface
     private function parseClass()
     {
         $klass = get_class($this);
-
         if ($klass === __CLASS__) {
-            return ['', 'Aws\Exception\AwsException'];
+            return ['', 'XCloner\Aws\Exception\AwsException'];
         }
-
         $service = substr($klass, strrpos($klass, '\\') + 1, -6);
-
-        return [
-            strtolower($service),
-            "Aws\\{$service}\\Exception\\{$service}Exception"
-        ];
+        return [strtolower($service), "Aws\\{$service}\\Exception\\{$service}Exception"];
     }
-
     private function addEndpointParameterMiddleware($args)
     {
         if (empty($args['disable_host_prefix_injection'])) {
             $list = $this->getHandlerList();
-            $list->appendBuild(
-                EndpointParameterMiddleware::wrap(
-                    $this->api
-                ),
-                'endpoint_parameter'
-            );
+            $list->appendBuild(EndpointParameterMiddleware::wrap($this->api), 'endpoint_parameter');
         }
     }
-
     private function addEndpointDiscoveryMiddleware($config, $args)
     {
         $list = $this->getHandlerList();
-
         if (!isset($args['endpoint'])) {
-            $list->appendBuild(
-                EndpointDiscoveryMiddleware::wrap(
-                    $this,
-                    $args,
-                    $config['endpoint_discovery']
-                ),
-                'EndpointDiscoveryMiddleware'
-            );
+            $list->appendBuild(EndpointDiscoveryMiddleware::wrap($this, $args, $config['endpoint_discovery']), 'EndpointDiscoveryMiddleware');
         }
     }
-
     private function addSignatureMiddleware()
     {
         $api = $this->getApi();
@@ -348,10 +297,7 @@ class AwsClient implements AwsClientInterface
         $version = $this->config['signature_version'];
         $name = $this->config['signing_name'];
         $region = $this->config['signing_region'];
-
-        $resolver = static function (
-            CommandInterface $c
-        ) use ($api, $provider, $name, $region, $version) {
+        $resolver = static function (CommandInterface $c) use ($api, $provider, $name, $region, $version) {
             if (!empty($c['@context']['signing_region'])) {
                 $region = $c['@context']['signing_region'];
             }
@@ -359,7 +305,7 @@ class AwsClient implements AwsClientInterface
                 $name = $c['@context']['signing_service'];
             }
             $authType = $api->getOperation($c->getName())['authtype'];
-            switch ($authType){
+            switch ($authType) {
                 case 'none':
                     $version = 'anonymous';
                     break;
@@ -374,25 +320,20 @@ class AwsClient implements AwsClientInterface
             }
             return SignatureProvider::resolve($provider, $version, $name, $region);
         };
-        $this->handlerList->appendSign(
-            Middleware::signer($this->credentialProvider, $resolver),
-            'signer'
-        );
+        $this->handlerList->appendSign(Middleware::signer($this->credentialProvider, $resolver), 'signer');
     }
-
     private function addInvocationId()
     {
         // Add invocation id to each request
         $this->handlerList->prependSign(Middleware::invocationId(), 'invocation-id');
     }
-
     private function loadAliases($file = null)
     {
         if (!isset($this->aliases)) {
             if (is_null($file)) {
                 $file = __DIR__ . '/data/aliases.json';
             }
-            $aliases = \Aws\load_compiled_json($file);
+            $aliases = \XCloner\Aws\load_compiled_json($file);
             $serviceId = $this->api->getServiceId();
             $version = $this->getApi()->getApiVersion();
             if (!empty($aliases['operations'][$serviceId][$version])) {
@@ -400,28 +341,17 @@ class AwsClient implements AwsClientInterface
             }
         }
     }
-
     private function addStreamRequestPayload()
     {
-        $streamRequestPayloadMiddleware = StreamRequestPayloadMiddleware::wrap(
-            $this->api
-        );
-
-        $this->handlerList->prependSign(
-            $streamRequestPayloadMiddleware,
-            'StreamRequestPayloadMiddleware'
-        );
+        $streamRequestPayloadMiddleware = StreamRequestPayloadMiddleware::wrap($this->api);
+        $this->handlerList->prependSign($streamRequestPayloadMiddleware, 'StreamRequestPayloadMiddleware');
     }
-
     private function addRecursionDetection()
     {
         // Add recursion detection header to requests
         // originating in supported Lambda runtimes
-        $this->handlerList->appendBuild(
-            Middleware::recursionDetection(), 'recursion-detection'
-        );
+        $this->handlerList->appendBuild(Middleware::recursionDetection(), 'recursion-detection');
     }
-
     /**
      * Returns a service model and doc model with any necessary changes
      * applied.
@@ -436,10 +366,9 @@ class AwsClient implements AwsClientInterface
      */
     public static function applyDocFilters(array $api, array $docs)
     {
-        $aliases = \Aws\load_compiled_json(__DIR__ . '/data/aliases.json');
+        $aliases = \XCloner\Aws\load_compiled_json(__DIR__ . '/data/aliases.json');
         $serviceId = $api['metadata']['serviceId'];
         $version = $api['metadata']['apiVersion'];
-
         // Replace names for any operations with SDK aliases
         if (!empty($aliases['operations'][$serviceId][$version])) {
             foreach ($aliases['operations'][$serviceId][$version] as $op => $alias) {
@@ -449,13 +378,8 @@ class AwsClient implements AwsClientInterface
             }
         }
         ksort($api['operations']);
-
-        return [
-            new Service($api, ApiProvider::defaultProvider()),
-            new DocModel($docs)
-        ];
+        return [new Service($api, ApiProvider::defaultProvider()), new DocModel($docs)];
     }
-
     /**
      * @deprecated
      * @return static

@@ -1,6 +1,6 @@
 <?php
 
-namespace Watchfulli\XClonerCore;
+namespace XCloner\Watchfulli\XClonerCore;
 
 /**
  * XCloner - Backup and Restore backup plugin for Wordpress
@@ -28,8 +28,6 @@ namespace Watchfulli\XClonerCore;
  * @modified 7/25/18 1:46 PM
  *
  */
-
-
 /**
  * Define the internationalization functionality.
  *
@@ -43,7 +41,6 @@ namespace Watchfulli\XClonerCore;
  */
 class Xcloner_i18n
 {
-
     /**
      * Load the plugin text domain for translation.
      *
@@ -51,14 +48,6 @@ class Xcloner_i18n
      */
     public function load_plugin_textdomain()
     {
-
-        load_plugin_textdomain(
-            'xcloner-backup-and-restore',
-            false,
-            dirname(dirname(plugin_basename(__FILE__))) . '/languages/'
-        );
-
+        load_plugin_textdomain('xcloner-backup-and-restore', \false, dirname(dirname(plugin_basename(__FILE__))) . '/languages/');
     }
-
-
 }

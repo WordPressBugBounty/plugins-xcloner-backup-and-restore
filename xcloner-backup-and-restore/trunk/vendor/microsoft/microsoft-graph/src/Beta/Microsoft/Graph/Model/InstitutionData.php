@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InstitutionData class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InstitutionData extends Entity
 {
     /**
-    * Gets the description
-    * Short description of the institution the user studied at.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Short description of the institution the user studied at.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class InstitutionData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Short description of the institution the user studied at.
-    *
-    * @param string $val The value of the description
-    *
-    * @return InstitutionData
-    */
+     * Sets the description
+     * Short description of the institution the user studied at.
+     *
+     * @param string $val The value of the description
+     *
+     * @return InstitutionData
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Name of the institution the user studied at.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the institution the user studied at.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,31 +69,29 @@ class InstitutionData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the institution the user studied at.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return InstitutionData
-    */
+     * Sets the displayName
+     * Name of the institution the user studied at.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return InstitutionData
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the location
-    * Address or location of the institute.
-    *
-    * @return PhysicalAddress|null The location
-    */
+     * Gets the location
+     * Address or location of the institute.
+     *
+     * @return PhysicalAddress|null The location
+     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
-            if (is_a($this->_propDict["location"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["location"])) {
+            if (is_a($this->_propDict["location"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PhysicalAddress") || is_null($this->_propDict["location"])) {
                 return $this->_propDict["location"];
             } else {
                 $this->_propDict["location"] = new PhysicalAddress($this->_propDict["location"]);
@@ -101,26 +100,25 @@ class InstitutionData extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the location
-    * Address or location of the institute.
-    *
-    * @param PhysicalAddress $val The value to assign to the location
-    *
-    * @return InstitutionData The InstitutionData
-    */
+     * Sets the location
+     * Address or location of the institute.
+     *
+     * @param PhysicalAddress $val The value to assign to the location
+     *
+     * @return InstitutionData The InstitutionData
+     */
     public function setLocation($val)
     {
         $this->_propDict["location"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the webUrl
-    * Link to the institution or department homepage.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Link to the institution or department homepage.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -129,15 +127,14 @@ class InstitutionData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Link to the institution or department homepage.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return InstitutionData
-    */
+     * Sets the webUrl
+     * Link to the institution or department homepage.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return InstitutionData
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

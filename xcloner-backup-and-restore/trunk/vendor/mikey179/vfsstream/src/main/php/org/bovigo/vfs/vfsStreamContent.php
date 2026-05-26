@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Interface for stream contents.
  */
@@ -27,35 +29,31 @@ interface vfsStreamContent
      *
      * @see  getType()
      */
-    const TYPE_DIR  = 0040000;
+    const TYPE_DIR = 040000;
     /**
      * stream content type: symbolic link
      *
      * @see  getType();
      */
     #const TYPE_LINK = 0120000;
-
     /**
      * stream content type: block
      *
      * @see getType()
      */
-    const TYPE_BLOCK = 0060000;
-
+    const TYPE_BLOCK = 060000;
     /**
      * returns the file name of the content
      *
      * @return  string
      */
     public function getName();
-
     /**
      * renames the content
      *
      * @param  string  $newName
      */
     public function rename($newName);
-
     /**
      * checks whether the container can be applied to given name
      *
@@ -63,21 +61,18 @@ interface vfsStreamContent
      * @return  bool
      */
     public function appliesTo($name);
-
     /**
      * returns the type of the container
      *
      * @return  int
      */
     public function getType();
-
     /**
      * returns size of content
      *
      * @return  int
      */
     public function size();
-
     /**
      * sets the last modification time of the stream content
      *
@@ -85,14 +80,12 @@ interface vfsStreamContent
      * @return  vfsStreamContent
      */
     public function lastModified($filemtime);
-
     /**
      * returns the last modification time of the stream content
      *
      * @return  int
      */
     public function filemtime();
-
     /**
      * adds content to given container
      *
@@ -100,7 +93,6 @@ interface vfsStreamContent
      * @return  vfsStreamContent
      */
     public function at(vfsStreamContainer $container);
-
     /**
      * change file mode to given permissions
      *
@@ -108,14 +100,12 @@ interface vfsStreamContent
      * @return  vfsStreamContent
      */
     public function chmod($permissions);
-
     /**
      * returns permissions
      *
      * @return  int
      */
     public function getPermissions();
-
     /**
      * checks whether content is readable
      *
@@ -124,7 +114,6 @@ interface vfsStreamContent
      * @return  bool
      */
     public function isReadable($user, $group);
-
     /**
      * checks whether content is writable
      *
@@ -133,7 +122,6 @@ interface vfsStreamContent
      * @return  bool
      */
     public function isWritable($user, $group);
-
     /**
      * checks whether content is executable
      *
@@ -142,7 +130,6 @@ interface vfsStreamContent
      * @return  bool
      */
     public function isExecutable($user, $group);
-
     /**
      * change owner of file to given user
      *
@@ -150,7 +137,6 @@ interface vfsStreamContent
      * @return  vfsStreamContent
      */
     public function chown($user);
-
     /**
      * checks whether file is owned by given user
      *
@@ -158,14 +144,12 @@ interface vfsStreamContent
      * @return  bool
      */
     public function isOwnedByUser($user);
-
     /**
      * returns owner of file
      *
      * @return  int
      */
     public function getUser();
-
     /**
      * change owner group of file to given group
      *
@@ -173,7 +157,6 @@ interface vfsStreamContent
      * @return  vfsStreamContent
      */
     public function chgrp($group);
-
     /**
      * checks whether file is owned by group
      *
@@ -181,14 +164,12 @@ interface vfsStreamContent
      * @return  bool
      */
     public function isOwnedByGroup($group);
-
     /**
      * returns owner group of file
      *
      * @return  int
      */
     public function getGroup();
-
     /**
      * sets parent path
      *
@@ -197,7 +178,6 @@ interface vfsStreamContent
      * @since   1.2.0
      */
     public function setParentPath($parentPath);
-
     /**
      * returns path to this content
      *
@@ -205,7 +185,6 @@ interface vfsStreamContent
      * @since   1.2.0
      */
     public function path();
-
     /**
      * returns complete vfsStream url for this content
      *

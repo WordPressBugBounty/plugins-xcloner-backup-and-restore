@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ApplicationSignInSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ApplicationSignInSummary extends Entity
 {
     /**
-    * Gets the appDisplayName
-    * Name of the application that the user signed into.
-    *
-    * @return string|null The appDisplayName
-    */
+     * Gets the appDisplayName
+     * Name of the application that the user signed into.
+     *
+     * @return string|null The appDisplayName
+     */
     public function getAppDisplayName()
     {
         if (array_key_exists("appDisplayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appDisplayName
-    * Name of the application that the user signed into.
-    *
-    * @param string $val The appDisplayName
-    *
-    * @return ApplicationSignInSummary
-    */
+     * Sets the appDisplayName
+     * Name of the application that the user signed into.
+     *
+     * @param string $val The appDisplayName
+     *
+     * @return ApplicationSignInSummary
+     */
     public function setAppDisplayName($val)
     {
         $this->_propDict["appDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the failedSignInCount
-    * Count of failed sign-ins made by the application.
-    *
-    * @return int|null The failedSignInCount
-    */
+     * Gets the failedSignInCount
+     * Count of failed sign-ins made by the application.
+     *
+     * @return int|null The failedSignInCount
+     */
     public function getFailedSignInCount()
     {
         if (array_key_exists("failedSignInCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedSignInCount
-    * Count of failed sign-ins made by the application.
-    *
-    * @param int $val The failedSignInCount
-    *
-    * @return ApplicationSignInSummary
-    */
+     * Sets the failedSignInCount
+     * Count of failed sign-ins made by the application.
+     *
+     * @param int $val The failedSignInCount
+     *
+     * @return ApplicationSignInSummary
+     */
     public function setFailedSignInCount($val)
     {
         $this->_propDict["failedSignInCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the successfulSignInCount
-    * Count of successful sign-ins made by the application.
-    *
-    * @return int|null The successfulSignInCount
-    */
+     * Gets the successfulSignInCount
+     * Count of successful sign-ins made by the application.
+     *
+     * @return int|null The successfulSignInCount
+     */
     public function getSuccessfulSignInCount()
     {
         if (array_key_exists("successfulSignInCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successfulSignInCount
-    * Count of successful sign-ins made by the application.
-    *
-    * @param int $val The successfulSignInCount
-    *
-    * @return ApplicationSignInSummary
-    */
+     * Sets the successfulSignInCount
+     * Count of successful sign-ins made by the application.
+     *
+     * @param int $val The successfulSignInCount
+     *
+     * @return ApplicationSignInSummary
+     */
     public function setSuccessfulSignInCount($val)
     {
         $this->_propDict["successfulSignInCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the successPercentage
-    * Percentage of successful sign-ins made by the application.
-    *
-    * @return float|null The successPercentage
-    */
+     * Gets the successPercentage
+     * Percentage of successful sign-ins made by the application.
+     *
+     * @return float|null The successPercentage
+     */
     public function getSuccessPercentage()
     {
         if (array_key_exists("successPercentage", $this->_propDict)) {
@@ -128,19 +123,17 @@ class ApplicationSignInSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successPercentage
-    * Percentage of successful sign-ins made by the application.
-    *
-    * @param float $val The successPercentage
-    *
-    * @return ApplicationSignInSummary
-    */
+     * Sets the successPercentage
+     * Percentage of successful sign-ins made by the application.
+     *
+     * @param float $val The successPercentage
+     *
+     * @return ApplicationSignInSummary
+     */
     public function setSuccessPercentage($val)
     {
         $this->_propDict["successPercentage"] = floatval($val);
         return $this;
     }
-
 }

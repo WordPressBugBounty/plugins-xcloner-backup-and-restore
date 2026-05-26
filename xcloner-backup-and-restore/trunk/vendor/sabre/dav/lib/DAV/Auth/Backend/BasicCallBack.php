@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Extremely simply HTTP Basic auth backend.
  *
@@ -27,7 +26,6 @@ class BasicCallBack extends AbstractBasic
      * @var callable
      */
     protected $callBack;
-
     /**
      * Creates the backend.
      *
@@ -38,7 +36,6 @@ class BasicCallBack extends AbstractBasic
     {
         $this->callBack = $callBack;
     }
-
     /**
      * Validates a username and password.
      *
@@ -53,7 +50,6 @@ class BasicCallBack extends AbstractBasic
     protected function validateUserPass($username, $password)
     {
         $cb = $this->callBack;
-
         return $cb($username, $password);
     }
 }

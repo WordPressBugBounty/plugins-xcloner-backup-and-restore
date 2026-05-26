@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExactMatchClassificationResult class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ExactMatchClassificationResult extends Entity
 {
-
     /**
-    * Gets the classification
-    *
-    * @return ExactMatchDetectedSensitiveContent|null The classification
-    */
+     * Gets the classification
+     *
+     * @return ExactMatchDetectedSensitiveContent|null The classification
+     */
     public function getClassification()
     {
         if (array_key_exists("classification", $this->_propDict)) {
-            if (is_a($this->_propDict["classification"], "\Beta\Microsoft\Graph\Model\ExactMatchDetectedSensitiveContent") || is_null($this->_propDict["classification"])) {
+            if (is_a($this->_propDict["classification"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ExactMatchDetectedSensitiveContent") || is_null($this->_propDict["classification"])) {
                 return $this->_propDict["classification"];
             } else {
                 $this->_propDict["classification"] = new ExactMatchDetectedSensitiveContent($this->_propDict["classification"]);
@@ -44,29 +45,27 @@ class ExactMatchClassificationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the classification
-    *
-    * @param ExactMatchDetectedSensitiveContent $val The value to assign to the classification
-    *
-    * @return ExactMatchClassificationResult The ExactMatchClassificationResult
-    */
+     * Sets the classification
+     *
+     * @param ExactMatchDetectedSensitiveContent $val The value to assign to the classification
+     *
+     * @return ExactMatchClassificationResult The ExactMatchClassificationResult
+     */
     public function setClassification($val)
     {
         $this->_propDict["classification"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the errors
-    *
-    * @return ClassificationError|null The errors
-    */
+     * Gets the errors
+     *
+     * @return ClassificationError|null The errors
+     */
     public function getErrors()
     {
         if (array_key_exists("errors", $this->_propDict)) {
-            if (is_a($this->_propDict["errors"], "\Beta\Microsoft\Graph\Model\ClassificationError") || is_null($this->_propDict["errors"])) {
+            if (is_a($this->_propDict["errors"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ClassificationError") || is_null($this->_propDict["errors"])) {
                 return $this->_propDict["errors"];
             } else {
                 $this->_propDict["errors"] = new ClassificationError($this->_propDict["errors"]);
@@ -75,17 +74,16 @@ class ExactMatchClassificationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the errors
-    *
-    * @param ClassificationError $val The value to assign to the errors
-    *
-    * @return ExactMatchClassificationResult The ExactMatchClassificationResult
-    */
+     * Sets the errors
+     *
+     * @param ClassificationError $val The value to assign to the errors
+     *
+     * @return ExactMatchClassificationResult The ExactMatchClassificationResult
+     */
     public function setErrors($val)
     {
         $this->_propDict["errors"] = $val;
-         return $this;
+        return $this;
     }
 }

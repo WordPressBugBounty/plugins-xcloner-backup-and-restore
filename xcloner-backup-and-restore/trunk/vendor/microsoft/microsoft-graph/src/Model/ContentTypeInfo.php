@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ContentTypeInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ContentTypeInfo extends Entity
 {
     /**
-    * Gets the id
-    * The id of the content type.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The id of the content type.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ContentTypeInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The id of the content type.
-    *
-    * @param string $val The value of the id
-    *
-    * @return ContentTypeInfo
-    */
+     * Sets the id
+     * The id of the content type.
+     *
+     * @param string $val The value of the id
+     *
+     * @return ContentTypeInfo
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The name of the content type.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the content type.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ContentTypeInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the content type.
-    *
-    * @param string $val The value of the name
-    *
-    * @return ContentTypeInfo
-    */
+     * Sets the name
+     * The name of the content type.
+     *
+     * @param string $val The value of the name
+     *
+     * @return ContentTypeInfo
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Element;
 
-namespace Sabre\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml;
 /**
  * Uri element.
  *
@@ -33,7 +31,6 @@ class Uri implements Xml\Element
      * @var string
      */
     protected $value;
-
     /**
      * Constructor.
      *
@@ -43,7 +40,6 @@ class Uri implements Xml\Element
     {
         $this->value = $value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -62,14 +58,8 @@ class Uri implements Xml\Element
      */
     public function xmlSerialize(Xml\Writer $writer)
     {
-        $writer->text(
-            \Sabre\Uri\resolve(
-                $writer->contextUri,
-                $this->value
-            )
-        );
+        $writer->text(\XCloner\Sabre\Uri\resolve($writer->contextUri, $this->value));
     }
-
     /**
      * This method is called during xml parsing.
      *
@@ -92,11 +82,6 @@ class Uri implements Xml\Element
      */
     public static function xmlDeserialize(Xml\Reader $reader)
     {
-        return new self(
-            \Sabre\Uri\resolve(
-                (string) $reader->contextUri,
-                $reader->readText()
-            )
-        );
+        return new self(\XCloner\Sabre\Uri\resolve((string) $reader->contextUri, $reader->readText()));
     }
 }

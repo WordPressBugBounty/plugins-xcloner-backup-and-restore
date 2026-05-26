@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RubricQualitySelectedColumnModel class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RubricQualitySelectedColumnModel extends Entity
 {
     /**
-    * Gets the columnId
-    * ID of the selected level for this quality.
-    *
-    * @return string|null The columnId
-    */
+     * Gets the columnId
+     * ID of the selected level for this quality.
+     *
+     * @return string|null The columnId
+     */
     public function getColumnId()
     {
         if (array_key_exists("columnId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class RubricQualitySelectedColumnModel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the columnId
-    * ID of the selected level for this quality.
-    *
-    * @param string $val The value of the columnId
-    *
-    * @return RubricQualitySelectedColumnModel
-    */
+     * Sets the columnId
+     * ID of the selected level for this quality.
+     *
+     * @param string $val The value of the columnId
+     *
+     * @return RubricQualitySelectedColumnModel
+     */
     public function setColumnId($val)
     {
         $this->_propDict["columnId"] = $val;
         return $this;
     }
     /**
-    * Gets the qualityId
-    * ID of the associated quality.
-    *
-    * @return string|null The qualityId
-    */
+     * Gets the qualityId
+     * ID of the associated quality.
+     *
+     * @return string|null The qualityId
+     */
     public function getQualityId()
     {
         if (array_key_exists("qualityId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class RubricQualitySelectedColumnModel extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the qualityId
-    * ID of the associated quality.
-    *
-    * @param string $val The value of the qualityId
-    *
-    * @return RubricQualitySelectedColumnModel
-    */
+     * Sets the qualityId
+     * ID of the associated quality.
+     *
+     * @param string $val The value of the qualityId
+     *
+     * @return RubricQualitySelectedColumnModel
+     */
     public function setQualityId($val)
     {
         $this->_propDict["qualityId"] = $val;

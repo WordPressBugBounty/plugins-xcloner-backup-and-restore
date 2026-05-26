@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,17 +8,16 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use org\bovigo\vfs\content\LargeFileContent;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\content\LargeFileContent;
 /**
  * Test for org\bovigo\vfs\vfsStream.
  */
-class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * set up test environment
@@ -26,7 +26,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         vfsStreamWrapper::register();
     }
-
     /**
      * assure that path2url conversion works correct
      *
@@ -38,7 +37,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('vfs://foo/bar.baz', vfsStream::url('foo/bar.baz'));
         $this->assertEquals('vfs://foo/bar.baz', vfsStream::url('foo\bar.baz'));
     }
-
     /**
      * assure that url2path conversion works correct
      *
@@ -50,7 +48,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('foo/bar.baz', vfsStream::path('vfs://foo/bar.baz'));
         $this->assertEquals('foo/bar.baz', vfsStream::path('vfs://foo\bar.baz'));
     }
-
     /**
      * windows directory separators are converted into default separator
      *
@@ -59,9 +56,8 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function pathConvertsWindowsDirectorySeparators()
     {
-        $this->assertEquals('foo/bar', vfsStream::path('vfs://foo\\bar'));
+        $this->assertEquals('foo/bar', vfsStream::path('vfs://foo\bar'));
     }
-
     /**
      * trailing whitespace should be removed
      *
@@ -72,7 +68,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foo/bar', vfsStream::path('vfs://foo/bar '));
     }
-
     /**
      * trailing slashes are removed
      *
@@ -83,7 +78,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foo/bar', vfsStream::path('vfs://foo/bar/'));
     }
-
     /**
      * trailing slash and whitespace should be removed
      *
@@ -94,7 +88,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foo/bar', vfsStream::path('vfs://foo/bar/ '));
     }
-
     /**
      * double slashes should be replaced by single slash
      *
@@ -108,7 +101,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         // Path with double slashes
         $this->assertEquals('my/path', vfsStream::path('vfs://my//path'));
     }
-
     /**
      * test to create a new file
      *
@@ -117,11 +109,10 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function newFile()
     {
         $file = vfsStream::newFile('filename.txt');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamFile', $file);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamFile', $file);
         $this->assertEquals('filename.txt', $file->getName());
         $this->assertEquals(0666, $file->getPermissions());
     }
-
     /**
      * test to create a new file with non-default permissions
      *
@@ -131,11 +122,10 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function newFileWithDifferentPermissions()
     {
         $file = vfsStream::newFile('filename.txt', 0644);
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamFile', $file);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamFile', $file);
         $this->assertEquals('filename.txt', $file->getName());
         $this->assertEquals(0644, $file->getPermissions());
     }
-
     /**
      * test to create a new directory structure
      *
@@ -148,7 +138,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(0, count($foo->getChildren()));
         $this->assertEquals(0777, $foo->getPermissions());
     }
-
     /**
      * test to create a new directory structure with non-default permissions
      *
@@ -162,7 +151,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(0, count($foo->getChildren()));
         $this->assertEquals(0755, $foo->getPermissions());
     }
-
     /**
      * test to create a new directory structure
      *
@@ -186,7 +174,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $baz2 = $foo->getChild('bar/baz');
         $this->assertSame($baz1, $baz2);
     }
-
     /**
      * test that correct directory structure is created
      *
@@ -210,7 +197,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $baz2 = $foo->getChild('bar/baz');
         $this->assertSame($baz1, $baz2);
     }
-
     /**
      * @test
      * @group  setup
@@ -223,7 +209,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('root', $root->getName());
         $this->assertEquals(0777, $root->getPermissions());
     }
-
     /**
      * @test
      * @group  setup
@@ -236,7 +221,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $root->getName());
         $this->assertEquals(0777, $root->getPermissions());
     }
-
     /**
      * @test
      * @group  setup
@@ -249,7 +233,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('foo', $root->getName());
         $this->assertEquals(0444, $root->getPermissions());
     }
-
     /**
      * @test
      * @group  issue_14
@@ -258,15 +241,11 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function setupWithEmptyArrayIsEqualToSetup()
     {
-        $root = vfsStream::setup('example',
-                                 0755,
-                                 array()
-                );
+        $root = vfsStream::setup('example', 0755, array());
         $this->assertEquals('example', $root->getName());
         $this->assertEquals(0755, $root->getPermissions());
         $this->assertFalse($root->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_14
@@ -275,18 +254,12 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function setupArraysAreTurnedIntoSubdirectories()
     {
-        $root = vfsStream::setup('root',
-                                 null,
-                                 array('test' => array())
-                );
+        $root = vfsStream::setup('root', null, array('test' => array()));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('test'));
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory',
-                                $root->getChild('test')
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $root->getChild('test'));
         $this->assertFalse($root->getChild('test')->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_14
@@ -295,15 +268,11 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function setupStringsAreTurnedIntoFilesWithContent()
     {
-        $root = vfsStream::setup('root',
-                                 null,
-                                 array('test.txt' => 'some content')
-                );
+        $root = vfsStream::setup('root', null, array('test.txt' => 'some content'));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('test.txt'));
         $this->assertVfsFile($root->getChild('test.txt'), 'some content');
     }
-
     /**
      * @test
      * @group  issue_14
@@ -312,48 +281,34 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function setupWorksRecursively()
     {
-        $root = vfsStream::setup('root',
-                                 null,
-                                 array('test' => array('foo'     => array('test.txt' => 'hello'),
-                                                       'baz.txt' => 'world'
-                                                 )
-                                 )
-                );
+        $root = vfsStream::setup('root', null, array('test' => array('foo' => array('test.txt' => 'hello'), 'baz.txt' => 'world')));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('test'));
         $test = $root->getChild('test');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory', $test);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $test);
         $this->assertTrue($test->hasChildren());
         $this->assertTrue($test->hasChild('baz.txt'));
         $this->assertVfsFile($test->getChild('baz.txt'), 'world');
-
         $this->assertTrue($test->hasChild('foo'));
         $foo = $test->getChild('foo');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory', $foo);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $foo);
         $this->assertTrue($foo->hasChildren());
         $this->assertTrue($foo->hasChild('test.txt'));
         $this->assertVfsFile($foo->getChild('test.txt'), 'hello');
     }
-
     /**
-    * @test
-    * @group  issue_17
-    * @group  issue_20
-    */
+     * @test
+     * @group  issue_17
+     * @group  issue_20
+     */
     public function setupCastsNumericDirectoriesToStrings()
     {
-        $root = vfsStream::setup('root',
-                                 null,
-                                 array(2011 => array ('test.txt' => 'some content'))
-                );
+        $root = vfsStream::setup('root', null, array(2011 => array('test.txt' => 'some content')));
         $this->assertTrue($root->hasChild('2011'));
-
         $directory = $root->getChild('2011');
         $this->assertVfsFile($directory->getChild('test.txt'), 'some content');
-
         $this->assertTrue(file_exists('vfs://root/2011/test.txt'));
     }
-
     /**
      * @test
      * @group  issue_20
@@ -364,12 +319,9 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $baseDir = vfsStream::create(array('test' => array()), new vfsStreamDirectory('baseDir'));
         $this->assertTrue($baseDir->hasChildren());
         $this->assertTrue($baseDir->hasChild('test'));
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory',
-                                $baseDir->getChild('test')
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $baseDir->getChild('test'));
         $this->assertFalse($baseDir->getChild('test')->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_20
@@ -381,12 +333,9 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertSame($root, vfsStream::create(array('test' => array())));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('test'));
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory',
-                                $root->getChild('test')
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $root->getChild('test'));
         $this->assertFalse($root->getChild('test')->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_20
@@ -397,7 +346,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         vfsStream::create(array('test' => array()));
     }
-
     /**
      * @test
      * @group  issue_20
@@ -405,28 +353,21 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function createWorksRecursively()
     {
-        $baseDir = vfsStream::create(array('test' => array('foo'     => array('test.txt' => 'hello'),
-                                                           'baz.txt' => 'world'
-                                                     )
-                                     ),
-                                     new vfsStreamDirectory('baseDir')
-                   );
+        $baseDir = vfsStream::create(array('test' => array('foo' => array('test.txt' => 'hello'), 'baz.txt' => 'world')), new vfsStreamDirectory('baseDir'));
         $this->assertTrue($baseDir->hasChildren());
         $this->assertTrue($baseDir->hasChild('test'));
         $test = $baseDir->getChild('test');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory', $test);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $test);
         $this->assertTrue($test->hasChildren());
         $this->assertTrue($test->hasChild('baz.txt'));
         $this->assertVfsFile($test->getChild('baz.txt'), 'world');
-
         $this->assertTrue($test->hasChild('foo'));
         $foo = $test->getChild('foo');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory', $foo);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $foo);
         $this->assertTrue($foo->hasChildren());
         $this->assertTrue($foo->hasChild('test.txt'));
         $this->assertVfsFile($foo->getChild('test.txt'), 'hello');
     }
-
     /**
      * @test
      * @group  issue_20
@@ -435,29 +376,21 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function createWorksRecursivelyWithRoot()
     {
         $root = vfsStream::setup();
-        $this->assertSame($root,
-                          vfsStream::create(array('test' => array('foo'     => array('test.txt' => 'hello'),
-                                                                  'baz.txt' => 'world'
-                                                            )
-                                            )
-                          )
-        );
+        $this->assertSame($root, vfsStream::create(array('test' => array('foo' => array('test.txt' => 'hello'), 'baz.txt' => 'world'))));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('test'));
         $test = $root->getChild('test');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory', $test);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $test);
         $this->assertTrue($test->hasChildren());
         $this->assertTrue($test->hasChild('baz.txt'));
         $this->assertVfsFile($test->getChild('baz.txt'), 'world');
-
         $this->assertTrue($test->hasChild('foo'));
         $foo = $test->getChild('foo');
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory', $foo);
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $foo);
         $this->assertTrue($foo->hasChildren());
         $this->assertTrue($foo->hasChild('test.txt'));
         $this->assertVfsFile($foo->getChild('test.txt'), 'hello');
     }
-
     /**
      * @test
      * @group  issue_20
@@ -470,7 +403,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($baseDir->hasChild('test.txt'));
         $this->assertVfsFile($baseDir->getChild('test.txt'), 'some content');
     }
-
     /**
      * @test
      * @group  issue_20
@@ -479,45 +411,36 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function createStringsAreTurnedIntoFilesWithContentWithRoot()
     {
         $root = vfsStream::setup();
-        $this->assertSame($root,
-                          vfsStream::create(array('test.txt' => 'some content'))
-        );
+        $this->assertSame($root, vfsStream::create(array('test.txt' => 'some content')));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('test.txt'));
         $this->assertVfsFile($root->getChild('test.txt'), 'some content');
     }
-
     /**
-    * @test
-    * @group  issue_20
-    * @since  0.11.0
-    */
+     * @test
+     * @group  issue_20
+     * @since  0.11.0
+     */
     public function createCastsNumericDirectoriesToStrings()
     {
-        $baseDir = vfsStream::create(array(2011 => array ('test.txt' => 'some content')), new vfsStreamDirectory('baseDir'));
+        $baseDir = vfsStream::create(array(2011 => array('test.txt' => 'some content')), new vfsStreamDirectory('baseDir'));
         $this->assertTrue($baseDir->hasChild('2011'));
-
         $directory = $baseDir->getChild('2011');
         $this->assertVfsFile($directory->getChild('test.txt'), 'some content');
     }
-
     /**
-    * @test
-    * @group  issue_20
-    * @since  0.11.0
-    */
+     * @test
+     * @group  issue_20
+     * @since  0.11.0
+     */
     public function createCastsNumericDirectoriesToStringsWithRoot()
     {
         $root = vfsStream::setup();
-        $this->assertSame($root,
-                          vfsStream::create(array(2011 => array ('test.txt' => 'some content')))
-        );
+        $this->assertSame($root, vfsStream::create(array(2011 => array('test.txt' => 'some content'))));
         $this->assertTrue($root->hasChild('2011'));
-
         $directory = $root->getChild('2011');
         $this->assertVfsFile($directory->getChild('test.txt'), 'some content');
     }
-
     /**
      * helper function for assertions on vfsStreamFile
      *
@@ -526,14 +449,9 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     protected function assertVfsFile(vfsStreamFile $file, $content)
     {
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamFile',
-                                $file
-        );
-        $this->assertEquals($content,
-                            $file->getContent()
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamFile', $file);
+        $this->assertEquals($content, $file->getContent());
     }
-
     /**
      * @test
      * @group  issue_10
@@ -541,15 +459,11 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function inspectWithContentGivesContentToVisitor()
     {
-        $mockContent = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $mockVisitor = $this->bc_getMock('org\\bovigo\\vfs\\visitor\\vfsStreamVisitor');
-        $mockVisitor->expects($this->once())
-                    ->method('visit')
-                    ->with($this->equalTo($mockContent))
-                    ->will($this->returnValue($mockVisitor));
+        $mockContent = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $mockVisitor = $this->bc_getMock('XCloner\org\bovigo\vfs\visitor\vfsStreamVisitor');
+        $mockVisitor->expects($this->once())->method('visit')->with($this->equalTo($mockContent))->will($this->returnValue($mockVisitor));
         $this->assertSame($mockVisitor, vfsStream::inspect($mockVisitor, $mockContent));
     }
-
     /**
      * @test
      * @group  issue_10
@@ -558,14 +472,10 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function inspectWithoutContentGivesRootToVisitor()
     {
         $root = vfsStream::setup();
-        $mockVisitor = $this->bc_getMock('org\\bovigo\\vfs\\visitor\\vfsStreamVisitor');
-        $mockVisitor->expects($this->once())
-                    ->method('visitDirectory')
-                    ->with($this->equalTo($root))
-                    ->will($this->returnValue($mockVisitor));
+        $mockVisitor = $this->bc_getMock('XCloner\org\bovigo\vfs\visitor\vfsStreamVisitor');
+        $mockVisitor->expects($this->once())->method('visitDirectory')->with($this->equalTo($root))->will($this->returnValue($mockVisitor));
         $this->assertSame($mockVisitor, vfsStream::inspect($mockVisitor));
     }
-
     /**
      * @test
      * @group  issue_10
@@ -574,14 +484,11 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function inspectWithoutContentAndWithoutRootThrowsInvalidArgumentException()
     {
-        $mockVisitor = $this->bc_getMock('org\\bovigo\\vfs\\visitor\\vfsStreamVisitor');
-        $mockVisitor->expects($this->never())
-                    ->method('visit');
-        $mockVisitor->expects($this->never())
-                    ->method('visitDirectory');
+        $mockVisitor = $this->bc_getMock('XCloner\org\bovigo\vfs\visitor\vfsStreamVisitor');
+        $mockVisitor->expects($this->never())->method('visit');
+        $mockVisitor->expects($this->never())->method('visitDirectory');
         vfsStream::inspect($mockVisitor);
     }
-
     /**
      * returns path to file system copy resource directory
      *
@@ -591,7 +498,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         return realpath(dirname(__FILE__) . '/../../../../resources/filesystemcopy');
     }
-
     /**
      * @test
      * @group  issue_4
@@ -602,7 +508,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         vfsStream::copyFromFileSystem($this->getFileSystemCopyDir());
     }
-
     /**
      * @test
      * @group  issue_4
@@ -610,13 +515,10 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function copyFromEmptyFolder()
     {
-        $baseDir = vfsStream::copyFromFileSystem($this->getFileSystemCopyDir() . '/emptyFolder',
-                                                 vfsStream::newDirectory('test')
-                   );
+        $baseDir = vfsStream::copyFromFileSystem($this->getFileSystemCopyDir() . '/emptyFolder', vfsStream::newDirectory('test'));
         $baseDir->removeChild('.gitignore');
         $this->assertFalse($baseDir->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_4
@@ -625,13 +527,10 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function copyFromEmptyFolderWithRoot()
     {
         $root = vfsStream::setup();
-        $this->assertEquals($root,
-                            vfsStream::copyFromFileSystem($this->getFileSystemCopyDir() . '/emptyFolder')
-        );
+        $this->assertEquals($root, vfsStream::copyFromFileSystem($this->getFileSystemCopyDir() . '/emptyFolder'));
         $root->removeChild('.gitignore');
         $this->assertFalse($root->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_4
@@ -639,10 +538,7 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function copyFromWithSubFolders()
     {
-        $baseDir = vfsStream::copyFromFileSystem($this->getFileSystemCopyDir(),
-                                                 vfsStream::newDirectory('test'),
-                                                 3
-                   );
+        $baseDir = vfsStream::copyFromFileSystem($this->getFileSystemCopyDir(), vfsStream::newDirectory('test'), 3);
         $this->assertTrue($baseDir->hasChildren());
         $this->assertTrue($baseDir->hasChild('emptyFolder'));
         $this->assertTrue($baseDir->hasChild('withSubfolders'));
@@ -654,7 +550,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($subfolderDir->hasChild('aFile.txt'));
         $this->assertVfsFile($subfolderDir->getChild('aFile.txt'), 'foo');
     }
-
     /**
      * @test
      * @group  issue_4
@@ -663,12 +558,7 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
     public function copyFromWithSubFoldersWithRoot()
     {
         $root = vfsStream::setup();
-        $this->assertEquals($root,
-                            vfsStream::copyFromFileSystem($this->getFileSystemCopyDir(),
-                                                          null,
-                                                          3
-                            )
-        );
+        $this->assertEquals($root, vfsStream::copyFromFileSystem($this->getFileSystemCopyDir(), null, 3));
         $this->assertTrue($root->hasChildren());
         $this->assertTrue($root->hasChild('emptyFolder'));
         $this->assertTrue($root->hasChild('withSubfolders'));
@@ -680,7 +570,6 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($subfolderDir->hasChild('aFile.txt'));
         $this->assertVfsFile($subfolderDir->getChild('aFile.txt'), 'foo');
     }
-
     /**
      * @test
      * @group  issue_4
@@ -689,27 +578,15 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function copyFromPreservesFilePermissions()
     {
-        if (DIRECTORY_SEPARATOR !== '/') {
+        if (\DIRECTORY_SEPARATOR !== '/') {
             $this->markTestSkipped('Only applicable on Linux style systems.');
         }
-
         $copyDir = $this->getFileSystemCopyDir();
-        $root    = vfsStream::setup();
-        $this->assertEquals($root,
-                            vfsStream::copyFromFileSystem($copyDir,
-                                                          null
-                            )
-        );
-        $this->assertEquals(fileperms($copyDir . '/withSubfolders') - vfsStreamContent::TYPE_DIR,
-                            $root->getChild('withSubfolders')
-                                 ->getPermissions()
-        );
-        $this->assertEquals(fileperms($copyDir . '/withSubfolders/aFile.txt') - vfsStreamContent::TYPE_FILE,
-                            $root->getChild('withSubfolders/aFile.txt')
-                                 ->getPermissions()
-        );
+        $root = vfsStream::setup();
+        $this->assertEquals($root, vfsStream::copyFromFileSystem($copyDir, null));
+        $this->assertEquals(fileperms($copyDir . '/withSubfolders') - vfsStreamContent::TYPE_DIR, $root->getChild('withSubfolders')->getPermissions());
+        $this->assertEquals(fileperms($copyDir . '/withSubfolders/aFile.txt') - vfsStreamContent::TYPE_FILE, $root->getChild('withSubfolders/aFile.txt')->getPermissions());
     }
-
     /**
      * To test this the max file size is reduced to something reproduceable.
      *
@@ -719,19 +596,14 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function copyFromFileSystemMocksLargeFiles()
     {
-        if (DIRECTORY_SEPARATOR !== '/') {
+        if (\DIRECTORY_SEPARATOR !== '/') {
             $this->markTestSkipped('Only applicable on Linux style systems.');
         }
-
         $copyDir = $this->getFileSystemCopyDir();
-        $root    = vfsStream::setup();
+        $root = vfsStream::setup();
         vfsStream::copyFromFileSystem($copyDir, $root, 3);
-        $this->assertEquals(
-                '      ',
-                $root->getChild('withSubfolders/subfolder1/file1.txt')->getContent()
-        );
+        $this->assertEquals('      ', $root->getChild('withSubfolders/subfolder1/file1.txt')->getContent());
     }
-
     /**
      * @test
      * @group  issue_121
@@ -742,42 +614,26 @@ class vfsStreamTestCase extends \BC_PHPUnit_Framework_TestCase
         $directory = vfsStream::newDirectory('foo/');
         $this->assertFalse($directory->hasChildren());
     }
-
     /**
      * @test
      * @group  issue_149
      */
     public function addStructureHandlesVfsStreamFileObjects()
     {
-        $structure = array(
-            'topLevel' => array(
-                'thisIsAFile' => 'file contents',
-                vfsStream::newFile('anotherFile'),
-            ),
-        );
-
+        $structure = array('topLevel' => array('thisIsAFile' => 'file contents', vfsStream::newFile('anotherFile')));
         vfsStream::setup();
         $root = vfsStream::create($structure);
-
         $this->assertTrue($root->hasChild('topLevel/anotherFile'));
     }
-
     /**
      * @test
      * @group  issue_149
      */
     public function createHandlesLargeFileContentObjects()
     {
-        $structure = array(
-            'topLevel' => array(
-                'thisIsAFile' => 'file contents',
-                'anotherFile' => LargeFileContent::withMegabytes(2),
-            ),
-        );
-
+        $structure = array('topLevel' => array('thisIsAFile' => 'file contents', 'anotherFile' => LargeFileContent::withMegabytes(2)));
         vfsStream::setup();
         $root = vfsStream::create($structure);
-
         $this->assertTrue($root->hasChild('topLevel/anotherFile'));
     }
 }

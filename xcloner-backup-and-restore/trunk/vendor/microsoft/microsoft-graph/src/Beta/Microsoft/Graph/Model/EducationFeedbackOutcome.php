@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationFeedbackOutcome class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationFeedbackOutcome extends EducationOutcome
 {
     /**
-    * Gets the feedback
-    * Teacher's written feedback to the student.
-    *
-    * @return EducationFeedback|null The feedback
-    */
+     * Gets the feedback
+     * Teacher's written feedback to the student.
+     *
+     * @return EducationFeedback|null The feedback
+     */
     public function getFeedback()
     {
         if (array_key_exists("feedback", $this->_propDict)) {
-            if (is_a($this->_propDict["feedback"], "\Beta\Microsoft\Graph\Model\EducationFeedback") || is_null($this->_propDict["feedback"])) {
+            if (is_a($this->_propDict["feedback"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationFeedback") || is_null($this->_propDict["feedback"])) {
                 return $this->_propDict["feedback"];
             } else {
                 $this->_propDict["feedback"] = new EducationFeedback($this->_propDict["feedback"]);
@@ -45,31 +46,29 @@ class EducationFeedbackOutcome extends EducationOutcome
         }
         return null;
     }
-
     /**
-    * Sets the feedback
-    * Teacher's written feedback to the student.
-    *
-    * @param EducationFeedback $val The feedback
-    *
-    * @return EducationFeedbackOutcome
-    */
+     * Sets the feedback
+     * Teacher's written feedback to the student.
+     *
+     * @param EducationFeedback $val The feedback
+     *
+     * @return EducationFeedbackOutcome
+     */
     public function setFeedback($val)
     {
         $this->_propDict["feedback"] = $val;
         return $this;
     }
-
     /**
-    * Gets the publishedFeedback
-    * A copy of the feedback property that is made when the grade is released to the student.
-    *
-    * @return EducationFeedback|null The publishedFeedback
-    */
+     * Gets the publishedFeedback
+     * A copy of the feedback property that is made when the grade is released to the student.
+     *
+     * @return EducationFeedback|null The publishedFeedback
+     */
     public function getPublishedFeedback()
     {
         if (array_key_exists("publishedFeedback", $this->_propDict)) {
-            if (is_a($this->_propDict["publishedFeedback"], "\Beta\Microsoft\Graph\Model\EducationFeedback") || is_null($this->_propDict["publishedFeedback"])) {
+            if (is_a($this->_propDict["publishedFeedback"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationFeedback") || is_null($this->_propDict["publishedFeedback"])) {
                 return $this->_propDict["publishedFeedback"];
             } else {
                 $this->_propDict["publishedFeedback"] = new EducationFeedback($this->_propDict["publishedFeedback"]);
@@ -78,19 +77,17 @@ class EducationFeedbackOutcome extends EducationOutcome
         }
         return null;
     }
-
     /**
-    * Sets the publishedFeedback
-    * A copy of the feedback property that is made when the grade is released to the student.
-    *
-    * @param EducationFeedback $val The publishedFeedback
-    *
-    * @return EducationFeedbackOutcome
-    */
+     * Sets the publishedFeedback
+     * A copy of the feedback property that is made when the grade is released to the student.
+     *
+     * @param EducationFeedback $val The publishedFeedback
+     *
+     * @return EducationFeedbackOutcome
+     */
     public function setPublishedFeedback($val)
     {
         $this->_propDict["publishedFeedback"] = $val;
         return $this;
     }
-
 }

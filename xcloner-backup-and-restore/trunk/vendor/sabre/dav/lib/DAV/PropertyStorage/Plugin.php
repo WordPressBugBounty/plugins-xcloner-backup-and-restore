@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\PropertyStorage;
 
-namespace Sabre\DAV\PropertyStorage;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\INode;
-use Sabre\DAV\PropFind;
-use Sabre\DAV\PropPatch;
-use Sabre\DAV\Server;
-use Sabre\DAV\ServerPlugin;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\INode;
+use XCloner\Sabre\DAV\PropFind;
+use XCloner\Sabre\DAV\PropPatch;
+use XCloner\Sabre\DAV\Server;
+use XCloner\Sabre\DAV\ServerPlugin;
 /**
  * PropertyStorage Plugin.
  *
@@ -41,12 +39,10 @@ class Plugin extends ServerPlugin
      * @var callable
      */
     public $pathFilter;
-
     /**
      * @var Backend\BackendInterface
      */
     public $backend;
-
     /**
      * Creates the plugin.
      */
@@ -54,7 +50,6 @@ class Plugin extends ServerPlugin
     {
         $this->backend = $backend;
     }
-
     /**
      * This initializes the plugin.
      *
@@ -70,7 +65,6 @@ class Plugin extends ServerPlugin
         $server->on('afterMove', [$this, 'afterMove']);
         $server->on('afterUnbind', [$this, 'afterUnbind']);
     }
-
     /**
      * Called during PROPFIND operations.
      *
@@ -86,7 +80,6 @@ class Plugin extends ServerPlugin
         }
         $this->backend->propFind($propFind->getPath(), $propFind);
     }
-
     /**
      * Called during PROPPATCH operations.
      *
@@ -103,7 +96,6 @@ class Plugin extends ServerPlugin
         }
         $this->backend->propPatch($path, $propPatch);
     }
-
     /**
      * Called after a node is deleted.
      *
@@ -120,7 +112,6 @@ class Plugin extends ServerPlugin
         }
         $this->backend->delete($path);
     }
-
     /**
      * Called after a node is moved.
      *
@@ -140,10 +131,8 @@ class Plugin extends ServerPlugin
         if ($pathFilter && !$pathFilter($destination)) {
             return;
         }
-
         $this->backend->move($source, $destination);
     }
-
     /**
      * Returns a plugin name.
      *
@@ -156,7 +145,6 @@ class Plugin extends ServerPlugin
     {
         return 'property-storage';
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -170,10 +158,6 @@ class Plugin extends ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'This plugin allows any arbitrary WebDAV property to be set on any resource.',
-            'link' => 'http://sabre.io/dav/property-storage/',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'This plugin allows any arbitrary WebDAV property to be set on any resource.', 'link' => 'http://sabre.io/dav/property-storage/'];
     }
 }

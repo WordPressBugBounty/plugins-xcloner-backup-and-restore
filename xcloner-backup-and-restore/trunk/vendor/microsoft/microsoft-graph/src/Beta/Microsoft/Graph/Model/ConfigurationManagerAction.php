@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConfigurationManagerAction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConfigurationManagerAction extends Entity
 {
-
     /**
-    * Gets the action
-    * The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
-    *
-    * @return ConfigurationManagerActionType|null The action
-    */
+     * Gets the action
+     * The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
+     *
+     * @return ConfigurationManagerActionType|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\ConfigurationManagerActionType") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConfigurationManagerActionType") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new ConfigurationManagerActionType($this->_propDict["action"]);
@@ -45,18 +46,17 @@ class ConfigurationManagerAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    * The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
-    *
-    * @param ConfigurationManagerActionType $val The value to assign to the action
-    *
-    * @return ConfigurationManagerAction The ConfigurationManagerAction
-    */
+     * Sets the action
+     * The action type to trigger on Configuration Manager client. Possible values are: refreshMachinePolicy, refreshUserPolicy, wakeUpClient, appEvaluation, quickScan, fullScan, windowsDefenderUpdateSignatures.
+     *
+     * @param ConfigurationManagerActionType $val The value to assign to the action
+     *
+     * @return ConfigurationManagerAction The ConfigurationManagerAction
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
-         return $this;
+        return $this;
     }
 }

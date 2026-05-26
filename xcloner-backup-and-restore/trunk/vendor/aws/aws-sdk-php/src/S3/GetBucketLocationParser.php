@@ -1,15 +1,15 @@
 <?php
-namespace Aws\S3;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3;
 
-
-use Aws\Api\Parser\AbstractParser;
-use Aws\Api\StructureShape;
-use Aws\CommandInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Api\Parser\AbstractParser;
+use XCloner\Aws\Api\StructureShape;
+use XCloner\Aws\CommandInterface;
+use XCloner\Psr\Http\Message\ResponseInterface;
+use XCloner\Psr\Http\Message\StreamInterface;
 /**
  * @internal Decorates a parser for the S3 service to correctly handle the
  *           GetBucketLocation operation.
@@ -23,14 +23,10 @@ class GetBucketLocationParser extends AbstractParser
     {
         $this->parser = $parser;
     }
-
-    public function __invoke(
-        CommandInterface $command,
-        ResponseInterface $response
-    ) {
+    public function __invoke(CommandInterface $command, ResponseInterface $response)
+    {
         $fn = $this->parser;
         $result = $fn($command, $response);
-
         if ($command->getName() === 'GetBucketLocation') {
             $location = 'us-east-1';
             if (preg_match('/>(.+?)<\/LocationConstraint>/', $response->getBody(), $matches)) {
@@ -38,15 +34,10 @@ class GetBucketLocationParser extends AbstractParser
             }
             $result['LocationConstraint'] = $location;
         }
-
         return $result;
     }
-
-    public function parseMemberFromStream(
-        StreamInterface $stream,
-        StructureShape $member,
-        $response
-    ) {
+    public function parseMemberFromStream(StreamInterface $stream, StructureShape $member, $response)
+    {
         return $this->parser->parseMemberFromStream($stream, $member, $response);
     }
 }

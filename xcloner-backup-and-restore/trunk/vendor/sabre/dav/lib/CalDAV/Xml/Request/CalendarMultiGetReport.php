@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Request;
 
-namespace Sabre\CalDAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\Uri;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\Uri;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * CalendarMultiGetReport request parser.
  *
@@ -32,14 +30,12 @@ class CalendarMultiGetReport implements XmlDeserializable
      * @var array
      */
     public $properties;
-
     /**
      * This is an array with the urls that are being requested.
      *
      * @var array
      */
     public $hrefs;
-
     /**
      * If the calendar data must be expanded, this will contain an array with 2
      * elements: start and end.
@@ -49,7 +45,6 @@ class CalendarMultiGetReport implements XmlDeserializable
      * @var array|null
      */
     public $expand = null;
-
     /**
      * The mimetype of the content that should be returend. Usually
      * text/calendar.
@@ -57,7 +52,6 @@ class CalendarMultiGetReport implements XmlDeserializable
      * @var string
      */
     public $contentType = null;
-
     /**
      * The version of calendar-data that should be returned. Usually '2.0',
      * referring to iCalendar 2.0.
@@ -65,7 +59,6 @@ class CalendarMultiGetReport implements XmlDeserializable
      * @var string
      */
     public $version = null;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -88,22 +81,14 @@ class CalendarMultiGetReport implements XmlDeserializable
      */
     public static function xmlDeserialize(Reader $reader)
     {
-        $elems = $reader->parseInnerTree([
-            '{urn:ietf:params:xml:ns:caldav}calendar-data' => 'Sabre\\CalDAV\\Xml\\Filter\\CalendarData',
-            '{DAV:}prop' => 'Sabre\\Xml\\Element\\KeyValue',
-        ]);
-
-        $newProps = [
-            'hrefs' => [],
-            'properties' => [],
-        ];
-
+        $elems = $reader->parseInnerTree(['{urn:ietf:params:xml:ns:caldav}calendar-data' => 'XCloner\Sabre\CalDAV\Xml\Filter\CalendarData', '{DAV:}prop' => 'XCloner\Sabre\Xml\Element\KeyValue']);
+        $newProps = ['hrefs' => [], 'properties' => []];
         foreach ($elems as $elem) {
             switch ($elem['name']) {
                 case '{DAV:}prop':
                     $newProps['properties'] = array_keys($elem['value']);
-                    if (isset($elem['value']['{'.Plugin::NS_CALDAV.'}calendar-data'])) {
-                        $newProps += $elem['value']['{'.Plugin::NS_CALDAV.'}calendar-data'];
+                    if (isset($elem['value']['{' . Plugin::NS_CALDAV . '}calendar-data'])) {
+                        $newProps += $elem['value']['{' . Plugin::NS_CALDAV . '}calendar-data'];
                     }
                     break;
                 case '{DAV:}href':
@@ -111,12 +96,10 @@ class CalendarMultiGetReport implements XmlDeserializable
                     break;
             }
         }
-
         $obj = new self();
         foreach ($newProps as $key => $value) {
-            $obj->$key = $value;
+            $obj->{$key} = $value;
         }
-
         return $obj;
     }
 }

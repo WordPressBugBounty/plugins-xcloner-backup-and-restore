@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property\VCard;
+namespace XCloner\Sabre\VObject\Property\VCard;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
 /**
  * PhoneNumber property.
  *
@@ -17,7 +16,6 @@ use Sabre\VObject\Property;
 class PhoneNumber extends Property\Text
 {
     protected $structuredValues = [];
-
     /**
      * Returns the type of value.
      *

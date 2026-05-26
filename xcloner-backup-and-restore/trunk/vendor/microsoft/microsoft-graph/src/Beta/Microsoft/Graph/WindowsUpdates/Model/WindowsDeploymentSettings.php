@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDeploymentSettings class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class WindowsDeploymentSettings extends DeploymentSettings
 {
-
     /**
-    * Gets the userExperience
-    * Settings governing the user's update experience on a device.
-    *
-    * @return UserExperienceSettings|null The userExperience
-    */
+     * Gets the userExperience
+     * Settings governing the user's update experience on a device.
+     *
+     * @return UserExperienceSettings|null The userExperience
+     */
     public function getUserExperience()
     {
         if (array_key_exists("userExperience", $this->_propDict)) {
-            if (is_a($this->_propDict["userExperience"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\UserExperienceSettings") || is_null($this->_propDict["userExperience"])) {
+            if (is_a($this->_propDict["userExperience"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\UserExperienceSettings") || is_null($this->_propDict["userExperience"])) {
                 return $this->_propDict["userExperience"];
             } else {
                 $this->_propDict["userExperience"] = new UserExperienceSettings($this->_propDict["userExperience"]);
@@ -45,18 +46,17 @@ class WindowsDeploymentSettings extends DeploymentSettings
         }
         return null;
     }
-
     /**
-    * Sets the userExperience
-    * Settings governing the user's update experience on a device.
-    *
-    * @param UserExperienceSettings $val The value to assign to the userExperience
-    *
-    * @return WindowsDeploymentSettings The WindowsDeploymentSettings
-    */
+     * Sets the userExperience
+     * Settings governing the user's update experience on a device.
+     *
+     * @param UserExperienceSettings $val The value to assign to the userExperience
+     *
+     * @return WindowsDeploymentSettings The WindowsDeploymentSettings
+     */
     public function setUserExperience($val)
     {
         $this->_propDict["userExperience"] = $val;
-         return $this;
+        return $this;
     }
 }

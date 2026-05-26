@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppSupersedence class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppSupersedence extends MobileAppRelationship
 {
     /**
-    * Gets the supersededAppCount
-    * The total number of apps directly or indirectly superseded by the child app.
-    *
-    * @return int|null The supersededAppCount
-    */
+     * Gets the supersededAppCount
+     * The total number of apps directly or indirectly superseded by the child app.
+     *
+     * @return int|null The supersededAppCount
+     */
     public function getSupersededAppCount()
     {
         if (array_key_exists("supersededAppCount", $this->_propDict)) {
@@ -41,31 +42,29 @@ class MobileAppSupersedence extends MobileAppRelationship
             return null;
         }
     }
-
     /**
-    * Sets the supersededAppCount
-    * The total number of apps directly or indirectly superseded by the child app.
-    *
-    * @param int $val The supersededAppCount
-    *
-    * @return MobileAppSupersedence
-    */
+     * Sets the supersededAppCount
+     * The total number of apps directly or indirectly superseded by the child app.
+     *
+     * @param int $val The supersededAppCount
+     *
+     * @return MobileAppSupersedence
+     */
     public function setSupersededAppCount($val)
     {
         $this->_propDict["supersededAppCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the supersedenceType
-    * The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
-    *
-    * @return MobileAppSupersedenceType|null The supersedenceType
-    */
+     * Gets the supersedenceType
+     * The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
+     *
+     * @return MobileAppSupersedenceType|null The supersedenceType
+     */
     public function getSupersedenceType()
     {
         if (array_key_exists("supersedenceType", $this->_propDict)) {
-            if (is_a($this->_propDict["supersedenceType"], "\Beta\Microsoft\Graph\Model\MobileAppSupersedenceType") || is_null($this->_propDict["supersedenceType"])) {
+            if (is_a($this->_propDict["supersedenceType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppSupersedenceType") || is_null($this->_propDict["supersedenceType"])) {
                 return $this->_propDict["supersedenceType"];
             } else {
                 $this->_propDict["supersedenceType"] = new MobileAppSupersedenceType($this->_propDict["supersedenceType"]);
@@ -74,27 +73,25 @@ class MobileAppSupersedence extends MobileAppRelationship
         }
         return null;
     }
-
     /**
-    * Sets the supersedenceType
-    * The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
-    *
-    * @param MobileAppSupersedenceType $val The supersedenceType
-    *
-    * @return MobileAppSupersedence
-    */
+     * Sets the supersedenceType
+     * The supersedence relationship type between the parent and child apps. Possible values are: update, replace.
+     *
+     * @param MobileAppSupersedenceType $val The supersedenceType
+     *
+     * @return MobileAppSupersedence
+     */
     public function setSupersedenceType($val)
     {
         $this->_propDict["supersedenceType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the supersedingAppCount
-    * The total number of apps directly or indirectly superseding the parent app.
-    *
-    * @return int|null The supersedingAppCount
-    */
+     * Gets the supersedingAppCount
+     * The total number of apps directly or indirectly superseding the parent app.
+     *
+     * @return int|null The supersedingAppCount
+     */
     public function getSupersedingAppCount()
     {
         if (array_key_exists("supersedingAppCount", $this->_propDict)) {
@@ -103,19 +100,17 @@ class MobileAppSupersedence extends MobileAppRelationship
             return null;
         }
     }
-
     /**
-    * Sets the supersedingAppCount
-    * The total number of apps directly or indirectly superseding the parent app.
-    *
-    * @param int $val The supersedingAppCount
-    *
-    * @return MobileAppSupersedence
-    */
+     * Sets the supersedingAppCount
+     * The total number of apps directly or indirectly superseding the parent app.
+     *
+     * @param int $val The supersedingAppCount
+     *
+     * @return MobileAppSupersedence
+     */
     public function setSupersedingAppCount($val)
     {
         $this->_propDict["supersedingAppCount"] = intval($val);
         return $this;
     }
-
 }

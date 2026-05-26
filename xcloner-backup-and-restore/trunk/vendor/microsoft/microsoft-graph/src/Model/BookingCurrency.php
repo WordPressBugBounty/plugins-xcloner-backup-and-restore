@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BookingCurrency class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BookingCurrency extends Entity
 {
     /**
-    * Gets the symbol
-    * The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.
-    *
-    * @return string|null The symbol
-    */
+     * Gets the symbol
+     * The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.
+     *
+     * @return string|null The symbol
+     */
     public function getSymbol()
     {
         if (array_key_exists("symbol", $this->_propDict)) {
@@ -41,19 +42,17 @@ class BookingCurrency extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the symbol
-    * The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.
-    *
-    * @param string $val The symbol
-    *
-    * @return BookingCurrency
-    */
+     * Sets the symbol
+     * The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.
+     *
+     * @param string $val The symbol
+     *
+     * @return BookingCurrency
+     */
     public function setSymbol($val)
     {
         $this->_propDict["symbol"] = $val;
         return $this;
     }
-
 }

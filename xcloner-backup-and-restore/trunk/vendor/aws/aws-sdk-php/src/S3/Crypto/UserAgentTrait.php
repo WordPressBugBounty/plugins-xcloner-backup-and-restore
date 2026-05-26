@@ -1,34 +1,29 @@
 <?php
-namespace Aws\S3\Crypto;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3\Crypto;
 
-
-use Aws\AwsClientInterface;
-use Aws\Middleware;
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\AwsClientInterface;
+use XCloner\Aws\Middleware;
+use XCloner\Psr\Http\Message\RequestInterface;
 trait UserAgentTrait
 {
     private function appendUserAgent(AwsClientInterface $client, $agentString)
     {
         $list = $client->getHandlerList();
-        $list->appendBuild(Middleware::mapRequest(
-            function(RequestInterface $req) use ($agentString) {
-                if (!empty($req->getHeader('User-Agent'))
-                    && !empty($req->getHeader('User-Agent')[0])
-                ) {
-                    $userAgent = $req->getHeader('User-Agent')[0];
-                    if (strpos($userAgent, $agentString) === false) {
-                        $userAgent .= " {$agentString}";
-                    };
-                } else {
-                    $userAgent = $agentString;
+        $list->appendBuild(Middleware::mapRequest(function (RequestInterface $req) use ($agentString) {
+            if (!empty($req->getHeader('User-Agent')) && !empty($req->getHeader('User-Agent')[0])) {
+                $userAgent = $req->getHeader('User-Agent')[0];
+                if (strpos($userAgent, $agentString) === \false) {
+                    $userAgent .= " {$agentString}";
                 }
-
-                $req =  $req->withHeader('User-Agent', $userAgent);
-                return $req;
+            } else {
+                $userAgent = $agentString;
             }
-        ));
+            $req = $req->withHeader('User-Agent', $userAgent);
+            return $req;
+        }));
     }
 }

@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV;
 
-namespace Sabre\CardDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-use Sabre\VObject;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
+use XCloner\Sabre\VObject;
 /**
  * VCF Exporter.
  *
@@ -32,7 +30,6 @@ class VCFExportPlugin extends DAV\ServerPlugin
      * @var DAV\Server
      */
     protected $server;
-
     /**
      * Initializes the plugin and registers event handlers.
      */
@@ -42,11 +39,10 @@ class VCFExportPlugin extends DAV\ServerPlugin
         $this->server->on('method:GET', [$this, 'httpGet'], 90);
         $server->on('browserButtonActions', function ($path, $node, &$actions) {
             if ($node instanceof IAddressBook) {
-                $actions .= '<a href="'.htmlspecialchars($path, ENT_QUOTES, 'UTF-8').'?export"><span class="oi" data-glyph="book"></span></a>';
+                $actions .= '<a href="' . htmlspecialchars($path, \ENT_QUOTES, 'UTF-8') . '?export"><span class="oi" data-glyph="book"></span></a>';
             }
         });
     }
-
     /**
      * Intercepts GET requests on addressbook urls ending with ?export.
      *
@@ -58,55 +54,35 @@ class VCFExportPlugin extends DAV\ServerPlugin
         if (!array_key_exists('export', $queryParams)) {
             return;
         }
-
         $path = $request->getPath();
-
         $node = $this->server->tree->getNodeForPath($path);
-
-        if (!($node instanceof IAddressBook)) {
+        if (!$node instanceof IAddressBook) {
             return;
         }
-
         $this->server->transactionType = 'get-addressbook-export';
-
         // Checking ACL, if available.
         if ($aclPlugin = $this->server->getPlugin('acl')) {
             $aclPlugin->checkPrivileges($path, '{DAV:}read');
         }
-
-        $nodes = $this->server->getPropertiesForPath($path, [
-            '{'.Plugin::NS_CARDDAV.'}address-data',
-        ], 1);
-
+        $nodes = $this->server->getPropertiesForPath($path, ['{' . Plugin::NS_CARDDAV . '}address-data'], 1);
         $format = 'text/directory';
-
         $output = null;
         $filenameExtension = null;
-
         switch ($format) {
             case 'text/directory':
                 $output = $this->generateVCF($nodes);
                 $filenameExtension = '.vcf';
                 break;
         }
-
-        $filename = preg_replace(
-            '/[^a-zA-Z0-9-_ ]/um',
-            '',
-            $node->getName()
-        );
-        $filename .= '-'.date('Y-m-d').$filenameExtension;
-
-        $response->setHeader('Content-Disposition', 'attachment; filename="'.$filename.'"');
+        $filename = preg_replace('/[^a-zA-Z0-9-_ ]/um', '', $node->getName());
+        $filename .= '-' . date('Y-m-d') . $filenameExtension;
+        $response->setHeader('Content-Disposition', 'attachment; filename="' . $filename . '"');
         $response->setHeader('Content-Type', $format);
-
         $response->setStatus(200);
         $response->setBody($output);
-
         // Returning false to break the event chain
-        return false;
+        return \false;
     }
-
     /**
      * Merges all vcard objects, and builds one big vcf export.
      *
@@ -115,24 +91,19 @@ class VCFExportPlugin extends DAV\ServerPlugin
     public function generateVCF(array $nodes)
     {
         $output = '';
-
         foreach ($nodes as $node) {
-            if (!isset($node[200]['{'.Plugin::NS_CARDDAV.'}address-data'])) {
+            if (!isset($node[200]['{' . Plugin::NS_CARDDAV . '}address-data'])) {
                 continue;
             }
-            $nodeData = $node[200]['{'.Plugin::NS_CARDDAV.'}address-data'];
-
+            $nodeData = $node[200]['{' . Plugin::NS_CARDDAV . '}address-data'];
             // Parsing this node so VObject can clean up the output.
             $vcard = VObject\Reader::read($nodeData);
             $output .= $vcard->serialize();
-
             // Destroy circular references to PHP will GC the object.
             $vcard->destroy();
         }
-
         return $output;
     }
-
     /**
      * Returns a plugin name.
      *
@@ -145,7 +116,6 @@ class VCFExportPlugin extends DAV\ServerPlugin
     {
         return 'vcf-export';
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -159,10 +129,6 @@ class VCFExportPlugin extends DAV\ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'Adds the ability to export CardDAV addressbooks as a single vCard file.',
-            'link' => 'http://sabre.io/dav/vcf-export-plugin/',
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'Adds the ability to export CardDAV addressbooks as a single vCard file.', 'link' => 'http://sabre.io/dav/vcf-export-plugin/'];
     }
 }

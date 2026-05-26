@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IdentityGovernance class
 *
@@ -28,45 +29,42 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IdentityGovernance implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new IdentityGovernance
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new IdentityGovernance
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the IdentityGovernance
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the IdentityGovernance
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
     /**
-    * Gets the accessReviews
-    *
-    * @return AccessReviewSet|null The accessReviews
-    */
+     * Gets the accessReviews
+     *
+     * @return AccessReviewSet|null The accessReviews
+     */
     public function getAccessReviews()
     {
         if (array_key_exists("accessReviews", $this->_propDict)) {
-            if (is_a($this->_propDict["accessReviews"], "\Microsoft\Graph\Model\AccessReviewSet") || is_null($this->_propDict["accessReviews"])) {
+            if (is_a($this->_propDict["accessReviews"], "XCloner\\Microsoft\\Graph\\Model\\AccessReviewSet") || is_null($this->_propDict["accessReviews"])) {
                 return $this->_propDict["accessReviews"];
             } else {
                 $this->_propDict["accessReviews"] = new AccessReviewSet($this->_propDict["accessReviews"]);
@@ -75,29 +73,27 @@ class IdentityGovernance implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the accessReviews
-    *
-    * @param AccessReviewSet $val The accessReviews
-    *
-    * @return IdentityGovernance
-    */
+     * Sets the accessReviews
+     *
+     * @param AccessReviewSet $val The accessReviews
+     *
+     * @return IdentityGovernance
+     */
     public function setAccessReviews($val)
     {
         $this->_propDict["accessReviews"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appConsent
-    *
-    * @return AppConsentApprovalRoute|null The appConsent
-    */
+     * Gets the appConsent
+     *
+     * @return AppConsentApprovalRoute|null The appConsent
+     */
     public function getAppConsent()
     {
         if (array_key_exists("appConsent", $this->_propDict)) {
-            if (is_a($this->_propDict["appConsent"], "\Microsoft\Graph\Model\AppConsentApprovalRoute") || is_null($this->_propDict["appConsent"])) {
+            if (is_a($this->_propDict["appConsent"], "XCloner\\Microsoft\\Graph\\Model\\AppConsentApprovalRoute") || is_null($this->_propDict["appConsent"])) {
                 return $this->_propDict["appConsent"];
             } else {
                 $this->_propDict["appConsent"] = new AppConsentApprovalRoute($this->_propDict["appConsent"]);
@@ -106,29 +102,27 @@ class IdentityGovernance implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the appConsent
-    *
-    * @param AppConsentApprovalRoute $val The appConsent
-    *
-    * @return IdentityGovernance
-    */
+     * Sets the appConsent
+     *
+     * @param AppConsentApprovalRoute $val The appConsent
+     *
+     * @return IdentityGovernance
+     */
     public function setAppConsent($val)
     {
         $this->_propDict["appConsent"] = $val;
         return $this;
     }
-
     /**
-    * Gets the termsOfUse
-    *
-    * @return TermsOfUseContainer|null The termsOfUse
-    */
+     * Gets the termsOfUse
+     *
+     * @return TermsOfUseContainer|null The termsOfUse
+     */
     public function getTermsOfUse()
     {
         if (array_key_exists("termsOfUse", $this->_propDict)) {
-            if (is_a($this->_propDict["termsOfUse"], "\Microsoft\Graph\Model\TermsOfUseContainer") || is_null($this->_propDict["termsOfUse"])) {
+            if (is_a($this->_propDict["termsOfUse"], "XCloner\\Microsoft\\Graph\\Model\\TermsOfUseContainer") || is_null($this->_propDict["termsOfUse"])) {
                 return $this->_propDict["termsOfUse"];
             } else {
                 $this->_propDict["termsOfUse"] = new TermsOfUseContainer($this->_propDict["termsOfUse"]);
@@ -137,29 +131,27 @@ class IdentityGovernance implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the termsOfUse
-    *
-    * @param TermsOfUseContainer $val The termsOfUse
-    *
-    * @return IdentityGovernance
-    */
+     * Sets the termsOfUse
+     *
+     * @param TermsOfUseContainer $val The termsOfUse
+     *
+     * @return IdentityGovernance
+     */
     public function setTermsOfUse($val)
     {
         $this->_propDict["termsOfUse"] = $val;
         return $this;
     }
-
     /**
-    * Gets the entitlementManagement
-    *
-    * @return EntitlementManagement|null The entitlementManagement
-    */
+     * Gets the entitlementManagement
+     *
+     * @return EntitlementManagement|null The entitlementManagement
+     */
     public function getEntitlementManagement()
     {
         if (array_key_exists("entitlementManagement", $this->_propDict)) {
-            if (is_a($this->_propDict["entitlementManagement"], "\Microsoft\Graph\Model\EntitlementManagement") || is_null($this->_propDict["entitlementManagement"])) {
+            if (is_a($this->_propDict["entitlementManagement"], "XCloner\\Microsoft\\Graph\\Model\\EntitlementManagement") || is_null($this->_propDict["entitlementManagement"])) {
                 return $this->_propDict["entitlementManagement"];
             } else {
                 $this->_propDict["entitlementManagement"] = new EntitlementManagement($this->_propDict["entitlementManagement"]);
@@ -168,25 +160,23 @@ class IdentityGovernance implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the entitlementManagement
-    *
-    * @param EntitlementManagement $val The entitlementManagement
-    *
-    * @return IdentityGovernance
-    */
+     * Sets the entitlementManagement
+     *
+     * @param EntitlementManagement $val The entitlementManagement
+     *
+     * @return IdentityGovernance
+     */
     public function setEntitlementManagement($val)
     {
         $this->_propDict["entitlementManagement"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -194,36 +184,34 @@ class IdentityGovernance implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return IdentityGovernance
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return IdentityGovernance
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

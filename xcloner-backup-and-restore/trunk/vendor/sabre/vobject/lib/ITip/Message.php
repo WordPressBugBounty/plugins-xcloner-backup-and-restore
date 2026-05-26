@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\ITip;
+namespace XCloner\Sabre\VObject\ITip;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class represents an iTip message.
  *
@@ -25,14 +25,12 @@ class Message
      * @var string
      */
     public $uid;
-
     /**
      * The component type, such as VEVENT.
      *
      * @var string
      */
     public $component;
-
     /**
      * Contains the ITip method, which is something like REQUEST, REPLY or
      * CANCEL.
@@ -40,14 +38,12 @@ class Message
      * @var string
      */
     public $method;
-
     /**
      * The current sequence number for the event.
      *
      * @var int
      */
     public $sequence;
-
     /**
      * The senders' email address.
      *
@@ -58,7 +54,6 @@ class Message
      * @var string
      */
     public $sender;
-
     /**
      * The name of the sender. This is often populated from a CN parameter from
      * either the ORGANIZER or ATTENDEE, depending on the message.
@@ -66,14 +61,12 @@ class Message
      * @var string|null
      */
     public $senderName;
-
     /**
      * The recipient's email address.
      *
      * @var string
      */
     public $recipient;
-
     /**
      * The name of the recipient. This is usually populated with the CN
      * parameter from the ATTENDEE or ORGANIZER property, if it's available.
@@ -81,7 +74,6 @@ class Message
      * @var string|null
      */
     public $recipientName;
-
     /**
      * After the message has been delivered, this should contain a string such
      * as : 1.1;Sent or 1.2;Delivered.
@@ -94,14 +86,12 @@ class Message
      * @var string
      */
     public $scheduleStatus;
-
     /**
      * The iCalendar / iTip body.
      *
      * @var \Sabre\VObject\Component\VCalendar
      */
     public $message;
-
     /**
      * This will be set to true, if the iTip broker considers the change
      * 'significant'.
@@ -116,8 +106,7 @@ class Message
      *
      * @var bool
      */
-    public $significantChange = true;
-
+    public $significantChange = \true;
     /**
      * Returns the schedule status as a string.
      *
@@ -129,10 +118,9 @@ class Message
     public function getScheduleStatus()
     {
         if (!$this->scheduleStatus) {
-            return false;
+            return \false;
         } else {
             list($scheduleStatus) = explode(';', $this->scheduleStatus);
-
             return $scheduleStatus;
         }
     }

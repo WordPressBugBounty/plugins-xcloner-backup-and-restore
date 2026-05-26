@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Exception;
 
-namespace Sabre\DAV\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * LockTokenMatchesRequestUri.
  *
@@ -27,7 +25,6 @@ class LockTokenMatchesRequestUri extends Conflict
     {
         parent::__construct('The locktoken supplied does not match any locks on this entity');
     }
-
     /**
      * This method allows the exception to include additional information into the WebDAV error response.
      */

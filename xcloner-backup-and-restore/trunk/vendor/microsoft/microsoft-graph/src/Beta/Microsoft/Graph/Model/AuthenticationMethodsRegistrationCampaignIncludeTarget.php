@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationMethodsRegistrationCampaignIncludeTarget class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AuthenticationMethodsRegistrationCampaignIncludeTarget extends Entity
 {
     /**
-    * Gets the id
-    * The object identifier of an Azure AD user or group.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The object identifier of an Azure AD user or group.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The object identifier of an Azure AD user or group.
-    *
-    * @param string $val The value of the id
-    *
-    * @return AuthenticationMethodsRegistrationCampaignIncludeTarget
-    */
+     * Sets the id
+     * The object identifier of an Azure AD user or group.
+     *
+     * @param string $val The value of the id
+     *
+     * @return AuthenticationMethodsRegistrationCampaignIncludeTarget
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the targetedAuthenticationMethod
-    * The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.
-    *
-    * @return string|null The targetedAuthenticationMethod
-    */
+     * Gets the targetedAuthenticationMethod
+     * The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.
+     *
+     * @return string|null The targetedAuthenticationMethod
+     */
     public function getTargetedAuthenticationMethod()
     {
         if (array_key_exists("targetedAuthenticationMethod", $this->_propDict)) {
@@ -68,31 +69,29 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetedAuthenticationMethod
-    * The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.
-    *
-    * @param string $val The value of the targetedAuthenticationMethod
-    *
-    * @return AuthenticationMethodsRegistrationCampaignIncludeTarget
-    */
+     * Sets the targetedAuthenticationMethod
+     * The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.
+     *
+     * @param string $val The value of the targetedAuthenticationMethod
+     *
+     * @return AuthenticationMethodsRegistrationCampaignIncludeTarget
+     */
     public function setTargetedAuthenticationMethod($val)
     {
         $this->_propDict["targetedAuthenticationMethod"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetType
-    * The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
-    *
-    * @return AuthenticationMethodTargetType|null The targetType
-    */
+     * Gets the targetType
+     * The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     *
+     * @return AuthenticationMethodTargetType|null The targetType
+     */
     public function getTargetType()
     {
         if (array_key_exists("targetType", $this->_propDict)) {
-            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodTargetType") || is_null($this->_propDict["targetType"])) {
+            if (is_a($this->_propDict["targetType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationMethodTargetType") || is_null($this->_propDict["targetType"])) {
                 return $this->_propDict["targetType"];
             } else {
                 $this->_propDict["targetType"] = new AuthenticationMethodTargetType($this->_propDict["targetType"]);
@@ -101,18 +100,17 @@ class AuthenticationMethodsRegistrationCampaignIncludeTarget extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the targetType
-    * The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
-    *
-    * @param AuthenticationMethodTargetType $val The value to assign to the targetType
-    *
-    * @return AuthenticationMethodsRegistrationCampaignIncludeTarget The AuthenticationMethodsRegistrationCampaignIncludeTarget
-    */
+     * Sets the targetType
+     * The type of the authentication method target. Possible values are: user, group, unknownFutureValue.
+     *
+     * @param AuthenticationMethodTargetType $val The value to assign to the targetType
+     *
+     * @return AuthenticationMethodsRegistrationCampaignIncludeTarget The AuthenticationMethodsRegistrationCampaignIncludeTarget
+     */
     public function setTargetType($val)
     {
         $this->_propDict["targetType"] = $val;
-         return $this;
+        return $this;
     }
 }

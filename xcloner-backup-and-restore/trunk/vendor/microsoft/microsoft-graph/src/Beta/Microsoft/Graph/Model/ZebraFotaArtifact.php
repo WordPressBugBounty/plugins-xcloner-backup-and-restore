@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ZebraFotaArtifact class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ZebraFotaArtifact extends Entity
 {
     /**
-    * Gets the boardSupportPackageVersion
-    * The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
-    *
-    * @return string|null The boardSupportPackageVersion
-    */
+     * Gets the boardSupportPackageVersion
+     * The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
+     *
+     * @return string|null The boardSupportPackageVersion
+     */
     public function getBoardSupportPackageVersion()
     {
         if (array_key_exists("boardSupportPackageVersion", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ZebraFotaArtifact extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the boardSupportPackageVersion
-    * The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
-    *
-    * @param string $val The boardSupportPackageVersion
-    *
-    * @return ZebraFotaArtifact
-    */
+     * Sets the boardSupportPackageVersion
+     * The version of the Board Support Package (BSP. E.g.: 01.18.02.00)
+     *
+     * @param string $val The boardSupportPackageVersion
+     *
+     * @return ZebraFotaArtifact
+     */
     public function setBoardSupportPackageVersion($val)
     {
         $this->_propDict["boardSupportPackageVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -70,27 +69,25 @@ class ZebraFotaArtifact extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
-    *
-    * @param string $val The description
-    *
-    * @return ZebraFotaArtifact
-    */
+     * Sets the description
+     * Artifact description. (e.g.: `LifeGuard Update 98 (released 24-September-2021)
+     *
+     * @param string $val The description
+     *
+     * @return ZebraFotaArtifact
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceModel
-    * Applicable device model (e.g.: TC8300)
-    *
-    * @return string|null The deviceModel
-    */
+     * Gets the deviceModel
+     * Applicable device model (e.g.: TC8300)
+     *
+     * @return string|null The deviceModel
+     */
     public function getDeviceModel()
     {
         if (array_key_exists("deviceModel", $this->_propDict)) {
@@ -99,27 +96,25 @@ class ZebraFotaArtifact extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceModel
-    * Applicable device model (e.g.: TC8300)
-    *
-    * @param string $val The deviceModel
-    *
-    * @return ZebraFotaArtifact
-    */
+     * Sets the deviceModel
+     * Applicable device model (e.g.: TC8300)
+     *
+     * @param string $val The deviceModel
+     *
+     * @return ZebraFotaArtifact
+     */
     public function setDeviceModel($val)
     {
         $this->_propDict["deviceModel"] = $val;
         return $this;
     }
-
     /**
-    * Gets the osVersion
-    * Artifact OS version (e.g.: 8.1.0)
-    *
-    * @return string|null The osVersion
-    */
+     * Gets the osVersion
+     * Artifact OS version (e.g.: 8.1.0)
+     *
+     * @return string|null The osVersion
+     */
     public function getOsVersion()
     {
         if (array_key_exists("osVersion", $this->_propDict)) {
@@ -128,27 +123,25 @@ class ZebraFotaArtifact extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the osVersion
-    * Artifact OS version (e.g.: 8.1.0)
-    *
-    * @param string $val The osVersion
-    *
-    * @return ZebraFotaArtifact
-    */
+     * Sets the osVersion
+     * Artifact OS version (e.g.: 8.1.0)
+     *
+     * @param string $val The osVersion
+     *
+     * @return ZebraFotaArtifact
+     */
     public function setOsVersion($val)
     {
         $this->_propDict["osVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the patchVersion
-    * Artifact patch version (e.g.: U00)
-    *
-    * @return string|null The patchVersion
-    */
+     * Gets the patchVersion
+     * Artifact patch version (e.g.: U00)
+     *
+     * @return string|null The patchVersion
+     */
     public function getPatchVersion()
     {
         if (array_key_exists("patchVersion", $this->_propDict)) {
@@ -157,27 +150,25 @@ class ZebraFotaArtifact extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the patchVersion
-    * Artifact patch version (e.g.: U00)
-    *
-    * @param string $val The patchVersion
-    *
-    * @return ZebraFotaArtifact
-    */
+     * Sets the patchVersion
+     * Artifact patch version (e.g.: U00)
+     *
+     * @param string $val The patchVersion
+     *
+     * @return ZebraFotaArtifact
+     */
     public function setPatchVersion($val)
     {
         $this->_propDict["patchVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the releaseNotesUrl
-    * Artifact release notes URL (e.g.: https://www.zebra.com/&amp;lt;filename.pdf&amp;gt;)
-    *
-    * @return string|null The releaseNotesUrl
-    */
+     * Gets the releaseNotesUrl
+     * Artifact release notes URL (e.g.: https://www.zebra.com/&amp;lt;filename.pdf&amp;gt;)
+     *
+     * @return string|null The releaseNotesUrl
+     */
     public function getReleaseNotesUrl()
     {
         if (array_key_exists("releaseNotesUrl", $this->_propDict)) {
@@ -186,19 +177,17 @@ class ZebraFotaArtifact extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the releaseNotesUrl
-    * Artifact release notes URL (e.g.: https://www.zebra.com/&amp;lt;filename.pdf&amp;gt;)
-    *
-    * @param string $val The releaseNotesUrl
-    *
-    * @return ZebraFotaArtifact
-    */
+     * Sets the releaseNotesUrl
+     * Artifact release notes URL (e.g.: https://www.zebra.com/&amp;lt;filename.pdf&amp;gt;)
+     *
+     * @param string $val The releaseNotesUrl
+     *
+     * @return ZebraFotaArtifact
+     */
     public function setReleaseNotesUrl($val)
     {
         $this->_propDict["releaseNotesUrl"] = $val;
         return $this;
     }
-
 }

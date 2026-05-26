@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2016 Google Inc.
  *
@@ -14,14 +15,12 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\Auth\Cache;
 
-namespace Google\Auth\Cache;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Cache\InvalidArgumentException as PsrInvalidArgumentException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Cache\InvalidArgumentException as PsrInvalidArgumentException;
 class InvalidArgumentException extends \InvalidArgumentException implements PsrInvalidArgumentException
 {
 }

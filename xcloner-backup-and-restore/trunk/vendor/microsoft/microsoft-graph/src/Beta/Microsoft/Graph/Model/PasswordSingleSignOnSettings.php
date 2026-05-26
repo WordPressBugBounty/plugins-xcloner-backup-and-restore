@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PasswordSingleSignOnSettings class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PasswordSingleSignOnSettings extends Entity
 {
-
     /**
-    * Gets the fields
-    *
-    * @return PasswordSingleSignOnField|null The fields
-    */
+     * Gets the fields
+     *
+     * @return PasswordSingleSignOnField|null The fields
+     */
     public function getFields()
     {
         if (array_key_exists("fields", $this->_propDict)) {
-            if (is_a($this->_propDict["fields"], "\Beta\Microsoft\Graph\Model\PasswordSingleSignOnField") || is_null($this->_propDict["fields"])) {
+            if (is_a($this->_propDict["fields"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PasswordSingleSignOnField") || is_null($this->_propDict["fields"])) {
                 return $this->_propDict["fields"];
             } else {
                 $this->_propDict["fields"] = new PasswordSingleSignOnField($this->_propDict["fields"]);
@@ -44,17 +45,16 @@ class PasswordSingleSignOnSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the fields
-    *
-    * @param PasswordSingleSignOnField $val The value to assign to the fields
-    *
-    * @return PasswordSingleSignOnSettings The PasswordSingleSignOnSettings
-    */
+     * Sets the fields
+     *
+     * @param PasswordSingleSignOnField $val The value to assign to the fields
+     *
+     * @return PasswordSingleSignOnSettings The PasswordSingleSignOnSettings
+     */
     public function setFields($val)
     {
         $this->_propDict["fields"] = $val;
-         return $this;
+        return $this;
     }
 }

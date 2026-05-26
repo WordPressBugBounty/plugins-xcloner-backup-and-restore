@@ -1,9 +1,10 @@
 <?php
-namespace Aws\Api;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Api;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Represents a timestamp shape.
  */
@@ -14,7 +15,6 @@ class TimestampShape extends Shape
         $definition['type'] = 'timestamp';
         parent::__construct($definition, $shapeMap);
     }
-
     /**
      * Formats a timestamp value for a service.
      *
@@ -32,10 +32,8 @@ class TimestampShape extends Shape
         } elseif (is_string($value)) {
             $value = strtotime($value);
         } elseif (!is_int($value)) {
-            throw new \InvalidArgumentException('Unable to handle the provided'
-                . ' timestamp type: ' . gettype($value));
+            throw new \InvalidArgumentException('Unable to handle the provided' . ' timestamp type: ' . gettype($value));
         }
-
         switch ($format) {
             case 'iso8601':
                 return gmdate('Y-m-d\TH:i:s\Z', $value);
@@ -44,8 +42,7 @@ class TimestampShape extends Shape
             case 'unixTimestamp':
                 return $value;
             default:
-                throw new \UnexpectedValueException('Unknown timestamp format: '
-                    . $format);
+                throw new \UnexpectedValueException('Unknown timestamp format: ' . $format);
         }
     }
 }

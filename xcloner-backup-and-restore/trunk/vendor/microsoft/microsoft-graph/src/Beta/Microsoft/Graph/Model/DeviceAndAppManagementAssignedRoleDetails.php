@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceAndAppManagementAssignedRoleDetails class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceAndAppManagementAssignedRoleDetails extends Entity
 {
     /**
-    * Gets the roleAssignmentIds
-    * Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
-    *
-    * @return string|null The roleAssignmentIds
-    */
+     * Gets the roleAssignmentIds
+     * Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
+     *
+     * @return string|null The roleAssignmentIds
+     */
     public function getRoleAssignmentIds()
     {
         if (array_key_exists("roleAssignmentIds", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceAndAppManagementAssignedRoleDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleAssignmentIds
-    * Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
-    *
-    * @param string $val The value of the roleAssignmentIds
-    *
-    * @return DeviceAndAppManagementAssignedRoleDetails
-    */
+     * Sets the roleAssignmentIds
+     * Role Assignment IDs for the specifc Role Assignments assigned to a user. This property is read-only.
+     *
+     * @param string $val The value of the roleAssignmentIds
+     *
+     * @return DeviceAndAppManagementAssignedRoleDetails
+     */
     public function setRoleAssignmentIds($val)
     {
         $this->_propDict["roleAssignmentIds"] = $val;
         return $this;
     }
     /**
-    * Gets the roleDefinitionIds
-    * Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
-    *
-    * @return string|null The roleDefinitionIds
-    */
+     * Gets the roleDefinitionIds
+     * Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
+     *
+     * @return string|null The roleDefinitionIds
+     */
     public function getRoleDefinitionIds()
     {
         if (array_key_exists("roleDefinitionIds", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DeviceAndAppManagementAssignedRoleDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleDefinitionIds
-    * Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
-    *
-    * @param string $val The value of the roleDefinitionIds
-    *
-    * @return DeviceAndAppManagementAssignedRoleDetails
-    */
+     * Sets the roleDefinitionIds
+     * Role Definition IDs for the specifc Role Definitions assigned to a user. This property is read-only.
+     *
+     * @param string $val The value of the roleDefinitionIds
+     *
+     * @return DeviceAndAppManagementAssignedRoleDetails
+     */
     public function setRoleDefinitionIds($val)
     {
         $this->_propDict["roleDefinitionIds"] = $val;

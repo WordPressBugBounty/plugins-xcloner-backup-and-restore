@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceAndAppManagementRoleAssignment class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceAndAppManagementRoleAssignment extends RoleAssignment
 {
     /**
-    * Gets the members
-    * The list of ids of role member security groups. These are IDs from Azure Active Directory.
-    *
-    * @return array|null The members
-    */
+     * Gets the members
+     * The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     *
+     * @return array|null The members
+     */
     public function getMembers()
     {
         if (array_key_exists("members", $this->_propDict)) {
@@ -41,49 +42,44 @@ class DeviceAndAppManagementRoleAssignment extends RoleAssignment
             return null;
         }
     }
-
     /**
-    * Sets the members
-    * The list of ids of role member security groups. These are IDs from Azure Active Directory.
-    *
-    * @param string[] $val The members
-    *
-    * @return DeviceAndAppManagementRoleAssignment
-    */
+     * Sets the members
+     * The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     *
+     * @param string[] $val The members
+     *
+     * @return DeviceAndAppManagementRoleAssignment
+     */
     public function setMembers($val)
     {
         $this->_propDict["members"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the roleScopeTags
-    * The set of Role Scope Tags defined on the Role Assignment.
+     * The set of Role Scope Tags defined on the Role Assignment.
      *
      * @return array|null The roleScopeTags
      */
     public function getRoleScopeTags()
     {
         if (array_key_exists("roleScopeTags", $this->_propDict)) {
-           return $this->_propDict["roleScopeTags"];
+            return $this->_propDict["roleScopeTags"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the roleScopeTags
-    * The set of Role Scope Tags defined on the Role Assignment.
-    *
-    * @param RoleScopeTag[] $val The roleScopeTags
-    *
-    * @return DeviceAndAppManagementRoleAssignment
-    */
+     * Sets the roleScopeTags
+     * The set of Role Scope Tags defined on the Role Assignment.
+     *
+     * @param RoleScopeTag[] $val The roleScopeTags
+     *
+     * @return DeviceAndAppManagementRoleAssignment
+     */
     public function setRoleScopeTags($val)
     {
         $this->_propDict["roleScopeTags"] = $val;
         return $this;
     }
-
 }

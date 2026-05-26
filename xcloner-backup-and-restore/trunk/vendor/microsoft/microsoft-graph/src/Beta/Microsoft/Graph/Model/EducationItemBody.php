@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationItemBody class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationItemBody extends Entity
 {
     /**
-    * Gets the content
-    *
-    * @return string|null The content
-    */
+     * Gets the content
+     *
+     * @return string|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
@@ -39,29 +41,27 @@ class EducationItemBody extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the content
-    *
-    * @param string $val The value of the content
-    *
-    * @return EducationItemBody
-    */
+     * Sets the content
+     *
+     * @param string $val The value of the content
+     *
+     * @return EducationItemBody
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
     /**
-    * Gets the contentType
-    *
-    * @return BodyType|null The contentType
-    */
+     * Gets the contentType
+     *
+     * @return BodyType|null The contentType
+     */
     public function getContentType()
     {
         if (array_key_exists("contentType", $this->_propDict)) {
-            if (is_a($this->_propDict["contentType"], "\Beta\Microsoft\Graph\Model\BodyType") || is_null($this->_propDict["contentType"])) {
+            if (is_a($this->_propDict["contentType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\BodyType") || is_null($this->_propDict["contentType"])) {
                 return $this->_propDict["contentType"];
             } else {
                 $this->_propDict["contentType"] = new BodyType($this->_propDict["contentType"]);
@@ -70,17 +70,16 @@ class EducationItemBody extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the contentType
-    *
-    * @param BodyType $val The value to assign to the contentType
-    *
-    * @return EducationItemBody The EducationItemBody
-    */
+     * Sets the contentType
+     *
+     * @param BodyType $val The value to assign to the contentType
+     *
+     * @return EducationItemBody The EducationItemBody
+     */
     public function setContentType($val)
     {
         $this->_propDict["contentType"] = $val;
-         return $this;
+        return $this;
     }
 }

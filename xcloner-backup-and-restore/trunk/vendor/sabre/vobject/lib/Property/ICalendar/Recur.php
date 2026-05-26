@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Property\ICalendar;
+namespace XCloner\Sabre\VObject\Property\ICalendar;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
+use XCloner\Sabre\Xml;
 /**
  * Recur property.
  *
@@ -40,15 +39,13 @@ class Recur extends Property
         if ($value instanceof \StdClass) {
             $value = (array) $value;
         }
-
         if (is_array($value)) {
             $newVal = [];
             foreach ($value as $k => $v) {
                 if (is_string($v)) {
                     $v = strtoupper($v);
-
                     // The value had multiple sub-values
-                    if (false !== strpos($v, ',')) {
+                    if (\false !== strpos($v, ',')) {
                         $v = explode(',', $v);
                     }
                     if (0 === strcmp($k, 'until')) {
@@ -57,7 +54,6 @@ class Recur extends Property
                 } elseif (is_array($v)) {
                     $v = array_map('strtoupper', $v);
                 }
-
                 $newVal[strtoupper($k)] = $v;
             }
             $this->value = $newVal;
@@ -67,7 +63,6 @@ class Recur extends Property
             throw new \InvalidArgumentException('You must either pass a string, or a key=>value array');
         }
     }
-
     /**
      * Returns the current value.
      *
@@ -83,12 +78,10 @@ class Recur extends Property
     {
         $out = [];
         foreach ($this->value as $key => $value) {
-            $out[] = $key.'='.(is_array($value) ? implode(',', $value) : $value);
+            $out[] = $key . '=' . (is_array($value) ? implode(',', $value) : $value);
         }
-
         return strtoupper(implode(';', $out));
     }
-
     /**
      * Sets a multi-valued property.
      */
@@ -96,7 +89,6 @@ class Recur extends Property
     {
         $this->setValue($parts);
     }
-
     /**
      * Returns a multi-valued property.
      *
@@ -109,7 +101,6 @@ class Recur extends Property
     {
         return $this->value;
     }
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -122,7 +113,6 @@ class Recur extends Property
     {
         $this->setValue($val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -132,7 +122,6 @@ class Recur extends Property
     {
         return $this->getValue();
     }
-
     /**
      * Returns the type of value.
      *
@@ -145,7 +134,6 @@ class Recur extends Property
     {
         return 'RECUR';
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -166,10 +154,8 @@ class Recur extends Property
                 $values[strtolower($k)] = $v;
             }
         }
-
         return [$values];
     }
-
     /**
      * This method serializes only the value of a property. This is used to
      * create xCard or xCal documents.
@@ -179,12 +165,10 @@ class Recur extends Property
     protected function xmlSerializeValue(Xml\Writer $writer)
     {
         $valueType = strtolower($this->getValueType());
-
         foreach ($this->getJsonValue() as $value) {
             $writer->writeElement($valueType, $value);
         }
     }
-
     /**
      * Parses an RRULE value string, and turns it into a struct-ish array.
      *
@@ -202,17 +186,14 @@ class Recur extends Property
                 continue;
             }
             list($partName, $partValue) = explode('=', $part);
-
             // The value itself had multiple values..
-            if (false !== strpos($partValue, ',')) {
+            if (\false !== strpos($partValue, ',')) {
                 $partValue = explode(',', $partValue);
             }
             $newValue[$partName] = $partValue;
         }
-
         return $newValue;
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -237,18 +218,12 @@ class Recur extends Property
      */
     public function validate($options = 0)
     {
-        $repair = ($options & self::REPAIR);
-
+        $repair = $options & self::REPAIR;
         $warnings = parent::validate($options);
         $values = $this->getParts();
-
         foreach ($values as $key => $value) {
             if ('' === $value) {
-                $warnings[] = [
-                    'level' => $repair ? 1 : 3,
-                    'message' => 'Invalid value for '.$key.' in '.$this->name,
-                    'node' => $this,
-                ];
+                $warnings[] = ['level' => $repair ? 1 : 3, 'message' => 'Invalid value for ' . $key . ' in ' . $this->name, 'node' => $this];
                 if ($repair) {
                     unset($values[$key]);
                 }
@@ -256,11 +231,7 @@ class Recur extends Property
                 $byMonth = (array) $value;
                 foreach ($byMonth as $i => $v) {
                     if (!is_numeric($v) || (int) $v < 1 || (int) $v > 12) {
-                        $warnings[] = [
-                            'level' => $repair ? 1 : 3,
-                            'message' => 'BYMONTH in RRULE must have value(s) between 1 and 12!',
-                            'node' => $this,
-                        ];
+                        $warnings[] = ['level' => $repair ? 1 : 3, 'message' => 'BYMONTH in RRULE must have value(s) between 1 and 12!', 'node' => $this];
                         if ($repair) {
                             if (is_array($value)) {
                                 unset($values[$key][$i]);
@@ -278,11 +249,7 @@ class Recur extends Property
                 $byWeekNo = (array) $value;
                 foreach ($byWeekNo as $i => $v) {
                     if (!is_numeric($v) || (int) $v < -53 || 0 == (int) $v || (int) $v > 53) {
-                        $warnings[] = [
-                            'level' => $repair ? 1 : 3,
-                            'message' => 'BYWEEKNO in RRULE must have value(s) from -53 to -1, or 1 to 53!',
-                            'node' => $this,
-                        ];
+                        $warnings[] = ['level' => $repair ? 1 : 3, 'message' => 'BYWEEKNO in RRULE must have value(s) from -53 to -1, or 1 to 53!', 'node' => $this];
                         if ($repair) {
                             if (is_array($value)) {
                                 unset($values[$key][$i]);
@@ -300,11 +267,7 @@ class Recur extends Property
                 $byYearDay = (array) $value;
                 foreach ($byYearDay as $i => $v) {
                     if (!is_numeric($v) || (int) $v < -366 || 0 == (int) $v || (int) $v > 366) {
-                        $warnings[] = [
-                            'level' => $repair ? 1 : 3,
-                            'message' => 'BYYEARDAY in RRULE must have value(s) from -366 to -1, or 1 to 366!',
-                            'node' => $this,
-                        ];
+                        $warnings[] = ['level' => $repair ? 1 : 3, 'message' => 'BYYEARDAY in RRULE must have value(s) from -366 to -1, or 1 to 366!', 'node' => $this];
                         if ($repair) {
                             if (is_array($value)) {
                                 unset($values[$key][$i]);
@@ -321,11 +284,7 @@ class Recur extends Property
             }
         }
         if (!isset($values['FREQ'])) {
-            $warnings[] = [
-                'level' => $repair ? 1 : 3,
-                'message' => 'FREQ is required in '.$this->name,
-                'node' => $this,
-            ];
+            $warnings[] = ['level' => $repair ? 1 : 3, 'message' => 'FREQ is required in ' . $this->name, 'node' => $this];
             if ($repair) {
                 $this->parent->remove($this);
             }
@@ -333,7 +292,6 @@ class Recur extends Property
         if ($repair) {
             $this->setValue($values);
         }
-
         return $warnings;
     }
 }

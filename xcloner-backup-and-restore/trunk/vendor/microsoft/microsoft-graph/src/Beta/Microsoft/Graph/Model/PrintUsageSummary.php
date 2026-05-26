@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintUsageSummary class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrintUsageSummary extends Entity
 {
     /**
-    * Gets the completedJobCount
-    *
-    * @return int|null The completedJobCount
-    */
+     * Gets the completedJobCount
+     *
+     * @return int|null The completedJobCount
+     */
     public function getCompletedJobCount()
     {
         if (array_key_exists("completedJobCount", $this->_propDict)) {
@@ -39,24 +41,23 @@ class PrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedJobCount
-    *
-    * @param int $val The value of the completedJobCount
-    *
-    * @return PrintUsageSummary
-    */
+     * Sets the completedJobCount
+     *
+     * @param int $val The value of the completedJobCount
+     *
+     * @return PrintUsageSummary
+     */
     public function setCompletedJobCount($val)
     {
         $this->_propDict["completedJobCount"] = $val;
         return $this;
     }
     /**
-    * Gets the incompleteJobCount
-    *
-    * @return int|null The incompleteJobCount
-    */
+     * Gets the incompleteJobCount
+     *
+     * @return int|null The incompleteJobCount
+     */
     public function getIncompleteJobCount()
     {
         if (array_key_exists("incompleteJobCount", $this->_propDict)) {
@@ -65,14 +66,13 @@ class PrintUsageSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the incompleteJobCount
-    *
-    * @param int $val The value of the incompleteJobCount
-    *
-    * @return PrintUsageSummary
-    */
+     * Sets the incompleteJobCount
+     *
+     * @param int $val The value of the incompleteJobCount
+     *
+     * @return PrintUsageSummary
+     */
     public function setIncompleteJobCount($val)
     {
         $this->_propDict["incompleteJobCount"] = $val;

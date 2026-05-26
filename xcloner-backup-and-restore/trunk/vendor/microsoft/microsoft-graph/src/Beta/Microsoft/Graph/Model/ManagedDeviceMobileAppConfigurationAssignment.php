@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedDeviceMobileAppConfigurationAssignment class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedDeviceMobileAppConfigurationAssignment extends Entity
 {
     /**
-    * Gets the target
-    * Assignment target that the T&amp;C policy is assigned to.
-    *
-    * @return DeviceAndAppManagementAssignmentTarget|null The target
-    */
+     * Gets the target
+     * Assignment target that the T&amp;C policy is assigned to.
+     *
+     * @return DeviceAndAppManagementAssignmentTarget|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -45,19 +46,17 @@ class ManagedDeviceMobileAppConfigurationAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the target
-    * Assignment target that the T&amp;C policy is assigned to.
-    *
-    * @param DeviceAndAppManagementAssignmentTarget $val The target
-    *
-    * @return ManagedDeviceMobileAppConfigurationAssignment
-    */
+     * Sets the target
+     * Assignment target that the T&amp;C policy is assigned to.
+     *
+     * @param DeviceAndAppManagementAssignmentTarget $val The target
+     *
+     * @return ManagedDeviceMobileAppConfigurationAssignment
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;
         return $this;
     }
-
 }

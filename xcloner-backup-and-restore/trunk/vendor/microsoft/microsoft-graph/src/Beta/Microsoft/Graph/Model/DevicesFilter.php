@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DevicesFilter class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DevicesFilter extends Entity
 {
-
     /**
-    * Gets the mode
-    *
-    * @return CrossTenantAccessPolicyTargetConfigurationAccessType|null The mode
-    */
+     * Gets the mode
+     *
+     * @return CrossTenantAccessPolicyTargetConfigurationAccessType|null The mode
+     */
     public function getMode()
     {
         if (array_key_exists("mode", $this->_propDict)) {
-            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\CrossTenantAccessPolicyTargetConfigurationAccessType") || is_null($this->_propDict["mode"])) {
+            if (is_a($this->_propDict["mode"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CrossTenantAccessPolicyTargetConfigurationAccessType") || is_null($this->_propDict["mode"])) {
                 return $this->_propDict["mode"];
             } else {
                 $this->_propDict["mode"] = new CrossTenantAccessPolicyTargetConfigurationAccessType($this->_propDict["mode"]);
@@ -44,24 +45,23 @@ class DevicesFilter extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mode
-    *
-    * @param CrossTenantAccessPolicyTargetConfigurationAccessType $val The value to assign to the mode
-    *
-    * @return DevicesFilter The DevicesFilter
-    */
+     * Sets the mode
+     *
+     * @param CrossTenantAccessPolicyTargetConfigurationAccessType $val The value to assign to the mode
+     *
+     * @return DevicesFilter The DevicesFilter
+     */
     public function setMode($val)
     {
         $this->_propDict["mode"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the rule
-    *
-    * @return string|null The rule
-    */
+     * Gets the rule
+     *
+     * @return string|null The rule
+     */
     public function getRule()
     {
         if (array_key_exists("rule", $this->_propDict)) {
@@ -70,14 +70,13 @@ class DevicesFilter extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the rule
-    *
-    * @param string $val The value of the rule
-    *
-    * @return DevicesFilter
-    */
+     * Sets the rule
+     *
+     * @param string $val The value of the rule
+     *
+     * @return DevicesFilter
+     */
     public function setRule($val)
     {
         $this->_propDict["rule"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ComplianceInformation class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ComplianceInformation extends Entity
 {
-
     /**
-    * Gets the certificationControls
-    * Collection of the certification controls associated with certification
-    *
-    * @return CertificationControl|null The certificationControls
-    */
+     * Gets the certificationControls
+     * Collection of the certification controls associated with certification
+     *
+     * @return CertificationControl|null The certificationControls
+     */
     public function getCertificationControls()
     {
         if (array_key_exists("certificationControls", $this->_propDict)) {
-            if (is_a($this->_propDict["certificationControls"], "\Microsoft\Graph\Model\CertificationControl") || is_null($this->_propDict["certificationControls"])) {
+            if (is_a($this->_propDict["certificationControls"], "XCloner\\Microsoft\\Graph\\Model\\CertificationControl") || is_null($this->_propDict["certificationControls"])) {
                 return $this->_propDict["certificationControls"];
             } else {
                 $this->_propDict["certificationControls"] = new CertificationControl($this->_propDict["certificationControls"]);
@@ -45,26 +46,25 @@ class ComplianceInformation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the certificationControls
-    * Collection of the certification controls associated with certification
-    *
-    * @param CertificationControl $val The value to assign to the certificationControls
-    *
-    * @return ComplianceInformation The ComplianceInformation
-    */
+     * Sets the certificationControls
+     * Collection of the certification controls associated with certification
+     *
+     * @param CertificationControl $val The value to assign to the certificationControls
+     *
+     * @return ComplianceInformation The ComplianceInformation
+     */
     public function setCertificationControls($val)
     {
         $this->_propDict["certificationControls"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the certificationName
-    * Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)
-    *
-    * @return string|null The certificationName
-    */
+     * Gets the certificationName
+     * Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)
+     *
+     * @return string|null The certificationName
+     */
     public function getCertificationName()
     {
         if (array_key_exists("certificationName", $this->_propDict)) {
@@ -73,15 +73,14 @@ class ComplianceInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the certificationName
-    * Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)
-    *
-    * @param string $val The value of the certificationName
-    *
-    * @return ComplianceInformation
-    */
+     * Sets the certificationName
+     * Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)
+     *
+     * @param string $val The value of the certificationName
+     *
+     * @return ComplianceInformation
+     */
     public function setCertificationName($val)
     {
         $this->_propDict["certificationName"] = $val;

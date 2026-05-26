@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Backend;
 
-namespace Sabre\CalDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Every CalDAV backend must at least implement this interface.
  *
@@ -43,7 +42,6 @@ interface BackendInterface
      * @return array
      */
     public function getCalendarsForUser($principalUri);
-
     /**
      * Creates a new calendar for a principal.
      *
@@ -58,7 +56,6 @@ interface BackendInterface
      * @return mixed
      */
     public function createCalendar($principalUri, $calendarUri, array $properties);
-
     /**
      * Updates properties for a calendar.
      *
@@ -73,15 +70,13 @@ interface BackendInterface
      *
      * @param mixed $calendarId
      */
-    public function updateCalendar($calendarId, \Sabre\DAV\PropPatch $propPatch);
-
+    public function updateCalendar($calendarId, \XCloner\Sabre\DAV\PropPatch $propPatch);
     /**
      * Delete a calendar and all its objects.
      *
      * @param mixed $calendarId
      */
     public function deleteCalendar($calendarId);
-
     /**
      * Returns all calendar objects within a calendar.
      *
@@ -115,7 +110,6 @@ interface BackendInterface
      * @return array
      */
     public function getCalendarObjects($calendarId);
-
     /**
      * Returns information from a single calendar object, based on it's object
      * uri.
@@ -134,7 +128,6 @@ interface BackendInterface
      * @return array|null
      */
     public function getCalendarObject($calendarId, $objectUri);
-
     /**
      * Returns a list of calendar objects.
      *
@@ -148,7 +141,6 @@ interface BackendInterface
      * @return array
      */
     public function getMultipleCalendarObjects($calendarId, array $uris);
-
     /**
      * Creates a new calendar object.
      *
@@ -169,7 +161,6 @@ interface BackendInterface
      * @return string|null
      */
     public function createCalendarObject($calendarId, $objectUri, $calendarData);
-
     /**
      * Updates an existing calendarobject, based on it's uri.
      *
@@ -190,7 +181,6 @@ interface BackendInterface
      * @return string|null
      */
     public function updateCalendarObject($calendarId, $objectUri, $calendarData);
-
     /**
      * Deletes an existing calendar object.
      *
@@ -200,7 +190,6 @@ interface BackendInterface
      * @param string $objectUri
      */
     public function deleteCalendarObject($calendarId, $objectUri);
-
     /**
      * Performs a calendar-query on the contents of this calendar.
      *
@@ -251,7 +240,6 @@ interface BackendInterface
      * @return array
      */
     public function calendarQuery($calendarId, array $filters);
-
     /**
      * Searches through all of a users calendars and calendar objects to find
      * an object with a specific UID.

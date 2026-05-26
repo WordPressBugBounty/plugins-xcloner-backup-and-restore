@@ -2,6 +2,9 @@
 
 namespace XCloner;
 
+if (!\defined('ABSPATH')) {
+    exit;
+}
 /**
  * The plugin bootstrap file
  *
@@ -18,7 +21,7 @@ namespace XCloner;
  * Plugin Name: XCloner - Site Backup and Restore
  * Plugin URI: https://xcloner.com/
  * Description:  XCloner is a tool that will help you manage your website backups, generate/restore/move so your website will be always secured! With XCloner you will be able to clone your site to any other location with just a few clicks, as well as transfer the backup archives to remote FTP, SFTP, DropBox, Amazon S3, Google Drive, WebDAV, Backblaze, Azure accounts.
- * Version: 4.8.6
+ * Version: 4.8.7
  * Author: watchful
  * Author URI: https://watchful.net/
  * License: GPL-2.0+
@@ -46,6 +49,7 @@ if ($xcloner_cli->should_run()) {
         $xcloner_cli->run();
     } catch (\Exception $e) {
         echo $e->getMessage() . "\n";
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
     return;
 }
@@ -63,9 +67,9 @@ if (\version_compare(\phpversion(), Xcloner_Activator::xcloner_minimum_version, 
     ?>
     <div class="error notice">
         <p><?php 
-    echo \sprintf(\__("XCloner requires minimum PHP version %s in order to run correctly. We have detected your version as %s. Plugin is now deactivated."), Xcloner_Activator::xcloner_minimum_version, \phpversion());
-    ?></p>
-    </div>
+    /* translators: %1$s is a value, %2$s is a value */
+    echo \sprintf(\__('XCloner requires minimum PHP version %1$s in order to run correctly. We have detected your version as %2$s. Plugin is now deactivated.', 'xcloner-backup-and-restore'), Xcloner_Activator::xcloner_minimum_version, \phpversion());
+    ?></p>    </div>
     <?php 
     include_once \ABSPATH . 'wp-admin/includes/plugin.php';
     if (\function_exists('deactivate_plugins')) {
@@ -84,17 +88,6 @@ $db_installed_ver = \get_option("xcloner_db_version");
 $xcloner_db_version = Xcloner_Activator::xcloner_db_version;
 if ($db_installed_ver != $xcloner_db_version) {
     Xcloner_Activator::activate();
-}
-/**
- * The core plugin class that is used to define internationalization,
- * admin-specific hooks, and public-facing site hooks.
- */
-function xcloner_stop_heartbeat()
-{
-    \wp_deregister_script('heartbeat');
-}
-if (isset($_GET['page']) && \stristr($_GET['page'], "xcloner_")) {
-    \add_action('init', __NAMESPACE__ . '\xcloner_stop_heartbeat', 1);
 }
 /**
  * Begins execution of the plugin.
@@ -121,4 +114,5 @@ try {
     run_xcloner();
 } catch (\Exception $e) {
     echo $e->getMessage();
+    // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 }

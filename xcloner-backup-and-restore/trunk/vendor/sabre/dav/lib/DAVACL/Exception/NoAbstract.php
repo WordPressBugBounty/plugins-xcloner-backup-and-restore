@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Exception;
 
-namespace Sabre\DAVACL\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * This exception is thrown when a user tries to set a privilege that's marked
  * as abstract.
@@ -27,7 +25,6 @@ class NoAbstract extends DAV\Exception\PreconditionFailed
     public function serialize(DAV\Server $server, \DOMElement $errorNode)
     {
         $doc = $errorNode->ownerDocument;
-
         $np = $doc->createElementNS('DAV:', 'd:no-abstract');
         $errorNode->appendChild($np);
     }

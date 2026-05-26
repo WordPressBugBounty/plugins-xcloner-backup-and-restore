@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,15 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\visitor;
+namespace XCloner\org\bovigo\vfs\visitor;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\vfsStreamContent;
-use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\vfsStreamFile;
-use org\bovigo\vfs\vfsStreamBlock;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\vfsStreamContent;
+use XCloner\org\bovigo\vfs\vfsStreamDirectory;
+use XCloner\org\bovigo\vfs\vfsStreamFile;
+use XCloner\org\bovigo\vfs\vfsStreamBlock;
 /**
  * Interface for a visitor to work on a vfsStream content structure.
  *
@@ -31,7 +32,6 @@ interface vfsStreamVisitor
      * @return  vfsStreamVisitor
      */
     public function visit(vfsStreamContent $content);
-
     /**
      * visit a file and process it
      *
@@ -39,7 +39,6 @@ interface vfsStreamVisitor
      * @return  vfsStreamVisitor
      */
     public function visitFile(vfsStreamFile $file);
-
     /**
      * visit a directory and process it
      *
@@ -47,7 +46,6 @@ interface vfsStreamVisitor
      * @return  vfsStreamVisitor
      */
     public function visitDirectory(vfsStreamDirectory $dir);
-
     /**
      * visit a block device and process it
      *

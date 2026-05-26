@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResultTemplate class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResultTemplate extends Entity
 {
     /**
-    * Gets the body
-    * JSON schema of the result template.
-    *
-    * @return string|null The body
-    */
+     * Gets the body
+     * JSON schema of the result template.
+     *
+     * @return string|null The body
+     */
     public function getBody()
     {
         if (array_key_exists("body", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ResultTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the body
-    * JSON schema of the result template.
-    *
-    * @param string $val The value of the body
-    *
-    * @return ResultTemplate
-    */
+     * Sets the body
+     * JSON schema of the result template.
+     *
+     * @param string $val The value of the body
+     *
+     * @return ResultTemplate
+     */
     public function setBody($val)
     {
         $this->_propDict["body"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Name of the result template.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the result template.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ResultTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the result template.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ResultTemplate
-    */
+     * Sets the displayName
+     * Name of the result template.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ResultTemplate
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;

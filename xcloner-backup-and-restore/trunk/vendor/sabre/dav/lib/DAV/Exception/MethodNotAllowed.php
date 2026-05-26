@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Exception;
 
-namespace Sabre\DAV\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\Server;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Server;
 /**
  * MethodNotAllowed.
  *
@@ -30,7 +28,6 @@ class MethodNotAllowed extends DAV\Exception
     {
         return 405;
     }
-
     /**
      * This method allows the exception to return any extra HTTP response headers.
      *
@@ -41,9 +38,6 @@ class MethodNotAllowed extends DAV\Exception
     public function getHTTPHeaders(Server $server)
     {
         $methods = $server->getAllowedMethods($server->getRequestUri());
-
-        return [
-            'Allow' => strtoupper(implode(', ', $methods)),
-        ];
+        return ['Allow' => strtoupper(implode(', ', $methods))];
     }
 }

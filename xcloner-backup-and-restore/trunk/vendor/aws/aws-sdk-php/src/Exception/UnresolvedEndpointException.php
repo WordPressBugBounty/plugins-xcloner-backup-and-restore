@@ -1,14 +1,13 @@
 <?php
-namespace Aws\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Exception;
 
-
-use Aws\HasMonitoringEventsTrait;
-use Aws\MonitoringEventsInterface;
-
-class UnresolvedEndpointException extends \RuntimeException implements
-    MonitoringEventsInterface
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\HasMonitoringEventsTrait;
+use XCloner\Aws\MonitoringEventsInterface;
+class UnresolvedEndpointException extends \RuntimeException implements MonitoringEventsInterface
 {
     use HasMonitoringEventsTrait;
 }

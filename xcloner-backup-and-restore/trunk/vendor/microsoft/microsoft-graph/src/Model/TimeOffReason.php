@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeOffReason class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TimeOffReason extends ChangeTrackedEntity
 {
     /**
-    * Gets the displayName
-    * The name of the timeOffReason. Required.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the timeOffReason. Required.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class TimeOffReason extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the timeOffReason. Required.
-    *
-    * @param string $val The displayName
-    *
-    * @return TimeOffReason
-    */
+     * Sets the displayName
+     * The name of the timeOffReason. Required.
+     *
+     * @param string $val The displayName
+     *
+     * @return TimeOffReason
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the iconType
-    * Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
-    *
-    * @return TimeOffReasonIconType|null The iconType
-    */
+     * Gets the iconType
+     * Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+     *
+     * @return TimeOffReasonIconType|null The iconType
+     */
     public function getIconType()
     {
         if (array_key_exists("iconType", $this->_propDict)) {
-            if (is_a($this->_propDict["iconType"], "\Microsoft\Graph\Model\TimeOffReasonIconType") || is_null($this->_propDict["iconType"])) {
+            if (is_a($this->_propDict["iconType"], "XCloner\\Microsoft\\Graph\\Model\\TimeOffReasonIconType") || is_null($this->_propDict["iconType"])) {
                 return $this->_propDict["iconType"];
             } else {
                 $this->_propDict["iconType"] = new TimeOffReasonIconType($this->_propDict["iconType"]);
@@ -74,27 +73,25 @@ class TimeOffReason extends ChangeTrackedEntity
         }
         return null;
     }
-
     /**
-    * Sets the iconType
-    * Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
-    *
-    * @param TimeOffReasonIconType $val The iconType
-    *
-    * @return TimeOffReason
-    */
+     * Sets the iconType
+     * Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+     *
+     * @param TimeOffReasonIconType $val The iconType
+     *
+     * @return TimeOffReason
+     */
     public function setIconType($val)
     {
         $this->_propDict["iconType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isActive
-    * Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
-    *
-    * @return bool|null The isActive
-    */
+     * Gets the isActive
+     * Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
+     *
+     * @return bool|null The isActive
+     */
     public function getIsActive()
     {
         if (array_key_exists("isActive", $this->_propDict)) {
@@ -103,19 +100,17 @@ class TimeOffReason extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the isActive
-    * Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
-    *
-    * @param bool $val The isActive
-    *
-    * @return TimeOffReason
-    */
+     * Sets the isActive
+     * Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
+     *
+     * @param bool $val The isActive
+     *
+     * @return TimeOffReason
+     */
     public function setIsActive($val)
     {
         $this->_propDict["isActive"] = boolval($val);
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * File class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class File extends Entity
 {
-
     /**
-    * Gets the hashes
-    * Hashes of the file's binary content, if available. Read-only.
-    *
-    * @return Hashes|null The hashes
-    */
+     * Gets the hashes
+     * Hashes of the file's binary content, if available. Read-only.
+     *
+     * @return Hashes|null The hashes
+     */
     public function getHashes()
     {
         if (array_key_exists("hashes", $this->_propDict)) {
-            if (is_a($this->_propDict["hashes"], "\Microsoft\Graph\Model\Hashes") || is_null($this->_propDict["hashes"])) {
+            if (is_a($this->_propDict["hashes"], "XCloner\\Microsoft\\Graph\\Model\\Hashes") || is_null($this->_propDict["hashes"])) {
                 return $this->_propDict["hashes"];
             } else {
                 $this->_propDict["hashes"] = new Hashes($this->_propDict["hashes"]);
@@ -45,26 +46,25 @@ class File extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the hashes
-    * Hashes of the file's binary content, if available. Read-only.
-    *
-    * @param Hashes $val The value to assign to the hashes
-    *
-    * @return File The File
-    */
+     * Sets the hashes
+     * Hashes of the file's binary content, if available. Read-only.
+     *
+     * @param Hashes $val The value to assign to the hashes
+     *
+     * @return File The File
+     */
     public function setHashes($val)
     {
         $this->_propDict["hashes"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the mimeType
-    * The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.
-    *
-    * @return string|null The mimeType
-    */
+     * Gets the mimeType
+     * The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.
+     *
+     * @return string|null The mimeType
+     */
     public function getMimeType()
     {
         if (array_key_exists("mimeType", $this->_propDict)) {
@@ -73,25 +73,24 @@ class File extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mimeType
-    * The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.
-    *
-    * @param string $val The value of the mimeType
-    *
-    * @return File
-    */
+     * Sets the mimeType
+     * The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.
+     *
+     * @param string $val The value of the mimeType
+     *
+     * @return File
+     */
     public function setMimeType($val)
     {
         $this->_propDict["mimeType"] = $val;
         return $this;
     }
     /**
-    * Gets the processingMetadata
-    *
-    * @return bool|null The processingMetadata
-    */
+     * Gets the processingMetadata
+     *
+     * @return bool|null The processingMetadata
+     */
     public function getProcessingMetadata()
     {
         if (array_key_exists("processingMetadata", $this->_propDict)) {
@@ -100,14 +99,13 @@ class File extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the processingMetadata
-    *
-    * @param bool $val The value of the processingMetadata
-    *
-    * @return File
-    */
+     * Sets the processingMetadata
+     *
+     * @param bool $val The value of the processingMetadata
+     *
+     * @return File
+     */
     public function setProcessingMetadata($val)
     {
         $this->_propDict["processingMetadata"] = $val;

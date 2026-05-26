@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TodoTask class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TodoTask extends Entity
 {
     /**
-    * Gets the body
-    * The task body that typically contains information about the task.
-    *
-    * @return ItemBody|null The body
-    */
+     * Gets the body
+     * The task body that typically contains information about the task.
+     *
+     * @return ItemBody|null The body
+     */
     public function getBody()
     {
         if (array_key_exists("body", $this->_propDict)) {
-            if (is_a($this->_propDict["body"], "\Beta\Microsoft\Graph\Model\ItemBody") || is_null($this->_propDict["body"])) {
+            if (is_a($this->_propDict["body"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ItemBody") || is_null($this->_propDict["body"])) {
                 return $this->_propDict["body"];
             } else {
                 $this->_propDict["body"] = new ItemBody($this->_propDict["body"]);
@@ -45,31 +46,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the body
-    * The task body that typically contains information about the task.
-    *
-    * @param ItemBody $val The body
-    *
-    * @return TodoTask
-    */
+     * Sets the body
+     * The task body that typically contains information about the task.
+     *
+     * @param ItemBody $val The body
+     *
+     * @return TodoTask
+     */
     public function setBody($val)
     {
         $this->_propDict["body"] = $val;
         return $this;
     }
-
     /**
-    * Gets the bodyLastModifiedDateTime
-    * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
-    *
-    * @return \DateTime|null The bodyLastModifiedDateTime
-    */
+     * Gets the bodyLastModifiedDateTime
+     * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     *
+     * @return \DateTime|null The bodyLastModifiedDateTime
+     */
     public function getBodyLastModifiedDateTime()
     {
         if (array_key_exists("bodyLastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["bodyLastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["bodyLastModifiedDateTime"])) {
+            if (is_a($this->_propDict["bodyLastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["bodyLastModifiedDateTime"])) {
                 return $this->_propDict["bodyLastModifiedDateTime"];
             } else {
                 $this->_propDict["bodyLastModifiedDateTime"] = new \DateTime($this->_propDict["bodyLastModifiedDateTime"]);
@@ -78,27 +77,25 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the bodyLastModifiedDateTime
-    * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
-    *
-    * @param \DateTime $val The bodyLastModifiedDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the bodyLastModifiedDateTime
+     * The date and time when the task body was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     *
+     * @param \DateTime $val The bodyLastModifiedDateTime
+     *
+     * @return TodoTask
+     */
     public function setBodyLastModifiedDateTime($val)
     {
         $this->_propDict["bodyLastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the categories
-    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
-    *
-    * @return array|null The categories
-    */
+     * Gets the categories
+     * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
+     *
+     * @return array|null The categories
+     */
     public function getCategories()
     {
         if (array_key_exists("categories", $this->_propDict)) {
@@ -107,31 +104,29 @@ class TodoTask extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the categories
-    * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
-    *
-    * @param string[] $val The categories
-    *
-    * @return TodoTask
-    */
+     * Sets the categories
+     * The categories associated with the task. Each category corresponds to the displayName property of an outlookCategory that the user has defined.
+     *
+     * @param string[] $val The categories
+     *
+     * @return TodoTask
+     */
     public function setCategories($val)
     {
         $this->_propDict["categories"] = $val;
         return $this;
     }
-
     /**
-    * Gets the completedDateTime
-    * The date and time in the specified time zone that the task was finished.
-    *
-    * @return DateTimeTimeZone|null The completedDateTime
-    */
+     * Gets the completedDateTime
+     * The date and time in the specified time zone that the task was finished.
+     *
+     * @return DateTimeTimeZone|null The completedDateTime
+     */
     public function getCompletedDateTime()
     {
         if (array_key_exists("completedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["completedDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["completedDateTime"])) {
+            if (is_a($this->_propDict["completedDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["completedDateTime"])) {
                 return $this->_propDict["completedDateTime"];
             } else {
                 $this->_propDict["completedDateTime"] = new DateTimeTimeZone($this->_propDict["completedDateTime"]);
@@ -140,31 +135,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the completedDateTime
-    * The date and time in the specified time zone that the task was finished.
-    *
-    * @param DateTimeTimeZone $val The completedDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the completedDateTime
+     * The date and time in the specified time zone that the task was finished.
+     *
+     * @param DateTimeTimeZone $val The completedDateTime
+     *
+     * @return TodoTask
+     */
     public function setCompletedDateTime($val)
     {
         $this->_propDict["completedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -173,31 +166,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the createdDateTime
+     * The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return TodoTask
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the dueDateTime
-    * The date and time in the specified time zone that the task is to be finished.
-    *
-    * @return DateTimeTimeZone|null The dueDateTime
-    */
+     * Gets the dueDateTime
+     * The date and time in the specified time zone that the task is to be finished.
+     *
+     * @return DateTimeTimeZone|null The dueDateTime
+     */
     public function getDueDateTime()
     {
         if (array_key_exists("dueDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dueDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["dueDateTime"])) {
+            if (is_a($this->_propDict["dueDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["dueDateTime"])) {
                 return $this->_propDict["dueDateTime"];
             } else {
                 $this->_propDict["dueDateTime"] = new DateTimeTimeZone($this->_propDict["dueDateTime"]);
@@ -206,27 +197,25 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the dueDateTime
-    * The date and time in the specified time zone that the task is to be finished.
-    *
-    * @param DateTimeTimeZone $val The dueDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the dueDateTime
+     * The date and time in the specified time zone that the task is to be finished.
+     *
+     * @param DateTimeTimeZone $val The dueDateTime
+     *
+     * @return TodoTask
+     */
     public function setDueDateTime($val)
     {
         $this->_propDict["dueDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the hasAttachments
-    * Indicates whether the task has attachments.
-    *
-    * @return bool|null The hasAttachments
-    */
+     * Gets the hasAttachments
+     * Indicates whether the task has attachments.
+     *
+     * @return bool|null The hasAttachments
+     */
     public function getHasAttachments()
     {
         if (array_key_exists("hasAttachments", $this->_propDict)) {
@@ -235,31 +224,29 @@ class TodoTask extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hasAttachments
-    * Indicates whether the task has attachments.
-    *
-    * @param bool $val The hasAttachments
-    *
-    * @return TodoTask
-    */
+     * Sets the hasAttachments
+     * Indicates whether the task has attachments.
+     *
+     * @param bool $val The hasAttachments
+     *
+     * @return TodoTask
+     */
     public function setHasAttachments($val)
     {
         $this->_propDict["hasAttachments"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the importance
-    * The importance of the task. Possible values are: low, normal, high.
-    *
-    * @return Importance|null The importance
-    */
+     * Gets the importance
+     * The importance of the task. Possible values are: low, normal, high.
+     *
+     * @return Importance|null The importance
+     */
     public function getImportance()
     {
         if (array_key_exists("importance", $this->_propDict)) {
-            if (is_a($this->_propDict["importance"], "\Beta\Microsoft\Graph\Model\Importance") || is_null($this->_propDict["importance"])) {
+            if (is_a($this->_propDict["importance"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Importance") || is_null($this->_propDict["importance"])) {
                 return $this->_propDict["importance"];
             } else {
                 $this->_propDict["importance"] = new Importance($this->_propDict["importance"]);
@@ -268,27 +255,25 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the importance
-    * The importance of the task. Possible values are: low, normal, high.
-    *
-    * @param Importance $val The importance
-    *
-    * @return TodoTask
-    */
+     * Sets the importance
+     * The importance of the task. Possible values are: low, normal, high.
+     *
+     * @param Importance $val The importance
+     *
+     * @return TodoTask
+     */
     public function setImportance($val)
     {
         $this->_propDict["importance"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isReminderOn
-    * Set to true if an alert is set to remind the user of the task.
-    *
-    * @return bool|null The isReminderOn
-    */
+     * Gets the isReminderOn
+     * Set to true if an alert is set to remind the user of the task.
+     *
+     * @return bool|null The isReminderOn
+     */
     public function getIsReminderOn()
     {
         if (array_key_exists("isReminderOn", $this->_propDict)) {
@@ -297,31 +282,29 @@ class TodoTask extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isReminderOn
-    * Set to true if an alert is set to remind the user of the task.
-    *
-    * @param bool $val The isReminderOn
-    *
-    * @return TodoTask
-    */
+     * Sets the isReminderOn
+     * Set to true if an alert is set to remind the user of the task.
+     *
+     * @param bool $val The isReminderOn
+     *
+     * @return TodoTask
+     */
     public function setIsReminderOn($val)
     {
         $this->_propDict["isReminderOn"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -330,31 +313,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return TodoTask
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recurrence
-    * The recurrence pattern for the task.
-    *
-    * @return PatternedRecurrence|null The recurrence
-    */
+     * Gets the recurrence
+     * The recurrence pattern for the task.
+     *
+     * @return PatternedRecurrence|null The recurrence
+     */
     public function getRecurrence()
     {
         if (array_key_exists("recurrence", $this->_propDict)) {
-            if (is_a($this->_propDict["recurrence"], "\Beta\Microsoft\Graph\Model\PatternedRecurrence") || is_null($this->_propDict["recurrence"])) {
+            if (is_a($this->_propDict["recurrence"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PatternedRecurrence") || is_null($this->_propDict["recurrence"])) {
                 return $this->_propDict["recurrence"];
             } else {
                 $this->_propDict["recurrence"] = new PatternedRecurrence($this->_propDict["recurrence"]);
@@ -363,31 +344,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the recurrence
-    * The recurrence pattern for the task.
-    *
-    * @param PatternedRecurrence $val The recurrence
-    *
-    * @return TodoTask
-    */
+     * Sets the recurrence
+     * The recurrence pattern for the task.
+     *
+     * @param PatternedRecurrence $val The recurrence
+     *
+     * @return TodoTask
+     */
     public function setRecurrence($val)
     {
         $this->_propDict["recurrence"] = $val;
         return $this;
     }
-
     /**
-    * Gets the reminderDateTime
-    * The date and time in the specified time zone for a reminder alert of the task to occur.
-    *
-    * @return DateTimeTimeZone|null The reminderDateTime
-    */
+     * Gets the reminderDateTime
+     * The date and time in the specified time zone for a reminder alert of the task to occur.
+     *
+     * @return DateTimeTimeZone|null The reminderDateTime
+     */
     public function getReminderDateTime()
     {
         if (array_key_exists("reminderDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["reminderDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["reminderDateTime"])) {
+            if (is_a($this->_propDict["reminderDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["reminderDateTime"])) {
                 return $this->_propDict["reminderDateTime"];
             } else {
                 $this->_propDict["reminderDateTime"] = new DateTimeTimeZone($this->_propDict["reminderDateTime"]);
@@ -396,31 +375,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the reminderDateTime
-    * The date and time in the specified time zone for a reminder alert of the task to occur.
-    *
-    * @param DateTimeTimeZone $val The reminderDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the reminderDateTime
+     * The date and time in the specified time zone for a reminder alert of the task to occur.
+     *
+     * @param DateTimeTimeZone $val The reminderDateTime
+     *
+     * @return TodoTask
+     */
     public function setReminderDateTime($val)
     {
         $this->_propDict["reminderDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDateTime
-    * The date and time in the specified time zone at which the task is scheduled to start.
-    *
-    * @return DateTimeTimeZone|null The startDateTime
-    */
+     * Gets the startDateTime
+     * The date and time in the specified time zone at which the task is scheduled to start.
+     *
+     * @return DateTimeTimeZone|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new DateTimeTimeZone($this->_propDict["startDateTime"]);
@@ -429,31 +406,29 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    * The date and time in the specified time zone at which the task is scheduled to start.
-    *
-    * @param DateTimeTimeZone $val The startDateTime
-    *
-    * @return TodoTask
-    */
+     * Sets the startDateTime
+     * The date and time in the specified time zone at which the task is scheduled to start.
+     *
+     * @param DateTimeTimeZone $val The startDateTime
+     *
+     * @return TodoTask
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
-    *
-    * @return TaskStatus|null The status
-    */
+     * Gets the status
+     * Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     *
+     * @return TaskStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\TaskStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TaskStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new TaskStatus($this->_propDict["status"]);
@@ -462,27 +437,25 @@ class TodoTask extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
-    *
-    * @param TaskStatus $val The status
-    *
-    * @return TodoTask
-    */
+     * Sets the status
+     * Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.
+     *
+     * @param TaskStatus $val The status
+     *
+     * @return TodoTask
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the title
-    * A brief description of the task.
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * A brief description of the task.
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -491,53 +464,47 @@ class TodoTask extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * A brief description of the task.
-    *
-    * @param string $val The title
-    *
-    * @return TodoTask
-    */
+     * Sets the title
+     * A brief description of the task.
+     *
+     * @param string $val The title
+     *
+     * @return TodoTask
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the attachments
-    * A collection of file attachments for the task.
+     * A collection of file attachments for the task.
      *
      * @return array|null The attachments
      */
     public function getAttachments()
     {
         if (array_key_exists("attachments", $this->_propDict)) {
-           return $this->_propDict["attachments"];
+            return $this->_propDict["attachments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the attachments
-    * A collection of file attachments for the task.
-    *
-    * @param AttachmentBase[] $val The attachments
-    *
-    * @return TodoTask
-    */
+     * Sets the attachments
+     * A collection of file attachments for the task.
+     *
+     * @param AttachmentBase[] $val The attachments
+     *
+     * @return TodoTask
+     */
     public function setAttachments($val)
     {
         $this->_propDict["attachments"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the attachmentSessions
      *
      * @return array|null The attachmentSessions
@@ -545,113 +512,102 @@ class TodoTask extends Entity
     public function getAttachmentSessions()
     {
         if (array_key_exists("attachmentSessions", $this->_propDict)) {
-           return $this->_propDict["attachmentSessions"];
+            return $this->_propDict["attachmentSessions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the attachmentSessions
-    *
-    * @param AttachmentSession[] $val The attachmentSessions
-    *
-    * @return TodoTask
-    */
+     * Sets the attachmentSessions
+     *
+     * @param AttachmentSession[] $val The attachmentSessions
+     *
+     * @return TodoTask
+     */
     public function setAttachmentSessions($val)
     {
         $this->_propDict["attachmentSessions"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the checklistItems
-    * A collection of smaller subtasks linked to the more complex parent task.
+     * A collection of smaller subtasks linked to the more complex parent task.
      *
      * @return array|null The checklistItems
      */
     public function getChecklistItems()
     {
         if (array_key_exists("checklistItems", $this->_propDict)) {
-           return $this->_propDict["checklistItems"];
+            return $this->_propDict["checklistItems"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the checklistItems
-    * A collection of smaller subtasks linked to the more complex parent task.
-    *
-    * @param ChecklistItem[] $val The checklistItems
-    *
-    * @return TodoTask
-    */
+     * Sets the checklistItems
+     * A collection of smaller subtasks linked to the more complex parent task.
+     *
+     * @param ChecklistItem[] $val The checklistItems
+     *
+     * @return TodoTask
+     */
     public function setChecklistItems($val)
     {
         $this->_propDict["checklistItems"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the extensions
-    * The collection of open extensions defined for the task. Nullable.
+     * The collection of open extensions defined for the task. Nullable.
      *
      * @return array|null The extensions
      */
     public function getExtensions()
     {
         if (array_key_exists("extensions", $this->_propDict)) {
-           return $this->_propDict["extensions"];
+            return $this->_propDict["extensions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the extensions
-    * The collection of open extensions defined for the task. Nullable.
-    *
-    * @param Extension[] $val The extensions
-    *
-    * @return TodoTask
-    */
+     * Sets the extensions
+     * The collection of open extensions defined for the task. Nullable.
+     *
+     * @param Extension[] $val The extensions
+     *
+     * @return TodoTask
+     */
     public function setExtensions($val)
     {
         $this->_propDict["extensions"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the linkedResources
-    * A collection of resources linked to the task.
+     * A collection of resources linked to the task.
      *
      * @return array|null The linkedResources
      */
     public function getLinkedResources()
     {
         if (array_key_exists("linkedResources", $this->_propDict)) {
-           return $this->_propDict["linkedResources"];
+            return $this->_propDict["linkedResources"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the linkedResources
-    * A collection of resources linked to the task.
-    *
-    * @param LinkedResource[] $val The linkedResources
-    *
-    * @return TodoTask
-    */
+     * Sets the linkedResources
+     * A collection of resources linked to the task.
+     *
+     * @param LinkedResource[] $val The linkedResources
+     *
+     * @return TodoTask
+     */
     public function setLinkedResources($val)
     {
         $this->_propDict["linkedResources"] = $val;
         return $this;
     }
-
 }

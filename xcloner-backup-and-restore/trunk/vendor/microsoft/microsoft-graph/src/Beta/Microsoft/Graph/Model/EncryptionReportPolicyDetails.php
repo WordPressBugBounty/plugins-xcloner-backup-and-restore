@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EncryptionReportPolicyDetails class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EncryptionReportPolicyDetails extends Entity
 {
     /**
-    * Gets the policyId
-    * Policy Id for Encryption Report
-    *
-    * @return string|null The policyId
-    */
+     * Gets the policyId
+     * Policy Id for Encryption Report
+     *
+     * @return string|null The policyId
+     */
     public function getPolicyId()
     {
         if (array_key_exists("policyId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EncryptionReportPolicyDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the policyId
-    * Policy Id for Encryption Report
-    *
-    * @param string $val The value of the policyId
-    *
-    * @return EncryptionReportPolicyDetails
-    */
+     * Sets the policyId
+     * Policy Id for Encryption Report
+     *
+     * @param string $val The value of the policyId
+     *
+     * @return EncryptionReportPolicyDetails
+     */
     public function setPolicyId($val)
     {
         $this->_propDict["policyId"] = $val;
         return $this;
     }
     /**
-    * Gets the policyName
-    * Policy Name for Encryption Report
-    *
-    * @return string|null The policyName
-    */
+     * Gets the policyName
+     * Policy Name for Encryption Report
+     *
+     * @return string|null The policyName
+     */
     public function getPolicyName()
     {
         if (array_key_exists("policyName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class EncryptionReportPolicyDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the policyName
-    * Policy Name for Encryption Report
-    *
-    * @param string $val The value of the policyName
-    *
-    * @return EncryptionReportPolicyDetails
-    */
+     * Sets the policyName
+     * Policy Name for Encryption Report
+     *
+     * @param string $val The value of the policyName
+     *
+     * @return EncryptionReportPolicyDetails
+     */
     public function setPolicyName($val)
     {
         $this->_propDict["policyName"] = $val;

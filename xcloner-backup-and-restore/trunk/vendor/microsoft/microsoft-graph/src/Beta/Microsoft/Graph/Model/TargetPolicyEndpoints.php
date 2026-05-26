@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TargetPolicyEndpoints class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TargetPolicyEndpoints extends Entity
 {
     /**
-    * Gets the platformTypes
-    * Use to filter the notification distribution to a specific platform or platforms. Valid values are Windows, iOS, Android and WebPush. By default, all push endpoint types (Windows, iOS, Android and WebPush) are enabled.
-    *
-    * @return string|null The platformTypes
-    */
+     * Gets the platformTypes
+     * Use to filter the notification distribution to a specific platform or platforms. Valid values are Windows, iOS, Android and WebPush. By default, all push endpoint types (Windows, iOS, Android and WebPush) are enabled.
+     *
+     * @return string|null The platformTypes
+     */
     public function getPlatformTypes()
     {
         if (array_key_exists("platformTypes", $this->_propDict)) {
@@ -40,15 +42,14 @@ class TargetPolicyEndpoints extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the platformTypes
-    * Use to filter the notification distribution to a specific platform or platforms. Valid values are Windows, iOS, Android and WebPush. By default, all push endpoint types (Windows, iOS, Android and WebPush) are enabled.
-    *
-    * @param string $val The value of the platformTypes
-    *
-    * @return TargetPolicyEndpoints
-    */
+     * Sets the platformTypes
+     * Use to filter the notification distribution to a specific platform or platforms. Valid values are Windows, iOS, Android and WebPush. By default, all push endpoint types (Windows, iOS, Android and WebPush) are enabled.
+     *
+     * @param string $val The value of the platformTypes
+     *
+     * @return TargetPolicyEndpoints
+     */
     public function setPlatformTypes($val)
     {
         $this->_propDict["platformTypes"] = $val;

@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Property;
 
-namespace Sabre\CalDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * AllowedSharingModes.
  *
@@ -36,14 +34,12 @@ class AllowedSharingModes implements XmlSerializable
      * @var bool
      */
     protected $canBeShared;
-
     /**
      * Whether or not the calendar can be placed on a public url.
      *
      * @var bool
      */
     protected $canBePublished;
-
     /**
      * Constructor.
      *
@@ -55,7 +51,6 @@ class AllowedSharingModes implements XmlSerializable
         $this->canBeShared = $canBeShared;
         $this->canBePublished = $canBePublished;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -75,10 +70,10 @@ class AllowedSharingModes implements XmlSerializable
     public function xmlSerialize(Writer $writer)
     {
         if ($this->canBeShared) {
-            $writer->writeElement('{'.Plugin::NS_CALENDARSERVER.'}can-be-shared');
+            $writer->writeElement('{' . Plugin::NS_CALENDARSERVER . '}can-be-shared');
         }
         if ($this->canBePublished) {
-            $writer->writeElement('{'.Plugin::NS_CALENDARSERVER.'}can-be-published');
+            $writer->writeElement('{' . Plugin::NS_CALENDARSERVER . '}can-be-published');
         }
     }
 }

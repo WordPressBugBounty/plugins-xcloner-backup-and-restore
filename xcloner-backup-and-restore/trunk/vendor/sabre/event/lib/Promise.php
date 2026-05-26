@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event;
 
-namespace Sabre\Event;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Exception;
 use Throwable;
-
 /**
  * An implementation of the Promise pattern.
  *
@@ -34,24 +32,20 @@ class Promise
      * The asynchronous operation is pending.
      */
     const PENDING = 0;
-
     /**
      * The asynchronous operation has completed, and has a result.
      */
     const FULFILLED = 1;
-
     /**
      * The asynchronous operation has completed with an error.
      */
     const REJECTED = 2;
-
     /**
      * The current state of this promise.
      *
      * @var int
      */
     public $state = self::PENDING;
-
     /**
      * Creates the promise.
      *
@@ -64,13 +58,9 @@ class Promise
     public function __construct(callable $executor = null)
     {
         if ($executor) {
-            $executor(
-                [$this, 'fulfill'],
-                [$this, 'reject']
-            );
+            $executor([$this, 'fulfill'], [$this, 'reject']);
         }
     }
-
     /**
      * This method allows you to specify the callback that will be called after
      * the promise has been fulfilled or rejected.
@@ -96,7 +86,6 @@ class Promise
         // be fulfilled with the result of the onFulfilled or onRejected event
         // handlers.
         $subPromise = new self();
-
         switch ($this->state) {
             case self::PENDING:
                 // The operation is pending, so we keep a reference to the
@@ -114,10 +103,8 @@ class Promise
                 $this->invokeCallback($subPromise, $onRejected);
                 break;
         }
-
         return $subPromise;
     }
-
     /**
      * Add a callback for when this promise is rejected.
      *
@@ -128,7 +115,6 @@ class Promise
     {
         return $this->then(null, $onRejected);
     }
-
     /**
      * Marks this promise as fulfilled and sets its return value.
      *
@@ -145,7 +131,6 @@ class Promise
             $this->invokeCallback($subscriber[0], $subscriber[1]);
         }
     }
-
     /**
      * Marks this promise as rejected, and set its rejection reason.
      */
@@ -160,7 +145,6 @@ class Promise
             $this->invokeCallback($subscriber[0], $subscriber[2]);
         }
     }
-
     /**
      * Stops execution until this promise is resolved.
      *
@@ -177,17 +161,15 @@ class Promise
      */
     public function wait()
     {
-        $hasEvents = true;
+        $hasEvents = \true;
         while (self::PENDING === $this->state) {
             if (!$hasEvents) {
                 throw new \LogicException('There were no more events in the loop. This promise will never be fulfilled.');
             }
-
             // As long as the promise is not fulfilled, we tell the event loop
             // to handle events, and to block.
-            $hasEvents = Loop\tick(true);
+            $hasEvents = Loop\tick(\true);
         }
-
         if (self::FULFILLED === $this->state) {
             // If the state of this promise is fulfilled, we can return the value.
             return $this->value;
@@ -197,7 +179,6 @@ class Promise
             throw $this->value;
         }
     }
-
     /**
      * A list of subscribers. Subscribers are the callbacks that want us to let
      * them know if the callback was fulfilled or rejected.
@@ -205,7 +186,6 @@ class Promise
      * @var array
      */
     protected $subscribers = [];
-
     /**
      * The result of the promise.
      *
@@ -215,7 +195,6 @@ class Promise
      * @var mixed
      */
     protected $value = null;
-
     /**
      * This method is used to call either an onFulfilled or onRejected callback.
      *
@@ -252,12 +231,10 @@ class Promise
                     // the chained promise is rejected as well.
                     $subPromise->reject($e);
                 }
+            } else if (self::FULFILLED === $this->state) {
+                $subPromise->fulfill($this->value);
             } else {
-                if (self::FULFILLED === $this->state) {
-                    $subPromise->fulfill($this->value);
-                } else {
-                    $subPromise->reject($this->value);
-                }
+                $subPromise->reject($this->value);
             }
         });
     }

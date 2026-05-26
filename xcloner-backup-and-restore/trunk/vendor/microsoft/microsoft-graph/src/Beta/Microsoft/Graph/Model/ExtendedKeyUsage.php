@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExtendedKeyUsage class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ExtendedKeyUsage extends Entity
 {
     /**
-    * Gets the name
-    * Extended Key Usage Name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Extended Key Usage Name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ExtendedKeyUsage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Extended Key Usage Name
-    *
-    * @param string $val The value of the name
-    *
-    * @return ExtendedKeyUsage
-    */
+     * Sets the name
+     * Extended Key Usage Name
+     *
+     * @param string $val The value of the name
+     *
+     * @return ExtendedKeyUsage
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the objectIdentifier
-    * Extended Key Usage Object Identifier
-    *
-    * @return string|null The objectIdentifier
-    */
+     * Gets the objectIdentifier
+     * Extended Key Usage Object Identifier
+     *
+     * @return string|null The objectIdentifier
+     */
     public function getObjectIdentifier()
     {
         if (array_key_exists("objectIdentifier", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ExtendedKeyUsage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the objectIdentifier
-    * Extended Key Usage Object Identifier
-    *
-    * @param string $val The value of the objectIdentifier
-    *
-    * @return ExtendedKeyUsage
-    */
+     * Sets the objectIdentifier
+     * Extended Key Usage Object Identifier
+     *
+     * @param string $val The value of the objectIdentifier
+     *
+     * @return ExtendedKeyUsage
+     */
     public function setObjectIdentifier($val)
     {
         $this->_propDict["objectIdentifier"] = $val;

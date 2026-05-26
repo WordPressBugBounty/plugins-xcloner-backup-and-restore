@@ -1,17 +1,16 @@
 <?php
-namespace Aws\Sts\RegionalEndpoints\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Sts\RegionalEndpoints\Exception;
 
-
-use Aws\HasMonitoringEventsTrait;
-use Aws\MonitoringEventsInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\HasMonitoringEventsTrait;
+use XCloner\Aws\MonitoringEventsInterface;
 /**
  * Represents an error interacting with configuration for sts regional endpoints
  */
-class ConfigurationException extends \RuntimeException implements
-    MonitoringEventsInterface
+class ConfigurationException extends \RuntimeException implements MonitoringEventsInterface
 {
     use HasMonitoringEventsTrait;
 }

@@ -1,9 +1,10 @@
 <?php
-namespace Aws\Arn;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class represents an S3 Object bucket ARN, which is in the
  * following format:
@@ -24,7 +25,6 @@ class ObjectLambdaAccessPointArn extends AccessPointArn
         $data = parent::parse($string);
         return parent::parseResourceTypeAndId($data);
     }
-
     /**
      *
      * @param array $data

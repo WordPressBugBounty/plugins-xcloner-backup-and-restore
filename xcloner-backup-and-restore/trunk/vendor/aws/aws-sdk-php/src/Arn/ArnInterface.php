@@ -1,9 +1,10 @@
 <?php
-namespace Aws\Arn;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Amazon Resource Names (ARNs) uniquely identify AWS resources. Classes
  * implementing ArnInterface parse and store an ARN object representation.
@@ -21,20 +22,12 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 interface ArnInterface
 {
     public static function parse($string);
-
     public function __toString();
-
     public function getPrefix();
-
     public function getPartition();
-
     public function getService();
-
     public function getRegion();
-
     public function getAccountId();
-
     public function getResource();
-
     public function toArray();
 }

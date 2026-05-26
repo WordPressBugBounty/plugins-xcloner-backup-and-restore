@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SearchBucket class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SearchBucket extends Entity
 {
     /**
-    * Gets the aggregationFilterToken
-    * A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example.
-    *
-    * @return string|null The aggregationFilterToken
-    */
+     * Gets the aggregationFilterToken
+     * A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example.
+     *
+     * @return string|null The aggregationFilterToken
+     */
     public function getAggregationFilterToken()
     {
         if (array_key_exists("aggregationFilterToken", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SearchBucket extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the aggregationFilterToken
-    * A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example.
-    *
-    * @param string $val The value of the aggregationFilterToken
-    *
-    * @return SearchBucket
-    */
+     * Sets the aggregationFilterToken
+     * A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example.
+     *
+     * @param string $val The value of the aggregationFilterToken
+     *
+     * @return SearchBucket
+     */
     public function setAggregationFilterToken($val)
     {
         $this->_propDict["aggregationFilterToken"] = $val;
         return $this;
     }
     /**
-    * Gets the count
-    * The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.
-    *
-    * @return int|null The count
-    */
+     * Gets the count
+     * The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.
+     *
+     * @return int|null The count
+     */
     public function getCount()
     {
         if (array_key_exists("count", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SearchBucket extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the count
-    * The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.
-    *
-    * @param int $val The value of the count
-    *
-    * @return SearchBucket
-    */
+     * Sets the count
+     * The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.
+     *
+     * @param int $val The value of the count
+     *
+     * @return SearchBucket
+     */
     public function setCount($val)
     {
         $this->_propDict["count"] = $val;
         return $this;
     }
     /**
-    * Gets the key
-    * The discrete value of the field that an aggregation was computed on.
-    *
-    * @return string|null The key
-    */
+     * Gets the key
+     * The discrete value of the field that an aggregation was computed on.
+     *
+     * @return string|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
@@ -96,15 +96,14 @@ class SearchBucket extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the key
-    * The discrete value of the field that an aggregation was computed on.
-    *
-    * @param string $val The value of the key
-    *
-    * @return SearchBucket
-    */
+     * Sets the key
+     * The discrete value of the field that an aggregation was computed on.
+     *
+     * @param string $val The value of the key
+     *
+     * @return SearchBucket
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;

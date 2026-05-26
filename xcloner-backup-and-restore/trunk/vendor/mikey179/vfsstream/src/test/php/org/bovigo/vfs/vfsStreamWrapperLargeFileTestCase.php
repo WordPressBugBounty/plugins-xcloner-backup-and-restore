@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,11 +8,12 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\content\LargeFileContent;
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\content\LargeFileContent;
 /**
  * Test for large file mocks.
  *
@@ -20,7 +22,7 @@ use org\bovigo\vfs\content\LargeFileContent;
  * @since       1.3.0
  * @group       issue_79
  */
-class vfsStreamWrapperLargeFileTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperLargeFileTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * large file to test
@@ -28,33 +30,24 @@ class vfsStreamWrapperLargeFileTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamFile
      */
     private $largeFile;
-
     /**
      * set up test environment
      */
     public function setUp()
     {
         $root = vfsStream::setup();
-        $this->largeFile = vfsStream::newFile('large.txt')
-                                    ->withContent(LargeFileContent::withGigabytes(100))
-                                    ->at($root);
+        $this->largeFile = vfsStream::newFile('large.txt')->withContent(LargeFileContent::withGigabytes(100))->at($root);
     }
-
     /**
      * @test
      */
     public function hasLargeFileSize()
     {
-        if (PHP_INT_MAX == 2147483647) {
+        if (\PHP_INT_MAX == 2147483647) {
             $this->markTestSkipped('Requires 64-bit version of PHP');
         }
-
-        $this->assertEquals(
-                100 * 1024 * 1024 * 1024,
-                filesize($this->largeFile->url())
-        );
+        $this->assertEquals(100 * 1024 * 1024 * 1024, filesize($this->largeFile->url()));
     }
-
     /**
      * @test
      */
@@ -65,20 +58,16 @@ class vfsStreamWrapperLargeFileTestCase extends \BC_PHPUnit_Framework_TestCase
         fclose($fp);
         $this->assertEquals(str_repeat(' ', 15), $data);
     }
-
     /**
      * @test
      */
     public function canWriteIntoLargeFile()
     {
         $fp = fopen($this->largeFile->url(), 'rb+');
-        fseek($fp, 100 * 1024 * 1024, SEEK_SET);
+        fseek($fp, 100 * 1024 * 1024, \SEEK_SET);
         fwrite($fp, 'foobarbaz');
         fclose($fp);
-        $this->largeFile->seek((100 * 1024 * 1024) - 3, SEEK_SET);
-        $this->assertEquals(
-                '   foobarbaz   ',
-                $this->largeFile->read(15)
-        );
+        $this->largeFile->seek(100 * 1024 * 1024 - 3, \SEEK_SET);
+        $this->assertEquals('   foobarbaz   ', $this->largeFile->read(15));
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptTimeSchedule class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule
 {
-
     /**
-    * Gets the time
-    * At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
-    *
-    * @return TimeOfDay|null The time
-    */
+     * Gets the time
+     * At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
+     *
+     * @return TimeOfDay|null The time
+     */
     public function getTime()
     {
         if (array_key_exists("time", $this->_propDict)) {
-            if (is_a($this->_propDict["time"], "\Beta\Microsoft\Graph\Model\TimeOfDay") || is_null($this->_propDict["time"])) {
+            if (is_a($this->_propDict["time"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TimeOfDay") || is_null($this->_propDict["time"])) {
                 return $this->_propDict["time"];
             } else {
                 $this->_propDict["time"] = new TimeOfDay($this->_propDict["time"]);
@@ -45,26 +46,25 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule
         }
         return null;
     }
-
     /**
-    * Sets the time
-    * At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
-    *
-    * @param TimeOfDay $val The value to assign to the time
-    *
-    * @return DeviceHealthScriptTimeSchedule The DeviceHealthScriptTimeSchedule
-    */
+     * Sets the time
+     * At what time the script is scheduled to run. This collection can contain a maximum of 20 elements.
+     *
+     * @param TimeOfDay $val The value to assign to the time
+     *
+     * @return DeviceHealthScriptTimeSchedule The DeviceHealthScriptTimeSchedule
+     */
     public function setTime($val)
     {
         $this->_propDict["time"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the useUtc
-    * Indicate if the time is Utc or client local time.
-    *
-    * @return bool|null The useUtc
-    */
+     * Gets the useUtc
+     * Indicate if the time is Utc or client local time.
+     *
+     * @return bool|null The useUtc
+     */
     public function getUseUtc()
     {
         if (array_key_exists("useUtc", $this->_propDict)) {
@@ -73,15 +73,14 @@ class DeviceHealthScriptTimeSchedule extends DeviceHealthScriptRunSchedule
             return null;
         }
     }
-
     /**
-    * Sets the useUtc
-    * Indicate if the time is Utc or client local time.
-    *
-    * @param bool $val The value of the useUtc
-    *
-    * @return DeviceHealthScriptTimeSchedule
-    */
+     * Sets the useUtc
+     * Indicate if the time is Utc or client local time.
+     *
+     * @param bool $val The value of the useUtc
+     *
+     * @return DeviceHealthScriptTimeSchedule
+     */
     public function setUseUtc($val)
     {
         $this->_propDict["useUtc"] = $val;

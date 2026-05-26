@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,14 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamContainerIterator.
  */
-class vfsStreamContainerIteratorTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamContainerIteratorTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * instance to test
@@ -34,25 +36,19 @@ class vfsStreamContainerIteratorTestCase extends \BC_PHPUnit_Framework_TestCase
      * @type  \PHPUnit_Framework_MockObject_MockObject
      */
     private $mockChild2;
-
     /**
      * set up test environment
      */
     public function setUp()
     {
         $this->dir = new vfsStreamDirectory('foo');
-        $this->mockChild1 = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $this->mockChild1->expects($this->any())
-                         ->method('getName')
-                         ->will($this->returnValue('bar'));
+        $this->mockChild1 = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $this->mockChild1->expects($this->any())->method('getName')->will($this->returnValue('bar'));
         $this->dir->addChild($this->mockChild1);
-        $this->mockChild2 = $this->bc_getMock('org\\bovigo\\vfs\\vfsStreamContent');
-        $this->mockChild2->expects($this->any())
-                         ->method('getName')
-                         ->will($this->returnValue('baz'));
+        $this->mockChild2 = $this->bc_getMock('XCloner\org\bovigo\vfs\vfsStreamContent');
+        $this->mockChild2->expects($this->any())->method('getName')->will($this->returnValue('baz'));
         $this->dir->addChild($this->mockChild2);
     }
-
     /**
      * clean up test environment
      */
@@ -60,31 +56,24 @@ class vfsStreamContainerIteratorTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         vfsStream::enableDotfiles();
     }
-
     /**
      * @return  array
      */
     public function provideSwitchWithExpectations()
     {
-        return array(array(function() { vfsStream::disableDotfiles(); },
-                           array()
-                     ),
-                     array(function() { vfsStream::enableDotfiles(); },
-                           array('.', '..')
-                     )
-        );
+        return array(array(function () {
+            vfsStream::disableDotfiles();
+        }, array()), array(function () {
+            vfsStream::enableDotfiles();
+        }, array('.', '..')));
     }
-
     private function getDirName($dir)
     {
         if (is_string($dir)) {
             return $dir;
         }
-
-
         return $dir->getName();
     }
-
     /**
      * @param  \Closure  $dotFilesSwitch
      * @param  array     $dirNames
@@ -103,10 +92,8 @@ class vfsStreamContainerIteratorTestCase extends \BC_PHPUnit_Framework_TestCase
             if (!is_string($dir)) {
                 $this->assertSame($dir, $dirIterator->current());
             }
-
             $dirIterator->next();
         }
-
         $this->assertFalse($dirIterator->valid());
         $this->assertNull($dirIterator->key());
         $this->assertNull($dirIterator->current());

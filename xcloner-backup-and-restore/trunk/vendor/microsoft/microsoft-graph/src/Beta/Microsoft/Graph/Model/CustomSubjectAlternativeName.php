@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CustomSubjectAlternativeName class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CustomSubjectAlternativeName extends Entity
 {
     /**
-    * Gets the name
-    * Custom SAN Name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Custom SAN Name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,31 +42,29 @@ class CustomSubjectAlternativeName extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Custom SAN Name
-    *
-    * @param string $val The value of the name
-    *
-    * @return CustomSubjectAlternativeName
-    */
+     * Sets the name
+     * Custom SAN Name
+     *
+     * @param string $val The value of the name
+     *
+     * @return CustomSubjectAlternativeName
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sanType
-    * Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-    *
-    * @return SubjectAlternativeNameType|null The sanType
-    */
+     * Gets the sanType
+     * Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     *
+     * @return SubjectAlternativeNameType|null The sanType
+     */
     public function getSanType()
     {
         if (array_key_exists("sanType", $this->_propDict)) {
-            if (is_a($this->_propDict["sanType"], "\Beta\Microsoft\Graph\Model\SubjectAlternativeNameType") || is_null($this->_propDict["sanType"])) {
+            if (is_a($this->_propDict["sanType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SubjectAlternativeNameType") || is_null($this->_propDict["sanType"])) {
                 return $this->_propDict["sanType"];
             } else {
                 $this->_propDict["sanType"] = new SubjectAlternativeNameType($this->_propDict["sanType"]);
@@ -73,18 +73,17 @@ class CustomSubjectAlternativeName extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the sanType
-    * Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
-    *
-    * @param SubjectAlternativeNameType $val The value to assign to the sanType
-    *
-    * @return CustomSubjectAlternativeName The CustomSubjectAlternativeName
-    */
+     * Sets the sanType
+     * Custom SAN Type. Possible values are: none, emailAddress, userPrincipalName, customAzureADAttribute, domainNameService, universalResourceIdentifier.
+     *
+     * @param SubjectAlternativeNameType $val The value to assign to the sanType
+     *
+     * @return CustomSubjectAlternativeName The CustomSubjectAlternativeName
+     */
     public function setSanType($val)
     {
         $this->_propDict["sanType"] = $val;
-         return $this;
+        return $this;
     }
 }

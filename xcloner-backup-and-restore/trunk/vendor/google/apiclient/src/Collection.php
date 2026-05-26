@@ -1,10 +1,10 @@
 <?php
 
-namespace Google;
+namespace XCloner\Google;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Extension to the regular Google\Model that automatically
  * exposes the items array for iteration, so you can just
@@ -13,19 +13,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Collection extends Model implements \Iterator, \Countable
 {
     protected $collection_key = 'items';
-
     /** @return void */
     #[\ReturnTypeWillChange]
     public function rewind()
     {
-        if (
-            isset($this->{$this->collection_key})
-            && is_array($this->{$this->collection_key})
-        ) {
+        if (isset($this->{$this->collection_key}) && is_array($this->{$this->collection_key})) {
             reset($this->{$this->collection_key});
         }
     }
-
     /** @return mixed */
     #[\ReturnTypeWillChange]
     public function current()
@@ -35,34 +30,27 @@ class Collection extends Model implements \Iterator, \Countable
             return current($this->{$this->collection_key});
         }
     }
-
     /** @return mixed */
     #[\ReturnTypeWillChange]
     public function key()
     {
-        if (
-            isset($this->{$this->collection_key})
-            && is_array($this->{$this->collection_key})
-        ) {
+        if (isset($this->{$this->collection_key}) && is_array($this->{$this->collection_key})) {
             return key($this->{$this->collection_key});
         }
     }
-
     /** @return mixed */
     #[\ReturnTypeWillChange]
     public function next()
     {
         return next($this->{$this->collection_key});
     }
-
     /** @return bool */
     #[\ReturnTypeWillChange]
     public function valid()
     {
         $key = $this->key();
-        return $key !== null && $key !== false;
+        return $key !== null && $key !== \false;
     }
-
     /** @return int */
     #[\ReturnTypeWillChange]
     public function count()
@@ -72,7 +60,6 @@ class Collection extends Model implements \Iterator, \Countable
         }
         return count($this->{$this->collection_key});
     }
-
     /** @return bool */
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
@@ -82,7 +69,6 @@ class Collection extends Model implements \Iterator, \Countable
         }
         return isset($this->{$this->collection_key}[$offset]);
     }
-
     /** @return mixed */
     public function offsetGet($offset)
     {
@@ -92,7 +78,6 @@ class Collection extends Model implements \Iterator, \Countable
         $this->coerceType($offset);
         return $this->{$this->collection_key}[$offset];
     }
-
     /** @return void */
     #[\ReturnTypeWillChange]
     public function offsetSet($offset, $value)
@@ -102,7 +87,6 @@ class Collection extends Model implements \Iterator, \Countable
         }
         $this->{$this->collection_key}[$offset] = $value;
     }
-
     /** @return void */
     #[\ReturnTypeWillChange]
     public function offsetUnset($offset)
@@ -112,13 +96,11 @@ class Collection extends Model implements \Iterator, \Countable
         }
         unset($this->{$this->collection_key}[$offset]);
     }
-
     private function coerceType($offset)
     {
         $keyType = $this->keyType($this->collection_key);
         if ($keyType && !is_object($this->{$this->collection_key}[$offset])) {
-            $this->{$this->collection_key}[$offset] =
-                new $keyType($this->{$this->collection_key}[$offset]);
+            $this->{$this->collection_key}[$offset] = new $keyType($this->{$this->collection_key}[$offset]);
         }
     }
 }

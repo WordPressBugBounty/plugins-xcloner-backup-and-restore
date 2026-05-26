@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookOperationError class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookOperationError extends Entity
 {
     /**
-    * Gets the code
-    * The error code.
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     * The error code.
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -40,30 +42,28 @@ class WorkbookOperationError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    * The error code.
-    *
-    * @param string $val The value of the code
-    *
-    * @return WorkbookOperationError
-    */
+     * Sets the code
+     * The error code.
+     *
+     * @param string $val The value of the code
+     *
+     * @return WorkbookOperationError
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
-
     /**
-    * Gets the innerError
-    *
-    * @return WorkbookOperationError|null The innerError
-    */
+     * Gets the innerError
+     *
+     * @return WorkbookOperationError|null The innerError
+     */
     public function getInnerError()
     {
         if (array_key_exists("innerError", $this->_propDict)) {
-            if (is_a($this->_propDict["innerError"], "\Beta\Microsoft\Graph\Model\WorkbookOperationError") || is_null($this->_propDict["innerError"])) {
+            if (is_a($this->_propDict["innerError"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookOperationError") || is_null($this->_propDict["innerError"])) {
                 return $this->_propDict["innerError"];
             } else {
                 $this->_propDict["innerError"] = new WorkbookOperationError($this->_propDict["innerError"]);
@@ -72,25 +72,24 @@ class WorkbookOperationError extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the innerError
-    *
-    * @param WorkbookOperationError $val The value to assign to the innerError
-    *
-    * @return WorkbookOperationError The WorkbookOperationError
-    */
+     * Sets the innerError
+     *
+     * @param WorkbookOperationError $val The value to assign to the innerError
+     *
+     * @return WorkbookOperationError The WorkbookOperationError
+     */
     public function setInnerError($val)
     {
         $this->_propDict["innerError"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the message
-    * The error message.
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     * The error message.
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -99,15 +98,14 @@ class WorkbookOperationError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    * The error message.
-    *
-    * @param string $val The value of the message
-    *
-    * @return WorkbookOperationError
-    */
+     * Sets the message
+     * The error message.
+     *
+     * @param string $val The value of the message
+     *
+     * @return WorkbookOperationError
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;

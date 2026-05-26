@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationDropdownListItem class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationDropdownListItem extends Entity
 {
     /**
-    * Gets the displayName
-    * Localized display name for the drop-down list item.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Localized display name for the drop-down list item.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class GroupPolicyPresentationDropdownListItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Localized display name for the drop-down list item.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return GroupPolicyPresentationDropdownListItem
-    */
+     * Sets the displayName
+     * Localized display name for the drop-down list item.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return GroupPolicyPresentationDropdownListItem
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * Associated value for the drop-down list item
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * Associated value for the drop-down list item
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -68,15 +69,14 @@ class GroupPolicyPresentationDropdownListItem extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Associated value for the drop-down list item
-    *
-    * @param string $val The value of the value
-    *
-    * @return GroupPolicyPresentationDropdownListItem
-    */
+     * Sets the value
+     * Associated value for the drop-down list item
+     *
+     * @param string $val The value of the value
+     *
+     * @return GroupPolicyPresentationDropdownListItem
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RetentionDurationInDays class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RetentionDurationInDays extends RetentionDuration
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.security.retentionDurationInDays");
     }
-
     /**
-    * Gets the days
-    * Specifies the time period in days for which an item with the applied retention label will be retained for.
-    *
-    * @return int|null The days
-    */
+     * Gets the days
+     * Specifies the time period in days for which an item with the applied retention label will be retained for.
+     *
+     * @return int|null The days
+     */
     public function getDays()
     {
         if (array_key_exists("days", $this->_propDict)) {
@@ -51,15 +52,14 @@ class RetentionDurationInDays extends RetentionDuration
             return null;
         }
     }
-
     /**
-    * Sets the days
-    * Specifies the time period in days for which an item with the applied retention label will be retained for.
-    *
-    * @param int $val The value of the days
-    *
-    * @return RetentionDurationInDays
-    */
+     * Sets the days
+     * Specifies the time period in days for which an item with the applied retention label will be retained for.
+     *
+     * @param int $val The value of the days
+     *
+     * @return RetentionDurationInDays
+     */
     public function setDays($val)
     {
         $this->_propDict["days"] = $val;

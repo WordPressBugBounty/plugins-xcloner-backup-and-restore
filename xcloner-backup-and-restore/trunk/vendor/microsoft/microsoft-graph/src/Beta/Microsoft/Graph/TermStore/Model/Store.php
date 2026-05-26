@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\TermStore\Model;
+namespace XCloner\Beta\Microsoft\Graph\TermStore\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Store class
 *
@@ -25,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Store extends \Beta\Microsoft\Graph\Model\Entity
+class Store extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the defaultLanguageTag
-    * Default language of the term store.
-    *
-    * @return string|null The defaultLanguageTag
-    */
+     * Gets the defaultLanguageTag
+     * Default language of the term store.
+     *
+     * @return string|null The defaultLanguageTag
+     */
     public function getDefaultLanguageTag()
     {
         if (array_key_exists("defaultLanguageTag", $this->_propDict)) {
@@ -41,27 +42,25 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the defaultLanguageTag
-    * Default language of the term store.
-    *
-    * @param string $val The defaultLanguageTag
-    *
-    * @return Store
-    */
+     * Sets the defaultLanguageTag
+     * Default language of the term store.
+     *
+     * @param string $val The defaultLanguageTag
+     *
+     * @return Store
+     */
     public function setDefaultLanguageTag($val)
     {
         $this->_propDict["defaultLanguageTag"] = $val;
         return $this;
     }
-
     /**
-    * Gets the languageTags
-    * List of languages for the term store.
-    *
-    * @return array|null The languageTags
-    */
+     * Gets the languageTags
+     * List of languages for the term store.
+     *
+     * @return array|null The languageTags
+     */
     public function getLanguageTags()
     {
         if (array_key_exists("languageTags", $this->_propDict)) {
@@ -70,79 +69,71 @@ class Store extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the languageTags
-    * List of languages for the term store.
-    *
-    * @param string[] $val The languageTags
-    *
-    * @return Store
-    */
+     * Sets the languageTags
+     * List of languages for the term store.
+     *
+     * @param string[] $val The languageTags
+     *
+     * @return Store
+     */
     public function setLanguageTags($val)
     {
         $this->_propDict["languageTags"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the groups
-    * Collection of all groups available in the term store.
+     * Collection of all groups available in the term store.
      *
      * @return array|null The groups
      */
     public function getGroups()
     {
         if (array_key_exists("groups", $this->_propDict)) {
-           return $this->_propDict["groups"];
+            return $this->_propDict["groups"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the groups
-    * Collection of all groups available in the term store.
-    *
-    * @param Group[] $val The groups
-    *
-    * @return Store
-    */
+     * Sets the groups
+     * Collection of all groups available in the term store.
+     *
+     * @param Group[] $val The groups
+     *
+     * @return Store
+     */
     public function setGroups($val)
     {
         $this->_propDict["groups"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the sets
-    * Collection of all sets available in the term store.
+     * Collection of all sets available in the term store.
      *
      * @return array|null The sets
      */
     public function getSets()
     {
         if (array_key_exists("sets", $this->_propDict)) {
-           return $this->_propDict["sets"];
+            return $this->_propDict["sets"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the sets
-    * Collection of all sets available in the term store.
-    *
-    * @param Set[] $val The sets
-    *
-    * @return Store
-    */
+     * Sets the sets
+     * Collection of all sets available in the term store.
+     *
+     * @param Set[] $val The sets
+     *
+     * @return Store
+     */
     public function setSets($val)
     {
         $this->_propDict["sets"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemActionStat class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemActionStat extends Entity
 {
     /**
-    * Gets the actionCount
-    * The number of times the action took place. Read-only.
-    *
-    * @return int|null The actionCount
-    */
+     * Gets the actionCount
+     * The number of times the action took place. Read-only.
+     *
+     * @return int|null The actionCount
+     */
     public function getActionCount()
     {
         if (array_key_exists("actionCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ItemActionStat extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actionCount
-    * The number of times the action took place. Read-only.
-    *
-    * @param int $val The value of the actionCount
-    *
-    * @return ItemActionStat
-    */
+     * Sets the actionCount
+     * The number of times the action took place. Read-only.
+     *
+     * @param int $val The value of the actionCount
+     *
+     * @return ItemActionStat
+     */
     public function setActionCount($val)
     {
         $this->_propDict["actionCount"] = $val;
         return $this;
     }
     /**
-    * Gets the actorCount
-    * The number of distinct actors that performed the action. Read-only.
-    *
-    * @return int|null The actorCount
-    */
+     * Gets the actorCount
+     * The number of distinct actors that performed the action. Read-only.
+     *
+     * @return int|null The actorCount
+     */
     public function getActorCount()
     {
         if (array_key_exists("actorCount", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ItemActionStat extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actorCount
-    * The number of distinct actors that performed the action. Read-only.
-    *
-    * @param int $val The value of the actorCount
-    *
-    * @return ItemActionStat
-    */
+     * Sets the actorCount
+     * The number of distinct actors that performed the action. Read-only.
+     *
+     * @param int $val The value of the actorCount
+     *
+     * @return ItemActionStat
+     */
     public function setActorCount($val)
     {
         $this->_propDict["actorCount"] = $val;

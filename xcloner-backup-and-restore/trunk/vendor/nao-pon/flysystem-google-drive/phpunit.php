@@ -1,6 +1,8 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
-include __DIR__.'/vendor/autoload.php';
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+include __DIR__ . '/vendor/autoload.php';

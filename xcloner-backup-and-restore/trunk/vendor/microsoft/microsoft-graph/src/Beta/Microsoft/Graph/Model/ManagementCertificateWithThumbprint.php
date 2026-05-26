@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagementCertificateWithThumbprint class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagementCertificateWithThumbprint extends Entity
 {
     /**
-    * Gets the certificate
-    * The Base 64 encoded management certificate
-    *
-    * @return string|null The certificate
-    */
+     * Gets the certificate
+     * The Base 64 encoded management certificate
+     *
+     * @return string|null The certificate
+     */
     public function getCertificate()
     {
         if (array_key_exists("certificate", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ManagementCertificateWithThumbprint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the certificate
-    * The Base 64 encoded management certificate
-    *
-    * @param string $val The value of the certificate
-    *
-    * @return ManagementCertificateWithThumbprint
-    */
+     * Sets the certificate
+     * The Base 64 encoded management certificate
+     *
+     * @param string $val The value of the certificate
+     *
+     * @return ManagementCertificateWithThumbprint
+     */
     public function setCertificate($val)
     {
         $this->_propDict["certificate"] = $val;
         return $this;
     }
     /**
-    * Gets the thumbprint
-    * The thumbprint of the management certificate
-    *
-    * @return string|null The thumbprint
-    */
+     * Gets the thumbprint
+     * The thumbprint of the management certificate
+     *
+     * @return string|null The thumbprint
+     */
     public function getThumbprint()
     {
         if (array_key_exists("thumbprint", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ManagementCertificateWithThumbprint extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the thumbprint
-    * The thumbprint of the management certificate
-    *
-    * @param string $val The value of the thumbprint
-    *
-    * @return ManagementCertificateWithThumbprint
-    */
+     * Sets the thumbprint
+     * The thumbprint of the management certificate
+     *
+     * @param string $val The value of the thumbprint
+     *
+     * @return ManagementCertificateWithThumbprint
+     */
     public function setThumbprint($val)
     {
         $this->_propDict["thumbprint"] = $val;

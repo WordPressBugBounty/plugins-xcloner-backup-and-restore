@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RiskyServicePrincipalHistoryItem class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal
 {
     /**
-    * Gets the activity
-    * The activity related to service principal risk level change.
-    *
-    * @return RiskServicePrincipalActivity|null The activity
-    */
+     * Gets the activity
+     * The activity related to service principal risk level change.
+     *
+     * @return RiskServicePrincipalActivity|null The activity
+     */
     public function getActivity()
     {
         if (array_key_exists("activity", $this->_propDict)) {
-            if (is_a($this->_propDict["activity"], "\Beta\Microsoft\Graph\Model\RiskServicePrincipalActivity") || is_null($this->_propDict["activity"])) {
+            if (is_a($this->_propDict["activity"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RiskServicePrincipalActivity") || is_null($this->_propDict["activity"])) {
                 return $this->_propDict["activity"];
             } else {
                 $this->_propDict["activity"] = new RiskServicePrincipalActivity($this->_propDict["activity"]);
@@ -45,27 +46,25 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal
         }
         return null;
     }
-
     /**
-    * Sets the activity
-    * The activity related to service principal risk level change.
-    *
-    * @param RiskServicePrincipalActivity $val The activity
-    *
-    * @return RiskyServicePrincipalHistoryItem
-    */
+     * Sets the activity
+     * The activity related to service principal risk level change.
+     *
+     * @param RiskServicePrincipalActivity $val The activity
+     *
+     * @return RiskyServicePrincipalHistoryItem
+     */
     public function setActivity($val)
     {
         $this->_propDict["activity"] = $val;
         return $this;
     }
-
     /**
-    * Gets the initiatedBy
-    * The identifier of the actor of the operation.
-    *
-    * @return string|null The initiatedBy
-    */
+     * Gets the initiatedBy
+     * The identifier of the actor of the operation.
+     *
+     * @return string|null The initiatedBy
+     */
     public function getInitiatedBy()
     {
         if (array_key_exists("initiatedBy", $this->_propDict)) {
@@ -74,27 +73,25 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal
             return null;
         }
     }
-
     /**
-    * Sets the initiatedBy
-    * The identifier of the actor of the operation.
-    *
-    * @param string $val The initiatedBy
-    *
-    * @return RiskyServicePrincipalHistoryItem
-    */
+     * Sets the initiatedBy
+     * The identifier of the actor of the operation.
+     *
+     * @param string $val The initiatedBy
+     *
+     * @return RiskyServicePrincipalHistoryItem
+     */
     public function setInitiatedBy($val)
     {
         $this->_propDict["initiatedBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the servicePrincipalId
-    * The identifier of the service principal.
-    *
-    * @return string|null The servicePrincipalId
-    */
+     * Gets the servicePrincipalId
+     * The identifier of the service principal.
+     *
+     * @return string|null The servicePrincipalId
+     */
     public function getServicePrincipalId()
     {
         if (array_key_exists("servicePrincipalId", $this->_propDict)) {
@@ -103,19 +100,17 @@ class RiskyServicePrincipalHistoryItem extends RiskyServicePrincipal
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalId
-    * The identifier of the service principal.
-    *
-    * @param string $val The servicePrincipalId
-    *
-    * @return RiskyServicePrincipalHistoryItem
-    */
+     * Sets the servicePrincipalId
+     * The identifier of the service principal.
+     *
+     * @param string $val The servicePrincipalId
+     *
+     * @return RiskyServicePrincipalHistoryItem
+     */
     public function setServicePrincipalId($val)
     {
         $this->_propDict["servicePrincipalId"] = $val;
         return $this;
     }
-
 }

@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-use MicrosoftAzure\Storage\Common\Internal\Serialization\XmlSerializer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization\XmlSerializer;
 /**
  * Encapsulates service properties
  *
@@ -47,9 +45,7 @@ class ServiceProperties
     private $minuteMetrics;
     private $corses;
     private $defaultServiceVersion;
-
     private static $xmlRootName = 'StorageServiceProperties';
-
     /**
      * Creates ServiceProperties object from parsed XML response.
      *
@@ -61,12 +57,9 @@ class ServiceProperties
     public static function create(array $parsedResponse)
     {
         $result = new ServiceProperties();
-
-        if (array_key_exists(Resources::XTAG_DEFAULT_SERVICE_VERSION, $parsedResponse) &&
-            $parsedResponse[Resources::XTAG_DEFAULT_SERVICE_VERSION] != null) {
+        if (array_key_exists(Resources::XTAG_DEFAULT_SERVICE_VERSION, $parsedResponse) && $parsedResponse[Resources::XTAG_DEFAULT_SERVICE_VERSION] != null) {
             $result->setDefaultServiceVersion($parsedResponse[Resources::XTAG_DEFAULT_SERVICE_VERSION]);
         }
-
         if (array_key_exists(Resources::XTAG_LOGGING, $parsedResponse)) {
             $result->setLogging(Logging::create($parsedResponse[Resources::XTAG_LOGGING]));
         }
@@ -74,12 +67,10 @@ class ServiceProperties
         if (array_key_exists(Resources::XTAG_MINUTE_METRICS, $parsedResponse)) {
             $result->setMinuteMetrics(Metrics::create($parsedResponse[Resources::XTAG_MINUTE_METRICS]));
         }
-        if (array_key_exists(Resources::XTAG_CORS, $parsedResponse) &&
-            $parsedResponse[Resources::XTAG_CORS] != null) {
+        if (array_key_exists(Resources::XTAG_CORS, $parsedResponse) && $parsedResponse[Resources::XTAG_CORS] != null) {
             //There could be multiple CORS rules, so need to extract them all.
             $corses = array();
-            $corsArray =
-                $parsedResponse[Resources::XTAG_CORS][Resources::XTAG_CORS_RULE];
+            $corsArray = $parsedResponse[Resources::XTAG_CORS][Resources::XTAG_CORS_RULE];
             if (count(array_filter(array_keys($corsArray), 'is_string')) > 0) {
                 //single cors rule
                 $corses[] = CORS::create($corsArray);
@@ -89,15 +80,12 @@ class ServiceProperties
                     $corses[] = CORS::create($cors);
                 }
             }
-
             $result->setCorses($corses);
         } else {
             $result->setCorses(array());
         }
-
         return $result;
     }
-
     /**
      * Gets logging element.
      *
@@ -107,7 +95,6 @@ class ServiceProperties
     {
         return $this->logging;
     }
-
     /**
      * Sets logging element.
      *
@@ -119,7 +106,6 @@ class ServiceProperties
     {
         $this->logging = clone $logging;
     }
-
     /**
      * Gets hour metrics element.
      *
@@ -129,7 +115,6 @@ class ServiceProperties
     {
         return $this->hourMetrics;
     }
-
     /**
      * Sets hour metrics element.
      *
@@ -141,7 +126,6 @@ class ServiceProperties
     {
         $this->hourMetrics = clone $hourMetrics;
     }
-
     /**
      * Gets minute metrics element.
      *
@@ -151,7 +135,6 @@ class ServiceProperties
     {
         return $this->minuteMetrics;
     }
-
     /**
      * Sets minute metrics element.
      *
@@ -163,7 +146,6 @@ class ServiceProperties
     {
         $this->minuteMetrics = clone $minuteMetrics;
     }
-
     /**
      * Gets corses element.
      *
@@ -173,7 +155,6 @@ class ServiceProperties
     {
         return $this->corses;
     }
-
     /**
      * Sets corses element.
      *
@@ -185,7 +166,6 @@ class ServiceProperties
     {
         $this->corses = $corses;
     }
-
     /**
      * Gets the default service version.
      *
@@ -195,7 +175,6 @@ class ServiceProperties
     {
         return $this->defaultServiceVersion;
     }
-
     /**
      * Sets the default service version. This can obly be set for the blob service.
      *
@@ -207,7 +186,6 @@ class ServiceProperties
     {
         $this->defaultServiceVersion = $defaultServiceVersion;
     }
-
     /**
      * Converts this object to array with XML tags
      *
@@ -217,34 +195,24 @@ class ServiceProperties
     public function toArray()
     {
         $result = array();
-
         if (!empty($this->getLogging())) {
-            $result[Resources::XTAG_LOGGING] =
-                    $this->getLogging()->toArray();
+            $result[Resources::XTAG_LOGGING] = $this->getLogging()->toArray();
         }
-
         if (!empty($this->getHourMetrics())) {
-            $result[Resources::XTAG_HOUR_METRICS] =
-                    $this->getHourMetrics()->toArray();
+            $result[Resources::XTAG_HOUR_METRICS] = $this->getHourMetrics()->toArray();
         }
-
         if (!empty($this->getMinuteMetrics())) {
-            $result[Resources::XTAG_MINUTE_METRICS] =
-                    $this->getMinuteMetrics()->toArray();
+            $result[Resources::XTAG_MINUTE_METRICS] = $this->getMinuteMetrics()->toArray();
         }
-
         $corsesArray = $this->getCorsesArray();
         if (!empty($corsesArray)) {
-            $result[Resources::XTAG_CORS] =$corsesArray;
+            $result[Resources::XTAG_CORS] = $corsesArray;
         }
-
         if ($this->defaultServiceVersion != null) {
             $result[Resources::XTAG_DEFAULT_SERVICE_VERSION] = $this->defaultServiceVersion;
         }
-
         return $result;
     }
-
     /**
      * Gets the array that contains all the CORSes.
      *
@@ -254,18 +222,14 @@ class ServiceProperties
     {
         $corsesArray = array();
         if (count($this->getCorses()) == 1) {
-            $corsesArray = array(
-                Resources::XTAG_CORS_RULE => $this->getCorses()[0]->toArray()
-            );
+            $corsesArray = array(Resources::XTAG_CORS_RULE => $this->getCorses()[0]->toArray());
         } elseif ($this->getCorses() != array()) {
             foreach ($this->getCorses() as $cors) {
                 $corsesArray[] = [Resources::XTAG_CORS_RULE => $cors->toArray()];
             }
         }
-
         return $corsesArray;
     }
-
     /**
      * Converts this current object to XML representation.
      *

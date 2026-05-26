@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TeamworkConversationIdentity class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TeamworkConversationIdentity extends Identity
 {
-
     /**
-    * Gets the conversationIdentityType
-    * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
-    *
-    * @return TeamworkConversationIdentityType|null The conversationIdentityType
-    */
+     * Gets the conversationIdentityType
+     * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
+     *
+     * @return TeamworkConversationIdentityType|null The conversationIdentityType
+     */
     public function getConversationIdentityType()
     {
         if (array_key_exists("conversationIdentityType", $this->_propDict)) {
-            if (is_a($this->_propDict["conversationIdentityType"], "\Microsoft\Graph\Model\TeamworkConversationIdentityType") || is_null($this->_propDict["conversationIdentityType"])) {
+            if (is_a($this->_propDict["conversationIdentityType"], "XCloner\\Microsoft\\Graph\\Model\\TeamworkConversationIdentityType") || is_null($this->_propDict["conversationIdentityType"])) {
                 return $this->_propDict["conversationIdentityType"];
             } else {
                 $this->_propDict["conversationIdentityType"] = new TeamworkConversationIdentityType($this->_propDict["conversationIdentityType"]);
@@ -45,18 +46,17 @@ class TeamworkConversationIdentity extends Identity
         }
         return null;
     }
-
     /**
-    * Sets the conversationIdentityType
-    * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
-    *
-    * @param TeamworkConversationIdentityType $val The value to assign to the conversationIdentityType
-    *
-    * @return TeamworkConversationIdentity The TeamworkConversationIdentity
-    */
+     * Sets the conversationIdentityType
+     * Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
+     *
+     * @param TeamworkConversationIdentityType $val The value to assign to the conversationIdentityType
+     *
+     * @return TeamworkConversationIdentity The TeamworkConversationIdentity
+     */
     public function setConversationIdentityType($val)
     {
         $this->_propDict["conversationIdentityType"] = $val;
-         return $this;
+        return $this;
     }
 }

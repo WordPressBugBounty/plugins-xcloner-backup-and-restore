@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Approval class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Approval extends Entity
 {
-
-     /**
+    /**
      * Gets the stages
-    * A collection of stages in the approval decision.
+     * A collection of stages in the approval decision.
      *
      * @return array|null The stages
      */
     public function getStages()
     {
         if (array_key_exists("stages", $this->_propDict)) {
-           return $this->_propDict["stages"];
+            return $this->_propDict["stages"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the stages
-    * A collection of stages in the approval decision.
-    *
-    * @param ApprovalStage[] $val The stages
-    *
-    * @return Approval
-    */
+     * Sets the stages
+     * A collection of stages in the approval decision.
+     *
+     * @param ApprovalStage[] $val The stages
+     *
+     * @return Approval
+     */
     public function setStages($val)
     {
         $this->_propDict["stages"] = $val;
         return $this;
     }
-
 }

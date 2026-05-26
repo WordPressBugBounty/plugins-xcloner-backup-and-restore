@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageResourceAttributeQuestion class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttributeSource
 {
-
     /**
-    * Gets the question
-    * The question asked in order to get the value of the attribute
-    *
-    * @return AccessPackageQuestion|null The question
-    */
+     * Gets the question
+     * The question asked in order to get the value of the attribute
+     *
+     * @return AccessPackageQuestion|null The question
+     */
     public function getQuestion()
     {
         if (array_key_exists("question", $this->_propDict)) {
-            if (is_a($this->_propDict["question"], "\Beta\Microsoft\Graph\Model\AccessPackageQuestion") || is_null($this->_propDict["question"])) {
+            if (is_a($this->_propDict["question"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AccessPackageQuestion") || is_null($this->_propDict["question"])) {
                 return $this->_propDict["question"];
             } else {
                 $this->_propDict["question"] = new AccessPackageQuestion($this->_propDict["question"]);
@@ -45,18 +46,17 @@ class AccessPackageResourceAttributeQuestion extends AccessPackageResourceAttrib
         }
         return null;
     }
-
     /**
-    * Sets the question
-    * The question asked in order to get the value of the attribute
-    *
-    * @param AccessPackageQuestion $val The value to assign to the question
-    *
-    * @return AccessPackageResourceAttributeQuestion The AccessPackageResourceAttributeQuestion
-    */
+     * Sets the question
+     * The question asked in order to get the value of the attribute
+     *
+     * @param AccessPackageQuestion $val The value to assign to the question
+     *
+     * @return AccessPackageResourceAttributeQuestion The AccessPackageResourceAttributeQuestion
+     */
     public function setQuestion($val)
     {
         $this->_propDict["question"] = $val;
-         return $this;
+        return $this;
     }
 }

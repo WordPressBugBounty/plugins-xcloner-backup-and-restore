@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for directory iteration.
  *
@@ -18,11 +20,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @group  issue_128
  * @since  1.6.2
  */
-class FilenameTestCase extends \BC_PHPUnit_Framework_TestCase
+class FilenameTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     private $rootDir;
     private $lostAndFound;
-
     /**
      * set up test environment
      */
@@ -33,7 +34,6 @@ class FilenameTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->lostAndFound = $this->rootDir . '/lost+found/';
         mkdir($this->lostAndFound);
     }
-
     /**
      * @test
      */
@@ -44,16 +44,8 @@ class FilenameTestCase extends \BC_PHPUnit_Framework_TestCase
         foreach ($it as $f) {
             $results[] = $f->getPathname();
         }
-
-        $this->assertEquals(
-                array(
-                        'vfs://root/lost+found' . DIRECTORY_SEPARATOR . '.',
-                        'vfs://root/lost+found' . DIRECTORY_SEPARATOR . '..'
-                ),
-                $results
-        );
+        $this->assertEquals(array('vfs://root/lost+found' . \DIRECTORY_SEPARATOR . '.', 'vfs://root/lost+found' . \DIRECTORY_SEPARATOR . '..'), $results);
     }
-
     /**
      * @test
      * @expectedException  UnexpectedValueException
@@ -67,7 +59,6 @@ class FilenameTestCase extends \BC_PHPUnit_Framework_TestCase
             $results[] = $f->getPathname();
         }
     }
-
     /**
      * @test
      */
@@ -78,14 +69,6 @@ class FilenameTestCase extends \BC_PHPUnit_Framework_TestCase
         foreach ($it as $f) {
             $results[] = $f->getPathname();
         }
-
-        $this->assertEquals(
-                array(
-                        'vfs://root' . DIRECTORY_SEPARATOR . '.',
-                        'vfs://root' . DIRECTORY_SEPARATOR . '..',
-                        'vfs://root' . DIRECTORY_SEPARATOR . 'lost+found'
-                ),
-                $results
-        );
+        $this->assertEquals(array('vfs://root' . \DIRECTORY_SEPARATOR . '.', 'vfs://root' . \DIRECTORY_SEPARATOR . '..', 'vfs://root' . \DIRECTORY_SEPARATOR . 'lost+found'), $results);
     }
 }

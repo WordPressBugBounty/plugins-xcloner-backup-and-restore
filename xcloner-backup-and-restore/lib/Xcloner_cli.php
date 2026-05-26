@@ -2,6 +2,9 @@
 
 namespace XCloner\Watchfulli\XClonerCore;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
 use Exception;
 use XCloner\League\Flysystem\FileNotFoundException;
 use XCloner\splitbrain\PHPArchive\ArchiveCorruptedException;
@@ -134,13 +137,21 @@ class Xcloner_cli
     private function print_help()
     {
         echo "-h                        Display help" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-p <profile name>         Specify the backup profile name or ID" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-e <backup name>          Encrypt backup file" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-d <backup name>          Decrypt backup file" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-k <encryption key>       Encryption/Decryption Key" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-l <backup name>          List files inside backup" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-v                        Verbose output" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         echo "-q                        Disable output" . \PHP_EOL;
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
     /**
      * @throws Exception
@@ -187,6 +198,7 @@ class Xcloner_cli
         $xcloner_file_system = $this->xcloner_container->get_xcloner_filesystem();
         if ($this->xcloner_container->get_xcloner_encryption()->is_encrypted_file($backup_name)) {
             die(sprintf("%s file is encrypted, please decrypt it first! " . \PHP_EOL, $backup_name));
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         $tar = $this->xcloner_container->get_archive_system();
         $backup_parts = [$backup_name];
@@ -198,6 +210,7 @@ class Xcloner_cli
             $data = $tar->contents($xcloner_settings->get_xcloner_option('xcloner_files_to_process_per_request'));
             foreach ($data['extracted_files'] as $file) {
                 echo sprintf("%s (%s) " . \PHP_EOL, $file->getPath(), size_format($file->getSize()));
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             }
         }
     }
@@ -230,9 +243,11 @@ class Xcloner_cli
         $backup_name = $this->get_backup_name_to_encrypt($opts);
         if ($this->xcloner_container->get_xcloner_encryption()->is_encrypted_file($backup_name)) {
             die(sprintf('File %s is already encrypted' . \PHP_EOL, $backup_name));
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         $this->xcloner_container->get_xcloner_encryption()->encrypt_file($backup_name, "", $this->get_encryption_key_from_arguments($opts), 0, 0, \true, \true);
         echo sprintf('File %s encrypted successfully' . \PHP_EOL, $backup_name);
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
     private function should_decrypt_backup($opts)
     {
@@ -253,9 +268,11 @@ class Xcloner_cli
         $backup_name = $this->get_backup_name_to_decrypt($opts);
         if (!$this->xcloner_container->get_xcloner_encryption()->is_encrypted_file($backup_name)) {
             die(sprintf('File %s is already decrypted' . \PHP_EOL, $backup_name));
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         $this->xcloner_container->get_xcloner_encryption()->decrypt_file($backup_name, "", $this->get_encryption_key_from_arguments($opts), 0, 0, \true);
         echo sprintf('File %s decrypted successfully' . \PHP_EOL, $backup_name);
+        // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
     }
     private function should_be_verbose($opts)
     {
@@ -292,6 +309,7 @@ class Xcloner_cli
             $profile = $this->xcloner_container->get_xcloner_scheduler()->get_schedule_by_id_or_name($profile_name);
         } catch (Exception $e) {
             die(sprintf('Could not find profile %s', $profile_name));
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         $this->xcloner_container->get_xcloner_scheduler()->xcloner_scheduler_callback($profile['id']);
     }

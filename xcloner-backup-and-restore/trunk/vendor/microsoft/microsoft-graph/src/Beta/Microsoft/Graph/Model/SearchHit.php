@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SearchHit class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SearchHit extends Entity
 {
     /**
-    * Gets the contentSource
-    * The name of the content source which the externalItem is part of .
-    *
-    * @return string|null The contentSource
-    */
+     * Gets the contentSource
+     * The name of the content source which the externalItem is part of .
+     *
+     * @return string|null The contentSource
+     */
     public function getContentSource()
     {
         if (array_key_exists("contentSource", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the contentSource
-    * The name of the content source which the externalItem is part of .
-    *
-    * @param string $val The value of the contentSource
-    *
-    * @return SearchHit
-    */
+     * Sets the contentSource
+     * The name of the content source which the externalItem is part of .
+     *
+     * @param string $val The value of the contentSource
+     *
+     * @return SearchHit
+     */
     public function setContentSource($val)
     {
         $this->_propDict["contentSource"] = $val;
         return $this;
     }
     /**
-    * Gets the hitId
-    * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
-    *
-    * @return string|null The hitId
-    */
+     * Gets the hitId
+     * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
+     *
+     * @return string|null The hitId
+     */
     public function getHitId()
     {
         if (array_key_exists("hitId", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hitId
-    * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
-    *
-    * @param string $val The value of the hitId
-    *
-    * @return SearchHit
-    */
+     * Sets the hitId
+     * The internal identifier for the item. The format of the identifier varies based on the entity type. For details, see hitId format.
+     *
+     * @param string $val The value of the hitId
+     *
+     * @return SearchHit
+     */
     public function setHitId($val)
     {
         $this->_propDict["hitId"] = $val;
         return $this;
     }
     /**
-    * Gets the rank
-    * The rank or the order of the result.
-    *
-    * @return int|null The rank
-    */
+     * Gets the rank
+     * The rank or the order of the result.
+     *
+     * @return int|null The rank
+     */
     public function getRank()
     {
         if (array_key_exists("rank", $this->_propDict)) {
@@ -96,26 +96,25 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the rank
-    * The rank or the order of the result.
-    *
-    * @param int $val The value of the rank
-    *
-    * @return SearchHit
-    */
+     * Sets the rank
+     * The rank or the order of the result.
+     *
+     * @param int $val The value of the rank
+     *
+     * @return SearchHit
+     */
     public function setRank($val)
     {
         $this->_propDict["rank"] = $val;
         return $this;
     }
     /**
-    * Gets the resultTemplateId
-    * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
-    *
-    * @return string|null The resultTemplateId
-    */
+     * Gets the resultTemplateId
+     * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+     *
+     * @return string|null The resultTemplateId
+     */
     public function getResultTemplateId()
     {
         if (array_key_exists("resultTemplateId", $this->_propDict)) {
@@ -124,26 +123,25 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the resultTemplateId
-    * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
-    *
-    * @param string $val The value of the resultTemplateId
-    *
-    * @return SearchHit
-    */
+     * Sets the resultTemplateId
+     * ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
+     *
+     * @param string $val The value of the resultTemplateId
+     *
+     * @return SearchHit
+     */
     public function setResultTemplateId($val)
     {
         $this->_propDict["resultTemplateId"] = $val;
         return $this;
     }
     /**
-    * Gets the summary
-    * A summary of the result, if a summary is available.
-    *
-    * @return string|null The summary
-    */
+     * Gets the summary
+     * A summary of the result, if a summary is available.
+     *
+     * @return string|null The summary
+     */
     public function getSummary()
     {
         if (array_key_exists("summary", $this->_propDict)) {
@@ -152,25 +150,24 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the summary
-    * A summary of the result, if a summary is available.
-    *
-    * @param string $val The value of the summary
-    *
-    * @return SearchHit
-    */
+     * Sets the summary
+     * A summary of the result, if a summary is available.
+     *
+     * @param string $val The value of the summary
+     *
+     * @return SearchHit
+     */
     public function setSummary($val)
     {
         $this->_propDict["summary"] = $val;
         return $this;
     }
     /**
-    * Gets the _id
-    *
-    * @return string|null The _id
-    */
+     * Gets the _id
+     *
+     * @return string|null The _id
+     */
     public function get_id()
     {
         if (array_key_exists("_id", $this->_propDict)) {
@@ -179,24 +176,23 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the _id
-    *
-    * @param string $val The value of the _id
-    *
-    * @return SearchHit
-    */
+     * Sets the _id
+     *
+     * @param string $val The value of the _id
+     *
+     * @return SearchHit
+     */
     public function set_id($val)
     {
         $this->_propDict["_id"] = $val;
         return $this;
     }
     /**
-    * Gets the _score
-    *
-    * @return int|null The _score
-    */
+     * Gets the _score
+     *
+     * @return int|null The _score
+     */
     public function get_score()
     {
         if (array_key_exists("_score", $this->_propDict)) {
@@ -205,24 +201,23 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the _score
-    *
-    * @param int $val The value of the _score
-    *
-    * @return SearchHit
-    */
+     * Sets the _score
+     *
+     * @param int $val The value of the _score
+     *
+     * @return SearchHit
+     */
     public function set_score($val)
     {
         $this->_propDict["_score"] = $val;
         return $this;
     }
     /**
-    * Gets the _summary
-    *
-    * @return string|null The _summary
-    */
+     * Gets the _summary
+     *
+     * @return string|null The _summary
+     */
     public function get_summary()
     {
         if (array_key_exists("_summary", $this->_propDict)) {
@@ -231,29 +226,27 @@ class SearchHit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the _summary
-    *
-    * @param string $val The value of the _summary
-    *
-    * @return SearchHit
-    */
+     * Sets the _summary
+     *
+     * @param string $val The value of the _summary
+     *
+     * @return SearchHit
+     */
     public function set_summary($val)
     {
         $this->_propDict["_summary"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resource
-    *
-    * @return Entity|null The resource
-    */
+     * Gets the resource
+     *
+     * @return Entity|null The resource
+     */
     public function getResource()
     {
         if (array_key_exists("resource", $this->_propDict)) {
-            if (is_a($this->_propDict["resource"], "\Beta\Microsoft\Graph\Model\Entity") || is_null($this->_propDict["resource"])) {
+            if (is_a($this->_propDict["resource"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Entity") || is_null($this->_propDict["resource"])) {
                 return $this->_propDict["resource"];
             } else {
                 $this->_propDict["resource"] = new Entity($this->_propDict["resource"]);
@@ -262,29 +255,27 @@ class SearchHit extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resource
-    *
-    * @param Entity $val The value to assign to the resource
-    *
-    * @return SearchHit The SearchHit
-    */
+     * Sets the resource
+     *
+     * @param Entity $val The value to assign to the resource
+     *
+     * @return SearchHit The SearchHit
+     */
     public function setResource($val)
     {
         $this->_propDict["resource"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the _source
-    *
-    * @return Entity|null The _source
-    */
+     * Gets the _source
+     *
+     * @return Entity|null The _source
+     */
     public function get_source()
     {
         if (array_key_exists("_source", $this->_propDict)) {
-            if (is_a($this->_propDict["_source"], "\Beta\Microsoft\Graph\Model\Entity") || is_null($this->_propDict["_source"])) {
+            if (is_a($this->_propDict["_source"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Entity") || is_null($this->_propDict["_source"])) {
                 return $this->_propDict["_source"];
             } else {
                 $this->_propDict["_source"] = new Entity($this->_propDict["_source"]);
@@ -293,17 +284,16 @@ class SearchHit extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the _source
-    *
-    * @param Entity $val The value to assign to the _source
-    *
-    * @return SearchHit The SearchHit
-    */
+     * Sets the _source
+     *
+     * @param Entity $val The value to assign to the _source
+     *
+     * @return SearchHit The SearchHit
+     */
     public function set_source($val)
     {
         $this->_propDict["_source"] = $val;
-         return $this;
+        return $this;
     }
 }

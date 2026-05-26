@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Locks;
 
-namespace Sabre\DAV\Locks;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * LockInfo class.
  *
@@ -23,57 +22,48 @@ class LockInfo
      * A shared lock.
      */
     const SHARED = 1;
-
     /**
      * An exclusive lock.
      */
     const EXCLUSIVE = 2;
-
     /**
      * A never expiring timeout.
      */
     const TIMEOUT_INFINITE = -1;
-
     /**
      * The owner of the lock.
      *
      * @var string
      */
     public $owner;
-
     /**
      * The locktoken.
      *
      * @var string
      */
     public $token;
-
     /**
      * How long till the lock is expiring.
      *
      * @var int
      */
     public $timeout;
-
     /**
      * UNIX Timestamp of when this lock was created.
      *
      * @var int
      */
     public $created;
-
     /**
      * Exclusive or shared lock.
      *
      * @var int
      */
     public $scope = self::EXCLUSIVE;
-
     /**
      * Depth of lock, can be 0 or Sabre\DAV\Server::DEPTH_INFINITY.
      */
     public $depth = 0;
-
     /**
      * The uri this lock locks.
      *

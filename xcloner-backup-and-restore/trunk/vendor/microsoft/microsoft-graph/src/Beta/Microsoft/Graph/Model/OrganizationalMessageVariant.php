@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OrganizationalMessageVariant class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OrganizationalMessageVariant extends Entity
 {
-
     /**
-    * Gets the localizedTexts
-    * The list of localized texts for this variant
-    *
-    * @return OrganizationalMessageLocalizedText|null The localizedTexts
-    */
+     * Gets the localizedTexts
+     * The list of localized texts for this variant
+     *
+     * @return OrganizationalMessageLocalizedText|null The localizedTexts
+     */
     public function getLocalizedTexts()
     {
         if (array_key_exists("localizedTexts", $this->_propDict)) {
-            if (is_a($this->_propDict["localizedTexts"], "\Beta\Microsoft\Graph\Model\OrganizationalMessageLocalizedText") || is_null($this->_propDict["localizedTexts"])) {
+            if (is_a($this->_propDict["localizedTexts"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OrganizationalMessageLocalizedText") || is_null($this->_propDict["localizedTexts"])) {
                 return $this->_propDict["localizedTexts"];
             } else {
                 $this->_propDict["localizedTexts"] = new OrganizationalMessageLocalizedText($this->_propDict["localizedTexts"]);
@@ -45,26 +46,25 @@ class OrganizationalMessageVariant extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the localizedTexts
-    * The list of localized texts for this variant
-    *
-    * @param OrganizationalMessageLocalizedText $val The value to assign to the localizedTexts
-    *
-    * @return OrganizationalMessageVariant The OrganizationalMessageVariant
-    */
+     * Sets the localizedTexts
+     * The list of localized texts for this variant
+     *
+     * @param OrganizationalMessageLocalizedText $val The value to assign to the localizedTexts
+     *
+     * @return OrganizationalMessageVariant The OrganizationalMessageVariant
+     */
     public function setLocalizedTexts($val)
     {
         $this->_propDict["localizedTexts"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * The name of the variant
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of the variant
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -73,26 +73,25 @@ class OrganizationalMessageVariant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of the variant
-    *
-    * @param string $val The value of the name
-    *
-    * @return OrganizationalMessageVariant
-    */
+     * Sets the name
+     * The name of the variant
+     *
+     * @param string $val The value of the name
+     *
+     * @return OrganizationalMessageVariant
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the variantId
-    * A unique identifier for this variant
-    *
-    * @return string|null The variantId
-    */
+     * Gets the variantId
+     * A unique identifier for this variant
+     *
+     * @return string|null The variantId
+     */
     public function getVariantId()
     {
         if (array_key_exists("variantId", $this->_propDict)) {
@@ -101,15 +100,14 @@ class OrganizationalMessageVariant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the variantId
-    * A unique identifier for this variant
-    *
-    * @param string $val The value of the variantId
-    *
-    * @return OrganizationalMessageVariant
-    */
+     * Sets the variantId
+     * A unique identifier for this variant
+     *
+     * @param string $val The value of the variantId
+     *
+     * @return OrganizationalMessageVariant
+     */
     public function setVariantId($val)
     {
         $this->_propDict["variantId"] = $val;

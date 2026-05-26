@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LobbyBypassSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LobbyBypassSettings extends Entity
 {
     /**
-    * Gets the isDialInBypassEnabled
-    * Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
-    *
-    * @return bool|null The isDialInBypassEnabled
-    */
+     * Gets the isDialInBypassEnabled
+     * Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
+     *
+     * @return bool|null The isDialInBypassEnabled
+     */
     public function getIsDialInBypassEnabled()
     {
         if (array_key_exists("isDialInBypassEnabled", $this->_propDict)) {
@@ -40,31 +42,29 @@ class LobbyBypassSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isDialInBypassEnabled
-    * Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
-    *
-    * @param bool $val The value of the isDialInBypassEnabled
-    *
-    * @return LobbyBypassSettings
-    */
+     * Sets the isDialInBypassEnabled
+     * Specifies whether or not to always let dial-in callers bypass the lobby. Optional.
+     *
+     * @param bool $val The value of the isDialInBypassEnabled
+     *
+     * @return LobbyBypassSettings
+     */
     public function setIsDialInBypassEnabled($val)
     {
         $this->_propDict["isDialInBypassEnabled"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scope
-    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
-    *
-    * @return LobbyBypassScope|null The scope
-    */
+     * Gets the scope
+     * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
+     *
+     * @return LobbyBypassScope|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\LobbyBypassScope") || is_null($this->_propDict["scope"])) {
+            if (is_a($this->_propDict["scope"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LobbyBypassScope") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new LobbyBypassScope($this->_propDict["scope"]);
@@ -73,18 +73,17 @@ class LobbyBypassSettings extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the scope
-    * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
-    *
-    * @param LobbyBypassScope $val The value to assign to the scope
-    *
-    * @return LobbyBypassSettings The LobbyBypassSettings
-    */
+     * Sets the scope
+     * Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
+     *
+     * @param LobbyBypassScope $val The value to assign to the scope
+     *
+     * @return LobbyBypassSettings The LobbyBypassSettings
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
-         return $this;
+        return $this;
     }
 }

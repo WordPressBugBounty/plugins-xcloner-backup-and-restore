@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsFeatureUpdateCatalogItem class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem
 {
     /**
-    * Gets the version
-    * The feature update version
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * The feature update version
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WindowsFeatureUpdateCatalogItem extends WindowsUpdateCatalogItem
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * The feature update version
-    *
-    * @param string $val The version
-    *
-    * @return WindowsFeatureUpdateCatalogItem
-    */
+     * Sets the version
+     * The feature update version
+     *
+     * @param string $val The version
+     *
+     * @return WindowsFeatureUpdateCatalogItem
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

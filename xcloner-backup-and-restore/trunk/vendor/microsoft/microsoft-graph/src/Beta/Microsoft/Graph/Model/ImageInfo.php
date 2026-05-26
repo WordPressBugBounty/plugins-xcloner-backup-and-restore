@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ImageInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ImageInfo extends Entity
 {
     /**
-    * Gets the addImageQuery
-    * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
-    *
-    * @return bool|null The addImageQuery
-    */
+     * Gets the addImageQuery
+     * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
+     *
+     * @return bool|null The addImageQuery
+     */
     public function getAddImageQuery()
     {
         if (array_key_exists("addImageQuery", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ImageInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the addImageQuery
-    * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
-    *
-    * @param bool $val The value of the addImageQuery
-    *
-    * @return ImageInfo
-    */
+     * Sets the addImageQuery
+     * Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image
+     *
+     * @param bool $val The value of the addImageQuery
+     *
+     * @return ImageInfo
+     */
     public function setAddImageQuery($val)
     {
         $this->_propDict["addImageQuery"] = $val;
         return $this;
     }
     /**
-    * Gets the alternateText
-    * Optional; alt-text accessible content for the image
-    *
-    * @return string|null The alternateText
-    */
+     * Gets the alternateText
+     * Optional; alt-text accessible content for the image
+     *
+     * @return string|null The alternateText
+     */
     public function getAlternateText()
     {
         if (array_key_exists("alternateText", $this->_propDict)) {
@@ -68,25 +69,24 @@ class ImageInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the alternateText
-    * Optional; alt-text accessible content for the image
-    *
-    * @param string $val The value of the alternateText
-    *
-    * @return ImageInfo
-    */
+     * Sets the alternateText
+     * Optional; alt-text accessible content for the image
+     *
+     * @param string $val The value of the alternateText
+     *
+     * @return ImageInfo
+     */
     public function setAlternateText($val)
     {
         $this->_propDict["alternateText"] = $val;
         return $this;
     }
     /**
-    * Gets the alternativeText
-    *
-    * @return string|null The alternativeText
-    */
+     * Gets the alternativeText
+     *
+     * @return string|null The alternativeText
+     */
     public function getAlternativeText()
     {
         if (array_key_exists("alternativeText", $this->_propDict)) {
@@ -95,25 +95,24 @@ class ImageInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the alternativeText
-    *
-    * @param string $val The value of the alternativeText
-    *
-    * @return ImageInfo
-    */
+     * Sets the alternativeText
+     *
+     * @param string $val The value of the alternativeText
+     *
+     * @return ImageInfo
+     */
     public function setAlternativeText($val)
     {
         $this->_propDict["alternativeText"] = $val;
         return $this;
     }
     /**
-    * Gets the iconUrl
-    * Optional; URI that points to an icon which represents the application used to generate the activity
-    *
-    * @return string|null The iconUrl
-    */
+     * Gets the iconUrl
+     * Optional; URI that points to an icon which represents the application used to generate the activity
+     *
+     * @return string|null The iconUrl
+     */
     public function getIconUrl()
     {
         if (array_key_exists("iconUrl", $this->_propDict)) {
@@ -122,15 +121,14 @@ class ImageInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the iconUrl
-    * Optional; URI that points to an icon which represents the application used to generate the activity
-    *
-    * @param string $val The value of the iconUrl
-    *
-    * @return ImageInfo
-    */
+     * Sets the iconUrl
+     * Optional; URI that points to an icon which represents the application used to generate the activity
+     *
+     * @param string $val The value of the iconUrl
+     *
+     * @return ImageInfo
+     */
     public function setIconUrl($val)
     {
         $this->_propDict["iconUrl"] = $val;

@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Logger;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Logger;
 /**
  * Blackhole
  *
@@ -31,18 +29,16 @@ class NullHandler extends AbstractHandler
      */
     public function __construct($level = Logger::DEBUG)
     {
-        parent::__construct($level, false);
+        parent::__construct($level, \false);
     }
-
     /**
      * {@inheritdoc}
      */
     public function handle(array $record)
     {
         if ($record['level'] < $this->level) {
-            return false;
+            return \false;
         }
-
-        return true;
+        return \true;
     }
 }

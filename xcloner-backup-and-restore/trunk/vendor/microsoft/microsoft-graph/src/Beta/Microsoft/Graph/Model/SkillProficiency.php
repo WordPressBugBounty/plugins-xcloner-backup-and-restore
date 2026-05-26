@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SkillProficiency class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SkillProficiency extends ItemFacet
 {
     /**
-    * Gets the categories
-    * Contains categories a user has associated with the skill (for example, personal, professional, hobby).
-    *
-    * @return array|null The categories
-    */
+     * Gets the categories
+     * Contains categories a user has associated with the skill (for example, personal, professional, hobby).
+     *
+     * @return array|null The categories
+     */
     public function getCategories()
     {
         if (array_key_exists("categories", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the categories
-    * Contains categories a user has associated with the skill (for example, personal, professional, hobby).
-    *
-    * @param string[] $val The categories
-    *
-    * @return SkillProficiency
-    */
+     * Sets the categories
+     * Contains categories a user has associated with the skill (for example, personal, professional, hobby).
+     *
+     * @param string[] $val The categories
+     *
+     * @return SkillProficiency
+     */
     public function setCategories($val)
     {
         $this->_propDict["categories"] = $val;
         return $this;
     }
-
     /**
-    * Gets the collaborationTags
-    * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-    *
-    * @return array|null The collaborationTags
-    */
+     * Gets the collaborationTags
+     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
+     *
+     * @return array|null The collaborationTags
+     */
     public function getCollaborationTags()
     {
         if (array_key_exists("collaborationTags", $this->_propDict)) {
@@ -70,27 +69,25 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the collaborationTags
-    * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-    *
-    * @param string[] $val The collaborationTags
-    *
-    * @return SkillProficiency
-    */
+     * Sets the collaborationTags
+     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
+     *
+     * @param string[] $val The collaborationTags
+     *
+     * @return SkillProficiency
+     */
     public function setCollaborationTags($val)
     {
         $this->_propDict["collaborationTags"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Contains a friendly name for the skill.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Contains a friendly name for the skill.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -99,31 +96,29 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Contains a friendly name for the skill.
-    *
-    * @param string $val The displayName
-    *
-    * @return SkillProficiency
-    */
+     * Sets the displayName
+     * Contains a friendly name for the skill.
+     *
+     * @param string $val The displayName
+     *
+     * @return SkillProficiency
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the proficiency
-    * Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
-    *
-    * @return SkillProficiencyLevel|null The proficiency
-    */
+     * Gets the proficiency
+     * Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
+     *
+     * @return SkillProficiencyLevel|null The proficiency
+     */
     public function getProficiency()
     {
         if (array_key_exists("proficiency", $this->_propDict)) {
-            if (is_a($this->_propDict["proficiency"], "\Beta\Microsoft\Graph\Model\SkillProficiencyLevel") || is_null($this->_propDict["proficiency"])) {
+            if (is_a($this->_propDict["proficiency"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SkillProficiencyLevel") || is_null($this->_propDict["proficiency"])) {
                 return $this->_propDict["proficiency"];
             } else {
                 $this->_propDict["proficiency"] = new SkillProficiencyLevel($this->_propDict["proficiency"]);
@@ -132,26 +127,24 @@ class SkillProficiency extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the proficiency
-    * Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
-    *
-    * @param SkillProficiencyLevel $val The proficiency
-    *
-    * @return SkillProficiency
-    */
+     * Sets the proficiency
+     * Detail of the users proficiency with this skill. Possible values are: elementary, limitedWorking, generalProfessional, advancedProfessional, expert, unknownFutureValue.
+     *
+     * @param SkillProficiencyLevel $val The proficiency
+     *
+     * @return SkillProficiency
+     */
     public function setProficiency($val)
     {
         $this->_propDict["proficiency"] = $val;
         return $this;
     }
-
     /**
-    * Gets the thumbnailUrl
-    *
-    * @return string|null The thumbnailUrl
-    */
+     * Gets the thumbnailUrl
+     *
+     * @return string|null The thumbnailUrl
+     */
     public function getThumbnailUrl()
     {
         if (array_key_exists("thumbnailUrl", $this->_propDict)) {
@@ -160,26 +153,24 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the thumbnailUrl
-    *
-    * @param string $val The thumbnailUrl
-    *
-    * @return SkillProficiency
-    */
+     * Sets the thumbnailUrl
+     *
+     * @param string $val The thumbnailUrl
+     *
+     * @return SkillProficiency
+     */
     public function setThumbnailUrl($val)
     {
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the webUrl
-    * Contains a link to an information source about the skill.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Contains a link to an information source about the skill.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -188,19 +179,17 @@ class SkillProficiency extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Contains a link to an information source about the skill.
-    *
-    * @param string $val The webUrl
-    *
-    * @return SkillProficiency
-    */
+     * Sets the webUrl
+     * Contains a link to an information source about the skill.
+     *
+     * @param string $val The webUrl
+     *
+     * @return SkillProficiency
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-
 }

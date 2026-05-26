@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Directory container.
  */
@@ -26,7 +28,6 @@ class DotDirectory extends vfsStreamDirectory
     {
         return new \ArrayIterator(array());
     }
-
     /**
      * checks whether dir is a dot dir
      *
@@ -34,6 +35,6 @@ class DotDirectory extends vfsStreamDirectory
      */
     public function isDot()
     {
-        return true;
+        return \true;
     }
 }

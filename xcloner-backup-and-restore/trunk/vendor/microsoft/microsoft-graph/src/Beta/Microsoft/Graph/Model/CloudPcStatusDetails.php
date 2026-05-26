@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcStatusDetails class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CloudPcStatusDetails extends Entity
 {
-
     /**
-    * Gets the additionalInformation
-    * Any additional information about the Cloud PC status.
-    *
-    * @return KeyValuePair|null The additionalInformation
-    */
+     * Gets the additionalInformation
+     * Any additional information about the Cloud PC status.
+     *
+     * @return KeyValuePair|null The additionalInformation
+     */
     public function getAdditionalInformation()
     {
         if (array_key_exists("additionalInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["additionalInformation"], "\Beta\Microsoft\Graph\Model\KeyValuePair") || is_null($this->_propDict["additionalInformation"])) {
+            if (is_a($this->_propDict["additionalInformation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\KeyValuePair") || is_null($this->_propDict["additionalInformation"])) {
                 return $this->_propDict["additionalInformation"];
             } else {
                 $this->_propDict["additionalInformation"] = new KeyValuePair($this->_propDict["additionalInformation"]);
@@ -45,26 +46,25 @@ class CloudPcStatusDetails extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the additionalInformation
-    * Any additional information about the Cloud PC status.
-    *
-    * @param KeyValuePair $val The value to assign to the additionalInformation
-    *
-    * @return CloudPcStatusDetails The CloudPcStatusDetails
-    */
+     * Sets the additionalInformation
+     * Any additional information about the Cloud PC status.
+     *
+     * @param KeyValuePair $val The value to assign to the additionalInformation
+     *
+     * @return CloudPcStatusDetails The CloudPcStatusDetails
+     */
     public function setAdditionalInformation($val)
     {
         $this->_propDict["additionalInformation"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the code
-    * The code associated with the Cloud PC status.
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     * The code associated with the Cloud PC status.
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -73,26 +73,25 @@ class CloudPcStatusDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    * The code associated with the Cloud PC status.
-    *
-    * @param string $val The value of the code
-    *
-    * @return CloudPcStatusDetails
-    */
+     * Sets the code
+     * The code associated with the Cloud PC status.
+     *
+     * @param string $val The value of the code
+     *
+     * @return CloudPcStatusDetails
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
     /**
-    * Gets the message
-    * The status message.
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     * The status message.
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -101,15 +100,14 @@ class CloudPcStatusDetails extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    * The status message.
-    *
-    * @param string $val The value of the message
-    *
-    * @return CloudPcStatusDetails
-    */
+     * Sets the message
+     * The status message.
+     *
+     * @param string $val The value of the message
+     *
+     * @return CloudPcStatusDetails
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;

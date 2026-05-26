@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MoveAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MoveAction extends Entity
 {
     /**
-    * Gets the from
-    * The name of the location the item was moved from.
-    *
-    * @return string|null The from
-    */
+     * Gets the from
+     * The name of the location the item was moved from.
+     *
+     * @return string|null The from
+     */
     public function getFrom()
     {
         if (array_key_exists("from", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MoveAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the from
-    * The name of the location the item was moved from.
-    *
-    * @param string $val The value of the from
-    *
-    * @return MoveAction
-    */
+     * Sets the from
+     * The name of the location the item was moved from.
+     *
+     * @param string $val The value of the from
+     *
+     * @return MoveAction
+     */
     public function setFrom($val)
     {
         $this->_propDict["from"] = $val;
         return $this;
     }
     /**
-    * Gets the to
-    * The name of the location the item was moved to.
-    *
-    * @return string|null The to
-    */
+     * Gets the to
+     * The name of the location the item was moved to.
+     *
+     * @return string|null The to
+     */
     public function getTo()
     {
         if (array_key_exists("to", $this->_propDict)) {
@@ -68,15 +69,14 @@ class MoveAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the to
-    * The name of the location the item was moved to.
-    *
-    * @param string $val The value of the to
-    *
-    * @return MoveAction
-    */
+     * Sets the to
+     * The name of the location the item was moved to.
+     *
+     * @param string $val The value of the to
+     *
+     * @return MoveAction
+     */
     public function setTo($val)
     {
         $this->_propDict["to"] = $val;

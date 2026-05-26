@@ -1,9 +1,10 @@
 <?php
-namespace Aws\Crypto\Polyfill;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto\Polyfill;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Class Key
  *
@@ -17,7 +18,6 @@ class Key
      * @var string $internalString
      */
     private $internalString;
-
     /**
      * Hide contents of 
      *
@@ -27,7 +27,6 @@ class Key
     {
         return [];
     }
-
     /**
      * Key constructor.
      * @param string $str
@@ -36,7 +35,6 @@ class Key
     {
         $this->internalString = $str;
     }
-
     /**
      * Defense in depth:
      *
@@ -58,7 +56,6 @@ class Key
             }
         }
     }
-
     /**
      * @return string
      */
@@ -66,13 +63,12 @@ class Key
     {
         return $this->internalString;
     }
-
     /**
      * @return int
      */
     public function length()
     {
-        if (\is_callable('\\mb_strlen')) {
+        if (\is_callable('\mb_strlen')) {
             return (int) \mb_strlen($this->internalString, '8bit');
         }
         return (int) \strlen($this->internalString);

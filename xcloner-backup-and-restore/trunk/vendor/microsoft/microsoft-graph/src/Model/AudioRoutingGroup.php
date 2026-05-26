@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AudioRoutingGroup class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AudioRoutingGroup extends Entity
 {
     /**
-    * Gets the receivers
-    *
-    * @return array|null The receivers
-    */
+     * Gets the receivers
+     *
+     * @return array|null The receivers
+     */
     public function getReceivers()
     {
         if (array_key_exists("receivers", $this->_propDict)) {
@@ -40,29 +41,27 @@ class AudioRoutingGroup extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the receivers
-    *
-    * @param string[] $val The receivers
-    *
-    * @return AudioRoutingGroup
-    */
+     * Sets the receivers
+     *
+     * @param string[] $val The receivers
+     *
+     * @return AudioRoutingGroup
+     */
     public function setReceivers($val)
     {
         $this->_propDict["receivers"] = $val;
         return $this;
     }
-
     /**
-    * Gets the routingMode
-    *
-    * @return RoutingMode|null The routingMode
-    */
+     * Gets the routingMode
+     *
+     * @return RoutingMode|null The routingMode
+     */
     public function getRoutingMode()
     {
         if (array_key_exists("routingMode", $this->_propDict)) {
-            if (is_a($this->_propDict["routingMode"], "\Microsoft\Graph\Model\RoutingMode") || is_null($this->_propDict["routingMode"])) {
+            if (is_a($this->_propDict["routingMode"], "XCloner\\Microsoft\\Graph\\Model\\RoutingMode") || is_null($this->_propDict["routingMode"])) {
                 return $this->_propDict["routingMode"];
             } else {
                 $this->_propDict["routingMode"] = new RoutingMode($this->_propDict["routingMode"]);
@@ -71,25 +70,23 @@ class AudioRoutingGroup extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the routingMode
-    *
-    * @param RoutingMode $val The routingMode
-    *
-    * @return AudioRoutingGroup
-    */
+     * Sets the routingMode
+     *
+     * @param RoutingMode $val The routingMode
+     *
+     * @return AudioRoutingGroup
+     */
     public function setRoutingMode($val)
     {
         $this->_propDict["routingMode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sources
-    *
-    * @return array|null The sources
-    */
+     * Gets the sources
+     *
+     * @return array|null The sources
+     */
     public function getSources()
     {
         if (array_key_exists("sources", $this->_propDict)) {
@@ -98,18 +95,16 @@ class AudioRoutingGroup extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sources
-    *
-    * @param string[] $val The sources
-    *
-    * @return AudioRoutingGroup
-    */
+     * Sets the sources
+     *
+     * @param string[] $val The sources
+     *
+     * @return AudioRoutingGroup
+     */
     public function setSources($val)
     {
         $this->_propDict["sources"] = $val;
         return $this;
     }
-
 }

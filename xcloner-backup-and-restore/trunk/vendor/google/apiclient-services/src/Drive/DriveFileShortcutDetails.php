@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,70 +15,67 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileShortcutDetails extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $targetId;
-  /**
-   * @var string
-   */
-  public $targetMimeType;
-  /**
-   * @var string
-   */
-  public $targetResourceKey;
-
-  /**
-   * @param string
-   */
-  public function setTargetId($targetId)
-  {
-    $this->targetId = $targetId;
-  }
-  /**
-   * @return string
-   */
-  public function getTargetId()
-  {
-    return $this->targetId;
-  }
-  /**
-   * @param string
-   */
-  public function setTargetMimeType($targetMimeType)
-  {
-    $this->targetMimeType = $targetMimeType;
-  }
-  /**
-   * @return string
-   */
-  public function getTargetMimeType()
-  {
-    return $this->targetMimeType;
-  }
-  /**
-   * @param string
-   */
-  public function setTargetResourceKey($targetResourceKey)
-  {
-    $this->targetResourceKey = $targetResourceKey;
-  }
-  /**
-   * @return string
-   */
-  public function getTargetResourceKey()
-  {
-    return $this->targetResourceKey;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileShortcutDetails extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $targetId;
+    /**
+     * @var string
+     */
+    public $targetMimeType;
+    /**
+     * @var string
+     */
+    public $targetResourceKey;
+    /**
+     * @param string
+     */
+    public function setTargetId($targetId)
+    {
+        $this->targetId = $targetId;
+    }
+    /**
+     * @return string
+     */
+    public function getTargetId()
+    {
+        return $this->targetId;
+    }
+    /**
+     * @param string
+     */
+    public function setTargetMimeType($targetMimeType)
+    {
+        $this->targetMimeType = $targetMimeType;
+    }
+    /**
+     * @return string
+     */
+    public function getTargetMimeType()
+    {
+        return $this->targetMimeType;
+    }
+    /**
+     * @param string
+     */
+    public function setTargetResourceKey($targetResourceKey)
+    {
+        $this->targetResourceKey = $targetResourceKey;
+    }
+    /**
+     * @return string
+     */
+    public function getTargetResourceKey()
+    {
+        return $this->targetResourceKey;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileShortcutDetails::class, 'Google_Service_Drive_DriveFileShortcutDetails');
+class_alias(DriveFileShortcutDetails::class, 'XCloner\Google_Service_Drive_DriveFileShortcutDetails');

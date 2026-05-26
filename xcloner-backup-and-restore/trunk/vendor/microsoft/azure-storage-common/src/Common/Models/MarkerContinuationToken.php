@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Provides functionality and data structure for continuation token that
  * contains next marker.
@@ -43,15 +41,11 @@ use MicrosoftAzure\Storage\Common\Internal\Validate;
 class MarkerContinuationToken extends ContinuationToken
 {
     private $nextMarker;
-
-    public function __construct(
-        $nextMarker = '',
-        $location = ''
-    ) {
+    public function __construct($nextMarker = '', $location = '')
+    {
         parent::__construct($location);
         $this->setNextMarker($nextMarker);
     }
-
     /**
      * Setter for nextMarker
      *
@@ -62,7 +56,6 @@ class MarkerContinuationToken extends ContinuationToken
         Validate::canCastAsString($nextMarker, 'nextMarker');
         $this->nextMarker = $nextMarker;
     }
-
     /**
      * Getter for nextMarker
      *

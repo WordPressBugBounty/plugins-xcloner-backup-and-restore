@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PinnedChatMessageInfo class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PinnedChatMessageInfo extends Entity
 {
     /**
-    * Gets the message
-    * Represents details about the chat message that is pinned.
-    *
-    * @return ChatMessage|null The message
-    */
+     * Gets the message
+     * Represents details about the chat message that is pinned.
+     *
+     * @return ChatMessage|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
-            if (is_a($this->_propDict["message"], "\Beta\Microsoft\Graph\Model\ChatMessage") || is_null($this->_propDict["message"])) {
+            if (is_a($this->_propDict["message"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ChatMessage") || is_null($this->_propDict["message"])) {
                 return $this->_propDict["message"];
             } else {
                 $this->_propDict["message"] = new ChatMessage($this->_propDict["message"]);
@@ -45,19 +46,17 @@ class PinnedChatMessageInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the message
-    * Represents details about the chat message that is pinned.
-    *
-    * @param ChatMessage $val The message
-    *
-    * @return PinnedChatMessageInfo
-    */
+     * Sets the message
+     * Represents details about the chat message that is pinned.
+     *
+     * @param ChatMessage $val The message
+     *
+     * @return PinnedChatMessageInfo
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;
         return $this;
     }
-
 }

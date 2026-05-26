@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PropertyToEvaluate class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PropertyToEvaluate extends Entity
 {
     /**
-    * Gets the propertyName
-    * Provides the property name.
-    *
-    * @return string|null The propertyName
-    */
+     * Gets the propertyName
+     * Provides the property name.
+     *
+     * @return string|null The propertyName
+     */
     public function getPropertyName()
     {
         if (array_key_exists("propertyName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PropertyToEvaluate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the propertyName
-    * Provides the property name.
-    *
-    * @param string $val The value of the propertyName
-    *
-    * @return PropertyToEvaluate
-    */
+     * Sets the propertyName
+     * Provides the property name.
+     *
+     * @param string $val The value of the propertyName
+     *
+     * @return PropertyToEvaluate
+     */
     public function setPropertyName($val)
     {
         $this->_propDict["propertyName"] = $val;
         return $this;
     }
     /**
-    * Gets the propertyValue
-    * Provides the property value.
-    *
-    * @return string|null The propertyValue
-    */
+     * Gets the propertyValue
+     * Provides the property value.
+     *
+     * @return string|null The propertyValue
+     */
     public function getPropertyValue()
     {
         if (array_key_exists("propertyValue", $this->_propDict)) {
@@ -68,15 +69,14 @@ class PropertyToEvaluate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the propertyValue
-    * Provides the property value.
-    *
-    * @param string $val The value of the propertyValue
-    *
-    * @return PropertyToEvaluate
-    */
+     * Sets the propertyValue
+     * Provides the property value.
+     *
+     * @param string $val The value of the propertyValue
+     *
+     * @return PropertyToEvaluate
+     */
     public function setPropertyValue($val)
     {
         $this->_propDict["propertyValue"] = $val;

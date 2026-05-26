@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for stream_set_option() implementation.
  *
@@ -18,7 +20,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @see    https://github.com/mikey179/vfsStream/issues/15
  * @group  issue_15
  */
-class vfsStreamWrapperSetOptionTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamWrapperSetOptionTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * root directory
@@ -26,7 +28,6 @@ class vfsStreamWrapperSetOptionTestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamContainer
      */
     protected $root;
-
     /**
      * set up test environment
      */
@@ -35,7 +36,6 @@ class vfsStreamWrapperSetOptionTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->root = vfsStream::setup();
         vfsStream::newFile('foo.txt')->at($this->root);
     }
-
     /**
      * @test
      */
@@ -45,7 +45,6 @@ class vfsStreamWrapperSetOptionTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse(stream_set_blocking($fp, 1));
         fclose($fp);
     }
-
     /**
      * @test
      */
@@ -55,7 +54,6 @@ class vfsStreamWrapperSetOptionTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse(stream_set_blocking($fp, 0));
         fclose($fp);
     }
-
     /**
      * @test
      */
@@ -65,7 +63,6 @@ class vfsStreamWrapperSetOptionTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertFalse(stream_set_timeout($fp, 1));
         fclose($fp);
     }
-
     /**
      * @test
      */

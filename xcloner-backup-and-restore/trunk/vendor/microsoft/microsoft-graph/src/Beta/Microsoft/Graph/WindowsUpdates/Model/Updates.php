@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Updates class
 *
@@ -25,18 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Updates extends \Beta\Microsoft\Graph\Model\Entity
+class Updates extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the catalog
-    * Catalog of content that can be approved for deployment by the deployment service. Read-only.
-    *
-    * @return Catalog|null The catalog
-    */
+     * Gets the catalog
+     * Catalog of content that can be approved for deployment by the deployment service. Read-only.
+     *
+     * @return Catalog|null The catalog
+     */
     public function getCatalog()
     {
         if (array_key_exists("catalog", $this->_propDict)) {
-            if (is_a($this->_propDict["catalog"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\Catalog") || is_null($this->_propDict["catalog"])) {
+            if (is_a($this->_propDict["catalog"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\Catalog") || is_null($this->_propDict["catalog"])) {
                 return $this->_propDict["catalog"];
             } else {
                 $this->_propDict["catalog"] = new Catalog($this->_propDict["catalog"]);
@@ -45,109 +46,98 @@ class Updates extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the catalog
-    * Catalog of content that can be approved for deployment by the deployment service. Read-only.
-    *
-    * @param Catalog $val The catalog
-    *
-    * @return Updates
-    */
+     * Sets the catalog
+     * Catalog of content that can be approved for deployment by the deployment service. Read-only.
+     *
+     * @param Catalog $val The catalog
+     *
+     * @return Updates
+     */
     public function setCatalog($val)
     {
         $this->_propDict["catalog"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the deployments
-    * Deployments created using the deployment service. Read-only.
+     * Deployments created using the deployment service. Read-only.
      *
      * @return array|null The deployments
      */
     public function getDeployments()
     {
         if (array_key_exists("deployments", $this->_propDict)) {
-           return $this->_propDict["deployments"];
+            return $this->_propDict["deployments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the deployments
-    * Deployments created using the deployment service. Read-only.
-    *
-    * @param Deployment[] $val The deployments
-    *
-    * @return Updates
-    */
+     * Sets the deployments
+     * Deployments created using the deployment service. Read-only.
+     *
+     * @param Deployment[] $val The deployments
+     *
+     * @return Updates
+     */
     public function setDeployments($val)
     {
         $this->_propDict["deployments"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the resourceConnections
-    * Service connections to external resources such as analytics workspaces.
+     * Service connections to external resources such as analytics workspaces.
      *
      * @return array|null The resourceConnections
      */
     public function getResourceConnections()
     {
         if (array_key_exists("resourceConnections", $this->_propDict)) {
-           return $this->_propDict["resourceConnections"];
+            return $this->_propDict["resourceConnections"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the resourceConnections
-    * Service connections to external resources such as analytics workspaces.
-    *
-    * @param ResourceConnection[] $val The resourceConnections
-    *
-    * @return Updates
-    */
+     * Sets the resourceConnections
+     * Service connections to external resources such as analytics workspaces.
+     *
+     * @param ResourceConnection[] $val The resourceConnections
+     *
+     * @return Updates
+     */
     public function setResourceConnections($val)
     {
         $this->_propDict["resourceConnections"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the updatableAssets
-    * Assets registered with the deployment service that can receive updates. Read-only.
+     * Assets registered with the deployment service that can receive updates. Read-only.
      *
      * @return array|null The updatableAssets
      */
     public function getUpdatableAssets()
     {
         if (array_key_exists("updatableAssets", $this->_propDict)) {
-           return $this->_propDict["updatableAssets"];
+            return $this->_propDict["updatableAssets"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the updatableAssets
-    * Assets registered with the deployment service that can receive updates. Read-only.
-    *
-    * @param UpdatableAsset[] $val The updatableAssets
-    *
-    * @return Updates
-    */
+     * Sets the updatableAssets
+     * Assets registered with the deployment service that can receive updates. Read-only.
+     *
+     * @param UpdatableAsset[] $val The updatableAssets
+     *
+     * @return Updates
+     */
     public function setUpdatableAssets($val)
     {
         $this->_propDict["updatableAssets"] = $val;
         return $this;
     }
-
 }

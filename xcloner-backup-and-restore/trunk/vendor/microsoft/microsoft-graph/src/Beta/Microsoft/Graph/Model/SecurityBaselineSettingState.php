@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityBaselineSettingState class
 *
@@ -27,42 +28,39 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class SecurityBaselineSettingState extends Entity
 {
-
-     /**
+    /**
      * Gets the contributingPolicies
-    * The policies that contribute to this setting instance
+     * The policies that contribute to this setting instance
      *
      * @return array|null The contributingPolicies
      */
     public function getContributingPolicies()
     {
         if (array_key_exists("contributingPolicies", $this->_propDict)) {
-           return $this->_propDict["contributingPolicies"];
+            return $this->_propDict["contributingPolicies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the contributingPolicies
-    * The policies that contribute to this setting instance
-    *
-    * @param SecurityBaselineContributingPolicy[] $val The contributingPolicies
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the contributingPolicies
+     * The policies that contribute to this setting instance
+     *
+     * @param SecurityBaselineContributingPolicy[] $val The contributingPolicies
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setContributingPolicies($val)
     {
         $this->_propDict["contributingPolicies"] = $val;
         return $this;
     }
-
     /**
-    * Gets the errorCode
-    * The error code if the setting is in error state
-    *
-    * @return string|null The errorCode
-    */
+     * Gets the errorCode
+     * The error code if the setting is in error state
+     *
+     * @return string|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -71,27 +69,25 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * The error code if the setting is in error state
-    *
-    * @param string $val The errorCode
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the errorCode
+     * The error code if the setting is in error state
+     *
+     * @param string $val The errorCode
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingCategoryId
-    * The setting category id which this setting belongs to
-    *
-    * @return string|null The settingCategoryId
-    */
+     * Gets the settingCategoryId
+     * The setting category id which this setting belongs to
+     *
+     * @return string|null The settingCategoryId
+     */
     public function getSettingCategoryId()
     {
         if (array_key_exists("settingCategoryId", $this->_propDict)) {
@@ -100,27 +96,25 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingCategoryId
-    * The setting category id which this setting belongs to
-    *
-    * @param string $val The settingCategoryId
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the settingCategoryId
+     * The setting category id which this setting belongs to
+     *
+     * @param string $val The settingCategoryId
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setSettingCategoryId($val)
     {
         $this->_propDict["settingCategoryId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingCategoryName
-    * The setting category name which this setting belongs to
-    *
-    * @return string|null The settingCategoryName
-    */
+     * Gets the settingCategoryName
+     * The setting category name which this setting belongs to
+     *
+     * @return string|null The settingCategoryName
+     */
     public function getSettingCategoryName()
     {
         if (array_key_exists("settingCategoryName", $this->_propDict)) {
@@ -129,27 +123,25 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingCategoryName
-    * The setting category name which this setting belongs to
-    *
-    * @param string $val The settingCategoryName
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the settingCategoryName
+     * The setting category name which this setting belongs to
+     *
+     * @param string $val The settingCategoryName
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setSettingCategoryName($val)
     {
         $this->_propDict["settingCategoryName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingId
-    * The setting id guid
-    *
-    * @return string|null The settingId
-    */
+     * Gets the settingId
+     * The setting id guid
+     *
+     * @return string|null The settingId
+     */
     public function getSettingId()
     {
         if (array_key_exists("settingId", $this->_propDict)) {
@@ -158,27 +150,25 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingId
-    * The setting id guid
-    *
-    * @param string $val The settingId
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the settingId
+     * The setting id guid
+     *
+     * @param string $val The settingId
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setSettingId($val)
     {
         $this->_propDict["settingId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingName
-    * The setting name that is being reported
-    *
-    * @return string|null The settingName
-    */
+     * Gets the settingName
+     * The setting name that is being reported
+     *
+     * @return string|null The settingName
+     */
     public function getSettingName()
     {
         if (array_key_exists("settingName", $this->_propDict)) {
@@ -187,61 +177,56 @@ class SecurityBaselineSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingName
-    * The setting name that is being reported
-    *
-    * @param string $val The settingName
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the settingName
+     * The setting name that is being reported
+     *
+     * @param string $val The settingName
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setSettingName($val)
     {
         $this->_propDict["settingName"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the sourcePolicies
-    * The policies that contribute to this setting instance
+     * The policies that contribute to this setting instance
      *
      * @return array|null The sourcePolicies
      */
     public function getSourcePolicies()
     {
         if (array_key_exists("sourcePolicies", $this->_propDict)) {
-           return $this->_propDict["sourcePolicies"];
+            return $this->_propDict["sourcePolicies"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the sourcePolicies
-    * The policies that contribute to this setting instance
-    *
-    * @param SettingSource[] $val The sourcePolicies
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the sourcePolicies
+     * The policies that contribute to this setting instance
+     *
+     * @param SettingSource[] $val The sourcePolicies
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setSourcePolicies($val)
     {
         $this->_propDict["sourcePolicies"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The compliance state of the security baseline setting
-    *
-    * @return SecurityBaselineComplianceState|null The state
-    */
+     * Gets the state
+     * The compliance state of the security baseline setting
+     *
+     * @return SecurityBaselineComplianceState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SecurityBaselineComplianceState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityBaselineComplianceState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SecurityBaselineComplianceState($this->_propDict["state"]);
@@ -250,19 +235,17 @@ class SecurityBaselineSettingState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The compliance state of the security baseline setting
-    *
-    * @param SecurityBaselineComplianceState $val The state
-    *
-    * @return SecurityBaselineSettingState
-    */
+     * Sets the state
+     * The compliance state of the security baseline setting
+     *
+     * @param SecurityBaselineComplianceState $val The state
+     *
+     * @return SecurityBaselineSettingState
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
 }

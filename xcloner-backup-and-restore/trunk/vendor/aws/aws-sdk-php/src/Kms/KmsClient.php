@@ -1,11 +1,11 @@
 <?php
-namespace Aws\Kms;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Kms;
 
-
-use Aws\AwsClient;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\AwsClient;
 /**
  * This client is used to interact with the **AWS Key Management Service**.
  *
@@ -110,4 +110,6 @@ use Aws\AwsClient;
  * @method \Aws\Result verifyMac(array $args = [])
  * @method \GuzzleHttp\Promise\Promise verifyMacAsync(array $args = [])
  */
-class KmsClient extends AwsClient {}
+class KmsClient extends AwsClient
+{
+}

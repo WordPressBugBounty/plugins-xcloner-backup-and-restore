@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This trait contains a bunch of methods, shared by both the RequestDecorator
  * and the ResponseDecorator.
@@ -28,7 +27,6 @@ trait MessageDecoratorTrait
      * @var MessageInterface
      */
     protected $inner;
-
     /**
      * Returns the body as a readable stream resource.
      *
@@ -41,7 +39,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->getBodyAsStream();
     }
-
     /**
      * Returns the body as a string.
      *
@@ -52,7 +49,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->getBodyAsString();
     }
-
     /**
      * Returns the message body, as its internal representation.
      *
@@ -64,7 +60,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->getBody();
     }
-
     /**
      * Updates the body resource with a new stream.
      *
@@ -74,7 +69,6 @@ trait MessageDecoratorTrait
     {
         $this->inner->setBody($body);
     }
-
     /**
      * Returns all the HTTP headers as an array.
      *
@@ -84,7 +78,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->getHeaders();
     }
-
     /**
      * Will return true or false, depending on if a HTTP header exists.
      */
@@ -92,7 +85,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->hasHeader($name);
     }
-
     /**
      * Returns a specific HTTP header, based on its name.
      *
@@ -112,7 +104,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->getHeader($name);
     }
-
     /**
      * Returns a HTTP header as an array.
      *
@@ -125,7 +116,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->getHeaderAsArray($name);
     }
-
     /**
      * Updates a HTTP header.
      *
@@ -139,7 +129,6 @@ trait MessageDecoratorTrait
     {
         $this->inner->setHeader($name, $value);
     }
-
     /**
      * Sets a new set of HTTP headers.
      *
@@ -152,7 +141,6 @@ trait MessageDecoratorTrait
     {
         $this->inner->setHeaders($headers);
     }
-
     /**
      * Adds a HTTP header.
      *
@@ -166,7 +154,6 @@ trait MessageDecoratorTrait
     {
         $this->inner->addHeader($name, $value);
     }
-
     /**
      * Adds a new set of HTTP headers.
      *
@@ -176,7 +163,6 @@ trait MessageDecoratorTrait
     {
         $this->inner->addHeaders($headers);
     }
-
     /**
      * Removes a HTTP header.
      *
@@ -188,7 +174,6 @@ trait MessageDecoratorTrait
     {
         return $this->inner->removeHeader($name);
     }
-
     /**
      * Sets the HTTP version.
      *
@@ -198,7 +183,6 @@ trait MessageDecoratorTrait
     {
         $this->inner->setHttpVersion($version);
     }
-
     /**
      * Returns the HTTP version.
      */

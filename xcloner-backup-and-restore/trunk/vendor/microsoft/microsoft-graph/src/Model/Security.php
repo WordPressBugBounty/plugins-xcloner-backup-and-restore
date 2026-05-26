@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Security class
 *
@@ -28,45 +29,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Security extends Entity
 {
     /**
-    * Gets the cases
-    *
-    * @return \Microsoft\Graph\SecurityNamespace\Model\CasesRoot|null The cases
-    */
+     * Gets the cases
+     *
+     * @return \Microsoft\Graph\SecurityNamespace\Model\CasesRoot|null The cases
+     */
     public function getCases()
     {
         if (array_key_exists("cases", $this->_propDict)) {
-            if (is_a($this->_propDict["cases"], "\Microsoft\Graph\SecurityNamespace\Model\CasesRoot") || is_null($this->_propDict["cases"])) {
+            if (is_a($this->_propDict["cases"], "XCloner\\Microsoft\\Graph\\SecurityNamespace\\Model\\CasesRoot") || is_null($this->_propDict["cases"])) {
                 return $this->_propDict["cases"];
             } else {
-                $this->_propDict["cases"] = new \Microsoft\Graph\SecurityNamespace\Model\CasesRoot($this->_propDict["cases"]);
+                $this->_propDict["cases"] = new \XCloner\Microsoft\Graph\SecurityNamespace\Model\CasesRoot($this->_propDict["cases"]);
                 return $this->_propDict["cases"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the cases
-    *
-    * @param \Microsoft\Graph\SecurityNamespace\Model\CasesRoot $val The cases
-    *
-    * @return Security
-    */
+     * Sets the cases
+     *
+     * @param \Microsoft\Graph\SecurityNamespace\Model\CasesRoot $val The cases
+     *
+     * @return Security
+     */
     public function setCases($val)
     {
         $this->_propDict["cases"] = $val;
         return $this;
     }
-
     /**
-    * Gets the attackSimulation
-    *
-    * @return AttackSimulationRoot|null The attackSimulation
-    */
+     * Gets the attackSimulation
+     *
+     * @return AttackSimulationRoot|null The attackSimulation
+     */
     public function getAttackSimulation()
     {
         if (array_key_exists("attackSimulation", $this->_propDict)) {
-            if (is_a($this->_propDict["attackSimulation"], "\Microsoft\Graph\Model\AttackSimulationRoot") || is_null($this->_propDict["attackSimulation"])) {
+            if (is_a($this->_propDict["attackSimulation"], "XCloner\\Microsoft\\Graph\\Model\\AttackSimulationRoot") || is_null($this->_propDict["attackSimulation"])) {
                 return $this->_propDict["attackSimulation"];
             } else {
                 $this->_propDict["attackSimulation"] = new AttackSimulationRoot($this->_propDict["attackSimulation"]);
@@ -75,22 +74,19 @@ class Security extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the attackSimulation
-    *
-    * @param AttackSimulationRoot $val The attackSimulation
-    *
-    * @return Security
-    */
+     * Sets the attackSimulation
+     *
+     * @param AttackSimulationRoot $val The attackSimulation
+     *
+     * @return Security
+     */
     public function setAttackSimulation($val)
     {
         $this->_propDict["attackSimulation"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the alerts
      *
      * @return array|null The alerts
@@ -98,27 +94,24 @@ class Security extends Entity
     public function getAlerts()
     {
         if (array_key_exists("alerts", $this->_propDict)) {
-           return $this->_propDict["alerts"];
+            return $this->_propDict["alerts"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the alerts
-    *
-    * @param Alert[] $val The alerts
-    *
-    * @return Security
-    */
+     * Sets the alerts
+     *
+     * @param Alert[] $val The alerts
+     *
+     * @return Security
+     */
     public function setAlerts($val)
     {
         $this->_propDict["alerts"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the secureScoreControlProfiles
      *
      * @return array|null The secureScoreControlProfiles
@@ -126,27 +119,24 @@ class Security extends Entity
     public function getSecureScoreControlProfiles()
     {
         if (array_key_exists("secureScoreControlProfiles", $this->_propDict)) {
-           return $this->_propDict["secureScoreControlProfiles"];
+            return $this->_propDict["secureScoreControlProfiles"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the secureScoreControlProfiles
-    *
-    * @param SecureScoreControlProfile[] $val The secureScoreControlProfiles
-    *
-    * @return Security
-    */
+     * Sets the secureScoreControlProfiles
+     *
+     * @param SecureScoreControlProfile[] $val The secureScoreControlProfiles
+     *
+     * @return Security
+     */
     public function setSecureScoreControlProfiles($val)
     {
         $this->_propDict["secureScoreControlProfiles"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the secureScores
      *
      * @return array|null The secureScores
@@ -154,23 +144,21 @@ class Security extends Entity
     public function getSecureScores()
     {
         if (array_key_exists("secureScores", $this->_propDict)) {
-           return $this->_propDict["secureScores"];
+            return $this->_propDict["secureScores"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the secureScores
-    *
-    * @param SecureScore[] $val The secureScores
-    *
-    * @return Security
-    */
+     * Sets the secureScores
+     *
+     * @param SecureScore[] $val The secureScores
+     *
+     * @return Security
+     */
     public function setSecureScores($val)
     {
         $this->_propDict["secureScores"] = $val;
         return $this;
     }
-
 }

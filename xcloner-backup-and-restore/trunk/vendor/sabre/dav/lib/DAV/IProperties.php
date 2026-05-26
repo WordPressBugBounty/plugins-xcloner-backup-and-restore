@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * IProperties interface.
  *
@@ -28,7 +27,6 @@ interface IProperties extends INode
      * Read the PropPatch documentation for more information.
      */
     public function propPatch(PropPatch $propPatch);
-
     /**
      * Returns a list of properties for this nodes.
      *

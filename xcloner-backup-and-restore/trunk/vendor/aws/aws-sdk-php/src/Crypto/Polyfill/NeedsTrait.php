@@ -1,11 +1,11 @@
 <?php
-namespace Aws\Crypto\Polyfill;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Crypto\Polyfill;
 
-
-use Aws\Exception\CryptoPolyfillException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Exception\CryptoPolyfillException;
 /**
  * Trait NeedsTrait
  * @package Aws\Crypto\Polyfill

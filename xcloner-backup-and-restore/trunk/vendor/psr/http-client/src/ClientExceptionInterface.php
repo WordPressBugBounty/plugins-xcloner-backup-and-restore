@@ -1,10 +1,10 @@
 <?php
 
-namespace Psr\Http\Client;
+namespace XCloner\Psr\Http\Client;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Every HTTP client related exception MUST implement this interface.
  */

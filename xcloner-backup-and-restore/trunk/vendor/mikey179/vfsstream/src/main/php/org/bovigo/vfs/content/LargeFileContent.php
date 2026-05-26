@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,10 +8,11 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\content;
+namespace XCloner\org\bovigo\vfs\content;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * File content implementation to mock large files.
  *
@@ -39,7 +41,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
      * @type  int
      */
     private $size;
-
     /**
      * constructor
      *
@@ -49,7 +50,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     {
         $this->size = $size;
     }
-
     /**
      * create large file with given size in kilobyte
      *
@@ -60,7 +60,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     {
         return new self($kilobyte * 1024);
     }
-
     /**
      * create large file with given size in megabyte
      *
@@ -71,7 +70,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     {
         return self::withKilobytes($megabyte * 1024);
     }
-
     /**
      * create large file with given size in gigabyte
      *
@@ -82,7 +80,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     {
         return self::withMegabytes($gigabyte * 1024);
     }
-
     /**
      * returns actual content
      *
@@ -92,7 +89,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     {
         return $this->doRead(0, $this->size);
     }
-
     /**
      * returns size of content
      *
@@ -102,7 +98,6 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     {
         return $this->size;
     }
-
     /**
      * actual reading of given byte count starting at given offset
      *
@@ -111,10 +106,9 @@ class LargeFileContent extends SeekableFileContent implements FileContent
      */
     protected function doRead($offset, $count)
     {
-        if (($offset + $count) > $this->size) {
+        if ($offset + $count > $this->size) {
             $count = $this->size - $offset;
         }
-
         $result = '';
         for ($i = 0; $i < $count; $i++) {
             if (isset($this->content[$i + $offset])) {
@@ -123,10 +117,8 @@ class LargeFileContent extends SeekableFileContent implements FileContent
                 $result .= ' ';
             }
         }
-
         return $result;
     }
-
     /**
      * actual writing of data with specified length at given offset
      *
@@ -139,14 +131,12 @@ class LargeFileContent extends SeekableFileContent implements FileContent
         for ($i = 0; $i < $length; $i++) {
             $this->content[$i + $offset] = substr($data, $i, 1);
         }
-
         if ($offset >= $this->size) {
             $this->size += $length;
-        } elseif (($offset + $length) > $this->size) {
+        } elseif ($offset + $length > $this->size) {
             $this->size = $offset + $length;
         }
     }
-
     /**
      * Truncates a file to a given length
      *
@@ -156,15 +146,11 @@ class LargeFileContent extends SeekableFileContent implements FileContent
     public function truncate($size)
     {
         $this->size = $size;
-        foreach (array_filter(array_keys($this->content),
-                              function($pos) use ($size)
-                              {
-                                  return $pos >= $size;
-                              }
-                ) as $removePos) {
+        foreach (array_filter(array_keys($this->content), function ($pos) use ($size) {
+            return $pos >= $size;
+        }) as $removePos) {
             unset($this->content[$removePos]);
         }
-
-        return true;
+        return \true;
     }
 }

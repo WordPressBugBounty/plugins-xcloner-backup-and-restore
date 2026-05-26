@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GeoCoordinates class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GeoCoordinates extends Entity
 {
     /**
-    * Gets the altitude
-    * Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-    *
-    * @return float|null The altitude
-    */
+     * Gets the altitude
+     * Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+     *
+     * @return float|null The altitude
+     */
     public function getAltitude()
     {
         if (array_key_exists("altitude", $this->_propDict)) {
@@ -40,26 +42,25 @@ class GeoCoordinates extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the altitude
-    * Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-    *
-    * @param float $val The value of the altitude
-    *
-    * @return GeoCoordinates
-    */
+     * Sets the altitude
+     * Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+     *
+     * @param float $val The value of the altitude
+     *
+     * @return GeoCoordinates
+     */
     public function setAltitude($val)
     {
         $this->_propDict["altitude"] = $val;
         return $this;
     }
     /**
-    * Gets the latitude
-    * Optional. The latitude, in decimal, for the item. Read-only.
-    *
-    * @return float|null The latitude
-    */
+     * Gets the latitude
+     * Optional. The latitude, in decimal, for the item. Read-only.
+     *
+     * @return float|null The latitude
+     */
     public function getLatitude()
     {
         if (array_key_exists("latitude", $this->_propDict)) {
@@ -68,26 +69,25 @@ class GeoCoordinates extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the latitude
-    * Optional. The latitude, in decimal, for the item. Read-only.
-    *
-    * @param float $val The value of the latitude
-    *
-    * @return GeoCoordinates
-    */
+     * Sets the latitude
+     * Optional. The latitude, in decimal, for the item. Read-only.
+     *
+     * @param float $val The value of the latitude
+     *
+     * @return GeoCoordinates
+     */
     public function setLatitude($val)
     {
         $this->_propDict["latitude"] = $val;
         return $this;
     }
     /**
-    * Gets the longitude
-    * Optional. The longitude, in decimal, for the item. Read-only.
-    *
-    * @return float|null The longitude
-    */
+     * Gets the longitude
+     * Optional. The longitude, in decimal, for the item. Read-only.
+     *
+     * @return float|null The longitude
+     */
     public function getLongitude()
     {
         if (array_key_exists("longitude", $this->_propDict)) {
@@ -96,15 +96,14 @@ class GeoCoordinates extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the longitude
-    * Optional. The longitude, in decimal, for the item. Read-only.
-    *
-    * @param float $val The value of the longitude
-    *
-    * @return GeoCoordinates
-    */
+     * Sets the longitude
+     * Optional. The longitude, in decimal, for the item. Read-only.
+     *
+     * @param float $val The value of the longitude
+     *
+     * @return GeoCoordinates
+     */
     public function setLongitude($val)
     {
         $this->_propDict["longitude"] = $val;

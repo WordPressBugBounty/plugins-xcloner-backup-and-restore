@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageQuestion class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageQuestion extends Entity
 {
     /**
-    * Gets the id
-    * ID of the question.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * ID of the question.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AccessPackageQuestion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * ID of the question.
-    *
-    * @param string $val The value of the id
-    *
-    * @return AccessPackageQuestion
-    */
+     * Sets the id
+     * ID of the question.
+     *
+     * @param string $val The value of the id
+     *
+     * @return AccessPackageQuestion
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the isAnswerEditable
-    * Specifies whether the requestor is allowed to edit answers to questions.
-    *
-    * @return bool|null The isAnswerEditable
-    */
+     * Gets the isAnswerEditable
+     * Specifies whether the requestor is allowed to edit answers to questions.
+     *
+     * @return bool|null The isAnswerEditable
+     */
     public function getIsAnswerEditable()
     {
         if (array_key_exists("isAnswerEditable", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AccessPackageQuestion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isAnswerEditable
-    * Specifies whether the requestor is allowed to edit answers to questions.
-    *
-    * @param bool $val The value of the isAnswerEditable
-    *
-    * @return AccessPackageQuestion
-    */
+     * Sets the isAnswerEditable
+     * Specifies whether the requestor is allowed to edit answers to questions.
+     *
+     * @param bool $val The value of the isAnswerEditable
+     *
+     * @return AccessPackageQuestion
+     */
     public function setIsAnswerEditable($val)
     {
         $this->_propDict["isAnswerEditable"] = $val;
         return $this;
     }
     /**
-    * Gets the isRequired
-    * Whether the requestor is required to supply an answer or not.
-    *
-    * @return bool|null The isRequired
-    */
+     * Gets the isRequired
+     * Whether the requestor is required to supply an answer or not.
+     *
+     * @return bool|null The isRequired
+     */
     public function getIsRequired()
     {
         if (array_key_exists("isRequired", $this->_propDict)) {
@@ -96,26 +96,25 @@ class AccessPackageQuestion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRequired
-    * Whether the requestor is required to supply an answer or not.
-    *
-    * @param bool $val The value of the isRequired
-    *
-    * @return AccessPackageQuestion
-    */
+     * Sets the isRequired
+     * Whether the requestor is required to supply an answer or not.
+     *
+     * @param bool $val The value of the isRequired
+     *
+     * @return AccessPackageQuestion
+     */
     public function setIsRequired($val)
     {
         $this->_propDict["isRequired"] = $val;
         return $this;
     }
     /**
-    * Gets the sequence
-    * Relative position of this question when displaying a list of questions to the requestor.
-    *
-    * @return int|null The sequence
-    */
+     * Gets the sequence
+     * Relative position of this question when displaying a list of questions to the requestor.
+     *
+     * @return int|null The sequence
+     */
     public function getSequence()
     {
         if (array_key_exists("sequence", $this->_propDict)) {
@@ -124,31 +123,29 @@ class AccessPackageQuestion extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sequence
-    * Relative position of this question when displaying a list of questions to the requestor.
-    *
-    * @param int $val The value of the sequence
-    *
-    * @return AccessPackageQuestion
-    */
+     * Sets the sequence
+     * Relative position of this question when displaying a list of questions to the requestor.
+     *
+     * @param int $val The value of the sequence
+     *
+     * @return AccessPackageQuestion
+     */
     public function setSequence($val)
     {
         $this->_propDict["sequence"] = $val;
         return $this;
     }
-
     /**
-    * Gets the text
-    * The text of the question to show to the requestor.
-    *
-    * @return AccessPackageLocalizedContent|null The text
-    */
+     * Gets the text
+     * The text of the question to show to the requestor.
+     *
+     * @return AccessPackageLocalizedContent|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
-            if (is_a($this->_propDict["text"], "\Beta\Microsoft\Graph\Model\AccessPackageLocalizedContent") || is_null($this->_propDict["text"])) {
+            if (is_a($this->_propDict["text"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AccessPackageLocalizedContent") || is_null($this->_propDict["text"])) {
                 return $this->_propDict["text"];
             } else {
                 $this->_propDict["text"] = new AccessPackageLocalizedContent($this->_propDict["text"]);
@@ -157,18 +154,17 @@ class AccessPackageQuestion extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the text
-    * The text of the question to show to the requestor.
-    *
-    * @param AccessPackageLocalizedContent $val The value to assign to the text
-    *
-    * @return AccessPackageQuestion The AccessPackageQuestion
-    */
+     * Sets the text
+     * The text of the question to show to the requestor.
+     *
+     * @param AccessPackageLocalizedContent $val The value to assign to the text
+     *
+     * @return AccessPackageQuestion The AccessPackageQuestion
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;
-         return $this;
+        return $this;
     }
 }

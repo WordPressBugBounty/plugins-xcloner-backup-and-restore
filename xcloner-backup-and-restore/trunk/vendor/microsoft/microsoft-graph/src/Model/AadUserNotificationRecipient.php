@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AadUserNotificationRecipient class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AadUserNotificationRecipient extends TeamworkNotificationRecipient
 {
     /**
-    * Gets the userId
-    * Azure AD user identifier. Use the List users method to get this ID.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * Azure AD user identifier. Use the List users method to get this ID.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class AadUserNotificationRecipient extends TeamworkNotificationRecipient
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * Azure AD user identifier. Use the List users method to get this ID.
-    *
-    * @param string $val The value of the userId
-    *
-    * @return AadUserNotificationRecipient
-    */
+     * Sets the userId
+     * Azure AD user identifier. Use the List users method to get this ID.
+     *
+     * @param string $val The value of the userId
+     *
+     * @return AadUserNotificationRecipient
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;

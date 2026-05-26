@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RecordOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RecordOperation extends CommsOperation
 {
     /**
-    * Gets the completionReason
-    * Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
-    *
-    * @return RecordCompletionReason|null The completionReason
-    */
+     * Gets the completionReason
+     * Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
+     *
+     * @return RecordCompletionReason|null The completionReason
+     */
     public function getCompletionReason()
     {
         if (array_key_exists("completionReason", $this->_propDict)) {
-            if (is_a($this->_propDict["completionReason"], "\Beta\Microsoft\Graph\Model\RecordCompletionReason") || is_null($this->_propDict["completionReason"])) {
+            if (is_a($this->_propDict["completionReason"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RecordCompletionReason") || is_null($this->_propDict["completionReason"])) {
                 return $this->_propDict["completionReason"];
             } else {
                 $this->_propDict["completionReason"] = new RecordCompletionReason($this->_propDict["completionReason"]);
@@ -45,27 +46,25 @@ class RecordOperation extends CommsOperation
         }
         return null;
     }
-
     /**
-    * Sets the completionReason
-    * Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
-    *
-    * @param RecordCompletionReason $val The completionReason
-    *
-    * @return RecordOperation
-    */
+     * Sets the completionReason
+     * Possible values are: operationCanceled, stopToneDetected, maxRecordDurationReached, initialSilenceTimeout, maxSilenceTimeout, playPromptFailed, playBeepFailed, mediaReceiveTimeout, unspecifiedError, none.
+     *
+     * @param RecordCompletionReason $val The completionReason
+     *
+     * @return RecordOperation
+     */
     public function setCompletionReason($val)
     {
         $this->_propDict["completionReason"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recordingAccessToken
-    * The access token required to retrieve the recording.
-    *
-    * @return string|null The recordingAccessToken
-    */
+     * Gets the recordingAccessToken
+     * The access token required to retrieve the recording.
+     *
+     * @return string|null The recordingAccessToken
+     */
     public function getRecordingAccessToken()
     {
         if (array_key_exists("recordingAccessToken", $this->_propDict)) {
@@ -74,27 +73,25 @@ class RecordOperation extends CommsOperation
             return null;
         }
     }
-
     /**
-    * Sets the recordingAccessToken
-    * The access token required to retrieve the recording.
-    *
-    * @param string $val The recordingAccessToken
-    *
-    * @return RecordOperation
-    */
+     * Sets the recordingAccessToken
+     * The access token required to retrieve the recording.
+     *
+     * @param string $val The recordingAccessToken
+     *
+     * @return RecordOperation
+     */
     public function setRecordingAccessToken($val)
     {
         $this->_propDict["recordingAccessToken"] = $val;
         return $this;
     }
-
     /**
-    * Gets the recordingLocation
-    * The location where the recording is located.
-    *
-    * @return string|null The recordingLocation
-    */
+     * Gets the recordingLocation
+     * The location where the recording is located.
+     *
+     * @return string|null The recordingLocation
+     */
     public function getRecordingLocation()
     {
         if (array_key_exists("recordingLocation", $this->_propDict)) {
@@ -103,19 +100,17 @@ class RecordOperation extends CommsOperation
             return null;
         }
     }
-
     /**
-    * Sets the recordingLocation
-    * The location where the recording is located.
-    *
-    * @param string $val The recordingLocation
-    *
-    * @return RecordOperation
-    */
+     * Sets the recordingLocation
+     * The location where the recording is located.
+     *
+     * @param string $val The recordingLocation
+     *
+     * @return RecordOperation
+     */
     public function setRecordingLocation($val)
     {
         $this->_propDict["recordingLocation"] = $val;
         return $this;
     }
-
 }

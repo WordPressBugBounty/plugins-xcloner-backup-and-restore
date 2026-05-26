@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppliedConditionalAccessPolicy class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppliedConditionalAccessPolicy extends Entity
 {
     /**
-    * Gets the displayName
-    * Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AppliedConditionalAccessPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AppliedConditionalAccessPolicy
-    */
+     * Sets the displayName
+     * Refers to the Name of the conditional access policy (example: 'Require MFA for Salesforce').
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AppliedConditionalAccessPolicy
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the enforcedGrantControls
-    * Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
-    *
-    * @return string|null The enforcedGrantControls
-    */
+     * Gets the enforcedGrantControls
+     * Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
+     *
+     * @return string|null The enforcedGrantControls
+     */
     public function getEnforcedGrantControls()
     {
         if (array_key_exists("enforcedGrantControls", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AppliedConditionalAccessPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enforcedGrantControls
-    * Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
-    *
-    * @param string $val The value of the enforcedGrantControls
-    *
-    * @return AppliedConditionalAccessPolicy
-    */
+     * Sets the enforcedGrantControls
+     * Refers to the grant controls enforced by the conditional access policy (example: 'Require multi-factor authentication').
+     *
+     * @param string $val The value of the enforcedGrantControls
+     *
+     * @return AppliedConditionalAccessPolicy
+     */
     public function setEnforcedGrantControls($val)
     {
         $this->_propDict["enforcedGrantControls"] = $val;
         return $this;
     }
     /**
-    * Gets the enforcedSessionControls
-    * Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
-    *
-    * @return string|null The enforcedSessionControls
-    */
+     * Gets the enforcedSessionControls
+     * Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
+     *
+     * @return string|null The enforcedSessionControls
+     */
     public function getEnforcedSessionControls()
     {
         if (array_key_exists("enforcedSessionControls", $this->_propDict)) {
@@ -96,26 +96,25 @@ class AppliedConditionalAccessPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enforcedSessionControls
-    * Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
-    *
-    * @param string $val The value of the enforcedSessionControls
-    *
-    * @return AppliedConditionalAccessPolicy
-    */
+     * Sets the enforcedSessionControls
+     * Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').
+     *
+     * @param string $val The value of the enforcedSessionControls
+     *
+     * @return AppliedConditionalAccessPolicy
+     */
     public function setEnforcedSessionControls($val)
     {
         $this->_propDict["enforcedSessionControls"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    * An identifier of the conditional access policy.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * An identifier of the conditional access policy.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -124,31 +123,29 @@ class AppliedConditionalAccessPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * An identifier of the conditional access policy.
-    *
-    * @param string $val The value of the id
-    *
-    * @return AppliedConditionalAccessPolicy
-    */
+     * Sets the id
+     * An identifier of the conditional access policy.
+     *
+     * @param string $val The value of the id
+     *
+     * @return AppliedConditionalAccessPolicy
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
-
     /**
-    * Gets the result
-    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
-    *
-    * @return AppliedConditionalAccessPolicyResult|null The result
-    */
+     * Gets the result
+     * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
+     *
+     * @return AppliedConditionalAccessPolicyResult|null The result
+     */
     public function getResult()
     {
         if (array_key_exists("result", $this->_propDict)) {
-            if (is_a($this->_propDict["result"], "\Microsoft\Graph\Model\AppliedConditionalAccessPolicyResult") || is_null($this->_propDict["result"])) {
+            if (is_a($this->_propDict["result"], "XCloner\\Microsoft\\Graph\\Model\\AppliedConditionalAccessPolicyResult") || is_null($this->_propDict["result"])) {
                 return $this->_propDict["result"];
             } else {
                 $this->_propDict["result"] = new AppliedConditionalAccessPolicyResult($this->_propDict["result"]);
@@ -157,18 +154,17 @@ class AppliedConditionalAccessPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the result
-    * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
-    *
-    * @param AppliedConditionalAccessPolicyResult $val The value to assign to the result
-    *
-    * @return AppliedConditionalAccessPolicy The AppliedConditionalAccessPolicy
-    */
+     * Sets the result
+     * Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
+     *
+     * @param AppliedConditionalAccessPolicyResult $val The value to assign to the result
+     *
+     * @return AppliedConditionalAccessPolicy The AppliedConditionalAccessPolicy
+     */
     public function setResult($val)
     {
         $this->_propDict["result"] = $val;
-         return $this;
+        return $this;
     }
 }

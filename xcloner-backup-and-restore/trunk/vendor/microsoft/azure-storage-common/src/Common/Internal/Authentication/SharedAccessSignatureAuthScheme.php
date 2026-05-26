@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Authentication;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Authentication;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use GuzzleHttp\Psr7\Request;
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Psr7\Request;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
 /**
  * Base class for azure authentication schemes.
  *
@@ -47,7 +45,6 @@ class SharedAccessSignatureAuthScheme implements IAuthScheme
      * The sas token
      */
     protected $sasToken;
-
     /**
      * Constructor.
      *
@@ -58,17 +55,10 @@ class SharedAccessSignatureAuthScheme implements IAuthScheme
     {
         // Remove '?' in front of the SAS token if existing
         $this->sasToken = str_replace('?', '', $sasToken, $i);
-
         if ($i > 1) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    Resources::INVALID_SAS_TOKEN,
-                    $sasToken
-                )
-            );
+            throw new \InvalidArgumentException(sprintf(Resources::INVALID_SAS_TOKEN, $sasToken));
         }
     }
-
     /**
      * Adds authentication header to the request headers.
      *
@@ -82,18 +72,14 @@ class SharedAccessSignatureAuthScheme implements IAuthScheme
     {
         // initial URI
         $uri = $request->getUri();
-
         // new query values from SAS token
         $queryValues = explode('&', $this->sasToken);
-
         // append SAS token query values to existing URI
         foreach ($queryValues as $queryField) {
             list($key, $value) = explode('=', $queryField);
-
-            $uri = \GuzzleHttp\Psr7\Uri::withQueryValue($uri, $key, $value);
+            $uri = \XCloner\GuzzleHttp\Psr7\Uri::withQueryValue($uri, $key, $value);
         }
-
         // replace URI
-        return $request->withUri($uri, true);
+        return $request->withUri($uri, \true);
     }
 }

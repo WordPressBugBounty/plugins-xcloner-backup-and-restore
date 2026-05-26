@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DelegatedAdminRelationshipCustomerParticipant class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DelegatedAdminRelationshipCustomerParticipant extends Entity
 {
     /**
-    * Gets the displayName
-    * The display name of the customer tenant as set by Azure AD. Read only
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the customer tenant as set by Azure AD. Read only
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DelegatedAdminRelationshipCustomerParticipant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the customer tenant as set by Azure AD. Read only
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return DelegatedAdminRelationshipCustomerParticipant
-    */
+     * Sets the displayName
+     * The display name of the customer tenant as set by Azure AD. Read only
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return DelegatedAdminRelationshipCustomerParticipant
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the tenantId
-    * The Azure AD-assigned tenant ID of the customer tenant.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * The Azure AD-assigned tenant ID of the customer tenant.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DelegatedAdminRelationshipCustomerParticipant extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * The Azure AD-assigned tenant ID of the customer tenant.
-    *
-    * @param string $val The value of the tenantId
-    *
-    * @return DelegatedAdminRelationshipCustomerParticipant
-    */
+     * Sets the tenantId
+     * The Azure AD-assigned tenant ID of the customer tenant.
+     *
+     * @param string $val The value of the tenantId
+     *
+     * @return DelegatedAdminRelationshipCustomerParticipant
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;

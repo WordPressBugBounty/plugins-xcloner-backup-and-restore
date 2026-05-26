@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV;
 
-namespace Sabre\CalDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\PropPatch;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\PropPatch;
+use XCloner\Sabre\DAVACL;
 /**
  * This object represents a CalDAV calendar.
  *
@@ -24,21 +22,18 @@ use Sabre\DAVACL;
 class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, DAV\IMultiGet
 {
     use DAVACL\ACLTrait;
-
     /**
      * This is an array with calendar information.
      *
      * @var array
      */
     protected $calendarInfo;
-
     /**
      * CalDAV backend.
      *
      * @var Backend\BackendInterface
      */
     protected $caldavBackend;
-
     /**
      * Constructor.
      *
@@ -49,7 +44,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
         $this->caldavBackend = $caldavBackend;
         $this->calendarInfo = $calendarInfo;
     }
-
     /**
      * Returns the name of the calendar.
      *
@@ -59,7 +53,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         return $this->calendarInfo['uri'];
     }
-
     /**
      * Updates properties on this node.
      *
@@ -73,7 +66,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         return $this->caldavBackend->updateCalendar($this->calendarInfo['id'], $propPatch);
     }
-
     /**
      * Returns the list of properties.
      *
@@ -84,16 +76,13 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     public function getProperties($requestedProperties)
     {
         $response = [];
-
         foreach ($this->calendarInfo as $propName => $propValue) {
             if (!is_null($propValue) && '{' === $propName[0]) {
                 $response[$propName] = $this->calendarInfo[$propName];
             }
         }
-
         return $response;
     }
-
     /**
      * Returns a calendar object.
      *
@@ -106,15 +95,12 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     public function getChild($name)
     {
         $obj = $this->caldavBackend->getCalendarObject($this->calendarInfo['id'], $name);
-
         if (!$obj) {
             throw new DAV\Exception\NotFound('Calendar object not found');
         }
         $obj['acl'] = $this->getChildACL();
-
         return new CalendarObject($this->caldavBackend, $this->calendarInfo, $obj);
     }
-
     /**
      * Returns the full list of calendar objects.
      *
@@ -128,10 +114,8 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
             $obj['acl'] = $this->getChildACL();
             $children[] = new CalendarObject($this->caldavBackend, $this->calendarInfo, $obj);
         }
-
         return $children;
     }
-
     /**
      * This method receives a list of paths in it's first argument.
      * It must return an array with Node objects.
@@ -150,10 +134,8 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
             $obj['acl'] = $this->getChildACL();
             $children[] = new CalendarObject($this->caldavBackend, $this->calendarInfo, $obj);
         }
-
         return $children;
     }
-
     /**
      * Checks if a child-node exists.
      *
@@ -165,12 +147,11 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         $obj = $this->caldavBackend->getCalendarObject($this->calendarInfo['id'], $name);
         if (!$obj) {
-            return false;
+            return \false;
         } else {
-            return true;
+            return \true;
         }
     }
-
     /**
      * Creates a new directory.
      *
@@ -182,7 +163,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         throw new DAV\Exception\MethodNotAllowed('Creating collections in calendar objects is not allowed');
     }
-
     /**
      * Creates a new file.
      *
@@ -198,10 +178,8 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
         if (is_resource($calendarData)) {
             $calendarData = stream_get_contents($calendarData);
         }
-
         return $this->caldavBackend->createCalendarObject($this->calendarInfo['id'], $name, $calendarData);
     }
-
     /**
      * Deletes the calendar.
      */
@@ -209,7 +187,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         $this->caldavBackend->deleteCalendar($this->calendarInfo['id']);
     }
-
     /**
      * Renames the calendar. Note that most calendars use the
      * {DAV:}displayname to display a name to display a name.
@@ -220,7 +197,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         throw new DAV\Exception\MethodNotAllowed('Renaming calendars is not yet supported');
     }
-
     /**
      * Returns the last modification date as a unix timestamp.
      */
@@ -228,7 +204,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         return null;
     }
-
     /**
      * Returns the owner principal.
      *
@@ -240,7 +215,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         return $this->calendarInfo['principaluri'];
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -255,44 +229,13 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
      */
     public function getACL()
     {
-        $acl = [
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-read',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{'.Plugin::NS_CALDAV.'}read-free-busy',
-                'principal' => '{DAV:}authenticated',
-                'protected' => true,
-            ],
-        ];
+        $acl = [['privilege' => '{DAV:}read', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-read', 'protected' => \true], ['privilege' => '{' . Plugin::NS_CALDAV . '}read-free-busy', 'principal' => '{DAV:}authenticated', 'protected' => \true]];
         if (empty($this->calendarInfo['{http://sabredav.org/ns}read-only'])) {
-            $acl[] = [
-                'privilege' => '{DAV:}write',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ];
-            $acl[] = [
-                'privilege' => '{DAV:}write',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ];
+            $acl[] = ['privilege' => '{DAV:}write', 'principal' => $this->getOwner(), 'protected' => \true];
+            $acl[] = ['privilege' => '{DAV:}write', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true];
         }
-
         return $acl;
     }
-
     /**
      * This method returns the ACL's for calendar objects in this calendar.
      * The result of this method automatically gets passed to the
@@ -302,40 +245,13 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
      */
     public function getChildACL()
     {
-        $acl = [
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-read',
-                'protected' => true,
-            ],
-        ];
+        $acl = [['privilege' => '{DAV:}read', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-read', 'protected' => \true]];
         if (empty($this->calendarInfo['{http://sabredav.org/ns}read-only'])) {
-            $acl[] = [
-                'privilege' => '{DAV:}write',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ];
-            $acl[] = [
-                'privilege' => '{DAV:}write',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ];
+            $acl[] = ['privilege' => '{DAV:}write', 'principal' => $this->getOwner(), 'protected' => \true];
+            $acl[] = ['privilege' => '{DAV:}write', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true];
         }
-
         return $acl;
     }
-
     /**
      * Performs a calendar-query on the contents of this calendar.
      *
@@ -356,7 +272,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
     {
         return $this->caldavBackend->calendarQuery($this->calendarInfo['id'], $filters);
     }
-
     /**
      * This method returns the current sync-token for this collection.
      * This can be any string.
@@ -368,20 +283,13 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
      */
     public function getSyncToken()
     {
-        if (
-            $this->caldavBackend instanceof Backend\SyncSupport &&
-            isset($this->calendarInfo['{DAV:}sync-token'])
-        ) {
+        if ($this->caldavBackend instanceof Backend\SyncSupport && isset($this->calendarInfo['{DAV:}sync-token'])) {
             return $this->calendarInfo['{DAV:}sync-token'];
         }
-        if (
-            $this->caldavBackend instanceof Backend\SyncSupport &&
-            isset($this->calendarInfo['{http://sabredav.org/ns}sync-token'])
-        ) {
+        if ($this->caldavBackend instanceof Backend\SyncSupport && isset($this->calendarInfo['{http://sabredav.org/ns}sync-token'])) {
             return $this->calendarInfo['{http://sabredav.org/ns}sync-token'];
         }
     }
-
     /**
      * The getChanges method returns all the changes that have happened, since
      * the specified syncToken and the current collection.
@@ -452,12 +360,6 @@ class Calendar implements ICalendar, DAV\IProperties, DAV\Sync\ISyncCollection, 
         if (!$this->caldavBackend instanceof Backend\SyncSupport) {
             return null;
         }
-
-        return $this->caldavBackend->getChangesForCalendar(
-            $this->calendarInfo['id'],
-            $syncToken,
-            $syncLevel,
-            $limit
-        );
+        return $this->caldavBackend->getChangesForCalendar($this->calendarInfo['id'], $syncToken, $syncLevel, $limit);
     }
 }

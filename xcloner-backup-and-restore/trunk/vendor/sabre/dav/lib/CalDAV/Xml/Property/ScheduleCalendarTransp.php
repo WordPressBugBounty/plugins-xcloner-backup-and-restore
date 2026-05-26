@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Property;
 
-namespace Sabre\CalDAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\Xml\Deserializer;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\Xml\Deserializer;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * schedule-calendar-transp property.
  *
@@ -33,14 +31,12 @@ class ScheduleCalendarTransp implements Element
 {
     const TRANSPARENT = 'transparent';
     const OPAQUE = 'opaque';
-
     /**
      * value.
      *
      * @var string
      */
     protected $value;
-
     /**
      * Creates the property.
      *
@@ -53,7 +49,6 @@ class ScheduleCalendarTransp implements Element
         }
         $this->value = $value;
     }
-
     /**
      * Returns the current value.
      *
@@ -63,7 +58,6 @@ class ScheduleCalendarTransp implements Element
     {
         return $this->value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -84,14 +78,13 @@ class ScheduleCalendarTransp implements Element
     {
         switch ($this->value) {
             case self::TRANSPARENT:
-                $writer->writeElement('{'.Plugin::NS_CALDAV.'}transparent');
+                $writer->writeElement('{' . Plugin::NS_CALDAV . '}transparent');
                 break;
             case self::OPAQUE:
-                $writer->writeElement('{'.Plugin::NS_CALDAV.'}opaque');
+                $writer->writeElement('{' . Plugin::NS_CALDAV . '}opaque');
                 break;
         }
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -115,13 +108,11 @@ class ScheduleCalendarTransp implements Element
     public static function xmlDeserialize(Reader $reader)
     {
         $elems = Deserializer\enum($reader, Plugin::NS_CALDAV);
-
         if (in_array('transparent', $elems)) {
             $value = self::TRANSPARENT;
         } else {
             $value = self::OPAQUE;
         }
-
         return new self($value);
     }
 }

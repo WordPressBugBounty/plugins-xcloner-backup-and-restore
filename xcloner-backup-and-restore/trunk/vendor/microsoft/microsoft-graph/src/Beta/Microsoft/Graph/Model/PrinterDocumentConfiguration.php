@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrinterDocumentConfiguration class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrinterDocumentConfiguration extends Entity
 {
     /**
-    * Gets the collate
-    *
-    * @return bool|null The collate
-    */
+     * Gets the collate
+     *
+     * @return bool|null The collate
+     */
     public function getCollate()
     {
         if (array_key_exists("collate", $this->_propDict)) {
@@ -39,29 +41,27 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the collate
-    *
-    * @param bool $val The value of the collate
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the collate
+     *
+     * @param bool $val The value of the collate
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setCollate($val)
     {
         $this->_propDict["collate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the colorMode
-    *
-    * @return PrintColorMode|null The colorMode
-    */
+     * Gets the colorMode
+     *
+     * @return PrintColorMode|null The colorMode
+     */
     public function getColorMode()
     {
         if (array_key_exists("colorMode", $this->_propDict)) {
-            if (is_a($this->_propDict["colorMode"], "\Beta\Microsoft\Graph\Model\PrintColorMode") || is_null($this->_propDict["colorMode"])) {
+            if (is_a($this->_propDict["colorMode"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintColorMode") || is_null($this->_propDict["colorMode"])) {
                 return $this->_propDict["colorMode"];
             } else {
                 $this->_propDict["colorMode"] = new PrintColorMode($this->_propDict["colorMode"]);
@@ -70,24 +70,23 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the colorMode
-    *
-    * @param PrintColorMode $val The value to assign to the colorMode
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the colorMode
+     *
+     * @param PrintColorMode $val The value to assign to the colorMode
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setColorMode($val)
     {
         $this->_propDict["colorMode"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the copies
-    *
-    * @return int|null The copies
-    */
+     * Gets the copies
+     *
+     * @return int|null The copies
+     */
     public function getCopies()
     {
         if (array_key_exists("copies", $this->_propDict)) {
@@ -96,24 +95,23 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the copies
-    *
-    * @param int $val The value of the copies
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the copies
+     *
+     * @param int $val The value of the copies
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setCopies($val)
     {
         $this->_propDict["copies"] = $val;
         return $this;
     }
     /**
-    * Gets the dpi
-    *
-    * @return int|null The dpi
-    */
+     * Gets the dpi
+     *
+     * @return int|null The dpi
+     */
     public function getDpi()
     {
         if (array_key_exists("dpi", $this->_propDict)) {
@@ -122,29 +120,27 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dpi
-    *
-    * @param int $val The value of the dpi
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the dpi
+     *
+     * @param int $val The value of the dpi
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setDpi($val)
     {
         $this->_propDict["dpi"] = $val;
         return $this;
     }
-
     /**
-    * Gets the duplexMode
-    *
-    * @return PrintDuplexMode|null The duplexMode
-    */
+     * Gets the duplexMode
+     *
+     * @return PrintDuplexMode|null The duplexMode
+     */
     public function getDuplexMode()
     {
         if (array_key_exists("duplexMode", $this->_propDict)) {
-            if (is_a($this->_propDict["duplexMode"], "\Beta\Microsoft\Graph\Model\PrintDuplexMode") || is_null($this->_propDict["duplexMode"])) {
+            if (is_a($this->_propDict["duplexMode"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintDuplexMode") || is_null($this->_propDict["duplexMode"])) {
                 return $this->_propDict["duplexMode"];
             } else {
                 $this->_propDict["duplexMode"] = new PrintDuplexMode($this->_propDict["duplexMode"]);
@@ -153,29 +149,27 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the duplexMode
-    *
-    * @param PrintDuplexMode $val The value to assign to the duplexMode
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the duplexMode
+     *
+     * @param PrintDuplexMode $val The value to assign to the duplexMode
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setDuplexMode($val)
     {
         $this->_propDict["duplexMode"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the feedDirection
-    *
-    * @return PrinterFeedDirection|null The feedDirection
-    */
+     * Gets the feedDirection
+     *
+     * @return PrinterFeedDirection|null The feedDirection
+     */
     public function getFeedDirection()
     {
         if (array_key_exists("feedDirection", $this->_propDict)) {
-            if (is_a($this->_propDict["feedDirection"], "\Beta\Microsoft\Graph\Model\PrinterFeedDirection") || is_null($this->_propDict["feedDirection"])) {
+            if (is_a($this->_propDict["feedDirection"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrinterFeedDirection") || is_null($this->_propDict["feedDirection"])) {
                 return $this->_propDict["feedDirection"];
             } else {
                 $this->_propDict["feedDirection"] = new PrinterFeedDirection($this->_propDict["feedDirection"]);
@@ -184,29 +178,27 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the feedDirection
-    *
-    * @param PrinterFeedDirection $val The value to assign to the feedDirection
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the feedDirection
+     *
+     * @param PrinterFeedDirection $val The value to assign to the feedDirection
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setFeedDirection($val)
     {
         $this->_propDict["feedDirection"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the feedOrientation
-    *
-    * @return PrinterFeedOrientation|null The feedOrientation
-    */
+     * Gets the feedOrientation
+     *
+     * @return PrinterFeedOrientation|null The feedOrientation
+     */
     public function getFeedOrientation()
     {
         if (array_key_exists("feedOrientation", $this->_propDict)) {
-            if (is_a($this->_propDict["feedOrientation"], "\Beta\Microsoft\Graph\Model\PrinterFeedOrientation") || is_null($this->_propDict["feedOrientation"])) {
+            if (is_a($this->_propDict["feedOrientation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrinterFeedOrientation") || is_null($this->_propDict["feedOrientation"])) {
                 return $this->_propDict["feedOrientation"];
             } else {
                 $this->_propDict["feedOrientation"] = new PrinterFeedOrientation($this->_propDict["feedOrientation"]);
@@ -215,29 +207,27 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the feedOrientation
-    *
-    * @param PrinterFeedOrientation $val The value to assign to the feedOrientation
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the feedOrientation
+     *
+     * @param PrinterFeedOrientation $val The value to assign to the feedOrientation
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setFeedOrientation($val)
     {
         $this->_propDict["feedOrientation"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the finishings
-    *
-    * @return PrintFinishing|null The finishings
-    */
+     * Gets the finishings
+     *
+     * @return PrintFinishing|null The finishings
+     */
     public function getFinishings()
     {
         if (array_key_exists("finishings", $this->_propDict)) {
-            if (is_a($this->_propDict["finishings"], "\Beta\Microsoft\Graph\Model\PrintFinishing") || is_null($this->_propDict["finishings"])) {
+            if (is_a($this->_propDict["finishings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintFinishing") || is_null($this->_propDict["finishings"])) {
                 return $this->_propDict["finishings"];
             } else {
                 $this->_propDict["finishings"] = new PrintFinishing($this->_propDict["finishings"]);
@@ -246,24 +236,23 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the finishings
-    *
-    * @param PrintFinishing $val The value to assign to the finishings
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the finishings
+     *
+     * @param PrintFinishing $val The value to assign to the finishings
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setFinishings($val)
     {
         $this->_propDict["finishings"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the fitPdfToPage
-    *
-    * @return bool|null The fitPdfToPage
-    */
+     * Gets the fitPdfToPage
+     *
+     * @return bool|null The fitPdfToPage
+     */
     public function getFitPdfToPage()
     {
         if (array_key_exists("fitPdfToPage", $this->_propDict)) {
@@ -272,24 +261,23 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fitPdfToPage
-    *
-    * @param bool $val The value of the fitPdfToPage
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the fitPdfToPage
+     *
+     * @param bool $val The value of the fitPdfToPage
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setFitPdfToPage($val)
     {
         $this->_propDict["fitPdfToPage"] = $val;
         return $this;
     }
     /**
-    * Gets the inputBin
-    *
-    * @return string|null The inputBin
-    */
+     * Gets the inputBin
+     *
+     * @return string|null The inputBin
+     */
     public function getInputBin()
     {
         if (array_key_exists("inputBin", $this->_propDict)) {
@@ -298,29 +286,27 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the inputBin
-    *
-    * @param string $val The value of the inputBin
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the inputBin
+     *
+     * @param string $val The value of the inputBin
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setInputBin($val)
     {
         $this->_propDict["inputBin"] = $val;
         return $this;
     }
-
     /**
-    * Gets the margin
-    *
-    * @return PrintMargin|null The margin
-    */
+     * Gets the margin
+     *
+     * @return PrintMargin|null The margin
+     */
     public function getMargin()
     {
         if (array_key_exists("margin", $this->_propDict)) {
-            if (is_a($this->_propDict["margin"], "\Beta\Microsoft\Graph\Model\PrintMargin") || is_null($this->_propDict["margin"])) {
+            if (is_a($this->_propDict["margin"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintMargin") || is_null($this->_propDict["margin"])) {
                 return $this->_propDict["margin"];
             } else {
                 $this->_propDict["margin"] = new PrintMargin($this->_propDict["margin"]);
@@ -329,24 +315,23 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the margin
-    *
-    * @param PrintMargin $val The value to assign to the margin
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the margin
+     *
+     * @param PrintMargin $val The value to assign to the margin
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setMargin($val)
     {
         $this->_propDict["margin"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the mediaSize
-    *
-    * @return string|null The mediaSize
-    */
+     * Gets the mediaSize
+     *
+     * @return string|null The mediaSize
+     */
     public function getMediaSize()
     {
         if (array_key_exists("mediaSize", $this->_propDict)) {
@@ -355,24 +340,23 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mediaSize
-    *
-    * @param string $val The value of the mediaSize
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the mediaSize
+     *
+     * @param string $val The value of the mediaSize
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setMediaSize($val)
     {
         $this->_propDict["mediaSize"] = $val;
         return $this;
     }
     /**
-    * Gets the mediaType
-    *
-    * @return string|null The mediaType
-    */
+     * Gets the mediaType
+     *
+     * @return string|null The mediaType
+     */
     public function getMediaType()
     {
         if (array_key_exists("mediaType", $this->_propDict)) {
@@ -381,29 +365,27 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the mediaType
-    *
-    * @param string $val The value of the mediaType
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the mediaType
+     *
+     * @param string $val The value of the mediaType
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setMediaType($val)
     {
         $this->_propDict["mediaType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the multipageLayout
-    *
-    * @return PrintMultipageLayout|null The multipageLayout
-    */
+     * Gets the multipageLayout
+     *
+     * @return PrintMultipageLayout|null The multipageLayout
+     */
     public function getMultipageLayout()
     {
         if (array_key_exists("multipageLayout", $this->_propDict)) {
-            if (is_a($this->_propDict["multipageLayout"], "\Beta\Microsoft\Graph\Model\PrintMultipageLayout") || is_null($this->_propDict["multipageLayout"])) {
+            if (is_a($this->_propDict["multipageLayout"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintMultipageLayout") || is_null($this->_propDict["multipageLayout"])) {
                 return $this->_propDict["multipageLayout"];
             } else {
                 $this->_propDict["multipageLayout"] = new PrintMultipageLayout($this->_propDict["multipageLayout"]);
@@ -412,29 +394,27 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the multipageLayout
-    *
-    * @param PrintMultipageLayout $val The value to assign to the multipageLayout
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the multipageLayout
+     *
+     * @param PrintMultipageLayout $val The value to assign to the multipageLayout
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setMultipageLayout($val)
     {
         $this->_propDict["multipageLayout"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the orientation
-    *
-    * @return PrintOrientation|null The orientation
-    */
+     * Gets the orientation
+     *
+     * @return PrintOrientation|null The orientation
+     */
     public function getOrientation()
     {
         if (array_key_exists("orientation", $this->_propDict)) {
-            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PrintOrientation") || is_null($this->_propDict["orientation"])) {
+            if (is_a($this->_propDict["orientation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintOrientation") || is_null($this->_propDict["orientation"])) {
                 return $this->_propDict["orientation"];
             } else {
                 $this->_propDict["orientation"] = new PrintOrientation($this->_propDict["orientation"]);
@@ -443,24 +423,23 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the orientation
-    *
-    * @param PrintOrientation $val The value to assign to the orientation
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the orientation
+     *
+     * @param PrintOrientation $val The value to assign to the orientation
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setOrientation($val)
     {
         $this->_propDict["orientation"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the outputBin
-    *
-    * @return string|null The outputBin
-    */
+     * Gets the outputBin
+     *
+     * @return string|null The outputBin
+     */
     public function getOutputBin()
     {
         if (array_key_exists("outputBin", $this->_propDict)) {
@@ -469,29 +448,27 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the outputBin
-    *
-    * @param string $val The value of the outputBin
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the outputBin
+     *
+     * @param string $val The value of the outputBin
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setOutputBin($val)
     {
         $this->_propDict["outputBin"] = $val;
         return $this;
     }
-
     /**
-    * Gets the pageRanges
-    *
-    * @return IntegerRange|null The pageRanges
-    */
+     * Gets the pageRanges
+     *
+     * @return IntegerRange|null The pageRanges
+     */
     public function getPageRanges()
     {
         if (array_key_exists("pageRanges", $this->_propDict)) {
-            if (is_a($this->_propDict["pageRanges"], "\Beta\Microsoft\Graph\Model\IntegerRange") || is_null($this->_propDict["pageRanges"])) {
+            if (is_a($this->_propDict["pageRanges"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\IntegerRange") || is_null($this->_propDict["pageRanges"])) {
                 return $this->_propDict["pageRanges"];
             } else {
                 $this->_propDict["pageRanges"] = new IntegerRange($this->_propDict["pageRanges"]);
@@ -500,24 +477,23 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the pageRanges
-    *
-    * @param IntegerRange $val The value to assign to the pageRanges
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the pageRanges
+     *
+     * @param IntegerRange $val The value to assign to the pageRanges
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setPageRanges($val)
     {
         $this->_propDict["pageRanges"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the pagesPerSheet
-    *
-    * @return int|null The pagesPerSheet
-    */
+     * Gets the pagesPerSheet
+     *
+     * @return int|null The pagesPerSheet
+     */
     public function getPagesPerSheet()
     {
         if (array_key_exists("pagesPerSheet", $this->_propDict)) {
@@ -526,29 +502,27 @@ class PrinterDocumentConfiguration extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pagesPerSheet
-    *
-    * @param int $val The value of the pagesPerSheet
-    *
-    * @return PrinterDocumentConfiguration
-    */
+     * Sets the pagesPerSheet
+     *
+     * @param int $val The value of the pagesPerSheet
+     *
+     * @return PrinterDocumentConfiguration
+     */
     public function setPagesPerSheet($val)
     {
         $this->_propDict["pagesPerSheet"] = $val;
         return $this;
     }
-
     /**
-    * Gets the quality
-    *
-    * @return PrintQuality|null The quality
-    */
+     * Gets the quality
+     *
+     * @return PrintQuality|null The quality
+     */
     public function getQuality()
     {
         if (array_key_exists("quality", $this->_propDict)) {
-            if (is_a($this->_propDict["quality"], "\Beta\Microsoft\Graph\Model\PrintQuality") || is_null($this->_propDict["quality"])) {
+            if (is_a($this->_propDict["quality"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintQuality") || is_null($this->_propDict["quality"])) {
                 return $this->_propDict["quality"];
             } else {
                 $this->_propDict["quality"] = new PrintQuality($this->_propDict["quality"]);
@@ -557,29 +531,27 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the quality
-    *
-    * @param PrintQuality $val The value to assign to the quality
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the quality
+     *
+     * @param PrintQuality $val The value to assign to the quality
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setQuality($val)
     {
         $this->_propDict["quality"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the scaling
-    *
-    * @return PrintScaling|null The scaling
-    */
+     * Gets the scaling
+     *
+     * @return PrintScaling|null The scaling
+     */
     public function getScaling()
     {
         if (array_key_exists("scaling", $this->_propDict)) {
-            if (is_a($this->_propDict["scaling"], "\Beta\Microsoft\Graph\Model\PrintScaling") || is_null($this->_propDict["scaling"])) {
+            if (is_a($this->_propDict["scaling"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrintScaling") || is_null($this->_propDict["scaling"])) {
                 return $this->_propDict["scaling"];
             } else {
                 $this->_propDict["scaling"] = new PrintScaling($this->_propDict["scaling"]);
@@ -588,17 +560,16 @@ class PrinterDocumentConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the scaling
-    *
-    * @param PrintScaling $val The value to assign to the scaling
-    *
-    * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
-    */
+     * Sets the scaling
+     *
+     * @param PrintScaling $val The value to assign to the scaling
+     *
+     * @return PrinterDocumentConfiguration The PrinterDocumentConfiguration
+     */
     public function setScaling($val)
     {
         $this->_propDict["scaling"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptAssignment class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceHealthScriptAssignment extends Entity
 {
     /**
-    * Gets the runRemediationScript
-    * Determine whether we want to run detection script only or run both detection script and remediation script
-    *
-    * @return bool|null The runRemediationScript
-    */
+     * Gets the runRemediationScript
+     * Determine whether we want to run detection script only or run both detection script and remediation script
+     *
+     * @return bool|null The runRemediationScript
+     */
     public function getRunRemediationScript()
     {
         if (array_key_exists("runRemediationScript", $this->_propDict)) {
@@ -41,31 +42,29 @@ class DeviceHealthScriptAssignment extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the runRemediationScript
-    * Determine whether we want to run detection script only or run both detection script and remediation script
-    *
-    * @param bool $val The runRemediationScript
-    *
-    * @return DeviceHealthScriptAssignment
-    */
+     * Sets the runRemediationScript
+     * Determine whether we want to run detection script only or run both detection script and remediation script
+     *
+     * @param bool $val The runRemediationScript
+     *
+     * @return DeviceHealthScriptAssignment
+     */
     public function setRunRemediationScript($val)
     {
         $this->_propDict["runRemediationScript"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the runSchedule
-    * Script run schedule for the target group
-    *
-    * @return DeviceHealthScriptRunSchedule|null The runSchedule
-    */
+     * Gets the runSchedule
+     * Script run schedule for the target group
+     *
+     * @return DeviceHealthScriptRunSchedule|null The runSchedule
+     */
     public function getRunSchedule()
     {
         if (array_key_exists("runSchedule", $this->_propDict)) {
-            if (is_a($this->_propDict["runSchedule"], "\Beta\Microsoft\Graph\Model\DeviceHealthScriptRunSchedule") || is_null($this->_propDict["runSchedule"])) {
+            if (is_a($this->_propDict["runSchedule"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceHealthScriptRunSchedule") || is_null($this->_propDict["runSchedule"])) {
                 return $this->_propDict["runSchedule"];
             } else {
                 $this->_propDict["runSchedule"] = new DeviceHealthScriptRunSchedule($this->_propDict["runSchedule"]);
@@ -74,31 +73,29 @@ class DeviceHealthScriptAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the runSchedule
-    * Script run schedule for the target group
-    *
-    * @param DeviceHealthScriptRunSchedule $val The runSchedule
-    *
-    * @return DeviceHealthScriptAssignment
-    */
+     * Sets the runSchedule
+     * Script run schedule for the target group
+     *
+     * @param DeviceHealthScriptRunSchedule $val The runSchedule
+     *
+     * @return DeviceHealthScriptAssignment
+     */
     public function setRunSchedule($val)
     {
         $this->_propDict["runSchedule"] = $val;
         return $this;
     }
-
     /**
-    * Gets the target
-    * The Azure Active Directory group we are targeting the script to
-    *
-    * @return DeviceAndAppManagementAssignmentTarget|null The target
-    */
+     * Gets the target
+     * The Azure Active Directory group we are targeting the script to
+     *
+     * @return DeviceAndAppManagementAssignmentTarget|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
-            if (is_a($this->_propDict["target"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
+            if (is_a($this->_propDict["target"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentTarget") || is_null($this->_propDict["target"])) {
                 return $this->_propDict["target"];
             } else {
                 $this->_propDict["target"] = new DeviceAndAppManagementAssignmentTarget($this->_propDict["target"]);
@@ -107,19 +104,17 @@ class DeviceHealthScriptAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the target
-    * The Azure Active Directory group we are targeting the script to
-    *
-    * @param DeviceAndAppManagementAssignmentTarget $val The target
-    *
-    * @return DeviceHealthScriptAssignment
-    */
+     * Sets the target
+     * The Azure Active Directory group we are targeting the script to
+     *
+     * @param DeviceAndAppManagementAssignmentTarget $val The target
+     *
+     * @return DeviceHealthScriptAssignment
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;
         return $this;
     }
-
 }

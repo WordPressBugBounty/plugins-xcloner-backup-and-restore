@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Exception;
 
-namespace Sabre\DAVACL\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * NeedPrivileges.
  *
@@ -27,14 +25,12 @@ class NeedPrivileges extends DAV\Exception\Forbidden
      * @var string
      */
     protected $uri;
-
     /**
      * The privileges the user didn't have.
      *
      * @var array
      */
     protected $privileges;
-
     /**
      * Constructor.
      *
@@ -44,10 +40,8 @@ class NeedPrivileges extends DAV\Exception\Forbidden
     {
         $this->uri = $uri;
         $this->privileges = $privileges;
-
-        parent::__construct('User did not have the required privileges ('.implode(',', $privileges).') for path "'.$uri.'"');
+        parent::__construct('User did not have the required privileges (' . implode(',', $privileges) . ') for path "' . $uri . '"');
     }
-
     /**
      * Adds in extra information in the xml response.
      *
@@ -56,21 +50,16 @@ class NeedPrivileges extends DAV\Exception\Forbidden
     public function serialize(DAV\Server $server, \DOMElement $errorNode)
     {
         $doc = $errorNode->ownerDocument;
-
         $np = $doc->createElementNS('DAV:', 'd:need-privileges');
         $errorNode->appendChild($np);
-
         foreach ($this->privileges as $privilege) {
             $resource = $doc->createElementNS('DAV:', 'd:resource');
             $np->appendChild($resource);
-
-            $resource->appendChild($doc->createElementNS('DAV:', 'd:href', $server->getBaseUri().$this->uri));
-
+            $resource->appendChild($doc->createElementNS('DAV:', 'd:href', $server->getBaseUri() . $this->uri));
             $priv = $doc->createElementNS('DAV:', 'd:privilege');
             $resource->appendChild($priv);
-
             preg_match('/^{([^}]*)}(.*)$/', $privilege, $privilegeParts);
-            $priv->appendChild($doc->createElementNS($privilegeParts[1], 'd:'.$privilegeParts[2]));
+            $priv->appendChild($doc->createElementNS($privilegeParts[1], 'd:' . $privilegeParts[2]));
         }
     }
 }

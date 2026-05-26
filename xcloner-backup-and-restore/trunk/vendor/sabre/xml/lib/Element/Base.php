@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Element;
 
-namespace Sabre\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml;
 /**
  * The Base XML element is the standard parser & generator that's used by the
  * XML reader and writer.
@@ -28,7 +26,6 @@ class Base implements Xml\Element
      * @var mixed
      */
     protected $value;
-
     /**
      * Constructor.
      */
@@ -36,7 +33,6 @@ class Base implements Xml\Element
     {
         $this->value = $value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -57,7 +53,6 @@ class Base implements Xml\Element
     {
         $writer->write($this->value);
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -81,7 +76,6 @@ class Base implements Xml\Element
     public static function xmlDeserialize(Xml\Reader $reader)
     {
         $subTree = $reader->parseInnerTree();
-
         return $subTree;
     }
 }

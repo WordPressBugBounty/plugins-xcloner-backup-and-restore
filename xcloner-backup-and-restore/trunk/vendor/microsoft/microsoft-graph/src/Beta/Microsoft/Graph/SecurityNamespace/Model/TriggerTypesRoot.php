@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TriggerTypesRoot class
 *
@@ -25,10 +26,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TriggerTypesRoot extends \Beta\Microsoft\Graph\Model\Entity
+class TriggerTypesRoot extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the retentionEventTypes
      *
      * @return array|null The retentionEventTypes
@@ -36,23 +36,21 @@ class TriggerTypesRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getRetentionEventTypes()
     {
         if (array_key_exists("retentionEventTypes", $this->_propDict)) {
-           return $this->_propDict["retentionEventTypes"];
+            return $this->_propDict["retentionEventTypes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the retentionEventTypes
-    *
-    * @param RetentionEventType[] $val The retentionEventTypes
-    *
-    * @return TriggerTypesRoot
-    */
+     * Sets the retentionEventTypes
+     *
+     * @param RetentionEventType[] $val The retentionEventTypes
+     *
+     * @return TriggerTypesRoot
+     */
     public function setRetentionEventTypes($val)
     {
         $this->_propDict["retentionEventTypes"] = $val;
         return $this;
     }
-
 }

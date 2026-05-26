@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VpnRoute class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VpnRoute extends Entity
 {
     /**
-    * Gets the destinationPrefix
-    * Destination prefix (IPv4/v6 address).
-    *
-    * @return string|null The destinationPrefix
-    */
+     * Gets the destinationPrefix
+     * Destination prefix (IPv4/v6 address).
+     *
+     * @return string|null The destinationPrefix
+     */
     public function getDestinationPrefix()
     {
         if (array_key_exists("destinationPrefix", $this->_propDict)) {
@@ -40,26 +42,25 @@ class VpnRoute extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the destinationPrefix
-    * Destination prefix (IPv4/v6 address).
-    *
-    * @param string $val The value of the destinationPrefix
-    *
-    * @return VpnRoute
-    */
+     * Sets the destinationPrefix
+     * Destination prefix (IPv4/v6 address).
+     *
+     * @param string $val The value of the destinationPrefix
+     *
+     * @return VpnRoute
+     */
     public function setDestinationPrefix($val)
     {
         $this->_propDict["destinationPrefix"] = $val;
         return $this;
     }
     /**
-    * Gets the prefixSize
-    * Prefix size. (1-32). Valid values 1 to 32
-    *
-    * @return int|null The prefixSize
-    */
+     * Gets the prefixSize
+     * Prefix size. (1-32). Valid values 1 to 32
+     *
+     * @return int|null The prefixSize
+     */
     public function getPrefixSize()
     {
         if (array_key_exists("prefixSize", $this->_propDict)) {
@@ -68,15 +69,14 @@ class VpnRoute extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the prefixSize
-    * Prefix size. (1-32). Valid values 1 to 32
-    *
-    * @param int $val The value of the prefixSize
-    *
-    * @return VpnRoute
-    */
+     * Sets the prefixSize
+     * Prefix size. (1-32). Valid values 1 to 32
+     *
+     * @param int $val The value of the prefixSize
+     *
+     * @return VpnRoute
+     */
     public function setPrefixSize($val)
     {
         $this->_propDict["prefixSize"] = $val;

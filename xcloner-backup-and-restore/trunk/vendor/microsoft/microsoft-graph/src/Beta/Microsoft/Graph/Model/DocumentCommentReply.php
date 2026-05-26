@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DocumentCommentReply class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DocumentCommentReply extends Entity
 {
     /**
-    * Gets the content
-    *
-    * @return string|null The content
-    */
+     * Gets the content
+     *
+     * @return string|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
@@ -40,25 +41,23 @@ class DocumentCommentReply extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the content
-    *
-    * @param string $val The content
-    *
-    * @return DocumentCommentReply
-    */
+     * Sets the content
+     *
+     * @param string $val The content
+     *
+     * @return DocumentCommentReply
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
     /**
-    * Gets the location
-    *
-    * @return string|null The location
-    */
+     * Gets the location
+     *
+     * @return string|null The location
+     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
@@ -67,18 +66,16 @@ class DocumentCommentReply extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the location
-    *
-    * @param string $val The location
-    *
-    * @return DocumentCommentReply
-    */
+     * Sets the location
+     *
+     * @param string $val The location
+     *
+     * @return DocumentCommentReply
+     */
     public function setLocation($val)
     {
         $this->_propDict["location"] = $val;
         return $this;
     }
-
 }

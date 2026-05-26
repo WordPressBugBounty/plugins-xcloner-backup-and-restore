@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SearchAlterationOptions class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SearchAlterationOptions extends Entity
 {
     /**
-    * Gets the enableModification
-    * Indicates whether spelling modifications are enabled. If enabled, the user will get the search results for the corrected query in case of no results for the original query with typos. The response will also include the spelling modification information in the queryAlterationResponse property. Optional.
-    *
-    * @return bool|null The enableModification
-    */
+     * Gets the enableModification
+     * Indicates whether spelling modifications are enabled. If enabled, the user will get the search results for the corrected query in case of no results for the original query with typos. The response will also include the spelling modification information in the queryAlterationResponse property. Optional.
+     *
+     * @return bool|null The enableModification
+     */
     public function getEnableModification()
     {
         if (array_key_exists("enableModification", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SearchAlterationOptions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enableModification
-    * Indicates whether spelling modifications are enabled. If enabled, the user will get the search results for the corrected query in case of no results for the original query with typos. The response will also include the spelling modification information in the queryAlterationResponse property. Optional.
-    *
-    * @param bool $val The value of the enableModification
-    *
-    * @return SearchAlterationOptions
-    */
+     * Sets the enableModification
+     * Indicates whether spelling modifications are enabled. If enabled, the user will get the search results for the corrected query in case of no results for the original query with typos. The response will also include the spelling modification information in the queryAlterationResponse property. Optional.
+     *
+     * @param bool $val The value of the enableModification
+     *
+     * @return SearchAlterationOptions
+     */
     public function setEnableModification($val)
     {
         $this->_propDict["enableModification"] = $val;
         return $this;
     }
     /**
-    * Gets the enableSuggestion
-    * Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional.
-    *
-    * @return bool|null The enableSuggestion
-    */
+     * Gets the enableSuggestion
+     * Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional.
+     *
+     * @return bool|null The enableSuggestion
+     */
     public function getEnableSuggestion()
     {
         if (array_key_exists("enableSuggestion", $this->_propDict)) {
@@ -68,15 +69,14 @@ class SearchAlterationOptions extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enableSuggestion
-    * Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional.
-    *
-    * @param bool $val The value of the enableSuggestion
-    *
-    * @return SearchAlterationOptions
-    */
+     * Sets the enableSuggestion
+     * Indicates whether spelling suggestions are enabled. If enabled, the user will get the search results for the original search query and suggestions for spelling correction in the queryAlterationResponse property of the response for the typos in the query. Optional.
+     *
+     * @param bool $val The value of the enableSuggestion
+     *
+     * @return SearchAlterationOptions
+     */
     public function setEnableSuggestion($val)
     {
         $this->_propDict["enableSuggestion"] = $val;

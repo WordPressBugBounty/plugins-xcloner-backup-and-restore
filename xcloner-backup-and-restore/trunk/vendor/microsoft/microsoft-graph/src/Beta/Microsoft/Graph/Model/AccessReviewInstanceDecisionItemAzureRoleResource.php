@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewInstanceDecisionItemAzureRoleResource class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AccessReviewInstanceDecisionItemAzureRoleResource extends AccessReviewInstanceDecisionItemResource
 {
-
     /**
-    * Gets the scope
-    * Details of the scope this role is associated with.
-    *
-    * @return AccessReviewInstanceDecisionItemResource|null The scope
-    */
+     * Gets the scope
+     * Details of the scope this role is associated with.
+     *
+     * @return AccessReviewInstanceDecisionItemResource|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Beta\Microsoft\Graph\Model\AccessReviewInstanceDecisionItemResource") || is_null($this->_propDict["scope"])) {
+            if (is_a($this->_propDict["scope"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AccessReviewInstanceDecisionItemResource") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new AccessReviewInstanceDecisionItemResource($this->_propDict["scope"]);
@@ -45,18 +46,17 @@ class AccessReviewInstanceDecisionItemAzureRoleResource extends AccessReviewInst
         }
         return null;
     }
-
     /**
-    * Sets the scope
-    * Details of the scope this role is associated with.
-    *
-    * @param AccessReviewInstanceDecisionItemResource $val The value to assign to the scope
-    *
-    * @return AccessReviewInstanceDecisionItemAzureRoleResource The AccessReviewInstanceDecisionItemAzureRoleResource
-    */
+     * Sets the scope
+     * Details of the scope this role is associated with.
+     *
+     * @param AccessReviewInstanceDecisionItemResource $val The value to assign to the scope
+     *
+     * @return AccessReviewInstanceDecisionItemAzureRoleResource The AccessReviewInstanceDecisionItemAzureRoleResource
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
-         return $this;
+        return $this;
     }
 }

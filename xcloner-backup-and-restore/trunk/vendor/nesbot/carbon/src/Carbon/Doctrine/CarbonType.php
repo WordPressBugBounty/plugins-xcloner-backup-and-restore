@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Doctrine;
 
-namespace Carbon\Doctrine;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Doctrine\DBAL\Platforms\AbstractPlatform;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Doctrine\DBAL\Platforms\AbstractPlatform;
 class CarbonType extends DateTimeType implements CarbonDoctrineType
 {
     /**
@@ -27,7 +25,6 @@ class CarbonType extends DateTimeType implements CarbonDoctrineType
     {
         return 'carbon';
     }
-
     /**
      * {@inheritdoc}
      *
@@ -35,6 +32,6 @@ class CarbonType extends DateTimeType implements CarbonDoctrineType
      */
     public function requiresSQLCommentHint(AbstractPlatform $platform)
     {
-        return true;
+        return \true;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FileSystemInfo class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class FileSystemInfo extends Entity
 {
-
     /**
-    * Gets the createdDateTime
-    * The UTC date and time the file was created on a client.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The UTC date and time the file was created on a client.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,31 +46,29 @@ class FileSystemInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The UTC date and time the file was created on a client.
-    *
-    * @param \DateTime $val The value to assign to the createdDateTime
-    *
-    * @return FileSystemInfo The FileSystemInfo
-    */
+     * Sets the createdDateTime
+     * The UTC date and time the file was created on a client.
+     *
+     * @param \DateTime $val The value to assign to the createdDateTime
+     *
+     * @return FileSystemInfo The FileSystemInfo
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lastAccessedDateTime
-    * The UTC date and time the file was last accessed. Available for the recent file list only.
-    *
-    * @return \DateTime|null The lastAccessedDateTime
-    */
+     * Gets the lastAccessedDateTime
+     * The UTC date and time the file was last accessed. Available for the recent file list only.
+     *
+     * @return \DateTime|null The lastAccessedDateTime
+     */
     public function getLastAccessedDateTime()
     {
         if (array_key_exists("lastAccessedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastAccessedDateTime"], "\DateTime") || is_null($this->_propDict["lastAccessedDateTime"])) {
+            if (is_a($this->_propDict["lastAccessedDateTime"], "\\DateTime") || is_null($this->_propDict["lastAccessedDateTime"])) {
                 return $this->_propDict["lastAccessedDateTime"];
             } else {
                 $this->_propDict["lastAccessedDateTime"] = new \DateTime($this->_propDict["lastAccessedDateTime"]);
@@ -78,31 +77,29 @@ class FileSystemInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastAccessedDateTime
-    * The UTC date and time the file was last accessed. Available for the recent file list only.
-    *
-    * @param \DateTime $val The value to assign to the lastAccessedDateTime
-    *
-    * @return FileSystemInfo The FileSystemInfo
-    */
+     * Sets the lastAccessedDateTime
+     * The UTC date and time the file was last accessed. Available for the recent file list only.
+     *
+     * @param \DateTime $val The value to assign to the lastAccessedDateTime
+     *
+     * @return FileSystemInfo The FileSystemInfo
+     */
     public function setLastAccessedDateTime($val)
     {
         $this->_propDict["lastAccessedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The UTC date and time the file was last modified on a client.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The UTC date and time the file was last modified on a client.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -111,18 +108,17 @@ class FileSystemInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The UTC date and time the file was last modified on a client.
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return FileSystemInfo The FileSystemInfo
-    */
+     * Sets the lastModifiedDateTime
+     * The UTC date and time the file was last modified on a client.
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return FileSystemInfo The FileSystemInfo
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

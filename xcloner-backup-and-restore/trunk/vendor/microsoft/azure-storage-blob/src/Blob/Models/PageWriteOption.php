@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Holds available blob page write options
  *
@@ -39,6 +38,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  */
 class PageWriteOption
 {
-    const CLEAR_OPTION  = 'clear';
+    const CLEAR_OPTION = 'clear';
     const UPDATE_OPTION = 'update';
 }

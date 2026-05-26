@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserScopeTeamsAppInstallation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserScopeTeamsAppInstallation extends TeamsAppInstallation
 {
     /**
-    * Gets the chat
-    * The chat between the user and Teams app.
-    *
-    * @return Chat|null The chat
-    */
+     * Gets the chat
+     * The chat between the user and Teams app.
+     *
+     * @return Chat|null The chat
+     */
     public function getChat()
     {
         if (array_key_exists("chat", $this->_propDict)) {
-            if (is_a($this->_propDict["chat"], "\Microsoft\Graph\Model\Chat") || is_null($this->_propDict["chat"])) {
+            if (is_a($this->_propDict["chat"], "XCloner\\Microsoft\\Graph\\Model\\Chat") || is_null($this->_propDict["chat"])) {
                 return $this->_propDict["chat"];
             } else {
                 $this->_propDict["chat"] = new Chat($this->_propDict["chat"]);
@@ -45,19 +46,17 @@ class UserScopeTeamsAppInstallation extends TeamsAppInstallation
         }
         return null;
     }
-
     /**
-    * Sets the chat
-    * The chat between the user and Teams app.
-    *
-    * @param Chat $val The chat
-    *
-    * @return UserScopeTeamsAppInstallation
-    */
+     * Sets the chat
+     * The chat between the user and Teams app.
+     *
+     * @param Chat $val The chat
+     *
+     * @return UserScopeTeamsAppInstallation
+     */
     public function setChat($val)
     {
         $this->_propDict["chat"] = $val;
         return $this;
     }
-
 }

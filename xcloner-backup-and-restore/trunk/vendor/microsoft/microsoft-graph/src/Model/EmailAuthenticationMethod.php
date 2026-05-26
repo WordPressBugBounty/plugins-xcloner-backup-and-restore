@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmailAuthenticationMethod class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EmailAuthenticationMethod extends AuthenticationMethod
 {
     /**
-    * Gets the emailAddress
-    * The email address registered to this user.
-    *
-    * @return string|null The emailAddress
-    */
+     * Gets the emailAddress
+     * The email address registered to this user.
+     *
+     * @return string|null The emailAddress
+     */
     public function getEmailAddress()
     {
         if (array_key_exists("emailAddress", $this->_propDict)) {
@@ -41,19 +42,17 @@ class EmailAuthenticationMethod extends AuthenticationMethod
             return null;
         }
     }
-
     /**
-    * Sets the emailAddress
-    * The email address registered to this user.
-    *
-    * @param string $val The emailAddress
-    *
-    * @return EmailAuthenticationMethod
-    */
+     * Sets the emailAddress
+     * The email address registered to this user.
+     *
+     * @param string $val The emailAddress
+     *
+     * @return EmailAuthenticationMethod
+     */
     public function setEmailAddress($val)
     {
         $this->_propDict["emailAddress"] = $val;
         return $this;
     }
-
 }

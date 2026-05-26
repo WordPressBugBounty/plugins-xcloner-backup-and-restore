@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SearchQueryString class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SearchQueryString extends Entity
 {
     /**
-    * Gets the query
-    * Contains the actual search terms of the request.
-    *
-    * @return string|null The query
-    */
+     * Gets the query
+     * Contains the actual search terms of the request.
+     *
+     * @return string|null The query
+     */
     public function getQuery()
     {
         if (array_key_exists("query", $this->_propDict)) {
@@ -40,15 +42,14 @@ class SearchQueryString extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the query
-    * Contains the actual search terms of the request.
-    *
-    * @param string $val The value of the query
-    *
-    * @return SearchQueryString
-    */
+     * Sets the query
+     * Contains the actual search terms of the request.
+     *
+     * @param string $val The value of the query
+     *
+     * @return SearchQueryString
+     */
     public function setQuery($val)
     {
         $this->_propDict["query"] = $val;

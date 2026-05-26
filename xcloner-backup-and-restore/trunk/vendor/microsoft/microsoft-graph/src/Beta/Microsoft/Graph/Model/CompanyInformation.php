@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CompanyInformation class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CompanyInformation extends Entity
 {
     /**
-    * Gets the address
-    *
-    * @return PostalAddressType|null The address
-    */
+     * Gets the address
+     *
+     * @return PostalAddressType|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
-            if (is_a($this->_propDict["address"], "\Beta\Microsoft\Graph\Model\PostalAddressType") || is_null($this->_propDict["address"])) {
+            if (is_a($this->_propDict["address"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PostalAddressType") || is_null($this->_propDict["address"])) {
                 return $this->_propDict["address"];
             } else {
                 $this->_propDict["address"] = new PostalAddressType($this->_propDict["address"]);
@@ -44,25 +45,23 @@ class CompanyInformation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the address
-    *
-    * @param PostalAddressType $val The address
-    *
-    * @return CompanyInformation
-    */
+     * Sets the address
+     *
+     * @param PostalAddressType $val The address
+     *
+     * @return CompanyInformation
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
-
     /**
-    * Gets the currencyCode
-    *
-    * @return string|null The currencyCode
-    */
+     * Gets the currencyCode
+     *
+     * @return string|null The currencyCode
+     */
     public function getCurrencyCode()
     {
         if (array_key_exists("currencyCode", $this->_propDict)) {
@@ -71,29 +70,27 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the currencyCode
-    *
-    * @param string $val The currencyCode
-    *
-    * @return CompanyInformation
-    */
+     * Sets the currencyCode
+     *
+     * @param string $val The currencyCode
+     *
+     * @return CompanyInformation
+     */
     public function setCurrencyCode($val)
     {
         $this->_propDict["currencyCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the currentFiscalYearStartDate
-    *
-    * @return \DateTime|null The currentFiscalYearStartDate
-    */
+     * Gets the currentFiscalYearStartDate
+     *
+     * @return \DateTime|null The currentFiscalYearStartDate
+     */
     public function getCurrentFiscalYearStartDate()
     {
         if (array_key_exists("currentFiscalYearStartDate", $this->_propDict)) {
-            if (is_a($this->_propDict["currentFiscalYearStartDate"], "\DateTime") || is_null($this->_propDict["currentFiscalYearStartDate"])) {
+            if (is_a($this->_propDict["currentFiscalYearStartDate"], "\\DateTime") || is_null($this->_propDict["currentFiscalYearStartDate"])) {
                 return $this->_propDict["currentFiscalYearStartDate"];
             } else {
                 $this->_propDict["currentFiscalYearStartDate"] = new \DateTime($this->_propDict["currentFiscalYearStartDate"]);
@@ -102,25 +99,23 @@ class CompanyInformation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the currentFiscalYearStartDate
-    *
-    * @param \DateTime $val The currentFiscalYearStartDate
-    *
-    * @return CompanyInformation
-    */
+     * Sets the currentFiscalYearStartDate
+     *
+     * @param \DateTime $val The currentFiscalYearStartDate
+     *
+     * @return CompanyInformation
+     */
     public function setCurrentFiscalYearStartDate($val)
     {
         $this->_propDict["currentFiscalYearStartDate"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -129,25 +124,23 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return CompanyInformation
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return CompanyInformation
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the email
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -156,25 +149,23 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    *
-    * @param string $val The email
-    *
-    * @return CompanyInformation
-    */
+     * Sets the email
+     *
+     * @param string $val The email
+     *
+     * @return CompanyInformation
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
-
     /**
-    * Gets the faxNumber
-    *
-    * @return string|null The faxNumber
-    */
+     * Gets the faxNumber
+     *
+     * @return string|null The faxNumber
+     */
     public function getFaxNumber()
     {
         if (array_key_exists("faxNumber", $this->_propDict)) {
@@ -183,25 +174,23 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the faxNumber
-    *
-    * @param string $val The faxNumber
-    *
-    * @return CompanyInformation
-    */
+     * Sets the faxNumber
+     *
+     * @param string $val The faxNumber
+     *
+     * @return CompanyInformation
+     */
     public function setFaxNumber($val)
     {
         $this->_propDict["faxNumber"] = $val;
         return $this;
     }
-
     /**
-    * Gets the industry
-    *
-    * @return string|null The industry
-    */
+     * Gets the industry
+     *
+     * @return string|null The industry
+     */
     public function getIndustry()
     {
         if (array_key_exists("industry", $this->_propDict)) {
@@ -210,29 +199,27 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the industry
-    *
-    * @param string $val The industry
-    *
-    * @return CompanyInformation
-    */
+     * Sets the industry
+     *
+     * @param string $val The industry
+     *
+     * @return CompanyInformation
+     */
     public function setIndustry($val)
     {
         $this->_propDict["industry"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -241,25 +228,23 @@ class CompanyInformation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return CompanyInformation
-    */
+     * Sets the lastModifiedDateTime
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return CompanyInformation
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the phoneNumber
-    *
-    * @return string|null The phoneNumber
-    */
+     * Gets the phoneNumber
+     *
+     * @return string|null The phoneNumber
+     */
     public function getPhoneNumber()
     {
         if (array_key_exists("phoneNumber", $this->_propDict)) {
@@ -268,56 +253,52 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the phoneNumber
-    *
-    * @param string $val The phoneNumber
-    *
-    * @return CompanyInformation
-    */
+     * Sets the phoneNumber
+     *
+     * @param string $val The phoneNumber
+     *
+     * @return CompanyInformation
+     */
     public function setPhoneNumber($val)
     {
         $this->_propDict["phoneNumber"] = $val;
         return $this;
     }
-
     /**
-    * Gets the picture
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The picture
-    */
+     * Gets the picture
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The picture
+     */
     public function getPicture()
     {
         if (array_key_exists("picture", $this->_propDict)) {
-            if (is_a($this->_propDict["picture"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["picture"])) {
+            if (is_a($this->_propDict["picture"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["picture"])) {
                 return $this->_propDict["picture"];
             } else {
-                $this->_propDict["picture"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["picture"]);
+                $this->_propDict["picture"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["picture"]);
                 return $this->_propDict["picture"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the picture
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The picture
-    *
-    * @return CompanyInformation
-    */
+     * Sets the picture
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The picture
+     *
+     * @return CompanyInformation
+     */
     public function setPicture($val)
     {
         $this->_propDict["picture"] = $val;
         return $this;
     }
-
     /**
-    * Gets the taxRegistrationNumber
-    *
-    * @return string|null The taxRegistrationNumber
-    */
+     * Gets the taxRegistrationNumber
+     *
+     * @return string|null The taxRegistrationNumber
+     */
     public function getTaxRegistrationNumber()
     {
         if (array_key_exists("taxRegistrationNumber", $this->_propDict)) {
@@ -326,25 +307,23 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the taxRegistrationNumber
-    *
-    * @param string $val The taxRegistrationNumber
-    *
-    * @return CompanyInformation
-    */
+     * Sets the taxRegistrationNumber
+     *
+     * @param string $val The taxRegistrationNumber
+     *
+     * @return CompanyInformation
+     */
     public function setTaxRegistrationNumber($val)
     {
         $this->_propDict["taxRegistrationNumber"] = $val;
         return $this;
     }
-
     /**
-    * Gets the website
-    *
-    * @return string|null The website
-    */
+     * Gets the website
+     *
+     * @return string|null The website
+     */
     public function getWebsite()
     {
         if (array_key_exists("website", $this->_propDict)) {
@@ -353,18 +332,16 @@ class CompanyInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the website
-    *
-    * @param string $val The website
-    *
-    * @return CompanyInformation
-    */
+     * Sets the website
+     *
+     * @param string $val The website
+     *
+     * @return CompanyInformation
+     */
     public function setWebsite($val)
     {
         $this->_propDict["website"] = $val;
         return $this;
     }
-
 }

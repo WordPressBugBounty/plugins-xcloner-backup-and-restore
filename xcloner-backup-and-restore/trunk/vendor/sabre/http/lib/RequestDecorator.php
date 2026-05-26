@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Request Decorator.
  *
@@ -20,7 +19,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RequestDecorator implements RequestInterface
 {
     use MessageDecoratorTrait;
-
     /**
      * Constructor.
      */
@@ -28,7 +26,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner = $inner;
     }
-
     /**
      * Returns the current HTTP method.
      */
@@ -36,7 +33,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getMethod();
     }
-
     /**
      * Sets the HTTP method.
      */
@@ -44,7 +40,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner->setMethod($method);
     }
-
     /**
      * Returns the request url.
      */
@@ -52,7 +47,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getUrl();
     }
-
     /**
      * Sets the request url.
      */
@@ -60,7 +54,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner->setUrl($url);
     }
-
     /**
      * Returns the absolute url.
      */
@@ -68,7 +61,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getAbsoluteUrl();
     }
-
     /**
      * Sets the absolute url.
      */
@@ -76,7 +68,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner->setAbsoluteUrl($url);
     }
-
     /**
      * Returns the current base url.
      */
@@ -84,7 +75,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getBaseUrl();
     }
-
     /**
      * Sets a base url.
      *
@@ -96,7 +86,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner->setBaseUrl($url);
     }
-
     /**
      * Returns the relative path.
      *
@@ -116,7 +105,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getPath();
     }
-
     /**
      * Returns the list of query parameters.
      *
@@ -126,7 +114,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getQueryParameters();
     }
-
     /**
      * Returns the POST data.
      *
@@ -136,7 +123,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getPostData();
     }
-
     /**
      * Sets the post data.
      *
@@ -149,7 +135,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner->setPostData($postData);
     }
-
     /**
      * Returns an item from the _SERVER array.
      *
@@ -161,7 +146,6 @@ class RequestDecorator implements RequestInterface
     {
         return $this->inner->getRawServerValue($valueName);
     }
-
     /**
      * Sets the _SERVER array.
      */
@@ -169,7 +153,6 @@ class RequestDecorator implements RequestInterface
     {
         $this->inner->setRawServerData($data);
     }
-
     /**
      * Serializes the request object as a string.
      *

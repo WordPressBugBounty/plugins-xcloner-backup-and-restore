@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationCombinationConfiguration class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AuthenticationCombinationConfiguration extends Entity
 {
-
-     /**
+    /**
      * Gets the appliesToCombinations
      *
      * @return array|null The appliesToCombinations
@@ -36,23 +36,21 @@ class AuthenticationCombinationConfiguration extends Entity
     public function getAppliesToCombinations()
     {
         if (array_key_exists("appliesToCombinations", $this->_propDict)) {
-           return $this->_propDict["appliesToCombinations"];
+            return $this->_propDict["appliesToCombinations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the appliesToCombinations
-    *
-    * @param AuthenticationMethodModes[] $val The appliesToCombinations
-    *
-    * @return AuthenticationCombinationConfiguration
-    */
+     * Sets the appliesToCombinations
+     *
+     * @param AuthenticationMethodModes[] $val The appliesToCombinations
+     *
+     * @return AuthenticationCombinationConfiguration
+     */
     public function setAppliesToCombinations($val)
     {
         $this->_propDict["appliesToCombinations"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementUserRightsLocalUserOrGroup class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementUserRightsLocalUserOrGroup extends Entity
 {
     /**
-    * Gets the description
-    * Admin’s description of this local user or group.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Admin’s description of this local user or group.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DeviceManagementUserRightsLocalUserOrGroup extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Admin’s description of this local user or group.
-    *
-    * @param string $val The value of the description
-    *
-    * @return DeviceManagementUserRightsLocalUserOrGroup
-    */
+     * Sets the description
+     * Admin’s description of this local user or group.
+     *
+     * @param string $val The value of the description
+     *
+     * @return DeviceManagementUserRightsLocalUserOrGroup
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The name of this local user or group.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The name of this local user or group.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DeviceManagementUserRightsLocalUserOrGroup extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The name of this local user or group.
-    *
-    * @param string $val The value of the name
-    *
-    * @return DeviceManagementUserRightsLocalUserOrGroup
-    */
+     * Sets the name
+     * The name of this local user or group.
+     *
+     * @param string $val The value of the name
+     *
+     * @return DeviceManagementUserRightsLocalUserOrGroup
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the securityIdentifier
-    * The security identifier of this local user or group (e.g. S-1-5-32-544).
-    *
-    * @return string|null The securityIdentifier
-    */
+     * Gets the securityIdentifier
+     * The security identifier of this local user or group (e.g. S-1-5-32-544).
+     *
+     * @return string|null The securityIdentifier
+     */
     public function getSecurityIdentifier()
     {
         if (array_key_exists("securityIdentifier", $this->_propDict)) {
@@ -96,15 +96,14 @@ class DeviceManagementUserRightsLocalUserOrGroup extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the securityIdentifier
-    * The security identifier of this local user or group (e.g. S-1-5-32-544).
-    *
-    * @param string $val The value of the securityIdentifier
-    *
-    * @return DeviceManagementUserRightsLocalUserOrGroup
-    */
+     * Sets the securityIdentifier
+     * The security identifier of this local user or group (e.g. S-1-5-32-544).
+     *
+     * @param string $val The value of the securityIdentifier
+     *
+     * @return DeviceManagementUserRightsLocalUserOrGroup
+     */
     public function setSecurityIdentifier($val)
     {
         $this->_propDict["securityIdentifier"] = $val;

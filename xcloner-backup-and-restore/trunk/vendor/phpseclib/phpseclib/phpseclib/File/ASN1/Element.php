@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pure-PHP ASN.1 Parser
  *
@@ -11,12 +12,11 @@
  * @license   http://www.opensource.org/licenses/mit-license.html  MIT License
  * @link      http://phpseclib.sourceforge.net
  */
+namespace XCloner\phpseclib\File\ASN1;
 
-namespace phpseclib\File\ASN1;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * ASN.1 Element
  *
@@ -35,7 +35,6 @@ class Element
      * @access private
      */
     var $element;
-
     /**
      * Constructor
      *

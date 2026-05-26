@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Folder class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Folder extends Entity
 {
     /**
-    * Gets the childCount
-    * Number of children contained immediately within this container.
-    *
-    * @return int|null The childCount
-    */
+     * Gets the childCount
+     * Number of children contained immediately within this container.
+     *
+     * @return int|null The childCount
+     */
     public function getChildCount()
     {
         if (array_key_exists("childCount", $this->_propDict)) {
@@ -40,31 +42,29 @@ class Folder extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the childCount
-    * Number of children contained immediately within this container.
-    *
-    * @param int $val The value of the childCount
-    *
-    * @return Folder
-    */
+     * Sets the childCount
+     * Number of children contained immediately within this container.
+     *
+     * @param int $val The value of the childCount
+     *
+     * @return Folder
+     */
     public function setChildCount($val)
     {
         $this->_propDict["childCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the view
-    * A collection of properties defining the recommended view for the folder.
-    *
-    * @return FolderView|null The view
-    */
+     * Gets the view
+     * A collection of properties defining the recommended view for the folder.
+     *
+     * @return FolderView|null The view
+     */
     public function getView()
     {
         if (array_key_exists("view", $this->_propDict)) {
-            if (is_a($this->_propDict["view"], "\Microsoft\Graph\Model\FolderView") || is_null($this->_propDict["view"])) {
+            if (is_a($this->_propDict["view"], "XCloner\\Microsoft\\Graph\\Model\\FolderView") || is_null($this->_propDict["view"])) {
                 return $this->_propDict["view"];
             } else {
                 $this->_propDict["view"] = new FolderView($this->_propDict["view"]);
@@ -73,18 +73,17 @@ class Folder extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the view
-    * A collection of properties defining the recommended view for the folder.
-    *
-    * @param FolderView $val The value to assign to the view
-    *
-    * @return Folder The Folder
-    */
+     * Sets the view
+     * A collection of properties defining the recommended view for the folder.
+     *
+     * @param FolderView $val The value to assign to the view
+     *
+     * @return Folder The Folder
+     */
     public function setView($val)
     {
         $this->_propDict["view"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,14 +1,14 @@
 <?php
-namespace Aws\S3\Exception;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3\Exception;
 
-
-use Aws\CommandInterface;
-use Aws\Exception\AwsException;
-use Aws\Multipart\UploadState;
-
-class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\CommandInterface;
+use XCloner\Aws\Exception\AwsException;
+use XCloner\Aws\Multipart\UploadState;
+class S3MultipartUploadException extends \XCloner\Aws\Exception\MultipartUploadException
 {
     /** @var string Bucket of the transfer object */
     private $bucket;
@@ -16,7 +16,6 @@ class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
     private $key;
     /** @var string Source file name of the transfer object */
     private $filename;
-
     /**
      * @param UploadState      $state Upload state at time of the exception.
      * @param \Exception|array $prev  Exception being thrown. Could be an array of
@@ -25,7 +24,8 @@ class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
      *                                for a specific Multipart error being thrown in
      *                                the MultipartUpload process.
      */
-    public function __construct(UploadState $state, $prev = null) {
+    public function __construct(UploadState $state, $prev = null)
+    {
         if (is_array($prev) && $error = $prev[key($prev)]) {
             $this->collectPathInfo($error->getCommand());
         } elseif ($prev instanceof AwsException) {
@@ -33,7 +33,6 @@ class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
         }
         parent::__construct($state, $prev);
     }
-
     /**
      * Get the Bucket information of the transfer object
      *
@@ -44,7 +43,6 @@ class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
     {
         return $this->bucket;
     }
-
     /**
      * Get the Key information of the transfer object
      *
@@ -55,7 +53,6 @@ class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
     {
         return $this->key;
     }
-
     /**
      * Get the source file name of the transfer object
      *
@@ -66,7 +63,6 @@ class S3MultipartUploadException extends \Aws\Exception\MultipartUploadException
     {
         return $this->filename;
     }
-
     /**
      * Collect file path information when accessible. (Bucket, Key)
      *

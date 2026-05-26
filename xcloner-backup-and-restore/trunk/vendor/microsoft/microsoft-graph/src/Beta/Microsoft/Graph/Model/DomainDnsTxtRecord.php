@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DomainDnsTxtRecord class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DomainDnsTxtRecord extends DomainDnsRecord
 {
     /**
-    * Gets the text
-    * Value used when configuring the text property at the DNS host.
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     * Value used when configuring the text property at the DNS host.
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DomainDnsTxtRecord extends DomainDnsRecord
             return null;
         }
     }
-
     /**
-    * Sets the text
-    * Value used when configuring the text property at the DNS host.
-    *
-    * @param string $val The text
-    *
-    * @return DomainDnsTxtRecord
-    */
+     * Sets the text
+     * Value used when configuring the text property at the DNS host.
+     *
+     * @param string $val The text
+     *
+     * @return DomainDnsTxtRecord
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;
         return $this;
     }
-
 }

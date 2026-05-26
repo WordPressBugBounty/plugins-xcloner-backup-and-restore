@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProfilePhoto class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProfilePhoto extends Entity
 {
     /**
-    * Gets the height
-    * The height of the photo. Read-only.
-    *
-    * @return int|null The height
-    */
+     * Gets the height
+     * The height of the photo. Read-only.
+     *
+     * @return int|null The height
+     */
     public function getHeight()
     {
         if (array_key_exists("height", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ProfilePhoto extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the height
-    * The height of the photo. Read-only.
-    *
-    * @param int $val The height
-    *
-    * @return ProfilePhoto
-    */
+     * Sets the height
+     * The height of the photo. Read-only.
+     *
+     * @param int $val The height
+     *
+     * @return ProfilePhoto
+     */
     public function setHeight($val)
     {
         $this->_propDict["height"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the width
-    * The width of the photo. Read-only.
-    *
-    * @return int|null The width
-    */
+     * Gets the width
+     * The width of the photo. Read-only.
+     *
+     * @return int|null The width
+     */
     public function getWidth()
     {
         if (array_key_exists("width", $this->_propDict)) {
@@ -70,19 +69,17 @@ class ProfilePhoto extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the width
-    * The width of the photo. Read-only.
-    *
-    * @param int $val The width
-    *
-    * @return ProfilePhoto
-    */
+     * Sets the width
+     * The width of the photo. Read-only.
+     *
+     * @param int $val The width
+     *
+     * @return ProfilePhoto
+     */
     public function setWidth($val)
     {
         $this->_propDict["width"] = intval($val);
         return $this;
     }
-
 }

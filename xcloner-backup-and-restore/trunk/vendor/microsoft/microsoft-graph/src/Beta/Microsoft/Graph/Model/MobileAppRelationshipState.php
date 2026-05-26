@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppRelationshipState class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MobileAppRelationshipState extends Entity
 {
     /**
-    * Gets the deviceId
-    * The corresponding device id.
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * The corresponding device id.
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MobileAppRelationshipState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * The corresponding device id.
-    *
-    * @param string $val The value of the deviceId
-    *
-    * @return MobileAppRelationshipState
-    */
+     * Sets the deviceId
+     * The corresponding device id.
+     *
+     * @param string $val The value of the deviceId
+     *
+     * @return MobileAppRelationshipState
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
     /**
-    * Gets the errorCode
-    * The error code for install or uninstall failures of target app.
-    *
-    * @return int|null The errorCode
-    */
+     * Gets the errorCode
+     * The error code for install or uninstall failures of target app.
+     *
+     * @return int|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -68,31 +69,29 @@ class MobileAppRelationshipState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * The error code for install or uninstall failures of target app.
-    *
-    * @param int $val The value of the errorCode
-    *
-    * @return MobileAppRelationshipState
-    */
+     * Sets the errorCode
+     * The error code for install or uninstall failures of target app.
+     *
+     * @param int $val The value of the errorCode
+     *
+     * @return MobileAppRelationshipState
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the installState
-    * The install state of the app of target app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
-    *
-    * @return ResultantAppState|null The installState
-    */
+     * Gets the installState
+     * The install state of the app of target app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     *
+     * @return ResultantAppState|null The installState
+     */
     public function getInstallState()
     {
         if (array_key_exists("installState", $this->_propDict)) {
-            if (is_a($this->_propDict["installState"], "\Beta\Microsoft\Graph\Model\ResultantAppState") || is_null($this->_propDict["installState"])) {
+            if (is_a($this->_propDict["installState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResultantAppState") || is_null($this->_propDict["installState"])) {
                 return $this->_propDict["installState"];
             } else {
                 $this->_propDict["installState"] = new ResultantAppState($this->_propDict["installState"]);
@@ -101,31 +100,29 @@ class MobileAppRelationshipState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the installState
-    * The install state of the app of target app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
-    *
-    * @param ResultantAppState $val The value to assign to the installState
-    *
-    * @return MobileAppRelationshipState The MobileAppRelationshipState
-    */
+     * Sets the installState
+     * The install state of the app of target app. Possible values are: installed, failed, notInstalled, uninstallFailed, pendingInstall, unknown, notApplicable.
+     *
+     * @param ResultantAppState $val The value to assign to the installState
+     *
+     * @return MobileAppRelationshipState The MobileAppRelationshipState
+     */
     public function setInstallState($val)
     {
         $this->_propDict["installState"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the installStateDetail
-    * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
-    *
-    * @return ResultantAppStateDetail|null The installStateDetail
-    */
+     * Gets the installStateDetail
+     * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
+     *
+     * @return ResultantAppStateDetail|null The installStateDetail
+     */
     public function getInstallStateDetail()
     {
         if (array_key_exists("installStateDetail", $this->_propDict)) {
-            if (is_a($this->_propDict["installStateDetail"], "\Beta\Microsoft\Graph\Model\ResultantAppStateDetail") || is_null($this->_propDict["installStateDetail"])) {
+            if (is_a($this->_propDict["installStateDetail"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResultantAppStateDetail") || is_null($this->_propDict["installStateDetail"])) {
                 return $this->_propDict["installStateDetail"];
             } else {
                 $this->_propDict["installStateDetail"] = new ResultantAppStateDetail($this->_propDict["installStateDetail"]);
@@ -134,26 +131,25 @@ class MobileAppRelationshipState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the installStateDetail
-    * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
-    *
-    * @param ResultantAppStateDetail $val The value to assign to the installStateDetail
-    *
-    * @return MobileAppRelationshipState The MobileAppRelationshipState
-    */
+     * Sets the installStateDetail
+     * The install state detail of the app. Possible values are: noAdditionalDetails, dependencyFailedToInstall, dependencyWithRequirementsNotMet, dependencyPendingReboot, dependencyWithAutoInstallDisabled, supersededAppUninstallFailed, supersededAppUninstallPendingReboot, removingSupersededApps, iosAppStoreUpdateFailedToInstall, vppAppHasUpdateAvailable, userRejectedUpdate, uninstallPendingReboot, supersedingAppsDetected, supersededAppsDetected, seeInstallErrorCode, autoInstallDisabled, managedAppNoLongerPresent, userRejectedInstall, userIsNotLoggedIntoAppStore, untargetedSupersedingAppsDetected, appRemovedBySupersedence, seeUninstallErrorCode, pendingReboot, installingDependencies, contentDownloaded, supersedingAppsNotApplicable, powerShellScriptRequirementNotMet, registryRequirementNotMet, fileSystemRequirementNotMet, platformNotApplicable, minimumCpuSpeedNotMet, minimumLogicalProcessorCountNotMet, minimumPhysicalMemoryNotMet, minimumOsVersionNotMet, minimumDiskSpaceNotMet, processorArchitectureNotApplicable.
+     *
+     * @param ResultantAppStateDetail $val The value to assign to the installStateDetail
+     *
+     * @return MobileAppRelationshipState The MobileAppRelationshipState
+     */
     public function setInstallStateDetail($val)
     {
         $this->_propDict["installStateDetail"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the sourceIds
-    * The collection of source mobile app's ids.
-    *
-    * @return string|null The sourceIds
-    */
+     * Gets the sourceIds
+     * The collection of source mobile app's ids.
+     *
+     * @return string|null The sourceIds
+     */
     public function getSourceIds()
     {
         if (array_key_exists("sourceIds", $this->_propDict)) {
@@ -162,26 +158,25 @@ class MobileAppRelationshipState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceIds
-    * The collection of source mobile app's ids.
-    *
-    * @param string $val The value of the sourceIds
-    *
-    * @return MobileAppRelationshipState
-    */
+     * Sets the sourceIds
+     * The collection of source mobile app's ids.
+     *
+     * @param string $val The value of the sourceIds
+     *
+     * @return MobileAppRelationshipState
+     */
     public function setSourceIds($val)
     {
         $this->_propDict["sourceIds"] = $val;
         return $this;
     }
     /**
-    * Gets the targetDisplayName
-    * The related target app's display name.
-    *
-    * @return string|null The targetDisplayName
-    */
+     * Gets the targetDisplayName
+     * The related target app's display name.
+     *
+     * @return string|null The targetDisplayName
+     */
     public function getTargetDisplayName()
     {
         if (array_key_exists("targetDisplayName", $this->_propDict)) {
@@ -190,26 +185,25 @@ class MobileAppRelationshipState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetDisplayName
-    * The related target app's display name.
-    *
-    * @param string $val The value of the targetDisplayName
-    *
-    * @return MobileAppRelationshipState
-    */
+     * Sets the targetDisplayName
+     * The related target app's display name.
+     *
+     * @param string $val The value of the targetDisplayName
+     *
+     * @return MobileAppRelationshipState
+     */
     public function setTargetDisplayName($val)
     {
         $this->_propDict["targetDisplayName"] = $val;
         return $this;
     }
     /**
-    * Gets the targetId
-    * The related target app's id.
-    *
-    * @return string|null The targetId
-    */
+     * Gets the targetId
+     * The related target app's id.
+     *
+     * @return string|null The targetId
+     */
     public function getTargetId()
     {
         if (array_key_exists("targetId", $this->_propDict)) {
@@ -218,31 +212,29 @@ class MobileAppRelationshipState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetId
-    * The related target app's id.
-    *
-    * @param string $val The value of the targetId
-    *
-    * @return MobileAppRelationshipState
-    */
+     * Sets the targetId
+     * The related target app's id.
+     *
+     * @param string $val The value of the targetId
+     *
+     * @return MobileAppRelationshipState
+     */
     public function setTargetId($val)
     {
         $this->_propDict["targetId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetLastSyncDateTime
-    * The last sync time of the target app.
-    *
-    * @return \DateTime|null The targetLastSyncDateTime
-    */
+     * Gets the targetLastSyncDateTime
+     * The last sync time of the target app.
+     *
+     * @return \DateTime|null The targetLastSyncDateTime
+     */
     public function getTargetLastSyncDateTime()
     {
         if (array_key_exists("targetLastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["targetLastSyncDateTime"], "\DateTime") || is_null($this->_propDict["targetLastSyncDateTime"])) {
+            if (is_a($this->_propDict["targetLastSyncDateTime"], "\\DateTime") || is_null($this->_propDict["targetLastSyncDateTime"])) {
                 return $this->_propDict["targetLastSyncDateTime"];
             } else {
                 $this->_propDict["targetLastSyncDateTime"] = new \DateTime($this->_propDict["targetLastSyncDateTime"]);
@@ -251,18 +243,17 @@ class MobileAppRelationshipState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the targetLastSyncDateTime
-    * The last sync time of the target app.
-    *
-    * @param \DateTime $val The value to assign to the targetLastSyncDateTime
-    *
-    * @return MobileAppRelationshipState The MobileAppRelationshipState
-    */
+     * Sets the targetLastSyncDateTime
+     * The last sync time of the target app.
+     *
+     * @param \DateTime $val The value to assign to the targetLastSyncDateTime
+     *
+     * @return MobileAppRelationshipState The MobileAppRelationshipState
+     */
     public function setTargetLastSyncDateTime($val)
     {
         $this->_propDict["targetLastSyncDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

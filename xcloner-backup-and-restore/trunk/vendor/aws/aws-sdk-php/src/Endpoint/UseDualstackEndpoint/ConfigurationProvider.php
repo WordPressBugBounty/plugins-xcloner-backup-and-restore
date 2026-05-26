@@ -1,15 +1,15 @@
 <?php
-namespace Aws\Endpoint\UseDualstackEndpoint;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Endpoint\UseDualstackEndpoint;
 
-
-use Aws\AbstractConfigurationProvider;
-use Aws\CacheInterface;
-use Aws\ConfigurationProviderInterface;
-use Aws\Endpoint\UseDualstackEndpoint\Exception\ConfigurationException;
-use GuzzleHttp\Promise;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\AbstractConfigurationProvider;
+use XCloner\Aws\CacheInterface;
+use XCloner\Aws\ConfigurationProviderInterface;
+use XCloner\Aws\Endpoint\UseDualstackEndpoint\Exception\ConfigurationException;
+use XCloner\GuzzleHttp\Promise;
 /**
  * A configuration provider is a function that returns a promise that is
  * fulfilled with a {@see \Aws\Endpoint\UseDualstackEndpoint\onfigurationInterface}
@@ -44,17 +44,13 @@ use GuzzleHttp\Promise;
  * $config = $promise->wait();
  * </code>
  */
-class ConfigurationProvider extends AbstractConfigurationProvider
-    implements ConfigurationProviderInterface
+class ConfigurationProvider extends AbstractConfigurationProvider implements ConfigurationProviderInterface
 {
     const ENV_USE_DUAL_STACK_ENDPOINT = 'AWS_USE_DUALSTACK_ENDPOINT';
     const INI_USE_DUAL_STACK_ENDPOINT = 'use_dualstack_endpoint';
-
     public static $cacheKey = 'aws_cached_use_dualstack_endpoint_config';
-
     protected static $interfaceClass = ConfigurationInterface::class;
     protected static $exceptionClass = ConfigurationException::class;
-
     /**
      * Create a default config provider that first checks for environment
      * variables, then checks for a specified profile in the environment-defined
@@ -74,27 +70,16 @@ class ConfigurationProvider extends AbstractConfigurationProvider
     {
         $region = $config['region'];
         $configProviders = [self::env($region)];
-        if (
-            !isset($config['use_aws_shared_config_files'])
-            || $config['use_aws_shared_config_files'] != false
-        ) {
+        if (!isset($config['use_aws_shared_config_files']) || $config['use_aws_shared_config_files'] != \false) {
             $configProviders[] = self::ini($region);
         }
         $configProviders[] = self::fallback($region);
-
-        $memo = self::memoize(
-            call_user_func_array([ConfigurationProvider::class, 'chain'], $configProviders)
-        );
-
-        if (isset($config['use_dual_stack_endpoint'])
-            && $config['use_dual_stack_endpoint'] instanceof CacheInterface
-        ) {
+        $memo = self::memoize(call_user_func_array([ConfigurationProvider::class, 'chain'], $configProviders));
+        if (isset($config['use_dual_stack_endpoint']) && $config['use_dual_stack_endpoint'] instanceof CacheInterface) {
             return self::cache($memo, $config['use_dual_stack_endpoint'], self::$cacheKey);
         }
-
         return $memo;
     }
-
     /**
      * Provider that creates config from environment variables.
      *
@@ -106,16 +91,11 @@ class ConfigurationProvider extends AbstractConfigurationProvider
             // Use config from environment variables, if available
             $useDualstackEndpoint = getenv(self::ENV_USE_DUAL_STACK_ENDPOINT);
             if (!empty($useDualstackEndpoint)) {
-                return Promise\Create::promiseFor(
-                    new Configuration($useDualstackEndpoint, $region)
-                );
+                return Promise\Create::promiseFor(new Configuration($useDualstackEndpoint, $region));
             }
-
-            return self::reject('Could not find environment variable config'
-                . ' in ' . self::ENV_USE_DUAL_STACK_ENDPOINT);
+            return self::reject('Could not find environment variable config' . ' in ' . self::ENV_USE_DUAL_STACK_ENDPOINT);
         };
     }
-
     /**
      * Config provider that creates config using a config file whose location
      * is specified by an environment variable 'AWS_CONFIG_FILE', defaulting to
@@ -130,38 +110,30 @@ class ConfigurationProvider extends AbstractConfigurationProvider
      */
     public static function ini($region, $profile = null, $filename = null)
     {
-        $filename = $filename ?: (self::getDefaultConfigFilename());
+        $filename = $filename ?: self::getDefaultConfigFilename();
         $profile = $profile ?: (getenv(self::ENV_PROFILE) ?: 'default');
-
         return function () use ($region, $profile, $filename) {
             if (!@is_readable($filename)) {
-                return self::reject("Cannot read configuration from $filename");
+                return self::reject("Cannot read configuration from {$filename}");
             }
-
             // Use INI_SCANNER_NORMAL instead of INI_SCANNER_TYPED for PHP 5.5 compatibility
-            $data = \Aws\parse_ini_file($filename, true, INI_SCANNER_NORMAL);
-            if ($data === false) {
-                return self::reject("Invalid config file: $filename");
+            $data = \XCloner\Aws\parse_ini_file($filename, \true, \INI_SCANNER_NORMAL);
+            if ($data === \false) {
+                return self::reject("Invalid config file: {$filename}");
             }
             if (!isset($data[$profile])) {
-                return self::reject("'$profile' not found in config file");
+                return self::reject("'{$profile}' not found in config file");
             }
             if (!isset($data[$profile][self::INI_USE_DUAL_STACK_ENDPOINT])) {
-                return self::reject("Required use dualstack endpoint config values
-                    not present in INI profile '{$profile}' ({$filename})");
+                return self::reject("Required use dualstack endpoint config values\n                    not present in INI profile '{$profile}' ({$filename})");
             }
-
             // INI_SCANNER_NORMAL parses false-y values as an empty string
             if ($data[$profile][self::INI_USE_DUAL_STACK_ENDPOINT] === "") {
-                $data[$profile][self::INI_USE_DUAL_STACK_ENDPOINT] = false;
+                $data[$profile][self::INI_USE_DUAL_STACK_ENDPOINT] = \false;
             }
-
-            return Promise\Create::promiseFor(
-                new Configuration($data[$profile][self::INI_USE_DUAL_STACK_ENDPOINT], $region)
-            );
+            return Promise\Create::promiseFor(new Configuration($data[$profile][self::INI_USE_DUAL_STACK_ENDPOINT], $region));
         };
     }
-
     /**
      * Fallback config options when other sources are not set.
      *
@@ -170,7 +142,7 @@ class ConfigurationProvider extends AbstractConfigurationProvider
     public static function fallback($region)
     {
         return function () use ($region) {
-            return Promise\Create::promiseFor(new Configuration(false, $region));
+            return Promise\Create::promiseFor(new Configuration(\false, $region));
         };
     }
 }

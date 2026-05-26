@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OnenotePagePreviewLinks class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OnenotePagePreviewLinks extends Entity
 {
-
     /**
-    * Gets the previewImageUrl
-    *
-    * @return ExternalLink|null The previewImageUrl
-    */
+     * Gets the previewImageUrl
+     *
+     * @return ExternalLink|null The previewImageUrl
+     */
     public function getPreviewImageUrl()
     {
         if (array_key_exists("previewImageUrl", $this->_propDict)) {
-            if (is_a($this->_propDict["previewImageUrl"], "\Beta\Microsoft\Graph\Model\ExternalLink") || is_null($this->_propDict["previewImageUrl"])) {
+            if (is_a($this->_propDict["previewImageUrl"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ExternalLink") || is_null($this->_propDict["previewImageUrl"])) {
                 return $this->_propDict["previewImageUrl"];
             } else {
                 $this->_propDict["previewImageUrl"] = new ExternalLink($this->_propDict["previewImageUrl"]);
@@ -44,17 +45,16 @@ class OnenotePagePreviewLinks extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the previewImageUrl
-    *
-    * @param ExternalLink $val The value to assign to the previewImageUrl
-    *
-    * @return OnenotePagePreviewLinks The OnenotePagePreviewLinks
-    */
+     * Sets the previewImageUrl
+     *
+     * @param ExternalLink $val The value to assign to the previewImageUrl
+     *
+     * @return OnenotePagePreviewLinks The OnenotePagePreviewLinks
+     */
     public function setPreviewImageUrl($val)
     {
         $this->_propDict["previewImageUrl"] = $val;
-         return $this;
+        return $this;
     }
 }

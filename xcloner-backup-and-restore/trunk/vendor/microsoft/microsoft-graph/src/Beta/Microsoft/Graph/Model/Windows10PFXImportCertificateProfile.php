@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows10PFXImportCertificateProfile class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows10PFXImportCertificateProfile extends DeviceConfiguration
 {
     /**
-    * Gets the keyStorageProvider
-    * Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
-    *
-    * @return KeyStorageProviderOption|null The keyStorageProvider
-    */
+     * Gets the keyStorageProvider
+     * Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     *
+     * @return KeyStorageProviderOption|null The keyStorageProvider
+     */
     public function getKeyStorageProvider()
     {
         if (array_key_exists("keyStorageProvider", $this->_propDict)) {
-            if (is_a($this->_propDict["keyStorageProvider"], "\Beta\Microsoft\Graph\Model\KeyStorageProviderOption") || is_null($this->_propDict["keyStorageProvider"])) {
+            if (is_a($this->_propDict["keyStorageProvider"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\KeyStorageProviderOption") || is_null($this->_propDict["keyStorageProvider"])) {
                 return $this->_propDict["keyStorageProvider"];
             } else {
                 $this->_propDict["keyStorageProvider"] = new KeyStorageProviderOption($this->_propDict["keyStorageProvider"]);
@@ -45,19 +46,17 @@ class Windows10PFXImportCertificateProfile extends DeviceConfiguration
         }
         return null;
     }
-
     /**
-    * Sets the keyStorageProvider
-    * Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
-    *
-    * @param KeyStorageProviderOption $val The keyStorageProvider
-    *
-    * @return Windows10PFXImportCertificateProfile
-    */
+     * Sets the keyStorageProvider
+     * Not yet documented. Possible values are: useTpmKspOtherwiseUseSoftwareKsp, useTpmKspOtherwiseFail, usePassportForWorkKspOtherwiseFail, useSoftwareKsp.
+     *
+     * @param KeyStorageProviderOption $val The keyStorageProvider
+     *
+     * @return Windows10PFXImportCertificateProfile
+     */
     public function setKeyStorageProvider($val)
     {
         $this->_propDict["keyStorageProvider"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ApiServicePrincipal class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ApiServicePrincipal extends Entity
 {
-
     /**
-    * Gets the resourceSpecificApplicationPermissions
-    *
-    * @return ResourceSpecificPermission|null The resourceSpecificApplicationPermissions
-    */
+     * Gets the resourceSpecificApplicationPermissions
+     *
+     * @return ResourceSpecificPermission|null The resourceSpecificApplicationPermissions
+     */
     public function getResourceSpecificApplicationPermissions()
     {
         if (array_key_exists("resourceSpecificApplicationPermissions", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceSpecificApplicationPermissions"], "\Beta\Microsoft\Graph\Model\ResourceSpecificPermission") || is_null($this->_propDict["resourceSpecificApplicationPermissions"])) {
+            if (is_a($this->_propDict["resourceSpecificApplicationPermissions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResourceSpecificPermission") || is_null($this->_propDict["resourceSpecificApplicationPermissions"])) {
                 return $this->_propDict["resourceSpecificApplicationPermissions"];
             } else {
                 $this->_propDict["resourceSpecificApplicationPermissions"] = new ResourceSpecificPermission($this->_propDict["resourceSpecificApplicationPermissions"]);
@@ -44,17 +45,16 @@ class ApiServicePrincipal extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resourceSpecificApplicationPermissions
-    *
-    * @param ResourceSpecificPermission $val The value to assign to the resourceSpecificApplicationPermissions
-    *
-    * @return ApiServicePrincipal The ApiServicePrincipal
-    */
+     * Sets the resourceSpecificApplicationPermissions
+     *
+     * @param ResourceSpecificPermission $val The value to assign to the resourceSpecificApplicationPermissions
+     *
+     * @return ApiServicePrincipal The ApiServicePrincipal
+     */
     public function setResourceSpecificApplicationPermissions($val)
     {
         $this->_propDict["resourceSpecificApplicationPermissions"] = $val;
-         return $this;
+        return $this;
     }
 }

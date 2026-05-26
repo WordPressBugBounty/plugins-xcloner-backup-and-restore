@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * RestrictionTrigger class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class RestrictionTrigger extends Enum
 {
     /**
-    * The Enum RestrictionTrigger
-    */
+     * The Enum RestrictionTrigger
+     */
     const COPY_PASTE = "copyPaste";
     const COPY_TO_NETWORK_SHARE = "copyToNetworkShare";
     const COPY_TO_REMOVABLE_MEDIA = "copyToRemovableMedia";

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Search\Model;
+namespace XCloner\Beta\Microsoft\Graph\Search\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AnswerVariant class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class AnswerVariant extends \Beta\Microsoft\Graph\Model\Entity
+class AnswerVariant extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the description
-    * Answer variation description shown on search results page.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Answer variation description shown on search results page.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AnswerVariant extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Answer variation description shown on search results page.
-    *
-    * @param string $val The value of the description
-    *
-    * @return AnswerVariant
-    */
+     * Sets the description
+     * Answer variation description shown on search results page.
+     *
+     * @param string $val The value of the description
+     *
+     * @return AnswerVariant
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Answer variation name displayed in search results.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Answer variation name displayed in search results.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,25 +69,24 @@ class AnswerVariant extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Answer variation name displayed in search results.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AnswerVariant
-    */
+     * Sets the displayName
+     * Answer variation name displayed in search results.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AnswerVariant
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the languageTag
-    *
-    * @return string|null The languageTag
-    */
+     * Gets the languageTag
+     *
+     * @return string|null The languageTag
+     */
     public function getLanguageTag()
     {
         if (array_key_exists("languageTag", $this->_propDict)) {
@@ -95,56 +95,53 @@ class AnswerVariant extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the languageTag
-    *
-    * @param string $val The value of the languageTag
-    *
-    * @return AnswerVariant
-    */
+     * Sets the languageTag
+     *
+     * @param string $val The value of the languageTag
+     *
+     * @return AnswerVariant
+     */
     public function setLanguageTag($val)
     {
         $this->_propDict["languageTag"] = $val;
         return $this;
     }
-
     /**
-    * Gets the platform
-    *
-    * @return \Beta\Microsoft\Graph\Model\DevicePlatformType|null The platform
-    */
+     * Gets the platform
+     *
+     * @return \Beta\Microsoft\Graph\Model\DevicePlatformType|null The platform
+     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
+            if (is_a($this->_propDict["platform"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DevicePlatformType") || is_null($this->_propDict["platform"])) {
                 return $this->_propDict["platform"];
             } else {
-                $this->_propDict["platform"] = new \Beta\Microsoft\Graph\Model\DevicePlatformType($this->_propDict["platform"]);
+                $this->_propDict["platform"] = new \XCloner\Beta\Microsoft\Graph\Model\DevicePlatformType($this->_propDict["platform"]);
                 return $this->_propDict["platform"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the platform
-    *
-    * @param \Beta\Microsoft\Graph\Model\DevicePlatformType $val The value to assign to the platform
-    *
-    * @return AnswerVariant The AnswerVariant
-    */
+     * Sets the platform
+     *
+     * @param \Beta\Microsoft\Graph\Model\DevicePlatformType $val The value to assign to the platform
+     *
+     * @return AnswerVariant The AnswerVariant
+     */
     public function setPlatform($val)
     {
         $this->_propDict["platform"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the webUrl
-    * Answer variation URL link. When users click this answer variation in search results, they will go to this URL.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Answer variation URL link. When users click this answer variation in search results, they will go to this URL.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -153,15 +150,14 @@ class AnswerVariant extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Answer variation URL link. When users click this answer variation in search results, they will go to this URL.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return AnswerVariant
-    */
+     * Sets the webUrl
+     * Answer variation URL link. When users click this answer variation in search results, they will go to this URL.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return AnswerVariant
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

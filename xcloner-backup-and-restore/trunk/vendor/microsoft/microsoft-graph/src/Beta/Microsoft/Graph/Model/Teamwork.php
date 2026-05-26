@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Teamwork class
 *
@@ -27,106 +28,97 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Teamwork extends Entity
 {
-
-     /**
+    /**
      * Gets the workforceIntegrations
-    * A workforce integration with shifts.
+     * A workforce integration with shifts.
      *
      * @return array|null The workforceIntegrations
      */
     public function getWorkforceIntegrations()
     {
         if (array_key_exists("workforceIntegrations", $this->_propDict)) {
-           return $this->_propDict["workforceIntegrations"];
+            return $this->_propDict["workforceIntegrations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the workforceIntegrations
-    * A workforce integration with shifts.
-    *
-    * @param WorkforceIntegration[] $val The workforceIntegrations
-    *
-    * @return Teamwork
-    */
+     * Sets the workforceIntegrations
+     * A workforce integration with shifts.
+     *
+     * @param WorkforceIntegration[] $val The workforceIntegrations
+     *
+     * @return Teamwork
+     */
     public function setWorkforceIntegrations($val)
     {
         $this->_propDict["workforceIntegrations"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the deletedTeams
-    * A collection of deleted teams.
+     * A collection of deleted teams.
      *
      * @return array|null The deletedTeams
      */
     public function getDeletedTeams()
     {
         if (array_key_exists("deletedTeams", $this->_propDict)) {
-           return $this->_propDict["deletedTeams"];
+            return $this->_propDict["deletedTeams"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the deletedTeams
-    * A collection of deleted teams.
-    *
-    * @param DeletedTeam[] $val The deletedTeams
-    *
-    * @return Teamwork
-    */
+     * Sets the deletedTeams
+     * A collection of deleted teams.
+     *
+     * @param DeletedTeam[] $val The deletedTeams
+     *
+     * @return Teamwork
+     */
     public function setDeletedTeams($val)
     {
         $this->_propDict["deletedTeams"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the devices
-    * The Teams devices provisioned for the tenant.
+     * The Teams devices provisioned for the tenant.
      *
      * @return array|null The devices
      */
     public function getDevices()
     {
         if (array_key_exists("devices", $this->_propDict)) {
-           return $this->_propDict["devices"];
+            return $this->_propDict["devices"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the devices
-    * The Teams devices provisioned for the tenant.
-    *
-    * @param TeamworkDevice[] $val The devices
-    *
-    * @return Teamwork
-    */
+     * Sets the devices
+     * The Teams devices provisioned for the tenant.
+     *
+     * @param TeamworkDevice[] $val The devices
+     *
+     * @return Teamwork
+     */
     public function setDevices($val)
     {
         $this->_propDict["devices"] = $val;
         return $this;
     }
-
     /**
-    * Gets the teamsAppSettings
-    * Represents tenant-wide settings for all Teams apps in the tenant.
-    *
-    * @return TeamsAppSettings|null The teamsAppSettings
-    */
+     * Gets the teamsAppSettings
+     * Represents tenant-wide settings for all Teams apps in the tenant.
+     *
+     * @return TeamsAppSettings|null The teamsAppSettings
+     */
     public function getTeamsAppSettings()
     {
         if (array_key_exists("teamsAppSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["teamsAppSettings"], "\Beta\Microsoft\Graph\Model\TeamsAppSettings") || is_null($this->_propDict["teamsAppSettings"])) {
+            if (is_a($this->_propDict["teamsAppSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TeamsAppSettings") || is_null($this->_propDict["teamsAppSettings"])) {
                 return $this->_propDict["teamsAppSettings"];
             } else {
                 $this->_propDict["teamsAppSettings"] = new TeamsAppSettings($this->_propDict["teamsAppSettings"]);
@@ -135,49 +127,44 @@ class Teamwork extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the teamsAppSettings
-    * Represents tenant-wide settings for all Teams apps in the tenant.
-    *
-    * @param TeamsAppSettings $val The teamsAppSettings
-    *
-    * @return Teamwork
-    */
+     * Sets the teamsAppSettings
+     * Represents tenant-wide settings for all Teams apps in the tenant.
+     *
+     * @param TeamsAppSettings $val The teamsAppSettings
+     *
+     * @return Teamwork
+     */
     public function setTeamsAppSettings($val)
     {
         $this->_propDict["teamsAppSettings"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the teamTemplates
-    * The templates associated with a team.
+     * The templates associated with a team.
      *
      * @return array|null The teamTemplates
      */
     public function getTeamTemplates()
     {
         if (array_key_exists("teamTemplates", $this->_propDict)) {
-           return $this->_propDict["teamTemplates"];
+            return $this->_propDict["teamTemplates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the teamTemplates
-    * The templates associated with a team.
-    *
-    * @param TeamTemplate[] $val The teamTemplates
-    *
-    * @return Teamwork
-    */
+     * Sets the teamTemplates
+     * The templates associated with a team.
+     *
+     * @param TeamTemplate[] $val The teamTemplates
+     *
+     * @return Teamwork
+     */
     public function setTeamTemplates($val)
     {
         $this->_propDict["teamTemplates"] = $val;
         return $this;
     }
-
 }

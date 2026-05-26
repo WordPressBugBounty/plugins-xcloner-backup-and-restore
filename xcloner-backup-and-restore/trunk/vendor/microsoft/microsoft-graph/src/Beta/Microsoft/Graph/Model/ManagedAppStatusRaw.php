@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAppStatusRaw class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAppStatusRaw extends ManagedAppStatus
 {
     /**
-    * Gets the content
-    * Status report content.
-    *
-    * @return string|null The content
-    */
+     * Gets the content
+     * Status report content.
+     *
+     * @return string|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
@@ -41,19 +42,17 @@ class ManagedAppStatusRaw extends ManagedAppStatus
             return null;
         }
     }
-
     /**
-    * Sets the content
-    * Status report content.
-    *
-    * @param string $val The content
-    *
-    * @return ManagedAppStatusRaw
-    */
+     * Sets the content
+     * Status report content.
+     *
+     * @param string $val The content
+     *
+     * @return ManagedAppStatusRaw
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
 }

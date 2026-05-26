@@ -1,4 +1,5 @@
 <?php
+
 /**
  * LICENSE: The MIT License (the "License")
  * you may not use this file except in compliance with the License.
@@ -20,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Http;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Http;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Helper class to format the http headers
  *
@@ -56,7 +56,6 @@ class HttpFormatter
                 $result[strtolower($key)] = $value;
             }
         }
-
         return $result;
     }
 }

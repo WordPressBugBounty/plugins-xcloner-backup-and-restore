@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageResourceScope class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageResourceScope extends Entity
 {
     /**
-    * Gets the description
-    * The description of the scope.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the scope.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the scope.
-    *
-    * @param string $val The description
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the description
+     * The description of the scope.
+     *
+     * @param string $val The description
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name of the scope.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the scope.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the scope.
-    *
-    * @param string $val The displayName
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the displayName
+     * The display name of the scope.
+     *
+     * @param string $val The displayName
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isRootScope
-    * True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
-    *
-    * @return bool|null The isRootScope
-    */
+     * Gets the isRootScope
+     * True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
+     *
+     * @return bool|null The isRootScope
+     */
     public function getIsRootScope()
     {
         if (array_key_exists("isRootScope", $this->_propDict)) {
@@ -99,27 +96,25 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRootScope
-    * True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
-    *
-    * @param bool $val The isRootScope
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the isRootScope
+     * True if the scopes are arranged in a hierarchy and this is the top or root scope of the resource.
+     *
+     * @param bool $val The isRootScope
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setIsRootScope($val)
     {
         $this->_propDict["isRootScope"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the originId
-    * The unique identifier for the scope in the resource as defined in the origin system.
-    *
-    * @return string|null The originId
-    */
+     * Gets the originId
+     * The unique identifier for the scope in the resource as defined in the origin system.
+     *
+     * @return string|null The originId
+     */
     public function getOriginId()
     {
         if (array_key_exists("originId", $this->_propDict)) {
@@ -128,27 +123,25 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the originId
-    * The unique identifier for the scope in the resource as defined in the origin system.
-    *
-    * @param string $val The originId
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the originId
+     * The unique identifier for the scope in the resource as defined in the origin system.
+     *
+     * @param string $val The originId
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setOriginId($val)
     {
         $this->_propDict["originId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the originSystem
-    * The origin system for the scope.
-    *
-    * @return string|null The originSystem
-    */
+     * Gets the originSystem
+     * The origin system for the scope.
+     *
+     * @return string|null The originSystem
+     */
     public function getOriginSystem()
     {
         if (array_key_exists("originSystem", $this->_propDict)) {
@@ -157,27 +150,25 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the originSystem
-    * The origin system for the scope.
-    *
-    * @param string $val The originSystem
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the originSystem
+     * The origin system for the scope.
+     *
+     * @param string $val The originSystem
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setOriginSystem($val)
     {
         $this->_propDict["originSystem"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleOriginId
-    * The origin system for the role, if different.
-    *
-    * @return string|null The roleOriginId
-    */
+     * Gets the roleOriginId
+     * The origin system for the role, if different.
+     *
+     * @return string|null The roleOriginId
+     */
     public function getRoleOriginId()
     {
         if (array_key_exists("roleOriginId", $this->_propDict)) {
@@ -186,27 +177,25 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleOriginId
-    * The origin system for the role, if different.
-    *
-    * @param string $val The roleOriginId
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the roleOriginId
+     * The origin system for the role, if different.
+     *
+     * @param string $val The roleOriginId
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setRoleOriginId($val)
     {
         $this->_propDict["roleOriginId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the url
-    * A resource locator for the scope.
-    *
-    * @return string|null The url
-    */
+     * Gets the url
+     * A resource locator for the scope.
+     *
+     * @return string|null The url
+     */
     public function getUrl()
     {
         if (array_key_exists("url", $this->_propDict)) {
@@ -215,30 +204,28 @@ class AccessPackageResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the url
-    * A resource locator for the scope.
-    *
-    * @param string $val The url
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the url
+     * A resource locator for the scope.
+     *
+     * @param string $val The url
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setUrl($val)
     {
         $this->_propDict["url"] = $val;
         return $this;
     }
-
     /**
-    * Gets the accessPackageResource
-    *
-    * @return AccessPackageResource|null The accessPackageResource
-    */
+     * Gets the accessPackageResource
+     *
+     * @return AccessPackageResource|null The accessPackageResource
+     */
     public function getAccessPackageResource()
     {
         if (array_key_exists("accessPackageResource", $this->_propDict)) {
-            if (is_a($this->_propDict["accessPackageResource"], "\Beta\Microsoft\Graph\Model\AccessPackageResource") || is_null($this->_propDict["accessPackageResource"])) {
+            if (is_a($this->_propDict["accessPackageResource"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AccessPackageResource") || is_null($this->_propDict["accessPackageResource"])) {
                 return $this->_propDict["accessPackageResource"];
             } else {
                 $this->_propDict["accessPackageResource"] = new AccessPackageResource($this->_propDict["accessPackageResource"]);
@@ -247,18 +234,16 @@ class AccessPackageResourceScope extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the accessPackageResource
-    *
-    * @param AccessPackageResource $val The accessPackageResource
-    *
-    * @return AccessPackageResourceScope
-    */
+     * Sets the accessPackageResource
+     *
+     * @param AccessPackageResource $val The accessPackageResource
+     *
+     * @return AccessPackageResourceScope
+     */
     public function setAccessPackageResource($val)
     {
         $this->_propDict["accessPackageResource"] = $val;
         return $this;
     }
-
 }

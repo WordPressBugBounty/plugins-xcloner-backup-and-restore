@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Element;
 
-namespace Sabre\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml;
-use Sabre\Xml\Deserializer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml;
+use XCloner\Sabre\Xml\Deserializer;
 /**
  * 'KeyValue' parses out all child elements from a single node, and outputs a
  * key=>value struct.
@@ -46,7 +44,6 @@ class KeyValue implements Xml\Element
      * @var array
      */
     protected $value;
-
     /**
      * Constructor.
      */
@@ -54,7 +51,6 @@ class KeyValue implements Xml\Element
     {
         $this->value = $value;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -75,7 +71,6 @@ class KeyValue implements Xml\Element
     {
         $writer->write($this->value);
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *

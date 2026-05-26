@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppTroubleshootingAppStateHistory class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHistoryItem
 {
-
     /**
-    * Gets the actionType
-    * Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
-    *
-    * @return MobileAppActionType|null The actionType
-    */
+     * Gets the actionType
+     * Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
+     *
+     * @return MobileAppActionType|null The actionType
+     */
     public function getActionType()
     {
         if (array_key_exists("actionType", $this->_propDict)) {
-            if (is_a($this->_propDict["actionType"], "\Beta\Microsoft\Graph\Model\MobileAppActionType") || is_null($this->_propDict["actionType"])) {
+            if (is_a($this->_propDict["actionType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MobileAppActionType") || is_null($this->_propDict["actionType"])) {
                 return $this->_propDict["actionType"];
             } else {
                 $this->_propDict["actionType"] = new MobileAppActionType($this->_propDict["actionType"]);
@@ -45,26 +46,25 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
         }
         return null;
     }
-
     /**
-    * Sets the actionType
-    * Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
-    *
-    * @param MobileAppActionType $val The value to assign to the actionType
-    *
-    * @return MobileAppTroubleshootingAppStateHistory The MobileAppTroubleshootingAppStateHistory
-    */
+     * Sets the actionType
+     * Action type for Intune Application. Possible values are: unknown, installCommandSent, installed, uninstalled, userRequestedInstall.
+     *
+     * @param MobileAppActionType $val The value to assign to the actionType
+     *
+     * @return MobileAppTroubleshootingAppStateHistory The MobileAppTroubleshootingAppStateHistory
+     */
     public function setActionType($val)
     {
         $this->_propDict["actionType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the errorCode
-    * Error code for the failure, empty if no failure.
-    *
-    * @return string|null The errorCode
-    */
+     * Gets the errorCode
+     * Error code for the failure, empty if no failure.
+     *
+     * @return string|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -73,31 +73,29 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * Error code for the failure, empty if no failure.
-    *
-    * @param string $val The value of the errorCode
-    *
-    * @return MobileAppTroubleshootingAppStateHistory
-    */
+     * Sets the errorCode
+     * Error code for the failure, empty if no failure.
+     *
+     * @param string $val The value of the errorCode
+     *
+     * @return MobileAppTroubleshootingAppStateHistory
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the runState
-    * Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
-    *
-    * @return RunState|null The runState
-    */
+     * Gets the runState
+     * Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     *
+     * @return RunState|null The runState
+     */
     public function getRunState()
     {
         if (array_key_exists("runState", $this->_propDict)) {
-            if (is_a($this->_propDict["runState"], "\Beta\Microsoft\Graph\Model\RunState") || is_null($this->_propDict["runState"])) {
+            if (is_a($this->_propDict["runState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RunState") || is_null($this->_propDict["runState"])) {
                 return $this->_propDict["runState"];
             } else {
                 $this->_propDict["runState"] = new RunState($this->_propDict["runState"]);
@@ -106,18 +104,17 @@ class MobileAppTroubleshootingAppStateHistory extends MobileAppTroubleshootingHi
         }
         return null;
     }
-
     /**
-    * Sets the runState
-    * Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
-    *
-    * @param RunState $val The value to assign to the runState
-    *
-    * @return MobileAppTroubleshootingAppStateHistory The MobileAppTroubleshootingAppStateHistory
-    */
+     * Sets the runState
+     * Status of the item. Possible values are: unknown, success, fail, scriptError, pending, notApplicable.
+     *
+     * @param RunState $val The value to assign to the runState
+     *
+     * @return MobileAppTroubleshootingAppStateHistory The MobileAppTroubleshootingAppStateHistory
+     */
     public function setRunState($val)
     {
         $this->_propDict["runState"] = $val;
-         return $this;
+        return $this;
     }
 }

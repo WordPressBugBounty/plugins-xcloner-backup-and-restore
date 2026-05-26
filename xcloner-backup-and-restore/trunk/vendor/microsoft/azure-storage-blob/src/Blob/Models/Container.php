@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * WindowsAzure container object.
  *
@@ -43,7 +42,6 @@ class Container
     private $_url;
     private $_metadata;
     private $_properties;
-
     /**
      * Gets container name.
      *
@@ -53,7 +51,6 @@ class Container
     {
         return $this->_name;
     }
-
     /**
      * Sets container name.
      *
@@ -65,7 +62,6 @@ class Container
     {
         $this->_name = $name;
     }
-
     /**
      * Gets container url.
      *
@@ -75,7 +71,6 @@ class Container
     {
         return $this->_url;
     }
-
     /**
      * Sets container url.
      *
@@ -87,7 +82,6 @@ class Container
     {
         $this->_url = $url;
     }
-
     /**
      * Gets container metadata.
      *
@@ -97,7 +91,6 @@ class Container
     {
         return $this->_metadata;
     }
-
     /**
      * Sets container metadata.
      *
@@ -109,7 +102,6 @@ class Container
     {
         $this->_metadata = $metadata;
     }
-
     /**
      * Gets container properties
      *
@@ -119,7 +111,6 @@ class Container
     {
         return $this->_properties;
     }
-
     /**
      * Sets container properties
      *

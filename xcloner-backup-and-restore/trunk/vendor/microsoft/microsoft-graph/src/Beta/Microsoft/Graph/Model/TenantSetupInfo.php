@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TenantSetupInfo class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TenantSetupInfo extends Entity
 {
     /**
-    * Gets the firstTimeSetup
-    *
-    * @return bool|null The firstTimeSetup
-    */
+     * Gets the firstTimeSetup
+     *
+     * @return bool|null The firstTimeSetup
+     */
     public function getFirstTimeSetup()
     {
         if (array_key_exists("firstTimeSetup", $this->_propDict)) {
@@ -40,25 +41,23 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the firstTimeSetup
-    *
-    * @param bool $val The firstTimeSetup
-    *
-    * @return TenantSetupInfo
-    */
+     * Sets the firstTimeSetup
+     *
+     * @param bool $val The firstTimeSetup
+     *
+     * @return TenantSetupInfo
+     */
     public function setFirstTimeSetup($val)
     {
         $this->_propDict["firstTimeSetup"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the relevantRolesSettings
-    *
-    * @return array|null The relevantRolesSettings
-    */
+     * Gets the relevantRolesSettings
+     *
+     * @return array|null The relevantRolesSettings
+     */
     public function getRelevantRolesSettings()
     {
         if (array_key_exists("relevantRolesSettings", $this->_propDict)) {
@@ -67,29 +66,27 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the relevantRolesSettings
-    *
-    * @param string[] $val The relevantRolesSettings
-    *
-    * @return TenantSetupInfo
-    */
+     * Sets the relevantRolesSettings
+     *
+     * @param string[] $val The relevantRolesSettings
+     *
+     * @return TenantSetupInfo
+     */
     public function setRelevantRolesSettings($val)
     {
         $this->_propDict["relevantRolesSettings"] = $val;
         return $this;
     }
-
     /**
-    * Gets the setupStatus
-    *
-    * @return SetupStatus|null The setupStatus
-    */
+     * Gets the setupStatus
+     *
+     * @return SetupStatus|null The setupStatus
+     */
     public function getSetupStatus()
     {
         if (array_key_exists("setupStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["setupStatus"], "\Beta\Microsoft\Graph\Model\SetupStatus") || is_null($this->_propDict["setupStatus"])) {
+            if (is_a($this->_propDict["setupStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SetupStatus") || is_null($this->_propDict["setupStatus"])) {
                 return $this->_propDict["setupStatus"];
             } else {
                 $this->_propDict["setupStatus"] = new SetupStatus($this->_propDict["setupStatus"]);
@@ -98,25 +95,23 @@ class TenantSetupInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the setupStatus
-    *
-    * @param SetupStatus $val The setupStatus
-    *
-    * @return TenantSetupInfo
-    */
+     * Sets the setupStatus
+     *
+     * @param SetupStatus $val The setupStatus
+     *
+     * @return TenantSetupInfo
+     */
     public function setSetupStatus($val)
     {
         $this->_propDict["setupStatus"] = $val;
         return $this;
     }
-
     /**
-    * Gets the skipSetup
-    *
-    * @return bool|null The skipSetup
-    */
+     * Gets the skipSetup
+     *
+     * @return bool|null The skipSetup
+     */
     public function getSkipSetup()
     {
         if (array_key_exists("skipSetup", $this->_propDict)) {
@@ -125,25 +120,23 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the skipSetup
-    *
-    * @param bool $val The skipSetup
-    *
-    * @return TenantSetupInfo
-    */
+     * Sets the skipSetup
+     *
+     * @param bool $val The skipSetup
+     *
+     * @return TenantSetupInfo
+     */
     public function setSkipSetup($val)
     {
         $this->_propDict["skipSetup"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the userRolesActions
-    *
-    * @return string|null The userRolesActions
-    */
+     * Gets the userRolesActions
+     *
+     * @return string|null The userRolesActions
+     */
     public function getUserRolesActions()
     {
         if (array_key_exists("userRolesActions", $this->_propDict)) {
@@ -152,29 +145,27 @@ class TenantSetupInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userRolesActions
-    *
-    * @param string $val The userRolesActions
-    *
-    * @return TenantSetupInfo
-    */
+     * Sets the userRolesActions
+     *
+     * @param string $val The userRolesActions
+     *
+     * @return TenantSetupInfo
+     */
     public function setUserRolesActions($val)
     {
         $this->_propDict["userRolesActions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the defaultRolesSettings
-    *
-    * @return PrivilegedRoleSettings|null The defaultRolesSettings
-    */
+     * Gets the defaultRolesSettings
+     *
+     * @return PrivilegedRoleSettings|null The defaultRolesSettings
+     */
     public function getDefaultRolesSettings()
     {
         if (array_key_exists("defaultRolesSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultRolesSettings"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleSettings") || is_null($this->_propDict["defaultRolesSettings"])) {
+            if (is_a($this->_propDict["defaultRolesSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrivilegedRoleSettings") || is_null($this->_propDict["defaultRolesSettings"])) {
                 return $this->_propDict["defaultRolesSettings"];
             } else {
                 $this->_propDict["defaultRolesSettings"] = new PrivilegedRoleSettings($this->_propDict["defaultRolesSettings"]);
@@ -183,18 +174,16 @@ class TenantSetupInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the defaultRolesSettings
-    *
-    * @param PrivilegedRoleSettings $val The defaultRolesSettings
-    *
-    * @return TenantSetupInfo
-    */
+     * Sets the defaultRolesSettings
+     *
+     * @param PrivilegedRoleSettings $val The defaultRolesSettings
+     *
+     * @return TenantSetupInfo
+     */
     public function setDefaultRolesSettings($val)
     {
         $this->_propDict["defaultRolesSettings"] = $val;
         return $this;
     }
-
 }

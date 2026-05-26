@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FileAssessmentRequest class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class FileAssessmentRequest extends ThreatAssessmentRequest
 {
     /**
-    * Gets the contentData
-    * Base64 encoded file content. The file content cannot fetch back because it isn't stored.
-    *
-    * @return string|null The contentData
-    */
+     * Gets the contentData
+     * Base64 encoded file content. The file content cannot fetch back because it isn't stored.
+     *
+     * @return string|null The contentData
+     */
     public function getContentData()
     {
         if (array_key_exists("contentData", $this->_propDict)) {
@@ -41,27 +42,25 @@ class FileAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-
     /**
-    * Sets the contentData
-    * Base64 encoded file content. The file content cannot fetch back because it isn't stored.
-    *
-    * @param string $val The contentData
-    *
-    * @return FileAssessmentRequest
-    */
+     * Sets the contentData
+     * Base64 encoded file content. The file content cannot fetch back because it isn't stored.
+     *
+     * @param string $val The contentData
+     *
+     * @return FileAssessmentRequest
+     */
     public function setContentData($val)
     {
         $this->_propDict["contentData"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fileName
-    * The file name.
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * The file name.
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -70,19 +69,17 @@ class FileAssessmentRequest extends ThreatAssessmentRequest
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * The file name.
-    *
-    * @param string $val The fileName
-    *
-    * @return FileAssessmentRequest
-    */
+     * Sets the fileName
+     * The file name.
+     *
+     * @param string $val The fileName
+     *
+     * @return FileAssessmentRequest
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
-
 }

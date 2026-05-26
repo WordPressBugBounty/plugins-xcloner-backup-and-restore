@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MacOsVppAppAssignedLicense class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MacOsVppAppAssignedLicense extends Entity
 {
     /**
-    * Gets the userEmailAddress
-    * The user email address.
-    *
-    * @return string|null The userEmailAddress
-    */
+     * Gets the userEmailAddress
+     * The user email address.
+     *
+     * @return string|null The userEmailAddress
+     */
     public function getUserEmailAddress()
     {
         if (array_key_exists("userEmailAddress", $this->_propDict)) {
@@ -41,27 +42,25 @@ class MacOsVppAppAssignedLicense extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userEmailAddress
-    * The user email address.
-    *
-    * @param string $val The userEmailAddress
-    *
-    * @return MacOsVppAppAssignedLicense
-    */
+     * Sets the userEmailAddress
+     * The user email address.
+     *
+     * @param string $val The userEmailAddress
+     *
+     * @return MacOsVppAppAssignedLicense
+     */
     public function setUserEmailAddress($val)
     {
         $this->_propDict["userEmailAddress"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * The user ID.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The user ID.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class MacOsVppAppAssignedLicense extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The user ID.
-    *
-    * @param string $val The userId
-    *
-    * @return MacOsVppAppAssignedLicense
-    */
+     * Sets the userId
+     * The user ID.
+     *
+     * @param string $val The userId
+     *
+     * @return MacOsVppAppAssignedLicense
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userName
-    * The user name.
-    *
-    * @return string|null The userName
-    */
+     * Gets the userName
+     * The user name.
+     *
+     * @return string|null The userName
+     */
     public function getUserName()
     {
         if (array_key_exists("userName", $this->_propDict)) {
@@ -99,27 +96,25 @@ class MacOsVppAppAssignedLicense extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userName
-    * The user name.
-    *
-    * @param string $val The userName
-    *
-    * @return MacOsVppAppAssignedLicense
-    */
+     * Sets the userName
+     * The user name.
+     *
+     * @param string $val The userName
+     *
+     * @return MacOsVppAppAssignedLicense
+     */
     public function setUserName($val)
     {
         $this->_propDict["userName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * The user principal name.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The user principal name.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -128,19 +123,17 @@ class MacOsVppAppAssignedLicense extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The user principal name.
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return MacOsVppAppAssignedLicense
-    */
+     * Sets the userPrincipalName
+     * The user principal name.
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return MacOsVppAppAssignedLicense
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

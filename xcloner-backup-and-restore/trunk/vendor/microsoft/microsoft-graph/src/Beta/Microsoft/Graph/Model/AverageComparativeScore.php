@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AverageComparativeScore class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AverageComparativeScore extends Entity
 {
     /**
-    * Gets the averageScore
-    *
-    * @return float|null The averageScore
-    */
+     * Gets the averageScore
+     *
+     * @return float|null The averageScore
+     */
     public function getAverageScore()
     {
         if (array_key_exists("averageScore", $this->_propDict)) {
@@ -39,24 +41,23 @@ class AverageComparativeScore extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the averageScore
-    *
-    * @param float $val The value of the averageScore
-    *
-    * @return AverageComparativeScore
-    */
+     * Sets the averageScore
+     *
+     * @param float $val The value of the averageScore
+     *
+     * @return AverageComparativeScore
+     */
     public function setAverageScore($val)
     {
         $this->_propDict["averageScore"] = $val;
         return $this;
     }
     /**
-    * Gets the basis
-    *
-    * @return string|null The basis
-    */
+     * Gets the basis
+     *
+     * @return string|null The basis
+     */
     public function getBasis()
     {
         if (array_key_exists("basis", $this->_propDict)) {
@@ -65,14 +66,13 @@ class AverageComparativeScore extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the basis
-    *
-    * @param string $val The value of the basis
-    *
-    * @return AverageComparativeScore
-    */
+     * Sets the basis
+     *
+     * @param string $val The value of the basis
+     *
+     * @return AverageComparativeScore
+     */
     public function setBasis($val)
     {
         $this->_propDict["basis"] = $val;

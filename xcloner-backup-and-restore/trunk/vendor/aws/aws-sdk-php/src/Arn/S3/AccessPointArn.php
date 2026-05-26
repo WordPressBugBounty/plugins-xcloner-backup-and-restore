@@ -1,14 +1,14 @@
 <?php
-namespace Aws\Arn\S3;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Arn\S3;
 
-
-use Aws\Arn\AccessPointArn as BaseAccessPointArn;
-use Aws\Arn\AccessPointArnInterface;
-use Aws\Arn\ArnInterface;
-use Aws\Arn\Exception\InvalidArnException;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Arn\AccessPointArn as BaseAccessPointArn;
+use XCloner\Aws\Arn\AccessPointArnInterface;
+use XCloner\Aws\Arn\ArnInterface;
+use XCloner\Aws\Arn\Exception\InvalidArnException;
 /**
  * @internal
  */
@@ -23,8 +23,7 @@ class AccessPointArn extends BaseAccessPointArn implements AccessPointArnInterfa
     {
         parent::validate($data);
         if ($data['service'] !== 's3') {
-            throw new InvalidArnException("The 3rd component of an S3 access"
-                . " point ARN represents the region and must be 's3'.");
+            throw new InvalidArnException("The 3rd component of an S3 access" . " point ARN represents the region and must be 's3'.");
         }
     }
 }

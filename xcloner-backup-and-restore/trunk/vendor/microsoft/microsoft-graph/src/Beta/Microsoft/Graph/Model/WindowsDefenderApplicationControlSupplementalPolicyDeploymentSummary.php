@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary extends Entity
 {
     /**
-    * Gets the deployedDeviceCount
-    * Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
-    *
-    * @return int|null The deployedDeviceCount
-    */
+     * Gets the deployedDeviceCount
+     * Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
+     *
+     * @return int|null The deployedDeviceCount
+     */
     public function getDeployedDeviceCount()
     {
         if (array_key_exists("deployedDeviceCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
             return null;
         }
     }
-
     /**
-    * Sets the deployedDeviceCount
-    * Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
-    *
-    * @param int $val The deployedDeviceCount
-    *
-    * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary
-    */
+     * Sets the deployedDeviceCount
+     * Number of Devices that have successfully deployed this WindowsDefenderApplicationControl supplemental policy.
+     *
+     * @param int $val The deployedDeviceCount
+     *
+     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary
+     */
     public function setDeployedDeviceCount($val)
     {
         $this->_propDict["deployedDeviceCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the failedDeviceCount
-    * Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
-    *
-    * @return int|null The failedDeviceCount
-    */
+     * Gets the failedDeviceCount
+     * Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
+     *
+     * @return int|null The failedDeviceCount
+     */
     public function getFailedDeviceCount()
     {
         if (array_key_exists("failedDeviceCount", $this->_propDict)) {
@@ -70,19 +69,17 @@ class WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary exten
             return null;
         }
     }
-
     /**
-    * Sets the failedDeviceCount
-    * Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
-    *
-    * @param int $val The failedDeviceCount
-    *
-    * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary
-    */
+     * Sets the failedDeviceCount
+     * Number of Devices that have failed to deploy this WindowsDefenderApplicationControl supplemental policy.
+     *
+     * @param int $val The failedDeviceCount
+     *
+     * @return WindowsDefenderApplicationControlSupplementalPolicyDeploymentSummary
+     */
     public function setFailedDeviceCount($val)
     {
         $this->_propDict["failedDeviceCount"] = intval($val);
         return $this;
     }
-
 }

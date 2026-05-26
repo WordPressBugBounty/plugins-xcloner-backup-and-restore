@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LabelsRoot class
 *
@@ -25,10 +26,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class LabelsRoot extends \Beta\Microsoft\Graph\Model\Entity
+class LabelsRoot extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the retentionLabels
      *
      * @return array|null The retentionLabels
@@ -36,23 +36,21 @@ class LabelsRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getRetentionLabels()
     {
         if (array_key_exists("retentionLabels", $this->_propDict)) {
-           return $this->_propDict["retentionLabels"];
+            return $this->_propDict["retentionLabels"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the retentionLabels
-    *
-    * @param RetentionLabel[] $val The retentionLabels
-    *
-    * @return LabelsRoot
-    */
+     * Sets the retentionLabels
+     *
+     * @param RetentionLabel[] $val The retentionLabels
+     *
+     * @return LabelsRoot
+     */
     public function setRetentionLabels($val)
     {
         $this->_propDict["retentionLabels"] = $val;
         return $this;
     }
-
 }

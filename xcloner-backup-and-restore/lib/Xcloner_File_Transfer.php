@@ -72,6 +72,7 @@ class Xcloner_File_Transfer extends Xcloner_Filesystem
         $fp = $this->get_storage_filesystem()->readStream($file);
         fseek($fp, $start);
         $binary_data = fread($fp, $this->transfer_limit);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fread
         $tmp_filename = "xcloner_upload_" . substr(md5(time()), 0, 5);
         $this->get_tmp_filesystem()->write($tmp_filename, $binary_data);
         $tmp_file_path = $this->get_tmp_filesystem_adapter()->applyPathPrefix($tmp_filename);
@@ -85,24 +86,42 @@ class Xcloner_File_Transfer extends Xcloner_Filesystem
         //$data = http_build_query($send_array);
         $this->get_logger()->info(sprintf("Sending curl request to %s with %s data of file %s starting position %s using temporary file %s", $this->target_url, $this->transfer_limit, $file, $start, $tmp_filename));
         $ch = curl_init();
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_init
         curl_setopt($ch, \CURLOPT_URL, $this->target_url);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_POST, 1);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_SSL_VERIFYPEER, 0);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_SSL_VERIFYHOST, 1);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_CONNECTTIMEOUT, 60);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_TIMEOUT, 1200);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($ch, \CURLOPT_USERAGENT, sprintf('XCloner/%s (+https://www.xcloner.com)', XCLONER_PLUGIN_VERSION));
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
+        curl_setopt(
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
+            $ch,
+            \CURLOPT_USERAGENT,
+            sprintf('XCloner/%s (+https://www.xcloner.com)', XCLONER_PLUGIN_VERSION)
+        );
         curl_setopt($ch, \CURLOPT_POSTFIELDS, $send_array);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         curl_setopt($ch, \CURLOPT_VERBOSE, \true);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_setopt
         $original_result = curl_exec($ch);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_exec
         $this->get_tmp_filesystem()->delete($tmp_filename);
         $result = json_decode($original_result);
         if (!$result) {
             throw new Exception("We have received no valid response from the remote host, original message: " . $original_result);
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         if ($result->status != 200) {
             throw new Exception($result->response);
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         if (ftell($fp) >= $this->get_storage_filesystem()->getSize($file)) {
             $this->get_logger()->info(sprintf("Upload done for file %s to target url %s, transferred a total of %s bytes", $file, $this->target_url, ftell($fp)));
@@ -124,6 +143,7 @@ class Xcloner_File_Transfer extends Xcloner_Filesystem
             return "@{$filename};filename=" . ($postname ?: basename($filename)) . ($mimetype ? ";type={$mimetype}" : '');
         } else {
             return curl_file_create($filename, $mimetype, $postname);
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.curl_curl_file_create
         }
     }
 }

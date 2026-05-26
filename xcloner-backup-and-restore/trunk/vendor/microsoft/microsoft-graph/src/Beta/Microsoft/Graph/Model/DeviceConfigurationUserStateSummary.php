@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceConfigurationUserStateSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceConfigurationUserStateSummary extends Entity
 {
     /**
-    * Gets the compliantUserCount
-    * Number of compliant users
-    *
-    * @return int|null The compliantUserCount
-    */
+     * Gets the compliantUserCount
+     * Number of compliant users
+     *
+     * @return int|null The compliantUserCount
+     */
     public function getCompliantUserCount()
     {
         if (array_key_exists("compliantUserCount", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the compliantUserCount
-    * Number of compliant users
-    *
-    * @param int $val The compliantUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the compliantUserCount
+     * Number of compliant users
+     *
+     * @param int $val The compliantUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setCompliantUserCount($val)
     {
         $this->_propDict["compliantUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the conflictUserCount
-    * Number of conflict users
-    *
-    * @return int|null The conflictUserCount
-    */
+     * Gets the conflictUserCount
+     * Number of conflict users
+     *
+     * @return int|null The conflictUserCount
+     */
     public function getConflictUserCount()
     {
         if (array_key_exists("conflictUserCount", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the conflictUserCount
-    * Number of conflict users
-    *
-    * @param int $val The conflictUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the conflictUserCount
+     * Number of conflict users
+     *
+     * @param int $val The conflictUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setConflictUserCount($val)
     {
         $this->_propDict["conflictUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the errorUserCount
-    * Number of error users
-    *
-    * @return int|null The errorUserCount
-    */
+     * Gets the errorUserCount
+     * Number of error users
+     *
+     * @return int|null The errorUserCount
+     */
     public function getErrorUserCount()
     {
         if (array_key_exists("errorUserCount", $this->_propDict)) {
@@ -99,27 +96,25 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorUserCount
-    * Number of error users
-    *
-    * @param int $val The errorUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the errorUserCount
+     * Number of error users
+     *
+     * @param int $val The errorUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setErrorUserCount($val)
     {
         $this->_propDict["errorUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the nonCompliantUserCount
-    * Number of NonCompliant users
-    *
-    * @return int|null The nonCompliantUserCount
-    */
+     * Gets the nonCompliantUserCount
+     * Number of NonCompliant users
+     *
+     * @return int|null The nonCompliantUserCount
+     */
     public function getNonCompliantUserCount()
     {
         if (array_key_exists("nonCompliantUserCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the nonCompliantUserCount
-    * Number of NonCompliant users
-    *
-    * @param int $val The nonCompliantUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the nonCompliantUserCount
+     * Number of NonCompliant users
+     *
+     * @param int $val The nonCompliantUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setNonCompliantUserCount($val)
     {
         $this->_propDict["nonCompliantUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the notApplicableUserCount
-    * Number of not applicable users
-    *
-    * @return int|null The notApplicableUserCount
-    */
+     * Gets the notApplicableUserCount
+     * Number of not applicable users
+     *
+     * @return int|null The notApplicableUserCount
+     */
     public function getNotApplicableUserCount()
     {
         if (array_key_exists("notApplicableUserCount", $this->_propDict)) {
@@ -157,27 +150,25 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the notApplicableUserCount
-    * Number of not applicable users
-    *
-    * @param int $val The notApplicableUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the notApplicableUserCount
+     * Number of not applicable users
+     *
+     * @param int $val The notApplicableUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setNotApplicableUserCount($val)
     {
         $this->_propDict["notApplicableUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the remediatedUserCount
-    * Number of remediated users
-    *
-    * @return int|null The remediatedUserCount
-    */
+     * Gets the remediatedUserCount
+     * Number of remediated users
+     *
+     * @return int|null The remediatedUserCount
+     */
     public function getRemediatedUserCount()
     {
         if (array_key_exists("remediatedUserCount", $this->_propDict)) {
@@ -186,27 +177,25 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedUserCount
-    * Number of remediated users
-    *
-    * @param int $val The remediatedUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the remediatedUserCount
+     * Number of remediated users
+     *
+     * @param int $val The remediatedUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setRemediatedUserCount($val)
     {
         $this->_propDict["remediatedUserCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the unknownUserCount
-    * Number of unknown users
-    *
-    * @return int|null The unknownUserCount
-    */
+     * Gets the unknownUserCount
+     * Number of unknown users
+     *
+     * @return int|null The unknownUserCount
+     */
     public function getUnknownUserCount()
     {
         if (array_key_exists("unknownUserCount", $this->_propDict)) {
@@ -215,19 +204,17 @@ class DeviceConfigurationUserStateSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unknownUserCount
-    * Number of unknown users
-    *
-    * @param int $val The unknownUserCount
-    *
-    * @return DeviceConfigurationUserStateSummary
-    */
+     * Sets the unknownUserCount
+     * Number of unknown users
+     *
+     * @param int $val The unknownUserCount
+     *
+     * @return DeviceConfigurationUserStateSummary
+     */
     public function setUnknownUserCount($val)
     {
         $this->_propDict["unknownUserCount"] = intval($val);
         return $this;
     }
-
 }

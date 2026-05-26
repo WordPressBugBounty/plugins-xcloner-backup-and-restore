@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageLocalizedText class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageLocalizedText extends Entity
 {
     /**
-    * Gets the languageCode
-    * The ISO code for the intended language. Required.
-    *
-    * @return string|null The languageCode
-    */
+     * Gets the languageCode
+     * The ISO code for the intended language. Required.
+     *
+     * @return string|null The languageCode
+     */
     public function getLanguageCode()
     {
         if (array_key_exists("languageCode", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AccessPackageLocalizedText extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the languageCode
-    * The ISO code for the intended language. Required.
-    *
-    * @param string $val The value of the languageCode
-    *
-    * @return AccessPackageLocalizedText
-    */
+     * Sets the languageCode
+     * The ISO code for the intended language. Required.
+     *
+     * @param string $val The value of the languageCode
+     *
+     * @return AccessPackageLocalizedText
+     */
     public function setLanguageCode($val)
     {
         $this->_propDict["languageCode"] = $val;
         return $this;
     }
     /**
-    * Gets the text
-    * The text in the specific language. Required.
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     * The text in the specific language. Required.
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -68,15 +69,14 @@ class AccessPackageLocalizedText extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the text
-    * The text in the specific language. Required.
-    *
-    * @param string $val The value of the text
-    *
-    * @return AccessPackageLocalizedText
-    */
+     * Sets the text
+     * The text in the specific language. Required.
+     *
+     * @param string $val The value of the text
+     *
+     * @return AccessPackageLocalizedText
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;

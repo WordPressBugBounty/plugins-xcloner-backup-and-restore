@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,15 +8,15 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\visitor;
+namespace XCloner\org\bovigo\vfs\visitor;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-use org\bovigo\vfs\vfsStreamContent;
-use org\bovigo\vfs\vfsStreamDirectory;
-use org\bovigo\vfs\vfsStreamFile;
-use org\bovigo\vfs\vfsStreamBlock;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\org\bovigo\vfs\vfsStreamContent;
+use XCloner\org\bovigo\vfs\vfsStreamDirectory;
+use XCloner\org\bovigo\vfs\vfsStreamFile;
+use XCloner\org\bovigo\vfs\vfsStreamBlock;
 /**
  * Visitor which traverses a content structure recursively to print it to an output stream.
  *
@@ -36,7 +37,6 @@ class vfsStreamPrintVisitor extends vfsStreamAbstractVisitor
      * @type  int
      */
     protected $depth;
-
     /**
      * constructor
      *
@@ -46,16 +46,14 @@ class vfsStreamPrintVisitor extends vfsStreamAbstractVisitor
      * @throws  \InvalidArgumentException
      * @api
      */
-    public function __construct($out = STDOUT)
+    public function __construct($out = \STDOUT)
     {
-        if (is_resource($out) === false || get_resource_type($out) !== 'stream') {
+        if (is_resource($out) === \false || get_resource_type($out) !== 'stream') {
             throw new \InvalidArgumentException('Given filepointer is not a resource of type stream');
         }
-
         $this->out = $out;
         $this->depth = 0;
     }
-
     /**
      * visit a file and process it
      *
@@ -67,7 +65,6 @@ class vfsStreamPrintVisitor extends vfsStreamAbstractVisitor
         $this->printContent($file->getName());
         return $this;
     }
-
     /**
      * visit a block device and process it
      *
@@ -80,7 +77,6 @@ class vfsStreamPrintVisitor extends vfsStreamAbstractVisitor
         $this->printContent($name);
         return $this;
     }
-
     /**
      * visit a directory and process it
      *
@@ -94,11 +90,9 @@ class vfsStreamPrintVisitor extends vfsStreamAbstractVisitor
         foreach ($dir as $child) {
             $this->visit($child);
         }
-
         $this->depth--;
         return $this;
     }
-
     /**
      * helper method to print the content
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * QualityUpdateCatalogEntry class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
 {
     /**
-    * Gets the isExpeditable
-    * Indicates whether the content can be deployed as an expedited quality update. Read-only.
-    *
-    * @return bool|null The isExpeditable
-    */
+     * Gets the isExpeditable
+     * Indicates whether the content can be deployed as an expedited quality update. Read-only.
+     *
+     * @return bool|null The isExpeditable
+     */
     public function getIsExpeditable()
     {
         if (array_key_exists("isExpeditable", $this->_propDict)) {
@@ -41,31 +42,29 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
             return null;
         }
     }
-
     /**
-    * Sets the isExpeditable
-    * Indicates whether the content can be deployed as an expedited quality update. Read-only.
-    *
-    * @param bool $val The isExpeditable
-    *
-    * @return QualityUpdateCatalogEntry
-    */
+     * Sets the isExpeditable
+     * Indicates whether the content can be deployed as an expedited quality update. Read-only.
+     *
+     * @param bool $val The isExpeditable
+     *
+     * @return QualityUpdateCatalogEntry
+     */
     public function setIsExpeditable($val)
     {
         $this->_propDict["isExpeditable"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the qualityUpdateClassification
-    * The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
-    *
-    * @return QualityUpdateClassification|null The qualityUpdateClassification
-    */
+     * Gets the qualityUpdateClassification
+     * The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
+     *
+     * @return QualityUpdateClassification|null The qualityUpdateClassification
+     */
     public function getQualityUpdateClassification()
     {
         if (array_key_exists("qualityUpdateClassification", $this->_propDict)) {
-            if (is_a($this->_propDict["qualityUpdateClassification"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\QualityUpdateClassification") || is_null($this->_propDict["qualityUpdateClassification"])) {
+            if (is_a($this->_propDict["qualityUpdateClassification"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\QualityUpdateClassification") || is_null($this->_propDict["qualityUpdateClassification"])) {
                 return $this->_propDict["qualityUpdateClassification"];
             } else {
                 $this->_propDict["qualityUpdateClassification"] = new QualityUpdateClassification($this->_propDict["qualityUpdateClassification"]);
@@ -74,19 +73,17 @@ class QualityUpdateCatalogEntry extends SoftwareUpdateCatalogEntry
         }
         return null;
     }
-
     /**
-    * Sets the qualityUpdateClassification
-    * The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
-    *
-    * @param QualityUpdateClassification $val The qualityUpdateClassification
-    *
-    * @return QualityUpdateCatalogEntry
-    */
+     * Sets the qualityUpdateClassification
+     * The classification on the quality update. Possible values are: all, security, nonSecurity, unknownFutureValue. Read-only.
+     *
+     * @param QualityUpdateClassification $val The qualityUpdateClassification
+     *
+     * @return QualityUpdateCatalogEntry
+     */
     public function setQualityUpdateClassification($val)
     {
         $this->_propDict["qualityUpdateClassification"] = $val;
         return $this;
     }
-
 }

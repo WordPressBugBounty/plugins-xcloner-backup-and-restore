@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GovernanceNotificationTemplate class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GovernanceNotificationTemplate extends Entity
 {
     /**
-    * Gets the culture
-    *
-    * @return string|null The culture
-    */
+     * Gets the culture
+     *
+     * @return string|null The culture
+     */
     public function getCulture()
     {
         if (array_key_exists("culture", $this->_propDict)) {
@@ -39,24 +41,23 @@ class GovernanceNotificationTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the culture
-    *
-    * @param string $val The value of the culture
-    *
-    * @return GovernanceNotificationTemplate
-    */
+     * Sets the culture
+     *
+     * @param string $val The value of the culture
+     *
+     * @return GovernanceNotificationTemplate
+     */
     public function setCulture($val)
     {
         $this->_propDict["culture"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -65,24 +66,23 @@ class GovernanceNotificationTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return GovernanceNotificationTemplate
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return GovernanceNotificationTemplate
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the source
-    *
-    * @return string|null The source
-    */
+     * Gets the source
+     *
+     * @return string|null The source
+     */
     public function getSource()
     {
         if (array_key_exists("source", $this->_propDict)) {
@@ -91,24 +91,23 @@ class GovernanceNotificationTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the source
-    *
-    * @param string $val The value of the source
-    *
-    * @return GovernanceNotificationTemplate
-    */
+     * Sets the source
+     *
+     * @param string $val The value of the source
+     *
+     * @return GovernanceNotificationTemplate
+     */
     public function setSource($val)
     {
         $this->_propDict["source"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -117,24 +116,23 @@ class GovernanceNotificationTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The value of the type
-    *
-    * @return GovernanceNotificationTemplate
-    */
+     * Sets the type
+     *
+     * @param string $val The value of the type
+     *
+     * @return GovernanceNotificationTemplate
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
     /**
-    * Gets the version
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -143,14 +141,13 @@ class GovernanceNotificationTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    *
-    * @param string $val The value of the version
-    *
-    * @return GovernanceNotificationTemplate
-    */
+     * Sets the version
+     *
+     * @param string $val The value of the version
+     *
+     * @return GovernanceNotificationTemplate
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;

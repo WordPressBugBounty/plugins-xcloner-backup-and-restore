@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CompanyPortalBlockedAction class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CompanyPortalBlockedAction extends Entity
 {
-
     /**
-    * Gets the action
-    * Device Action. Possible values are: unknown, remove, reset.
-    *
-    * @return CompanyPortalAction|null The action
-    */
+     * Gets the action
+     * Device Action. Possible values are: unknown, remove, reset.
+     *
+     * @return CompanyPortalAction|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\CompanyPortalAction") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CompanyPortalAction") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new CompanyPortalAction($this->_propDict["action"]);
@@ -45,31 +46,29 @@ class CompanyPortalBlockedAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    * Device Action. Possible values are: unknown, remove, reset.
-    *
-    * @param CompanyPortalAction $val The value to assign to the action
-    *
-    * @return CompanyPortalBlockedAction The CompanyPortalBlockedAction
-    */
+     * Sets the action
+     * Device Action. Possible values are: unknown, remove, reset.
+     *
+     * @param CompanyPortalAction $val The value to assign to the action
+     *
+     * @return CompanyPortalBlockedAction The CompanyPortalBlockedAction
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the ownerType
-    * Device ownership type. Possible values are: unknown, company, personal.
-    *
-    * @return OwnerType|null The ownerType
-    */
+     * Gets the ownerType
+     * Device ownership type. Possible values are: unknown, company, personal.
+     *
+     * @return OwnerType|null The ownerType
+     */
     public function getOwnerType()
     {
         if (array_key_exists("ownerType", $this->_propDict)) {
-            if (is_a($this->_propDict["ownerType"], "\Beta\Microsoft\Graph\Model\OwnerType") || is_null($this->_propDict["ownerType"])) {
+            if (is_a($this->_propDict["ownerType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OwnerType") || is_null($this->_propDict["ownerType"])) {
                 return $this->_propDict["ownerType"];
             } else {
                 $this->_propDict["ownerType"] = new OwnerType($this->_propDict["ownerType"]);
@@ -78,31 +77,29 @@ class CompanyPortalBlockedAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the ownerType
-    * Device ownership type. Possible values are: unknown, company, personal.
-    *
-    * @param OwnerType $val The value to assign to the ownerType
-    *
-    * @return CompanyPortalBlockedAction The CompanyPortalBlockedAction
-    */
+     * Sets the ownerType
+     * Device ownership type. Possible values are: unknown, company, personal.
+     *
+     * @param OwnerType $val The value to assign to the ownerType
+     *
+     * @return CompanyPortalBlockedAction The CompanyPortalBlockedAction
+     */
     public function setOwnerType($val)
     {
         $this->_propDict["ownerType"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the platform
-    * Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
-    *
-    * @return DevicePlatformType|null The platform
-    */
+     * Gets the platform
+     * Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     *
+     * @return DevicePlatformType|null The platform
+     */
     public function getPlatform()
     {
         if (array_key_exists("platform", $this->_propDict)) {
-            if (is_a($this->_propDict["platform"], "\Beta\Microsoft\Graph\Model\DevicePlatformType") || is_null($this->_propDict["platform"])) {
+            if (is_a($this->_propDict["platform"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DevicePlatformType") || is_null($this->_propDict["platform"])) {
                 return $this->_propDict["platform"];
             } else {
                 $this->_propDict["platform"] = new DevicePlatformType($this->_propDict["platform"]);
@@ -111,18 +108,17 @@ class CompanyPortalBlockedAction extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the platform
-    * Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
-    *
-    * @param DevicePlatformType $val The value to assign to the platform
-    *
-    * @return CompanyPortalBlockedAction The CompanyPortalBlockedAction
-    */
+     * Sets the platform
+     * Device OS/Platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, unknown.
+     *
+     * @param DevicePlatformType $val The value to assign to the platform
+     *
+     * @return CompanyPortalBlockedAction The CompanyPortalBlockedAction
+     */
     public function setPlatform($val)
     {
         $this->_propDict["platform"] = $val;
-         return $this;
+        return $this;
     }
 }

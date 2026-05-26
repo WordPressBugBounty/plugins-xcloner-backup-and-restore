@@ -2,6 +2,9 @@
 
 namespace XCloner\Watchfulli\XClonerCore;
 
+if (!defined('ABSPATH')) {
+    exit;
+}
 use Exception;
 use stdClass;
 use XCloner\Xcloner_Admin;
@@ -246,7 +249,7 @@ class Xcloner
         $characters = array_merge(range('A', 'Z'), range('a', 'z'), range('0', '9'));
         $max = count($characters) - 1;
         for ($i = 0; $i < $length; $i++) {
-            $rand = mt_rand(0, $max);
+            $rand = wp_rand(0, $max);
             $str .= $characters[$rand];
         }
         return $str;
@@ -262,16 +265,28 @@ class Xcloner
         }
         if (!is_dir($backup_storage_path)) {
             if (!@mkdir($backup_storage_path)) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_mkdir
                 $status = "error";
-                $message = sprintf(__("Unable to create the Backup Storage Location Folder %s . This will automatically be fixed using a default path."), $backup_storage_path);
+                $message = sprintf(
+                    /* translators: %1$s is a value */
+                    __('Unable to create the Backup Storage Location Folder %1$s . This will automatically be fixed using a default path.', 'xcloner-backup-and-restore'),
+                    // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
+                    $backup_storage_path
+                );
                 $this->trigger_message($message, $status, $backup_storage_path);
                 update_option("xcloner_store_path", "");
                 return;
             }
         }
         if (!is_writable($backup_storage_path)) {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writable
             $status = "error";
-            $message = sprintf(__("Unable to write to the Backup Storage Location Folder %s . This will automatically be fixed using a default path."), $backup_storage_path);
+            $message = sprintf(
+                /* translators: %1$s is a value */
+                __('Unable to write to the Backup Storage Location Folder %1$s . This will automatically be fixed using a default path.', 'xcloner-backup-and-restore'),
+                // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
+                $backup_storage_path
+            );
             $this->trigger_message($message, $status, $backup_storage_path);
             update_option("xcloner_store_path", "");
             return;
@@ -284,10 +299,12 @@ class Xcloner
     public function trigger_message($message, $status = "error", $message_param1 = "", $message_param2 = "", $message_param3 = "")
     {
         $message = sprintf(__($message), $message_param1, $message_param2, $message_param3);
+        // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText, WordPress.WP.I18n.MissingArgDomain
         add_action('xcloner_admin_notices', array($this, "trigger_message_notice"), 10, 2);
         do_action('xcloner_admin_notices', $message, $status);
         if (defined('XCLONER_STANDALONE_MODE') && XCLONER_STANDALONE_MODE) {
             throw new Exception($message);
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
     }
     public function trigger_message_notice($message, $status = "success")
@@ -297,7 +314,7 @@ class Xcloner
         echo esc_attr($status);
         ?> is-dismissible">
             <p><?php 
-        _e($message, 'xcloner-backup-and-restore');
+        echo wp_kses_post($message);
         ?></p>
         </div>
         <?php 
@@ -338,8 +355,10 @@ class Xcloner
             <?php 
         if (function_exists('wp_create_nonce')) {
             echo "const XCLONER_WPNONCE = '" . wp_create_nonce('xcloner-api-nonce') . "';";
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         } else {
             echo "const XCLONER_WPNONCE = null;";
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         ?>
 
@@ -515,6 +534,9 @@ class Xcloner
      */
     public function onedrive_auth_token()
     {
+        if (!current_user_can('manage_options')) {
+            return;
+        }
         if (!get_option('xcloner_onedrive_enable', 0)) {
             return;
         }
@@ -532,7 +554,7 @@ class Xcloner
         if (isset($parameters) && $parameters) {
             $response = wp_remote_post("https://login.microsoftonline.com/common/oauth2/v2.0/token", array('body' => $parameters));
             if (is_wp_error($response)) {
-                $this->trigger_message(__('There was a communication error with the OneDrive API details.'));
+                $this->trigger_message(__('There was a communication error with the OneDrive API details.', 'xcloner-backup-and-restore'));
                 $this->trigger_message($response->get_error_message());
             } else {
                 $response = json_decode($response['body'], \true);
@@ -541,10 +563,14 @@ class Xcloner
                     update_option('xcloner_onedrive_refresh_token', $response['refresh_token']);
                     update_option('xcloner_onedrive_expires_in', time() + $response['expires_in']);
                     if (!$is_refresh) {
-                        $this->trigger_message(sprintf(__('OneDrive successfully authenticated, please click <a href="%s">here</a> to continue', 'xcloner-backup-and-restore'), get_admin_url() . "admin.php?page=xcloner_remote_storage_page#onedrive"), 'success');
+                        $this->trigger_message(
+                            /* translators: %1$s is a value */
+                            sprintf(__('OneDrive successfully authenticated, please click <a href="%1$s">here</a> to continue', 'xcloner-backup-and-restore'), get_admin_url() . "admin.php?page=xcloner_remote_storage_page#onedrive"),
+                            'success'
+                        );
                     }
                 } else {
-                    $this->trigger_message(__('There was a communication error with the OneDrive API details.'));
+                    $this->trigger_message(__('There was a communication error with the OneDrive API details.', 'xcloner-backup-and-restore'));
                 }
             }
         }
@@ -552,8 +578,8 @@ class Xcloner
     public function add_plugin_action_links($links, $file)
     {
         if ($file == plugin_basename(dirname(__FILE__, 2) . '/xcloner.php')) {
-            $links[] = '<a href="admin.php?page=xcloner_settings_page">' . __('Settings', 'xcloner-backup-and-restore') . '</a>';
-            $links[] = '<a href="admin.php?page=xcloner_generate_backups_page">' . __('Generate Backup', 'xcloner-backup-and-restore') . '</a>';
+            $links[] = '<a href="admin.php?page=xcloner_settings_page">' . esc_html__('Settings', 'xcloner-backup-and-restore') . '</a>';
+            $links[] = '<a href="admin.php?page=xcloner_generate_backups_page">' . esc_html__('Generate Backup', 'xcloner-backup-and-restore') . '</a>';
             //$links[] = '<a href="admin.php?page=xcloner_restore_defaults">'.__('Restore Defaults', 'xcloner-backup-and-restore').'</a>';
         }
         return $links;

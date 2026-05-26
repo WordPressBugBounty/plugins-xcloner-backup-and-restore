@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AuthenticationMethodTarget class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AuthenticationMethodTarget extends Entity
 {
     /**
-    * Gets the isRegistrationRequired
-    * Determines if the user is enforced to register the authentication method.
-    *
-    * @return bool|null The isRegistrationRequired
-    */
+     * Gets the isRegistrationRequired
+     * Determines if the user is enforced to register the authentication method.
+     *
+     * @return bool|null The isRegistrationRequired
+     */
     public function getIsRegistrationRequired()
     {
         if (array_key_exists("isRegistrationRequired", $this->_propDict)) {
@@ -41,31 +42,29 @@ class AuthenticationMethodTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRegistrationRequired
-    * Determines if the user is enforced to register the authentication method.
-    *
-    * @param bool $val The isRegistrationRequired
-    *
-    * @return AuthenticationMethodTarget
-    */
+     * Sets the isRegistrationRequired
+     * Determines if the user is enforced to register the authentication method.
+     *
+     * @param bool $val The isRegistrationRequired
+     *
+     * @return AuthenticationMethodTarget
+     */
     public function setIsRegistrationRequired($val)
     {
         $this->_propDict["isRegistrationRequired"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the targetType
-    * Possible values are: user, group, and unknownFutureValue.
-    *
-    * @return AuthenticationMethodTargetType|null The targetType
-    */
+     * Gets the targetType
+     * Possible values are: user, group, and unknownFutureValue.
+     *
+     * @return AuthenticationMethodTargetType|null The targetType
+     */
     public function getTargetType()
     {
         if (array_key_exists("targetType", $this->_propDict)) {
-            if (is_a($this->_propDict["targetType"], "\Beta\Microsoft\Graph\Model\AuthenticationMethodTargetType") || is_null($this->_propDict["targetType"])) {
+            if (is_a($this->_propDict["targetType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AuthenticationMethodTargetType") || is_null($this->_propDict["targetType"])) {
                 return $this->_propDict["targetType"];
             } else {
                 $this->_propDict["targetType"] = new AuthenticationMethodTargetType($this->_propDict["targetType"]);
@@ -74,19 +73,17 @@ class AuthenticationMethodTarget extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the targetType
-    * Possible values are: user, group, and unknownFutureValue.
-    *
-    * @param AuthenticationMethodTargetType $val The targetType
-    *
-    * @return AuthenticationMethodTarget
-    */
+     * Sets the targetType
+     * Possible values are: user, group, and unknownFutureValue.
+     *
+     * @param AuthenticationMethodTargetType $val The targetType
+     *
+     * @return AuthenticationMethodTarget
+     */
     public function setTargetType($val)
     {
         $this->_propDict["targetType"] = $val;
         return $this;
     }
-
 }

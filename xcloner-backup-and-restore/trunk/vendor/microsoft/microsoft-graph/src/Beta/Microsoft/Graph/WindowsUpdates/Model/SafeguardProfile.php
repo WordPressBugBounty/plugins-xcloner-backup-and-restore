@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\WindowsUpdates\Model;
+namespace XCloner\Beta\Microsoft\Graph\WindowsUpdates\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SafeguardProfile class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class SafeguardProfile extends \Beta\Microsoft\Graph\Model\Entity
+class SafeguardProfile extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the category
-    * Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
-    *
-    * @return SafeguardCategory|null The category
-    */
+     * Gets the category
+     * Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
+     *
+     * @return SafeguardCategory|null The category
+     */
     public function getCategory()
     {
         if (array_key_exists("category", $this->_propDict)) {
-            if (is_a($this->_propDict["category"], "\Beta\Microsoft\Graph\WindowsUpdates\Model\SafeguardCategory") || is_null($this->_propDict["category"])) {
+            if (is_a($this->_propDict["category"], "XCloner\\Beta\\Microsoft\\Graph\\WindowsUpdates\\Model\\SafeguardCategory") || is_null($this->_propDict["category"])) {
                 return $this->_propDict["category"];
             } else {
                 $this->_propDict["category"] = new SafeguardCategory($this->_propDict["category"]);
@@ -45,18 +46,17 @@ class SafeguardProfile extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the category
-    * Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
-    *
-    * @param SafeguardCategory $val The value to assign to the category
-    *
-    * @return SafeguardProfile The SafeguardProfile
-    */
+     * Sets the category
+     * Specifies the category of safeguards. The possible values are: likelyIssues, unknownFutureValue.
+     *
+     * @param SafeguardCategory $val The value to assign to the category
+     *
+     * @return SafeguardProfile The SafeguardProfile
+     */
     public function setCategory($val)
     {
         $this->_propDict["category"] = $val;
-         return $this;
+        return $this;
     }
 }

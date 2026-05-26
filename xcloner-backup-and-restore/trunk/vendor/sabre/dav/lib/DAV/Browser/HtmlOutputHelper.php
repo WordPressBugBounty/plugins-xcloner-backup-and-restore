@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Browser;
 
-namespace Sabre\DAV\Browser;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Uri;
-use Sabre\Xml\Service as XmlService;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Uri;
+use XCloner\Sabre\Xml\Service as XmlService;
 /**
  * This class provides a few utility functions for easily generating HTML for
  * the browser plugin.
@@ -26,14 +24,12 @@ class HtmlOutputHelper
      * @var string
      */
     protected $baseUri;
-
     /**
      * List of xml namespaces.
      *
      * @var array
      */
     protected $namespaceMap;
-
     /**
      * Creates the object.
      *
@@ -51,7 +47,6 @@ class HtmlOutputHelper
         $this->baseUri = $baseUri;
         $this->namespaceMap = $namespaceMap;
     }
-
     /**
      * Generates a 'full' url based on a relative one.
      *
@@ -68,7 +63,6 @@ class HtmlOutputHelper
     {
         return Uri\resolve($this->baseUri, $path);
     }
-
     /**
      * Escape string for HTML output.
      *
@@ -78,9 +72,8 @@ class HtmlOutputHelper
      */
     public function h($input)
     {
-        return htmlspecialchars((string) $input, ENT_COMPAT, 'UTF-8');
+        return htmlspecialchars((string) $input, \ENT_COMPAT, 'UTF-8');
     }
-
     /**
      * Generates a full <a>-tag.
      *
@@ -95,10 +88,8 @@ class HtmlOutputHelper
     public function link($url, $label = null)
     {
         $url = $this->h($this->fullUrl($url));
-
-        return '<a href="'.$url.'">'.($label ? $this->h($label) : $url).'</a>';
+        return '<a href="' . $url . '">' . ($label ? $this->h($label) : $url) . '</a>';
     }
-
     /**
      * This method takes an xml element in clark-notation, and turns it into a
      * shortened version with a prefix, if it was a known namespace.
@@ -111,11 +102,10 @@ class HtmlOutputHelper
     {
         list($ns, $localName) = XmlService::parseClarkNotation($element);
         if (isset($this->namespaceMap[$ns])) {
-            $propName = $this->namespaceMap[$ns].':'.$localName;
+            $propName = $this->namespaceMap[$ns] . ':' . $localName;
         } else {
             $propName = $element;
         }
-
-        return '<span title="'.$this->h($element).'">'.$this->h($propName).'</span>';
+        return '<span title="' . $this->h($element) . '">' . $this->h($propName) . '</span>';
     }
 }

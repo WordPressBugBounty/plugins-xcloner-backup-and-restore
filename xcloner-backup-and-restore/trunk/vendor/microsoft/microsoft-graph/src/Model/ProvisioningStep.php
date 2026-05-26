@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProvisioningStep class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProvisioningStep extends Entity
 {
     /**
-    * Gets the description
-    * Summary of what occurred during the step.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Summary of what occurred during the step.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ProvisioningStep extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Summary of what occurred during the step.
-    *
-    * @param string $val The value of the description
-    *
-    * @return ProvisioningStep
-    */
+     * Sets the description
+     * Summary of what occurred during the step.
+     *
+     * @param string $val The value of the description
+     *
+     * @return ProvisioningStep
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the details
-    * Details of what occurred during the step.
-    *
-    * @return DetailsInfo|null The details
-    */
+     * Gets the details
+     * Details of what occurred during the step.
+     *
+     * @return DetailsInfo|null The details
+     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\DetailsInfo") || is_null($this->_propDict["details"])) {
+            if (is_a($this->_propDict["details"], "XCloner\\Microsoft\\Graph\\Model\\DetailsInfo") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new DetailsInfo($this->_propDict["details"]);
@@ -73,26 +73,25 @@ class ProvisioningStep extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the details
-    * Details of what occurred during the step.
-    *
-    * @param DetailsInfo $val The value to assign to the details
-    *
-    * @return ProvisioningStep The ProvisioningStep
-    */
+     * Sets the details
+     * Details of what occurred during the step.
+     *
+     * @param DetailsInfo $val The value to assign to the details
+     *
+     * @return ProvisioningStep The ProvisioningStep
+     */
     public function setDetails($val)
     {
         $this->_propDict["details"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * Name of the step.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the step.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -101,31 +100,29 @@ class ProvisioningStep extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the step.
-    *
-    * @param string $val The value of the name
-    *
-    * @return ProvisioningStep
-    */
+     * Sets the name
+     * Name of the step.
+     *
+     * @param string $val The value of the name
+     *
+     * @return ProvisioningStep
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the provisioningStepType
-    * Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
-    *
-    * @return ProvisioningStepType|null The provisioningStepType
-    */
+     * Gets the provisioningStepType
+     * Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
+     *
+     * @return ProvisioningStepType|null The provisioningStepType
+     */
     public function getProvisioningStepType()
     {
         if (array_key_exists("provisioningStepType", $this->_propDict)) {
-            if (is_a($this->_propDict["provisioningStepType"], "\Microsoft\Graph\Model\ProvisioningStepType") || is_null($this->_propDict["provisioningStepType"])) {
+            if (is_a($this->_propDict["provisioningStepType"], "XCloner\\Microsoft\\Graph\\Model\\ProvisioningStepType") || is_null($this->_propDict["provisioningStepType"])) {
                 return $this->_propDict["provisioningStepType"];
             } else {
                 $this->_propDict["provisioningStepType"] = new ProvisioningStepType($this->_propDict["provisioningStepType"]);
@@ -134,31 +131,29 @@ class ProvisioningStep extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the provisioningStepType
-    * Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
-    *
-    * @param ProvisioningStepType $val The value to assign to the provisioningStepType
-    *
-    * @return ProvisioningStep The ProvisioningStep
-    */
+     * Sets the provisioningStepType
+     * Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.
+     *
+     * @param ProvisioningStepType $val The value to assign to the provisioningStepType
+     *
+     * @return ProvisioningStep The ProvisioningStep
+     */
     public function setProvisioningStepType($val)
     {
         $this->_propDict["provisioningStepType"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the status
-    * Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
-    *
-    * @return ProvisioningResult|null The status
-    */
+     * Gets the status
+     * Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
+     *
+     * @return ProvisioningResult|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ProvisioningResult") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Microsoft\\Graph\\Model\\ProvisioningResult") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ProvisioningResult($this->_propDict["status"]);
@@ -167,18 +162,17 @@ class ProvisioningStep extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
-    *
-    * @param ProvisioningResult $val The value to assign to the status
-    *
-    * @return ProvisioningStep The ProvisioningStep
-    */
+     * Sets the status
+     * Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.
+     *
+     * @param ProvisioningResult $val The value to assign to the status
+     *
+     * @return ProvisioningStep The ProvisioningStep
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
-         return $this;
+        return $this;
     }
 }

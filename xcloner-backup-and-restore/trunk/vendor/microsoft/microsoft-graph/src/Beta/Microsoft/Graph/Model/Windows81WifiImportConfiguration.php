@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows81WifiImportConfiguration class
 *
@@ -28,44 +29,42 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows81WifiImportConfiguration extends DeviceConfiguration
 {
     /**
-    * Gets the payload
-    * Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The payload
-    */
+     * Gets the payload
+     * Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The payload
+     */
     public function getPayload()
     {
         if (array_key_exists("payload", $this->_propDict)) {
-            if (is_a($this->_propDict["payload"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["payload"])) {
+            if (is_a($this->_propDict["payload"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["payload"])) {
                 return $this->_propDict["payload"];
             } else {
-                $this->_propDict["payload"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["payload"]);
+                $this->_propDict["payload"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["payload"]);
                 return $this->_propDict["payload"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the payload
-    * Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The payload
-    *
-    * @return Windows81WifiImportConfiguration
-    */
+     * Sets the payload
+     * Payload. (UTF8 encoded byte array). This is the XML file saved on the device you used to connect to the Wi-Fi endpoint.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The payload
+     *
+     * @return Windows81WifiImportConfiguration
+     */
     public function setPayload($val)
     {
         $this->_propDict["payload"] = $val;
         return $this;
     }
-
     /**
-    * Gets the payloadFileName
-    * Payload file name (.xml).
-    *
-    * @return string|null The payloadFileName
-    */
+     * Gets the payloadFileName
+     * Payload file name (.xml).
+     *
+     * @return string|null The payloadFileName
+     */
     public function getPayloadFileName()
     {
         if (array_key_exists("payloadFileName", $this->_propDict)) {
@@ -74,27 +73,25 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the payloadFileName
-    * Payload file name (.xml).
-    *
-    * @param string $val The payloadFileName
-    *
-    * @return Windows81WifiImportConfiguration
-    */
+     * Sets the payloadFileName
+     * Payload file name (.xml).
+     *
+     * @param string $val The payloadFileName
+     *
+     * @return Windows81WifiImportConfiguration
+     */
     public function setPayloadFileName($val)
     {
         $this->_propDict["payloadFileName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the profileName
-    * Profile name displayed in the UI.
-    *
-    * @return string|null The profileName
-    */
+     * Gets the profileName
+     * Profile name displayed in the UI.
+     *
+     * @return string|null The profileName
+     */
     public function getProfileName()
     {
         if (array_key_exists("profileName", $this->_propDict)) {
@@ -103,19 +100,17 @@ class Windows81WifiImportConfiguration extends DeviceConfiguration
             return null;
         }
     }
-
     /**
-    * Sets the profileName
-    * Profile name displayed in the UI.
-    *
-    * @param string $val The profileName
-    *
-    * @return Windows81WifiImportConfiguration
-    */
+     * Sets the profileName
+     * Profile name displayed in the UI.
+     *
+     * @param string $val The profileName
+     *
+     * @return Windows81WifiImportConfiguration
+     */
     public function setProfileName($val)
     {
         $this->_propDict["profileName"] = $val;
         return $this;
     }
-
 }

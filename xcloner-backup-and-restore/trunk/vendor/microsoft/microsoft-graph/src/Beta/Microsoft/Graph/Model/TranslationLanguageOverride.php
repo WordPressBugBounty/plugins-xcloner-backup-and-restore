@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TranslationLanguageOverride class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TranslationLanguageOverride extends Entity
 {
     /**
-    * Gets the languageTag
-    * The language to apply the override.Returned by default. Not nullable.
-    *
-    * @return string|null The languageTag
-    */
+     * Gets the languageTag
+     * The language to apply the override.Returned by default. Not nullable.
+     *
+     * @return string|null The languageTag
+     */
     public function getLanguageTag()
     {
         if (array_key_exists("languageTag", $this->_propDict)) {
@@ -40,31 +42,29 @@ class TranslationLanguageOverride extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the languageTag
-    * The language to apply the override.Returned by default. Not nullable.
-    *
-    * @param string $val The value of the languageTag
-    *
-    * @return TranslationLanguageOverride
-    */
+     * Sets the languageTag
+     * The language to apply the override.Returned by default. Not nullable.
+     *
+     * @param string $val The value of the languageTag
+     *
+     * @return TranslationLanguageOverride
+     */
     public function setLanguageTag($val)
     {
         $this->_propDict["languageTag"] = $val;
         return $this;
     }
-
     /**
-    * Gets the translationBehavior
-    * The translation override behavior for the language, if any.Returned by default. Not nullable.
-    *
-    * @return TranslationBehavior|null The translationBehavior
-    */
+     * Gets the translationBehavior
+     * The translation override behavior for the language, if any.Returned by default. Not nullable.
+     *
+     * @return TranslationBehavior|null The translationBehavior
+     */
     public function getTranslationBehavior()
     {
         if (array_key_exists("translationBehavior", $this->_propDict)) {
-            if (is_a($this->_propDict["translationBehavior"], "\Beta\Microsoft\Graph\Model\TranslationBehavior") || is_null($this->_propDict["translationBehavior"])) {
+            if (is_a($this->_propDict["translationBehavior"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\TranslationBehavior") || is_null($this->_propDict["translationBehavior"])) {
                 return $this->_propDict["translationBehavior"];
             } else {
                 $this->_propDict["translationBehavior"] = new TranslationBehavior($this->_propDict["translationBehavior"]);
@@ -73,18 +73,17 @@ class TranslationLanguageOverride extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the translationBehavior
-    * The translation override behavior for the language, if any.Returned by default. Not nullable.
-    *
-    * @param TranslationBehavior $val The value to assign to the translationBehavior
-    *
-    * @return TranslationLanguageOverride The TranslationLanguageOverride
-    */
+     * Sets the translationBehavior
+     * The translation override behavior for the language, if any.Returned by default. Not nullable.
+     *
+     * @param TranslationBehavior $val The value to assign to the translationBehavior
+     *
+     * @return TranslationLanguageOverride The TranslationLanguageOverride
+     */
     public function setTranslationBehavior($val)
     {
         $this->_propDict["translationBehavior"] = $val;
-         return $this;
+        return $this;
     }
 }

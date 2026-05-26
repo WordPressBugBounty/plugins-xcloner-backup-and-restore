@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcExportJob class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CloudPcExportJob extends Entity
 {
     /**
-    * Gets the expirationDateTime
-    *
-    * @return \DateTime|null The expirationDateTime
-    */
+     * Gets the expirationDateTime
+     *
+     * @return \DateTime|null The expirationDateTime
+     */
     public function getExpirationDateTime()
     {
         if (array_key_exists("expirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["expirationDateTime"], "\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
+            if (is_a($this->_propDict["expirationDateTime"], "\\DateTime") || is_null($this->_propDict["expirationDateTime"])) {
                 return $this->_propDict["expirationDateTime"];
             } else {
                 $this->_propDict["expirationDateTime"] = new \DateTime($this->_propDict["expirationDateTime"]);
@@ -44,29 +45,27 @@ class CloudPcExportJob extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the expirationDateTime
-    *
-    * @param \DateTime $val The expirationDateTime
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the expirationDateTime
+     *
+     * @param \DateTime $val The expirationDateTime
+     *
+     * @return CloudPcExportJob
+     */
     public function setExpirationDateTime($val)
     {
         $this->_propDict["expirationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the exportJobStatus
-    *
-    * @return CloudPcExportJobStatus|null The exportJobStatus
-    */
+     * Gets the exportJobStatus
+     *
+     * @return CloudPcExportJobStatus|null The exportJobStatus
+     */
     public function getExportJobStatus()
     {
         if (array_key_exists("exportJobStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["exportJobStatus"], "\Beta\Microsoft\Graph\Model\CloudPcExportJobStatus") || is_null($this->_propDict["exportJobStatus"])) {
+            if (is_a($this->_propDict["exportJobStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CloudPcExportJobStatus") || is_null($this->_propDict["exportJobStatus"])) {
                 return $this->_propDict["exportJobStatus"];
             } else {
                 $this->_propDict["exportJobStatus"] = new CloudPcExportJobStatus($this->_propDict["exportJobStatus"]);
@@ -75,25 +74,23 @@ class CloudPcExportJob extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the exportJobStatus
-    *
-    * @param CloudPcExportJobStatus $val The exportJobStatus
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the exportJobStatus
+     *
+     * @param CloudPcExportJobStatus $val The exportJobStatus
+     *
+     * @return CloudPcExportJob
+     */
     public function setExportJobStatus($val)
     {
         $this->_propDict["exportJobStatus"] = $val;
         return $this;
     }
-
     /**
-    * Gets the exportUrl
-    *
-    * @return string|null The exportUrl
-    */
+     * Gets the exportUrl
+     *
+     * @return string|null The exportUrl
+     */
     public function getExportUrl()
     {
         if (array_key_exists("exportUrl", $this->_propDict)) {
@@ -102,25 +99,23 @@ class CloudPcExportJob extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the exportUrl
-    *
-    * @param string $val The exportUrl
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the exportUrl
+     *
+     * @param string $val The exportUrl
+     *
+     * @return CloudPcExportJob
+     */
     public function setExportUrl($val)
     {
         $this->_propDict["exportUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the filter
-    *
-    * @return string|null The filter
-    */
+     * Gets the filter
+     *
+     * @return string|null The filter
+     */
     public function getFilter()
     {
         if (array_key_exists("filter", $this->_propDict)) {
@@ -129,25 +124,23 @@ class CloudPcExportJob extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the filter
-    *
-    * @param string $val The filter
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the filter
+     *
+     * @param string $val The filter
+     *
+     * @return CloudPcExportJob
+     */
     public function setFilter($val)
     {
         $this->_propDict["filter"] = $val;
         return $this;
     }
-
     /**
-    * Gets the format
-    *
-    * @return string|null The format
-    */
+     * Gets the format
+     *
+     * @return string|null The format
+     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
@@ -156,29 +149,27 @@ class CloudPcExportJob extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the format
-    *
-    * @param string $val The format
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the format
+     *
+     * @param string $val The format
+     *
+     * @return CloudPcExportJob
+     */
     public function setFormat($val)
     {
         $this->_propDict["format"] = $val;
         return $this;
     }
-
     /**
-    * Gets the reportName
-    *
-    * @return CloudPcReportName|null The reportName
-    */
+     * Gets the reportName
+     *
+     * @return CloudPcReportName|null The reportName
+     */
     public function getReportName()
     {
         if (array_key_exists("reportName", $this->_propDict)) {
-            if (is_a($this->_propDict["reportName"], "\Beta\Microsoft\Graph\Model\CloudPcReportName") || is_null($this->_propDict["reportName"])) {
+            if (is_a($this->_propDict["reportName"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CloudPcReportName") || is_null($this->_propDict["reportName"])) {
                 return $this->_propDict["reportName"];
             } else {
                 $this->_propDict["reportName"] = new CloudPcReportName($this->_propDict["reportName"]);
@@ -187,29 +178,27 @@ class CloudPcExportJob extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the reportName
-    *
-    * @param CloudPcReportName $val The reportName
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the reportName
+     *
+     * @param CloudPcReportName $val The reportName
+     *
+     * @return CloudPcExportJob
+     */
     public function setReportName($val)
     {
         $this->_propDict["reportName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the requestDateTime
-    *
-    * @return \DateTime|null The requestDateTime
-    */
+     * Gets the requestDateTime
+     *
+     * @return \DateTime|null The requestDateTime
+     */
     public function getRequestDateTime()
     {
         if (array_key_exists("requestDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["requestDateTime"], "\DateTime") || is_null($this->_propDict["requestDateTime"])) {
+            if (is_a($this->_propDict["requestDateTime"], "\\DateTime") || is_null($this->_propDict["requestDateTime"])) {
                 return $this->_propDict["requestDateTime"];
             } else {
                 $this->_propDict["requestDateTime"] = new \DateTime($this->_propDict["requestDateTime"]);
@@ -218,25 +207,23 @@ class CloudPcExportJob extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the requestDateTime
-    *
-    * @param \DateTime $val The requestDateTime
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the requestDateTime
+     *
+     * @param \DateTime $val The requestDateTime
+     *
+     * @return CloudPcExportJob
+     */
     public function setRequestDateTime($val)
     {
         $this->_propDict["requestDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the select
-    *
-    * @return array|null The select
-    */
+     * Gets the select
+     *
+     * @return array|null The select
+     */
     public function getSelect()
     {
         if (array_key_exists("select", $this->_propDict)) {
@@ -245,18 +232,16 @@ class CloudPcExportJob extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the select
-    *
-    * @param string[] $val The select
-    *
-    * @return CloudPcExportJob
-    */
+     * Sets the select
+     *
+     * @param string[] $val The select
+     *
+     * @return CloudPcExportJob
+     */
     public function setSelect($val)
     {
         $this->_propDict["select"] = $val;
         return $this;
     }
-
 }

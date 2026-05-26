@@ -1,19 +1,17 @@
 <?php
 
-namespace League\Flysystem;
+namespace XCloner\League\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use Exception as BaseException;
-
 class FileExistsException extends Exception
 {
     /**
      * @var string
      */
     protected $path;
-
     /**
      * Constructor.
      *
@@ -24,10 +22,8 @@ class FileExistsException extends Exception
     public function __construct($path, $code = 0, BaseException $previous = null)
     {
         $this->path = $path;
-
         parent::__construct('File already exists at path: ' . $this->getPath(), $code, $previous);
     }
-
     /**
      * Get the path which was found.
      *

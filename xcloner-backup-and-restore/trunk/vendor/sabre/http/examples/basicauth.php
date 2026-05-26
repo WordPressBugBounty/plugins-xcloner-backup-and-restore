@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This example shows how to do Basic authentication.
  * *.
@@ -11,32 +13,20 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-$userList = [
-    'user1' => 'password',
-    'user2' => 'password',
-];
-
-use Sabre\HTTP\Auth;
-use Sabre\HTTP\Response;
-use Sabre\HTTP\Sapi;
-
+$userList = ['user1' => 'password', 'user2' => 'password'];
+use XCloner\Sabre\HTTP\Auth;
+use XCloner\Sabre\HTTP\Response;
+use XCloner\Sabre\HTTP\Sapi;
 // Find the autoloader
-$paths = [
-    __DIR__.'/../vendor/autoload.php',
-    __DIR__.'/../../../autoload.php',
-    __DIR__.'/vendor/autoload.php',
-];
-
+$paths = [__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php', __DIR__ . '/vendor/autoload.php'];
 foreach ($paths as $path) {
-    if (file_exists($path)) {
+    if (\file_exists($path)) {
         include $path;
         break;
     }
 }
-
 $request = Sapi::getRequest();
 $response = new Response();
-
 $basicAuth = new Auth\Basic('Locked down area', $request, $response);
 if (!$userPass = $basicAuth->getCredentials()) {
     // No username or password given
@@ -48,6 +38,5 @@ if (!$userPass = $basicAuth->getCredentials()) {
     // Success !
     $response->setBody('You are logged in!');
 }
-
 // Sending the response
 Sapi::sendResponse($response);

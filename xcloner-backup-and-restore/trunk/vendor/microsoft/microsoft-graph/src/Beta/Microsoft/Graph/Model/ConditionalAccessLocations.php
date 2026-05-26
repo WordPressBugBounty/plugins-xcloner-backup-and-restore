@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessLocations class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ConditionalAccessLocations extends Entity
 {
     /**
-    * Gets the excludeLocations
-    * Location IDs excluded from scope of policy.
-    *
-    * @return string|null The excludeLocations
-    */
+     * Gets the excludeLocations
+     * Location IDs excluded from scope of policy.
+     *
+     * @return string|null The excludeLocations
+     */
     public function getExcludeLocations()
     {
         if (array_key_exists("excludeLocations", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ConditionalAccessLocations extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludeLocations
-    * Location IDs excluded from scope of policy.
-    *
-    * @param string $val The value of the excludeLocations
-    *
-    * @return ConditionalAccessLocations
-    */
+     * Sets the excludeLocations
+     * Location IDs excluded from scope of policy.
+     *
+     * @param string $val The value of the excludeLocations
+     *
+     * @return ConditionalAccessLocations
+     */
     public function setExcludeLocations($val)
     {
         $this->_propDict["excludeLocations"] = $val;
         return $this;
     }
     /**
-    * Gets the includeLocations
-    * Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
-    *
-    * @return string|null The includeLocations
-    */
+     * Gets the includeLocations
+     * Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
+     *
+     * @return string|null The includeLocations
+     */
     public function getIncludeLocations()
     {
         if (array_key_exists("includeLocations", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ConditionalAccessLocations extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeLocations
-    * Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
-    *
-    * @param string $val The value of the includeLocations
-    *
-    * @return ConditionalAccessLocations
-    */
+     * Sets the includeLocations
+     * Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.
+     *
+     * @param string $val The value of the includeLocations
+     *
+     * @return ConditionalAccessLocations
+     */
     public function setIncludeLocations($val)
     {
         $this->_propDict["includeLocations"] = $val;

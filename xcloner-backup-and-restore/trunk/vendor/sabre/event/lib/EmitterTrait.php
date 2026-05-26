@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event;
 
-namespace Sabre\Event;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Event Emitter Trait.
  *
@@ -29,17 +28,18 @@ trait EmitterTrait
     {
         if (!isset($this->listeners[$eventName])) {
             $this->listeners[$eventName] = [
-                true,  // If there's only one item, it's sorted
+                \true,
+                // If there's only one item, it's sorted
                 [$priority],
                 [$callBack],
             ];
         } else {
-            $this->listeners[$eventName][0] = false; // marked as unsorted
+            $this->listeners[$eventName][0] = \false;
+            // marked as unsorted
             $this->listeners[$eventName][1][] = $priority;
             $this->listeners[$eventName][2][] = $callBack;
         }
     }
-
     /**
      * Subscribe to an event exactly once.
      */
@@ -48,13 +48,10 @@ trait EmitterTrait
         $wrapper = null;
         $wrapper = function () use ($eventName, $callBack, &$wrapper) {
             $this->removeListener($eventName, $wrapper);
-
             return \call_user_func_array($callBack, \func_get_args());
         };
-
         $this->on($eventName, $wrapper, $priority);
     }
-
     /**
      * Emits an event.
      *
@@ -81,21 +78,19 @@ trait EmitterTrait
         if (\is_null($continueCallBack)) {
             foreach ($this->listeners($eventName) as $listener) {
                 $result = \call_user_func_array($listener, $arguments);
-                if (false === $result) {
-                    return false;
+                if (\false === $result) {
+                    return \false;
                 }
             }
         } else {
             $listeners = $this->listeners($eventName);
             $counter = \count($listeners);
-
             foreach ($listeners as $listener) {
                 --$counter;
                 $result = \call_user_func_array($listener, $arguments);
-                if (false === $result) {
-                    return false;
+                if (\false === $result) {
+                    return \false;
                 }
-
                 if ($counter > 0) {
                     if (!$continueCallBack()) {
                         break;
@@ -103,10 +98,8 @@ trait EmitterTrait
                 }
             }
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * Returns the list of listeners for an event.
      *
@@ -120,19 +113,15 @@ trait EmitterTrait
         if (!isset($this->listeners[$eventName])) {
             return [];
         }
-
         // The list is not sorted
         if (!$this->listeners[$eventName][0]) {
             // Sorting
-            \array_multisort($this->listeners[$eventName][1], SORT_NUMERIC, $this->listeners[$eventName][2]);
-
+            \array_multisort($this->listeners[$eventName][1], \SORT_NUMERIC, $this->listeners[$eventName][2]);
             // Marking the listeners as sorted
-            $this->listeners[$eventName][0] = true;
+            $this->listeners[$eventName][0] = \true;
         }
-
         return $this->listeners[$eventName][2];
     }
-
     /**
      * Removes a specific listener from an event.
      *
@@ -142,20 +131,17 @@ trait EmitterTrait
     public function removeListener(string $eventName, callable $listener): bool
     {
         if (!isset($this->listeners[$eventName])) {
-            return false;
+            return \false;
         }
         foreach ($this->listeners[$eventName][2] as $index => $check) {
             if ($check === $listener) {
                 unset($this->listeners[$eventName][1][$index]);
                 unset($this->listeners[$eventName][2][$index]);
-
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * Removes all listeners.
      *
@@ -171,7 +157,6 @@ trait EmitterTrait
             $this->listeners = [];
         }
     }
-
     /**
      * The list of listeners.
      *

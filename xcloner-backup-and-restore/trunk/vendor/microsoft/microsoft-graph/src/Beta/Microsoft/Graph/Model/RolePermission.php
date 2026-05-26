@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RolePermission class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RolePermission extends Entity
 {
     /**
-    * Gets the actions
-    * Allowed Actions - Deprecated
-    *
-    * @return string|null The actions
-    */
+     * Gets the actions
+     * Allowed Actions - Deprecated
+     *
+     * @return string|null The actions
+     */
     public function getActions()
     {
         if (array_key_exists("actions", $this->_propDict)) {
@@ -40,31 +42,29 @@ class RolePermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the actions
-    * Allowed Actions - Deprecated
-    *
-    * @param string $val The value of the actions
-    *
-    * @return RolePermission
-    */
+     * Sets the actions
+     * Allowed Actions - Deprecated
+     *
+     * @param string $val The value of the actions
+     *
+     * @return RolePermission
+     */
     public function setActions($val)
     {
         $this->_propDict["actions"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceActions
-    * Resource Actions each containing a set of allowed and not allowed permissions.
-    *
-    * @return ResourceAction|null The resourceActions
-    */
+     * Gets the resourceActions
+     * Resource Actions each containing a set of allowed and not allowed permissions.
+     *
+     * @return ResourceAction|null The resourceActions
+     */
     public function getResourceActions()
     {
         if (array_key_exists("resourceActions", $this->_propDict)) {
-            if (is_a($this->_propDict["resourceActions"], "\Beta\Microsoft\Graph\Model\ResourceAction") || is_null($this->_propDict["resourceActions"])) {
+            if (is_a($this->_propDict["resourceActions"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ResourceAction") || is_null($this->_propDict["resourceActions"])) {
                 return $this->_propDict["resourceActions"];
             } else {
                 $this->_propDict["resourceActions"] = new ResourceAction($this->_propDict["resourceActions"]);
@@ -73,18 +73,17 @@ class RolePermission extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the resourceActions
-    * Resource Actions each containing a set of allowed and not allowed permissions.
-    *
-    * @param ResourceAction $val The value to assign to the resourceActions
-    *
-    * @return RolePermission The RolePermission
-    */
+     * Sets the resourceActions
+     * Resource Actions each containing a set of allowed and not allowed permissions.
+     *
+     * @param ResourceAction $val The value to assign to the resourceActions
+     *
+     * @return RolePermission The RolePermission
+     */
     public function setResourceActions($val)
     {
         $this->_propDict["resourceActions"] = $val;
-         return $this;
+        return $this;
     }
 }

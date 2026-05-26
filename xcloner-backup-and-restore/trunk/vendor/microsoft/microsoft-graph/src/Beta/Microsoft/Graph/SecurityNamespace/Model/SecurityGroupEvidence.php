@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityGroupEvidence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecurityGroupEvidence extends AlertEvidence
 {
     /**
-    * Gets the displayName
-    * The name of the security group.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the security group.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SecurityGroupEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the security group.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return SecurityGroupEvidence
-    */
+     * Sets the displayName
+     * The name of the security group.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return SecurityGroupEvidence
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the securityGroupId
-    * Unique identifier of the security group.
-    *
-    * @return string|null The securityGroupId
-    */
+     * Gets the securityGroupId
+     * Unique identifier of the security group.
+     *
+     * @return string|null The securityGroupId
+     */
     public function getSecurityGroupId()
     {
         if (array_key_exists("securityGroupId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class SecurityGroupEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the securityGroupId
-    * Unique identifier of the security group.
-    *
-    * @param string $val The value of the securityGroupId
-    *
-    * @return SecurityGroupEvidence
-    */
+     * Sets the securityGroupId
+     * Unique identifier of the security group.
+     *
+     * @param string $val The value of the securityGroupId
+     *
+     * @return SecurityGroupEvidence
+     */
     public function setSecurityGroupId($val)
     {
         $this->_propDict["securityGroupId"] = $val;

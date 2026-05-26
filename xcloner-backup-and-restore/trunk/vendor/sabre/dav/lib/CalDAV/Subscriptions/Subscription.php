@@ -1,19 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Subscriptions;
 
-namespace Sabre\CalDAV\Subscriptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Backend\SubscriptionSupport;
-use Sabre\DAV\Collection;
-use Sabre\DAV\PropPatch;
-use Sabre\DAV\Xml\Property\Href;
-use Sabre\DAVACL\ACLTrait;
-use Sabre\DAVACL\IACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Backend\SubscriptionSupport;
+use XCloner\Sabre\DAV\Collection;
+use XCloner\Sabre\DAV\PropPatch;
+use XCloner\Sabre\DAV\Xml\Property\Href;
+use XCloner\Sabre\DAVACL\ACLTrait;
+use XCloner\Sabre\DAVACL\IACL;
 /**
  * Subscription Node.
  *
@@ -26,21 +24,18 @@ use Sabre\DAVACL\IACL;
 class Subscription extends Collection implements ISubscription, IACL
 {
     use ACLTrait;
-
     /**
      * caldavBackend.
      *
      * @var SubscriptionSupport
      */
     protected $caldavBackend;
-
     /**
      * subscriptionInfo.
      *
      * @var array
      */
     protected $subscriptionInfo;
-
     /**
      * Constructor.
      */
@@ -48,21 +43,13 @@ class Subscription extends Collection implements ISubscription, IACL
     {
         $this->caldavBackend = $caldavBackend;
         $this->subscriptionInfo = $subscriptionInfo;
-
-        $required = [
-            'id',
-            'uri',
-            'principaluri',
-            'source',
-            ];
-
+        $required = ['id', 'uri', 'principaluri', 'source'];
         foreach ($required as $r) {
             if (!isset($subscriptionInfo[$r])) {
-                throw new \InvalidArgumentException('The '.$r.' field is required when creating a subscription node');
+                throw new \InvalidArgumentException('The ' . $r . ' field is required when creating a subscription node');
             }
         }
     }
-
     /**
      * Returns the name of the node.
      *
@@ -74,7 +61,6 @@ class Subscription extends Collection implements ISubscription, IACL
     {
         return $this->subscriptionInfo['uri'];
     }
-
     /**
      * Returns the last modification time.
      *
@@ -86,17 +72,13 @@ class Subscription extends Collection implements ISubscription, IACL
             return $this->subscriptionInfo['lastmodified'];
         }
     }
-
     /**
      * Deletes the current node.
      */
     public function delete()
     {
-        $this->caldavBackend->deleteSubscription(
-            $this->subscriptionInfo['id']
-        );
+        $this->caldavBackend->deleteSubscription($this->subscriptionInfo['id']);
     }
-
     /**
      * Returns an array with all the child nodes.
      *
@@ -106,7 +88,6 @@ class Subscription extends Collection implements ISubscription, IACL
     {
         return [];
     }
-
     /**
      * Updates properties on this node.
      *
@@ -118,12 +99,8 @@ class Subscription extends Collection implements ISubscription, IACL
      */
     public function propPatch(PropPatch $propPatch)
     {
-        return $this->caldavBackend->updateSubscription(
-            $this->subscriptionInfo['id'],
-            $propPatch
-        );
+        return $this->caldavBackend->updateSubscription($this->subscriptionInfo['id'], $propPatch);
     }
-
     /**
      * Returns a list of properties for this nodes.
      *
@@ -143,7 +120,6 @@ class Subscription extends Collection implements ISubscription, IACL
     public function getProperties($properties)
     {
         $r = [];
-
         foreach ($properties as $prop) {
             switch ($prop) {
                 case '{http://calendarserver.org/ns/}source':
@@ -156,10 +132,8 @@ class Subscription extends Collection implements ISubscription, IACL
                     break;
             }
         }
-
         return $r;
     }
-
     /**
      * Returns the owner principal.
      *
@@ -171,7 +145,6 @@ class Subscription extends Collection implements ISubscription, IACL
     {
         return $this->subscriptionInfo['principaluri'];
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -186,22 +159,6 @@ class Subscription extends Collection implements ISubscription, IACL
      */
     public function getACL()
     {
-        return [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->getOwner().'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->getOwner().'/calendar-proxy-read',
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}all', 'principal' => $this->getOwner(), 'protected' => \true], ['privilege' => '{DAV:}all', 'principal' => $this->getOwner() . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->getOwner() . '/calendar-proxy-read', 'protected' => \true]];
     }
 }

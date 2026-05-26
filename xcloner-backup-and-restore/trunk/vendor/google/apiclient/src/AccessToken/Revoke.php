@@ -15,18 +15,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+namespace XCloner\Google\AccessToken;
 
-namespace Google\AccessToken;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Google\Auth\HttpHandler\HttpHandlerFactory;
-use Google\Client;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Psr7;
-use GuzzleHttp\Psr7\Request;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Google\Auth\HttpHandler\HttpHandlerFactory;
+use XCloner\Google\Client;
+use XCloner\GuzzleHttp\ClientInterface;
+use XCloner\GuzzleHttp\Psr7;
+use XCloner\GuzzleHttp\Psr7\Request;
 /**
  * Wrapper around Google Access Tokens which provides convenience functions
  *
@@ -37,7 +35,6 @@ class Revoke
      * @var ClientInterface The http client
      */
     private $http;
-
     /**
      * Instantiates the class, but does not initiate the login flow, leaving it
      * to the discretion of the caller.
@@ -46,7 +43,6 @@ class Revoke
     {
         $this->http = $http;
     }
-
     /**
      * Revoke an OAuth2 access token or refresh token. This method will revoke the current access
      * token, if a token isn't provided.
@@ -63,22 +59,10 @@ class Revoke
                 $token = $token['access_token'];
             }
         }
-
         $body = Psr7\Utils::streamFor(http_build_query(['token' => $token]));
-        $request = new Request(
-            'POST',
-            Client::OAUTH2_REVOKE_URI,
-            [
-                'Cache-Control' => 'no-store',
-                'Content-Type'  => 'application/x-www-form-urlencoded',
-            ],
-            $body
-        );
-
+        $request = new Request('POST', Client::OAUTH2_REVOKE_URI, ['Cache-Control' => 'no-store', 'Content-Type' => 'application/x-www-form-urlencoded'], $body);
         $httpHandler = HttpHandlerFactory::build($this->http);
-
         $response = $httpHandler($request);
-
         return $response->getStatusCode() == 200;
     }
 }

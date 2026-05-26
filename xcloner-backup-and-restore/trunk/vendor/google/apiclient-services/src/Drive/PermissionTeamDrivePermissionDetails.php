@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,88 +15,85 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class PermissionTeamDrivePermissionDetails extends \Google\Model
-{
-  /**
-   * @var bool
-   */
-  public $inherited;
-  /**
-   * @var string
-   */
-  public $inheritedFrom;
-  /**
-   * @var string
-   */
-  public $role;
-  /**
-   * @var string
-   */
-  public $teamDrivePermissionType;
-
-  /**
-   * @param bool
-   */
-  public function setInherited($inherited)
-  {
-    $this->inherited = $inherited;
-  }
-  /**
-   * @return bool
-   */
-  public function getInherited()
-  {
-    return $this->inherited;
-  }
-  /**
-   * @param string
-   */
-  public function setInheritedFrom($inheritedFrom)
-  {
-    $this->inheritedFrom = $inheritedFrom;
-  }
-  /**
-   * @return string
-   */
-  public function getInheritedFrom()
-  {
-    return $this->inheritedFrom;
-  }
-  /**
-   * @param string
-   */
-  public function setRole($role)
-  {
-    $this->role = $role;
-  }
-  /**
-   * @return string
-   */
-  public function getRole()
-  {
-    return $this->role;
-  }
-  /**
-   * @param string
-   */
-  public function setTeamDrivePermissionType($teamDrivePermissionType)
-  {
-    $this->teamDrivePermissionType = $teamDrivePermissionType;
-  }
-  /**
-   * @return string
-   */
-  public function getTeamDrivePermissionType()
-  {
-    return $this->teamDrivePermissionType;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class PermissionTeamDrivePermissionDetails extends \XCloner\Google\Model
+{
+    /**
+     * @var bool
+     */
+    public $inherited;
+    /**
+     * @var string
+     */
+    public $inheritedFrom;
+    /**
+     * @var string
+     */
+    public $role;
+    /**
+     * @var string
+     */
+    public $teamDrivePermissionType;
+    /**
+     * @param bool
+     */
+    public function setInherited($inherited)
+    {
+        $this->inherited = $inherited;
+    }
+    /**
+     * @return bool
+     */
+    public function getInherited()
+    {
+        return $this->inherited;
+    }
+    /**
+     * @param string
+     */
+    public function setInheritedFrom($inheritedFrom)
+    {
+        $this->inheritedFrom = $inheritedFrom;
+    }
+    /**
+     * @return string
+     */
+    public function getInheritedFrom()
+    {
+        return $this->inheritedFrom;
+    }
+    /**
+     * @param string
+     */
+    public function setRole($role)
+    {
+        $this->role = $role;
+    }
+    /**
+     * @return string
+     */
+    public function getRole()
+    {
+        return $this->role;
+    }
+    /**
+     * @param string
+     */
+    public function setTeamDrivePermissionType($teamDrivePermissionType)
+    {
+        $this->teamDrivePermissionType = $teamDrivePermissionType;
+    }
+    /**
+     * @return string
+     */
+    public function getTeamDrivePermissionType()
+    {
+        return $this->teamDrivePermissionType;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(PermissionTeamDrivePermissionDetails::class, 'Google_Service_Drive_PermissionTeamDrivePermissionDetails');
+class_alias(PermissionTeamDrivePermissionDetails::class, 'XCloner\Google_Service_Drive_PermissionTeamDrivePermissionDetails');

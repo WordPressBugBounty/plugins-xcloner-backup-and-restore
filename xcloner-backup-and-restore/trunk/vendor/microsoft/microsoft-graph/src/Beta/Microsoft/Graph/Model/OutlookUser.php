@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OutlookUser class
 *
@@ -27,38 +28,34 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OutlookUser extends Entity
 {
-
-     /**
+    /**
      * Gets the masterCategories
-    * A list of categories defined for the user.
+     * A list of categories defined for the user.
      *
      * @return array|null The masterCategories
      */
     public function getMasterCategories()
     {
         if (array_key_exists("masterCategories", $this->_propDict)) {
-           return $this->_propDict["masterCategories"];
+            return $this->_propDict["masterCategories"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the masterCategories
-    * A list of categories defined for the user.
-    *
-    * @param OutlookCategory[] $val The masterCategories
-    *
-    * @return OutlookUser
-    */
+     * Sets the masterCategories
+     * A list of categories defined for the user.
+     *
+     * @param OutlookCategory[] $val The masterCategories
+     *
+     * @return OutlookUser
+     */
     public function setMasterCategories($val)
     {
         $this->_propDict["masterCategories"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the taskFolders
      *
      * @return array|null The taskFolders
@@ -66,27 +63,24 @@ class OutlookUser extends Entity
     public function getTaskFolders()
     {
         if (array_key_exists("taskFolders", $this->_propDict)) {
-           return $this->_propDict["taskFolders"];
+            return $this->_propDict["taskFolders"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the taskFolders
-    *
-    * @param OutlookTaskFolder[] $val The taskFolders
-    *
-    * @return OutlookUser
-    */
+     * Sets the taskFolders
+     *
+     * @param OutlookTaskFolder[] $val The taskFolders
+     *
+     * @return OutlookUser
+     */
     public function setTaskFolders($val)
     {
         $this->_propDict["taskFolders"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the taskGroups
      *
      * @return array|null The taskGroups
@@ -94,27 +88,24 @@ class OutlookUser extends Entity
     public function getTaskGroups()
     {
         if (array_key_exists("taskGroups", $this->_propDict)) {
-           return $this->_propDict["taskGroups"];
+            return $this->_propDict["taskGroups"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the taskGroups
-    *
-    * @param OutlookTaskGroup[] $val The taskGroups
-    *
-    * @return OutlookUser
-    */
+     * Sets the taskGroups
+     *
+     * @param OutlookTaskGroup[] $val The taskGroups
+     *
+     * @return OutlookUser
+     */
     public function setTaskGroups($val)
     {
         $this->_propDict["taskGroups"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the tasks
      *
      * @return array|null The tasks
@@ -122,23 +113,21 @@ class OutlookUser extends Entity
     public function getTasks()
     {
         if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
+            return $this->_propDict["tasks"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the tasks
-    *
-    * @param OutlookTask[] $val The tasks
-    *
-    * @return OutlookUser
-    */
+     * Sets the tasks
+     *
+     * @param OutlookTask[] $val The tasks
+     *
+     * @return OutlookUser
+     */
     public function setTasks($val)
     {
         $this->_propDict["tasks"] = $val;
         return $this;
     }
-
 }

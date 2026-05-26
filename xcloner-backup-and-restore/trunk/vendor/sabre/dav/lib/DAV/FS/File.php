@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\FS;
 
-namespace Sabre\DAV\FS;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * File class.
  *
@@ -26,9 +24,8 @@ class File extends Node implements DAV\IFile
     public function put($data)
     {
         file_put_contents($this->path, $data);
-        clearstatcache(true, $this->path);
+        clearstatcache(\true, $this->path);
     }
-
     /**
      * Returns the data.
      *
@@ -38,7 +35,6 @@ class File extends Node implements DAV\IFile
     {
         return fopen($this->path, 'r');
     }
-
     /**
      * Delete the current file.
      */
@@ -46,7 +42,6 @@ class File extends Node implements DAV\IFile
     {
         unlink($this->path);
     }
-
     /**
      * Returns the size of the node, in bytes.
      *
@@ -56,7 +51,6 @@ class File extends Node implements DAV\IFile
     {
         return filesize($this->path);
     }
-
     /**
      * Returns the ETag for a file.
      *
@@ -69,13 +63,8 @@ class File extends Node implements DAV\IFile
      */
     public function getETag()
     {
-        return '"'.sha1(
-            fileinode($this->path).
-            filesize($this->path).
-            filemtime($this->path)
-        ).'"';
+        return '"' . sha1(fileinode($this->path) . filesize($this->path) . filemtime($this->path)) . '"';
     }
-
     /**
      * Returns the mime-type for a file.
      *

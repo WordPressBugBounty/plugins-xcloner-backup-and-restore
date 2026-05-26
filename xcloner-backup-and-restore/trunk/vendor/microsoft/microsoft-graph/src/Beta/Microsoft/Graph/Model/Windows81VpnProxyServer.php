@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows81VpnProxyServer class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows81VpnProxyServer extends VpnProxyServer
 {
     /**
-    * Gets the automaticallyDetectProxySettings
-    * Automatically detect proxy settings.
-    *
-    * @return bool|null The automaticallyDetectProxySettings
-    */
+     * Gets the automaticallyDetectProxySettings
+     * Automatically detect proxy settings.
+     *
+     * @return bool|null The automaticallyDetectProxySettings
+     */
     public function getAutomaticallyDetectProxySettings()
     {
         if (array_key_exists("automaticallyDetectProxySettings", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Windows81VpnProxyServer extends VpnProxyServer
             return null;
         }
     }
-
     /**
-    * Sets the automaticallyDetectProxySettings
-    * Automatically detect proxy settings.
-    *
-    * @param bool $val The value of the automaticallyDetectProxySettings
-    *
-    * @return Windows81VpnProxyServer
-    */
+     * Sets the automaticallyDetectProxySettings
+     * Automatically detect proxy settings.
+     *
+     * @param bool $val The value of the automaticallyDetectProxySettings
+     *
+     * @return Windows81VpnProxyServer
+     */
     public function setAutomaticallyDetectProxySettings($val)
     {
         $this->_propDict["automaticallyDetectProxySettings"] = $val;
         return $this;
     }
     /**
-    * Gets the bypassProxyServerForLocalAddress
-    * Bypass proxy server for local address.
-    *
-    * @return bool|null The bypassProxyServerForLocalAddress
-    */
+     * Gets the bypassProxyServerForLocalAddress
+     * Bypass proxy server for local address.
+     *
+     * @return bool|null The bypassProxyServerForLocalAddress
+     */
     public function getBypassProxyServerForLocalAddress()
     {
         if (array_key_exists("bypassProxyServerForLocalAddress", $this->_propDict)) {
@@ -68,15 +69,14 @@ class Windows81VpnProxyServer extends VpnProxyServer
             return null;
         }
     }
-
     /**
-    * Sets the bypassProxyServerForLocalAddress
-    * Bypass proxy server for local address.
-    *
-    * @param bool $val The value of the bypassProxyServerForLocalAddress
-    *
-    * @return Windows81VpnProxyServer
-    */
+     * Sets the bypassProxyServerForLocalAddress
+     * Bypass proxy server for local address.
+     *
+     * @param bool $val The value of the bypassProxyServerForLocalAddress
+     *
+     * @return Windows81VpnProxyServer
+     */
     public function setBypassProxyServerForLocalAddress($val)
     {
         $this->_propDict["bypassProxyServerForLocalAddress"] = $val;

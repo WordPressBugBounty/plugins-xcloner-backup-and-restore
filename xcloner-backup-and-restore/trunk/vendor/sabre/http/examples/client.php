@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This example shows how to make a HTTP request with the Request and Response
  * objects.
@@ -11,30 +13,20 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * @author Evert Pot (http://evertpot.com/)
  * @license http://sabre.io/license/ Modified BSD License
  */
-use Sabre\HTTP\Client;
-use Sabre\HTTP\Request;
-
+use XCloner\Sabre\HTTP\Client;
+use XCloner\Sabre\HTTP\Request;
 // Find the autoloader
-$paths = [
-    __DIR__.'/../vendor/autoload.php',
-    __DIR__.'/../../../autoload.php',
-    __DIR__.'/vendor/autoload.php',
-];
-
+$paths = [__DIR__ . '/../vendor/autoload.php', __DIR__ . '/../../../autoload.php', __DIR__ . '/vendor/autoload.php'];
 foreach ($paths as $path) {
-    if (file_exists($path)) {
+    if (\file_exists($path)) {
         include $path;
         break;
     }
 }
-
 // Constructing the request.
 $request = new Request('GET', 'http://localhost/');
-
 $client = new Client();
 //$client->addCurlSetting(CURLOPT_PROXY,'localhost:8888');
 $response = $client->send($request);
-
 echo "Response:\n";
-
 echo (string) $response;

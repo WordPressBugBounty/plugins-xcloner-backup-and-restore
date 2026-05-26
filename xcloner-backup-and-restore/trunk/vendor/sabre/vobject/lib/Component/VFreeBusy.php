@@ -1,13 +1,12 @@
 <?php
 
-namespace Sabre\VObject\Component;
+namespace XCloner\Sabre\VObject\Component;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeInterface;
-use Sabre\VObject;
-
+use XCloner\Sabre\VObject;
 /**
  * The VFreeBusy component.
  *
@@ -34,32 +33,26 @@ class VFreeBusy extends VObject\Component
             if (isset($freebusy['FBTYPE']) && 'BUSY' !== strtoupper(substr((string) $freebusy['FBTYPE'], 0, 4))) {
                 continue;
             }
-
             // The freebusy component can hold more than 1 value, separated by
             // commas.
             $periods = explode(',', (string) $freebusy);
-
             foreach ($periods as $period) {
                 // Every period is formatted as [start]/[end]. The start is an
                 // absolute UTC time, the end may be an absolute UTC time, or
                 // duration (relative) value.
                 list($busyStart, $busyEnd) = explode('/', $period);
-
                 $busyStart = VObject\DateTimeParser::parse($busyStart);
                 $busyEnd = VObject\DateTimeParser::parse($busyEnd);
                 if ($busyEnd instanceof \DateInterval) {
                     $busyEnd = $busyStart->add($busyEnd);
                 }
-
                 if ($start < $busyEnd && $end > $busyStart) {
-                    return false;
+                    return \false;
                 }
             }
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * A simple list of validation rules.
      *
@@ -77,20 +70,6 @@ class VFreeBusy extends VObject\Component
      */
     public function getValidationRules()
     {
-        return [
-            'UID' => 1,
-            'DTSTAMP' => 1,
-
-            'CONTACT' => '?',
-            'DTSTART' => '?',
-            'DTEND' => '?',
-            'ORGANIZER' => '?',
-            'URL' => '?',
-
-            'ATTENDEE' => '*',
-            'COMMENT' => '*',
-            'FREEBUSY' => '*',
-            'REQUEST-STATUS' => '*',
-        ];
+        return ['UID' => 1, 'DTSTAMP' => 1, 'CONTACT' => '?', 'DTSTART' => '?', 'DTEND' => '?', 'ORGANIZER' => '?', 'URL' => '?', 'ATTENDEE' => '*', 'COMMENT' => '*', 'FREEBUSY' => '*', 'REQUEST-STATUS' => '*'];
     }
 }

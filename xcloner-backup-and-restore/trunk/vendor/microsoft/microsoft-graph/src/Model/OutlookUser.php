@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OutlookUser class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OutlookUser extends Entity
 {
-
-     /**
+    /**
      * Gets the masterCategories
-    * A list of categories defined for the user.
+     * A list of categories defined for the user.
      *
      * @return array|null The masterCategories
      */
     public function getMasterCategories()
     {
         if (array_key_exists("masterCategories", $this->_propDict)) {
-           return $this->_propDict["masterCategories"];
+            return $this->_propDict["masterCategories"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the masterCategories
-    * A list of categories defined for the user.
-    *
-    * @param OutlookCategory[] $val The masterCategories
-    *
-    * @return OutlookUser
-    */
+     * Sets the masterCategories
+     * A list of categories defined for the user.
+     *
+     * @param OutlookCategory[] $val The masterCategories
+     *
+     * @return OutlookUser
+     */
     public function setMasterCategories($val)
     {
         $this->_propDict["masterCategories"] = $val;
         return $this;
     }
-
 }

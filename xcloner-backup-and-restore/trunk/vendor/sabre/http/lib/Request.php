@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use LogicException;
-use Sabre\Uri;
-
+use XCloner\Sabre\Uri;
 /**
  * The Request class represents a single HTTP request.
  *
@@ -28,14 +26,12 @@ class Request extends Message implements RequestInterface
      * @var string
      */
     protected $method;
-
     /**
      * Request Url.
      *
      * @var string
      */
     protected $url;
-
     /**
      * Creates the request object.
      *
@@ -48,7 +44,6 @@ class Request extends Message implements RequestInterface
         $this->setHeaders($headers);
         $this->setBody($body);
     }
-
     /**
      * Returns the current HTTP method.
      */
@@ -56,7 +51,6 @@ class Request extends Message implements RequestInterface
     {
         return $this->method;
     }
-
     /**
      * Sets the HTTP method.
      */
@@ -64,7 +58,6 @@ class Request extends Message implements RequestInterface
     {
         $this->method = $method;
     }
-
     /**
      * Returns the request url.
      */
@@ -72,7 +65,6 @@ class Request extends Message implements RequestInterface
     {
         return $this->url;
     }
-
     /**
      * Sets the request url.
      */
@@ -80,7 +72,6 @@ class Request extends Message implements RequestInterface
     {
         $this->url = $url;
     }
-
     /**
      * Returns the list of query parameters.
      *
@@ -89,17 +80,13 @@ class Request extends Message implements RequestInterface
     public function getQueryParameters(): array
     {
         $url = $this->getUrl();
-        if (false === ($index = strpos($url, '?'))) {
+        if (\false === $index = strpos($url, '?')) {
             return [];
         }
-
         parse_str(substr($url, $index + 1), $queryParams);
-
         return $queryParams;
     }
-
     protected $absoluteUrl;
-
     /**
      * Sets the absolute url.
      */
@@ -107,7 +94,6 @@ class Request extends Message implements RequestInterface
     {
         $this->absoluteUrl = $url;
     }
-
     /**
      * Returns the absolute url.
      */
@@ -115,21 +101,16 @@ class Request extends Message implements RequestInterface
     {
         if (!$this->absoluteUrl) {
             // Guessing we're a http endpoint.
-            $this->absoluteUrl = 'http://'.
-                ($this->getHeader('Host') ?? 'localhost').
-                $this->getUrl();
+            $this->absoluteUrl = 'http://' . ($this->getHeader('Host') ?? 'localhost') . $this->getUrl();
         }
-
         return $this->absoluteUrl;
     }
-
     /**
      * Base url.
      *
      * @var string
      */
     protected $baseUrl = '/';
-
     /**
      * Sets a base url.
      *
@@ -139,7 +120,6 @@ class Request extends Message implements RequestInterface
     {
         $this->baseUrl = $url;
     }
-
     /**
      * Returns the current base url.
      */
@@ -147,7 +127,6 @@ class Request extends Message implements RequestInterface
     {
         return $this->baseUrl;
     }
-
     /**
      * Returns the relative path.
      *
@@ -167,33 +146,26 @@ class Request extends Message implements RequestInterface
     {
         // Removing duplicated slashes.
         $uri = str_replace('//', '/', $this->getUrl());
-
         $uri = Uri\normalize($uri);
         $baseUri = Uri\normalize($this->getBaseUrl());
-
         if (0 === strpos($uri, $baseUri)) {
             // We're not interested in the query part (everything after the ?).
             list($uri) = explode('?', $uri);
-
             return trim(decodePath(substr($uri, strlen($baseUri))), '/');
         }
-
-        if ($uri.'/' === $baseUri) {
+        if ($uri . '/' === $baseUri) {
             return '';
         }
         // A special case, if the baseUri was accessed without a trailing
         // slash, we'll accept it as well.
-
-        throw new \LogicException('Requested uri ('.$this->getUrl().') is out of base uri ('.$this->getBaseUrl().')');
+        throw new \LogicException('Requested uri (' . $this->getUrl() . ') is out of base uri (' . $this->getBaseUrl() . ')');
     }
-
     /**
      * Equivalent of PHP's $_POST.
      *
      * @var array
      */
     protected $postData = [];
-
     /**
      * Sets the post data.
      *
@@ -206,7 +178,6 @@ class Request extends Message implements RequestInterface
     {
         $this->postData = $postData;
     }
-
     /**
      * Returns the POST data.
      *
@@ -216,14 +187,12 @@ class Request extends Message implements RequestInterface
     {
         return $this->postData;
     }
-
     /**
      * An array containing the raw _SERVER array.
      *
      * @var array
      */
     protected $rawServerData;
-
     /**
      * Returns an item from the _SERVER array.
      *
@@ -235,7 +204,6 @@ class Request extends Message implements RequestInterface
     {
         return $this->rawServerData[$valueName] ?? null;
     }
-
     /**
      * Sets the _SERVER array.
      */
@@ -243,7 +211,6 @@ class Request extends Message implements RequestInterface
     {
         $this->rawServerData = $data;
     }
-
     /**
      * Serializes the request object as a string.
      *
@@ -251,20 +218,18 @@ class Request extends Message implements RequestInterface
      */
     public function __toString(): string
     {
-        $out = $this->getMethod().' '.$this->getUrl().' HTTP/'.$this->getHttpVersion()."\r\n";
-
+        $out = $this->getMethod() . ' ' . $this->getUrl() . ' HTTP/' . $this->getHttpVersion() . "\r\n";
         foreach ($this->getHeaders() as $key => $value) {
             foreach ($value as $v) {
                 if ('Authorization' === $key) {
                     list($v) = explode(' ', $v, 2);
                     $v .= ' REDACTED';
                 }
-                $out .= $key.': '.$v."\r\n";
+                $out .= $key . ': ' . $v . "\r\n";
             }
         }
         $out .= "\r\n";
         $out .= $this->getBodyAsString();
-
         return $out;
     }
 }

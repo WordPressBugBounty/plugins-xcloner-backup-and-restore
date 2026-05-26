@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Catalogue;
 
-namespace Symfony\Component\Translation\Catalogue;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\MessageCatalogueInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\MessageCatalogueInterface;
 /**
  * Represents an operation on catalogue(s).
  *
@@ -43,28 +41,24 @@ interface OperationInterface
      * @return array
      */
     public function getDomains();
-
     /**
      * Returns all valid messages ('all') after operation.
      *
      * @return array
      */
     public function getMessages(string $domain);
-
     /**
      * Returns new messages ('new') after operation.
      *
      * @return array
      */
     public function getNewMessages(string $domain);
-
     /**
      * Returns obsolete messages ('obsolete') after operation.
      *
      * @return array
      */
     public function getObsoleteMessages(string $domain);
-
     /**
      * Returns resulting catalogue ('result').
      *

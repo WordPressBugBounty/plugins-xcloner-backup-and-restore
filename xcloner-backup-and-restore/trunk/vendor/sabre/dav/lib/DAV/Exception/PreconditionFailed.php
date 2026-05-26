@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Exception;
 
-namespace Sabre\DAV\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * PreconditionFailed.
  *
@@ -31,7 +29,6 @@ class PreconditionFailed extends DAV\Exception
      * @var string
      */
     public $header = null;
-
     /**
      * Create the exception.
      *
@@ -43,7 +40,6 @@ class PreconditionFailed extends DAV\Exception
         parent::__construct($message);
         $this->header = $header;
     }
-
     /**
      * Returns the HTTP statuscode for this exception.
      *
@@ -53,7 +49,6 @@ class PreconditionFailed extends DAV\Exception
     {
         return 412;
     }
-
     /**
      * This method allows the exception to include additional information into the WebDAV error response.
      */

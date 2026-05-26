@@ -12,9 +12,6 @@
 
 namespace Composer\Autoload;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
 /**
  * ClassLoader implements a PSR-0, PSR-4 and classmap class loader.
  *

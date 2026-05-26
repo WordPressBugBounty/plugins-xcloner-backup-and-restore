@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptRemediationHistoryData class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceHealthScriptRemediationHistoryData extends Entity
 {
-
     /**
-    * Gets the date
-    * The date on which devices were remediated by the device health script.
-    *
-    * @return \DateTime|null The date
-    */
+     * Gets the date
+     * The date on which devices were remediated by the device health script.
+     *
+     * @return \DateTime|null The date
+     */
     public function getDate()
     {
         if (array_key_exists("date", $this->_propDict)) {
-            if (is_a($this->_propDict["date"], "\DateTime") || is_null($this->_propDict["date"])) {
+            if (is_a($this->_propDict["date"], "\\DateTime") || is_null($this->_propDict["date"])) {
                 return $this->_propDict["date"];
             } else {
                 $this->_propDict["date"] = new \DateTime($this->_propDict["date"]);
@@ -45,26 +46,25 @@ class DeviceHealthScriptRemediationHistoryData extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the date
-    * The date on which devices were remediated by the device health script.
-    *
-    * @param \DateTime $val The value to assign to the date
-    *
-    * @return DeviceHealthScriptRemediationHistoryData The DeviceHealthScriptRemediationHistoryData
-    */
+     * Sets the date
+     * The date on which devices were remediated by the device health script.
+     *
+     * @param \DateTime $val The value to assign to the date
+     *
+     * @return DeviceHealthScriptRemediationHistoryData The DeviceHealthScriptRemediationHistoryData
+     */
     public function setDate($val)
     {
         $this->_propDict["date"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the noIssueDeviceCount
-    * The number of devices that were found to have no issue by the device health script.
-    *
-    * @return int|null The noIssueDeviceCount
-    */
+     * Gets the noIssueDeviceCount
+     * The number of devices that were found to have no issue by the device health script.
+     *
+     * @return int|null The noIssueDeviceCount
+     */
     public function getNoIssueDeviceCount()
     {
         if (array_key_exists("noIssueDeviceCount", $this->_propDict)) {
@@ -73,26 +73,25 @@ class DeviceHealthScriptRemediationHistoryData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the noIssueDeviceCount
-    * The number of devices that were found to have no issue by the device health script.
-    *
-    * @param int $val The value of the noIssueDeviceCount
-    *
-    * @return DeviceHealthScriptRemediationHistoryData
-    */
+     * Sets the noIssueDeviceCount
+     * The number of devices that were found to have no issue by the device health script.
+     *
+     * @param int $val The value of the noIssueDeviceCount
+     *
+     * @return DeviceHealthScriptRemediationHistoryData
+     */
     public function setNoIssueDeviceCount($val)
     {
         $this->_propDict["noIssueDeviceCount"] = $val;
         return $this;
     }
     /**
-    * Gets the remediatedDeviceCount
-    * The number of devices remediated by the device health script.
-    *
-    * @return int|null The remediatedDeviceCount
-    */
+     * Gets the remediatedDeviceCount
+     * The number of devices remediated by the device health script.
+     *
+     * @return int|null The remediatedDeviceCount
+     */
     public function getRemediatedDeviceCount()
     {
         if (array_key_exists("remediatedDeviceCount", $this->_propDict)) {
@@ -101,15 +100,14 @@ class DeviceHealthScriptRemediationHistoryData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remediatedDeviceCount
-    * The number of devices remediated by the device health script.
-    *
-    * @param int $val The value of the remediatedDeviceCount
-    *
-    * @return DeviceHealthScriptRemediationHistoryData
-    */
+     * Sets the remediatedDeviceCount
+     * The number of devices remediated by the device health script.
+     *
+     * @param int $val The value of the remediatedDeviceCount
+     *
+     * @return DeviceHealthScriptRemediationHistoryData
+     */
     public function setRemediatedDeviceCount($val)
     {
         $this->_propDict["remediatedDeviceCount"] = $val;

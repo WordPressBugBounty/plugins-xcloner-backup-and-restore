@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\ExternalConnectors\Model;
+namespace XCloner\Microsoft\Graph\ExternalConnectors\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * PropertyType class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class PropertyType extends Enum
 {
     /**
-    * The Enum PropertyType
-    */
+     * The Enum PropertyType
+     */
     const GRAPHSTRING = "string";
     const INT64 = "int64";
     const DOUBLE = "double";

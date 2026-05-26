@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationReferenceSettingValue class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagementConfigurationStringSettingValue
 {
     /**
-    * Gets the note
-    * A note that admin can use to put some contextual information
-    *
-    * @return string|null The note
-    */
+     * Gets the note
+     * A note that admin can use to put some contextual information
+     *
+     * @return string|null The note
+     */
     public function getNote()
     {
         if (array_key_exists("note", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeviceManagementConfigurationReferenceSettingValue extends DeviceManagemen
             return null;
         }
     }
-
     /**
-    * Sets the note
-    * A note that admin can use to put some contextual information
-    *
-    * @param string $val The value of the note
-    *
-    * @return DeviceManagementConfigurationReferenceSettingValue
-    */
+     * Sets the note
+     * A note that admin can use to put some contextual information
+     *
+     * @param string $val The value of the note
+     *
+     * @return DeviceManagementConfigurationReferenceSettingValue
+     */
     public function setNote($val)
     {
         $this->_propDict["note"] = $val;

@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL;
 
-namespace Sabre\DAVACL;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\Uri;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\Uri;
 /**
  * Principal class.
  *
@@ -28,21 +26,18 @@ use Sabre\Uri;
 class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
 {
     use ACLTrait;
-
     /**
      * Struct with principal information.
      *
      * @var array
      */
     protected $principalProperties;
-
     /**
      * Principal backend.
      *
      * @var PrincipalBackend\BackendInterface
      */
     protected $principalBackend;
-
     /**
      * Creates the principal object.
      */
@@ -54,7 +49,6 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
         $this->principalBackend = $principalBackend;
         $this->principalProperties = $principalProperties;
     }
-
     /**
      * Returns the full principal url.
      *
@@ -64,7 +58,6 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
     {
         return $this->principalProperties['uri'];
     }
-
     /**
      * Returns a list of alternative urls for a principal.
      *
@@ -78,14 +71,11 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
         if (isset($this->principalProperties['{DAV:}alternate-URI-set'])) {
             $uris = $this->principalProperties['{DAV:}alternate-URI-set'];
         }
-
         if (isset($this->principalProperties['{http://sabredav.org/ns}email-address'])) {
-            $uris[] = 'mailto:'.$this->principalProperties['{http://sabredav.org/ns}email-address'];
+            $uris[] = 'mailto:' . $this->principalProperties['{http://sabredav.org/ns}email-address'];
         }
-
         return array_unique($uris);
     }
-
     /**
      * Returns the list of group members.
      *
@@ -98,7 +88,6 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
     {
         return $this->principalBackend->getGroupMemberSet($this->principalProperties['uri']);
     }
-
     /**
      * Returns the list of groups this principal is member of.
      *
@@ -111,7 +100,6 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
     {
         return $this->principalBackend->getGroupMemberShip($this->principalProperties['uri']);
     }
-
     /**
      * Sets a list of group members.
      *
@@ -124,7 +112,6 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
     {
         $this->principalBackend->setGroupMemberSet($this->principalProperties['uri'], $groupMembers);
     }
-
     /**
      * Returns this principals name.
      *
@@ -134,10 +121,8 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
     {
         $uri = $this->principalProperties['uri'];
         list(, $name) = Uri\split($uri);
-
         return $name;
     }
-
     /**
      * Returns the name of the user.
      *
@@ -151,7 +136,6 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
             return $this->getName();
         }
     }
-
     /**
      * Returns a list of properties.
      *
@@ -167,10 +151,8 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
                 $newProperties[$propName] = $this->principalProperties[$propName];
             }
         }
-
         return $newProperties;
     }
-
     /**
      * Updates properties on this node.
      *
@@ -182,12 +164,8 @@ class Principal extends DAV\Node implements IPrincipal, DAV\IProperties, IACL
      */
     public function propPatch(DAV\PropPatch $propPatch)
     {
-        return $this->principalBackend->updatePrincipal(
-            $this->principalProperties['uri'],
-            $propPatch
-        );
+        return $this->principalBackend->updatePrincipal($this->principalProperties['uri'], $propPatch);
     }
-
     /**
      * Returns the owner principal.
      *

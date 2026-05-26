@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceKey class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceKey extends Entity
 {
     /**
-    * Gets the deviceId
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -39,55 +41,52 @@ class DeviceKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    *
-    * @param string $val The value of the deviceId
-    *
-    * @return DeviceKey
-    */
+     * Sets the deviceId
+     *
+     * @param string $val The value of the deviceId
+     *
+     * @return DeviceKey
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the keyMaterial
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The keyMaterial
-    */
+     * Gets the keyMaterial
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The keyMaterial
+     */
     public function getKeyMaterial()
     {
         if (array_key_exists("keyMaterial", $this->_propDict)) {
-            if (is_a($this->_propDict["keyMaterial"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["keyMaterial"])) {
+            if (is_a($this->_propDict["keyMaterial"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["keyMaterial"])) {
                 return $this->_propDict["keyMaterial"];
             } else {
-                $this->_propDict["keyMaterial"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["keyMaterial"]);
+                $this->_propDict["keyMaterial"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["keyMaterial"]);
                 return $this->_propDict["keyMaterial"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the keyMaterial
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the keyMaterial
-    *
-    * @return DeviceKey The DeviceKey
-    */
+     * Sets the keyMaterial
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the keyMaterial
+     *
+     * @return DeviceKey The DeviceKey
+     */
     public function setKeyMaterial($val)
     {
         $this->_propDict["keyMaterial"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the keyType
-    *
-    * @return string|null The keyType
-    */
+     * Gets the keyType
+     *
+     * @return string|null The keyType
+     */
     public function getKeyType()
     {
         if (array_key_exists("keyType", $this->_propDict)) {
@@ -96,14 +95,13 @@ class DeviceKey extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the keyType
-    *
-    * @param string $val The value of the keyType
-    *
-    * @return DeviceKey
-    */
+     * Sets the keyType
+     *
+     * @param string $val The value of the keyType
+     *
+     * @return DeviceKey
+     */
     public function setKeyType($val)
     {
         $this->_propDict["keyType"] = $val;

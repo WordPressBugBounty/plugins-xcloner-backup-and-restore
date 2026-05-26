@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ShiftItem class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ShiftItem extends ScheduleEntity
 {
-
     /**
-    * Gets the activities
-    * An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-    *
-    * @return ShiftActivity|null The activities
-    */
+     * Gets the activities
+     * An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+     *
+     * @return ShiftActivity|null The activities
+     */
     public function getActivities()
     {
         if (array_key_exists("activities", $this->_propDict)) {
-            if (is_a($this->_propDict["activities"], "\Beta\Microsoft\Graph\Model\ShiftActivity") || is_null($this->_propDict["activities"])) {
+            if (is_a($this->_propDict["activities"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ShiftActivity") || is_null($this->_propDict["activities"])) {
                 return $this->_propDict["activities"];
             } else {
                 $this->_propDict["activities"] = new ShiftActivity($this->_propDict["activities"]);
@@ -45,26 +46,25 @@ class ShiftItem extends ScheduleEntity
         }
         return null;
     }
-
     /**
-    * Sets the activities
-    * An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-    *
-    * @param ShiftActivity $val The value to assign to the activities
-    *
-    * @return ShiftItem The ShiftItem
-    */
+     * Sets the activities
+     * An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+     *
+     * @param ShiftActivity $val The value to assign to the activities
+     *
+     * @return ShiftItem The ShiftItem
+     */
     public function setActivities($val)
     {
         $this->_propDict["activities"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the displayName
-    * The shift label of the shiftItem.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The shift label of the shiftItem.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -73,26 +73,25 @@ class ShiftItem extends ScheduleEntity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The shift label of the shiftItem.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ShiftItem
-    */
+     * Sets the displayName
+     * The shift label of the shiftItem.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ShiftItem
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the notes
-    * The shift notes for the shiftItem.
-    *
-    * @return string|null The notes
-    */
+     * Gets the notes
+     * The shift notes for the shiftItem.
+     *
+     * @return string|null The notes
+     */
     public function getNotes()
     {
         if (array_key_exists("notes", $this->_propDict)) {
@@ -101,15 +100,14 @@ class ShiftItem extends ScheduleEntity
             return null;
         }
     }
-
     /**
-    * Sets the notes
-    * The shift notes for the shiftItem.
-    *
-    * @param string $val The value of the notes
-    *
-    * @return ShiftItem
-    */
+     * Sets the notes
+     * The shift notes for the shiftItem.
+     *
+     * @param string $val The value of the notes
+     *
+     * @return ShiftItem
+     */
     public function setNotes($val)
     {
         $this->_propDict["notes"] = $val;

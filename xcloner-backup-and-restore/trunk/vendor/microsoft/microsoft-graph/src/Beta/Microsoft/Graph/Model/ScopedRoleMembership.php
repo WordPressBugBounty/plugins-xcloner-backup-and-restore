@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ScopedRoleMembership class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ScopedRoleMembership extends Entity
 {
     /**
-    * Gets the administrativeUnitId
-    * Unique identifier for the administrative unit that the directory role is scoped to
-    *
-    * @return string|null The administrativeUnitId
-    */
+     * Gets the administrativeUnitId
+     * Unique identifier for the administrative unit that the directory role is scoped to
+     *
+     * @return string|null The administrativeUnitId
+     */
     public function getAdministrativeUnitId()
     {
         if (array_key_exists("administrativeUnitId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ScopedRoleMembership extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the administrativeUnitId
-    * Unique identifier for the administrative unit that the directory role is scoped to
-    *
-    * @param string $val The administrativeUnitId
-    *
-    * @return ScopedRoleMembership
-    */
+     * Sets the administrativeUnitId
+     * Unique identifier for the administrative unit that the directory role is scoped to
+     *
+     * @param string $val The administrativeUnitId
+     *
+     * @return ScopedRoleMembership
+     */
     public function setAdministrativeUnitId($val)
     {
         $this->_propDict["administrativeUnitId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleId
-    * Unique identifier for the directory role that the member is in.
-    *
-    * @return string|null The roleId
-    */
+     * Gets the roleId
+     * Unique identifier for the directory role that the member is in.
+     *
+     * @return string|null The roleId
+     */
     public function getRoleId()
     {
         if (array_key_exists("roleId", $this->_propDict)) {
@@ -70,31 +69,29 @@ class ScopedRoleMembership extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleId
-    * Unique identifier for the directory role that the member is in.
-    *
-    * @param string $val The roleId
-    *
-    * @return ScopedRoleMembership
-    */
+     * Sets the roleId
+     * Unique identifier for the directory role that the member is in.
+     *
+     * @param string $val The roleId
+     *
+     * @return ScopedRoleMembership
+     */
     public function setRoleId($val)
     {
         $this->_propDict["roleId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleMemberInfo
-    * Role member identity information. Represents the user that is a member of this scoped-role.
-    *
-    * @return Identity|null The roleMemberInfo
-    */
+     * Gets the roleMemberInfo
+     * Role member identity information. Represents the user that is a member of this scoped-role.
+     *
+     * @return Identity|null The roleMemberInfo
+     */
     public function getRoleMemberInfo()
     {
         if (array_key_exists("roleMemberInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["roleMemberInfo"], "\Beta\Microsoft\Graph\Model\Identity") || is_null($this->_propDict["roleMemberInfo"])) {
+            if (is_a($this->_propDict["roleMemberInfo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Identity") || is_null($this->_propDict["roleMemberInfo"])) {
                 return $this->_propDict["roleMemberInfo"];
             } else {
                 $this->_propDict["roleMemberInfo"] = new Identity($this->_propDict["roleMemberInfo"]);
@@ -103,19 +100,17 @@ class ScopedRoleMembership extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the roleMemberInfo
-    * Role member identity information. Represents the user that is a member of this scoped-role.
-    *
-    * @param Identity $val The roleMemberInfo
-    *
-    * @return ScopedRoleMembership
-    */
+     * Sets the roleMemberInfo
+     * Role member identity information. Represents the user that is a member of this scoped-role.
+     *
+     * @param Identity $val The roleMemberInfo
+     *
+     * @return ScopedRoleMembership
+     */
     public function setRoleMemberInfo($val)
     {
         $this->_propDict["roleMemberInfo"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * JobResponseBase class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class JobResponseBase extends Entity
 {
     /**
-    * Gets the creationDateTime
-    *
-    * @return \DateTime|null The creationDateTime
-    */
+     * Gets the creationDateTime
+     *
+     * @return \DateTime|null The creationDateTime
+     */
     public function getCreationDateTime()
     {
         if (array_key_exists("creationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["creationDateTime"], "\DateTime") || is_null($this->_propDict["creationDateTime"])) {
+            if (is_a($this->_propDict["creationDateTime"], "\\DateTime") || is_null($this->_propDict["creationDateTime"])) {
                 return $this->_propDict["creationDateTime"];
             } else {
                 $this->_propDict["creationDateTime"] = new \DateTime($this->_propDict["creationDateTime"]);
@@ -44,29 +45,27 @@ class JobResponseBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the creationDateTime
-    *
-    * @param \DateTime $val The creationDateTime
-    *
-    * @return JobResponseBase
-    */
+     * Sets the creationDateTime
+     *
+     * @param \DateTime $val The creationDateTime
+     *
+     * @return JobResponseBase
+     */
     public function setCreationDateTime($val)
     {
         $this->_propDict["creationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the endDateTime
-    *
-    * @return \DateTime|null The endDateTime
-    */
+     * Gets the endDateTime
+     *
+     * @return \DateTime|null The endDateTime
+     */
     public function getEndDateTime()
     {
         if (array_key_exists("endDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["endDateTime"], "\DateTime") || is_null($this->_propDict["endDateTime"])) {
+            if (is_a($this->_propDict["endDateTime"], "\\DateTime") || is_null($this->_propDict["endDateTime"])) {
                 return $this->_propDict["endDateTime"];
             } else {
                 $this->_propDict["endDateTime"] = new \DateTime($this->_propDict["endDateTime"]);
@@ -75,29 +74,27 @@ class JobResponseBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the endDateTime
-    *
-    * @param \DateTime $val The endDateTime
-    *
-    * @return JobResponseBase
-    */
+     * Sets the endDateTime
+     *
+     * @param \DateTime $val The endDateTime
+     *
+     * @return JobResponseBase
+     */
     public function setEndDateTime($val)
     {
         $this->_propDict["endDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the error
-    *
-    * @return ClassificationError|null The error
-    */
+     * Gets the error
+     *
+     * @return ClassificationError|null The error
+     */
     public function getError()
     {
         if (array_key_exists("error", $this->_propDict)) {
-            if (is_a($this->_propDict["error"], "\Beta\Microsoft\Graph\Model\ClassificationError") || is_null($this->_propDict["error"])) {
+            if (is_a($this->_propDict["error"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ClassificationError") || is_null($this->_propDict["error"])) {
                 return $this->_propDict["error"];
             } else {
                 $this->_propDict["error"] = new ClassificationError($this->_propDict["error"]);
@@ -106,29 +103,27 @@ class JobResponseBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the error
-    *
-    * @param ClassificationError $val The error
-    *
-    * @return JobResponseBase
-    */
+     * Sets the error
+     *
+     * @param ClassificationError $val The error
+     *
+     * @return JobResponseBase
+     */
     public function setError($val)
     {
         $this->_propDict["error"] = $val;
         return $this;
     }
-
     /**
-    * Gets the startDateTime
-    *
-    * @return \DateTime|null The startDateTime
-    */
+     * Gets the startDateTime
+     *
+     * @return \DateTime|null The startDateTime
+     */
     public function getStartDateTime()
     {
         if (array_key_exists("startDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startDateTime"], "\DateTime") || is_null($this->_propDict["startDateTime"])) {
+            if (is_a($this->_propDict["startDateTime"], "\\DateTime") || is_null($this->_propDict["startDateTime"])) {
                 return $this->_propDict["startDateTime"];
             } else {
                 $this->_propDict["startDateTime"] = new \DateTime($this->_propDict["startDateTime"]);
@@ -137,25 +132,23 @@ class JobResponseBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startDateTime
-    *
-    * @param \DateTime $val The startDateTime
-    *
-    * @return JobResponseBase
-    */
+     * Sets the startDateTime
+     *
+     * @param \DateTime $val The startDateTime
+     *
+     * @return JobResponseBase
+     */
     public function setStartDateTime($val)
     {
         $this->_propDict["startDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    *
-    * @return string|null The status
-    */
+     * Gets the status
+     *
+     * @return string|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
@@ -164,25 +157,23 @@ class JobResponseBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the status
-    *
-    * @param string $val The status
-    *
-    * @return JobResponseBase
-    */
+     * Sets the status
+     *
+     * @param string $val The status
+     *
+     * @return JobResponseBase
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tenantId
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -191,25 +182,23 @@ class JobResponseBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    *
-    * @param string $val The tenantId
-    *
-    * @return JobResponseBase
-    */
+     * Sets the tenantId
+     *
+     * @param string $val The tenantId
+     *
+     * @return JobResponseBase
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -218,18 +207,16 @@ class JobResponseBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The type
-    *
-    * @return JobResponseBase
-    */
+     * Sets the type
+     *
+     * @param string $val The type
+     *
+     * @return JobResponseBase
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
 }

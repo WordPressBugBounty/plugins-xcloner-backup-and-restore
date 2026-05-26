@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnifiedRbacResourceScope class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnifiedRbacResourceScope extends Entity
 {
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,25 +41,23 @@ class UnifiedRbacResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return UnifiedRbacResourceScope
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return UnifiedRbacResourceScope
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scope
-    *
-    * @return string|null The scope
-    */
+     * Gets the scope
+     *
+     * @return string|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
@@ -67,25 +66,23 @@ class UnifiedRbacResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the scope
-    *
-    * @param string $val The scope
-    *
-    * @return UnifiedRbacResourceScope
-    */
+     * Sets the scope
+     *
+     * @param string $val The scope
+     *
+     * @return UnifiedRbacResourceScope
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -94,18 +91,16 @@ class UnifiedRbacResourceScope extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    *
-    * @param string $val The type
-    *
-    * @return UnifiedRbacResourceScope
-    */
+     * Sets the type
+     *
+     * @param string $val The type
+     *
+     * @return UnifiedRbacResourceScope
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
 }

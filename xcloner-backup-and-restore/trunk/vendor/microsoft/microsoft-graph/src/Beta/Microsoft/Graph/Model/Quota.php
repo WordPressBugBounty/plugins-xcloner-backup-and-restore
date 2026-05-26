@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Quota class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Quota extends Entity
 {
     /**
-    * Gets the deleted
-    * Total space consumed by files in the recycle bin, in bytes. Read-only.
-    *
-    * @return int|null The deleted
-    */
+     * Gets the deleted
+     * Total space consumed by files in the recycle bin, in bytes. Read-only.
+     *
+     * @return int|null The deleted
+     */
     public function getDeleted()
     {
         if (array_key_exists("deleted", $this->_propDict)) {
@@ -40,26 +42,25 @@ class Quota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deleted
-    * Total space consumed by files in the recycle bin, in bytes. Read-only.
-    *
-    * @param int $val The value of the deleted
-    *
-    * @return Quota
-    */
+     * Sets the deleted
+     * Total space consumed by files in the recycle bin, in bytes. Read-only.
+     *
+     * @param int $val The value of the deleted
+     *
+     * @return Quota
+     */
     public function setDeleted($val)
     {
         $this->_propDict["deleted"] = $val;
         return $this;
     }
     /**
-    * Gets the remaining
-    * Total space remaining before reaching the quota limit, in bytes. Read-only.
-    *
-    * @return int|null The remaining
-    */
+     * Gets the remaining
+     * Total space remaining before reaching the quota limit, in bytes. Read-only.
+     *
+     * @return int|null The remaining
+     */
     public function getRemaining()
     {
         if (array_key_exists("remaining", $this->_propDict)) {
@@ -68,26 +69,25 @@ class Quota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the remaining
-    * Total space remaining before reaching the quota limit, in bytes. Read-only.
-    *
-    * @param int $val The value of the remaining
-    *
-    * @return Quota
-    */
+     * Sets the remaining
+     * Total space remaining before reaching the quota limit, in bytes. Read-only.
+     *
+     * @param int $val The value of the remaining
+     *
+     * @return Quota
+     */
     public function setRemaining($val)
     {
         $this->_propDict["remaining"] = $val;
         return $this;
     }
     /**
-    * Gets the state
-    * Enumeration value that indicates the state of the storage space. Read-only.
-    *
-    * @return string|null The state
-    */
+     * Gets the state
+     * Enumeration value that indicates the state of the storage space. Read-only.
+     *
+     * @return string|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
@@ -96,31 +96,29 @@ class Quota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the state
-    * Enumeration value that indicates the state of the storage space. Read-only.
-    *
-    * @param string $val The value of the state
-    *
-    * @return Quota
-    */
+     * Sets the state
+     * Enumeration value that indicates the state of the storage space. Read-only.
+     *
+     * @param string $val The value of the state
+     *
+     * @return Quota
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the storagePlanInformation
-    * Information about the drive's storage quota plans. Only in Personal OneDrive.
-    *
-    * @return StoragePlanInformation|null The storagePlanInformation
-    */
+     * Gets the storagePlanInformation
+     * Information about the drive's storage quota plans. Only in Personal OneDrive.
+     *
+     * @return StoragePlanInformation|null The storagePlanInformation
+     */
     public function getStoragePlanInformation()
     {
         if (array_key_exists("storagePlanInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["storagePlanInformation"], "\Beta\Microsoft\Graph\Model\StoragePlanInformation") || is_null($this->_propDict["storagePlanInformation"])) {
+            if (is_a($this->_propDict["storagePlanInformation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\StoragePlanInformation") || is_null($this->_propDict["storagePlanInformation"])) {
                 return $this->_propDict["storagePlanInformation"];
             } else {
                 $this->_propDict["storagePlanInformation"] = new StoragePlanInformation($this->_propDict["storagePlanInformation"]);
@@ -129,26 +127,25 @@ class Quota extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the storagePlanInformation
-    * Information about the drive's storage quota plans. Only in Personal OneDrive.
-    *
-    * @param StoragePlanInformation $val The value to assign to the storagePlanInformation
-    *
-    * @return Quota The Quota
-    */
+     * Sets the storagePlanInformation
+     * Information about the drive's storage quota plans. Only in Personal OneDrive.
+     *
+     * @param StoragePlanInformation $val The value to assign to the storagePlanInformation
+     *
+     * @return Quota The Quota
+     */
     public function setStoragePlanInformation($val)
     {
         $this->_propDict["storagePlanInformation"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the total
-    * Total allowed storage space, in bytes. Read-only.
-    *
-    * @return int|null The total
-    */
+     * Gets the total
+     * Total allowed storage space, in bytes. Read-only.
+     *
+     * @return int|null The total
+     */
     public function getTotal()
     {
         if (array_key_exists("total", $this->_propDict)) {
@@ -157,26 +154,25 @@ class Quota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the total
-    * Total allowed storage space, in bytes. Read-only.
-    *
-    * @param int $val The value of the total
-    *
-    * @return Quota
-    */
+     * Sets the total
+     * Total allowed storage space, in bytes. Read-only.
+     *
+     * @param int $val The value of the total
+     *
+     * @return Quota
+     */
     public function setTotal($val)
     {
         $this->_propDict["total"] = $val;
         return $this;
     }
     /**
-    * Gets the used
-    * Total space used, in bytes. Read-only.
-    *
-    * @return int|null The used
-    */
+     * Gets the used
+     * Total space used, in bytes. Read-only.
+     *
+     * @return int|null The used
+     */
     public function getUsed()
     {
         if (array_key_exists("used", $this->_propDict)) {
@@ -185,15 +181,14 @@ class Quota extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the used
-    * Total space used, in bytes. Read-only.
-    *
-    * @param int $val The value of the used
-    *
-    * @return Quota
-    */
+     * Sets the used
+     * Total space used, in bytes. Read-only.
+     *
+     * @param int $val The value of the used
+     *
+     * @return Quota
+     */
     public function setUsed($val)
     {
         $this->_propDict["used"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ChatActivityStatistics class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ChatActivityStatistics extends ActivityStatistics
 {
     /**
-    * Gets the afterHours
-    * Time spent on chats outside of working hours, which is based on the user's Microsoft Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-    *
-    * @return \DateInterval|null The afterHours
-    */
+     * Gets the afterHours
+     * Time spent on chats outside of working hours, which is based on the user's Microsoft Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
+     *
+     * @return \DateInterval|null The afterHours
+     */
     public function getAfterHours()
     {
         if (array_key_exists("afterHours", $this->_propDict)) {
-            if (is_a($this->_propDict["afterHours"], "\DateInterval") || is_null($this->_propDict["afterHours"])) {
+            if (is_a($this->_propDict["afterHours"], "\\DateInterval") || is_null($this->_propDict["afterHours"])) {
                 return $this->_propDict["afterHours"];
             } else {
                 $this->_propDict["afterHours"] = new \DateInterval($this->_propDict["afterHours"]);
@@ -45,19 +46,17 @@ class ChatActivityStatistics extends ActivityStatistics
         }
         return null;
     }
-
     /**
-    * Sets the afterHours
-    * Time spent on chats outside of working hours, which is based on the user's Microsoft Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
-    *
-    * @param \DateInterval $val The afterHours
-    *
-    * @return ChatActivityStatistics
-    */
+     * Sets the afterHours
+     * Time spent on chats outside of working hours, which is based on the user's Microsoft Outlook calendar setting for work hours. The value is represented in ISO 8601 format for durations.
+     *
+     * @param \DateInterval $val The afterHours
+     *
+     * @return ChatActivityStatistics
+     */
     public function setAfterHours($val)
     {
         $this->_propDict["afterHours"] = $val;
         return $this;
     }
-
 }

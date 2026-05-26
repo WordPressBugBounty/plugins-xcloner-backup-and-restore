@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Exceptions;
 
-namespace Carbon\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use BadMethodCallException as BaseBadMethodCallException;
 use Throwable;
-
 class BadFluentConstructorException extends BaseBadMethodCallException implements BadMethodCallException
 {
     /**
@@ -25,7 +23,6 @@ class BadFluentConstructorException extends BaseBadMethodCallException implement
      * @var string
      */
     protected $method;
-
     /**
      * Constructor.
      *
@@ -36,10 +33,8 @@ class BadFluentConstructorException extends BaseBadMethodCallException implement
     public function __construct($method, $code = 0, Throwable $previous = null)
     {
         $this->method = $method;
-
         parent::__construct(sprintf("Unknown fluent constructor '%s'.", $method), $code, $previous);
     }
-
     /**
      * Get the method.
      *

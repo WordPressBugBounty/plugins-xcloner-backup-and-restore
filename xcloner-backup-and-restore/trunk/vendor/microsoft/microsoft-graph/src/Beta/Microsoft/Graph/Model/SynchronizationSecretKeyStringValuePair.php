@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SynchronizationSecretKeyStringValuePair class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class SynchronizationSecretKeyStringValuePair extends Entity
 {
-
     /**
-    * Gets the key
-    * Possible values are: None, UserName, Password, SecretToken, AppKey, BaseAddress, ClientIdentifier, ClientSecret, SingleSignOnType, Sandbox, Url, Domain, ConsumerKey, ConsumerSecret, TokenKey, TokenExpiration, Oauth2AccessToken, Oauth2AccessTokenCreationTime, Oauth2RefreshToken, SyncAll, InstanceName, Oauth2ClientId, Oauth2ClientSecret, CompanyId, UpdateKeyOnSoftDelete, SynchronizationSchedule, SystemOfRecord, SandboxName, EnforceDomain, SyncNotificationSettings, Server, PerformInboundEntitlementGrants, HardDeletesEnabled, SyncAgentCompatibilityKey, SyncAgentADContainer, ValidateDomain, Oauth2TokenExchangeUri, Oauth2AuthorizationUri, AuthenticationType, TestReferences, ConnectionString.
-    *
-    * @return SynchronizationSecret|null The key
-    */
+     * Gets the key
+     * Possible values are: None, UserName, Password, SecretToken, AppKey, BaseAddress, ClientIdentifier, ClientSecret, SingleSignOnType, Sandbox, Url, Domain, ConsumerKey, ConsumerSecret, TokenKey, TokenExpiration, Oauth2AccessToken, Oauth2AccessTokenCreationTime, Oauth2RefreshToken, SyncAll, InstanceName, Oauth2ClientId, Oauth2ClientSecret, CompanyId, UpdateKeyOnSoftDelete, SynchronizationSchedule, SystemOfRecord, SandboxName, EnforceDomain, SyncNotificationSettings, Server, PerformInboundEntitlementGrants, HardDeletesEnabled, SyncAgentCompatibilityKey, SyncAgentADContainer, ValidateDomain, Oauth2TokenExchangeUri, Oauth2AuthorizationUri, AuthenticationType, TestReferences, ConnectionString.
+     *
+     * @return SynchronizationSecret|null The key
+     */
     public function getKey()
     {
         if (array_key_exists("key", $this->_propDict)) {
-            if (is_a($this->_propDict["key"], "\Beta\Microsoft\Graph\Model\SynchronizationSecret") || is_null($this->_propDict["key"])) {
+            if (is_a($this->_propDict["key"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SynchronizationSecret") || is_null($this->_propDict["key"])) {
                 return $this->_propDict["key"];
             } else {
                 $this->_propDict["key"] = new SynchronizationSecret($this->_propDict["key"]);
@@ -45,26 +46,25 @@ class SynchronizationSecretKeyStringValuePair extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the key
-    * Possible values are: None, UserName, Password, SecretToken, AppKey, BaseAddress, ClientIdentifier, ClientSecret, SingleSignOnType, Sandbox, Url, Domain, ConsumerKey, ConsumerSecret, TokenKey, TokenExpiration, Oauth2AccessToken, Oauth2AccessTokenCreationTime, Oauth2RefreshToken, SyncAll, InstanceName, Oauth2ClientId, Oauth2ClientSecret, CompanyId, UpdateKeyOnSoftDelete, SynchronizationSchedule, SystemOfRecord, SandboxName, EnforceDomain, SyncNotificationSettings, Server, PerformInboundEntitlementGrants, HardDeletesEnabled, SyncAgentCompatibilityKey, SyncAgentADContainer, ValidateDomain, Oauth2TokenExchangeUri, Oauth2AuthorizationUri, AuthenticationType, TestReferences, ConnectionString.
-    *
-    * @param SynchronizationSecret $val The value to assign to the key
-    *
-    * @return SynchronizationSecretKeyStringValuePair The SynchronizationSecretKeyStringValuePair
-    */
+     * Sets the key
+     * Possible values are: None, UserName, Password, SecretToken, AppKey, BaseAddress, ClientIdentifier, ClientSecret, SingleSignOnType, Sandbox, Url, Domain, ConsumerKey, ConsumerSecret, TokenKey, TokenExpiration, Oauth2AccessToken, Oauth2AccessTokenCreationTime, Oauth2RefreshToken, SyncAll, InstanceName, Oauth2ClientId, Oauth2ClientSecret, CompanyId, UpdateKeyOnSoftDelete, SynchronizationSchedule, SystemOfRecord, SandboxName, EnforceDomain, SyncNotificationSettings, Server, PerformInboundEntitlementGrants, HardDeletesEnabled, SyncAgentCompatibilityKey, SyncAgentADContainer, ValidateDomain, Oauth2TokenExchangeUri, Oauth2AuthorizationUri, AuthenticationType, TestReferences, ConnectionString.
+     *
+     * @param SynchronizationSecret $val The value to assign to the key
+     *
+     * @return SynchronizationSecretKeyStringValuePair The SynchronizationSecretKeyStringValuePair
+     */
     public function setKey($val)
     {
         $this->_propDict["key"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the value
-    * The value of the secret.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * The value of the secret.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -73,15 +73,14 @@ class SynchronizationSecretKeyStringValuePair extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The value of the secret.
-    *
-    * @param string $val The value of the value
-    *
-    * @return SynchronizationSecretKeyStringValuePair
-    */
+     * Sets the value
+     * The value of the secret.
+     *
+     * @param string $val The value of the value
+     *
+     * @return SynchronizationSecretKeyStringValuePair
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MicrosoftAuthenticatorAuthenticationMethod class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
 {
     /**
-    * Gets the createdDateTime
-    * The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return MicrosoftAuthenticatorAuthenticationMethod
-    */
+     * Sets the createdDateTime
+     * The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return MicrosoftAuthenticatorAuthenticationMethod
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceTag
-    * Tags containing app metadata.
-    *
-    * @return string|null The deviceTag
-    */
+     * Gets the deviceTag
+     * Tags containing app metadata.
+     *
+     * @return string|null The deviceTag
+     */
     public function getDeviceTag()
     {
         if (array_key_exists("deviceTag", $this->_propDict)) {
@@ -74,27 +73,25 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
             return null;
         }
     }
-
     /**
-    * Sets the deviceTag
-    * Tags containing app metadata.
-    *
-    * @param string $val The deviceTag
-    *
-    * @return MicrosoftAuthenticatorAuthenticationMethod
-    */
+     * Sets the deviceTag
+     * Tags containing app metadata.
+     *
+     * @param string $val The deviceTag
+     *
+     * @return MicrosoftAuthenticatorAuthenticationMethod
+     */
     public function setDeviceTag($val)
     {
         $this->_propDict["deviceTag"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the device on which this app is registered.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the device on which this app is registered.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -103,27 +100,25 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the device on which this app is registered.
-    *
-    * @param string $val The displayName
-    *
-    * @return MicrosoftAuthenticatorAuthenticationMethod
-    */
+     * Sets the displayName
+     * The name of the device on which this app is registered.
+     *
+     * @param string $val The displayName
+     *
+     * @return MicrosoftAuthenticatorAuthenticationMethod
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the phoneAppVersion
-    * Numerical version of this instance of the Authenticator app.
-    *
-    * @return string|null The phoneAppVersion
-    */
+     * Gets the phoneAppVersion
+     * Numerical version of this instance of the Authenticator app.
+     *
+     * @return string|null The phoneAppVersion
+     */
     public function getPhoneAppVersion()
     {
         if (array_key_exists("phoneAppVersion", $this->_propDict)) {
@@ -132,31 +127,29 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
             return null;
         }
     }
-
     /**
-    * Sets the phoneAppVersion
-    * Numerical version of this instance of the Authenticator app.
-    *
-    * @param string $val The phoneAppVersion
-    *
-    * @return MicrosoftAuthenticatorAuthenticationMethod
-    */
+     * Sets the phoneAppVersion
+     * Numerical version of this instance of the Authenticator app.
+     *
+     * @param string $val The phoneAppVersion
+     *
+     * @return MicrosoftAuthenticatorAuthenticationMethod
+     */
     public function setPhoneAppVersion($val)
     {
         $this->_propDict["phoneAppVersion"] = $val;
         return $this;
     }
-
     /**
-    * Gets the device
-    * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
-    *
-    * @return Device|null The device
-    */
+     * Gets the device
+     * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     *
+     * @return Device|null The device
+     */
     public function getDevice()
     {
         if (array_key_exists("device", $this->_propDict)) {
-            if (is_a($this->_propDict["device"], "\Beta\Microsoft\Graph\Model\Device") || is_null($this->_propDict["device"])) {
+            if (is_a($this->_propDict["device"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Device") || is_null($this->_propDict["device"])) {
                 return $this->_propDict["device"];
             } else {
                 $this->_propDict["device"] = new Device($this->_propDict["device"]);
@@ -165,19 +158,17 @@ class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod
         }
         return null;
     }
-
     /**
-    * Sets the device
-    * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
-    *
-    * @param Device $val The device
-    *
-    * @return MicrosoftAuthenticatorAuthenticationMethod
-    */
+     * Sets the device
+     * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     *
+     * @param Device $val The device
+     *
+     * @return MicrosoftAuthenticatorAuthenticationMethod
+     */
     public function setDevice($val)
     {
         $this->_propDict["device"] = $val;
         return $this;
     }
-
 }

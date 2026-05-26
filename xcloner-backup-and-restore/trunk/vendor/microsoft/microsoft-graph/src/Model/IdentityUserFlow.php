@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IdentityUserFlow class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IdentityUserFlow extends Entity
 {
     /**
-    * Gets the userFlowType
-    *
-    * @return UserFlowType|null The userFlowType
-    */
+     * Gets the userFlowType
+     *
+     * @return UserFlowType|null The userFlowType
+     */
     public function getUserFlowType()
     {
         if (array_key_exists("userFlowType", $this->_propDict)) {
-            if (is_a($this->_propDict["userFlowType"], "\Microsoft\Graph\Model\UserFlowType") || is_null($this->_propDict["userFlowType"])) {
+            if (is_a($this->_propDict["userFlowType"], "XCloner\\Microsoft\\Graph\\Model\\UserFlowType") || is_null($this->_propDict["userFlowType"])) {
                 return $this->_propDict["userFlowType"];
             } else {
                 $this->_propDict["userFlowType"] = new UserFlowType($this->_propDict["userFlowType"]);
@@ -44,25 +45,23 @@ class IdentityUserFlow extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the userFlowType
-    *
-    * @param UserFlowType $val The userFlowType
-    *
-    * @return IdentityUserFlow
-    */
+     * Sets the userFlowType
+     *
+     * @param UserFlowType $val The userFlowType
+     *
+     * @return IdentityUserFlow
+     */
     public function setUserFlowType($val)
     {
         $this->_propDict["userFlowType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userFlowTypeVersion
-    *
-    * @return float|null The userFlowTypeVersion
-    */
+     * Gets the userFlowTypeVersion
+     *
+     * @return float|null The userFlowTypeVersion
+     */
     public function getUserFlowTypeVersion()
     {
         if (array_key_exists("userFlowTypeVersion", $this->_propDict)) {
@@ -71,18 +70,16 @@ class IdentityUserFlow extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userFlowTypeVersion
-    *
-    * @param float $val The userFlowTypeVersion
-    *
-    * @return IdentityUserFlow
-    */
+     * Sets the userFlowTypeVersion
+     *
+     * @param float $val The userFlowTypeVersion
+     *
+     * @return IdentityUserFlow
+     */
     public function setUserFlowTypeVersion($val)
     {
         $this->_propDict["userFlowTypeVersion"] = floatval($val);
         return $this;
     }
-
 }

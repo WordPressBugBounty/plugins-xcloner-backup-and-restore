@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BuiltInIdentityProvider class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BuiltInIdentityProvider extends IdentityProviderBase
 {
     /**
-    * Gets the identityProviderType
-    * The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
-    *
-    * @return string|null The identityProviderType
-    */
+     * Gets the identityProviderType
+     * The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
+     *
+     * @return string|null The identityProviderType
+     */
     public function getIdentityProviderType()
     {
         if (array_key_exists("identityProviderType", $this->_propDict)) {
@@ -41,19 +42,17 @@ class BuiltInIdentityProvider extends IdentityProviderBase
             return null;
         }
     }
-
     /**
-    * Sets the identityProviderType
-    * The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
-    *
-    * @param string $val The identityProviderType
-    *
-    * @return BuiltInIdentityProvider
-    */
+     * Sets the identityProviderType
+     * The identity provider type. For a B2B scenario, possible values: AADSignup, MicrosoftAccount, EmailOTP. Required.
+     *
+     * @param string $val The identityProviderType
+     *
+     * @return BuiltInIdentityProvider
+     */
     public function setIdentityProviderType($val)
     {
         $this->_propDict["identityProviderType"] = $val;
         return $this;
     }
-
 }

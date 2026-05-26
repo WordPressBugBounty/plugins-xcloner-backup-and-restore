@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * iCalendar/vCard/jCal/jCard/xCal/xCard reader object.
  *
@@ -22,13 +22,11 @@ class Reader
      * validity of the lines.
      */
     const OPTION_FORGIVING = 1;
-
     /**
      * If this option is turned on, any lines we cannot parse will be ignored
      * by the reader.
      */
     const OPTION_IGNORE_INVALID_LINES = 2;
-
     /**
      * Parses a vCard or iCalendar object, and returns the top component.
      *
@@ -48,10 +46,8 @@ class Reader
         $parser = new Parser\MimeDir();
         $parser->setCharset($charset);
         $result = $parser->parse($data, $options);
-
         return $result;
     }
-
     /**
      * Parses a jCard or jCal object, and returns the top component.
      *
@@ -71,10 +67,8 @@ class Reader
     {
         $parser = new Parser\Json();
         $result = $parser->parse($data, $options);
-
         return $result;
     }
-
     /**
      * Parses a xCard or xCal object, and returns the top component.
      *
@@ -92,7 +86,6 @@ class Reader
     {
         $parser = new Parser\XML();
         $result = $parser->parse($data, $options);
-
         return $result;
     }
 }

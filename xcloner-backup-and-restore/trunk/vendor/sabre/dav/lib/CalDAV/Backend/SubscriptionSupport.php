@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Backend;
 
-namespace Sabre\CalDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * Every CalDAV backend must at least implement this interface.
  *
@@ -52,7 +50,6 @@ interface SubscriptionSupport extends BackendInterface
      * @return array
      */
     public function getSubscriptionsForUser($principalUri);
-
     /**
      * Creates a new subscription for a principal.
      *
@@ -65,7 +62,6 @@ interface SubscriptionSupport extends BackendInterface
      * @return mixed
      */
     public function createSubscription($principalUri, $uri, array $properties);
-
     /**
      * Updates a subscription.
      *
@@ -82,7 +78,6 @@ interface SubscriptionSupport extends BackendInterface
      * @param \Sabre\DAV\PropPatch $propPatch
      */
     public function updateSubscription($subscriptionId, DAV\PropPatch $propPatch);
-
     /**
      * Deletes a subscription.
      *

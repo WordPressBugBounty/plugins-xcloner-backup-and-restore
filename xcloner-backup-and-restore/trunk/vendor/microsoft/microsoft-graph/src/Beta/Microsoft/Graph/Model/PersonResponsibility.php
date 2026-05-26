@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PersonResponsibility class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PersonResponsibility extends ItemFacet
 {
     /**
-    * Gets the collaborationTags
-    * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-    *
-    * @return array|null The collaborationTags
-    */
+     * Gets the collaborationTags
+     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
+     *
+     * @return array|null The collaborationTags
+     */
     public function getCollaborationTags()
     {
         if (array_key_exists("collaborationTags", $this->_propDict)) {
@@ -41,27 +42,25 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the collaborationTags
-    * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
-    *
-    * @param string[] $val The collaborationTags
-    *
-    * @return PersonResponsibility
-    */
+     * Sets the collaborationTags
+     * Contains experience scenario tags a user has associated with the interest. Allowed values in the collection are: askMeAbout, ableToMentor, wantsToLearn, wantsToImprove.
+     *
+     * @param string[] $val The collaborationTags
+     *
+     * @return PersonResponsibility
+     */
     public function setCollaborationTags($val)
     {
         $this->_propDict["collaborationTags"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Description of the responsibility.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the responsibility.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -70,27 +69,25 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the responsibility.
-    *
-    * @param string $val The description
-    *
-    * @return PersonResponsibility
-    */
+     * Sets the description
+     * Description of the responsibility.
+     *
+     * @param string $val The description
+     *
+     * @return PersonResponsibility
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Contains a friendly name for the responsibility.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Contains a friendly name for the responsibility.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -99,26 +96,24 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Contains a friendly name for the responsibility.
-    *
-    * @param string $val The displayName
-    *
-    * @return PersonResponsibility
-    */
+     * Sets the displayName
+     * Contains a friendly name for the responsibility.
+     *
+     * @param string $val The displayName
+     *
+     * @return PersonResponsibility
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the thumbnailUrl
-    *
-    * @return string|null The thumbnailUrl
-    */
+     * Gets the thumbnailUrl
+     *
+     * @return string|null The thumbnailUrl
+     */
     public function getThumbnailUrl()
     {
         if (array_key_exists("thumbnailUrl", $this->_propDict)) {
@@ -127,26 +122,24 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the thumbnailUrl
-    *
-    * @param string $val The thumbnailUrl
-    *
-    * @return PersonResponsibility
-    */
+     * Sets the thumbnailUrl
+     *
+     * @param string $val The thumbnailUrl
+     *
+     * @return PersonResponsibility
+     */
     public function setThumbnailUrl($val)
     {
         $this->_propDict["thumbnailUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the webUrl
-    * Contains a link to a web page or resource about the responsibility.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * Contains a link to a web page or resource about the responsibility.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -155,19 +148,17 @@ class PersonResponsibility extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * Contains a link to a web page or resource about the responsibility.
-    *
-    * @param string $val The webUrl
-    *
-    * @return PersonResponsibility
-    */
+     * Sets the webUrl
+     * Contains a link to a web page or resource about the responsibility.
+     *
+     * @param string $val The webUrl
+     *
+     * @return PersonResponsibility
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;
         return $this;
     }
-
 }

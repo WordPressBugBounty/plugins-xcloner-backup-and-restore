@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Document.
  *
@@ -25,32 +25,26 @@ abstract class Document extends Component
      * Unknown document type.
      */
     const UNKNOWN = 1;
-
     /**
      * vCalendar 1.0.
      */
     const VCALENDAR10 = 2;
-
     /**
      * iCalendar 2.0.
      */
     const ICALENDAR20 = 3;
-
     /**
      * vCard 2.1.
      */
     const VCARD21 = 4;
-
     /**
      * vCard 3.0.
      */
     const VCARD30 = 5;
-
     /**
      * vCard 4.0.
      */
     const VCARD40 = 6;
-
     /**
      * The default name for this component.
      *
@@ -59,28 +53,24 @@ abstract class Document extends Component
      * @var string
      */
     public static $defaultName;
-
     /**
      * List of properties, and which classes they map to.
      *
      * @var array
      */
     public static $propertyMap = [];
-
     /**
      * List of components, along with which classes they map to.
      *
      * @var array
      */
     public static $componentMap = [];
-
     /**
      * List of value-types, and which classes they map to.
      *
      * @var array
      */
     public static $valueMap = [];
-
     /**
      * Creates a new document.
      *
@@ -101,15 +91,14 @@ abstract class Document extends Component
         $name = static::$defaultName;
         if (0 === count($args) || is_array($args[0])) {
             $children = isset($args[0]) ? $args[0] : [];
-            $defaults = isset($args[1]) ? $args[1] : true;
+            $defaults = isset($args[1]) ? $args[1] : \true;
         } else {
             $name = $args[0];
             $children = isset($args[1]) ? $args[1] : [];
-            $defaults = isset($args[2]) ? $args[2] : true;
+            $defaults = isset($args[2]) ? $args[2] : \true;
         }
         parent::__construct($this, $name, $children, $defaults);
     }
-
     /**
      * Returns the current document type.
      *
@@ -119,7 +108,6 @@ abstract class Document extends Component
     {
         return self::UNKNOWN;
     }
-
     /**
      * Creates a new component or property.
      *
@@ -139,7 +127,6 @@ abstract class Document extends Component
             return call_user_func_array([$this, 'createProperty'], func_get_args());
         }
     }
-
     /**
      * Creates a new component.
      *
@@ -160,21 +147,18 @@ abstract class Document extends Component
      *
      * @return Component
      */
-    public function createComponent($name, array $children = null, $defaults = true)
+    public function createComponent($name, array $children = null, $defaults = \true)
     {
         $name = strtoupper($name);
         $class = Component::class;
-
         if (isset(static::$componentMap[$name])) {
             $class = static::$componentMap[$name];
         }
         if (is_null($children)) {
             $children = [];
         }
-
         return new $class($this, $name, $children, $defaults);
     }
-
     /**
      * Factory method for creating new properties.
      *
@@ -195,28 +179,25 @@ abstract class Document extends Component
     public function createProperty($name, $value = null, array $parameters = null, $valueType = null)
     {
         // If there's a . in the name, it means it's prefixed by a groupname.
-        if (false !== ($i = strpos($name, '.'))) {
+        if (\false !== $i = strpos($name, '.')) {
             $group = substr($name, 0, $i);
             $name = strtoupper(substr($name, $i + 1));
         } else {
             $name = strtoupper($name);
             $group = null;
         }
-
         $class = null;
-
         if ($valueType) {
             // The valueType argument comes first to figure out the correct
             // class.
             $class = $this->getClassNameForPropertyValue($valueType);
         }
-
         if (is_null($class)) {
             // If a VALUE parameter is supplied, we should use that.
             if (isset($parameters['VALUE'])) {
                 $class = $this->getClassNameForPropertyValue($parameters['VALUE']);
                 if (is_null($class)) {
-                    throw new InvalidDataException('Unsupported VALUE parameter for '.$name.' property. You supplied "'.$parameters['VALUE'].'"');
+                    throw new InvalidDataException('Unsupported VALUE parameter for ' . $name . ' property. You supplied "' . $parameters['VALUE'] . '"');
                 }
             } else {
                 $class = $this->getClassNameForPropertyName($name);
@@ -225,10 +206,8 @@ abstract class Document extends Component
         if (is_null($parameters)) {
             $parameters = [];
         }
-
         return new $class($this, $name, $value, $parameters, $group);
     }
-
     /**
      * This method returns a full class-name for a value parameter.
      *
@@ -248,7 +227,6 @@ abstract class Document extends Component
             return static::$valueMap[$valueParam];
         }
     }
-
     /**
      * Returns the default class for a property name.
      *

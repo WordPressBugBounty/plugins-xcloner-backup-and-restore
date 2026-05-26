@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OmaSettingInteger class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OmaSettingInteger extends OmaSetting
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.omaSettingInteger");
     }
-
     /**
-    * Gets the value
-    * Value.
-    *
-    * @return int|null The value
-    */
+     * Gets the value
+     * Value.
+     *
+     * @return int|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -51,15 +52,14 @@ class OmaSettingInteger extends OmaSetting
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * Value.
-    *
-    * @param int $val The value of the value
-    *
-    * @return OmaSettingInteger
-    */
+     * Sets the value
+     * Value.
+     *
+     * @param int $val The value of the value
+     *
+     * @return OmaSettingInteger
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

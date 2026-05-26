@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MarkContent class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MarkContent extends LabelActionBase
 {
     /**
-    * Gets the fontColor
-    *
-    * @return string|null The fontColor
-    */
+     * Gets the fontColor
+     *
+     * @return string|null The fontColor
+     */
     public function getFontColor()
     {
         if (array_key_exists("fontColor", $this->_propDict)) {
@@ -39,24 +41,23 @@ class MarkContent extends LabelActionBase
             return null;
         }
     }
-
     /**
-    * Sets the fontColor
-    *
-    * @param string $val The value of the fontColor
-    *
-    * @return MarkContent
-    */
+     * Sets the fontColor
+     *
+     * @param string $val The value of the fontColor
+     *
+     * @return MarkContent
+     */
     public function setFontColor($val)
     {
         $this->_propDict["fontColor"] = $val;
         return $this;
     }
     /**
-    * Gets the fontSize
-    *
-    * @return int|null The fontSize
-    */
+     * Gets the fontSize
+     *
+     * @return int|null The fontSize
+     */
     public function getFontSize()
     {
         if (array_key_exists("fontSize", $this->_propDict)) {
@@ -65,24 +66,23 @@ class MarkContent extends LabelActionBase
             return null;
         }
     }
-
     /**
-    * Sets the fontSize
-    *
-    * @param int $val The value of the fontSize
-    *
-    * @return MarkContent
-    */
+     * Sets the fontSize
+     *
+     * @param int $val The value of the fontSize
+     *
+     * @return MarkContent
+     */
     public function setFontSize($val)
     {
         $this->_propDict["fontSize"] = $val;
         return $this;
     }
     /**
-    * Gets the text
-    *
-    * @return string|null The text
-    */
+     * Gets the text
+     *
+     * @return string|null The text
+     */
     public function getText()
     {
         if (array_key_exists("text", $this->_propDict)) {
@@ -91,14 +91,13 @@ class MarkContent extends LabelActionBase
             return null;
         }
     }
-
     /**
-    * Sets the text
-    *
-    * @param string $val The value of the text
-    *
-    * @return MarkContent
-    */
+     * Sets the text
+     *
+     * @param string $val The value of the text
+     *
+     * @return MarkContent
+     */
     public function setText($val)
     {
         $this->_propDict["text"] = $val;

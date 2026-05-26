@@ -22,14 +22,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common;
 
-namespace MicrosoftAzure\Storage\Common;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
 /**
  * Trait implementing logic for continuation tokens that has nextMarker.
  *
@@ -43,7 +41,6 @@ use MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
 trait MarkerContinuationTokenTrait
 {
     private $continuationToken;
-
     /**
      * Setter for continuationToken
      *
@@ -54,15 +51,13 @@ trait MarkerContinuationTokenTrait
     {
         $this->continuationToken = $continuationToken;
     }
-
     public function setMarker($marker)
     {
         if ($this->continuationToken == null) {
             $this->continuationToken = new MarkerContinuationToken();
-        };
+        }
         $this->continuationToken->setNextMarker($marker);
     }
-
     /**
      * Getter for continuationToken
      *
@@ -72,7 +67,6 @@ trait MarkerContinuationTokenTrait
     {
         return $this->continuationToken;
     }
-
     /**
      * Gets the next marker to list/query items.
      *
@@ -85,7 +79,6 @@ trait MarkerContinuationTokenTrait
         }
         return $this->continuationToken->getNextMarker();
     }
-
     /**
      * Gets for location for previous request.
      *
@@ -98,7 +91,6 @@ trait MarkerContinuationTokenTrait
         }
         return $this->continuationToken->getLocation();
     }
-
     public function getLocationMode()
     {
         if ($this->continuationToken == null) {

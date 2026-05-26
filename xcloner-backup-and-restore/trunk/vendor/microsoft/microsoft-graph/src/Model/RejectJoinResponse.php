@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RejectJoinResponse class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class RejectJoinResponse extends ParticipantJoiningResponse
 {
-
     /**
-    * Gets the reason
-    * The rejection reason. Possible values are None, Busy, and Forbidden.
-    *
-    * @return RejectReason|null The reason
-    */
+     * Gets the reason
+     * The rejection reason. Possible values are None, Busy, and Forbidden.
+     *
+     * @return RejectReason|null The reason
+     */
     public function getReason()
     {
         if (array_key_exists("reason", $this->_propDict)) {
-            if (is_a($this->_propDict["reason"], "\Microsoft\Graph\Model\RejectReason") || is_null($this->_propDict["reason"])) {
+            if (is_a($this->_propDict["reason"], "XCloner\\Microsoft\\Graph\\Model\\RejectReason") || is_null($this->_propDict["reason"])) {
                 return $this->_propDict["reason"];
             } else {
                 $this->_propDict["reason"] = new RejectReason($this->_propDict["reason"]);
@@ -45,18 +46,17 @@ class RejectJoinResponse extends ParticipantJoiningResponse
         }
         return null;
     }
-
     /**
-    * Sets the reason
-    * The rejection reason. Possible values are None, Busy, and Forbidden.
-    *
-    * @param RejectReason $val The value to assign to the reason
-    *
-    * @return RejectJoinResponse The RejectJoinResponse
-    */
+     * Sets the reason
+     * The rejection reason. Possible values are None, Busy, and Forbidden.
+     *
+     * @param RejectReason $val The value to assign to the reason
+     *
+     * @return RejectJoinResponse The RejectJoinResponse
+     */
     public function setReason($val)
     {
         $this->_propDict["reason"] = $val;
-         return $this;
+        return $this;
     }
 }

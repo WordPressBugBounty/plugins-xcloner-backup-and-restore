@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsKioskWin32App class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsKioskWin32App extends WindowsKioskAppBase
 {
     /**
-    * Gets the classicAppPath
-    * This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
-    *
-    * @return string|null The classicAppPath
-    */
+     * Gets the classicAppPath
+     * This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
+     *
+     * @return string|null The classicAppPath
+     */
     public function getClassicAppPath()
     {
         if (array_key_exists("classicAppPath", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the classicAppPath
-    * This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
-    *
-    * @param string $val The value of the classicAppPath
-    *
-    * @return WindowsKioskWin32App
-    */
+     * Sets the classicAppPath
+     * This is the classicapppath to be used by v4 Win32 app while in Kiosk Mode
+     *
+     * @param string $val The value of the classicAppPath
+     *
+     * @return WindowsKioskWin32App
+     */
     public function setClassicAppPath($val)
     {
         $this->_propDict["classicAppPath"] = $val;
         return $this;
     }
     /**
-    * Gets the edgeKiosk
-    * Edge kiosk (url) for Edge kiosk mode
-    *
-    * @return string|null The edgeKiosk
-    */
+     * Gets the edgeKiosk
+     * Edge kiosk (url) for Edge kiosk mode
+     *
+     * @return string|null The edgeKiosk
+     */
     public function getEdgeKiosk()
     {
         if (array_key_exists("edgeKiosk", $this->_propDict)) {
@@ -68,26 +69,25 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the edgeKiosk
-    * Edge kiosk (url) for Edge kiosk mode
-    *
-    * @param string $val The value of the edgeKiosk
-    *
-    * @return WindowsKioskWin32App
-    */
+     * Sets the edgeKiosk
+     * Edge kiosk (url) for Edge kiosk mode
+     *
+     * @param string $val The value of the edgeKiosk
+     *
+     * @return WindowsKioskWin32App
+     */
     public function setEdgeKiosk($val)
     {
         $this->_propDict["edgeKiosk"] = $val;
         return $this;
     }
     /**
-    * Gets the edgeKioskIdleTimeoutMinutes
-    * Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
-    *
-    * @return int|null The edgeKioskIdleTimeoutMinutes
-    */
+     * Gets the edgeKioskIdleTimeoutMinutes
+     * Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
+     *
+     * @return int|null The edgeKioskIdleTimeoutMinutes
+     */
     public function getEdgeKioskIdleTimeoutMinutes()
     {
         if (array_key_exists("edgeKioskIdleTimeoutMinutes", $this->_propDict)) {
@@ -96,31 +96,29 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the edgeKioskIdleTimeoutMinutes
-    * Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
-    *
-    * @param int $val The value of the edgeKioskIdleTimeoutMinutes
-    *
-    * @return WindowsKioskWin32App
-    */
+     * Sets the edgeKioskIdleTimeoutMinutes
+     * Edge kiosk idle timeout in minutes for Edge kiosk mode. Valid values 0 to 1440
+     *
+     * @param int $val The value of the edgeKioskIdleTimeoutMinutes
+     *
+     * @return WindowsKioskWin32App
+     */
     public function setEdgeKioskIdleTimeoutMinutes($val)
     {
         $this->_propDict["edgeKioskIdleTimeoutMinutes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the edgeKioskType
-    * Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
-    *
-    * @return WindowsEdgeKioskType|null The edgeKioskType
-    */
+     * Gets the edgeKioskType
+     * Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
+     *
+     * @return WindowsEdgeKioskType|null The edgeKioskType
+     */
     public function getEdgeKioskType()
     {
         if (array_key_exists("edgeKioskType", $this->_propDict)) {
-            if (is_a($this->_propDict["edgeKioskType"], "\Beta\Microsoft\Graph\Model\WindowsEdgeKioskType") || is_null($this->_propDict["edgeKioskType"])) {
+            if (is_a($this->_propDict["edgeKioskType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WindowsEdgeKioskType") || is_null($this->_propDict["edgeKioskType"])) {
                 return $this->_propDict["edgeKioskType"];
             } else {
                 $this->_propDict["edgeKioskType"] = new WindowsEdgeKioskType($this->_propDict["edgeKioskType"]);
@@ -129,26 +127,25 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
         }
         return null;
     }
-
     /**
-    * Sets the edgeKioskType
-    * Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
-    *
-    * @param WindowsEdgeKioskType $val The value to assign to the edgeKioskType
-    *
-    * @return WindowsKioskWin32App The WindowsKioskWin32App
-    */
+     * Sets the edgeKioskType
+     * Edge kiosk type for Edge kiosk mode. Possible values are: publicBrowsing, fullScreen.
+     *
+     * @param WindowsEdgeKioskType $val The value to assign to the edgeKioskType
+     *
+     * @return WindowsKioskWin32App The WindowsKioskWin32App
+     */
     public function setEdgeKioskType($val)
     {
         $this->_propDict["edgeKioskType"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the edgeNoFirstRun
-    * Edge first run flag for Edge kiosk mode
-    *
-    * @return bool|null The edgeNoFirstRun
-    */
+     * Gets the edgeNoFirstRun
+     * Edge first run flag for Edge kiosk mode
+     *
+     * @return bool|null The edgeNoFirstRun
+     */
     public function getEdgeNoFirstRun()
     {
         if (array_key_exists("edgeNoFirstRun", $this->_propDict)) {
@@ -157,15 +154,14 @@ class WindowsKioskWin32App extends WindowsKioskAppBase
             return null;
         }
     }
-
     /**
-    * Sets the edgeNoFirstRun
-    * Edge first run flag for Edge kiosk mode
-    *
-    * @param bool $val The value of the edgeNoFirstRun
-    *
-    * @return WindowsKioskWin32App
-    */
+     * Sets the edgeNoFirstRun
+     * Edge first run flag for Edge kiosk mode
+     *
+     * @param bool $val The value of the edgeNoFirstRun
+     *
+     * @return WindowsKioskWin32App
+     */
     public function setEdgeNoFirstRun($val)
     {
         $this->_propDict["edgeNoFirstRun"] = $val;

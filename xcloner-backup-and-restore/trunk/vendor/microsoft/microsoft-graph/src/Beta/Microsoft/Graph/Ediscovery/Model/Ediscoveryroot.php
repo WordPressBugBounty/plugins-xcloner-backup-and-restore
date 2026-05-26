@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Ediscoveryroot class
 *
@@ -25,10 +26,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Ediscoveryroot extends \Beta\Microsoft\Graph\Model\Entity
+class Ediscoveryroot extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the cases
      *
      * @return array|null The cases
@@ -36,23 +36,21 @@ class Ediscoveryroot extends \Beta\Microsoft\Graph\Model\Entity
     public function getCases()
     {
         if (array_key_exists("cases", $this->_propDict)) {
-           return $this->_propDict["cases"];
+            return $this->_propDict["cases"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the cases
-    *
-    * @param GraphCase[] $val The cases
-    *
-    * @return Ediscoveryroot
-    */
+     * Sets the cases
+     *
+     * @param GraphCase[] $val The cases
+     *
+     * @return Ediscoveryroot
+     */
     public function setCases($val)
     {
         $this->_propDict["cases"] = $val;
         return $this;
     }
-
 }

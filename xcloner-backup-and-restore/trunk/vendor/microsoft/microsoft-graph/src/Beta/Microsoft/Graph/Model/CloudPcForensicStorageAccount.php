@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CloudPcForensicStorageAccount class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CloudPcForensicStorageAccount extends Entity
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.cloudPcForensicStorageAccount");
     }
-
     /**
-    * Gets the storageAccountId
-    * The ID of the storage account.
-    *
-    * @return string|null The storageAccountId
-    */
+     * Gets the storageAccountId
+     * The ID of the storage account.
+     *
+     * @return string|null The storageAccountId
+     */
     public function getStorageAccountId()
     {
         if (array_key_exists("storageAccountId", $this->_propDict)) {
@@ -51,26 +52,25 @@ class CloudPcForensicStorageAccount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the storageAccountId
-    * The ID of the storage account.
-    *
-    * @param string $val The value of the storageAccountId
-    *
-    * @return CloudPcForensicStorageAccount
-    */
+     * Sets the storageAccountId
+     * The ID of the storage account.
+     *
+     * @param string $val The value of the storageAccountId
+     *
+     * @return CloudPcForensicStorageAccount
+     */
     public function setStorageAccountId($val)
     {
         $this->_propDict["storageAccountId"] = $val;
         return $this;
     }
     /**
-    * Gets the storageAccountName
-    * The name of the storage account.
-    *
-    * @return string|null The storageAccountName
-    */
+     * Gets the storageAccountName
+     * The name of the storage account.
+     *
+     * @return string|null The storageAccountName
+     */
     public function getStorageAccountName()
     {
         if (array_key_exists("storageAccountName", $this->_propDict)) {
@@ -79,15 +79,14 @@ class CloudPcForensicStorageAccount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the storageAccountName
-    * The name of the storage account.
-    *
-    * @param string $val The value of the storageAccountName
-    *
-    * @return CloudPcForensicStorageAccount
-    */
+     * Sets the storageAccountName
+     * The name of the storage account.
+     *
+     * @param string $val The value of the storageAccountName
+     *
+     * @return CloudPcForensicStorageAccount
+     */
     public function setStorageAccountName($val)
     {
         $this->_propDict["storageAccountName"] = $val;

@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Util;
 
-namespace Symfony\Component\Translation\Util;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * ArrayConverter generates tree like structure from a message catalogue.
  * e.g. this
@@ -39,23 +38,17 @@ class ArrayConverter
     public static function expandToTree(array $messages)
     {
         $tree = [];
-
         foreach ($messages as $id => $value) {
-            $referenceToElement = &self::getElementByPath($tree, explode('.', $id));
-
+            $referenceToElement =& self::getElementByPath($tree, explode('.', $id));
             $referenceToElement = $value;
-
             unset($referenceToElement);
         }
-
         return $tree;
     }
-
     private static function &getElementByPath(array &$tree, array $parts)
     {
-        $elem = &$tree;
+        $elem =& $tree;
         $parentOfElem = null;
-
         foreach ($parts as $i => $part) {
             if (isset($elem[$part]) && \is_string($elem[$part])) {
                 /* Process next case:
@@ -65,13 +58,12 @@ class ArrayConverter
                  * $tree['foo'] was string before we found array {bar: test2}.
                  *  Treat new element as string too, e.g. add $tree['foo.bar'] = 'test2';
                  */
-                $elem = &$elem[implode('.', \array_slice($parts, $i))];
+                $elem =& $elem[implode('.', \array_slice($parts, $i))];
                 break;
             }
-            $parentOfElem = &$elem;
-            $elem = &$elem[$part];
+            $parentOfElem =& $elem;
+            $elem =& $elem[$part];
         }
-
         if ($elem && \is_array($elem) && $parentOfElem) {
             /* Process next case:
              *    'foo.bar': 'test1'
@@ -83,19 +75,16 @@ class ArrayConverter
              */
             self::cancelExpand($parentOfElem, $part, $elem);
         }
-
         return $elem;
     }
-
     private static function cancelExpand(array &$tree, string $prefix, array $node)
     {
         $prefix .= '.';
-
         foreach ($node as $id => $value) {
             if (\is_string($value)) {
-                $tree[$prefix.$id] = $value;
+                $tree[$prefix . $id] = $value;
             } else {
-                self::cancelExpand($tree, $prefix.$id, $value);
+                self::cancelExpand($tree, $prefix . $id, $value);
             }
         }
     }

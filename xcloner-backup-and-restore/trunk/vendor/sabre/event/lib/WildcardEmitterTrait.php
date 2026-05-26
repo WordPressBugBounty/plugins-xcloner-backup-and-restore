@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Event;
 
-namespace Sabre\Event;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Wildcard Emitter Trait.
  *
@@ -32,23 +31,20 @@ trait WildcardEmitterTrait
         // If it ends with a wildcard, we use the wildcardListeners array
         if ('*' === $eventName[\strlen($eventName) - 1]) {
             $eventName = \substr($eventName, 0, -1);
-            $listeners = &$this->wildcardListeners;
+            $listeners =& $this->wildcardListeners;
         } else {
-            $listeners = &$this->listeners;
+            $listeners =& $this->listeners;
         }
-
         // Always fully reset the listener index. This is fairly sane for most
         // applications, because there's a clear "event registering" and "event
         // emitting" phase, but can be slow if there's a lot adding and removing
         // of listeners during emitting of events.
         $this->listenerIndex = [];
-
         if (!isset($listeners[$eventName])) {
             $listeners[$eventName] = [];
         }
         $listeners[$eventName][] = [$priority, $callBack];
     }
-
     /**
      * Subscribe to an event exactly once.
      */
@@ -57,13 +53,10 @@ trait WildcardEmitterTrait
         $wrapper = null;
         $wrapper = function () use ($eventName, $callBack, &$wrapper) {
             $this->removeListener($eventName, $wrapper);
-
             return \call_user_func_array($callBack, \func_get_args());
         };
-
         $this->on($eventName, $wrapper, $priority);
     }
-
     /**
      * Emits an event.
      *
@@ -90,21 +83,19 @@ trait WildcardEmitterTrait
         if (\is_null($continueCallBack)) {
             foreach ($this->listeners($eventName) as $listener) {
                 $result = \call_user_func_array($listener, $arguments);
-                if (false === $result) {
-                    return false;
+                if (\false === $result) {
+                    return \false;
                 }
             }
         } else {
             $listeners = $this->listeners($eventName);
             $counter = \count($listeners);
-
             foreach ($listeners as $listener) {
                 --$counter;
                 $result = \call_user_func_array($listener, $arguments);
-                if (false === $result) {
-                    return false;
+                if (\false === $result) {
+                    return \false;
                 }
-
                 if ($counter > 0) {
                     if (!$continueCallBack()) {
                         break;
@@ -112,10 +103,8 @@ trait WildcardEmitterTrait
                 }
             }
         }
-
-        return true;
+        return \true;
     }
-
     /**
      * Returns the list of listeners for an event.
      *
@@ -136,7 +125,6 @@ trait WildcardEmitterTrait
                     $listeners[] = $listener[1];
                 }
             }
-
             foreach ($this->wildcardListeners as $wcEvent => $wcListeners) {
                 // Wildcard match
                 if (\substr($eventName, 0, \strlen($wcEvent)) === $wcEvent) {
@@ -146,17 +134,13 @@ trait WildcardEmitterTrait
                     }
                 }
             }
-
             // Sorting by priority
-            \array_multisort($listenersPriority, SORT_NUMERIC, $listeners);
-
+            \array_multisort($listenersPriority, \SORT_NUMERIC, $listeners);
             // Creating index
             $this->listenerIndex[$eventName] = $listeners;
         }
-
         return $this->listenerIndex[$eventName];
     }
-
     /**
      * Removes a specific listener from an event.
      *
@@ -168,29 +152,24 @@ trait WildcardEmitterTrait
         // If it ends with a wildcard, we use the wildcardListeners array
         if ('*' === $eventName[\strlen($eventName) - 1]) {
             $eventName = \substr($eventName, 0, -1);
-            $listeners = &$this->wildcardListeners;
+            $listeners =& $this->wildcardListeners;
         } else {
-            $listeners = &$this->listeners;
+            $listeners =& $this->listeners;
         }
-
         if (!isset($listeners[$eventName])) {
-            return false;
+            return \false;
         }
-
         foreach ($listeners[$eventName] as $index => $check) {
             if ($check[1] === $listener) {
                 // Remove listener
                 unset($listeners[$eventName][$index]);
                 // Reset index
                 $this->listenerIndex = [];
-
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * Removes all listeners.
      *
@@ -203,29 +182,23 @@ trait WildcardEmitterTrait
         if (\is_null($eventName)) {
             $this->listeners = [];
             $this->wildcardListeners = [];
+        } else if ('*' === $eventName[\strlen($eventName) - 1]) {
+            // Wildcard event
+            unset($this->wildcardListeners[\substr($eventName, 0, -1)]);
         } else {
-            if ('*' === $eventName[\strlen($eventName) - 1]) {
-                // Wildcard event
-                unset($this->wildcardListeners[\substr($eventName, 0, -1)]);
-            } else {
-                unset($this->listeners[$eventName]);
-            }
+            unset($this->listeners[$eventName]);
         }
-
         // Reset index
         $this->listenerIndex = [];
     }
-
     /**
      * The list of listeners.
      */
     protected $listeners = [];
-
     /**
      * The list of "wildcard listeners".
      */
     protected $wildcardListeners = [];
-
     /**
      * An index of listeners for a specific event name. This helps speeding
      * up emitting events after all listeners have been set.

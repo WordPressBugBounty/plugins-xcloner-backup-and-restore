@@ -1,16 +1,15 @@
 <?php
 
-namespace BackblazeB2\Http;
+namespace XCloner\BackblazeB2\Http;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use BackblazeB2\ErrorHandler;
-use BackblazeB2\Exceptions\B2Exception;
-use GuzzleHttp\Client as GuzzleClient;
-use GuzzleHttp\Exception\GuzzleException;
-use Psr\Http\Message\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\BackblazeB2\ErrorHandler;
+use XCloner\BackblazeB2\Exceptions\B2Exception;
+use XCloner\GuzzleHttp\Client as GuzzleClient;
+use XCloner\GuzzleHttp\Exception\GuzzleException;
+use XCloner\Psr\Http\Message\ResponseInterface;
 /**
  * Client wrapper around Guzzle.
  */
@@ -29,18 +28,15 @@ class Client extends GuzzleClient
      *
      * @return mixed|ResponseInterface|string
      */
-    public function guzzleRequest($method, $uri = null, array $options = [], $asJson = true)
+    public function guzzleRequest($method, $uri = null, array $options = [], $asJson = \true)
     {
         $response = parent::request($method, $uri, $options);
-
         if ($response->getStatusCode() !== 200) {
             ErrorHandler::handleErrorResponse($response);
         }
-
         if ($asJson) {
-            return json_decode($response->getBody(), true);
+            return json_decode($response->getBody(), \true);
         }
-
         return $response->getBody()->getContents();
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceComanagementAuthorityConfiguration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfiguration
 {
     /**
-    * Gets the configurationManagerAgentCommandLineArgument
-    * CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
-    *
-    * @return string|null The configurationManagerAgentCommandLineArgument
-    */
+     * Gets the configurationManagerAgentCommandLineArgument
+     * CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
+     *
+     * @return string|null The configurationManagerAgentCommandLineArgument
+     */
     public function getConfigurationManagerAgentCommandLineArgument()
     {
         if (array_key_exists("configurationManagerAgentCommandLineArgument", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
             return null;
         }
     }
-
     /**
-    * Sets the configurationManagerAgentCommandLineArgument
-    * CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
-    *
-    * @param string $val The configurationManagerAgentCommandLineArgument
-    *
-    * @return DeviceComanagementAuthorityConfiguration
-    */
+     * Sets the configurationManagerAgentCommandLineArgument
+     * CoManagement Authority configuration ConfigurationManagerAgentCommandLineArgument
+     *
+     * @param string $val The configurationManagerAgentCommandLineArgument
+     *
+     * @return DeviceComanagementAuthorityConfiguration
+     */
     public function setConfigurationManagerAgentCommandLineArgument($val)
     {
         $this->_propDict["configurationManagerAgentCommandLineArgument"] = $val;
         return $this;
     }
-
     /**
-    * Gets the installConfigurationManagerAgent
-    * CoManagement Authority configuration InstallConfigurationManagerAgent
-    *
-    * @return bool|null The installConfigurationManagerAgent
-    */
+     * Gets the installConfigurationManagerAgent
+     * CoManagement Authority configuration InstallConfigurationManagerAgent
+     *
+     * @return bool|null The installConfigurationManagerAgent
+     */
     public function getInstallConfigurationManagerAgent()
     {
         if (array_key_exists("installConfigurationManagerAgent", $this->_propDict)) {
@@ -70,27 +69,25 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
             return null;
         }
     }
-
     /**
-    * Sets the installConfigurationManagerAgent
-    * CoManagement Authority configuration InstallConfigurationManagerAgent
-    *
-    * @param bool $val The installConfigurationManagerAgent
-    *
-    * @return DeviceComanagementAuthorityConfiguration
-    */
+     * Sets the installConfigurationManagerAgent
+     * CoManagement Authority configuration InstallConfigurationManagerAgent
+     *
+     * @param bool $val The installConfigurationManagerAgent
+     *
+     * @return DeviceComanagementAuthorityConfiguration
+     */
     public function setInstallConfigurationManagerAgent($val)
     {
         $this->_propDict["installConfigurationManagerAgent"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the managedDeviceAuthority
-    * CoManagement Authority configuration ManagedDeviceAuthority
-    *
-    * @return int|null The managedDeviceAuthority
-    */
+     * Gets the managedDeviceAuthority
+     * CoManagement Authority configuration ManagedDeviceAuthority
+     *
+     * @return int|null The managedDeviceAuthority
+     */
     public function getManagedDeviceAuthority()
     {
         if (array_key_exists("managedDeviceAuthority", $this->_propDict)) {
@@ -99,19 +96,17 @@ class DeviceComanagementAuthorityConfiguration extends DeviceEnrollmentConfigura
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceAuthority
-    * CoManagement Authority configuration ManagedDeviceAuthority
-    *
-    * @param int $val The managedDeviceAuthority
-    *
-    * @return DeviceComanagementAuthorityConfiguration
-    */
+     * Sets the managedDeviceAuthority
+     * CoManagement Authority configuration ManagedDeviceAuthority
+     *
+     * @param int $val The managedDeviceAuthority
+     *
+     * @return DeviceComanagementAuthorityConfiguration
+     */
     public function setManagedDeviceAuthority($val)
     {
         $this->_propDict["managedDeviceAuthority"] = intval($val);
         return $this;
     }
-
 }

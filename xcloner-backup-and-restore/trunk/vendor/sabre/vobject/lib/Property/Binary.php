@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
 /**
  * BINARY property.
  *
@@ -30,7 +29,6 @@ class Binary extends Property
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Updates the current value.
      *
@@ -50,7 +48,6 @@ class Binary extends Property
             $this->value = $value;
         }
     }
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -63,7 +60,6 @@ class Binary extends Property
     {
         $this->value = base64_decode($val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -73,7 +69,6 @@ class Binary extends Property
     {
         return base64_encode($this->value);
     }
-
     /**
      * Returns the type of value.
      *
@@ -86,7 +81,6 @@ class Binary extends Property
     {
         return 'BINARY';
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -98,7 +92,6 @@ class Binary extends Property
     {
         return [base64_encode($this->getValue())];
     }
-
     /**
      * Sets the json value, as it would appear in a jCard or jCal object.
      *

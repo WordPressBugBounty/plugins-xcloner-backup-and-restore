@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationMultiTextBox class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentation
 {
     /**
-    * Gets the maxLength
-    * An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
-    *
-    * @return int|null The maxLength
-    */
+     * Gets the maxLength
+     * An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
+     *
+     * @return int|null The maxLength
+     */
     public function getMaxLength()
     {
         if (array_key_exists("maxLength", $this->_propDict)) {
@@ -41,27 +42,25 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
             return null;
         }
     }
-
     /**
-    * Sets the maxLength
-    * An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
-    *
-    * @param int $val The maxLength
-    *
-    * @return GroupPolicyPresentationMultiTextBox
-    */
+     * Sets the maxLength
+     * An unsigned integer that specifies the maximum number of text characters. Default value is 1023.
+     *
+     * @param int $val The maxLength
+     *
+     * @return GroupPolicyPresentationMultiTextBox
+     */
     public function setMaxLength($val)
     {
         $this->_propDict["maxLength"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the maxStrings
-    * An unsigned integer that specifies the maximum number of strings. Default value is 0.
-    *
-    * @return int|null The maxStrings
-    */
+     * Gets the maxStrings
+     * An unsigned integer that specifies the maximum number of strings. Default value is 0.
+     *
+     * @return int|null The maxStrings
+     */
     public function getMaxStrings()
     {
         if (array_key_exists("maxStrings", $this->_propDict)) {
@@ -70,27 +69,25 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
             return null;
         }
     }
-
     /**
-    * Sets the maxStrings
-    * An unsigned integer that specifies the maximum number of strings. Default value is 0.
-    *
-    * @param int $val The maxStrings
-    *
-    * @return GroupPolicyPresentationMultiTextBox
-    */
+     * Sets the maxStrings
+     * An unsigned integer that specifies the maximum number of strings. Default value is 0.
+     *
+     * @param int $val The maxStrings
+     *
+     * @return GroupPolicyPresentationMultiTextBox
+     */
     public function setMaxStrings($val)
     {
         $this->_propDict["maxStrings"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the required
-    * Requirement to enter a value in the text box. Default value is false.
-    *
-    * @return bool|null The required
-    */
+     * Gets the required
+     * Requirement to enter a value in the text box. Default value is false.
+     *
+     * @return bool|null The required
+     */
     public function getRequired()
     {
         if (array_key_exists("required", $this->_propDict)) {
@@ -99,19 +96,17 @@ class GroupPolicyPresentationMultiTextBox extends GroupPolicyUploadedPresentatio
             return null;
         }
     }
-
     /**
-    * Sets the required
-    * Requirement to enter a value in the text box. Default value is false.
-    *
-    * @param bool $val The required
-    *
-    * @return GroupPolicyPresentationMultiTextBox
-    */
+     * Sets the required
+     * Requirement to enter a value in the text box. Default value is false.
+     *
+     * @param bool $val The required
+     *
+     * @return GroupPolicyPresentationMultiTextBox
+     */
     public function setRequired($val)
     {
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-
 }

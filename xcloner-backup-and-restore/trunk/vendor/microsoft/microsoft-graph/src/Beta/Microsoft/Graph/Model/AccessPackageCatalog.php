@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessPackageCatalog class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessPackageCatalog extends Entity
 {
     /**
-    * Gets the catalogStatus
-    * Has the value Published if the access packages are available for management.
-    *
-    * @return string|null The catalogStatus
-    */
+     * Gets the catalogStatus
+     * Has the value Published if the access packages are available for management.
+     *
+     * @return string|null The catalogStatus
+     */
     public function getCatalogStatus()
     {
         if (array_key_exists("catalogStatus", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the catalogStatus
-    * Has the value Published if the access packages are available for management.
-    *
-    * @param string $val The catalogStatus
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the catalogStatus
+     * Has the value Published if the access packages are available for management.
+     *
+     * @param string $val The catalogStatus
+     *
+     * @return AccessPackageCatalog
+     */
     public function setCatalogStatus($val)
     {
         $this->_propDict["catalogStatus"] = $val;
         return $this;
     }
-
     /**
-    * Gets the catalogType
-    * One of UserManaged or ServiceDefault.
-    *
-    * @return string|null The catalogType
-    */
+     * Gets the catalogType
+     * One of UserManaged or ServiceDefault.
+     *
+     * @return string|null The catalogType
+     */
     public function getCatalogType()
     {
         if (array_key_exists("catalogType", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the catalogType
-    * One of UserManaged or ServiceDefault.
-    *
-    * @param string $val The catalogType
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the catalogType
+     * One of UserManaged or ServiceDefault.
+     *
+     * @param string $val The catalogType
+     *
+     * @return AccessPackageCatalog
+     */
     public function setCatalogType($val)
     {
         $this->_propDict["catalogType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdBy
-    * UPN of the user who created this resource. Read-only.
-    *
-    * @return string|null The createdBy
-    */
+     * Gets the createdBy
+     * UPN of the user who created this resource. Read-only.
+     *
+     * @return string|null The createdBy
+     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
@@ -99,31 +96,29 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the createdBy
-    * UPN of the user who created this resource. Read-only.
-    *
-    * @param string $val The createdBy
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the createdBy
+     * UPN of the user who created this resource. Read-only.
+     *
+     * @param string $val The createdBy
+     *
+     * @return AccessPackageCatalog
+     */
     public function setCreatedBy($val)
     {
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -132,27 +127,25 @@ class AccessPackageCatalog extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the createdDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return AccessPackageCatalog
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * The description of the access package catalog.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The description of the access package catalog.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -161,27 +154,25 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The description of the access package catalog.
-    *
-    * @param string $val The description
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the description
+     * The description of the access package catalog.
+     *
+     * @param string $val The description
+     *
+     * @return AccessPackageCatalog
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The display name of the access package catalog. Supports $filter (eq, contains).
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name of the access package catalog. Supports $filter (eq, contains).
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -190,27 +181,25 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name of the access package catalog. Supports $filter (eq, contains).
-    *
-    * @param string $val The displayName
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the displayName
+     * The display name of the access package catalog. Supports $filter (eq, contains).
+     *
+     * @param string $val The displayName
+     *
+     * @return AccessPackageCatalog
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isExternallyVisible
-    * Whether the access packages in this catalog can be requested by users outside of the tenant.
-    *
-    * @return bool|null The isExternallyVisible
-    */
+     * Gets the isExternallyVisible
+     * Whether the access packages in this catalog can be requested by users outside of the tenant.
+     *
+     * @return bool|null The isExternallyVisible
+     */
     public function getIsExternallyVisible()
     {
         if (array_key_exists("isExternallyVisible", $this->_propDict)) {
@@ -219,27 +208,25 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isExternallyVisible
-    * Whether the access packages in this catalog can be requested by users outside of the tenant.
-    *
-    * @param bool $val The isExternallyVisible
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the isExternallyVisible
+     * Whether the access packages in this catalog can be requested by users outside of the tenant.
+     *
+     * @param bool $val The isExternallyVisible
+     *
+     * @return AccessPackageCatalog
+     */
     public function setIsExternallyVisible($val)
     {
         $this->_propDict["isExternallyVisible"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the modifiedBy
-    * The UPN of the user who last modified this resource. Read-only.
-    *
-    * @return string|null The modifiedBy
-    */
+     * Gets the modifiedBy
+     * The UPN of the user who last modified this resource. Read-only.
+     *
+     * @return string|null The modifiedBy
+     */
     public function getModifiedBy()
     {
         if (array_key_exists("modifiedBy", $this->_propDict)) {
@@ -248,31 +235,29 @@ class AccessPackageCatalog extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the modifiedBy
-    * The UPN of the user who last modified this resource. Read-only.
-    *
-    * @param string $val The modifiedBy
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the modifiedBy
+     * The UPN of the user who last modified this resource. Read-only.
+     *
+     * @param string $val The modifiedBy
+     *
+     * @return AccessPackageCatalog
+     */
     public function setModifiedBy($val)
     {
         $this->_propDict["modifiedBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the modifiedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @return \DateTime|null The modifiedDateTime
-    */
+     * Gets the modifiedDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @return \DateTime|null The modifiedDateTime
+     */
     public function getModifiedDateTime()
     {
         if (array_key_exists("modifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["modifiedDateTime"], "\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
+            if (is_a($this->_propDict["modifiedDateTime"], "\\DateTime") || is_null($this->_propDict["modifiedDateTime"])) {
                 return $this->_propDict["modifiedDateTime"];
             } else {
                 $this->_propDict["modifiedDateTime"] = new \DateTime($this->_propDict["modifiedDateTime"]);
@@ -281,53 +266,47 @@ class AccessPackageCatalog extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the modifiedDateTime
-    * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-    *
-    * @param \DateTime $val The modifiedDateTime
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the modifiedDateTime
+     * The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     *
+     * @param \DateTime $val The modifiedDateTime
+     *
+     * @return AccessPackageCatalog
+     */
     public function setModifiedDateTime($val)
     {
         $this->_propDict["modifiedDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the accessPackageResourceRoles
-    * The roles in each resource in a catalog. Read-only.
+     * The roles in each resource in a catalog. Read-only.
      *
      * @return array|null The accessPackageResourceRoles
      */
     public function getAccessPackageResourceRoles()
     {
         if (array_key_exists("accessPackageResourceRoles", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceRoles"];
+            return $this->_propDict["accessPackageResourceRoles"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the accessPackageResourceRoles
-    * The roles in each resource in a catalog. Read-only.
-    *
-    * @param AccessPackageResourceRole[] $val The accessPackageResourceRoles
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the accessPackageResourceRoles
+     * The roles in each resource in a catalog. Read-only.
+     *
+     * @param AccessPackageResourceRole[] $val The accessPackageResourceRoles
+     *
+     * @return AccessPackageCatalog
+     */
     public function setAccessPackageResourceRoles($val)
     {
         $this->_propDict["accessPackageResourceRoles"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the accessPackageResources
      *
      * @return array|null The accessPackageResources
@@ -335,27 +314,24 @@ class AccessPackageCatalog extends Entity
     public function getAccessPackageResources()
     {
         if (array_key_exists("accessPackageResources", $this->_propDict)) {
-           return $this->_propDict["accessPackageResources"];
+            return $this->_propDict["accessPackageResources"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the accessPackageResources
-    *
-    * @param AccessPackageResource[] $val The accessPackageResources
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the accessPackageResources
+     *
+     * @param AccessPackageResource[] $val The accessPackageResources
+     *
+     * @return AccessPackageCatalog
+     */
     public function setAccessPackageResources($val)
     {
         $this->_propDict["accessPackageResources"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the accessPackageResourceScopes
      *
      * @return array|null The accessPackageResourceScopes
@@ -363,57 +339,51 @@ class AccessPackageCatalog extends Entity
     public function getAccessPackageResourceScopes()
     {
         if (array_key_exists("accessPackageResourceScopes", $this->_propDict)) {
-           return $this->_propDict["accessPackageResourceScopes"];
+            return $this->_propDict["accessPackageResourceScopes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the accessPackageResourceScopes
-    *
-    * @param AccessPackageResourceScope[] $val The accessPackageResourceScopes
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the accessPackageResourceScopes
+     *
+     * @param AccessPackageResourceScope[] $val The accessPackageResourceScopes
+     *
+     * @return AccessPackageCatalog
+     */
     public function setAccessPackageResourceScopes($val)
     {
         $this->_propDict["accessPackageResourceScopes"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the accessPackages
-    * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
      *
      * @return array|null The accessPackages
      */
     public function getAccessPackages()
     {
         if (array_key_exists("accessPackages", $this->_propDict)) {
-           return $this->_propDict["accessPackages"];
+            return $this->_propDict["accessPackages"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the accessPackages
-    * The access packages in this catalog. Read-only. Nullable. Supports $expand.
-    *
-    * @param AccessPackage[] $val The accessPackages
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the accessPackages
+     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     *
+     * @param AccessPackage[] $val The accessPackages
+     *
+     * @return AccessPackageCatalog
+     */
     public function setAccessPackages($val)
     {
         $this->_propDict["accessPackages"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the customAccessPackageWorkflowExtensions
      *
      * @return array|null The customAccessPackageWorkflowExtensions
@@ -421,23 +391,21 @@ class AccessPackageCatalog extends Entity
     public function getCustomAccessPackageWorkflowExtensions()
     {
         if (array_key_exists("customAccessPackageWorkflowExtensions", $this->_propDict)) {
-           return $this->_propDict["customAccessPackageWorkflowExtensions"];
+            return $this->_propDict["customAccessPackageWorkflowExtensions"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the customAccessPackageWorkflowExtensions
-    *
-    * @param CustomAccessPackageWorkflowExtension[] $val The customAccessPackageWorkflowExtensions
-    *
-    * @return AccessPackageCatalog
-    */
+     * Sets the customAccessPackageWorkflowExtensions
+     *
+     * @param CustomAccessPackageWorkflowExtension[] $val The customAccessPackageWorkflowExtensions
+     *
+     * @return AccessPackageCatalog
+     */
     public function setCustomAccessPackageWorkflowExtensions($val)
     {
         $this->_propDict["customAccessPackageWorkflowExtensions"] = $val;
         return $this;
     }
-
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject\Splitter;
+namespace XCloner\Sabre\VObject\Splitter;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * VObject splitter.
  *
@@ -28,7 +28,6 @@ interface SplitterInterface
      * @param resource $input
      */
     public function __construct($input);
-
     /**
      * Every time getNext() is called, a new object will be parsed, until we
      * hit the end of the stream.

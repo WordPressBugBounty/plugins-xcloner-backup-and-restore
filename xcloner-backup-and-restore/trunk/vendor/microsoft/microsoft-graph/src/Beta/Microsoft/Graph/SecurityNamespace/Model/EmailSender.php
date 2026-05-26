@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmailSender class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class EmailSender extends \Beta\Microsoft\Graph\Model\Entity
+class EmailSender extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the displayName
-    * The name of the sender.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the sender.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EmailSender extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the sender.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return EmailSender
-    */
+     * Sets the displayName
+     * The name of the sender.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return EmailSender
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the domainName
-    * Sender domain.
-    *
-    * @return string|null The domainName
-    */
+     * Gets the domainName
+     * Sender domain.
+     *
+     * @return string|null The domainName
+     */
     public function getDomainName()
     {
         if (array_key_exists("domainName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class EmailSender extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the domainName
-    * Sender domain.
-    *
-    * @param string $val The value of the domainName
-    *
-    * @return EmailSender
-    */
+     * Sets the domainName
+     * Sender domain.
+     *
+     * @param string $val The value of the domainName
+     *
+     * @return EmailSender
+     */
     public function setDomainName($val)
     {
         $this->_propDict["domainName"] = $val;
         return $this;
     }
     /**
-    * Gets the emailAddress
-    * Sender email address.
-    *
-    * @return string|null The emailAddress
-    */
+     * Gets the emailAddress
+     * Sender email address.
+     *
+     * @return string|null The emailAddress
+     */
     public function getEmailAddress()
     {
         if (array_key_exists("emailAddress", $this->_propDict)) {
@@ -96,15 +96,14 @@ class EmailSender extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the emailAddress
-    * Sender email address.
-    *
-    * @param string $val The value of the emailAddress
-    *
-    * @return EmailSender
-    */
+     * Sets the emailAddress
+     * Sender email address.
+     *
+     * @param string $val The value of the emailAddress
+     *
+     * @return EmailSender
+     */
     public function setEmailAddress($val)
     {
         $this->_propDict["emailAddress"] = $val;

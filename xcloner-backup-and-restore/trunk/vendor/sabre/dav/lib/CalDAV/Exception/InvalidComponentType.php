@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Exception;
 
-namespace Sabre\CalDAV\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV;
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV;
+use XCloner\Sabre\DAV;
 /**
  * InvalidComponentType.
  *
@@ -27,7 +25,6 @@ class InvalidComponentType extends DAV\Exception\Forbidden
     public function serialize(DAV\Server $server, \DOMElement $errorNode)
     {
         $doc = $errorNode->ownerDocument;
-
         $np = $doc->createElementNS(CalDAV\Plugin::NS_CALDAV, 'cal:supported-calendar-component');
         $errorNode->appendChild($np);
     }

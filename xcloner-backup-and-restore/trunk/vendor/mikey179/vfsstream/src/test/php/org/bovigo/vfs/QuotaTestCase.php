@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,16 +8,17 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\Quota.
  *
  * @group  issue_35
  */
-class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
+class QuotaTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * instance to test
@@ -24,7 +26,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
      * @type  Quota
      */
     private $quota;
-
     /**
      * set up test environment
      */
@@ -32,7 +33,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->quota = new Quota(10);
     }
-
     /**
      * @test
      */
@@ -40,7 +40,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse(Quota::unlimited()->isLimited());
     }
-
     /**
      * @test
      */
@@ -48,7 +47,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertTrue($this->quota->isLimited());
     }
-
     /**
      * @test
      */
@@ -56,7 +54,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals(303, Quota::unlimited()->spaceLeft(303));
     }
-
     /**
      * @test
      */
@@ -64,7 +61,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals(0, $this->quota->spaceLeft(11));
     }
-
     /**
      * @test
      */
@@ -72,7 +68,6 @@ class QuotaTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals(0, $this->quota->spaceLeft(10));
     }
-
     /**
      * @test
      */

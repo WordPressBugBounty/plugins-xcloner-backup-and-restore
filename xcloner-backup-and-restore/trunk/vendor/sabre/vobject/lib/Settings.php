@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class provides a list of global defaults for vobject.
  *
@@ -29,7 +29,6 @@ class Settings
      * alive on earth, which is less than 5 people at the time of writing.
      */
     public static $minDate = '1900-01-01';
-
     /**
      * The maximum date we accept for various calculations with dates, such as
      * recurrences.
@@ -38,7 +37,6 @@ class Settings
      * appointments made for many years to come.
      */
     public static $maxDate = '2100-01-01';
-
     /**
      * The maximum number of recurrences that will be generated.
      *

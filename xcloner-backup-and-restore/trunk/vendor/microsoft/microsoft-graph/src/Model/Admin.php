@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Admin class
 *
@@ -28,46 +29,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Admin implements \JsonSerializable
 {
     /**
-    * The array of properties available
-    * to the model
-    *
-    * @var array $_propDict
-    */
+     * The array of properties available
+     * to the model
+     *
+     * @var array $_propDict
+     */
     protected $_propDict;
-
     /**
-    * Construct a new Admin
-    *
-    * @param array $propDict A list of properties to set
-    */
+     * Construct a new Admin
+     *
+     * @param array $propDict A list of properties to set
+     */
     function __construct($propDict = array())
     {
         if (!is_array($propDict)) {
-           $propDict = array();
+            $propDict = array();
         }
         $this->_propDict = $propDict;
     }
-
     /**
-    * Gets the property dictionary of the Admin
-    *
-    * @return array The list of properties
-    */
+     * Gets the property dictionary of the Admin
+     *
+     * @return array The list of properties
+     */
     public function getProperties()
     {
         return $this->_propDict;
     }
-
     /**
-    * Gets the serviceAnnouncement
-    * A container for service communications resources. Read-only.
-    *
-    * @return ServiceAnnouncement|null The serviceAnnouncement
-    */
+     * Gets the serviceAnnouncement
+     * A container for service communications resources. Read-only.
+     *
+     * @return ServiceAnnouncement|null The serviceAnnouncement
+     */
     public function getServiceAnnouncement()
     {
         if (array_key_exists("serviceAnnouncement", $this->_propDict)) {
-            if (is_a($this->_propDict["serviceAnnouncement"], "\Microsoft\Graph\Model\ServiceAnnouncement") || is_null($this->_propDict["serviceAnnouncement"])) {
+            if (is_a($this->_propDict["serviceAnnouncement"], "XCloner\\Microsoft\\Graph\\Model\\ServiceAnnouncement") || is_null($this->_propDict["serviceAnnouncement"])) {
                 return $this->_propDict["serviceAnnouncement"];
             } else {
                 $this->_propDict["serviceAnnouncement"] = new ServiceAnnouncement($this->_propDict["serviceAnnouncement"]);
@@ -76,26 +74,24 @@ class Admin implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the serviceAnnouncement
-    * A container for service communications resources. Read-only.
-    *
-    * @param ServiceAnnouncement $val The serviceAnnouncement
-    *
-    * @return Admin
-    */
+     * Sets the serviceAnnouncement
+     * A container for service communications resources. Read-only.
+     *
+     * @param ServiceAnnouncement $val The serviceAnnouncement
+     *
+     * @return Admin
+     */
     public function setServiceAnnouncement($val)
     {
         $this->_propDict["serviceAnnouncement"] = $val;
         return $this;
     }
-
     /**
-    * Gets the ODataType
-    *
-    * @return string|null The ODataType
-    */
+     * Gets the ODataType
+     *
+     * @return string|null The ODataType
+     */
     public function getODataType()
     {
         if (array_key_exists('@odata.type', $this->_propDict)) {
@@ -103,36 +99,34 @@ class Admin implements \JsonSerializable
         }
         return null;
     }
-
     /**
-    * Sets the ODataType
-    *
-    * @param string $val The ODataType
-    *
-    * @return Admin
-    */
+     * Sets the ODataType
+     *
+     * @param string $val The ODataType
+     *
+     * @return Admin
+     */
     public function setODataType($val)
     {
         $this->_propDict["@odata.type"] = $val;
         return $this;
     }
-
     /**
-    * Serializes the object by property array
-    * Manually serialize DateTime into RFC3339 format
-    *
-    * @return array The list of properties
-    */
+     * Serializes the object by property array
+     * Manually serialize DateTime into RFC3339 format
+     *
+     * @return array The list of properties
+     */
     #[\ReturnTypeWillChange]
     public function jsonSerialize()
     {
         $serializableProperties = $this->getProperties();
         foreach ($serializableProperties as $property => $val) {
-            if (is_a($val, "\DateTime")) {
+            if (is_a($val, "\\DateTime")) {
                 $serializableProperties[$property] = $val->format(\DateTime::RFC3339);
-            } else if (is_a($val, "\Microsoft\Graph\Core\Enum")) {
+            } else if (is_a($val, "XCloner\\Microsoft\\Graph\\Core\\Enum")) {
                 $serializableProperties[$property] = $val->value();
-            } else if (is_a($val, "\Entity")) {
+            } else if (is_a($val, "XCloner\\Entity")) {
                 $serializableProperties[$property] = $val->jsonSerialize();
             }
         }

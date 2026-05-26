@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppConsentApprovalRoute class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppConsentApprovalRoute extends Entity
 {
-
-     /**
+    /**
      * Gets the appConsentRequests
-    * A collection of userConsentRequest objects for a specific application.
+     * A collection of userConsentRequest objects for a specific application.
      *
      * @return array|null The appConsentRequests
      */
     public function getAppConsentRequests()
     {
         if (array_key_exists("appConsentRequests", $this->_propDict)) {
-           return $this->_propDict["appConsentRequests"];
+            return $this->_propDict["appConsentRequests"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the appConsentRequests
-    * A collection of userConsentRequest objects for a specific application.
-    *
-    * @param AppConsentRequest[] $val The appConsentRequests
-    *
-    * @return AppConsentApprovalRoute
-    */
+     * Sets the appConsentRequests
+     * A collection of userConsentRequest objects for a specific application.
+     *
+     * @param AppConsentRequest[] $val The appConsentRequests
+     *
+     * @return AppConsentApprovalRoute
+     */
     public function setAppConsentRequests($val)
     {
         $this->_propDict["appConsentRequests"] = $val;
         return $this;
     }
-
 }

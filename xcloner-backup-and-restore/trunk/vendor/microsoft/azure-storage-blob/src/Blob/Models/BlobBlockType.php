@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Holds available blob block types
  *
@@ -39,10 +38,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  */
 class BlobBlockType
 {
-    const COMMITTED_TYPE   = 'Committed';
+    const COMMITTED_TYPE = 'Committed';
     const UNCOMMITTED_TYPE = 'Uncommitted';
-    const LATEST_TYPE      = 'Latest';
-
+    const LATEST_TYPE = 'Latest';
     /**
      * Validates the provided type.
      *
@@ -58,10 +56,9 @@ class BlobBlockType
             case self::COMMITTED_TYPE:
             case self::LATEST_TYPE:
             case self::UNCOMMITTED_TYPE:
-                return true;
-
+                return \true;
             default:
-                return false;
+                return \false;
         }
     }
 }

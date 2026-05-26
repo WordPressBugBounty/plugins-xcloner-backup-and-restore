@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Backend;
 
-namespace Sabre\CalDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Xml\Notification\NotificationInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Xml\Notification\NotificationInterface;
 /**
  * Adds caldav notification support to a backend.
  *
@@ -37,7 +35,6 @@ interface NotificationSupport extends BackendInterface
      * @return NotificationInterface[]
      */
     public function getNotificationsForPrincipal($principalUri);
-
     /**
      * This deletes a specific notifcation.
      *
@@ -46,7 +43,6 @@ interface NotificationSupport extends BackendInterface
      * @param string $principalUri
      */
     public function deleteNotification($principalUri, NotificationInterface $notification);
-
     /**
      * This method is called when a user replied to a request to share.
      *

@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Dumper;
 
-namespace Symfony\Component\Translation\Dumper;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\MessageCatalogue;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\MessageCatalogue;
 /**
  * QtFileDumper generates ts files from a message catalogue.
  *
@@ -29,11 +27,10 @@ class QtFileDumper extends FileDumper
     public function formatCatalogue(MessageCatalogue $messages, string $domain, array $options = [])
     {
         $dom = new \DOMDocument('1.0', 'utf-8');
-        $dom->formatOutput = true;
+        $dom->formatOutput = \true;
         $ts = $dom->appendChild($dom->createElement('TS'));
         $context = $ts->appendChild($dom->createElement('context'));
         $context->appendChild($dom->createElement('name', $domain));
-
         foreach ($messages->all($domain) as $source => $target) {
             $message = $context->appendChild($dom->createElement('message'));
             $metadata = $messages->getMetadata($source, $domain);
@@ -50,10 +47,8 @@ class QtFileDumper extends FileDumper
             $message->appendChild($dom->createElement('source', $source));
             $message->appendChild($dom->createElement('translation', $target));
         }
-
         return $dom->saveXML();
     }
-
     /**
      * {@inheritdoc}
      */

@@ -1,20 +1,18 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Request;
 
-namespace Sabre\CalDAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\CalDAV\SharingPlugin;
-use Sabre\DAV;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Element\KeyValue;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\CalDAV\SharingPlugin;
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Element\KeyValue;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * Invite-reply POST request parser.
  *
@@ -36,35 +34,30 @@ class InviteReply implements XmlDeserializable
      * @var string
      */
     public $href;
-
     /**
      * The uri to the calendar that was being shared.
      *
      * @var string
      */
     public $calendarUri;
-
     /**
      * The id of the invite message that's being responded to.
      *
      * @var string
      */
     public $inReplyTo;
-
     /**
      * An optional message.
      *
      * @var string
      */
     public $summary;
-
     /**
      * Either SharingPlugin::STATUS_ACCEPTED or SharingPlugin::STATUS_DECLINED.
      *
      * @var int
      */
     public $status;
-
     /**
      * Constructor.
      *
@@ -82,7 +75,6 @@ class InviteReply implements XmlDeserializable
         $this->summary = $summary;
         $this->status = $status;
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -106,32 +98,30 @@ class InviteReply implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $elems = KeyValue::xmlDeserialize($reader);
-
         $href = null;
         $calendarUri = null;
         $inReplyTo = null;
         $summary = null;
         $status = null;
-
         foreach ($elems as $name => $value) {
             switch ($name) {
-                case '{'.Plugin::NS_CALENDARSERVER.'}hosturl':
+                case '{' . Plugin::NS_CALENDARSERVER . '}hosturl':
                     foreach ($value as $bla) {
                         if ('{DAV:}href' === $bla['name']) {
                             $calendarUri = $bla['value'];
                         }
                     }
                     break;
-                case '{'.Plugin::NS_CALENDARSERVER.'}invite-accepted':
+                case '{' . Plugin::NS_CALENDARSERVER . '}invite-accepted':
                     $status = DAV\Sharing\Plugin::INVITE_ACCEPTED;
                     break;
-                case '{'.Plugin::NS_CALENDARSERVER.'}invite-declined':
+                case '{' . Plugin::NS_CALENDARSERVER . '}invite-declined':
                     $status = DAV\Sharing\Plugin::INVITE_DECLINED;
                     break;
-                case '{'.Plugin::NS_CALENDARSERVER.'}in-reply-to':
+                case '{' . Plugin::NS_CALENDARSERVER . '}in-reply-to':
                     $inReplyTo = $value;
                     break;
-                case '{'.Plugin::NS_CALENDARSERVER.'}summary':
+                case '{' . Plugin::NS_CALENDARSERVER . '}summary':
                     $summary = $value;
                     break;
                 case '{DAV:}href':
@@ -142,7 +132,6 @@ class InviteReply implements XmlDeserializable
         if (is_null($calendarUri)) {
             throw new BadRequest('The {http://calendarserver.org/ns/}hosturl/{DAV:}href element must exist');
         }
-
         return new self($href, $calendarUri, $inReplyTo, $summary, $status);
     }
 }

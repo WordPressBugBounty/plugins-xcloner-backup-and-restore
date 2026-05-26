@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Formatter\FormatterInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Formatter\FormatterInterface;
 /**
  * Interface that all Monolog Handlers must implement
  *
@@ -37,7 +35,6 @@ interface HandlerInterface
      * @return bool
      */
     public function isHandling(array $record);
-
     /**
      * Handles a record.
      *
@@ -53,14 +50,12 @@ interface HandlerInterface
      *                        false means the record was either not processed or that this handler allows bubbling.
      */
     public function handle(array $record);
-
     /**
      * Handles a set of records at once.
      *
      * @param array $records The records to handle (an array of record arrays)
      */
     public function handleBatch(array $records);
-
     /**
      * Adds a processor in the stack.
      *
@@ -68,14 +63,12 @@ interface HandlerInterface
      * @return self
      */
     public function pushProcessor($callback);
-
     /**
      * Removes the processor on top of the stack and returns it.
      *
      * @return callable
      */
     public function popProcessor();
-
     /**
      * Sets the formatter.
      *
@@ -83,7 +76,6 @@ interface HandlerInterface
      * @return self
      */
     public function setFormatter(FormatterInterface $formatter);
-
     /**
      * Gets the formatter.
      *

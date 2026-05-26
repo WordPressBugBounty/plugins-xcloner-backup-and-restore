@@ -1,12 +1,11 @@
 <?php
 
-namespace Aws;
+namespace XCloner\Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\ResponseInterface;
 interface ResponseContainerInterface
 {
     /**

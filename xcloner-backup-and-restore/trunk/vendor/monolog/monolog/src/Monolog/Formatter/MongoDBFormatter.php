@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Formatter;
 
-namespace Monolog\Formatter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Utils;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Utils;
 /**
  * Formats a record for use with the MongoDBHandler.
  *
@@ -25,17 +23,15 @@ class MongoDBFormatter implements FormatterInterface
 {
     private $exceptionTraceAsString;
     private $maxNestingLevel;
-
     /**
      * @param int  $maxNestingLevel        0 means infinite nesting, the $record itself is level 1, $record['context'] is 2
      * @param bool $exceptionTraceAsString set to false to log exception traces as a sub documents instead of strings
      */
-    public function __construct($maxNestingLevel = 3, $exceptionTraceAsString = true)
+    public function __construct($maxNestingLevel = 3, $exceptionTraceAsString = \true)
     {
         $this->maxNestingLevel = max($maxNestingLevel, 0);
         $this->exceptionTraceAsString = (bool) $exceptionTraceAsString;
     }
-
     /**
      * {@inheritDoc}
      */
@@ -43,7 +39,6 @@ class MongoDBFormatter implements FormatterInterface
     {
         return $this->formatArray($record);
     }
-
     /**
      * {@inheritDoc}
      */
@@ -52,10 +47,8 @@ class MongoDBFormatter implements FormatterInterface
         foreach ($records as $key => $record) {
             $records[$key] = $this->format($record);
         }
-
         return $records;
     }
-
     protected function formatArray(array $record, $nestingLevel = 0)
     {
         if ($this->maxNestingLevel == 0 || $nestingLevel <= $this->maxNestingLevel) {
@@ -73,36 +66,24 @@ class MongoDBFormatter implements FormatterInterface
         } else {
             $record = '[...]';
         }
-
         return $record;
     }
-
     protected function formatObject($value, $nestingLevel)
     {
         $objectVars = get_object_vars($value);
         $objectVars['class'] = Utils::getClass($value);
-
         return $this->formatArray($objectVars, $nestingLevel);
     }
-
     protected function formatException(\Exception $exception, $nestingLevel)
     {
-        $formattedException = array(
-            'class' => Utils::getClass($exception),
-            'message' => $exception->getMessage(),
-            'code' => (int) $exception->getCode(),
-            'file' => $exception->getFile() . ':' . $exception->getLine(),
-        );
-
-        if ($this->exceptionTraceAsString === true) {
+        $formattedException = array('class' => Utils::getClass($exception), 'message' => $exception->getMessage(), 'code' => (int) $exception->getCode(), 'file' => $exception->getFile() . ':' . $exception->getLine());
+        if ($this->exceptionTraceAsString === \true) {
             $formattedException['trace'] = $exception->getTraceAsString();
         } else {
             $formattedException['trace'] = $exception->getTrace();
         }
-
         return $this->formatArray($formattedException, $nestingLevel);
     }
-
     protected function formatDate(\DateTime $value, $nestingLevel)
     {
         return new \MongoDate($value->getTimestamp());

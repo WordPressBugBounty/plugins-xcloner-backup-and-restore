@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Notifications;
 
-namespace Sabre\CalDAV\Notifications;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Xml\Notification\NotificationInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Xml\Notification\NotificationInterface;
 /**
  * This node represents a single notification.
  *
@@ -32,7 +30,6 @@ interface INode
      * @return NotificationInterface
      */
     public function getNotificationType();
-
     /**
      * Returns the etag for the notification.
      *

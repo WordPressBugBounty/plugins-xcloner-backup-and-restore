@@ -150,9 +150,9 @@ class Xcloner_Api
             }
         }
         if (!$schedule['start_at']) {
-            $schedule['start_at'] = date('Y-m-d H:i:s', time());
+            $schedule['start_at'] = gmdate('Y-m-d H:i:s', time());
         } else {
-            $schedule['start_at'] = date('Y-m-d H:i:s', $schedule['start_at'] - $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
+            $schedule['start_at'] = gmdate('Y-m-d H:i:s', $schedule['start_at'] - $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
         }
         $schedule['name'] = $this->form_params['backup_params']['schedule_name'];
         $schedule['recurrence'] = $this->form_params['backup_params']['schedule_frequency'];
@@ -210,7 +210,7 @@ class Xcloner_Api
                 try {
                     $from = "";
                     $subject = "";
-                    $additional['lines_total'] = $data['extra']['lines_total'];
+                    $additional['lines_total'] = $data['extra']['lines_total'] ?? 0;
                     $additional['backup_size'] = size_format($this->xcloner_file_system->get_backup_size($data['extra']['backup_parent']));
                     $this->archive_system->send_notification($to, $from, $subject, $data['extra']['backup_parent'], $this->form_params, "", $additional);
                 } catch (Exception $e) {
@@ -339,6 +339,7 @@ class Xcloner_Api
             $files = $this->xcloner_file_system->list_directory($folder);
         } catch (Exception $e) {
             print $e->getMessage();
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
             $this->logger->error($e->getMessage());
             return;
         }
@@ -428,9 +429,9 @@ class Xcloner_Api
         $schedule_id = $this->xcloner_sanitization->sanitize_input_as_int($_GET['id']);
         $scheduler = $this->xcloner_scheduler;
         $data = $scheduler->get_schedule_by_id($schedule_id);
-        $data['start_at'] = date("Y-m-d H:i", strtotime($data['start_at']) + $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
+        $data['start_at'] = gmdate("Y-m-d H:i", strtotime($data['start_at']) + $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
         if (isset($data['backup_params']->diff_start_date) && $data['backup_params']->diff_start_date != "") {
-            $data['backup_params']->diff_start_date = date("Y-m-d", $data['backup_params']->diff_start_date);
+            $data['backup_params']->diff_start_date = gmdate("Y-m-d", $data['backup_params']->diff_start_date);
         }
         $this->send_response($data);
     }
@@ -453,13 +454,13 @@ class Xcloner_Api
                 $status = '<i class="material-icons status inactive">timer_off</i>';
             }
             $next_run_time = wp_next_scheduled('xcloner_scheduler_' . $res->id, array($res->id));
-            $next_run = date($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $next_run_time);
+            $next_run = gmdate($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $next_run_time);
             $remote_storage = $res->remote_storage;
             if (!$next_run_time >= time()) {
                 $next_run = " ";
             }
             if (trim($next_run)) {
-                $date_text = date($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $next_run_time + $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
+                $date_text = gmdate($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $next_run_time + $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
                 if ($next_run_time >= time()) {
                     $next_run = "in " . human_time_diff($next_run_time, time());
                 } else {
@@ -475,7 +476,7 @@ class Xcloner_Api
                 if ($this->xcloner_file_system->get_storage_filesystem()->has($res->last_backup)) {
                     $metadata = $this->xcloner_file_system->get_storage_filesystem()->getMetadata($res->last_backup);
                     $backup_size = size_format($this->xcloner_file_system->get_backup_size($res->last_backup));
-                    $backup_time = date($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $metadata['timestamp'] + $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
+                    $backup_time = gmdate($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $metadata['timestamp'] + $this->xcloner_settings->get_xcloner_option('gmt_offset') * \HOUR_IN_SECONDS);
                 }
                 $backup_text = "<span title='" . $backup_time . "' class='shorten_string'>" . $res->last_backup . " (" . $backup_size . ")</span>";
             }
@@ -677,13 +678,13 @@ class Xcloner_Api
                         if (!$storage_selection) {
                             $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="download" title="Download Backup"><i class="material-icons">file_download</i></a>';
                             if ($this->xcloner_encryption->is_encrypted_file($child[0])) {
-                                $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="backup-decryption" title="' . __('Backup Decryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">enhanced_encryption</i></a>';
+                                $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="backup-decryption" title="' . esc_html__('Backup Decryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">enhanced_encryption</i></a>';
                             } else {
-                                $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="list-backup-content" title="' . __('List Backup Content', 'xcloner-backup-and-restore') . '"><i class="material-icons">folder_open</i></a>';
-                                $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="backup-encryption" title="' . __('Backup Encryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">no_encryption</i></a>';
+                                $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="list-backup-content" title="' . esc_html__('List Backup Content', 'xcloner-backup-and-restore') . '"><i class="material-icons">folder_open</i></a>';
+                                $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="backup-encryption" title="' . esc_html__('Backup Encryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">no_encryption</i></a>';
                             }
                         } elseif ($storage_selection != "gdrive" && !$this->xcloner_file_system->get_storage_filesystem()->has($child[0])) {
-                            $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="copy-remote-to-local" title="' . __('Push Backup To Local Storage', 'xcloner-backup-and-restore') . '"><i class="material-icons">file_upload</i></a>';
+                            $column2 .= '<a href="#' . esc_attr($child[0]) . '" class="copy-remote-to-local" title="' . esc_html__('Push Backup To Local Storage', 'xcloner-backup-and-restore') . '"><i class="material-icons">file_upload</i></a>';
                         }
                         $column2 .= '</li>';
                     }
@@ -691,29 +692,29 @@ class Xcloner_Api
                 }
                 $return['data'][$i][] = $column2;
                 // Column 3: Date
-                $return['data'][$i][] = !empty($file_info['timestamp']) ? date("Y-m-d H:i", (int) $file_info['timestamp']) : '';
+                $return['data'][$i][] = !empty($file_info['timestamp']) ? gmdate("Y-m-d H:i", (int) $file_info['timestamp']) : '';
                 // Column 4: Size
                 $return['data'][$i][] = esc_html(size_format($file_info['size']));
                 // Column 5: Actions
-                $column5 = '<a href="#' . esc_attr($file_info['basename']) . '" class="download" title="' . __('Download Backup', 'xcloner-backup-and-restore') . '"><i class="material-icons">file_download</i></a>';
+                $column5 = '<a href="#' . esc_attr($file_info['basename']) . '" class="download" title="' . esc_html__('Download Backup', 'xcloner-backup-and-restore') . '"><i class="material-icons">file_download</i></a>';
                 if (!$storage_selection) {
                     if (sizeof($available_storages)) {
-                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="cloud-upload" title="' . __('Send Backup To Remote Storage', 'xcloner-backup-and-restore') . '"><i class="material-icons">swap_horiz</i></a>';
+                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="cloud-upload" title="' . esc_html__('Send Backup To Remote Storage', 'xcloner-backup-and-restore') . '"><i class="material-icons">swap_horiz</i></a>';
                     }
                     $basename = $file_info['basename'];
                     if (isset($file_info['childs']) && sizeof($file_info['childs'])) {
                         $basename = $file_info['childs'][0][0];
                     }
                     if ($this->xcloner_encryption->is_encrypted_file($basename)) {
-                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="backup-decryption" title="' . __('Backup Decryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">enhanced_encryption</i></a>';
+                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="backup-decryption" title="' . esc_html__('Backup Decryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">enhanced_encryption</i></a>';
                     } else {
-                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="list-backup-content" title="' . __('List Backup Content', 'xcloner-backup-and-restore') . '"><i class="material-icons">folder_open</i></a>';
-                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="backup-encryption" title="' . __('Backup Encryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">no_encryption</i></a>';
+                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="list-backup-content" title="' . esc_html__('List Backup Content', 'xcloner-backup-and-restore') . '"><i class="material-icons">folder_open</i></a>';
+                        $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="backup-encryption" title="' . esc_html__('Backup Encryption', 'xcloner-backup-and-restore') . '"><i class="material-icons">no_encryption</i></a>';
                     }
                 }
-                $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="delete" title="' . __('Delete Backup', 'xcloner-backup-and-restore') . '"><i class="material-icons">delete</i></a>';
+                $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="delete" title="' . esc_html__('Delete Backup', 'xcloner-backup-and-restore') . '"><i class="material-icons">delete</i></a>';
                 if ($storage_selection && !$file_exists_on_local_storage) {
-                    $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="copy-remote-to-local" title="' . __('Transfer a copy of the remote backup to local storage.', 'xcloner-backup-and-restore') . '"><i class="material-icons">swap_horiz</i></a>';
+                    $column5 .= '<a href="#' . esc_attr($file_info['basename']) . '" class="copy-remote-to-local" title="' . esc_html__('Transfer a copy of the remote backup to local storage.', 'xcloner-backup-and-restore') . '"><i class="material-icons">swap_horiz</i></a>';
                 }
                 $return['data'][$i][] = $column5;
             }
@@ -759,7 +760,7 @@ class Xcloner_Api
             foreach ($data['extracted_files'] as $file) {
                 $return['files'][$i]['path'] = $file->getPath();
                 $return['files'][$i]['size'] = $file->getSize();
-                $return['files'][$i]['mtime'] = date($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $file->getMtime());
+                $return['files'][$i]['mtime'] = gmdate($this->xcloner_settings->get_xcloner_option('date_format') . " " . $this->xcloner_settings->get_xcloner_option('time_format'), $file->getMtime());
                 $i++;
             }
         }
@@ -872,9 +873,12 @@ class Xcloner_Api
         $chunkSize = 1024 * 1024;
         while (!feof($read_stream)) {
             $buffer = fread($read_stream, $chunkSize);
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fread
             echo $buffer;
+            // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
         }
         fclose($read_stream);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         wp_die();
     }
     /**

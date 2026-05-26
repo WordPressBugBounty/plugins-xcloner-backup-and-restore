@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerPlan class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerPlan extends Entity
 {
     /**
-    * Gets the container
-    * Identifies the container of the plan. After it is set, this property can’t be updated. Required.
-    *
-    * @return PlannerPlanContainer|null The container
-    */
+     * Gets the container
+     * Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+     *
+     * @return PlannerPlanContainer|null The container
+     */
     public function getContainer()
     {
         if (array_key_exists("container", $this->_propDict)) {
-            if (is_a($this->_propDict["container"], "\Microsoft\Graph\Model\PlannerPlanContainer") || is_null($this->_propDict["container"])) {
+            if (is_a($this->_propDict["container"], "XCloner\\Microsoft\\Graph\\Model\\PlannerPlanContainer") || is_null($this->_propDict["container"])) {
                 return $this->_propDict["container"];
             } else {
                 $this->_propDict["container"] = new PlannerPlanContainer($this->_propDict["container"]);
@@ -45,31 +46,29 @@ class PlannerPlan extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the container
-    * Identifies the container of the plan. After it is set, this property can’t be updated. Required.
-    *
-    * @param PlannerPlanContainer $val The container
-    *
-    * @return PlannerPlan
-    */
+     * Sets the container
+     * Identifies the container of the plan. After it is set, this property can’t be updated. Required.
+     *
+     * @param PlannerPlanContainer $val The container
+     *
+     * @return PlannerPlan
+     */
     public function setContainer($val)
     {
         $this->_propDict["container"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdBy
-    * Read-only. The user who created the plan.
-    *
-    * @return IdentitySet|null The createdBy
-    */
+     * Gets the createdBy
+     * Read-only. The user who created the plan.
+     *
+     * @return IdentitySet|null The createdBy
+     */
     public function getCreatedBy()
     {
         if (array_key_exists("createdBy", $this->_propDict)) {
-            if (is_a($this->_propDict["createdBy"], "\Microsoft\Graph\Model\IdentitySet") || is_null($this->_propDict["createdBy"])) {
+            if (is_a($this->_propDict["createdBy"], "XCloner\\Microsoft\\Graph\\Model\\IdentitySet") || is_null($this->_propDict["createdBy"])) {
                 return $this->_propDict["createdBy"];
             } else {
                 $this->_propDict["createdBy"] = new IdentitySet($this->_propDict["createdBy"]);
@@ -78,31 +77,29 @@ class PlannerPlan extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdBy
-    * Read-only. The user who created the plan.
-    *
-    * @param IdentitySet $val The createdBy
-    *
-    * @return PlannerPlan
-    */
+     * Sets the createdBy
+     * Read-only. The user who created the plan.
+     *
+     * @param IdentitySet $val The createdBy
+     *
+     * @return PlannerPlan
+     */
     public function setCreatedBy($val)
     {
         $this->_propDict["createdBy"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -111,26 +108,24 @@ class PlannerPlan extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return PlannerPlan
-    */
+     * Sets the createdDateTime
+     * Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return PlannerPlan
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the owner
-    *
-    * @return string|null The owner
-    */
+     * Gets the owner
+     *
+     * @return string|null The owner
+     */
     public function getOwner()
     {
         if (array_key_exists("owner", $this->_propDict)) {
@@ -139,26 +134,24 @@ class PlannerPlan extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the owner
-    *
-    * @param string $val The owner
-    *
-    * @return PlannerPlan
-    */
+     * Sets the owner
+     *
+     * @param string $val The owner
+     *
+     * @return PlannerPlan
+     */
     public function setOwner($val)
     {
         $this->_propDict["owner"] = $val;
         return $this;
     }
-
     /**
-    * Gets the title
-    * Required. Title of the plan.
-    *
-    * @return string|null The title
-    */
+     * Gets the title
+     * Required. Title of the plan.
+     *
+     * @return string|null The title
+     */
     public function getTitle()
     {
         if (array_key_exists("title", $this->_propDict)) {
@@ -167,61 +160,56 @@ class PlannerPlan extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the title
-    * Required. Title of the plan.
-    *
-    * @param string $val The title
-    *
-    * @return PlannerPlan
-    */
+     * Sets the title
+     * Required. Title of the plan.
+     *
+     * @param string $val The title
+     *
+     * @return PlannerPlan
+     */
     public function setTitle($val)
     {
         $this->_propDict["title"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the buckets
-    * Read-only. Nullable. Collection of buckets in the plan.
+     * Read-only. Nullable. Collection of buckets in the plan.
      *
      * @return array|null The buckets
      */
     public function getBuckets()
     {
         if (array_key_exists("buckets", $this->_propDict)) {
-           return $this->_propDict["buckets"];
+            return $this->_propDict["buckets"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the buckets
-    * Read-only. Nullable. Collection of buckets in the plan.
-    *
-    * @param PlannerBucket[] $val The buckets
-    *
-    * @return PlannerPlan
-    */
+     * Sets the buckets
+     * Read-only. Nullable. Collection of buckets in the plan.
+     *
+     * @param PlannerBucket[] $val The buckets
+     *
+     * @return PlannerPlan
+     */
     public function setBuckets($val)
     {
         $this->_propDict["buckets"] = $val;
         return $this;
     }
-
     /**
-    * Gets the details
-    * Read-only. Nullable. Additional details about the plan.
-    *
-    * @return PlannerPlanDetails|null The details
-    */
+     * Gets the details
+     * Read-only. Nullable. Additional details about the plan.
+     *
+     * @return PlannerPlanDetails|null The details
+     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PlannerPlanDetails") || is_null($this->_propDict["details"])) {
+            if (is_a($this->_propDict["details"], "XCloner\\Microsoft\\Graph\\Model\\PlannerPlanDetails") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PlannerPlanDetails($this->_propDict["details"]);
@@ -230,49 +218,44 @@ class PlannerPlan extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the details
-    * Read-only. Nullable. Additional details about the plan.
-    *
-    * @param PlannerPlanDetails $val The details
-    *
-    * @return PlannerPlan
-    */
+     * Sets the details
+     * Read-only. Nullable. Additional details about the plan.
+     *
+     * @param PlannerPlanDetails $val The details
+     *
+     * @return PlannerPlan
+     */
     public function setDetails($val)
     {
         $this->_propDict["details"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the tasks
-    * Read-only. Nullable. Collection of tasks in the plan.
+     * Read-only. Nullable. Collection of tasks in the plan.
      *
      * @return array|null The tasks
      */
     public function getTasks()
     {
         if (array_key_exists("tasks", $this->_propDict)) {
-           return $this->_propDict["tasks"];
+            return $this->_propDict["tasks"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the tasks
-    * Read-only. Nullable. Collection of tasks in the plan.
-    *
-    * @param PlannerTask[] $val The tasks
-    *
-    * @return PlannerPlan
-    */
+     * Sets the tasks
+     * Read-only. Nullable. Collection of tasks in the plan.
+     *
+     * @param PlannerTask[] $val The tasks
+     *
+     * @return PlannerPlan
+     */
     public function setTasks($val)
     {
         $this->_propDict["tasks"] = $val;
         return $this;
     }
-
 }

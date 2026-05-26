@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RelyingPartyDetailedSummary class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RelyingPartyDetailedSummary extends Entity
 {
     /**
-    * Gets the failedSignInCount
-    * Number of failed sign in on Active Directory Federation Service in the period specified.
-    *
-    * @return int|null The failedSignInCount
-    */
+     * Gets the failedSignInCount
+     * Number of failed sign in on Active Directory Federation Service in the period specified.
+     *
+     * @return int|null The failedSignInCount
+     */
     public function getFailedSignInCount()
     {
         if (array_key_exists("failedSignInCount", $this->_propDict)) {
@@ -41,31 +42,29 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedSignInCount
-    * Number of failed sign in on Active Directory Federation Service in the period specified.
-    *
-    * @param int $val The failedSignInCount
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the failedSignInCount
+     * Number of failed sign in on Active Directory Federation Service in the period specified.
+     *
+     * @param int $val The failedSignInCount
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setFailedSignInCount($val)
     {
         $this->_propDict["failedSignInCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the migrationStatus
-    * Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
-    *
-    * @return MigrationStatus|null The migrationStatus
-    */
+     * Gets the migrationStatus
+     * Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
+     *
+     * @return MigrationStatus|null The migrationStatus
+     */
     public function getMigrationStatus()
     {
         if (array_key_exists("migrationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["migrationStatus"], "\Beta\Microsoft\Graph\Model\MigrationStatus") || is_null($this->_propDict["migrationStatus"])) {
+            if (is_a($this->_propDict["migrationStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MigrationStatus") || is_null($this->_propDict["migrationStatus"])) {
                 return $this->_propDict["migrationStatus"];
             } else {
                 $this->_propDict["migrationStatus"] = new MigrationStatus($this->_propDict["migrationStatus"]);
@@ -74,57 +73,52 @@ class RelyingPartyDetailedSummary extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the migrationStatus
-    * Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
-    *
-    * @param MigrationStatus $val The migrationStatus
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the migrationStatus
+     * Indication of whether the application can be moved to Azure AD or require more investigation. Possible values are: ready, needsReview, additionalStepsRequired, unknownFutureValue.
+     *
+     * @param MigrationStatus $val The migrationStatus
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setMigrationStatus($val)
     {
         $this->_propDict["migrationStatus"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the migrationValidationDetails
-    * Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
+     * Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
      *
      * @return array|null The migrationValidationDetails
      */
     public function getMigrationValidationDetails()
     {
         if (array_key_exists("migrationValidationDetails", $this->_propDict)) {
-           return $this->_propDict["migrationValidationDetails"];
+            return $this->_propDict["migrationValidationDetails"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the migrationValidationDetails
-    * Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
-    *
-    * @param KeyValuePair[] $val The migrationValidationDetails
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the migrationValidationDetails
+     * Specifies all the validations check done on applications configuration details to evaluate if the application is ready to be moved to Azure AD.
+     *
+     * @param KeyValuePair[] $val The migrationValidationDetails
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setMigrationValidationDetails($val)
     {
         $this->_propDict["migrationValidationDetails"] = $val;
         return $this;
     }
-
     /**
-    * Gets the relyingPartyId
-    * This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
-    *
-    * @return string|null The relyingPartyId
-    */
+     * Gets the relyingPartyId
+     * This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
+     *
+     * @return string|null The relyingPartyId
+     */
     public function getRelyingPartyId()
     {
         if (array_key_exists("relyingPartyId", $this->_propDict)) {
@@ -133,27 +127,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the relyingPartyId
-    * This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
-    *
-    * @param string $val The relyingPartyId
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the relyingPartyId
+     * This identifier is used to identify the relying party to this Federation Service. It is used when issuing claims to the relying party.
+     *
+     * @param string $val The relyingPartyId
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setRelyingPartyId($val)
     {
         $this->_propDict["relyingPartyId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the relyingPartyName
-    * Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
-    *
-    * @return string|null The relyingPartyName
-    */
+     * Gets the relyingPartyName
+     * Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
+     *
+     * @return string|null The relyingPartyName
+     */
     public function getRelyingPartyName()
     {
         if (array_key_exists("relyingPartyName", $this->_propDict)) {
@@ -162,27 +154,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the relyingPartyName
-    * Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
-    *
-    * @param string $val The relyingPartyName
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the relyingPartyName
+     * Name of application or other entity on the internet that uses an identity provider to authenticate a user who wants to log in.
+     *
+     * @param string $val The relyingPartyName
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setRelyingPartyName($val)
     {
         $this->_propDict["relyingPartyName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the replyUrls
-    * Specifies where the relying party expects to receive the token.
-    *
-    * @return array|null The replyUrls
-    */
+     * Gets the replyUrls
+     * Specifies where the relying party expects to receive the token.
+     *
+     * @return array|null The replyUrls
+     */
     public function getReplyUrls()
     {
         if (array_key_exists("replyUrls", $this->_propDict)) {
@@ -191,27 +181,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the replyUrls
-    * Specifies where the relying party expects to receive the token.
-    *
-    * @param string[] $val The replyUrls
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the replyUrls
+     * Specifies where the relying party expects to receive the token.
+     *
+     * @param string[] $val The replyUrls
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setReplyUrls($val)
     {
         $this->_propDict["replyUrls"] = $val;
         return $this;
     }
-
     /**
-    * Gets the serviceId
-    * Uniquely identifies the Active Directory forest.
-    *
-    * @return string|null The serviceId
-    */
+     * Gets the serviceId
+     * Uniquely identifies the Active Directory forest.
+     *
+     * @return string|null The serviceId
+     */
     public function getServiceId()
     {
         if (array_key_exists("serviceId", $this->_propDict)) {
@@ -220,27 +208,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the serviceId
-    * Uniquely identifies the Active Directory forest.
-    *
-    * @param string $val The serviceId
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the serviceId
+     * Uniquely identifies the Active Directory forest.
+     *
+     * @param string $val The serviceId
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setServiceId($val)
     {
         $this->_propDict["serviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the signInSuccessRate
-    * Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
-    *
-    * @return float|null The signInSuccessRate
-    */
+     * Gets the signInSuccessRate
+     * Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
+     *
+     * @return float|null The signInSuccessRate
+     */
     public function getSignInSuccessRate()
     {
         if (array_key_exists("signInSuccessRate", $this->_propDict)) {
@@ -249,27 +235,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the signInSuccessRate
-    * Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
-    *
-    * @param float $val The signInSuccessRate
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the signInSuccessRate
+     * Number of successful / (number of successful + number of failed sign ins) on Active Directory Federation Service in the period specified.
+     *
+     * @param float $val The signInSuccessRate
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setSignInSuccessRate($val)
     {
         $this->_propDict["signInSuccessRate"] = floatval($val);
         return $this;
     }
-
     /**
-    * Gets the successfulSignInCount
-    * Number of successful sign ins on Active Directory Federation Service.
-    *
-    * @return int|null The successfulSignInCount
-    */
+     * Gets the successfulSignInCount
+     * Number of successful sign ins on Active Directory Federation Service.
+     *
+     * @return int|null The successfulSignInCount
+     */
     public function getSuccessfulSignInCount()
     {
         if (array_key_exists("successfulSignInCount", $this->_propDict)) {
@@ -278,27 +262,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the successfulSignInCount
-    * Number of successful sign ins on Active Directory Federation Service.
-    *
-    * @param int $val The successfulSignInCount
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the successfulSignInCount
+     * Number of successful sign ins on Active Directory Federation Service.
+     *
+     * @param int $val The successfulSignInCount
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setSuccessfulSignInCount($val)
     {
         $this->_propDict["successfulSignInCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the totalSignInCount
-    * Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
-    *
-    * @return int|null The totalSignInCount
-    */
+     * Gets the totalSignInCount
+     * Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
+     *
+     * @return int|null The totalSignInCount
+     */
     public function getTotalSignInCount()
     {
         if (array_key_exists("totalSignInCount", $this->_propDict)) {
@@ -307,27 +289,25 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the totalSignInCount
-    * Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
-    *
-    * @param int $val The totalSignInCount
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the totalSignInCount
+     * Number of successful + failed sign ins failed sign ins on Active Directory Federation Service in the period specified.
+     *
+     * @param int $val The totalSignInCount
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setTotalSignInCount($val)
     {
         $this->_propDict["totalSignInCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the uniqueUserCount
-    * Number of unique users that have signed into the application.
-    *
-    * @return int|null The uniqueUserCount
-    */
+     * Gets the uniqueUserCount
+     * Number of unique users that have signed into the application.
+     *
+     * @return int|null The uniqueUserCount
+     */
     public function getUniqueUserCount()
     {
         if (array_key_exists("uniqueUserCount", $this->_propDict)) {
@@ -336,19 +316,17 @@ class RelyingPartyDetailedSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the uniqueUserCount
-    * Number of unique users that have signed into the application.
-    *
-    * @param int $val The uniqueUserCount
-    *
-    * @return RelyingPartyDetailedSummary
-    */
+     * Sets the uniqueUserCount
+     * Number of unique users that have signed into the application.
+     *
+     * @param int $val The uniqueUserCount
+     *
+     * @return RelyingPartyDetailedSummary
+     */
     public function setUniqueUserCount($val)
     {
         $this->_propDict["uniqueUserCount"] = intval($val);
         return $this;
     }
-
 }

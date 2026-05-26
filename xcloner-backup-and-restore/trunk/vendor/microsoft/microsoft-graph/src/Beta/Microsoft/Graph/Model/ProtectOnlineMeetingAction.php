@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProtectOnlineMeetingAction class
 *
@@ -27,26 +29,24 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProtectOnlineMeetingAction extends LabelActionBase
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.protectOnlineMeetingAction");
     }
-
-
     /**
-    * Gets the allowedForwarders
-    *
-    * @return OnlineMeetingForwarders|null The allowedForwarders
-    */
+     * Gets the allowedForwarders
+     *
+     * @return OnlineMeetingForwarders|null The allowedForwarders
+     */
     public function getAllowedForwarders()
     {
         if (array_key_exists("allowedForwarders", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedForwarders"], "\Beta\Microsoft\Graph\Model\OnlineMeetingForwarders") || is_null($this->_propDict["allowedForwarders"])) {
+            if (is_a($this->_propDict["allowedForwarders"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OnlineMeetingForwarders") || is_null($this->_propDict["allowedForwarders"])) {
                 return $this->_propDict["allowedForwarders"];
             } else {
                 $this->_propDict["allowedForwarders"] = new OnlineMeetingForwarders($this->_propDict["allowedForwarders"]);
@@ -55,29 +55,27 @@ class ProtectOnlineMeetingAction extends LabelActionBase
         }
         return null;
     }
-
     /**
-    * Sets the allowedForwarders
-    *
-    * @param OnlineMeetingForwarders $val The value to assign to the allowedForwarders
-    *
-    * @return ProtectOnlineMeetingAction The ProtectOnlineMeetingAction
-    */
+     * Sets the allowedForwarders
+     *
+     * @param OnlineMeetingForwarders $val The value to assign to the allowedForwarders
+     *
+     * @return ProtectOnlineMeetingAction The ProtectOnlineMeetingAction
+     */
     public function setAllowedForwarders($val)
     {
         $this->_propDict["allowedForwarders"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the allowedPresenters
-    *
-    * @return OnlineMeetingPresenters|null The allowedPresenters
-    */
+     * Gets the allowedPresenters
+     *
+     * @return OnlineMeetingPresenters|null The allowedPresenters
+     */
     public function getAllowedPresenters()
     {
         if (array_key_exists("allowedPresenters", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedPresenters"], "\Beta\Microsoft\Graph\Model\OnlineMeetingPresenters") || is_null($this->_propDict["allowedPresenters"])) {
+            if (is_a($this->_propDict["allowedPresenters"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\OnlineMeetingPresenters") || is_null($this->_propDict["allowedPresenters"])) {
                 return $this->_propDict["allowedPresenters"];
             } else {
                 $this->_propDict["allowedPresenters"] = new OnlineMeetingPresenters($this->_propDict["allowedPresenters"]);
@@ -86,24 +84,23 @@ class ProtectOnlineMeetingAction extends LabelActionBase
         }
         return null;
     }
-
     /**
-    * Sets the allowedPresenters
-    *
-    * @param OnlineMeetingPresenters $val The value to assign to the allowedPresenters
-    *
-    * @return ProtectOnlineMeetingAction The ProtectOnlineMeetingAction
-    */
+     * Sets the allowedPresenters
+     *
+     * @param OnlineMeetingPresenters $val The value to assign to the allowedPresenters
+     *
+     * @return ProtectOnlineMeetingAction The ProtectOnlineMeetingAction
+     */
     public function setAllowedPresenters($val)
     {
         $this->_propDict["allowedPresenters"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the isCopyToClipboardEnabled
-    *
-    * @return bool|null The isCopyToClipboardEnabled
-    */
+     * Gets the isCopyToClipboardEnabled
+     *
+     * @return bool|null The isCopyToClipboardEnabled
+     */
     public function getIsCopyToClipboardEnabled()
     {
         if (array_key_exists("isCopyToClipboardEnabled", $this->_propDict)) {
@@ -112,24 +109,23 @@ class ProtectOnlineMeetingAction extends LabelActionBase
             return null;
         }
     }
-
     /**
-    * Sets the isCopyToClipboardEnabled
-    *
-    * @param bool $val The value of the isCopyToClipboardEnabled
-    *
-    * @return ProtectOnlineMeetingAction
-    */
+     * Sets the isCopyToClipboardEnabled
+     *
+     * @param bool $val The value of the isCopyToClipboardEnabled
+     *
+     * @return ProtectOnlineMeetingAction
+     */
     public function setIsCopyToClipboardEnabled($val)
     {
         $this->_propDict["isCopyToClipboardEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the isLobbyEnabled
-    *
-    * @return bool|null The isLobbyEnabled
-    */
+     * Gets the isLobbyEnabled
+     *
+     * @return bool|null The isLobbyEnabled
+     */
     public function getIsLobbyEnabled()
     {
         if (array_key_exists("isLobbyEnabled", $this->_propDict)) {
@@ -138,29 +134,27 @@ class ProtectOnlineMeetingAction extends LabelActionBase
             return null;
         }
     }
-
     /**
-    * Sets the isLobbyEnabled
-    *
-    * @param bool $val The value of the isLobbyEnabled
-    *
-    * @return ProtectOnlineMeetingAction
-    */
+     * Sets the isLobbyEnabled
+     *
+     * @param bool $val The value of the isLobbyEnabled
+     *
+     * @return ProtectOnlineMeetingAction
+     */
     public function setIsLobbyEnabled($val)
     {
         $this->_propDict["isLobbyEnabled"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lobbyBypassSettings
-    *
-    * @return LobbyBypassSettings|null The lobbyBypassSettings
-    */
+     * Gets the lobbyBypassSettings
+     *
+     * @return LobbyBypassSettings|null The lobbyBypassSettings
+     */
     public function getLobbyBypassSettings()
     {
         if (array_key_exists("lobbyBypassSettings", $this->_propDict)) {
-            if (is_a($this->_propDict["lobbyBypassSettings"], "\Beta\Microsoft\Graph\Model\LobbyBypassSettings") || is_null($this->_propDict["lobbyBypassSettings"])) {
+            if (is_a($this->_propDict["lobbyBypassSettings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\LobbyBypassSettings") || is_null($this->_propDict["lobbyBypassSettings"])) {
                 return $this->_propDict["lobbyBypassSettings"];
             } else {
                 $this->_propDict["lobbyBypassSettings"] = new LobbyBypassSettings($this->_propDict["lobbyBypassSettings"]);
@@ -169,17 +163,16 @@ class ProtectOnlineMeetingAction extends LabelActionBase
         }
         return null;
     }
-
     /**
-    * Sets the lobbyBypassSettings
-    *
-    * @param LobbyBypassSettings $val The value to assign to the lobbyBypassSettings
-    *
-    * @return ProtectOnlineMeetingAction The ProtectOnlineMeetingAction
-    */
+     * Sets the lobbyBypassSettings
+     *
+     * @param LobbyBypassSettings $val The value to assign to the lobbyBypassSettings
+     *
+     * @return ProtectOnlineMeetingAction The ProtectOnlineMeetingAction
+     */
     public function setLobbyBypassSettings($val)
     {
         $this->_propDict["lobbyBypassSettings"] = $val;
-         return $this;
+        return $this;
     }
 }

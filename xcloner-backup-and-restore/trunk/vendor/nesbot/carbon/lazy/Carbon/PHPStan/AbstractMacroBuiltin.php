@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of the Carbon package.
  *
@@ -10,15 +9,13 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\PHPStan;
 
-namespace Carbon\PHPStan;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use ReflectionMethod;
-
-if (!class_exists(AbstractReflectionMacro::class, false)) {
+if (!class_exists(AbstractReflectionMacro::class, \false)) {
     abstract class AbstractReflectionMacro extends AbstractMacro
     {
         /**
@@ -26,9 +23,7 @@ if (!class_exists(AbstractReflectionMacro::class, false)) {
          */
         public function getReflection(): ?ReflectionMethod
         {
-            return $this->reflectionFunction instanceof ReflectionMethod
-                ? $this->reflectionFunction
-                : null;
+            return $this->reflectionFunction instanceof ReflectionMethod ? $this->reflectionFunction : null;
         }
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InformationalUrl class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InformationalUrl extends Entity
 {
     /**
-    * Gets the logoUrl
-    * CDN URL to the application's logo, Read-only.
-    *
-    * @return string|null The logoUrl
-    */
+     * Gets the logoUrl
+     * CDN URL to the application's logo, Read-only.
+     *
+     * @return string|null The logoUrl
+     */
     public function getLogoUrl()
     {
         if (array_key_exists("logoUrl", $this->_propDict)) {
@@ -40,26 +42,25 @@ class InformationalUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the logoUrl
-    * CDN URL to the application's logo, Read-only.
-    *
-    * @param string $val The value of the logoUrl
-    *
-    * @return InformationalUrl
-    */
+     * Sets the logoUrl
+     * CDN URL to the application's logo, Read-only.
+     *
+     * @param string $val The value of the logoUrl
+     *
+     * @return InformationalUrl
+     */
     public function setLogoUrl($val)
     {
         $this->_propDict["logoUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the marketingUrl
-    * Link to the application's marketing page. For example, https://www.contoso.com/app/marketing
-    *
-    * @return string|null The marketingUrl
-    */
+     * Gets the marketingUrl
+     * Link to the application's marketing page. For example, https://www.contoso.com/app/marketing
+     *
+     * @return string|null The marketingUrl
+     */
     public function getMarketingUrl()
     {
         if (array_key_exists("marketingUrl", $this->_propDict)) {
@@ -68,26 +69,25 @@ class InformationalUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the marketingUrl
-    * Link to the application's marketing page. For example, https://www.contoso.com/app/marketing
-    *
-    * @param string $val The value of the marketingUrl
-    *
-    * @return InformationalUrl
-    */
+     * Sets the marketingUrl
+     * Link to the application's marketing page. For example, https://www.contoso.com/app/marketing
+     *
+     * @param string $val The value of the marketingUrl
+     *
+     * @return InformationalUrl
+     */
     public function setMarketingUrl($val)
     {
         $this->_propDict["marketingUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the privacyStatementUrl
-    * Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
-    *
-    * @return string|null The privacyStatementUrl
-    */
+     * Gets the privacyStatementUrl
+     * Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
+     *
+     * @return string|null The privacyStatementUrl
+     */
     public function getPrivacyStatementUrl()
     {
         if (array_key_exists("privacyStatementUrl", $this->_propDict)) {
@@ -96,26 +96,25 @@ class InformationalUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the privacyStatementUrl
-    * Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
-    *
-    * @param string $val The value of the privacyStatementUrl
-    *
-    * @return InformationalUrl
-    */
+     * Sets the privacyStatementUrl
+     * Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy
+     *
+     * @param string $val The value of the privacyStatementUrl
+     *
+     * @return InformationalUrl
+     */
     public function setPrivacyStatementUrl($val)
     {
         $this->_propDict["privacyStatementUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the supportUrl
-    * Link to the application's support page. For example, https://www.contoso.com/app/support
-    *
-    * @return string|null The supportUrl
-    */
+     * Gets the supportUrl
+     * Link to the application's support page. For example, https://www.contoso.com/app/support
+     *
+     * @return string|null The supportUrl
+     */
     public function getSupportUrl()
     {
         if (array_key_exists("supportUrl", $this->_propDict)) {
@@ -124,26 +123,25 @@ class InformationalUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the supportUrl
-    * Link to the application's support page. For example, https://www.contoso.com/app/support
-    *
-    * @param string $val The value of the supportUrl
-    *
-    * @return InformationalUrl
-    */
+     * Sets the supportUrl
+     * Link to the application's support page. For example, https://www.contoso.com/app/support
+     *
+     * @param string $val The value of the supportUrl
+     *
+     * @return InformationalUrl
+     */
     public function setSupportUrl($val)
     {
         $this->_propDict["supportUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the termsOfServiceUrl
-    * Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice
-    *
-    * @return string|null The termsOfServiceUrl
-    */
+     * Gets the termsOfServiceUrl
+     * Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice
+     *
+     * @return string|null The termsOfServiceUrl
+     */
     public function getTermsOfServiceUrl()
     {
         if (array_key_exists("termsOfServiceUrl", $this->_propDict)) {
@@ -152,15 +150,14 @@ class InformationalUrl extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the termsOfServiceUrl
-    * Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice
-    *
-    * @param string $val The value of the termsOfServiceUrl
-    *
-    * @return InformationalUrl
-    */
+     * Sets the termsOfServiceUrl
+     * Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice
+     *
+     * @param string $val The value of the termsOfServiceUrl
+     *
+     * @return InformationalUrl
+     */
     public function setTermsOfServiceUrl($val)
     {
         $this->_propDict["termsOfServiceUrl"] = $val;

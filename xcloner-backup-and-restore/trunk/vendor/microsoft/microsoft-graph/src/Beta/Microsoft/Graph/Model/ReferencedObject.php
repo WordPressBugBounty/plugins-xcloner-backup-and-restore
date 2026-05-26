@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ReferencedObject class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ReferencedObject extends Entity
 {
     /**
-    * Gets the referencedObjectName
-    * Name of the referenced object. Must match one of the objects in the directory definition.
-    *
-    * @return string|null The referencedObjectName
-    */
+     * Gets the referencedObjectName
+     * Name of the referenced object. Must match one of the objects in the directory definition.
+     *
+     * @return string|null The referencedObjectName
+     */
     public function getReferencedObjectName()
     {
         if (array_key_exists("referencedObjectName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ReferencedObject extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the referencedObjectName
-    * Name of the referenced object. Must match one of the objects in the directory definition.
-    *
-    * @param string $val The value of the referencedObjectName
-    *
-    * @return ReferencedObject
-    */
+     * Sets the referencedObjectName
+     * Name of the referenced object. Must match one of the objects in the directory definition.
+     *
+     * @param string $val The value of the referencedObjectName
+     *
+     * @return ReferencedObject
+     */
     public function setReferencedObjectName($val)
     {
         $this->_propDict["referencedObjectName"] = $val;
         return $this;
     }
     /**
-    * Gets the referencedProperty
-    * Currently not supported. Name of the property in the referenced object, the value for which is used as the reference.
-    *
-    * @return string|null The referencedProperty
-    */
+     * Gets the referencedProperty
+     * Currently not supported. Name of the property in the referenced object, the value for which is used as the reference.
+     *
+     * @return string|null The referencedProperty
+     */
     public function getReferencedProperty()
     {
         if (array_key_exists("referencedProperty", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ReferencedObject extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the referencedProperty
-    * Currently not supported. Name of the property in the referenced object, the value for which is used as the reference.
-    *
-    * @param string $val The value of the referencedProperty
-    *
-    * @return ReferencedObject
-    */
+     * Sets the referencedProperty
+     * Currently not supported. Name of the property in the referenced object, the value for which is used as the reference.
+     *
+     * @param string $val The value of the referencedProperty
+     *
+     * @return ReferencedObject
+     */
     public function setReferencedProperty($val)
     {
         $this->_propDict["referencedProperty"] = $val;

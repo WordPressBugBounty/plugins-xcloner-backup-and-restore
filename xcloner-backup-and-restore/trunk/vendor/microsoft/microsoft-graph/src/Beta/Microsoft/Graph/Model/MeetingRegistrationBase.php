@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MeetingRegistrationBase class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MeetingRegistrationBase extends Entity
 {
     /**
-    * Gets the allowedRegistrant
-    * Specifies who can register for the meeting.
-    *
-    * @return MeetingAudience|null The allowedRegistrant
-    */
+     * Gets the allowedRegistrant
+     * Specifies who can register for the meeting.
+     *
+     * @return MeetingAudience|null The allowedRegistrant
+     */
     public function getAllowedRegistrant()
     {
         if (array_key_exists("allowedRegistrant", $this->_propDict)) {
-            if (is_a($this->_propDict["allowedRegistrant"], "\Beta\Microsoft\Graph\Model\MeetingAudience") || is_null($this->_propDict["allowedRegistrant"])) {
+            if (is_a($this->_propDict["allowedRegistrant"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\MeetingAudience") || is_null($this->_propDict["allowedRegistrant"])) {
                 return $this->_propDict["allowedRegistrant"];
             } else {
                 $this->_propDict["allowedRegistrant"] = new MeetingAudience($this->_propDict["allowedRegistrant"]);
@@ -45,49 +46,44 @@ class MeetingRegistrationBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the allowedRegistrant
-    * Specifies who can register for the meeting.
-    *
-    * @param MeetingAudience $val The allowedRegistrant
-    *
-    * @return MeetingRegistrationBase
-    */
+     * Sets the allowedRegistrant
+     * Specifies who can register for the meeting.
+     *
+     * @param MeetingAudience $val The allowedRegistrant
+     *
+     * @return MeetingRegistrationBase
+     */
     public function setAllowedRegistrant($val)
     {
         $this->_propDict["allowedRegistrant"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the registrants
-    * Registrants of the online meeting.
+     * Registrants of the online meeting.
      *
      * @return array|null The registrants
      */
     public function getRegistrants()
     {
         if (array_key_exists("registrants", $this->_propDict)) {
-           return $this->_propDict["registrants"];
+            return $this->_propDict["registrants"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the registrants
-    * Registrants of the online meeting.
-    *
-    * @param MeetingRegistrantBase[] $val The registrants
-    *
-    * @return MeetingRegistrationBase
-    */
+     * Sets the registrants
+     * Registrants of the online meeting.
+     *
+     * @param MeetingRegistrantBase[] $val The registrants
+     *
+     * @return MeetingRegistrationBase
+     */
     public function setRegistrants($val)
     {
         $this->_propDict["registrants"] = $val;
         return $this;
     }
-
 }

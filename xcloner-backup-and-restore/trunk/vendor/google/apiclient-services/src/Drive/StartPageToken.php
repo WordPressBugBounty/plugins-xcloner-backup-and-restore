@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,52 +15,49 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class StartPageToken extends \Google\Model
-{
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $startPageToken;
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setStartPageToken($startPageToken)
-  {
-    $this->startPageToken = $startPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getStartPageToken()
-  {
-    return $this->startPageToken;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class StartPageToken extends \XCloner\Google\Model
+{
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $startPageToken;
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setStartPageToken($startPageToken)
+    {
+        $this->startPageToken = $startPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getStartPageToken()
+    {
+        return $this->startPageToken;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(StartPageToken::class, 'Google_Service_Drive_StartPageToken');
+class_alias(StartPageToken::class, 'XCloner\Google_Service_Drive_StartPageToken');

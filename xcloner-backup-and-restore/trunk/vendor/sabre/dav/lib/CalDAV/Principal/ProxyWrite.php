@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Principal;
 
-namespace Sabre\CalDAV\Principal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
 /**
  * ProxyWrite principal.
  *
@@ -29,14 +27,12 @@ class ProxyWrite implements IProxyWrite
      * @var array
      */
     protected $principalInfo;
-
     /**
      * Principal Backend.
      *
      * @var DAVACL\PrincipalBackend\BackendInterface
      */
     protected $principalBackend;
-
     /**
      * Creates the object.
      *
@@ -47,7 +43,6 @@ class ProxyWrite implements IProxyWrite
         $this->principalInfo = $principalInfo;
         $this->principalBackend = $principalBackend;
     }
-
     /**
      * Returns this principals name.
      *
@@ -57,7 +52,6 @@ class ProxyWrite implements IProxyWrite
     {
         return 'calendar-proxy-write';
     }
-
     /**
      * Returns the last modification time.
      */
@@ -65,7 +59,6 @@ class ProxyWrite implements IProxyWrite
     {
         return null;
     }
-
     /**
      * Deletes the current node.
      *
@@ -75,7 +68,6 @@ class ProxyWrite implements IProxyWrite
     {
         throw new DAV\Exception\Forbidden('Permission denied to delete node');
     }
-
     /**
      * Renames the node.
      *
@@ -87,7 +79,6 @@ class ProxyWrite implements IProxyWrite
     {
         throw new DAV\Exception\Forbidden('Permission denied to rename file');
     }
-
     /**
      * Returns a list of alternative urls for a principal.
      *
@@ -99,7 +90,6 @@ class ProxyWrite implements IProxyWrite
     {
         return [];
     }
-
     /**
      * Returns the full principal url.
      *
@@ -107,9 +97,8 @@ class ProxyWrite implements IProxyWrite
      */
     public function getPrincipalUrl()
     {
-        return $this->principalInfo['uri'].'/'.$this->getName();
+        return $this->principalInfo['uri'] . '/' . $this->getName();
     }
-
     /**
      * Returns the list of group members.
      *
@@ -122,7 +111,6 @@ class ProxyWrite implements IProxyWrite
     {
         return $this->principalBackend->getGroupMemberSet($this->getPrincipalUrl());
     }
-
     /**
      * Returns the list of groups this principal is member of.
      *
@@ -135,7 +123,6 @@ class ProxyWrite implements IProxyWrite
     {
         return $this->principalBackend->getGroupMembership($this->getPrincipalUrl());
     }
-
     /**
      * Sets a list of group members.
      *
@@ -148,7 +135,6 @@ class ProxyWrite implements IProxyWrite
     {
         $this->principalBackend->setGroupMemberSet($this->getPrincipalUrl(), $principals);
     }
-
     /**
      * Returns the displayname.
      *

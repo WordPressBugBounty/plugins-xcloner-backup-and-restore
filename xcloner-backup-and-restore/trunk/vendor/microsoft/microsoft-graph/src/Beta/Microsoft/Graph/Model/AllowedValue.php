@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AllowedValue class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AllowedValue extends Entity
 {
     /**
-    * Gets the isActive
-    * Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
-    *
-    * @return bool|null The isActive
-    */
+     * Gets the isActive
+     * Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
+     *
+     * @return bool|null The isActive
+     */
     public function getIsActive()
     {
         if (array_key_exists("isActive", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AllowedValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isActive
-    * Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
-    *
-    * @param bool $val The isActive
-    *
-    * @return AllowedValue
-    */
+     * Sets the isActive
+     * Indicates whether the predefined value is active or deactivated. If set to false, this predefined value cannot be assigned to any additional supported directory objects.
+     *
+     * @param bool $val The isActive
+     *
+     * @return AllowedValue
+     */
     public function setIsActive($val)
     {
         $this->_propDict["isActive"] = boolval($val);
         return $this;
     }
-
 }

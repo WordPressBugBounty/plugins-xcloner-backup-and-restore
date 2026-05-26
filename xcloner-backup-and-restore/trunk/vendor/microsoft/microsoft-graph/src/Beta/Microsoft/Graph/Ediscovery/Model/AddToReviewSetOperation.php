@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AddToReviewSetOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AddToReviewSetOperation extends CaseOperation
 {
     /**
-    * Gets the reviewSet
-    * The review set to which items matching the source collection query are added to.
-    *
-    * @return ReviewSet|null The reviewSet
-    */
+     * Gets the reviewSet
+     * The review set to which items matching the source collection query are added to.
+     *
+     * @return ReviewSet|null The reviewSet
+     */
     public function getReviewSet()
     {
         if (array_key_exists("reviewSet", $this->_propDict)) {
-            if (is_a($this->_propDict["reviewSet"], "\Beta\Microsoft\Graph\Ediscovery\Model\ReviewSet") || is_null($this->_propDict["reviewSet"])) {
+            if (is_a($this->_propDict["reviewSet"], "XCloner\\Beta\\Microsoft\\Graph\\Ediscovery\\Model\\ReviewSet") || is_null($this->_propDict["reviewSet"])) {
                 return $this->_propDict["reviewSet"];
             } else {
                 $this->_propDict["reviewSet"] = new ReviewSet($this->_propDict["reviewSet"]);
@@ -45,31 +46,29 @@ class AddToReviewSetOperation extends CaseOperation
         }
         return null;
     }
-
     /**
-    * Sets the reviewSet
-    * The review set to which items matching the source collection query are added to.
-    *
-    * @param ReviewSet $val The reviewSet
-    *
-    * @return AddToReviewSetOperation
-    */
+     * Sets the reviewSet
+     * The review set to which items matching the source collection query are added to.
+     *
+     * @param ReviewSet $val The reviewSet
+     *
+     * @return AddToReviewSetOperation
+     */
     public function setReviewSet($val)
     {
         $this->_propDict["reviewSet"] = $val;
         return $this;
     }
-
     /**
-    * Gets the sourceCollection
-    * The sourceCollection that items are being added from.
-    *
-    * @return SourceCollection|null The sourceCollection
-    */
+     * Gets the sourceCollection
+     * The sourceCollection that items are being added from.
+     *
+     * @return SourceCollection|null The sourceCollection
+     */
     public function getSourceCollection()
     {
         if (array_key_exists("sourceCollection", $this->_propDict)) {
-            if (is_a($this->_propDict["sourceCollection"], "\Beta\Microsoft\Graph\Ediscovery\Model\SourceCollection") || is_null($this->_propDict["sourceCollection"])) {
+            if (is_a($this->_propDict["sourceCollection"], "XCloner\\Beta\\Microsoft\\Graph\\Ediscovery\\Model\\SourceCollection") || is_null($this->_propDict["sourceCollection"])) {
                 return $this->_propDict["sourceCollection"];
             } else {
                 $this->_propDict["sourceCollection"] = new SourceCollection($this->_propDict["sourceCollection"]);
@@ -78,19 +77,17 @@ class AddToReviewSetOperation extends CaseOperation
         }
         return null;
     }
-
     /**
-    * Sets the sourceCollection
-    * The sourceCollection that items are being added from.
-    *
-    * @param SourceCollection $val The sourceCollection
-    *
-    * @return AddToReviewSetOperation
-    */
+     * Sets the sourceCollection
+     * The sourceCollection that items are being added from.
+     *
+     * @param SourceCollection $val The sourceCollection
+     *
+     * @return AddToReviewSetOperation
+     */
     public function setSourceCollection($val)
     {
         $this->_propDict["sourceCollection"] = $val;
         return $this;
     }
-
 }

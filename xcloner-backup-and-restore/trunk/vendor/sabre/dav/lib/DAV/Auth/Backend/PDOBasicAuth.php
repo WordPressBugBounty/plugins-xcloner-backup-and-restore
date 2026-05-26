@@ -1,10 +1,10 @@
 <?php
 
-namespace Sabre\DAV\Auth\Backend;
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This is an authentication backend that uses a database to manage passwords.
  *
@@ -19,14 +19,12 @@ class PDOBasicAuth extends AbstractBasic
      * @var PDO
      */
     protected $pdo;
-
     /**
      * PDO table name we'll be using.
      *
      * @var string
      */
     protected $tableName;
-
     /**
      * PDO digest column name we'll be using
      * (i.e. digest, password, password_hash).
@@ -34,7 +32,6 @@ class PDOBasicAuth extends AbstractBasic
      * @var string
      */
     protected $digestColumn;
-
     /**
      * PDO uuid(unique user identifier) column name we'll be using
      * (i.e. username, email).
@@ -42,7 +39,6 @@ class PDOBasicAuth extends AbstractBasic
      * @var string
      */
     protected $uuidColumn;
-
     /**
      * Digest prefix:
      * if the backend you are using for is prefixing
@@ -52,7 +48,6 @@ class PDOBasicAuth extends AbstractBasic
      * @var string
      */
     protected $digestPrefix;
-
     /**
      * Creates the backend object.
      *
@@ -80,7 +75,6 @@ class PDOBasicAuth extends AbstractBasic
             $this->digestPrefix = $options['digestPrefix'];
         }
     }
-
     /**
      * Validates a username and password.
      *
@@ -94,24 +88,20 @@ class PDOBasicAuth extends AbstractBasic
      */
     public function validateUserPass($username, $password)
     {
-        $stmt = $this->pdo->prepare('SELECT '.$this->digestColumn.' FROM '.$this->tableName.' WHERE '.$this->uuidColumn.' = ?');
+        $stmt = $this->pdo->prepare('SELECT ' . $this->digestColumn . ' FROM ' . $this->tableName . ' WHERE ' . $this->uuidColumn . ' = ?');
         $stmt->execute([$username]);
         $result = $stmt->fetchAll();
-
         if (!count($result)) {
-            return false;
+            return \false;
         } else {
             $digest = $result[0][$this->digestColumn];
-
             if (isset($this->digestPrefix)) {
                 $digest = substr($digest, strlen($this->digestPrefix));
             }
-
             if (password_verify($password, $digest)) {
-                return true;
+                return \true;
             }
-
-            return false;
+            return \false;
         }
     }
 }

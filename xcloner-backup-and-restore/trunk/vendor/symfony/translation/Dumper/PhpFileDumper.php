@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Dumper;
 
-namespace Symfony\Component\Translation\Dumper;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\MessageCatalogue;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\MessageCatalogue;
 /**
  * PhpFileDumper generates PHP files from a message catalogue.
  *
@@ -28,9 +26,8 @@ class PhpFileDumper extends FileDumper
      */
     public function formatCatalogue(MessageCatalogue $messages, string $domain, array $options = [])
     {
-        return "<?php\n\nreturn ".var_export($messages->all($domain), true).";\n";
+        return "<?php\n\nreturn " . var_export($messages->all($domain), \true) . ";\n";
     }
-
     /**
      * {@inheritdoc}
      */

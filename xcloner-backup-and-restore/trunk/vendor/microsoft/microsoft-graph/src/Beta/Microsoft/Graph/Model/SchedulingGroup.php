@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SchedulingGroup class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SchedulingGroup extends ChangeTrackedEntity
 {
     /**
-    * Gets the displayName
-    * The display name for the schedulingGroup. Required.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name for the schedulingGroup. Required.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SchedulingGroup extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name for the schedulingGroup. Required.
-    *
-    * @param string $val The displayName
-    *
-    * @return SchedulingGroup
-    */
+     * Sets the displayName
+     * The display name for the schedulingGroup. Required.
+     *
+     * @param string $val The displayName
+     *
+     * @return SchedulingGroup
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the isActive
-    * Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
-    *
-    * @return bool|null The isActive
-    */
+     * Gets the isActive
+     * Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
+     *
+     * @return bool|null The isActive
+     */
     public function getIsActive()
     {
         if (array_key_exists("isActive", $this->_propDict)) {
@@ -70,27 +69,25 @@ class SchedulingGroup extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the isActive
-    * Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
-    *
-    * @param bool $val The isActive
-    *
-    * @return SchedulingGroup
-    */
+     * Sets the isActive
+     * Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
+     *
+     * @param bool $val The isActive
+     *
+     * @return SchedulingGroup
+     */
     public function setIsActive($val)
     {
         $this->_propDict["isActive"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the userIds
-    * The list of user IDs that are a member of the schedulingGroup. Required.
-    *
-    * @return array|null The userIds
-    */
+     * Gets the userIds
+     * The list of user IDs that are a member of the schedulingGroup. Required.
+     *
+     * @return array|null The userIds
+     */
     public function getUserIds()
     {
         if (array_key_exists("userIds", $this->_propDict)) {
@@ -99,19 +96,17 @@ class SchedulingGroup extends ChangeTrackedEntity
             return null;
         }
     }
-
     /**
-    * Sets the userIds
-    * The list of user IDs that are a member of the schedulingGroup. Required.
-    *
-    * @param string[] $val The userIds
-    *
-    * @return SchedulingGroup
-    */
+     * Sets the userIds
+     * The list of user IDs that are a member of the schedulingGroup. Required.
+     *
+     * @param string[] $val The userIds
+     *
+     * @return SchedulingGroup
+     */
     public function setUserIds($val)
     {
         $this->_propDict["userIds"] = $val;
         return $this;
     }
-
 }

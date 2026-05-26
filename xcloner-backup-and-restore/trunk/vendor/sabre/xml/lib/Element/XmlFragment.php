@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Element;
 
-namespace Sabre\Xml\Element;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * The XmlFragment element allows you to extract a portion of your xml tree,
  * and get a well-formed xml string.
@@ -33,7 +31,6 @@ class XmlFragment implements Element
      * @var string
      */
     protected $xml;
-
     /**
      * Constructor.
      */
@@ -41,7 +38,6 @@ class XmlFragment implements Element
     {
         $this->xml = $xml;
     }
-
     /**
      * Returns the inner XML document.
      */
@@ -49,7 +45,6 @@ class XmlFragment implements Element
     {
         return $this->xml;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -69,27 +64,21 @@ class XmlFragment implements Element
     public function xmlSerialize(Writer $writer)
     {
         $reader = new Reader();
-
         // Wrapping the xml in a container, so root-less values can still be
         // parsed.
         $xml = <<<XML
 <?xml version="1.0"?>
 <xml-fragment xmlns="http://sabre.io/ns">{$this->getXml()}</xml-fragment>
 XML;
-
         $reader->xml($xml);
-
         while ($reader->read()) {
             if ($reader->depth < 1) {
                 // Skipping the root node.
                 continue;
             }
-
             switch ($reader->nodeType) {
                 case Reader::ELEMENT:
-                    $writer->startElement(
-                        (string) $reader->getClark()
-                    );
+                    $writer->startElement((string) $reader->getClark());
                     $empty = $reader->isEmptyElement;
                     while ($reader->moveToNextAttribute()) {
                         switch ($reader->namespaceURI) {
@@ -110,9 +99,7 @@ XML;
                     break;
                 case Reader::CDATA:
                 case Reader::TEXT:
-                    $writer->text(
-                        $reader->value
-                    );
+                    $writer->text($reader->value);
                     break;
                 case Reader::END_ELEMENT:
                     $writer->endElement();
@@ -120,7 +107,6 @@ XML;
             }
         }
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -145,7 +131,6 @@ XML;
     {
         $result = new self($reader->readInnerXml());
         $reader->next();
-
         return $result;
     }
 }

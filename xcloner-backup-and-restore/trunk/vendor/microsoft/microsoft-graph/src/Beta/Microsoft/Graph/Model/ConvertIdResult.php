@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConvertIdResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConvertIdResult extends Entity
 {
-
     /**
-    * Gets the errorDetails
-    * An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
-    *
-    * @return GenericError|null The errorDetails
-    */
+     * Gets the errorDetails
+     * An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
+     *
+     * @return GenericError|null The errorDetails
+     */
     public function getErrorDetails()
     {
         if (array_key_exists("errorDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["errorDetails"], "\Beta\Microsoft\Graph\Model\GenericError") || is_null($this->_propDict["errorDetails"])) {
+            if (is_a($this->_propDict["errorDetails"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GenericError") || is_null($this->_propDict["errorDetails"])) {
                 return $this->_propDict["errorDetails"];
             } else {
                 $this->_propDict["errorDetails"] = new GenericError($this->_propDict["errorDetails"]);
@@ -45,26 +46,25 @@ class ConvertIdResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the errorDetails
-    * An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
-    *
-    * @param GenericError $val The value to assign to the errorDetails
-    *
-    * @return ConvertIdResult The ConvertIdResult
-    */
+     * Sets the errorDetails
+     * An error object indicating the reason for the conversion failure. This value is not present if the conversion succeeded.
+     *
+     * @param GenericError $val The value to assign to the errorDetails
+     *
+     * @return ConvertIdResult The ConvertIdResult
+     */
     public function setErrorDetails($val)
     {
         $this->_propDict["errorDetails"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the sourceId
-    * The identifier that was converted. This value is the original, un-converted identifier.
-    *
-    * @return string|null The sourceId
-    */
+     * Gets the sourceId
+     * The identifier that was converted. This value is the original, un-converted identifier.
+     *
+     * @return string|null The sourceId
+     */
     public function getSourceId()
     {
         if (array_key_exists("sourceId", $this->_propDict)) {
@@ -73,26 +73,25 @@ class ConvertIdResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the sourceId
-    * The identifier that was converted. This value is the original, un-converted identifier.
-    *
-    * @param string $val The value of the sourceId
-    *
-    * @return ConvertIdResult
-    */
+     * Sets the sourceId
+     * The identifier that was converted. This value is the original, un-converted identifier.
+     *
+     * @param string $val The value of the sourceId
+     *
+     * @return ConvertIdResult
+     */
     public function setSourceId($val)
     {
         $this->_propDict["sourceId"] = $val;
         return $this;
     }
     /**
-    * Gets the targetId
-    * The converted identifier. This value is not present if the conversion failed.
-    *
-    * @return string|null The targetId
-    */
+     * Gets the targetId
+     * The converted identifier. This value is not present if the conversion failed.
+     *
+     * @return string|null The targetId
+     */
     public function getTargetId()
     {
         if (array_key_exists("targetId", $this->_propDict)) {
@@ -101,15 +100,14 @@ class ConvertIdResult extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetId
-    * The converted identifier. This value is not present if the conversion failed.
-    *
-    * @param string $val The value of the targetId
-    *
-    * @return ConvertIdResult
-    */
+     * Sets the targetId
+     * The converted identifier. This value is not present if the conversion failed.
+     *
+     * @param string $val The value of the targetId
+     *
+     * @return ConvertIdResult
+     */
     public function setTargetId($val)
     {
         $this->_propDict["targetId"] = $val;

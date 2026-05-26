@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Locks\Backend;
 
-namespace Sabre\DAV\Locks\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Locks\LockInfo;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Locks\LockInfo;
 /**
  * This Locks backend stores all locking information in a single file.
  *
@@ -30,7 +28,6 @@ class File extends AbstractBackend
      * @var string
      */
     private $locksFile;
-
     /**
      * Constructor.
      *
@@ -40,7 +37,6 @@ class File extends AbstractBackend
     {
         $this->locksFile = $locksFile;
     }
-
     /**
      * Returns a list of Sabre\DAV\Locks\LockInfo objects.
      *
@@ -58,30 +54,20 @@ class File extends AbstractBackend
     public function getLocks($uri, $returnChildLocks)
     {
         $newLocks = [];
-
         $locks = $this->getData();
-
         foreach ($locks as $lock) {
-            if ($lock->uri === $uri ||
-                //deep locks on parents
-                (0 != $lock->depth && 0 === strpos($uri, $lock->uri.'/')) ||
-
-                // locks on children
-                ($returnChildLocks && (0 === strpos($lock->uri, $uri.'/')))) {
+            if ($lock->uri === $uri || 0 != $lock->depth && 0 === strpos($uri, $lock->uri . '/') || $returnChildLocks && 0 === strpos($lock->uri, $uri . '/')) {
                 $newLocks[] = $lock;
             }
         }
-
         // Checking if we can remove any of these locks
         foreach ($newLocks as $k => $lock) {
             if (time() > $lock->timeout + $lock->created) {
                 unset($newLocks[$k]);
             }
         }
-
         return $newLocks;
     }
-
     /**
      * Locks a uri.
      *
@@ -95,23 +81,16 @@ class File extends AbstractBackend
         $lockInfo->timeout = 1800;
         $lockInfo->created = time();
         $lockInfo->uri = $uri;
-
         $locks = $this->getData();
-
         foreach ($locks as $k => $lock) {
-            if (
-                ($lock->token == $lockInfo->token) ||
-                (time() > $lock->timeout + $lock->created)
-            ) {
+            if ($lock->token == $lockInfo->token || time() > $lock->timeout + $lock->created) {
                 unset($locks[$k]);
             }
         }
         $locks[] = $lockInfo;
         $this->putData($locks);
-
-        return true;
+        return \true;
     }
-
     /**
      * Removes a lock from a uri.
      *
@@ -126,14 +105,11 @@ class File extends AbstractBackend
             if ($lock->token == $lockInfo->token) {
                 unset($locks[$k]);
                 $this->putData($locks);
-
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * Loads the lockdata from the filesystem.
      *
@@ -144,27 +120,21 @@ class File extends AbstractBackend
         if (!file_exists($this->locksFile)) {
             return [];
         }
-
         // opening up the file, and creating a shared lock
         $handle = fopen($this->locksFile, 'r');
-        flock($handle, LOCK_SH);
-
+        flock($handle, \LOCK_SH);
         // Reading data until the eof
         $data = stream_get_contents($handle);
-
         // We're all good
-        flock($handle, LOCK_UN);
+        flock($handle, \LOCK_UN);
         fclose($handle);
-
         // Unserializing and checking if the resource file contains data for this file
         $data = unserialize($data);
         if (!$data) {
             return [];
         }
-
         return $data;
     }
-
     /**
      * Saves the lockdata.
      */
@@ -172,14 +142,12 @@ class File extends AbstractBackend
     {
         // opening up the file, and creating an exclusive lock
         $handle = fopen($this->locksFile, 'a+');
-        flock($handle, LOCK_EX);
-
+        flock($handle, \LOCK_EX);
         // We can only truncate and rewind once the lock is acquired.
         ftruncate($handle, 0);
         rewind($handle);
-
         fwrite($handle, serialize($newData));
-        flock($handle, LOCK_UN);
+        flock($handle, \LOCK_UN);
         fclose($handle);
     }
 }

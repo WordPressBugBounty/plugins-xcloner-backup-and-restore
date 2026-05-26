@@ -1,10 +1,10 @@
 <?php
 
-namespace splitbrain\PHPArchive;
+namespace XCloner\splitbrain\PHPArchive;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Class FileInfo
  *
@@ -16,8 +16,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  */
 class FileInfo
 {
-
-    protected $isdir = false;
+    protected $isdir = \false;
     protected $path = '';
     protected $size = 0;
     protected $csize = 0;
@@ -28,7 +27,6 @@ class FileInfo
     protected $uid = 0;
     protected $gid = 0;
     protected $comment = '';
-
     /**
      * initialize dynamic defaults
      *
@@ -39,7 +37,6 @@ class FileInfo
         $this->mtime = time();
         $this->setPath($path);
     }
-
     /**
      * Handle calls to deprecated methods
      *
@@ -49,15 +46,13 @@ class FileInfo
      */
     public function __call($name, $arguments)
     {
-        if($name === 'match') {
-            trigger_error('FileInfo::match() is deprecated, use FileInfo::matchExpression() instead.', E_USER_NOTICE);
+        if ($name === 'match') {
+            trigger_error('FileInfo::match() is deprecated, use FileInfo::matchExpression() instead.', \E_USER_NOTICE);
             return call_user_func_array([$this, $name], $arguments);
         }
-
-        trigger_error('Call to undefined method FileInfo::'.$name.'()', E_USER_ERROR);
+        trigger_error('Call to undefined method FileInfo::' . $name . '()', \E_USER_ERROR);
         return null;
     }
-
     /**
      * Factory to build FileInfo from existing file or directory
      *
@@ -68,15 +63,12 @@ class FileInfo
      */
     public static function fromPath($path, $as = '')
     {
-        clearstatcache(false, $path);
-
+        clearstatcache(\false, $path);
         if (!file_exists($path)) {
-            throw new FileInfoException("$path does not exist");
+            throw new FileInfoException("{$path} does not exist");
         }
-
         $stat = stat($path);
         $file = new FileInfo();
-
         $file->setPath($path);
         $file->setIsdir(is_dir($path));
         $file->setMode(fileperms($path));
@@ -86,23 +78,21 @@ class FileInfo
         $file->setUid($stat['uid']);
         $file->setGid($stat['gid']);
         $file->setMtime($stat['mtime']);
-
         if ($as) {
             $file->setPath($as);
         }
-
         return $file;
     }
-
     /**
      * @return int the filesize. always 0 for directories
      */
     public function getSize()
     {
-        if($this->isdir) return 0;
+        if ($this->isdir) {
+            return 0;
+        }
         return $this->size;
     }
-
     /**
      * @param int $size
      */
@@ -110,7 +100,6 @@ class FileInfo
     {
         $this->size = $size;
     }
-
     /**
      * @return int
      */
@@ -118,7 +107,6 @@ class FileInfo
     {
         return $this->csize;
     }
-
     /**
      * @param int $csize
      */
@@ -126,7 +114,6 @@ class FileInfo
     {
         $this->csize = $csize;
     }
-
     /**
      * @return int
      */
@@ -134,7 +121,6 @@ class FileInfo
     {
         return $this->mtime;
     }
-
     /**
      * @param int $mtime
      */
@@ -142,7 +128,6 @@ class FileInfo
     {
         $this->mtime = $mtime;
     }
-
     /**
      * @return int
      */
@@ -150,7 +135,6 @@ class FileInfo
     {
         return $this->gid;
     }
-
     /**
      * @param int $gid
      */
@@ -158,7 +142,6 @@ class FileInfo
     {
         $this->gid = $gid;
     }
-
     /**
      * @return int
      */
@@ -166,7 +149,6 @@ class FileInfo
     {
         return $this->uid;
     }
-
     /**
      * @param int $uid
      */
@@ -174,7 +156,6 @@ class FileInfo
     {
         $this->uid = $uid;
     }
-
     /**
      * @return string
      */
@@ -182,7 +163,6 @@ class FileInfo
     {
         return $this->comment;
     }
-
     /**
      * @param string $comment
      */
@@ -190,7 +170,6 @@ class FileInfo
     {
         $this->comment = $comment;
     }
-
     /**
      * @return string
      */
@@ -198,7 +177,6 @@ class FileInfo
     {
         return $this->group;
     }
-
     /**
      * @param string $group
      */
@@ -206,7 +184,6 @@ class FileInfo
     {
         $this->group = $group;
     }
-
     /**
      * @return boolean
      */
@@ -214,7 +191,6 @@ class FileInfo
     {
         return $this->isdir;
     }
-
     /**
      * @param boolean $isdir
      */
@@ -226,7 +202,6 @@ class FileInfo
         }
         $this->isdir = $isdir;
     }
-
     /**
      * @return int
      */
@@ -234,7 +209,6 @@ class FileInfo
     {
         return $this->mode;
     }
-
     /**
      * @param int $mode
      */
@@ -242,7 +216,6 @@ class FileInfo
     {
         $this->mode = $mode;
     }
-
     /**
      * @return string
      */
@@ -250,7 +223,6 @@ class FileInfo
     {
         return $this->owner;
     }
-
     /**
      * @param string $owner
      */
@@ -258,7 +230,6 @@ class FileInfo
     {
         $this->owner = $owner;
     }
-
     /**
      * @return string
      */
@@ -266,7 +237,6 @@ class FileInfo
     {
         return $this->path;
     }
-
     /**
      * @param string $path
      */
@@ -274,7 +244,6 @@ class FileInfo
     {
         $this->path = $this->cleanPath($path);
     }
-
     /**
      * Cleans up a path and removes relative parts, also strips leading slashes
      *
@@ -283,8 +252,8 @@ class FileInfo
      */
     protected function cleanPath($path)
     {
-        $path    = str_replace('\\', '/', $path);
-        $path    = explode('/', $path);
+        $path = str_replace('\\', '/', $path);
+        $path = explode('/', $path);
         $newpath = array();
         foreach ($path as $p) {
             if ($p === '' || $p === '.') {
@@ -298,7 +267,6 @@ class FileInfo
         }
         return trim(implode('/', $newpath), '/');
     }
-
     /**
      * Strip given prefix or number of path segments from the filename
      *
@@ -318,24 +286,20 @@ class FileInfo
             // if $strip is an integer we strip this many path components
             $parts = explode('/', $filename);
             if (!$this->getIsdir()) {
-                $base = array_pop($parts); // keep filename itself
+                $base = array_pop($parts);
+                // keep filename itself
             } else {
                 $base = '';
             }
             $filename = join('/', array_slice($parts, $strip));
             if ($base) {
-                $filename .= "/$base";
+                $filename .= "/{$base}";
             }
-        } else {
-            // if strip is a string, we strip a prefix here
-            if (substr($filename, 0, $striplen) == $strip) {
-                $filename = substr($filename, $striplen);
-            }
+        } else if (substr($filename, 0, $striplen) == $strip) {
+            $filename = substr($filename, $striplen);
         }
-
         $this->setPath($filename);
     }
-
     /**
      * Does the file match the given include and exclude expressions?
      *
@@ -347,15 +311,13 @@ class FileInfo
      */
     public function matchExpression($include = '', $exclude = '')
     {
-        $extract = true;
+        $extract = \true;
         if ($include && !preg_match($include, $this->getPath())) {
-            $extract = false;
+            $extract = \false;
         }
         if ($exclude && preg_match($exclude, $this->getPath())) {
-            $extract = false;
+            $extract = \false;
         }
-
         return $extract;
     }
 }
-

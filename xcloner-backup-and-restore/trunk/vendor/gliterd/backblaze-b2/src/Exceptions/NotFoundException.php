@@ -1,10 +1,10 @@
 <?php
 
-namespace BackblazeB2\Exceptions;
+namespace XCloner\BackblazeB2\Exceptions;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class NotFoundException extends B2Exception
 {
 }

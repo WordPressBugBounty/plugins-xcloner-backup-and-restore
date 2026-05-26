@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\TermStore\Model;
+namespace XCloner\Microsoft\Graph\TermStore\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Group class
 *
@@ -25,18 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Group extends \Microsoft\Graph\Model\Entity
+class Group extends \XCloner\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the createdDateTime
-    * Date and time of the group creation. Read-only.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * Date and time of the group creation. Read-only.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class Group extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * Date and time of the group creation. Read-only.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return Group
-    */
+     * Sets the createdDateTime
+     * Date and time of the group creation. Read-only.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return Group
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Description that gives details on the term usage.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description that gives details on the term usage.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -74,27 +73,25 @@ class Group extends \Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description that gives details on the term usage.
-    *
-    * @param string $val The description
-    *
-    * @return Group
-    */
+     * Sets the description
+     * Description that gives details on the term usage.
+     *
+     * @param string $val The description
+     *
+     * @return Group
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Name of the group.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the group.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -103,27 +100,25 @@ class Group extends \Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the group.
-    *
-    * @param string $val The displayName
-    *
-    * @return Group
-    */
+     * Sets the displayName
+     * Name of the group.
+     *
+     * @param string $val The displayName
+     *
+     * @return Group
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the parentSiteId
-    * ID of the parent site of this group.
-    *
-    * @return string|null The parentSiteId
-    */
+     * Gets the parentSiteId
+     * ID of the parent site of this group.
+     *
+     * @return string|null The parentSiteId
+     */
     public function getParentSiteId()
     {
         if (array_key_exists("parentSiteId", $this->_propDict)) {
@@ -132,31 +127,29 @@ class Group extends \Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the parentSiteId
-    * ID of the parent site of this group.
-    *
-    * @param string $val The parentSiteId
-    *
-    * @return Group
-    */
+     * Sets the parentSiteId
+     * ID of the parent site of this group.
+     *
+     * @param string $val The parentSiteId
+     *
+     * @return Group
+     */
     public function setParentSiteId($val)
     {
         $this->_propDict["parentSiteId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scope
-    * Returns the type of the group. Possible values are: global, system, and siteCollection.
-    *
-    * @return TermGroupScope|null The scope
-    */
+     * Gets the scope
+     * Returns the type of the group. Possible values are: global, system, and siteCollection.
+     *
+     * @return TermGroupScope|null The scope
+     */
     public function getScope()
     {
         if (array_key_exists("scope", $this->_propDict)) {
-            if (is_a($this->_propDict["scope"], "\Microsoft\Graph\TermStore\Model\TermGroupScope") || is_null($this->_propDict["scope"])) {
+            if (is_a($this->_propDict["scope"], "XCloner\\Microsoft\\Graph\\TermStore\\Model\\TermGroupScope") || is_null($this->_propDict["scope"])) {
                 return $this->_propDict["scope"];
             } else {
                 $this->_propDict["scope"] = new TermGroupScope($this->_propDict["scope"]);
@@ -165,49 +158,44 @@ class Group extends \Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the scope
-    * Returns the type of the group. Possible values are: global, system, and siteCollection.
-    *
-    * @param TermGroupScope $val The scope
-    *
-    * @return Group
-    */
+     * Sets the scope
+     * Returns the type of the group. Possible values are: global, system, and siteCollection.
+     *
+     * @param TermGroupScope $val The scope
+     *
+     * @return Group
+     */
     public function setScope($val)
     {
         $this->_propDict["scope"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the sets
-    * All sets under the group in a term [store].
+     * All sets under the group in a term [store].
      *
      * @return array|null The sets
      */
     public function getSets()
     {
         if (array_key_exists("sets", $this->_propDict)) {
-           return $this->_propDict["sets"];
+            return $this->_propDict["sets"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the sets
-    * All sets under the group in a term [store].
-    *
-    * @param Set[] $val The sets
-    *
-    * @return Group
-    */
+     * Sets the sets
+     * All sets under the group in a term [store].
+     *
+     * @param Set[] $val The sets
+     *
+     * @return Group
+     */
     public function setSets($val)
     {
         $this->_propDict["sets"] = $val;
         return $this;
     }
-
 }

@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\Xml\Deserializer;
 
-namespace Sabre\Xml\Deserializer;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Reader;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Reader;
 /**
  * This class provides a number of 'deserializer' helper functions.
  * These can be used to easily specify custom deserializers for specific
@@ -18,7 +16,6 @@ use Sabre\Xml\Reader;
  * Service or Reader class, or you can call them from within your own
  * deserializer functions.
  */
-
 /**
  * The 'keyValue' deserializer parses all child elements, and outputs them as
  * a "key=>value" array.
@@ -63,24 +60,17 @@ function keyValue(Reader $reader, string $namespace = null): array
     // If there's no children, we don't do anything.
     if ($reader->isEmptyElement) {
         $reader->next();
-
         return [];
     }
-
     if (!$reader->read()) {
         $reader->next();
-
         return [];
     }
-
     if (Reader::END_ELEMENT === $reader->nodeType) {
         $reader->next();
-
         return [];
     }
-
     $values = [];
-
     do {
         if (Reader::ELEMENT === $reader->nodeType) {
             if (null !== $namespace && $reader->namespaceURI === $namespace) {
@@ -89,18 +79,13 @@ function keyValue(Reader $reader, string $namespace = null): array
                 $clark = $reader->getClark();
                 $values[$clark] = $reader->parseCurrentElement()['value'];
             }
-        } else {
-            if (!$reader->read()) {
-                break;
-            }
+        } else if (!$reader->read()) {
+            break;
         }
     } while (Reader::END_ELEMENT !== $reader->nodeType);
-
     $reader->read();
-
     return $values;
 }
-
 /**
  * The 'enum' deserializer parses elements into a simple list
  * without values or attributes.
@@ -152,22 +137,17 @@ function enum(Reader $reader, string $namespace = null): array
     // If there's no children, we don't do anything.
     if ($reader->isEmptyElement) {
         $reader->next();
-
         return [];
     }
     if (!$reader->read()) {
         $reader->next();
-
         return [];
     }
-
     if (Reader::END_ELEMENT === $reader->nodeType) {
         $reader->next();
-
         return [];
     }
     $currentDepth = $reader->depth;
-
     $values = [];
     do {
         if (Reader::ELEMENT !== $reader->nodeType) {
@@ -179,12 +159,9 @@ function enum(Reader $reader, string $namespace = null): array
             $values[] = (string) $reader->getClark();
         }
     } while ($reader->depth >= $currentDepth && $reader->next());
-
     $reader->next();
-
     return $values;
 }
-
 /**
  * The valueObject deserializer turns an xml element into a PHP object of
  * a specific class.
@@ -199,12 +176,9 @@ function valueObject(Reader $reader, string $className, string $namespace)
     $valueObject = new $className();
     if ($reader->isEmptyElement) {
         $reader->next();
-
         return $valueObject;
     }
-
     $defaultProperties = get_class_vars($className);
-
     $reader->read();
     do {
         if (Reader::ELEMENT === $reader->nodeType && $reader->namespaceURI == $namespace) {
@@ -218,18 +192,13 @@ function valueObject(Reader $reader, string $className, string $namespace)
                 // Ignore property
                 $reader->next();
             }
-        } else {
-            if (!$reader->read()) {
-                break;
-            }
+        } else if (!$reader->read()) {
+            break;
         }
     } while (Reader::END_ELEMENT !== $reader->nodeType);
-
     $reader->read();
-
     return $valueObject;
 }
-
 /**
  * This deserializer helps you deserialize xml structures that look like
  * this:.
@@ -257,19 +226,16 @@ function valueObject(Reader $reader, string $className, string $namespace)
 function repeatingElements(Reader $reader, string $childElementName): array
 {
     if ('{' !== $childElementName[0]) {
-        $childElementName = '{}'.$childElementName;
+        $childElementName = '{}' . $childElementName;
     }
     $result = [];
-
     foreach ($reader->parseGetElements() as $element) {
         if ($element['name'] === $childElementName) {
             $result[] = $element['value'];
         }
     }
-
     return $result;
 }
-
 /**
  * This deserializer helps you to deserialize structures which contain mixed content like this:.
  *
@@ -294,15 +260,12 @@ function mixedContent(Reader $reader): array
     // If there's no children, we don't do anything.
     if ($reader->isEmptyElement) {
         $reader->next();
-
         return [];
     }
-
     $previousDepth = $reader->depth;
-
     $content = [];
     $reader->read();
-    while (true) {
+    while (\true) {
         if (Reader::ELEMENT == $reader->nodeType) {
             $content[] = $reader->parseCurrentElement();
         } elseif ($reader->depth >= $previousDepth && in_array($reader->nodeType, [Reader::TEXT, Reader::CDATA, Reader::WHITESPACE])) {
@@ -316,10 +279,8 @@ function mixedContent(Reader $reader): array
             $reader->read();
         }
     }
-
     return $content;
 }
-
 /**
  * The functionCaller deserializer turns an xml element into whatever your callable return.
  *
@@ -332,17 +293,14 @@ function functionCaller(Reader $reader, callable $func, string $namespace)
 {
     if ($reader->isEmptyElement) {
         $reader->next();
-
         return null;
     }
-
     $funcArgs = [];
-    $func = is_string($func) && false !== strpos($func, '::') ? explode('::', $func) : $func;
+    $func = is_string($func) && \false !== strpos($func, '::') ? explode('::', $func) : $func;
     $ref = is_array($func) ? new \ReflectionMethod($func[0], $func[1]) : new \ReflectionFunction($func);
     foreach ($ref->getParameters() as $parameter) {
         $funcArgs[$parameter->getName()] = null;
     }
-
     $reader->read();
     do {
         if (Reader::ELEMENT === $reader->nodeType && $reader->namespaceURI == $namespace) {
@@ -357,6 +315,5 @@ function functionCaller(Reader $reader, callable $func, string $namespace)
         }
     } while (Reader::END_ELEMENT !== $reader->nodeType);
     $reader->read();
-
     return $func(...array_values($funcArgs));
 }

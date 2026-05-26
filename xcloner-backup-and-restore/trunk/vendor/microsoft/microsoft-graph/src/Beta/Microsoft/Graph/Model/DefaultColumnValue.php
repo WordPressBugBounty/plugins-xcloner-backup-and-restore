@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DefaultColumnValue class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DefaultColumnValue extends Entity
 {
     /**
-    * Gets the formula
-    * The formula used to compute the default value for this column.
-    *
-    * @return string|null The formula
-    */
+     * Gets the formula
+     * The formula used to compute the default value for this column.
+     *
+     * @return string|null The formula
+     */
     public function getFormula()
     {
         if (array_key_exists("formula", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DefaultColumnValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the formula
-    * The formula used to compute the default value for this column.
-    *
-    * @param string $val The value of the formula
-    *
-    * @return DefaultColumnValue
-    */
+     * Sets the formula
+     * The formula used to compute the default value for this column.
+     *
+     * @param string $val The value of the formula
+     *
+     * @return DefaultColumnValue
+     */
     public function setFormula($val)
     {
         $this->_propDict["formula"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    * The direct value to use as the default value for this column.
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     * The direct value to use as the default value for this column.
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -68,15 +69,14 @@ class DefaultColumnValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The direct value to use as the default value for this column.
-    *
-    * @param string $val The value of the value
-    *
-    * @return DefaultColumnValue
-    */
+     * Sets the value
+     * The direct value to use as the default value for this column.
+     *
+     * @param string $val The value of the value
+     *
+     * @return DefaultColumnValue
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

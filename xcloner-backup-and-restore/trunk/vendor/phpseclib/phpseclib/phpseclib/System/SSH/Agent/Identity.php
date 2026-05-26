@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Pure-PHP ssh-agent client.
  *
@@ -12,14 +13,12 @@
  * @link      http://phpseclib.sourceforge.net
  * @internal  See http://api.libssh.org/rfc/PROTOCOL.agent
  */
+namespace XCloner\phpseclib\System\SSH\Agent;
 
-namespace phpseclib\System\SSH\Agent;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use phpseclib\System\SSH\Agent;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\phpseclib\System\SSH\Agent;
 /**
  * Pure-PHP ssh-agent client identity object
  *
@@ -45,7 +44,6 @@ class Identity
     const SSH_AGENT_RSA2_256 = 2;
     const SSH_AGENT_RSA2_512 = 4;
     /**#@-*/
-
     /**
      * Key Object
      *
@@ -54,7 +52,6 @@ class Identity
      * @see self::getPublicKey()
      */
     var $key;
-
     /**
      * Key Blob
      *
@@ -63,7 +60,6 @@ class Identity
      * @see self::sign()
      */
     var $key_blob;
-
     /**
      * Socket Resource
      *
@@ -72,7 +68,6 @@ class Identity
      * @see self::sign()
      */
     var $fsock;
-
     /**
      * Signature flags
      *
@@ -82,7 +77,6 @@ class Identity
      * @see self::setHash()
      */
     var $flags = 0;
-
     /**
      * Default Constructor.
      *
@@ -94,7 +88,6 @@ class Identity
     {
         $this->fsock = $fsock;
     }
-
     /**
      * Set Public Key
      *
@@ -108,7 +101,6 @@ class Identity
         $this->key = $key;
         $this->key->setPublicKey();
     }
-
     /**
      * Set Public Key
      *
@@ -122,7 +114,6 @@ class Identity
     {
         $this->key_blob = $key_blob;
     }
-
     /**
      * Get Public Key
      *
@@ -136,7 +127,6 @@ class Identity
     {
         return !isset($format) ? $this->key->getPublicKey() : $this->key->getPublicKey($format);
     }
-
     /**
      * Set Signature Mode
      *
@@ -149,7 +139,6 @@ class Identity
     function setSignatureMode($mode)
     {
     }
-
     /**
      * Set Hash
      *
@@ -174,7 +163,6 @@ class Identity
                 user_error('The only supported hashes for RSA are sha1, sha256 and sha512');
         }
     }
-
     /**
      * Create a signature
      *
@@ -191,25 +179,23 @@ class Identity
         $packet = pack('Na*', strlen($packet), $packet);
         if (strlen($packet) != fputs($this->fsock, $packet)) {
             user_error('Connection closed during signing');
-            return false;
+            return \false;
         }
-
         $temp = fread($this->fsock, 4);
         if (strlen($temp) != 4) {
             user_error('Connection closed during signing');
-            return false;
+            return \false;
         }
         $length = current(unpack('N', $temp));
         $type = ord(fread($this->fsock, 1));
         if ($type != Agent::SSH_AGENT_SIGN_RESPONSE) {
             user_error('Unable to retrieve signature');
-            return false;
+            return \false;
         }
-
         $signature_blob = fread($this->fsock, $length - 1);
         if (strlen($signature_blob) != $length - 1) {
             user_error('Connection closed during signing');
-            return false;
+            return \false;
         }
         $length = current(unpack('N', $this->_string_shift($signature_blob, 4)));
         if ($length != strlen($signature_blob)) {
@@ -221,10 +207,8 @@ class Identity
         }
         $type = $this->_string_shift($signature_blob, $length);
         $this->_string_shift($signature_blob, 4);
-
         return $signature_blob;
     }
-
     /**
      * String Shift
      *

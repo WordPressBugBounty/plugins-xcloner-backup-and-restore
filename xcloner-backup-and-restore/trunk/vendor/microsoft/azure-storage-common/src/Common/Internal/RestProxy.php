@@ -22,14 +22,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal;
 
-namespace MicrosoftAzure\Storage\Common\Internal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\IMiddleware;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\IMiddleware;
 /**
  * Base class for all REST proxies.
  *
@@ -46,12 +44,10 @@ class RestProxy
      * @var array
      */
     private $middlewares;
-
     /**
      * @var Serialization\ISerializer
      */
     protected $dataSerializer;
-
     /**
      * Initializes new RestProxy object.
      *
@@ -59,12 +55,11 @@ class RestProxy
      */
     public function __construct(Serialization\ISerializer $dataSerializer = null)
     {
-        $this->middlewares    = array();
+        $this->middlewares = array();
         $this->dataSerializer = $dataSerializer;
         //For logging the request and responses.
         // $this->middlewares[] = new HistoryMiddleware('.\\messages.log');
     }
-
     /**
      * Gets middlewares that will be handling the request and response.
      *
@@ -74,7 +69,6 @@ class RestProxy
     {
         return $this->middlewares;
     }
-
     /**
      * Push a new middleware into the middlewares array. The newly added
      * middleware will be the most inner middleware when executed.
@@ -87,7 +81,6 @@ class RestProxy
     {
         $this->middlewares[] = $middleware;
     }
-
     /**
      * Adds optional query parameter.
      *
@@ -104,12 +97,10 @@ class RestProxy
         Validate::isArray($queryParameters, 'queryParameters');
         Validate::canCastAsString($key, 'key');
         Validate::canCastAsString($value, 'value');
-
         if (!is_null($value) && Resources::EMPTY_STRING !== $value) {
             $queryParameters[$key] = $value;
         }
     }
-
     /**
      * Adds optional header.
      *
@@ -126,7 +117,6 @@ class RestProxy
         Validate::isArray($headers, 'headers');
         Validate::canCastAsString($key, 'key');
         Validate::canCastAsString($value, 'value');
-
         if (!is_null($value) && Resources::EMPTY_STRING !== $value) {
             $headers[$key] = $value;
         }

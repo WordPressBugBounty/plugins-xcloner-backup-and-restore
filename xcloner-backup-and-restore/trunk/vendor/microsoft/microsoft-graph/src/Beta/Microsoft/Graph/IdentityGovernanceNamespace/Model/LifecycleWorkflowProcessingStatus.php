@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,13 +12,12 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\IdentityGovernanceNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Microsoft\Graph\Core\Enum;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Microsoft\Graph\Core\Enum;
 /**
 * LifecycleWorkflowProcessingStatus class
 *
@@ -30,8 +30,8 @@ use Microsoft\Graph\Core\Enum;
 class LifecycleWorkflowProcessingStatus extends Enum
 {
     /**
-    * The Enum LifecycleWorkflowProcessingStatus
-    */
+     * The Enum LifecycleWorkflowProcessingStatus
+     */
     const QUEUED = "queued";
     const IN_PROGRESS = "inProgress";
     const COMPLETED = "completed";

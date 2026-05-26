@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProgramResource class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProgramResource extends Identity
 {
     /**
-    * Gets the type
-    * Type of the resource, indicating whether it is a group or an app.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * Type of the resource, indicating whether it is a group or an app.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -40,15 +42,14 @@ class ProgramResource extends Identity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * Type of the resource, indicating whether it is a group or an app.
-    *
-    * @param string $val The value of the type
-    *
-    * @return ProgramResource
-    */
+     * Sets the type
+     * Type of the resource, indicating whether it is a group or an app.
+     *
+     * @param string $val The value of the type
+     *
+     * @return ProgramResource
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RenameAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RenameAction extends Entity
 {
     /**
-    * Gets the newName
-    * The new name of the item.
-    *
-    * @return string|null The newName
-    */
+     * Gets the newName
+     * The new name of the item.
+     *
+     * @return string|null The newName
+     */
     public function getNewName()
     {
         if (array_key_exists("newName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class RenameAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the newName
-    * The new name of the item.
-    *
-    * @param string $val The value of the newName
-    *
-    * @return RenameAction
-    */
+     * Sets the newName
+     * The new name of the item.
+     *
+     * @param string $val The value of the newName
+     *
+     * @return RenameAction
+     */
     public function setNewName($val)
     {
         $this->_propDict["newName"] = $val;
         return $this;
     }
     /**
-    * Gets the oldName
-    * The previous name of the item.
-    *
-    * @return string|null The oldName
-    */
+     * Gets the oldName
+     * The previous name of the item.
+     *
+     * @return string|null The oldName
+     */
     public function getOldName()
     {
         if (array_key_exists("oldName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class RenameAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the oldName
-    * The previous name of the item.
-    *
-    * @param string $val The value of the oldName
-    *
-    * @return RenameAction
-    */
+     * Sets the oldName
+     * The previous name of the item.
+     *
+     * @param string $val The value of the oldName
+     *
+     * @return RenameAction
+     */
     public function setOldName($val)
     {
         $this->_propDict["oldName"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ClassificationResult class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class ClassificationResult extends \Beta\Microsoft\Graph\Model\Entity
+class ClassificationResult extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the confidenceLevel
-    * The confidence level, 0 to 100, of the result.
-    *
-    * @return int|null The confidenceLevel
-    */
+     * Gets the confidenceLevel
+     * The confidence level, 0 to 100, of the result.
+     *
+     * @return int|null The confidenceLevel
+     */
     public function getConfidenceLevel()
     {
         if (array_key_exists("confidenceLevel", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ClassificationResult extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the confidenceLevel
-    * The confidence level, 0 to 100, of the result.
-    *
-    * @param int $val The value of the confidenceLevel
-    *
-    * @return ClassificationResult
-    */
+     * Sets the confidenceLevel
+     * The confidence level, 0 to 100, of the result.
+     *
+     * @param int $val The value of the confidenceLevel
+     *
+     * @return ClassificationResult
+     */
     public function setConfidenceLevel($val)
     {
         $this->_propDict["confidenceLevel"] = $val;
         return $this;
     }
     /**
-    * Gets the count
-    * The number of instances of the specific information type in the input.
-    *
-    * @return int|null The count
-    */
+     * Gets the count
+     * The number of instances of the specific information type in the input.
+     *
+     * @return int|null The count
+     */
     public function getCount()
     {
         if (array_key_exists("count", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ClassificationResult extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the count
-    * The number of instances of the specific information type in the input.
-    *
-    * @param int $val The value of the count
-    *
-    * @return ClassificationResult
-    */
+     * Sets the count
+     * The number of instances of the specific information type in the input.
+     *
+     * @param int $val The value of the count
+     *
+     * @return ClassificationResult
+     */
     public function setCount($val)
     {
         $this->_propDict["count"] = $val;
         return $this;
     }
     /**
-    * Gets the sensitiveTypeId
-    * The GUID of the discovered sensitive information type.
-    *
-    * @return string|null The sensitiveTypeId
-    */
+     * Gets the sensitiveTypeId
+     * The GUID of the discovered sensitive information type.
+     *
+     * @return string|null The sensitiveTypeId
+     */
     public function getSensitiveTypeId()
     {
         if (array_key_exists("sensitiveTypeId", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ClassificationResult extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the sensitiveTypeId
-    * The GUID of the discovered sensitive information type.
-    *
-    * @param string $val The value of the sensitiveTypeId
-    *
-    * @return ClassificationResult
-    */
+     * Sets the sensitiveTypeId
+     * The GUID of the discovered sensitive information type.
+     *
+     * @param string $val The value of the sensitiveTypeId
+     *
+     * @return ClassificationResult
+     */
     public function setSensitiveTypeId($val)
     {
         $this->_propDict["sensitiveTypeId"] = $val;

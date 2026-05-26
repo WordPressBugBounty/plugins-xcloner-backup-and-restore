@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Xml\Notification;
 
-namespace Sabre\CalDAV\Xml\Notification;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Plugin;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Plugin;
+use XCloner\Sabre\Xml\Writer;
 /**
  * SystemStatus notification.
  *
@@ -25,42 +23,36 @@ class SystemStatus implements NotificationInterface
     const TYPE_LOW = 1;
     const TYPE_MEDIUM = 2;
     const TYPE_HIGH = 3;
-
     /**
      * A unique id.
      *
      * @var string
      */
     protected $id;
-
     /**
      * The type of alert. This should be one of the TYPE_ constants.
      *
      * @var int
      */
     protected $type;
-
     /**
      * A human-readable description of the problem.
      *
      * @var string
      */
     protected $description;
-
     /**
      * A url to a website with more information for the user.
      *
      * @var string
      */
     protected $href;
-
     /**
      * Notification Etag.
      *
      * @var string
      */
     protected $etag;
-
     /**
      * Creates the notification.
      *
@@ -81,7 +73,6 @@ class SystemStatus implements NotificationInterface
         $this->href = $href;
         $this->etag = $etag;
     }
-
     /**
      * The serialize method is called during xml writing.
      *
@@ -108,19 +99,17 @@ class SystemStatus implements NotificationInterface
                 $type = 'high';
                 break;
         }
-
-        $writer->startElement('{'.Plugin::NS_CALENDARSERVER.'}systemstatus');
+        $writer->startElement('{' . Plugin::NS_CALENDARSERVER . '}systemstatus');
         $writer->writeAttribute('type', $type);
         $writer->endElement();
     }
-
     /**
      * This method serializes the entire notification, as it is used in the
      * response body.
      */
     public function xmlSerializeFull(Writer $writer)
     {
-        $cs = '{'.Plugin::NS_CALENDARSERVER.'}';
+        $cs = '{' . Plugin::NS_CALENDARSERVER . '}';
         switch ($this->type) {
             case self::TYPE_LOW:
                 $type = 'low';
@@ -133,20 +122,17 @@ class SystemStatus implements NotificationInterface
                 $type = 'high';
                 break;
         }
-
-        $writer->startElement($cs.'systemstatus');
+        $writer->startElement($cs . 'systemstatus');
         $writer->writeAttribute('type', $type);
-
         if ($this->description) {
-            $writer->writeElement($cs.'description', $this->description);
+            $writer->writeElement($cs . 'description', $this->description);
         }
         if ($this->href) {
             $writer->writeElement('{DAV:}href', $this->href);
         }
-
-        $writer->endElement(); // systemstatus
+        $writer->endElement();
+        // systemstatus
     }
-
     /**
      * Returns a unique id for this notification.
      *
@@ -159,7 +145,6 @@ class SystemStatus implements NotificationInterface
     {
         return $this->id;
     }
-
     /*
      * Returns the ETag for this notification.
      *

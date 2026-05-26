@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ExactMatchDataStoreBase class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ExactMatchDataStoreBase extends Entity
 {
-
-     /**
+    /**
      * Gets the columns
      *
      * @return array|null The columns
@@ -36,34 +36,32 @@ class ExactMatchDataStoreBase extends Entity
     public function getColumns()
     {
         if (array_key_exists("columns", $this->_propDict)) {
-           return $this->_propDict["columns"];
+            return $this->_propDict["columns"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the columns
-    *
-    * @param ExactDataMatchStoreColumn[] $val The columns
-    *
-    * @return ExactMatchDataStoreBase
-    */
+     * Sets the columns
+     *
+     * @param ExactDataMatchStoreColumn[] $val The columns
+     *
+     * @return ExactMatchDataStoreBase
+     */
     public function setColumns($val)
     {
         $this->_propDict["columns"] = $val;
         return $this;
     }
-
     /**
-    * Gets the dataLastUpdatedDateTime
-    *
-    * @return \DateTime|null The dataLastUpdatedDateTime
-    */
+     * Gets the dataLastUpdatedDateTime
+     *
+     * @return \DateTime|null The dataLastUpdatedDateTime
+     */
     public function getDataLastUpdatedDateTime()
     {
         if (array_key_exists("dataLastUpdatedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["dataLastUpdatedDateTime"], "\DateTime") || is_null($this->_propDict["dataLastUpdatedDateTime"])) {
+            if (is_a($this->_propDict["dataLastUpdatedDateTime"], "\\DateTime") || is_null($this->_propDict["dataLastUpdatedDateTime"])) {
                 return $this->_propDict["dataLastUpdatedDateTime"];
             } else {
                 $this->_propDict["dataLastUpdatedDateTime"] = new \DateTime($this->_propDict["dataLastUpdatedDateTime"]);
@@ -72,25 +70,23 @@ class ExactMatchDataStoreBase extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the dataLastUpdatedDateTime
-    *
-    * @param \DateTime $val The dataLastUpdatedDateTime
-    *
-    * @return ExactMatchDataStoreBase
-    */
+     * Sets the dataLastUpdatedDateTime
+     *
+     * @param \DateTime $val The dataLastUpdatedDateTime
+     *
+     * @return ExactMatchDataStoreBase
+     */
     public function setDataLastUpdatedDateTime($val)
     {
         $this->_propDict["dataLastUpdatedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -99,25 +95,23 @@ class ExactMatchDataStoreBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The description
-    *
-    * @return ExactMatchDataStoreBase
-    */
+     * Sets the description
+     *
+     * @param string $val The description
+     *
+     * @return ExactMatchDataStoreBase
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -126,18 +120,16 @@ class ExactMatchDataStoreBase extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The displayName
-    *
-    * @return ExactMatchDataStoreBase
-    */
+     * Sets the displayName
+     *
+     * @param string $val The displayName
+     *
+     * @return ExactMatchDataStoreBase
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
 }

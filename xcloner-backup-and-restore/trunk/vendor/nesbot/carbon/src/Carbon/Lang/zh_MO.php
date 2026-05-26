@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This file is part of the Carbon package.
  *
@@ -11,7 +13,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 /*
  * Authors:
  * - tarunvelli
@@ -19,6 +20,4 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * - KID
  * - shankesgk2
  */
-return array_replace_recursive(require __DIR__.'/zh_Hant.php', [
-    'after' => ':time后',
-]);
+return \array_replace_recursive(require __DIR__ . '/zh_Hant.php', ['after' => ':time后']);

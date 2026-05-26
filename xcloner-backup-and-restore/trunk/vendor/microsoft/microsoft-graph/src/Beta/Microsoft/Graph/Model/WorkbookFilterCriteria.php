@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookFilterCriteria class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookFilterCriteria extends Entity
 {
     /**
-    * Gets the color
-    *
-    * @return string|null The color
-    */
+     * Gets the color
+     *
+     * @return string|null The color
+     */
     public function getColor()
     {
         if (array_key_exists("color", $this->_propDict)) {
@@ -39,24 +41,23 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the color
-    *
-    * @param string $val The value of the color
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the color
+     *
+     * @param string $val The value of the color
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setColor($val)
     {
         $this->_propDict["color"] = $val;
         return $this;
     }
     /**
-    * Gets the criterion1
-    *
-    * @return string|null The criterion1
-    */
+     * Gets the criterion1
+     *
+     * @return string|null The criterion1
+     */
     public function getCriterion1()
     {
         if (array_key_exists("criterion1", $this->_propDict)) {
@@ -65,24 +66,23 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the criterion1
-    *
-    * @param string $val The value of the criterion1
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the criterion1
+     *
+     * @param string $val The value of the criterion1
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setCriterion1($val)
     {
         $this->_propDict["criterion1"] = $val;
         return $this;
     }
     /**
-    * Gets the criterion2
-    *
-    * @return string|null The criterion2
-    */
+     * Gets the criterion2
+     *
+     * @return string|null The criterion2
+     */
     public function getCriterion2()
     {
         if (array_key_exists("criterion2", $this->_propDict)) {
@@ -91,24 +91,23 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the criterion2
-    *
-    * @param string $val The value of the criterion2
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the criterion2
+     *
+     * @param string $val The value of the criterion2
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setCriterion2($val)
     {
         $this->_propDict["criterion2"] = $val;
         return $this;
     }
     /**
-    * Gets the dynamicCriteria
-    *
-    * @return string|null The dynamicCriteria
-    */
+     * Gets the dynamicCriteria
+     *
+     * @return string|null The dynamicCriteria
+     */
     public function getDynamicCriteria()
     {
         if (array_key_exists("dynamicCriteria", $this->_propDict)) {
@@ -117,24 +116,23 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dynamicCriteria
-    *
-    * @param string $val The value of the dynamicCriteria
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the dynamicCriteria
+     *
+     * @param string $val The value of the dynamicCriteria
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setDynamicCriteria($val)
     {
         $this->_propDict["dynamicCriteria"] = $val;
         return $this;
     }
     /**
-    * Gets the filterOn
-    *
-    * @return string|null The filterOn
-    */
+     * Gets the filterOn
+     *
+     * @return string|null The filterOn
+     */
     public function getFilterOn()
     {
         if (array_key_exists("filterOn", $this->_propDict)) {
@@ -143,29 +141,27 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the filterOn
-    *
-    * @param string $val The value of the filterOn
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the filterOn
+     *
+     * @param string $val The value of the filterOn
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setFilterOn($val)
     {
         $this->_propDict["filterOn"] = $val;
         return $this;
     }
-
     /**
-    * Gets the icon
-    *
-    * @return WorkbookIcon|null The icon
-    */
+     * Gets the icon
+     *
+     * @return WorkbookIcon|null The icon
+     */
     public function getIcon()
     {
         if (array_key_exists("icon", $this->_propDict)) {
-            if (is_a($this->_propDict["icon"], "\Beta\Microsoft\Graph\Model\WorkbookIcon") || is_null($this->_propDict["icon"])) {
+            if (is_a($this->_propDict["icon"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookIcon") || is_null($this->_propDict["icon"])) {
                 return $this->_propDict["icon"];
             } else {
                 $this->_propDict["icon"] = new WorkbookIcon($this->_propDict["icon"]);
@@ -174,24 +170,23 @@ class WorkbookFilterCriteria extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the icon
-    *
-    * @param WorkbookIcon $val The value to assign to the icon
-    *
-    * @return WorkbookFilterCriteria The WorkbookFilterCriteria
-    */
+     * Sets the icon
+     *
+     * @param WorkbookIcon $val The value to assign to the icon
+     *
+     * @return WorkbookFilterCriteria The WorkbookFilterCriteria
+     */
     public function setIcon($val)
     {
         $this->_propDict["icon"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the operator
-    *
-    * @return string|null The operator
-    */
+     * Gets the operator
+     *
+     * @return string|null The operator
+     */
     public function getOperator()
     {
         if (array_key_exists("operator", $this->_propDict)) {
@@ -200,24 +195,23 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the operator
-    *
-    * @param string $val The value of the operator
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the operator
+     *
+     * @param string $val The value of the operator
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setOperator($val)
     {
         $this->_propDict["operator"] = $val;
         return $this;
     }
     /**
-    * Gets the values
-    *
-    * @return string|null The values
-    */
+     * Gets the values
+     *
+     * @return string|null The values
+     */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
@@ -226,14 +220,13 @@ class WorkbookFilterCriteria extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the values
-    *
-    * @param string $val The value of the values
-    *
-    * @return WorkbookFilterCriteria
-    */
+     * Sets the values
+     *
+     * @param string $val The value of the values
+     *
+     * @return WorkbookFilterCriteria
+     */
     public function setValues($val)
     {
         $this->_propDict["values"] = $val;

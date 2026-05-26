@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyOperation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyOperation extends Entity
 {
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -45,31 +46,29 @@ class GroupPolicyOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return GroupPolicyOperation
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return GroupPolicyOperation
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the operationStatus
-    * The group policy operation status. Possible values are: unknown, inProgress, success, failed.
-    *
-    * @return GroupPolicyOperationStatus|null The operationStatus
-    */
+     * Gets the operationStatus
+     * The group policy operation status. Possible values are: unknown, inProgress, success, failed.
+     *
+     * @return GroupPolicyOperationStatus|null The operationStatus
+     */
     public function getOperationStatus()
     {
         if (array_key_exists("operationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["operationStatus"], "\Beta\Microsoft\Graph\Model\GroupPolicyOperationStatus") || is_null($this->_propDict["operationStatus"])) {
+            if (is_a($this->_propDict["operationStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicyOperationStatus") || is_null($this->_propDict["operationStatus"])) {
                 return $this->_propDict["operationStatus"];
             } else {
                 $this->_propDict["operationStatus"] = new GroupPolicyOperationStatus($this->_propDict["operationStatus"]);
@@ -78,31 +77,29 @@ class GroupPolicyOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the operationStatus
-    * The group policy operation status. Possible values are: unknown, inProgress, success, failed.
-    *
-    * @param GroupPolicyOperationStatus $val The operationStatus
-    *
-    * @return GroupPolicyOperation
-    */
+     * Sets the operationStatus
+     * The group policy operation status. Possible values are: unknown, inProgress, success, failed.
+     *
+     * @param GroupPolicyOperationStatus $val The operationStatus
+     *
+     * @return GroupPolicyOperation
+     */
     public function setOperationStatus($val)
     {
         $this->_propDict["operationStatus"] = $val;
         return $this;
     }
-
     /**
-    * Gets the operationType
-    * The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
-    *
-    * @return GroupPolicyOperationType|null The operationType
-    */
+     * Gets the operationType
+     * The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
+     *
+     * @return GroupPolicyOperationType|null The operationType
+     */
     public function getOperationType()
     {
         if (array_key_exists("operationType", $this->_propDict)) {
-            if (is_a($this->_propDict["operationType"], "\Beta\Microsoft\Graph\Model\GroupPolicyOperationType") || is_null($this->_propDict["operationType"])) {
+            if (is_a($this->_propDict["operationType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicyOperationType") || is_null($this->_propDict["operationType"])) {
                 return $this->_propDict["operationType"];
             } else {
                 $this->_propDict["operationType"] = new GroupPolicyOperationType($this->_propDict["operationType"]);
@@ -111,27 +108,25 @@ class GroupPolicyOperation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the operationType
-    * The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
-    *
-    * @param GroupPolicyOperationType $val The operationType
-    *
-    * @return GroupPolicyOperation
-    */
+     * Sets the operationType
+     * The type of group policy operation. Possible values are: none, upload, uploadNewVersion, addLanguageFiles, removeLanguageFiles, updateLanguageFiles, remove.
+     *
+     * @param GroupPolicyOperationType $val The operationType
+     *
+     * @return GroupPolicyOperation
+     */
     public function setOperationType($val)
     {
         $this->_propDict["operationType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the statusDetails
-    * The group policy operation status detail.
-    *
-    * @return string|null The statusDetails
-    */
+     * Gets the statusDetails
+     * The group policy operation status detail.
+     *
+     * @return string|null The statusDetails
+     */
     public function getStatusDetails()
     {
         if (array_key_exists("statusDetails", $this->_propDict)) {
@@ -140,19 +135,17 @@ class GroupPolicyOperation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the statusDetails
-    * The group policy operation status detail.
-    *
-    * @param string $val The statusDetails
-    *
-    * @return GroupPolicyOperation
-    */
+     * Sets the statusDetails
+     * The group policy operation status detail.
+     *
+     * @param string $val The statusDetails
+     *
+     * @return GroupPolicyOperation
+     */
     public function setStatusDetails($val)
     {
         $this->_propDict["statusDetails"] = $val;
         return $this;
     }
-
 }

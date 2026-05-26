@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GovernanceNotificationPolicy class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GovernanceNotificationPolicy extends Entity
 {
     /**
-    * Gets the enabledTemplateTypes
-    *
-    * @return string|null The enabledTemplateTypes
-    */
+     * Gets the enabledTemplateTypes
+     *
+     * @return string|null The enabledTemplateTypes
+     */
     public function getEnabledTemplateTypes()
     {
         if (array_key_exists("enabledTemplateTypes", $this->_propDict)) {
@@ -39,29 +41,27 @@ class GovernanceNotificationPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabledTemplateTypes
-    *
-    * @param string $val The value of the enabledTemplateTypes
-    *
-    * @return GovernanceNotificationPolicy
-    */
+     * Sets the enabledTemplateTypes
+     *
+     * @param string $val The value of the enabledTemplateTypes
+     *
+     * @return GovernanceNotificationPolicy
+     */
     public function setEnabledTemplateTypes($val)
     {
         $this->_propDict["enabledTemplateTypes"] = $val;
         return $this;
     }
-
     /**
-    * Gets the notificationTemplates
-    *
-    * @return GovernanceNotificationTemplate|null The notificationTemplates
-    */
+     * Gets the notificationTemplates
+     *
+     * @return GovernanceNotificationTemplate|null The notificationTemplates
+     */
     public function getNotificationTemplates()
     {
         if (array_key_exists("notificationTemplates", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationTemplates"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationTemplate") || is_null($this->_propDict["notificationTemplates"])) {
+            if (is_a($this->_propDict["notificationTemplates"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceNotificationTemplate") || is_null($this->_propDict["notificationTemplates"])) {
                 return $this->_propDict["notificationTemplates"];
             } else {
                 $this->_propDict["notificationTemplates"] = new GovernanceNotificationTemplate($this->_propDict["notificationTemplates"]);
@@ -70,17 +70,16 @@ class GovernanceNotificationPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the notificationTemplates
-    *
-    * @param GovernanceNotificationTemplate $val The value to assign to the notificationTemplates
-    *
-    * @return GovernanceNotificationPolicy The GovernanceNotificationPolicy
-    */
+     * Sets the notificationTemplates
+     *
+     * @param GovernanceNotificationTemplate $val The value to assign to the notificationTemplates
+     *
+     * @return GovernanceNotificationPolicy The GovernanceNotificationPolicy
+     */
     public function setNotificationTemplates($val)
     {
         $this->_propDict["notificationTemplates"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -98,7 +98,7 @@ class Xcloner_Filesystem
     public function set_diff_timestamp_start($timestamp = "")
     {
         if ($timestamp) {
-            $this->logger->info(sprintf("Setting Differential Timestamp To %s", date("Y-m-d", $timestamp)), array("FILESYSTEM", "DIFF"));
+            $this->logger->info(sprintf("Setting Differential Timestamp To %s", gmdate("Y-m-d", $timestamp)), array("FILESYSTEM", "DIFF"));
             $this->diff_timestamp_start = $timestamp;
         }
     }
@@ -330,7 +330,12 @@ class Xcloner_Filesystem
     public function start_file_recursion($init = 0)
     {
         if ($init) {
-            $this->logger->info(sprintf(__("Starting the filesystem scanner on root folder %s"), $this->xcloner_settings->get_xcloner_start_path()));
+            $this->logger->info(sprintf(
+                /* translators: %1$s is a value */
+                __('Starting the filesystem scanner on root folder %1$s', 'xcloner-backup-and-restore'),
+                // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
+                $this->xcloner_settings->get_xcloner_start_path()
+            ));
             $this->do_system_init();
         }
         if ($this->tmp_filesystem->has($this->get_temp_dir_handler())) {
@@ -413,6 +418,7 @@ class Xcloner_Filesystem
         try {
             if (is_dir($tmp_path)) {
                 rmdir($tmp_path);
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_rmdir
             }
         } catch (Exception $e) {
             //silent continue
@@ -490,9 +496,19 @@ class Xcloner_Filesystem
             $files = $this->start_filesystem->listContents($folder);
             foreach ($files as $file) {
                 if (!is_readable($this->xcloner_settings->get_xcloner_start_path() . DS . $file['path'])) {
-                    $this->logger->info(sprintf(__("Excluding %s from the filesystem list, file not readable"), $file['path']), array("FILESYSTEM SCAN", "NOT READABLE"));
+                    $this->logger->info(sprintf(
+                        /* translators: %1$s is a value */
+                        __('Excluding %1$s from the filesystem list, file not readable', 'xcloner-backup-and-restore'),
+                        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
+                        $file['path']
+                    ), array("FILESYSTEM SCAN", "NOT READABLE"));
                 } elseif (!$matching_pattern = $this->is_excluded($file)) {
-                    $this->logger->info(sprintf(__("Adding %s to the filesystem list"), $file['path']), array("FILESYSTEM SCAN", "INCLUDE"));
+                    /* translators: %1$s is a value */
+                    $this->logger->info(sprintf(__('Adding %1$s to the filesystem list', 'xcloner-backup-and-restore'), $file['path']), array(
+                        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
+                        "FILESYSTEM SCAN",
+                        "INCLUDE",
+                    ));
                     $file['visibility'] = $this->start_filesystem->getVisibility($file['path']);
                     if ($this->store_file($file)) {
                         $this->files_counter++;
@@ -501,7 +517,13 @@ class Xcloner_Filesystem
                         $this->files_size += $file['size'];
                     }
                 } else {
-                    $this->logger->info(sprintf(__("Excluding %s from the filesystem list, matching pattern %s"), $file['path'], $matching_pattern), array("FILESYSTEM SCAN", "EXCLUDE"));
+                    $this->logger->info(sprintf(
+                        /* translators: %1$s is a value, %2$s is a value */
+                        __('Excluding %1$s from the filesystem list, matching pattern %2$s', 'xcloner-backup-and-restore'),
+                        // phpcs:ignore WordPress.WP.I18n.InterpolatedVariableText
+                        $file['path'],
+                        $matching_pattern
+                    ), array("FILESYSTEM SCAN", "EXCLUDE"));
                 }
             }
         } catch (Exception $e) {
@@ -512,7 +534,7 @@ class Xcloner_Filesystem
     {
         $tmp_file = ".xcloner" . substr(md5(time()), 0, 5);
         $start_time = microtime(\true);
-        $data = str_repeat(rand(0, 9), 1024 * 1024);
+        $data = str_repeat(wp_rand(0, 9), 1024 * 1024);
         //write 1MB data
         try {
             $this->tmp_filesystem->write($tmp_file, $data);
@@ -559,7 +581,7 @@ class Xcloner_Filesystem
             $xcloner_cleanup_exclude_days = $options_prefix . "cleanup_exclude_days";
             if ($exclude_days_string = $this->xcloner_settings->get_xcloner_option($xcloner_cleanup_exclude_days)) {
                 $exclude_days = explode(",", $exclude_days_string);
-                $backup_day_of_month = date('j', $file['timestamp']);
+                $backup_day_of_month = gmdate('j', $file['timestamp']);
                 if (in_array($backup_day_of_month, $exclude_days)) {
                     $this->logger->info(sprintf("Excluding %s from storage %s cleanup trashing as it was taken on month day %s ", $file['path'], $storage_name, $backup_day_of_month));
                     continue;
@@ -608,13 +630,13 @@ class Xcloner_Filesystem
         }
         foreach ($this->backup_name_tags as $tag) {
             if ($tag == '[time]') {
-                $name = str_replace($tag, date("Y-m-d_H-i"), $name);
+                $name = str_replace($tag, gmdate("Y-m-d_H-i"), $name);
             } elseif ($tag == '[hostname]') {
                 $name = str_replace($tag, gethostname(), $name);
             } elseif ($tag == '[hash]') {
                 $name = str_replace($tag, $this->xcloner_container->randomString(5), $name);
             } elseif ($tag == '[domain]') {
-                $domain = parse_url(admin_url(), \PHP_URL_HOST);
+                $domain = wp_parse_url(admin_url(), \PHP_URL_HOST);
                 $name = str_replace($tag, $domain, $name);
             }
         }

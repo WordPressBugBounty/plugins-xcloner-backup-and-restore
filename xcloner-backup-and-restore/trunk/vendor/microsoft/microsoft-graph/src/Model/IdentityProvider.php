@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IdentityProvider class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IdentityProvider extends Entity
 {
     /**
-    * Gets the clientId
-    * The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable.
-    *
-    * @return string|null The clientId
-    */
+     * Gets the clientId
+     * The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable.
+     *
+     * @return string|null The clientId
+     */
     public function getClientId()
     {
         if (array_key_exists("clientId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the clientId
-    * The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable.
-    *
-    * @param string $val The clientId
-    *
-    * @return IdentityProvider
-    */
+     * Sets the clientId
+     * The client ID for the application. This is the client ID obtained when registering the application with the identity provider. Required. Not nullable.
+     *
+     * @param string $val The clientId
+     *
+     * @return IdentityProvider
+     */
     public function setClientId($val)
     {
         $this->_propDict["clientId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the clientSecret
-    * The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
-    *
-    * @return string|null The clientSecret
-    */
+     * Gets the clientSecret
+     * The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
+     *
+     * @return string|null The clientSecret
+     */
     public function getClientSecret()
     {
         if (array_key_exists("clientSecret", $this->_propDict)) {
@@ -70,27 +69,25 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the clientSecret
-    * The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
-    *
-    * @param string $val The clientSecret
-    *
-    * @return IdentityProvider
-    */
+     * Sets the clientSecret
+     * The client secret for the application. This is the client secret obtained when registering the application with the identity provider. This is write-only. A read operation will return ****.  Required. Not nullable.
+     *
+     * @param string $val The clientSecret
+     *
+     * @return IdentityProvider
+     */
     public function setClientSecret($val)
     {
         $this->_propDict["clientSecret"] = $val;
         return $this;
     }
-
     /**
-    * Gets the name
-    * The display name of the identity provider. Not nullable.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The display name of the identity provider. Not nullable.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -99,27 +96,25 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The display name of the identity provider. Not nullable.
-    *
-    * @param string $val The name
-    *
-    * @return IdentityProvider
-    */
+     * Sets the name
+     * The display name of the identity provider. Not nullable.
+     *
+     * @param string $val The name
+     *
+     * @return IdentityProvider
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -128,19 +123,17 @@ class IdentityProvider extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable.
-    *
-    * @param string $val The type
-    *
-    * @return IdentityProvider
-    */
+     * Sets the type
+     * The identity provider type is a required field. For B2B scenario: Google, Facebook. For B2C scenario: Microsoft, Google, Amazon, LinkedIn, Facebook, GitHub, Twitter, Weibo, QQ, WeChat, OpenIDConnect. Not nullable.
+     *
+     * @param string $val The type
+     *
+     * @return IdentityProvider
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
         return $this;
     }
-
 }

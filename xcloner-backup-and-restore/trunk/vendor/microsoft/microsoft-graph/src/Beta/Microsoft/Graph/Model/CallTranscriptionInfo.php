@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CallTranscriptionInfo class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CallTranscriptionInfo extends Entity
 {
-
     /**
-    * Gets the lastModifiedDateTime
-    * The state modified time in UTC.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The state modified time in UTC.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -45,31 +46,29 @@ class CallTranscriptionInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The state modified time in UTC.
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return CallTranscriptionInfo The CallTranscriptionInfo
-    */
+     * Sets the lastModifiedDateTime
+     * The state modified time in UTC.
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return CallTranscriptionInfo The CallTranscriptionInfo
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the state
-    * Possible values are: notStarted, active, inactive.
-    *
-    * @return CallTranscriptionState|null The state
-    */
+     * Gets the state
+     * Possible values are: notStarted, active, inactive.
+     *
+     * @return CallTranscriptionState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\CallTranscriptionState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\CallTranscriptionState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new CallTranscriptionState($this->_propDict["state"]);
@@ -78,18 +77,17 @@ class CallTranscriptionInfo extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * Possible values are: notStarted, active, inactive.
-    *
-    * @param CallTranscriptionState $val The value to assign to the state
-    *
-    * @return CallTranscriptionInfo The CallTranscriptionInfo
-    */
+     * Sets the state
+     * Possible values are: notStarted, active, inactive.
+     *
+     * @param CallTranscriptionState $val The value to assign to the state
+     *
+     * @return CallTranscriptionInfo The CallTranscriptionInfo
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
 }

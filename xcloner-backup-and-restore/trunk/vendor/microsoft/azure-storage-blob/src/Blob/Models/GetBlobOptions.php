@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Models\Range;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Models\Range;
 /**
  * Optional parameters for getBlob wrapper
  *
@@ -45,7 +43,6 @@ class GetBlobOptions extends BlobServiceOptions
     private $snapshot;
     private $range;
     private $rangeGetContentMD5;
-
     /**
      * Gets blob snapshot.
      *
@@ -55,7 +52,6 @@ class GetBlobOptions extends BlobServiceOptions
     {
         return $this->snapshot;
     }
-
     /**
      * Sets blob snapshot.
      *
@@ -67,7 +63,6 @@ class GetBlobOptions extends BlobServiceOptions
     {
         $this->snapshot = $snapshot;
     }
-
     /**
      * Gets Blob range.
      *
@@ -77,7 +72,6 @@ class GetBlobOptions extends BlobServiceOptions
     {
         return $this->range;
     }
-
     /**
      * Sets Blob range.
      *
@@ -89,7 +83,6 @@ class GetBlobOptions extends BlobServiceOptions
     {
         $this->range = $range;
     }
-
     /**
      * Gets rangeGetContentMD5
      *
@@ -99,7 +92,6 @@ class GetBlobOptions extends BlobServiceOptions
     {
         return $this->rangeGetContentMD5;
     }
-
     /**
      * Sets rangeGetContentMD5
      *

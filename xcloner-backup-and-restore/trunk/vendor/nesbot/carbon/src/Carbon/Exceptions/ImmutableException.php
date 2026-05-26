@@ -8,15 +8,13 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Exceptions;
 
-namespace Carbon\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use RuntimeException as BaseRuntimeException;
 use Throwable;
-
 class ImmutableException extends BaseRuntimeException implements RuntimeException
 {
     /**
@@ -25,7 +23,6 @@ class ImmutableException extends BaseRuntimeException implements RuntimeExceptio
      * @var string
      */
     protected $value;
-
     /**
      * Constructor.
      *
@@ -36,9 +33,8 @@ class ImmutableException extends BaseRuntimeException implements RuntimeExceptio
     public function __construct($value, $code = 0, Throwable $previous = null)
     {
         $this->value = $value;
-        parent::__construct("$value is immutable.", $code, $previous);
+        parent::__construct("{$value} is immutable.", $code, $previous);
     }
-
     /**
      * Get the value.
      *

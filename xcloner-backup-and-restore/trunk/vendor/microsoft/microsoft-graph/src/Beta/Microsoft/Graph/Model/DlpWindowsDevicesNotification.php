@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DlpWindowsDevicesNotification class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DlpWindowsDevicesNotification extends DlpNotification
 {
     /**
-    * Gets the contentName
-    *
-    * @return string|null The contentName
-    */
+     * Gets the contentName
+     *
+     * @return string|null The contentName
+     */
     public function getContentName()
     {
         if (array_key_exists("contentName", $this->_propDict)) {
@@ -39,24 +41,23 @@ class DlpWindowsDevicesNotification extends DlpNotification
             return null;
         }
     }
-
     /**
-    * Sets the contentName
-    *
-    * @param string $val The value of the contentName
-    *
-    * @return DlpWindowsDevicesNotification
-    */
+     * Sets the contentName
+     *
+     * @param string $val The value of the contentName
+     *
+     * @return DlpWindowsDevicesNotification
+     */
     public function setContentName($val)
     {
         $this->_propDict["contentName"] = $val;
         return $this;
     }
     /**
-    * Gets the lastModfiedBy
-    *
-    * @return string|null The lastModfiedBy
-    */
+     * Gets the lastModfiedBy
+     *
+     * @return string|null The lastModfiedBy
+     */
     public function getLastModfiedBy()
     {
         if (array_key_exists("lastModfiedBy", $this->_propDict)) {
@@ -65,14 +66,13 @@ class DlpWindowsDevicesNotification extends DlpNotification
             return null;
         }
     }
-
     /**
-    * Sets the lastModfiedBy
-    *
-    * @param string $val The value of the lastModfiedBy
-    *
-    * @return DlpWindowsDevicesNotification
-    */
+     * Sets the lastModfiedBy
+     *
+     * @param string $val The value of the lastModfiedBy
+     *
+     * @return DlpWindowsDevicesNotification
+     */
     public function setLastModfiedBy($val)
     {
         $this->_propDict["lastModfiedBy"] = $val;

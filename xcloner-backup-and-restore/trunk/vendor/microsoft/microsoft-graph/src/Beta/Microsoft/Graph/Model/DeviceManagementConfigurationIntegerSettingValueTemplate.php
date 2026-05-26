@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationIntegerSettingValueTemplate class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceManagementConfigurationSimpleSettingValueTemplate
 {
-
     /**
-    * Gets the defaultValue
-    * Integer Setting Value Default Template.
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null The defaultValue
-    */
+     * Gets the defaultValue
+     * Integer Setting Value Default Template.
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueDefaultTemplate|null The defaultValue
+     */
     public function getDefaultValue()
     {
         if (array_key_exists("defaultValue", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefaultTemplate") || is_null($this->_propDict["defaultValue"])) {
+            if (is_a($this->_propDict["defaultValue"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationIntegerSettingValueDefaultTemplate") || is_null($this->_propDict["defaultValue"])) {
                 return $this->_propDict["defaultValue"];
             } else {
                 $this->_propDict["defaultValue"] = new DeviceManagementConfigurationIntegerSettingValueDefaultTemplate($this->_propDict["defaultValue"]);
@@ -45,31 +46,29 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
         }
         return null;
     }
-
     /**
-    * Sets the defaultValue
-    * Integer Setting Value Default Template.
-    *
-    * @param DeviceManagementConfigurationIntegerSettingValueDefaultTemplate $val The value to assign to the defaultValue
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueTemplate The DeviceManagementConfigurationIntegerSettingValueTemplate
-    */
+     * Sets the defaultValue
+     * Integer Setting Value Default Template.
+     *
+     * @param DeviceManagementConfigurationIntegerSettingValueDefaultTemplate $val The value to assign to the defaultValue
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueTemplate The DeviceManagementConfigurationIntegerSettingValueTemplate
+     */
     public function setDefaultValue($val)
     {
         $this->_propDict["defaultValue"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the recommendedValueDefinition
-    * Recommended value definition.
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null The recommendedValueDefinition
-    */
+     * Gets the recommendedValueDefinition
+     * Recommended value definition.
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null The recommendedValueDefinition
+     */
     public function getRecommendedValueDefinition()
     {
         if (array_key_exists("recommendedValueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["recommendedValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate") || is_null($this->_propDict["recommendedValueDefinition"])) {
+            if (is_a($this->_propDict["recommendedValueDefinition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate") || is_null($this->_propDict["recommendedValueDefinition"])) {
                 return $this->_propDict["recommendedValueDefinition"];
             } else {
                 $this->_propDict["recommendedValueDefinition"] = new DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate($this->_propDict["recommendedValueDefinition"]);
@@ -78,31 +77,29 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
         }
         return null;
     }
-
     /**
-    * Sets the recommendedValueDefinition
-    * Recommended value definition.
-    *
-    * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $val The value to assign to the recommendedValueDefinition
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueTemplate The DeviceManagementConfigurationIntegerSettingValueTemplate
-    */
+     * Sets the recommendedValueDefinition
+     * Recommended value definition.
+     *
+     * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $val The value to assign to the recommendedValueDefinition
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueTemplate The DeviceManagementConfigurationIntegerSettingValueTemplate
+     */
     public function setRecommendedValueDefinition($val)
     {
         $this->_propDict["recommendedValueDefinition"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the requiredValueDefinition
-    * Required value definition.
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null The requiredValueDefinition
-    */
+     * Gets the requiredValueDefinition
+     * Required value definition.
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate|null The requiredValueDefinition
+     */
     public function getRequiredValueDefinition()
     {
         if (array_key_exists("requiredValueDefinition", $this->_propDict)) {
-            if (is_a($this->_propDict["requiredValueDefinition"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate") || is_null($this->_propDict["requiredValueDefinition"])) {
+            if (is_a($this->_propDict["requiredValueDefinition"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate") || is_null($this->_propDict["requiredValueDefinition"])) {
                 return $this->_propDict["requiredValueDefinition"];
             } else {
                 $this->_propDict["requiredValueDefinition"] = new DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate($this->_propDict["requiredValueDefinition"]);
@@ -111,18 +108,17 @@ class DeviceManagementConfigurationIntegerSettingValueTemplate extends DeviceMan
         }
         return null;
     }
-
     /**
-    * Sets the requiredValueDefinition
-    * Required value definition.
-    *
-    * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $val The value to assign to the requiredValueDefinition
-    *
-    * @return DeviceManagementConfigurationIntegerSettingValueTemplate The DeviceManagementConfigurationIntegerSettingValueTemplate
-    */
+     * Sets the requiredValueDefinition
+     * Required value definition.
+     *
+     * @param DeviceManagementConfigurationIntegerSettingValueDefinitionTemplate $val The value to assign to the requiredValueDefinition
+     *
+     * @return DeviceManagementConfigurationIntegerSettingValueTemplate The DeviceManagementConfigurationIntegerSettingValueTemplate
+     */
     public function setRequiredValueDefinition($val)
     {
         $this->_propDict["requiredValueDefinition"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Property class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Property extends Entity
 {
     /**
-    * Gets the aliases
-    *
-    * @return string|null The aliases
-    */
+     * Gets the aliases
+     *
+     * @return string|null The aliases
+     */
     public function getAliases()
     {
         if (array_key_exists("aliases", $this->_propDict)) {
@@ -39,24 +41,23 @@ class Property extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the aliases
-    *
-    * @param string $val The value of the aliases
-    *
-    * @return Property
-    */
+     * Sets the aliases
+     *
+     * @param string $val The value of the aliases
+     *
+     * @return Property
+     */
     public function setAliases($val)
     {
         $this->_propDict["aliases"] = $val;
         return $this;
     }
     /**
-    * Gets the isQueryable
-    *
-    * @return bool|null The isQueryable
-    */
+     * Gets the isQueryable
+     *
+     * @return bool|null The isQueryable
+     */
     public function getIsQueryable()
     {
         if (array_key_exists("isQueryable", $this->_propDict)) {
@@ -65,24 +66,23 @@ class Property extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isQueryable
-    *
-    * @param bool $val The value of the isQueryable
-    *
-    * @return Property
-    */
+     * Sets the isQueryable
+     *
+     * @param bool $val The value of the isQueryable
+     *
+     * @return Property
+     */
     public function setIsQueryable($val)
     {
         $this->_propDict["isQueryable"] = $val;
         return $this;
     }
     /**
-    * Gets the isRefinable
-    *
-    * @return bool|null The isRefinable
-    */
+     * Gets the isRefinable
+     *
+     * @return bool|null The isRefinable
+     */
     public function getIsRefinable()
     {
         if (array_key_exists("isRefinable", $this->_propDict)) {
@@ -91,24 +91,23 @@ class Property extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRefinable
-    *
-    * @param bool $val The value of the isRefinable
-    *
-    * @return Property
-    */
+     * Sets the isRefinable
+     *
+     * @param bool $val The value of the isRefinable
+     *
+     * @return Property
+     */
     public function setIsRefinable($val)
     {
         $this->_propDict["isRefinable"] = $val;
         return $this;
     }
     /**
-    * Gets the isRetrievable
-    *
-    * @return bool|null The isRetrievable
-    */
+     * Gets the isRetrievable
+     *
+     * @return bool|null The isRetrievable
+     */
     public function getIsRetrievable()
     {
         if (array_key_exists("isRetrievable", $this->_propDict)) {
@@ -117,24 +116,23 @@ class Property extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRetrievable
-    *
-    * @param bool $val The value of the isRetrievable
-    *
-    * @return Property
-    */
+     * Sets the isRetrievable
+     *
+     * @param bool $val The value of the isRetrievable
+     *
+     * @return Property
+     */
     public function setIsRetrievable($val)
     {
         $this->_propDict["isRetrievable"] = $val;
         return $this;
     }
     /**
-    * Gets the isSearchable
-    *
-    * @return bool|null The isSearchable
-    */
+     * Gets the isSearchable
+     *
+     * @return bool|null The isSearchable
+     */
     public function getIsSearchable()
     {
         if (array_key_exists("isSearchable", $this->_propDict)) {
@@ -143,29 +141,27 @@ class Property extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isSearchable
-    *
-    * @param bool $val The value of the isSearchable
-    *
-    * @return Property
-    */
+     * Sets the isSearchable
+     *
+     * @param bool $val The value of the isSearchable
+     *
+     * @return Property
+     */
     public function setIsSearchable($val)
     {
         $this->_propDict["isSearchable"] = $val;
         return $this;
     }
-
     /**
-    * Gets the labels
-    *
-    * @return Label|null The labels
-    */
+     * Gets the labels
+     *
+     * @return Label|null The labels
+     */
     public function getLabels()
     {
         if (array_key_exists("labels", $this->_propDict)) {
-            if (is_a($this->_propDict["labels"], "\Beta\Microsoft\Graph\Model\Label") || is_null($this->_propDict["labels"])) {
+            if (is_a($this->_propDict["labels"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Label") || is_null($this->_propDict["labels"])) {
                 return $this->_propDict["labels"];
             } else {
                 $this->_propDict["labels"] = new Label($this->_propDict["labels"]);
@@ -174,24 +170,23 @@ class Property extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the labels
-    *
-    * @param Label $val The value to assign to the labels
-    *
-    * @return Property The Property
-    */
+     * Sets the labels
+     *
+     * @param Label $val The value to assign to the labels
+     *
+     * @return Property The Property
+     */
     public function setLabels($val)
     {
         $this->_propDict["labels"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -200,29 +195,27 @@ class Property extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    *
-    * @param string $val The value of the name
-    *
-    * @return Property
-    */
+     * Sets the name
+     *
+     * @param string $val The value of the name
+     *
+     * @return Property
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    *
-    * @return PropertyType|null The type
-    */
+     * Gets the type
+     *
+     * @return PropertyType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PropertyType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PropertyType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PropertyType($this->_propDict["type"]);
@@ -231,17 +224,16 @@ class Property extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    *
-    * @param PropertyType $val The value to assign to the type
-    *
-    * @return Property The Property
-    */
+     * Sets the type
+     *
+     * @param PropertyType $val The value to assign to the type
+     *
+     * @return Property The Property
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

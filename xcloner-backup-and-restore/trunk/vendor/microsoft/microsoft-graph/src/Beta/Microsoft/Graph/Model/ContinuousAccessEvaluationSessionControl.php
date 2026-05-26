@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ContinuousAccessEvaluationSessionControl class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ContinuousAccessEvaluationSessionControl extends Entity
 {
-
     /**
-    * Gets the mode
-    * Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue.
-    *
-    * @return ContinuousAccessEvaluationMode|null The mode
-    */
+     * Gets the mode
+     * Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue.
+     *
+     * @return ContinuousAccessEvaluationMode|null The mode
+     */
     public function getMode()
     {
         if (array_key_exists("mode", $this->_propDict)) {
-            if (is_a($this->_propDict["mode"], "\Beta\Microsoft\Graph\Model\ContinuousAccessEvaluationMode") || is_null($this->_propDict["mode"])) {
+            if (is_a($this->_propDict["mode"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ContinuousAccessEvaluationMode") || is_null($this->_propDict["mode"])) {
                 return $this->_propDict["mode"];
             } else {
                 $this->_propDict["mode"] = new ContinuousAccessEvaluationMode($this->_propDict["mode"]);
@@ -45,18 +46,17 @@ class ContinuousAccessEvaluationSessionControl extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the mode
-    * Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue.
-    *
-    * @param ContinuousAccessEvaluationMode $val The value to assign to the mode
-    *
-    * @return ContinuousAccessEvaluationSessionControl The ContinuousAccessEvaluationSessionControl
-    */
+     * Sets the mode
+     * Specifies continuous access evaluation settings. The possible values are: strictEnforcement, disabled, unknownFutureValue.
+     *
+     * @param ContinuousAccessEvaluationMode $val The value to assign to the mode
+     *
+     * @return ContinuousAccessEvaluationSessionControl The ContinuousAccessEvaluationSessionControl
+     */
     public function setMode($val)
     {
         $this->_propDict["mode"] = $val;
-         return $this;
+        return $this;
     }
 }

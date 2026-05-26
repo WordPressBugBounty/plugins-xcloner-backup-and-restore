@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DirectoryRoleAccessReviewPolicy class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DirectoryRoleAccessReviewPolicy extends Entity
 {
     /**
-    * Gets the settings
-    *
-    * @return AccessReviewScheduleSettings|null The settings
-    */
+     * Gets the settings
+     *
+     * @return AccessReviewScheduleSettings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\AccessReviewScheduleSettings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AccessReviewScheduleSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new AccessReviewScheduleSettings($this->_propDict["settings"]);
@@ -44,18 +45,16 @@ class DirectoryRoleAccessReviewPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    *
-    * @param AccessReviewScheduleSettings $val The settings
-    *
-    * @return DirectoryRoleAccessReviewPolicy
-    */
+     * Sets the settings
+     *
+     * @param AccessReviewScheduleSettings $val The settings
+     *
+     * @return DirectoryRoleAccessReviewPolicy
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
 }

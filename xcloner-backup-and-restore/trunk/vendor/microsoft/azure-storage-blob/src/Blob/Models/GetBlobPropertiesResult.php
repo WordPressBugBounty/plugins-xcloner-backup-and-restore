@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\MetadataTrait;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\MetadataTrait;
 /**
  * Holds result of calling getBlobProperties
  *
@@ -42,9 +40,7 @@ use MicrosoftAzure\Storage\Common\Internal\MetadataTrait;
 class GetBlobPropertiesResult
 {
     use MetadataTrait;
-
     private $_properties;
-
     /**
      * Gets blob properties.
      *
@@ -54,7 +50,6 @@ class GetBlobPropertiesResult
     {
         return $this->_properties;
     }
-
     /**
      * Sets blob properties.
      *
@@ -66,7 +61,6 @@ class GetBlobPropertiesResult
     {
         $this->_properties = $properties;
     }
-
     /**
      * Create a instance using the given headers.
      *
@@ -79,9 +73,7 @@ class GetBlobPropertiesResult
     public static function create(array $headers)
     {
         $result = static::createMetadataResult($headers);
-
         $result->setProperties(BlobProperties::createFromHttpHeaders($headers));
-
         return $result;
     }
 }

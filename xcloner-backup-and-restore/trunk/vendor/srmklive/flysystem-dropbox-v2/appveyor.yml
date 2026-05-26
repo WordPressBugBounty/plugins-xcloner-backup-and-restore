@@ -1,7 +1,7 @@
 
 build: false
 platform: x86
-clone_folder: c:\projects\srmklive\flysystem_dropbox
+clone_folder: c:\XCloner\projects\srmklive\flysystem_dropbox
 
 cache:
   - c:\php -> appveyor.yml
@@ -27,10 +27,10 @@ install:
   - IF %PHP%==1 echo extension=php_mbstring.dll >> php.ini
   - IF %PHP%==1 echo extension=php_fileinfo.dll >> php.ini
   - appveyor DownloadFile https://getcomposer.org/composer.phar
-  - cd c:\projects\srmklive\flysystem_dropbox
+  - cd c:\XCloner\projects\srmklive\flysystem_dropbox
   - mkdir %APPDATA%\Composer
   - composer update --prefer-dist --no-progress --ansi
 
 test_script:
-  - cd c:\projects\srmklive\flysystem_dropbox
+  - cd c:\XCloner\projects\srmklive\flysystem_dropbox
   - vendor/bin/phpunit.bat --verbose --exclude-group=integration

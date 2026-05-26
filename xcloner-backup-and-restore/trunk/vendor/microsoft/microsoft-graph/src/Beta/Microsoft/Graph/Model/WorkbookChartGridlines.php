@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookChartGridlines class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookChartGridlines extends Entity
 {
     /**
-    * Gets the visible
-    * Boolean value representing if the axis gridlines are visible or not.
-    *
-    * @return bool|null The visible
-    */
+     * Gets the visible
+     * Boolean value representing if the axis gridlines are visible or not.
+     *
+     * @return bool|null The visible
+     */
     public function getVisible()
     {
         if (array_key_exists("visible", $this->_propDict)) {
@@ -41,31 +42,29 @@ class WorkbookChartGridlines extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the visible
-    * Boolean value representing if the axis gridlines are visible or not.
-    *
-    * @param bool $val The visible
-    *
-    * @return WorkbookChartGridlines
-    */
+     * Sets the visible
+     * Boolean value representing if the axis gridlines are visible or not.
+     *
+     * @param bool $val The visible
+     *
+     * @return WorkbookChartGridlines
+     */
     public function setVisible($val)
     {
         $this->_propDict["visible"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the format
-    * Represents the formatting of chart gridlines. Read-only.
-    *
-    * @return WorkbookChartGridlinesFormat|null The format
-    */
+     * Gets the format
+     * Represents the formatting of chart gridlines. Read-only.
+     *
+     * @return WorkbookChartGridlinesFormat|null The format
+     */
     public function getFormat()
     {
         if (array_key_exists("format", $this->_propDict)) {
-            if (is_a($this->_propDict["format"], "\Beta\Microsoft\Graph\Model\WorkbookChartGridlinesFormat") || is_null($this->_propDict["format"])) {
+            if (is_a($this->_propDict["format"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\WorkbookChartGridlinesFormat") || is_null($this->_propDict["format"])) {
                 return $this->_propDict["format"];
             } else {
                 $this->_propDict["format"] = new WorkbookChartGridlinesFormat($this->_propDict["format"]);
@@ -74,19 +73,17 @@ class WorkbookChartGridlines extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the format
-    * Represents the formatting of chart gridlines. Read-only.
-    *
-    * @param WorkbookChartGridlinesFormat $val The format
-    *
-    * @return WorkbookChartGridlines
-    */
+     * Sets the format
+     * Represents the formatting of chart gridlines. Read-only.
+     *
+     * @param WorkbookChartGridlinesFormat $val The format
+     *
+     * @return WorkbookChartGridlines
+     */
     public function setFormat($val)
     {
         $this->_propDict["format"] = $val;
         return $this;
     }
-
 }

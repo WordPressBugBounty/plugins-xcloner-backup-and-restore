@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppIdentity class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AppIdentity extends Entity
 {
     /**
-    * Gets the appId
-    * Refers to the Unique GUID representing Application Id in the Azure Active Directory.
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AppIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * Refers to the Unique GUID representing Application Id in the Azure Active Directory.
-    *
-    * @param string $val The value of the appId
-    *
-    * @return AppIdentity
-    */
+     * Sets the appId
+     * Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+     *
+     * @param string $val The value of the appId
+     *
+     * @return AppIdentity
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Refers to the Application Name displayed in the Azure Portal.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Refers to the Application Name displayed in the Azure Portal.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AppIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Refers to the Application Name displayed in the Azure Portal.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AppIdentity
-    */
+     * Sets the displayName
+     * Refers to the Application Name displayed in the Azure Portal.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AppIdentity
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the servicePrincipalId
-    * Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
-    *
-    * @return string|null The servicePrincipalId
-    */
+     * Gets the servicePrincipalId
+     * Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     *
+     * @return string|null The servicePrincipalId
+     */
     public function getServicePrincipalId()
     {
         if (array_key_exists("servicePrincipalId", $this->_propDict)) {
@@ -96,26 +96,25 @@ class AppIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalId
-    * Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
-    *
-    * @param string $val The value of the servicePrincipalId
-    *
-    * @return AppIdentity
-    */
+     * Sets the servicePrincipalId
+     * Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     *
+     * @param string $val The value of the servicePrincipalId
+     *
+     * @return AppIdentity
+     */
     public function setServicePrincipalId($val)
     {
         $this->_propDict["servicePrincipalId"] = $val;
         return $this;
     }
     /**
-    * Gets the servicePrincipalName
-    * Refers to the Service Principal Name is the Application name in the tenant.
-    *
-    * @return string|null The servicePrincipalName
-    */
+     * Gets the servicePrincipalName
+     * Refers to the Service Principal Name is the Application name in the tenant.
+     *
+     * @return string|null The servicePrincipalName
+     */
     public function getServicePrincipalName()
     {
         if (array_key_exists("servicePrincipalName", $this->_propDict)) {
@@ -124,15 +123,14 @@ class AppIdentity extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the servicePrincipalName
-    * Refers to the Service Principal Name is the Application name in the tenant.
-    *
-    * @param string $val The value of the servicePrincipalName
-    *
-    * @return AppIdentity
-    */
+     * Sets the servicePrincipalName
+     * Refers to the Service Principal Name is the Application name in the tenant.
+     *
+     * @param string $val The value of the servicePrincipalName
+     *
+     * @return AppIdentity
+     */
     public function setServicePrincipalName($val)
     {
         $this->_propDict["servicePrincipalName"] = $val;

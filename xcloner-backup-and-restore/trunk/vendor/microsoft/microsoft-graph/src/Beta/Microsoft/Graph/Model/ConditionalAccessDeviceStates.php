@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessDeviceStates class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ConditionalAccessDeviceStates extends Entity
 {
     /**
-    * Gets the excludeStates
-    * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
-    *
-    * @return string|null The excludeStates
-    */
+     * Gets the excludeStates
+     * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
+     *
+     * @return string|null The excludeStates
+     */
     public function getExcludeStates()
     {
         if (array_key_exists("excludeStates", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ConditionalAccessDeviceStates extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludeStates
-    * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
-    *
-    * @param string $val The value of the excludeStates
-    *
-    * @return ConditionalAccessDeviceStates
-    */
+     * Sets the excludeStates
+     * States excluded from the scope of the policy. Possible values: Compliant, DomainJoined.
+     *
+     * @param string $val The value of the excludeStates
+     *
+     * @return ConditionalAccessDeviceStates
+     */
     public function setExcludeStates($val)
     {
         $this->_propDict["excludeStates"] = $val;
         return $this;
     }
     /**
-    * Gets the includeStates
-    * States in the scope of the policy. All is the only allowed value.
-    *
-    * @return string|null The includeStates
-    */
+     * Gets the includeStates
+     * States in the scope of the policy. All is the only allowed value.
+     *
+     * @return string|null The includeStates
+     */
     public function getIncludeStates()
     {
         if (array_key_exists("includeStates", $this->_propDict)) {
@@ -68,15 +69,14 @@ class ConditionalAccessDeviceStates extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the includeStates
-    * States in the scope of the policy. All is the only allowed value.
-    *
-    * @param string $val The value of the includeStates
-    *
-    * @return ConditionalAccessDeviceStates
-    */
+     * Sets the includeStates
+     * States in the scope of the policy. All is the only allowed value.
+     *
+     * @param string $val The value of the includeStates
+     *
+     * @return ConditionalAccessDeviceStates
+     */
     public function setIncludeStates($val)
     {
         $this->_propDict["includeStates"] = $val;

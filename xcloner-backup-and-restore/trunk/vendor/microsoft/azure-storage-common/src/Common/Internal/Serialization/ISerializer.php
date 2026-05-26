@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization;
 
-namespace MicrosoftAzure\Storage\Common\Internal\Serialization;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The serialization interface.
  *
@@ -49,7 +48,6 @@ interface ISerializer
      * @return string
      */
     public static function objectSerialize($targetObject, $rootName);
-
     /**
      * Serializes given array. The array indices must be string to use them as
      * as element name.
@@ -60,8 +58,6 @@ interface ISerializer
      * @return string
      */
     public function serialize(array $array, array $properties = null);
-
-
     /**
      * Unserializes given serialized string.
      *

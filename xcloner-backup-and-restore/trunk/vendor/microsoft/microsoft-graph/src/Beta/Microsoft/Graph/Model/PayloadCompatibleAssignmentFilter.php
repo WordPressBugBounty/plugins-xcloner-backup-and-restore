@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PayloadCompatibleAssignmentFilter class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignmentFilter
 {
     /**
-    * Gets the payloadType
-    * PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
-    *
-    * @return AssignmentFilterPayloadType|null The payloadType
-    */
+     * Gets the payloadType
+     * PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
+     *
+     * @return AssignmentFilterPayloadType|null The payloadType
+     */
     public function getPayloadType()
     {
         if (array_key_exists("payloadType", $this->_propDict)) {
-            if (is_a($this->_propDict["payloadType"], "\Beta\Microsoft\Graph\Model\AssignmentFilterPayloadType") || is_null($this->_propDict["payloadType"])) {
+            if (is_a($this->_propDict["payloadType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AssignmentFilterPayloadType") || is_null($this->_propDict["payloadType"])) {
                 return $this->_propDict["payloadType"];
             } else {
                 $this->_propDict["payloadType"] = new AssignmentFilterPayloadType($this->_propDict["payloadType"]);
@@ -45,19 +46,17 @@ class PayloadCompatibleAssignmentFilter extends DeviceAndAppManagementAssignment
         }
         return null;
     }
-
     /**
-    * Sets the payloadType
-    * PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
-    *
-    * @param AssignmentFilterPayloadType $val The payloadType
-    *
-    * @return PayloadCompatibleAssignmentFilter
-    */
+     * Sets the payloadType
+     * PayloadType of the Assignment Filter. Possible values are: notSet, enrollmentRestrictions.
+     *
+     * @param AssignmentFilterPayloadType $val The payloadType
+     *
+     * @return PayloadCompatibleAssignmentFilter
+     */
     public function setPayloadType($val)
     {
         $this->_propDict["payloadType"] = $val;
         return $this;
     }
-
 }

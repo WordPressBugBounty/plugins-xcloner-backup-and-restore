@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceShellScript class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceShellScript extends Entity
 {
     /**
-    * Gets the blockExecutionNotifications
-    * Does not notify the user a script is being executed
-    *
-    * @return bool|null The blockExecutionNotifications
-    */
+     * Gets the blockExecutionNotifications
+     * Does not notify the user a script is being executed
+     *
+     * @return bool|null The blockExecutionNotifications
+     */
     public function getBlockExecutionNotifications()
     {
         if (array_key_exists("blockExecutionNotifications", $this->_propDict)) {
@@ -41,31 +42,29 @@ class DeviceShellScript extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the blockExecutionNotifications
-    * Does not notify the user a script is being executed
-    *
-    * @param bool $val The blockExecutionNotifications
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the blockExecutionNotifications
+     * Does not notify the user a script is being executed
+     *
+     * @param bool $val The blockExecutionNotifications
+     *
+     * @return DeviceShellScript
+     */
     public function setBlockExecutionNotifications($val)
     {
         $this->_propDict["blockExecutionNotifications"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The date and time the device management script was created. This property is read-only.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time the device management script was created. This property is read-only.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -74,27 +73,25 @@ class DeviceShellScript extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time the device management script was created. This property is read-only.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the createdDateTime
+     * The date and time the device management script was created. This property is read-only.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return DeviceShellScript
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * Optional description for the device management script.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Optional description for the device management script.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -103,27 +100,25 @@ class DeviceShellScript extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Optional description for the device management script.
-    *
-    * @param string $val The description
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the description
+     * Optional description for the device management script.
+     *
+     * @param string $val The description
+     *
+     * @return DeviceShellScript
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Name of the device management script.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Name of the device management script.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -132,31 +127,29 @@ class DeviceShellScript extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Name of the device management script.
-    *
-    * @param string $val The displayName
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the displayName
+     * Name of the device management script.
+     *
+     * @param string $val The displayName
+     *
+     * @return DeviceShellScript
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the executionFrequency
-    * The interval for script to run. If not defined the script will run once
-    *
-    * @return \DateInterval|null The executionFrequency
-    */
+     * Gets the executionFrequency
+     * The interval for script to run. If not defined the script will run once
+     *
+     * @return \DateInterval|null The executionFrequency
+     */
     public function getExecutionFrequency()
     {
         if (array_key_exists("executionFrequency", $this->_propDict)) {
-            if (is_a($this->_propDict["executionFrequency"], "\DateInterval") || is_null($this->_propDict["executionFrequency"])) {
+            if (is_a($this->_propDict["executionFrequency"], "\\DateInterval") || is_null($this->_propDict["executionFrequency"])) {
                 return $this->_propDict["executionFrequency"];
             } else {
                 $this->_propDict["executionFrequency"] = new \DateInterval($this->_propDict["executionFrequency"]);
@@ -165,27 +158,25 @@ class DeviceShellScript extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the executionFrequency
-    * The interval for script to run. If not defined the script will run once
-    *
-    * @param \DateInterval $val The executionFrequency
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the executionFrequency
+     * The interval for script to run. If not defined the script will run once
+     *
+     * @param \DateInterval $val The executionFrequency
+     *
+     * @return DeviceShellScript
+     */
     public function setExecutionFrequency($val)
     {
         $this->_propDict["executionFrequency"] = $val;
         return $this;
     }
-
     /**
-    * Gets the fileName
-    * Script file name.
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * Script file name.
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -194,31 +185,29 @@ class DeviceShellScript extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * Script file name.
-    *
-    * @param string $val The fileName
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the fileName
+     * Script file name.
+     *
+     * @param string $val The fileName
+     *
+     * @return DeviceShellScript
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time the device management script was last modified. This property is read-only.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time the device management script was last modified. This property is read-only.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -227,27 +216,25 @@ class DeviceShellScript extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time the device management script was last modified. This property is read-only.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time the device management script was last modified. This property is read-only.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return DeviceShellScript
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the retryCount
-    * Number of times for the script to be retried if it fails
-    *
-    * @return int|null The retryCount
-    */
+     * Gets the retryCount
+     * Number of times for the script to be retried if it fails
+     *
+     * @return int|null The retryCount
+     */
     public function getRetryCount()
     {
         if (array_key_exists("retryCount", $this->_propDict)) {
@@ -256,27 +243,25 @@ class DeviceShellScript extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the retryCount
-    * Number of times for the script to be retried if it fails
-    *
-    * @param int $val The retryCount
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the retryCount
+     * Number of times for the script to be retried if it fails
+     *
+     * @param int $val The retryCount
+     *
+     * @return DeviceShellScript
+     */
     public function setRetryCount($val)
     {
         $this->_propDict["retryCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the roleScopeTagIds
-    * List of Scope Tag IDs for this PowerShellScript instance.
-    *
-    * @return array|null The roleScopeTagIds
-    */
+     * Gets the roleScopeTagIds
+     * List of Scope Tag IDs for this PowerShellScript instance.
+     *
+     * @return array|null The roleScopeTagIds
+     */
     public function getRoleScopeTagIds()
     {
         if (array_key_exists("roleScopeTagIds", $this->_propDict)) {
@@ -285,31 +270,29 @@ class DeviceShellScript extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleScopeTagIds
-    * List of Scope Tag IDs for this PowerShellScript instance.
-    *
-    * @param string[] $val The roleScopeTagIds
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the roleScopeTagIds
+     * List of Scope Tag IDs for this PowerShellScript instance.
+     *
+     * @param string[] $val The roleScopeTagIds
+     *
+     * @return DeviceShellScript
+     */
     public function setRoleScopeTagIds($val)
     {
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-
     /**
-    * Gets the runAsAccount
-    * Indicates the type of execution context. Possible values are: system, user.
-    *
-    * @return RunAsAccountType|null The runAsAccount
-    */
+     * Gets the runAsAccount
+     * Indicates the type of execution context. Possible values are: system, user.
+     *
+     * @return RunAsAccountType|null The runAsAccount
+     */
     public function getRunAsAccount()
     {
         if (array_key_exists("runAsAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["runAsAccount"], "\Beta\Microsoft\Graph\Model\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
+            if (is_a($this->_propDict["runAsAccount"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RunAsAccountType") || is_null($this->_propDict["runAsAccount"])) {
                 return $this->_propDict["runAsAccount"];
             } else {
                 $this->_propDict["runAsAccount"] = new RunAsAccountType($this->_propDict["runAsAccount"]);
@@ -318,154 +301,141 @@ class DeviceShellScript extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the runAsAccount
-    * Indicates the type of execution context. Possible values are: system, user.
-    *
-    * @param RunAsAccountType $val The runAsAccount
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the runAsAccount
+     * Indicates the type of execution context. Possible values are: system, user.
+     *
+     * @param RunAsAccountType $val The runAsAccount
+     *
+     * @return DeviceShellScript
+     */
     public function setRunAsAccount($val)
     {
         $this->_propDict["runAsAccount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the scriptContent
-    * The script content.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The scriptContent
-    */
+     * Gets the scriptContent
+     * The script content.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The scriptContent
+     */
     public function getScriptContent()
     {
         if (array_key_exists("scriptContent", $this->_propDict)) {
-            if (is_a($this->_propDict["scriptContent"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["scriptContent"])) {
+            if (is_a($this->_propDict["scriptContent"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["scriptContent"])) {
                 return $this->_propDict["scriptContent"];
             } else {
-                $this->_propDict["scriptContent"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["scriptContent"]);
+                $this->_propDict["scriptContent"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["scriptContent"]);
                 return $this->_propDict["scriptContent"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the scriptContent
-    * The script content.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The scriptContent
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the scriptContent
+     * The script content.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The scriptContent
+     *
+     * @return DeviceShellScript
+     */
     public function setScriptContent($val)
     {
         $this->_propDict["scriptContent"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignments
-    * The list of group assignments for the device management script.
+     * The list of group assignments for the device management script.
      *
      * @return array|null The assignments
      */
     public function getAssignments()
     {
         if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+            return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignments
-    * The list of group assignments for the device management script.
-    *
-    * @param DeviceManagementScriptAssignment[] $val The assignments
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the assignments
+     * The list of group assignments for the device management script.
+     *
+     * @param DeviceManagementScriptAssignment[] $val The assignments
+     *
+     * @return DeviceShellScript
+     */
     public function setAssignments($val)
     {
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the deviceRunStates
-    * List of run states for this script across all devices.
+     * List of run states for this script across all devices.
      *
      * @return array|null The deviceRunStates
      */
     public function getDeviceRunStates()
     {
         if (array_key_exists("deviceRunStates", $this->_propDict)) {
-           return $this->_propDict["deviceRunStates"];
+            return $this->_propDict["deviceRunStates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the deviceRunStates
-    * List of run states for this script across all devices.
-    *
-    * @param DeviceManagementScriptDeviceState[] $val The deviceRunStates
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the deviceRunStates
+     * List of run states for this script across all devices.
+     *
+     * @param DeviceManagementScriptDeviceState[] $val The deviceRunStates
+     *
+     * @return DeviceShellScript
+     */
     public function setDeviceRunStates($val)
     {
         $this->_propDict["deviceRunStates"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the groupAssignments
-    * The list of group assignments for the device management script.
+     * The list of group assignments for the device management script.
      *
      * @return array|null The groupAssignments
      */
     public function getGroupAssignments()
     {
         if (array_key_exists("groupAssignments", $this->_propDict)) {
-           return $this->_propDict["groupAssignments"];
+            return $this->_propDict["groupAssignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the groupAssignments
-    * The list of group assignments for the device management script.
-    *
-    * @param DeviceManagementScriptGroupAssignment[] $val The groupAssignments
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the groupAssignments
+     * The list of group assignments for the device management script.
+     *
+     * @param DeviceManagementScriptGroupAssignment[] $val The groupAssignments
+     *
+     * @return DeviceShellScript
+     */
     public function setGroupAssignments($val)
     {
         $this->_propDict["groupAssignments"] = $val;
         return $this;
     }
-
     /**
-    * Gets the runSummary
-    * Run summary for device management script.
-    *
-    * @return DeviceManagementScriptRunSummary|null The runSummary
-    */
+     * Gets the runSummary
+     * Run summary for device management script.
+     *
+     * @return DeviceManagementScriptRunSummary|null The runSummary
+     */
     public function getRunSummary()
     {
         if (array_key_exists("runSummary", $this->_propDict)) {
-            if (is_a($this->_propDict["runSummary"], "\Beta\Microsoft\Graph\Model\DeviceManagementScriptRunSummary") || is_null($this->_propDict["runSummary"])) {
+            if (is_a($this->_propDict["runSummary"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementScriptRunSummary") || is_null($this->_propDict["runSummary"])) {
                 return $this->_propDict["runSummary"];
             } else {
                 $this->_propDict["runSummary"] = new DeviceManagementScriptRunSummary($this->_propDict["runSummary"]);
@@ -474,49 +444,44 @@ class DeviceShellScript extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the runSummary
-    * Run summary for device management script.
-    *
-    * @param DeviceManagementScriptRunSummary $val The runSummary
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the runSummary
+     * Run summary for device management script.
+     *
+     * @param DeviceManagementScriptRunSummary $val The runSummary
+     *
+     * @return DeviceShellScript
+     */
     public function setRunSummary($val)
     {
         $this->_propDict["runSummary"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the userRunStates
-    * List of run states for this script across all users.
+     * List of run states for this script across all users.
      *
      * @return array|null The userRunStates
      */
     public function getUserRunStates()
     {
         if (array_key_exists("userRunStates", $this->_propDict)) {
-           return $this->_propDict["userRunStates"];
+            return $this->_propDict["userRunStates"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the userRunStates
-    * List of run states for this script across all users.
-    *
-    * @param DeviceManagementScriptUserState[] $val The userRunStates
-    *
-    * @return DeviceShellScript
-    */
+     * Sets the userRunStates
+     * List of run states for this script across all users.
+     *
+     * @param DeviceManagementScriptUserState[] $val The userRunStates
+     *
+     * @return DeviceShellScript
+     */
     public function setUserRunStates($val)
     {
         $this->_propDict["userRunStates"] = $val;
         return $this;
     }
-
 }

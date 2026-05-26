@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ClassificationJobResponse class
 *
@@ -28,14 +29,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ClassificationJobResponse extends JobResponseBase
 {
     /**
-    * Gets the result
-    *
-    * @return DetectedSensitiveContentWrapper|null The result
-    */
+     * Gets the result
+     *
+     * @return DetectedSensitiveContentWrapper|null The result
+     */
     public function getResult()
     {
         if (array_key_exists("result", $this->_propDict)) {
-            if (is_a($this->_propDict["result"], "\Beta\Microsoft\Graph\Model\DetectedSensitiveContentWrapper") || is_null($this->_propDict["result"])) {
+            if (is_a($this->_propDict["result"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DetectedSensitiveContentWrapper") || is_null($this->_propDict["result"])) {
                 return $this->_propDict["result"];
             } else {
                 $this->_propDict["result"] = new DetectedSensitiveContentWrapper($this->_propDict["result"]);
@@ -44,18 +45,16 @@ class ClassificationJobResponse extends JobResponseBase
         }
         return null;
     }
-
     /**
-    * Sets the result
-    *
-    * @param DetectedSensitiveContentWrapper $val The result
-    *
-    * @return ClassificationJobResponse
-    */
+     * Sets the result
+     *
+     * @param DetectedSensitiveContentWrapper $val The result
+     *
+     * @return ClassificationJobResponse
+     */
     public function setResult($val)
     {
         $this->_propDict["result"] = $val;
         return $this;
     }
-
 }

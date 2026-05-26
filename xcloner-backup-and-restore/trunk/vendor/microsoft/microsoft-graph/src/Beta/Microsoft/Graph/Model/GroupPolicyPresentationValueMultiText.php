@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationValueMultiText class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
 {
     /**
-    * Gets the values
-    * A collection of non-empty strings for the associated presentation.
-    *
-    * @return array|null The values
-    */
+     * Gets the values
+     * A collection of non-empty strings for the associated presentation.
+     *
+     * @return array|null The values
+     */
     public function getValues()
     {
         if (array_key_exists("values", $this->_propDict)) {
@@ -41,19 +42,17 @@ class GroupPolicyPresentationValueMultiText extends GroupPolicyPresentationValue
             return null;
         }
     }
-
     /**
-    * Sets the values
-    * A collection of non-empty strings for the associated presentation.
-    *
-    * @param string[] $val The values
-    *
-    * @return GroupPolicyPresentationValueMultiText
-    */
+     * Sets the values
+     * A collection of non-empty strings for the associated presentation.
+     *
+     * @param string[] $val The values
+     *
+     * @return GroupPolicyPresentationValueMultiText
+     */
     public function setValues($val)
     {
         $this->_propDict["values"] = $val;
         return $this;
     }
-
 }

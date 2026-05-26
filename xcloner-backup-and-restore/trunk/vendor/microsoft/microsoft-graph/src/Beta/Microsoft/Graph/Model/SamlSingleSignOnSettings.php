@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SamlSingleSignOnSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SamlSingleSignOnSettings extends Entity
 {
     /**
-    * Gets the relayState
-    * The relative URI the service provider would redirect to after completion of the single sign-on flow.
-    *
-    * @return string|null The relayState
-    */
+     * Gets the relayState
+     * The relative URI the service provider would redirect to after completion of the single sign-on flow.
+     *
+     * @return string|null The relayState
+     */
     public function getRelayState()
     {
         if (array_key_exists("relayState", $this->_propDict)) {
@@ -40,15 +42,14 @@ class SamlSingleSignOnSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the relayState
-    * The relative URI the service provider would redirect to after completion of the single sign-on flow.
-    *
-    * @param string $val The value of the relayState
-    *
-    * @return SamlSingleSignOnSettings
-    */
+     * Sets the relayState
+     * The relative URI the service provider would redirect to after completion of the single sign-on flow.
+     *
+     * @param string $val The value of the relayState
+     *
+     * @return SamlSingleSignOnSettings
+     */
     public function setRelayState($val)
     {
         $this->_propDict["relayState"] = $val;

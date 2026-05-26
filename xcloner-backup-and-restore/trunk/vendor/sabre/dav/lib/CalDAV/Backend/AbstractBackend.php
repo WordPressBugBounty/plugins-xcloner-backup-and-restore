@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Backend;
 
-namespace Sabre\CalDAV\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV;
-use Sabre\VObject;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV;
+use XCloner\Sabre\VObject;
 /**
  * Abstract Calendaring backend. Extend this class to create your own backends.
  *
@@ -35,10 +33,9 @@ abstract class AbstractBackend implements BackendInterface
      *
      * @param mixed $calendarId
      */
-    public function updateCalendar($calendarId, \Sabre\DAV\PropPatch $propPatch)
+    public function updateCalendar($calendarId, \XCloner\Sabre\DAV\PropPatch $propPatch)
     {
     }
-
     /**
      * Returns a list of calendar objects.
      *
@@ -57,7 +54,6 @@ abstract class AbstractBackend implements BackendInterface
             return $this->getCalendarObject($calendarId, $uri);
         }, $uris);
     }
-
     /**
      * Performs a calendar-query on the contents of this calendar.
      *
@@ -111,16 +107,13 @@ abstract class AbstractBackend implements BackendInterface
     {
         $result = [];
         $objects = $this->getCalendarObjects($calendarId);
-
         foreach ($objects as $object) {
             if ($this->validateFilterForObject($object, $filters)) {
                 $result[] = $object['uri'];
             }
         }
-
         return $result;
     }
-
     /**
      * This method validates if a filter (as passed to calendarQuery) matches
      * the given object.
@@ -135,18 +128,13 @@ abstract class AbstractBackend implements BackendInterface
         if (!isset($object['calendardata'])) {
             $object = $this->getCalendarObject($object['calendarid'], $object['uri']);
         }
-
         $vObject = VObject\Reader::read($object['calendardata']);
-
         $validator = new CalDAV\CalendarQueryValidator();
         $result = $validator->validate($vObject, $filters);
-
         // Destroy circular references so PHP will GC the object.
         $vObject->destroy();
-
         return $result;
     }
-
     /**
      * Searches through all of a users calendars and calendar objects to find
      * an object with a specific UID.
@@ -176,43 +164,14 @@ abstract class AbstractBackend implements BackendInterface
             if ($calendar['principaluri'] !== $principalUri) {
                 continue;
             }
-
             // Ignore calendars that are shared.
             if (isset($calendar['{http://sabredav.org/ns}owner-principal']) && $calendar['{http://sabredav.org/ns}owner-principal'] !== $principalUri) {
                 continue;
             }
-
-            $results = $this->calendarQuery(
-                $calendar['id'],
-                [
-                    'name' => 'VCALENDAR',
-                    'prop-filters' => [],
-                    'comp-filters' => [
-                        [
-                            'name' => 'VEVENT',
-                            'is-not-defined' => false,
-                            'time-range' => null,
-                            'comp-filters' => [],
-                            'prop-filters' => [
-                                [
-                                    'name' => 'UID',
-                                    'is-not-defined' => false,
-                                    'time-range' => null,
-                                    'text-match' => [
-                                        'value' => $uid,
-                                        'negate-condition' => false,
-                                        'collation' => 'i;octet',
-                                    ],
-                                    'param-filters' => [],
-                                ],
-                            ],
-                        ],
-                    ],
-                ]
-            );
+            $results = $this->calendarQuery($calendar['id'], ['name' => 'VCALENDAR', 'prop-filters' => [], 'comp-filters' => [['name' => 'VEVENT', 'is-not-defined' => \false, 'time-range' => null, 'comp-filters' => [], 'prop-filters' => [['name' => 'UID', 'is-not-defined' => \false, 'time-range' => null, 'text-match' => ['value' => $uid, 'negate-condition' => \false, 'collation' => 'i;octet'], 'param-filters' => []]]]]]);
             if ($results) {
                 // We have a match
-                return $calendar['uri'].'/'.$results[0];
+                return $calendar['uri'] . '/' . $results[0];
             }
         }
     }

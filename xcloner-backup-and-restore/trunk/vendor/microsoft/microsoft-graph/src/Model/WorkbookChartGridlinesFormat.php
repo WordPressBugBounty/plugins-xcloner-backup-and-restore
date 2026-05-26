@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookChartGridlinesFormat class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookChartGridlinesFormat extends Entity
 {
     /**
-    * Gets the line
-    * Represents chart line formatting. Read-only.
-    *
-    * @return WorkbookChartLineFormat|null The line
-    */
+     * Gets the line
+     * Represents chart line formatting. Read-only.
+     *
+     * @return WorkbookChartLineFormat|null The line
+     */
     public function getLine()
     {
         if (array_key_exists("line", $this->_propDict)) {
-            if (is_a($this->_propDict["line"], "\Microsoft\Graph\Model\WorkbookChartLineFormat") || is_null($this->_propDict["line"])) {
+            if (is_a($this->_propDict["line"], "XCloner\\Microsoft\\Graph\\Model\\WorkbookChartLineFormat") || is_null($this->_propDict["line"])) {
                 return $this->_propDict["line"];
             } else {
                 $this->_propDict["line"] = new WorkbookChartLineFormat($this->_propDict["line"]);
@@ -45,19 +46,17 @@ class WorkbookChartGridlinesFormat extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the line
-    * Represents chart line formatting. Read-only.
-    *
-    * @param WorkbookChartLineFormat $val The line
-    *
-    * @return WorkbookChartGridlinesFormat
-    */
+     * Sets the line
+     * Represents chart line formatting. Read-only.
+     *
+     * @param WorkbookChartLineFormat $val The line
+     *
+     * @return WorkbookChartGridlinesFormat
+     */
     public function setLine($val)
     {
         $this->_propDict["line"] = $val;
         return $this;
     }
-
 }

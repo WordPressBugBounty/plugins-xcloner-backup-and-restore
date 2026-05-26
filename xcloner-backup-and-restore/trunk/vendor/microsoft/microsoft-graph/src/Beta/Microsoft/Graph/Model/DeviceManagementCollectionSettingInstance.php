@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementCollectionSettingInstance class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceManagementCollectionSettingInstance extends DeviceManagementSettingInstance
 {
-
-     /**
+    /**
      * Gets the value
-    * The collection of values
+     * The collection of values
      *
      * @return array|null The value
      */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
-           return $this->_propDict["value"];
+            return $this->_propDict["value"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the value
-    * The collection of values
-    *
-    * @param DeviceManagementSettingInstance[] $val The value
-    *
-    * @return DeviceManagementCollectionSettingInstance
-    */
+     * Sets the value
+     * The collection of values
+     *
+     * @param DeviceManagementSettingInstance[] $val The value
+     *
+     * @return DeviceManagementCollectionSettingInstance
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;
         return $this;
     }
-
 }

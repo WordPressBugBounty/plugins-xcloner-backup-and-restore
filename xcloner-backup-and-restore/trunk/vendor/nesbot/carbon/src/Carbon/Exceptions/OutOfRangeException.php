@@ -8,18 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Exceptions;
 
-namespace Carbon\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use InvalidArgumentException as BaseInvalidArgumentException;
 use Throwable;
-
 // This will extends OutOfRangeException instead of InvalidArgumentException since 3.0.0
 // use OutOfRangeException as BaseOutOfRangeException;
-
 class OutOfRangeException extends BaseInvalidArgumentException implements InvalidArgumentException
 {
     /**
@@ -28,28 +25,24 @@ class OutOfRangeException extends BaseInvalidArgumentException implements Invali
      * @var string
      */
     private $unit;
-
     /**
      * The range minimum.
      *
      * @var mixed
      */
     private $min;
-
     /**
      * The range maximum.
      *
      * @var mixed
      */
     private $max;
-
     /**
      * The invalid value.
      *
      * @var mixed
      */
     private $value;
-
     /**
      * Constructor.
      *
@@ -66,10 +59,8 @@ class OutOfRangeException extends BaseInvalidArgumentException implements Invali
         $this->min = $min;
         $this->max = $max;
         $this->value = $value;
-
-        parent::__construct("$unit must be between $min and $max, $value given", $code, $previous);
+        parent::__construct("{$unit} must be between {$min} and {$max}, {$value} given", $code, $previous);
     }
-
     /**
      * @return mixed
      */
@@ -77,7 +68,6 @@ class OutOfRangeException extends BaseInvalidArgumentException implements Invali
     {
         return $this->max;
     }
-
     /**
      * @return mixed
      */
@@ -85,7 +75,6 @@ class OutOfRangeException extends BaseInvalidArgumentException implements Invali
     {
         return $this->min;
     }
-
     /**
      * @return mixed
      */
@@ -93,7 +82,6 @@ class OutOfRangeException extends BaseInvalidArgumentException implements Invali
     {
         return $this->unit;
     }
-
     /**
      * @return mixed
      */

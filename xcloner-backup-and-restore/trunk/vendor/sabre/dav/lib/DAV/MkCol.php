@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class represents a MKCOL operation.
  *
@@ -33,7 +32,6 @@ class MkCol extends PropPatch
      * @var array
      */
     protected $resourceType;
-
     /**
      * Creates the MKCOL object.
      *
@@ -45,7 +43,6 @@ class MkCol extends PropPatch
         $this->resourceType = $resourceType;
         parent::__construct($mutations);
     }
-
     /**
      * Returns the resourcetype of the new collection.
      *
@@ -55,7 +52,6 @@ class MkCol extends PropPatch
     {
         return $this->resourceType;
     }
-
     /**
      * Returns true or false if the MKCOL operation has at least the specified
      * resource type.

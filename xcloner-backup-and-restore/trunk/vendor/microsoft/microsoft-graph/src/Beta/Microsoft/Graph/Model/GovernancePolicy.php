@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GovernancePolicy class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class GovernancePolicy extends Entity
 {
-
     /**
-    * Gets the decisionMakerCriteria
-    *
-    * @return GovernanceCriteria|null The decisionMakerCriteria
-    */
+     * Gets the decisionMakerCriteria
+     *
+     * @return GovernanceCriteria|null The decisionMakerCriteria
+     */
     public function getDecisionMakerCriteria()
     {
         if (array_key_exists("decisionMakerCriteria", $this->_propDict)) {
-            if (is_a($this->_propDict["decisionMakerCriteria"], "\Beta\Microsoft\Graph\Model\GovernanceCriteria") || is_null($this->_propDict["decisionMakerCriteria"])) {
+            if (is_a($this->_propDict["decisionMakerCriteria"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceCriteria") || is_null($this->_propDict["decisionMakerCriteria"])) {
                 return $this->_propDict["decisionMakerCriteria"];
             } else {
                 $this->_propDict["decisionMakerCriteria"] = new GovernanceCriteria($this->_propDict["decisionMakerCriteria"]);
@@ -44,29 +45,27 @@ class GovernancePolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the decisionMakerCriteria
-    *
-    * @param GovernanceCriteria $val The value to assign to the decisionMakerCriteria
-    *
-    * @return GovernancePolicy The GovernancePolicy
-    */
+     * Sets the decisionMakerCriteria
+     *
+     * @param GovernanceCriteria $val The value to assign to the decisionMakerCriteria
+     *
+     * @return GovernancePolicy The GovernancePolicy
+     */
     public function setDecisionMakerCriteria($val)
     {
         $this->_propDict["decisionMakerCriteria"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the notificationPolicy
-    *
-    * @return GovernanceNotificationPolicy|null The notificationPolicy
-    */
+     * Gets the notificationPolicy
+     *
+     * @return GovernanceNotificationPolicy|null The notificationPolicy
+     */
     public function getNotificationPolicy()
     {
         if (array_key_exists("notificationPolicy", $this->_propDict)) {
-            if (is_a($this->_propDict["notificationPolicy"], "\Beta\Microsoft\Graph\Model\GovernanceNotificationPolicy") || is_null($this->_propDict["notificationPolicy"])) {
+            if (is_a($this->_propDict["notificationPolicy"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GovernanceNotificationPolicy") || is_null($this->_propDict["notificationPolicy"])) {
                 return $this->_propDict["notificationPolicy"];
             } else {
                 $this->_propDict["notificationPolicy"] = new GovernanceNotificationPolicy($this->_propDict["notificationPolicy"]);
@@ -75,17 +74,16 @@ class GovernancePolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the notificationPolicy
-    *
-    * @param GovernanceNotificationPolicy $val The value to assign to the notificationPolicy
-    *
-    * @return GovernancePolicy The GovernancePolicy
-    */
+     * Sets the notificationPolicy
+     *
+     * @param GovernanceNotificationPolicy $val The value to assign to the notificationPolicy
+     *
+     * @return GovernancePolicy The GovernancePolicy
+     */
     public function setNotificationPolicy($val)
     {
         $this->_propDict["notificationPolicy"] = $val;
-         return $this;
+        return $this;
     }
 }

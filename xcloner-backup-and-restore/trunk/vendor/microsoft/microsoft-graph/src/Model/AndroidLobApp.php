@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidLobApp class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidLobApp extends MobileLobApp
 {
     /**
-    * Gets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
-    */
+     * Gets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @return AndroidMinimumOperatingSystem|null The minimumSupportedOperatingSystem
+     */
     public function getMinimumSupportedOperatingSystem()
     {
         if (array_key_exists("minimumSupportedOperatingSystem", $this->_propDict)) {
-            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "\Microsoft\Graph\Model\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
+            if (is_a($this->_propDict["minimumSupportedOperatingSystem"], "XCloner\\Microsoft\\Graph\\Model\\AndroidMinimumOperatingSystem") || is_null($this->_propDict["minimumSupportedOperatingSystem"])) {
                 return $this->_propDict["minimumSupportedOperatingSystem"];
             } else {
                 $this->_propDict["minimumSupportedOperatingSystem"] = new AndroidMinimumOperatingSystem($this->_propDict["minimumSupportedOperatingSystem"]);
@@ -45,27 +46,25 @@ class AndroidLobApp extends MobileLobApp
         }
         return null;
     }
-
     /**
-    * Sets the minimumSupportedOperatingSystem
-    * The value for the minimum applicable operating system.
-    *
-    * @param AndroidMinimumOperatingSystem $val The minimumSupportedOperatingSystem
-    *
-    * @return AndroidLobApp
-    */
+     * Sets the minimumSupportedOperatingSystem
+     * The value for the minimum applicable operating system.
+     *
+     * @param AndroidMinimumOperatingSystem $val The minimumSupportedOperatingSystem
+     *
+     * @return AndroidLobApp
+     */
     public function setMinimumSupportedOperatingSystem($val)
     {
         $this->_propDict["minimumSupportedOperatingSystem"] = $val;
         return $this;
     }
-
     /**
-    * Gets the packageId
-    * The package identifier.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * The package identifier.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -74,27 +73,25 @@ class AndroidLobApp extends MobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * The package identifier.
-    *
-    * @param string $val The packageId
-    *
-    * @return AndroidLobApp
-    */
+     * Sets the packageId
+     * The package identifier.
+     *
+     * @param string $val The packageId
+     *
+     * @return AndroidLobApp
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the versionCode
-    * The version code of Android Line of Business (LoB) app.
-    *
-    * @return string|null The versionCode
-    */
+     * Gets the versionCode
+     * The version code of Android Line of Business (LoB) app.
+     *
+     * @return string|null The versionCode
+     */
     public function getVersionCode()
     {
         if (array_key_exists("versionCode", $this->_propDict)) {
@@ -103,27 +100,25 @@ class AndroidLobApp extends MobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the versionCode
-    * The version code of Android Line of Business (LoB) app.
-    *
-    * @param string $val The versionCode
-    *
-    * @return AndroidLobApp
-    */
+     * Sets the versionCode
+     * The version code of Android Line of Business (LoB) app.
+     *
+     * @param string $val The versionCode
+     *
+     * @return AndroidLobApp
+     */
     public function setVersionCode($val)
     {
         $this->_propDict["versionCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the versionName
-    * The version name of Android Line of Business (LoB) app.
-    *
-    * @return string|null The versionName
-    */
+     * Gets the versionName
+     * The version name of Android Line of Business (LoB) app.
+     *
+     * @return string|null The versionName
+     */
     public function getVersionName()
     {
         if (array_key_exists("versionName", $this->_propDict)) {
@@ -132,19 +127,17 @@ class AndroidLobApp extends MobileLobApp
             return null;
         }
     }
-
     /**
-    * Sets the versionName
-    * The version name of Android Line of Business (LoB) app.
-    *
-    * @param string $val The versionName
-    *
-    * @return AndroidLobApp
-    */
+     * Sets the versionName
+     * The version name of Android Line of Business (LoB) app.
+     *
+     * @param string $val The versionName
+     *
+     * @return AndroidLobApp
+     */
     public function setVersionName($val)
     {
         $this->_propDict["versionName"] = $val;
         return $this;
     }
-
 }

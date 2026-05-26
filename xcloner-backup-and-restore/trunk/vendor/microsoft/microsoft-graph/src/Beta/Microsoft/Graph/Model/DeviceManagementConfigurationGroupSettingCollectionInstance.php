@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationGroupSettingCollectionInstance class
 *
@@ -27,27 +29,25 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationGroupSettingCollectionInstance extends DeviceManagementConfigurationSettingInstance
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.deviceManagementConfigurationGroupSettingCollectionInstance");
     }
-
-
     /**
-    * Gets the groupSettingCollectionValue
-    * A collection of GroupSetting values
-    *
-    * @return DeviceManagementConfigurationGroupSettingValue|null The groupSettingCollectionValue
-    */
+     * Gets the groupSettingCollectionValue
+     * A collection of GroupSetting values
+     *
+     * @return DeviceManagementConfigurationGroupSettingValue|null The groupSettingCollectionValue
+     */
     public function getGroupSettingCollectionValue()
     {
         if (array_key_exists("groupSettingCollectionValue", $this->_propDict)) {
-            if (is_a($this->_propDict["groupSettingCollectionValue"], "\Beta\Microsoft\Graph\Model\DeviceManagementConfigurationGroupSettingValue") || is_null($this->_propDict["groupSettingCollectionValue"])) {
+            if (is_a($this->_propDict["groupSettingCollectionValue"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementConfigurationGroupSettingValue") || is_null($this->_propDict["groupSettingCollectionValue"])) {
                 return $this->_propDict["groupSettingCollectionValue"];
             } else {
                 $this->_propDict["groupSettingCollectionValue"] = new DeviceManagementConfigurationGroupSettingValue($this->_propDict["groupSettingCollectionValue"]);
@@ -56,18 +56,17 @@ class DeviceManagementConfigurationGroupSettingCollectionInstance extends Device
         }
         return null;
     }
-
     /**
-    * Sets the groupSettingCollectionValue
-    * A collection of GroupSetting values
-    *
-    * @param DeviceManagementConfigurationGroupSettingValue $val The value to assign to the groupSettingCollectionValue
-    *
-    * @return DeviceManagementConfigurationGroupSettingCollectionInstance The DeviceManagementConfigurationGroupSettingCollectionInstance
-    */
+     * Sets the groupSettingCollectionValue
+     * A collection of GroupSetting values
+     *
+     * @param DeviceManagementConfigurationGroupSettingValue $val The value to assign to the groupSettingCollectionValue
+     *
+     * @return DeviceManagementConfigurationGroupSettingCollectionInstance The DeviceManagementConfigurationGroupSettingCollectionInstance
+     */
     public function setGroupSettingCollectionValue($val)
     {
         $this->_propDict["groupSettingCollectionValue"] = $val;
-         return $this;
+        return $this;
     }
 }

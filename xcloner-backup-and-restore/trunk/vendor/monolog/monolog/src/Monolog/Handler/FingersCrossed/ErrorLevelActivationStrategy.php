@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler\FingersCrossed;
 
-namespace Monolog\Handler\FingersCrossed;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Logger;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Logger;
 /**
  * Error level based activation strategy.
  *
@@ -24,12 +22,10 @@ use Monolog\Logger;
 class ErrorLevelActivationStrategy implements ActivationStrategyInterface
 {
     private $actionLevel;
-
     public function __construct($actionLevel)
     {
         $this->actionLevel = Logger::toMonologLevel($actionLevel);
     }
-
     public function isHandlerActivated(array $record)
     {
         return $record['level'] >= $this->actionLevel;

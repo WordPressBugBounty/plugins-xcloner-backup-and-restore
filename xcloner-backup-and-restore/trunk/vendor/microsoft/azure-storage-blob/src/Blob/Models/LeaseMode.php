@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Modes for leasing a blob
  *
@@ -40,8 +39,8 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class LeaseMode
 {
     const ACQUIRE_ACTION = 'acquire';
-    const RENEW_ACTION   = 'renew';
+    const RENEW_ACTION = 'renew';
     const RELEASE_ACTION = 'release';
-    const BREAK_ACTION   = 'break';
-    const CHANGE_ACTION   = 'change';
+    const BREAK_ACTION = 'break';
+    const CHANGE_ACTION = 'change';
 }

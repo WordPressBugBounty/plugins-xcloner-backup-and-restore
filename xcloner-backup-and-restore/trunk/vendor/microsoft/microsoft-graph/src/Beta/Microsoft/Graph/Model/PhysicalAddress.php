@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PhysicalAddress class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PhysicalAddress extends Entity
 {
     /**
-    * Gets the city
-    * The city.
-    *
-    * @return string|null The city
-    */
+     * Gets the city
+     * The city.
+     *
+     * @return string|null The city
+     */
     public function getCity()
     {
         if (array_key_exists("city", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PhysicalAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the city
-    * The city.
-    *
-    * @param string $val The value of the city
-    *
-    * @return PhysicalAddress
-    */
+     * Sets the city
+     * The city.
+     *
+     * @param string $val The value of the city
+     *
+     * @return PhysicalAddress
+     */
     public function setCity($val)
     {
         $this->_propDict["city"] = $val;
         return $this;
     }
     /**
-    * Gets the countryOrRegion
-    * The country or region. It's a free-format string value, for example, 'United States'.
-    *
-    * @return string|null The countryOrRegion
-    */
+     * Gets the countryOrRegion
+     * The country or region. It's a free-format string value, for example, 'United States'.
+     *
+     * @return string|null The countryOrRegion
+     */
     public function getCountryOrRegion()
     {
         if (array_key_exists("countryOrRegion", $this->_propDict)) {
@@ -68,26 +69,25 @@ class PhysicalAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countryOrRegion
-    * The country or region. It's a free-format string value, for example, 'United States'.
-    *
-    * @param string $val The value of the countryOrRegion
-    *
-    * @return PhysicalAddress
-    */
+     * Sets the countryOrRegion
+     * The country or region. It's a free-format string value, for example, 'United States'.
+     *
+     * @param string $val The value of the countryOrRegion
+     *
+     * @return PhysicalAddress
+     */
     public function setCountryOrRegion($val)
     {
         $this->_propDict["countryOrRegion"] = $val;
         return $this;
     }
     /**
-    * Gets the postalCode
-    * The postal code.
-    *
-    * @return string|null The postalCode
-    */
+     * Gets the postalCode
+     * The postal code.
+     *
+     * @return string|null The postalCode
+     */
     public function getPostalCode()
     {
         if (array_key_exists("postalCode", $this->_propDict)) {
@@ -96,26 +96,25 @@ class PhysicalAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the postalCode
-    * The postal code.
-    *
-    * @param string $val The value of the postalCode
-    *
-    * @return PhysicalAddress
-    */
+     * Sets the postalCode
+     * The postal code.
+     *
+     * @param string $val The value of the postalCode
+     *
+     * @return PhysicalAddress
+     */
     public function setPostalCode($val)
     {
         $this->_propDict["postalCode"] = $val;
         return $this;
     }
     /**
-    * Gets the postOfficeBox
-    * The post office box number.
-    *
-    * @return string|null The postOfficeBox
-    */
+     * Gets the postOfficeBox
+     * The post office box number.
+     *
+     * @return string|null The postOfficeBox
+     */
     public function getPostOfficeBox()
     {
         if (array_key_exists("postOfficeBox", $this->_propDict)) {
@@ -124,26 +123,25 @@ class PhysicalAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the postOfficeBox
-    * The post office box number.
-    *
-    * @param string $val The value of the postOfficeBox
-    *
-    * @return PhysicalAddress
-    */
+     * Sets the postOfficeBox
+     * The post office box number.
+     *
+     * @param string $val The value of the postOfficeBox
+     *
+     * @return PhysicalAddress
+     */
     public function setPostOfficeBox($val)
     {
         $this->_propDict["postOfficeBox"] = $val;
         return $this;
     }
     /**
-    * Gets the state
-    * The state.
-    *
-    * @return string|null The state
-    */
+     * Gets the state
+     * The state.
+     *
+     * @return string|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
@@ -152,26 +150,25 @@ class PhysicalAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the state
-    * The state.
-    *
-    * @param string $val The value of the state
-    *
-    * @return PhysicalAddress
-    */
+     * Sets the state
+     * The state.
+     *
+     * @param string $val The value of the state
+     *
+     * @return PhysicalAddress
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
     /**
-    * Gets the street
-    * The street.
-    *
-    * @return string|null The street
-    */
+     * Gets the street
+     * The street.
+     *
+     * @return string|null The street
+     */
     public function getStreet()
     {
         if (array_key_exists("street", $this->_propDict)) {
@@ -180,31 +177,29 @@ class PhysicalAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the street
-    * The street.
-    *
-    * @param string $val The value of the street
-    *
-    * @return PhysicalAddress
-    */
+     * Sets the street
+     * The street.
+     *
+     * @param string $val The value of the street
+     *
+     * @return PhysicalAddress
+     */
     public function setStreet($val)
     {
         $this->_propDict["street"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * The type of address. Possible values are: unknown, home, business, other.
-    *
-    * @return PhysicalAddressType|null The type
-    */
+     * Gets the type
+     * The type of address. Possible values are: unknown, home, business, other.
+     *
+     * @return PhysicalAddressType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\PhysicalAddressType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PhysicalAddressType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new PhysicalAddressType($this->_propDict["type"]);
@@ -213,18 +208,17 @@ class PhysicalAddress extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * The type of address. Possible values are: unknown, home, business, other.
-    *
-    * @param PhysicalAddressType $val The value to assign to the type
-    *
-    * @return PhysicalAddress The PhysicalAddress
-    */
+     * Sets the type
+     * The type of address. Possible values are: unknown, home, business, other.
+     *
+     * @param PhysicalAddressType $val The value to assign to the type
+     *
+     * @return PhysicalAddress The PhysicalAddress
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

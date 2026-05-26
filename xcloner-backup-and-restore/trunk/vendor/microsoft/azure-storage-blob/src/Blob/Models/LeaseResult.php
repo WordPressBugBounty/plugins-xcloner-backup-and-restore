@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * The result of calling acquireLease API.
  *
@@ -43,7 +41,6 @@ use MicrosoftAzure\Storage\Common\Internal\Utilities;
 class LeaseResult
 {
     private $leaseId;
-
     /**
      * Creates LeaseResult from response headers
      *
@@ -56,14 +53,9 @@ class LeaseResult
     public static function create(array $headers)
     {
         $result = new LeaseResult();
-
-        $result->setLeaseId(
-            Utilities::tryGetValue($headers, Resources::X_MS_LEASE_ID)
-        );
-
+        $result->setLeaseId(Utilities::tryGetValue($headers, Resources::X_MS_LEASE_ID));
         return $result;
     }
-
     /**
      * Gets lease Id for the blob
      *
@@ -73,7 +65,6 @@ class LeaseResult
     {
         return $this->leaseId;
     }
-
     /**
      * Sets lease Id for the blob
      *

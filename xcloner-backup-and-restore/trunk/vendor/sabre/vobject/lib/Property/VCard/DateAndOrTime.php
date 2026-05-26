@@ -1,18 +1,17 @@
 <?php
 
-namespace Sabre\VObject\Property\VCard;
+namespace XCloner\Sabre\VObject\Property\VCard;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTime;
 use DateTimeImmutable;
 use DateTimeInterface;
-use Sabre\VObject\DateTimeParser;
-use Sabre\VObject\InvalidDataException;
-use Sabre\VObject\Property;
-use Sabre\Xml;
-
+use XCloner\Sabre\VObject\DateTimeParser;
+use XCloner\Sabre\VObject\InvalidDataException;
+use XCloner\Sabre\VObject\Property;
+use XCloner\Sabre\Xml;
 /**
  * DateAndOrTime property.
  *
@@ -30,7 +29,6 @@ class DateAndOrTime extends Property
      * @var string
      */
     public $delimiter = '';
-
     /**
      * Returns the type of value.
      *
@@ -43,7 +41,6 @@ class DateAndOrTime extends Property
     {
         return 'DATE-AND-OR-TIME';
     }
-
     /**
      * Sets a multi-valued property.
      *
@@ -60,7 +57,6 @@ class DateAndOrTime extends Property
             parent::setParts($parts);
         }
     }
-
     /**
      * Updates the current value.
      *
@@ -78,7 +74,6 @@ class DateAndOrTime extends Property
             parent::setValue($value);
         }
     }
-
     /**
      * Sets the property as a DateTime object.
      */
@@ -86,17 +81,14 @@ class DateAndOrTime extends Property
     {
         $tz = $dt->getTimeZone();
         $isUtc = in_array($tz->getName(), ['UTC', 'GMT', 'Z']);
-
         if ($isUtc) {
-            $value = $dt->format('Ymd\\THis\\Z');
+            $value = $dt->format('XCloner\Ymd\THis\Z');
         } else {
             // Calculating the offset.
-            $value = $dt->format('Ymd\\THisO');
+            $value = $dt->format('XCloner\Ymd\THisO');
         }
-
         $this->value = $value;
     }
-
     /**
      * Returns a date-time value.
      *
@@ -116,12 +108,9 @@ class DateAndOrTime extends Property
     public function getDateTime()
     {
         $now = new DateTime();
-
-        $tzFormat = 0 === $now->getTimezone()->getOffset($now) ? '\\Z' : 'O';
-        $nowParts = DateTimeParser::parseVCardDateTime($now->format('Ymd\\This'.$tzFormat));
-
+        $tzFormat = 0 === $now->getTimezone()->getOffset($now) ? '\Z' : 'O';
+        $nowParts = DateTimeParser::parseVCardDateTime($now->format('Ymd\This' . $tzFormat));
         $dateParts = DateTimeParser::parseVCardDateTime($this->getValue());
-
         // This sets all the missing parts to the current date/time.
         // So if the year was missing for a birthday, we're making it 'this
         // year'.
@@ -130,10 +119,8 @@ class DateAndOrTime extends Property
                 $dateParts[$k] = $nowParts[$k];
             }
         }
-
-        return new DateTimeImmutable("$dateParts[year]-$dateParts[month]-$dateParts[date] $dateParts[hour]:$dateParts[minute]:$dateParts[second] $dateParts[timezone]");
+        return new DateTimeImmutable("{$dateParts['year']}-{$dateParts['month']}-{$dateParts['date']} {$dateParts['hour']}:{$dateParts['minute']}:{$dateParts['second']} {$dateParts['timezone']}");
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -144,29 +131,22 @@ class DateAndOrTime extends Property
     public function getJsonValue()
     {
         $parts = DateTimeParser::parseVCardDateTime($this->getValue());
-
         $dateStr = '';
-
         // Year
         if (!is_null($parts['year'])) {
             $dateStr .= $parts['year'];
-
             if (!is_null($parts['month'])) {
                 // If a year and a month is set, we need to insert a separator
                 // dash.
                 $dateStr .= '-';
             }
-        } else {
-            if (!is_null($parts['month']) || !is_null($parts['date'])) {
-                // Inserting two dashes
-                $dateStr .= '--';
-            }
+        } else if (!is_null($parts['month']) || !is_null($parts['date'])) {
+            // Inserting two dashes
+            $dateStr .= '--';
         }
-
         // Month
         if (!is_null($parts['month'])) {
             $dateStr .= $parts['month'];
-
             if (isset($parts['date'])) {
                 // If month and date are set, we need the separator dash.
                 $dateStr .= '-';
@@ -176,23 +156,18 @@ class DateAndOrTime extends Property
             // dash'
             $dateStr .= '-';
         }
-
         // Date
         if (!is_null($parts['date'])) {
             $dateStr .= $parts['date'];
         }
-
         // Early exit if we don't have a time string.
         if (is_null($parts['hour']) && is_null($parts['minute']) && is_null($parts['second'])) {
             return [$dateStr];
         }
-
         $dateStr .= 'T';
-
         // Hour
         if (!is_null($parts['hour'])) {
             $dateStr .= $parts['hour'];
-
             if (!is_null($parts['minute'])) {
                 $dateStr .= ':';
             }
@@ -201,11 +176,9 @@ class DateAndOrTime extends Property
             // dash for an empty value.
             $dateStr .= '-';
         }
-
         // Minute
         if (!is_null($parts['minute'])) {
             $dateStr .= $parts['minute'];
-
             if (!is_null($parts['second'])) {
                 $dateStr .= ':';
             }
@@ -213,20 +186,16 @@ class DateAndOrTime extends Property
             // Dash for empty minute
             $dateStr .= '-';
         }
-
         // Second
         if (!is_null($parts['second'])) {
             $dateStr .= $parts['second'];
         }
-
         // Timezone
         if (!is_null($parts['timezone'])) {
             $dateStr .= $parts['timezone'];
         }
-
         return [$dateStr];
     }
-
     /**
      * This method serializes only the value of a property. This is used to
      * create xCard or xCal documents.
@@ -238,73 +207,61 @@ class DateAndOrTime extends Property
         $valueType = strtolower($this->getValueType());
         $parts = DateTimeParser::parseVCardDateAndOrTime($this->getValue());
         $value = '';
-
         // $d = defined
         $d = function ($part) use ($parts) {
             return !is_null($parts[$part]);
         };
-
         // $r = read
         $r = function ($part) use ($parts) {
             return $parts[$part];
         };
-
         // From the Relax NG Schema.
         //
         // # 4.3.1
         // value-date = element date {
         //     xsd:string { pattern = "\d{8}|\d{4}-\d\d|--\d\d(\d\d)?|---\d\d" }
         //   }
-        if (($d('year') || $d('month') || $d('date'))
-            && (!$d('hour') && !$d('minute') && !$d('second') && !$d('timezone'))) {
+        if (($d('year') || $d('month') || $d('date')) && (!$d('hour') && !$d('minute') && !$d('second') && !$d('timezone'))) {
             if ($d('year') && $d('month') && $d('date')) {
-                $value .= $r('year').$r('month').$r('date');
+                $value .= $r('year') . $r('month') . $r('date');
             } elseif ($d('year') && $d('month') && !$d('date')) {
-                $value .= $r('year').'-'.$r('month');
+                $value .= $r('year') . '-' . $r('month');
             } elseif (!$d('year') && $d('month')) {
-                $value .= '--'.$r('month').$r('date');
+                $value .= '--' . $r('month') . $r('date');
             } elseif (!$d('year') && !$d('month') && $d('date')) {
-                $value .= '---'.$r('date');
+                $value .= '---' . $r('date');
             }
-
             // # 4.3.2
-        // value-time = element time {
-        //     xsd:string { pattern = "(\d\d(\d\d(\d\d)?)?|-\d\d(\d\d?)|--\d\d)"
-        //                          ~ "(Z|[+\-]\d\d(\d\d)?)?" }
-        //   }
-        } elseif ((!$d('year') && !$d('month') && !$d('date'))
-                  && ($d('hour') || $d('minute') || $d('second'))) {
+            // value-time = element time {
+            //     xsd:string { pattern = "(\d\d(\d\d(\d\d)?)?|-\d\d(\d\d?)|--\d\d)"
+            //                          ~ "(Z|[+\-]\d\d(\d\d)?)?" }
+            //   }
+        } elseif (!$d('year') && !$d('month') && !$d('date') && ($d('hour') || $d('minute') || $d('second'))) {
             if ($d('hour')) {
-                $value .= $r('hour').$r('minute').$r('second');
+                $value .= $r('hour') . $r('minute') . $r('second');
             } elseif ($d('minute')) {
-                $value .= '-'.$r('minute').$r('second');
+                $value .= '-' . $r('minute') . $r('second');
             } elseif ($d('second')) {
-                $value .= '--'.$r('second');
+                $value .= '--' . $r('second');
             }
-
             $value .= $r('timezone');
-
-        // # 4.3.3
-        // value-date-time = element date-time {
-        //     xsd:string { pattern = "(\d{8}|--\d{4}|---\d\d)T\d\d(\d\d(\d\d)?)?"
-        //                          ~ "(Z|[+\-]\d\d(\d\d)?)?" }
-        //   }
+            // # 4.3.3
+            // value-date-time = element date-time {
+            //     xsd:string { pattern = "(\d{8}|--\d{4}|---\d\d)T\d\d(\d\d(\d\d)?)?"
+            //                          ~ "(Z|[+\-]\d\d(\d\d)?)?" }
+            //   }
         } elseif ($d('date') && $d('hour')) {
             if ($d('year') && $d('month') && $d('date')) {
-                $value .= $r('year').$r('month').$r('date');
+                $value .= $r('year') . $r('month') . $r('date');
             } elseif (!$d('year') && $d('month') && $d('date')) {
-                $value .= '--'.$r('month').$r('date');
+                $value .= '--' . $r('month') . $r('date');
             } elseif (!$d('year') && !$d('month') && $d('date')) {
-                $value .= '---'.$r('date');
+                $value .= '---' . $r('date');
             }
-
-            $value .= 'T'.$r('hour').$r('minute').$r('second').
-                      $r('timezone');
+            $value .= 'T' . $r('hour') . $r('minute') . $r('second') . $r('timezone');
         }
-
         $writer->writeElement($valueType, $value);
     }
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -317,7 +274,6 @@ class DateAndOrTime extends Property
     {
         $this->setValue($val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -327,7 +283,6 @@ class DateAndOrTime extends Property
     {
         return implode($this->delimiter, $this->getParts());
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -354,17 +309,11 @@ class DateAndOrTime extends Property
     {
         $messages = parent::validate($options);
         $value = $this->getValue();
-
         try {
             DateTimeParser::parseVCardDateTime($value);
         } catch (InvalidDataException $e) {
-            $messages[] = [
-                'level' => 3,
-                'message' => 'The supplied value ('.$value.') is not a correct DATE-AND-OR-TIME property',
-                'node' => $this,
-            ];
+            $messages[] = ['level' => 3, 'message' => 'The supplied value (' . $value . ') is not a correct DATE-AND-OR-TIME property', 'node' => $this];
         }
-
         return $messages;
     }
 }

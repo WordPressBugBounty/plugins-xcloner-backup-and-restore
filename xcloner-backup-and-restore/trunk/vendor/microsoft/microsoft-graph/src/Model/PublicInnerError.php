@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PublicInnerError class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PublicInnerError extends Entity
 {
     /**
-    * Gets the code
-    * The error code.
-    *
-    * @return string|null The code
-    */
+     * Gets the code
+     * The error code.
+     *
+     * @return string|null The code
+     */
     public function getCode()
     {
         if (array_key_exists("code", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PublicInnerError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the code
-    * The error code.
-    *
-    * @param string $val The value of the code
-    *
-    * @return PublicInnerError
-    */
+     * Sets the code
+     * The error code.
+     *
+     * @param string $val The value of the code
+     *
+     * @return PublicInnerError
+     */
     public function setCode($val)
     {
         $this->_propDict["code"] = $val;
         return $this;
     }
-
     /**
-    * Gets the details
-    * A collection of error details.
-    *
-    * @return PublicErrorDetail|null The details
-    */
+     * Gets the details
+     * A collection of error details.
+     *
+     * @return PublicErrorDetail|null The details
+     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PublicErrorDetail") || is_null($this->_propDict["details"])) {
+            if (is_a($this->_propDict["details"], "XCloner\\Microsoft\\Graph\\Model\\PublicErrorDetail") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PublicErrorDetail($this->_propDict["details"]);
@@ -73,26 +73,25 @@ class PublicInnerError extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the details
-    * A collection of error details.
-    *
-    * @param PublicErrorDetail $val The value to assign to the details
-    *
-    * @return PublicInnerError The PublicInnerError
-    */
+     * Sets the details
+     * A collection of error details.
+     *
+     * @param PublicErrorDetail $val The value to assign to the details
+     *
+     * @return PublicInnerError The PublicInnerError
+     */
     public function setDetails($val)
     {
         $this->_propDict["details"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the message
-    * The error message.
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     * The error message.
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -101,26 +100,25 @@ class PublicInnerError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    * The error message.
-    *
-    * @param string $val The value of the message
-    *
-    * @return PublicInnerError
-    */
+     * Sets the message
+     * The error message.
+     *
+     * @param string $val The value of the message
+     *
+     * @return PublicInnerError
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;
         return $this;
     }
     /**
-    * Gets the target
-    * The target of the error.
-    *
-    * @return string|null The target
-    */
+     * Gets the target
+     * The target of the error.
+     *
+     * @return string|null The target
+     */
     public function getTarget()
     {
         if (array_key_exists("target", $this->_propDict)) {
@@ -129,15 +127,14 @@ class PublicInnerError extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the target
-    * The target of the error.
-    *
-    * @param string $val The value of the target
-    *
-    * @return PublicInnerError
-    */
+     * Sets the target
+     * The target of the error.
+     *
+     * @param string $val The value of the target
+     *
+     * @return PublicInnerError
+     */
     public function setTarget($val)
     {
         $this->_propDict["target"] = $val;

@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Formatter;
 
-namespace Monolog\Formatter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Formats data into an associative array of scalar values.
  * Objects and arrays will be JSON encoded.
@@ -30,10 +29,8 @@ class ScalarFormatter extends NormalizerFormatter
         foreach ($record as $key => $value) {
             $record[$key] = $this->normalizeValue($value);
         }
-
         return $record;
     }
-
     /**
      * @param  mixed $value
      * @return mixed
@@ -41,11 +38,9 @@ class ScalarFormatter extends NormalizerFormatter
     protected function normalizeValue($value)
     {
         $normalized = $this->normalize($value);
-
         if (is_array($normalized) || is_object($normalized)) {
-            return $this->toJson($normalized, true);
+            return $this->toJson($normalized, \true);
         }
-
         return $normalized;
     }
 }

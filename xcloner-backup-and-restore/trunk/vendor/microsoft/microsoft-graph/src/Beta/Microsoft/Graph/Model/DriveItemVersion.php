@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DriveItemVersion class
 *
@@ -28,42 +29,40 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DriveItemVersion extends BaseItemVersion
 {
     /**
-    * Gets the content
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The content
-    */
+     * Gets the content
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
+                $this->_propDict["content"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the content
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The content
-    *
-    * @return DriveItemVersion
-    */
+     * Sets the content
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The content
+     *
+     * @return DriveItemVersion
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
         return $this;
     }
-
     /**
-    * Gets the size
-    * Indicates the size of the content stream for this version of the item.
-    *
-    * @return int|null The size
-    */
+     * Gets the size
+     * Indicates the size of the content stream for this version of the item.
+     *
+     * @return int|null The size
+     */
     public function getSize()
     {
         if (array_key_exists("size", $this->_propDict)) {
@@ -72,19 +71,17 @@ class DriveItemVersion extends BaseItemVersion
             return null;
         }
     }
-
     /**
-    * Sets the size
-    * Indicates the size of the content stream for this version of the item.
-    *
-    * @param int $val The size
-    *
-    * @return DriveItemVersion
-    */
+     * Sets the size
+     * Indicates the size of the content stream for this version of the item.
+     *
+     * @param int $val The size
+     *
+     * @return DriveItemVersion
+     */
     public function setSize($val)
     {
         $this->_propDict["size"] = intval($val);
         return $this;
     }
-
 }

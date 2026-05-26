@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MobileAppTroubleshootingHistoryItem class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MobileAppTroubleshootingHistoryItem extends Entity
 {
-
     /**
-    * Gets the occurrenceDateTime
-    * Time when the history item occurred.
-    *
-    * @return \DateTime|null The occurrenceDateTime
-    */
+     * Gets the occurrenceDateTime
+     * Time when the history item occurred.
+     *
+     * @return \DateTime|null The occurrenceDateTime
+     */
     public function getOccurrenceDateTime()
     {
         if (array_key_exists("occurrenceDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["occurrenceDateTime"], "\DateTime") || is_null($this->_propDict["occurrenceDateTime"])) {
+            if (is_a($this->_propDict["occurrenceDateTime"], "\\DateTime") || is_null($this->_propDict["occurrenceDateTime"])) {
                 return $this->_propDict["occurrenceDateTime"];
             } else {
                 $this->_propDict["occurrenceDateTime"] = new \DateTime($this->_propDict["occurrenceDateTime"]);
@@ -45,31 +46,29 @@ class MobileAppTroubleshootingHistoryItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the occurrenceDateTime
-    * Time when the history item occurred.
-    *
-    * @param \DateTime $val The value to assign to the occurrenceDateTime
-    *
-    * @return MobileAppTroubleshootingHistoryItem The MobileAppTroubleshootingHistoryItem
-    */
+     * Sets the occurrenceDateTime
+     * Time when the history item occurred.
+     *
+     * @param \DateTime $val The value to assign to the occurrenceDateTime
+     *
+     * @return MobileAppTroubleshootingHistoryItem The MobileAppTroubleshootingHistoryItem
+     */
     public function setOccurrenceDateTime($val)
     {
         $this->_propDict["occurrenceDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the troubleshootingErrorDetails
-    * Object containing detailed information about the error and its remediation.
-    *
-    * @return DeviceManagementTroubleshootingErrorDetails|null The troubleshootingErrorDetails
-    */
+     * Gets the troubleshootingErrorDetails
+     * Object containing detailed information about the error and its remediation.
+     *
+     * @return DeviceManagementTroubleshootingErrorDetails|null The troubleshootingErrorDetails
+     */
     public function getTroubleshootingErrorDetails()
     {
         if (array_key_exists("troubleshootingErrorDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["troubleshootingErrorDetails"], "\Beta\Microsoft\Graph\Model\DeviceManagementTroubleshootingErrorDetails") || is_null($this->_propDict["troubleshootingErrorDetails"])) {
+            if (is_a($this->_propDict["troubleshootingErrorDetails"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementTroubleshootingErrorDetails") || is_null($this->_propDict["troubleshootingErrorDetails"])) {
                 return $this->_propDict["troubleshootingErrorDetails"];
             } else {
                 $this->_propDict["troubleshootingErrorDetails"] = new DeviceManagementTroubleshootingErrorDetails($this->_propDict["troubleshootingErrorDetails"]);
@@ -78,18 +77,17 @@ class MobileAppTroubleshootingHistoryItem extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the troubleshootingErrorDetails
-    * Object containing detailed information about the error and its remediation.
-    *
-    * @param DeviceManagementTroubleshootingErrorDetails $val The value to assign to the troubleshootingErrorDetails
-    *
-    * @return MobileAppTroubleshootingHistoryItem The MobileAppTroubleshootingHistoryItem
-    */
+     * Sets the troubleshootingErrorDetails
+     * Object containing detailed information about the error and its remediation.
+     *
+     * @param DeviceManagementTroubleshootingErrorDetails $val The value to assign to the troubleshootingErrorDetails
+     *
+     * @return MobileAppTroubleshootingHistoryItem The MobileAppTroubleshootingHistoryItem
+     */
     public function setTroubleshootingErrorDetails($val)
     {
         $this->_propDict["troubleshootingErrorDetails"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,9 +1,10 @@
 <?php
-namespace Aws\S3\UseArnRegion;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3\UseArnRegion;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 interface ConfigurationInterface
 {
     /**
@@ -12,7 +13,6 @@ interface ConfigurationInterface
      * @return bool
      */
     public function isUseArnRegion();
-
     /**
      * Returns the configuration as an associative array
      *

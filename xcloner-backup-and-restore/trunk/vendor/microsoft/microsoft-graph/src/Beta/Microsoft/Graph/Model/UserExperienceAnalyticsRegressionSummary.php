@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsRegressionSummary class
 *
@@ -27,94 +28,85 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class UserExperienceAnalyticsRegressionSummary extends Entity
 {
-
-     /**
+    /**
      * Gets the manufacturerRegression
-    * The metric values for the user experience analytics Manufacturer regression.
+     * The metric values for the user experience analytics Manufacturer regression.
      *
      * @return array|null The manufacturerRegression
      */
     public function getManufacturerRegression()
     {
         if (array_key_exists("manufacturerRegression", $this->_propDict)) {
-           return $this->_propDict["manufacturerRegression"];
+            return $this->_propDict["manufacturerRegression"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the manufacturerRegression
-    * The metric values for the user experience analytics Manufacturer regression.
-    *
-    * @param UserExperienceAnalyticsMetric[] $val The manufacturerRegression
-    *
-    * @return UserExperienceAnalyticsRegressionSummary
-    */
+     * Sets the manufacturerRegression
+     * The metric values for the user experience analytics Manufacturer regression.
+     *
+     * @param UserExperienceAnalyticsMetric[] $val The manufacturerRegression
+     *
+     * @return UserExperienceAnalyticsRegressionSummary
+     */
     public function setManufacturerRegression($val)
     {
         $this->_propDict["manufacturerRegression"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the modelRegression
-    * The metric values for the user experience analytics model regression.
+     * The metric values for the user experience analytics model regression.
      *
      * @return array|null The modelRegression
      */
     public function getModelRegression()
     {
         if (array_key_exists("modelRegression", $this->_propDict)) {
-           return $this->_propDict["modelRegression"];
+            return $this->_propDict["modelRegression"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the modelRegression
-    * The metric values for the user experience analytics model regression.
-    *
-    * @param UserExperienceAnalyticsMetric[] $val The modelRegression
-    *
-    * @return UserExperienceAnalyticsRegressionSummary
-    */
+     * Sets the modelRegression
+     * The metric values for the user experience analytics model regression.
+     *
+     * @param UserExperienceAnalyticsMetric[] $val The modelRegression
+     *
+     * @return UserExperienceAnalyticsRegressionSummary
+     */
     public function setModelRegression($val)
     {
         $this->_propDict["modelRegression"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the operatingSystemRegression
-    * The metric values for the user experience analytics operating system regression.
+     * The metric values for the user experience analytics operating system regression.
      *
      * @return array|null The operatingSystemRegression
      */
     public function getOperatingSystemRegression()
     {
         if (array_key_exists("operatingSystemRegression", $this->_propDict)) {
-           return $this->_propDict["operatingSystemRegression"];
+            return $this->_propDict["operatingSystemRegression"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the operatingSystemRegression
-    * The metric values for the user experience analytics operating system regression.
-    *
-    * @param UserExperienceAnalyticsMetric[] $val The operatingSystemRegression
-    *
-    * @return UserExperienceAnalyticsRegressionSummary
-    */
+     * Sets the operatingSystemRegression
+     * The metric values for the user experience analytics operating system regression.
+     *
+     * @param UserExperienceAnalyticsMetric[] $val The operatingSystemRegression
+     *
+     * @return UserExperienceAnalyticsRegressionSummary
+     */
     public function setOperatingSystemRegression($val)
     {
         $this->_propDict["operatingSystemRegression"] = $val;
         return $this;
     }
-
 }

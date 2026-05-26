@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationCheckBox class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation
 {
     /**
-    * Gets the defaultChecked
-    * Default value for the check box. The default value is false.
-    *
-    * @return bool|null The defaultChecked
-    */
+     * Gets the defaultChecked
+     * Default value for the check box. The default value is false.
+     *
+     * @return bool|null The defaultChecked
+     */
     public function getDefaultChecked()
     {
         if (array_key_exists("defaultChecked", $this->_propDict)) {
@@ -41,19 +42,17 @@ class GroupPolicyPresentationCheckBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the defaultChecked
-    * Default value for the check box. The default value is false.
-    *
-    * @param bool $val The defaultChecked
-    *
-    * @return GroupPolicyPresentationCheckBox
-    */
+     * Sets the defaultChecked
+     * Default value for the check box. The default value is false.
+     *
+     * @param bool $val The defaultChecked
+     *
+     * @return GroupPolicyPresentationCheckBox
+     */
     public function setDefaultChecked($val)
     {
         $this->_propDict["defaultChecked"] = boolval($val);
         return $this;
     }
-
 }

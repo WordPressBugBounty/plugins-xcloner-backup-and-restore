@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementSettingInstance class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementSettingInstance extends Entity
 {
     /**
-    * Gets the definitionId
-    * The ID of the setting definition for this instance
-    *
-    * @return string|null The definitionId
-    */
+     * Gets the definitionId
+     * The ID of the setting definition for this instance
+     *
+     * @return string|null The definitionId
+     */
     public function getDefinitionId()
     {
         if (array_key_exists("definitionId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class DeviceManagementSettingInstance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the definitionId
-    * The ID of the setting definition for this instance
-    *
-    * @param string $val The definitionId
-    *
-    * @return DeviceManagementSettingInstance
-    */
+     * Sets the definitionId
+     * The ID of the setting definition for this instance
+     *
+     * @param string $val The definitionId
+     *
+     * @return DeviceManagementSettingInstance
+     */
     public function setDefinitionId($val)
     {
         $this->_propDict["definitionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the valueJson
-    * JSON representation of the value
-    *
-    * @return string|null The valueJson
-    */
+     * Gets the valueJson
+     * JSON representation of the value
+     *
+     * @return string|null The valueJson
+     */
     public function getValueJson()
     {
         if (array_key_exists("valueJson", $this->_propDict)) {
@@ -70,19 +69,17 @@ class DeviceManagementSettingInstance extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the valueJson
-    * JSON representation of the value
-    *
-    * @param string $val The valueJson
-    *
-    * @return DeviceManagementSettingInstance
-    */
+     * Sets the valueJson
+     * JSON representation of the value
+     *
+     * @param string $val The valueJson
+     *
+     * @return DeviceManagementSettingInstance
+     */
     public function setValueJson($val)
     {
         $this->_propDict["valueJson"] = $val;
         return $this;
     }
-
 }

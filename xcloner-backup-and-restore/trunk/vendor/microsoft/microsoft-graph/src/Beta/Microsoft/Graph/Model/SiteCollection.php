@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SiteCollection class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SiteCollection extends Entity
 {
     /**
-    * Gets the dataLocationCode
-    * The geographic region code for where this site collection resides. Read-only.
-    *
-    * @return string|null The dataLocationCode
-    */
+     * Gets the dataLocationCode
+     * The geographic region code for where this site collection resides. Read-only.
+     *
+     * @return string|null The dataLocationCode
+     */
     public function getDataLocationCode()
     {
         if (array_key_exists("dataLocationCode", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SiteCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the dataLocationCode
-    * The geographic region code for where this site collection resides. Read-only.
-    *
-    * @param string $val The value of the dataLocationCode
-    *
-    * @return SiteCollection
-    */
+     * Sets the dataLocationCode
+     * The geographic region code for where this site collection resides. Read-only.
+     *
+     * @param string $val The value of the dataLocationCode
+     *
+     * @return SiteCollection
+     */
     public function setDataLocationCode($val)
     {
         $this->_propDict["dataLocationCode"] = $val;
         return $this;
     }
     /**
-    * Gets the hostname
-    * The hostname for the site collection. Read-only.
-    *
-    * @return string|null The hostname
-    */
+     * Gets the hostname
+     * The hostname for the site collection. Read-only.
+     *
+     * @return string|null The hostname
+     */
     public function getHostname()
     {
         if (array_key_exists("hostname", $this->_propDict)) {
@@ -68,31 +69,29 @@ class SiteCollection extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the hostname
-    * The hostname for the site collection. Read-only.
-    *
-    * @param string $val The value of the hostname
-    *
-    * @return SiteCollection
-    */
+     * Sets the hostname
+     * The hostname for the site collection. Read-only.
+     *
+     * @param string $val The value of the hostname
+     *
+     * @return SiteCollection
+     */
     public function setHostname($val)
     {
         $this->_propDict["hostname"] = $val;
         return $this;
     }
-
     /**
-    * Gets the root
-    * If present, indicates that this is a root site collection in SharePoint. Read-only.
-    *
-    * @return Root|null The root
-    */
+     * Gets the root
+     * If present, indicates that this is a root site collection in SharePoint. Read-only.
+     *
+     * @return Root|null The root
+     */
     public function getRoot()
     {
         if (array_key_exists("root", $this->_propDict)) {
-            if (is_a($this->_propDict["root"], "\Beta\Microsoft\Graph\Model\Root") || is_null($this->_propDict["root"])) {
+            if (is_a($this->_propDict["root"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\Root") || is_null($this->_propDict["root"])) {
                 return $this->_propDict["root"];
             } else {
                 $this->_propDict["root"] = new Root($this->_propDict["root"]);
@@ -101,18 +100,17 @@ class SiteCollection extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the root
-    * If present, indicates that this is a root site collection in SharePoint. Read-only.
-    *
-    * @param Root $val The value to assign to the root
-    *
-    * @return SiteCollection The SiteCollection
-    */
+     * Sets the root
+     * If present, indicates that this is a root site collection in SharePoint. Read-only.
+     *
+     * @param Root $val The value to assign to the root
+     *
+     * @return SiteCollection The SiteCollection
+     */
     public function setRoot($val)
     {
         $this->_propDict["root"] = $val;
-         return $this;
+        return $this;
     }
 }

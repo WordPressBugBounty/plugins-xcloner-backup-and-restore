@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Schedule;
 
-namespace Sabre\CalDAV\Schedule;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\CalDAV\Backend;
-use Sabre\DAV\Exception\MethodNotAllowed;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\CalDAV\Backend;
+use XCloner\Sabre\DAV\Exception\MethodNotAllowed;
 /**
  * The SchedulingObject represents a scheduling object in the Inbox collection.
  *
@@ -17,7 +15,7 @@ use Sabre\DAV\Exception\MethodNotAllowed;
  * @license http://sabre.io/license/ Modified BSD License
  * @copyright Copyright (C) fruux GmbH (https://fruux.com/)
  */
-class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements ISchedulingObject
+class SchedulingObject extends \XCloner\Sabre\CalDAV\CalendarObject implements ISchedulingObject
 {
     /**
      * Constructor.
@@ -36,12 +34,10 @@ class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements IScheduli
     public function __construct(Backend\SchedulingSupport $caldavBackend, array $objectData)
     {
         parent::__construct($caldavBackend, [], $objectData);
-
         if (!isset($objectData['uri'])) {
             throw new \InvalidArgumentException('The objectData argument must contain an \'uri\' property');
         }
     }
-
     /**
      * Returns the ICalendar-formatted object.
      *
@@ -54,10 +50,8 @@ class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements IScheduli
         if (!isset($this->objectData['calendardata'])) {
             $this->objectData = $this->caldavBackend->getSchedulingObject($this->objectData['principaluri'], $this->objectData['uri']);
         }
-
         return $this->objectData['calendardata'];
     }
-
     /**
      * Updates the ICalendar-formatted object.
      *
@@ -69,7 +63,6 @@ class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements IScheduli
     {
         throw new MethodNotAllowed('Updating scheduling objects is not supported');
     }
-
     /**
      * Deletes the scheduling message.
      */
@@ -77,7 +70,6 @@ class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements IScheduli
     {
         $this->caldavBackend->deleteSchedulingObject($this->objectData['principaluri'], $this->objectData['uri']);
     }
-
     /**
      * Returns the owner principal.
      *
@@ -89,7 +81,6 @@ class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements IScheduli
     {
         return $this->objectData['principaluri'];
     }
-
     /**
      * Returns a list of ACE's for this node.
      *
@@ -106,28 +97,10 @@ class SchedulingObject extends \Sabre\CalDAV\CalendarObject implements IScheduli
     {
         // An alternative acl may be specified in the object data.
         //
-
         if (isset($this->objectData['acl'])) {
             return $this->objectData['acl'];
         }
-
         // The default ACL
-        return [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => '{DAV:}owner',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->objectData['principaluri'].'/calendar-proxy-write',
-                'protected' => true,
-            ],
-            [
-                'privilege' => '{DAV:}read',
-                'principal' => $this->objectData['principaluri'].'/calendar-proxy-read',
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}all', 'principal' => '{DAV:}owner', 'protected' => \true], ['privilege' => '{DAV:}all', 'principal' => $this->objectData['principaluri'] . '/calendar-proxy-write', 'protected' => \true], ['privilege' => '{DAV:}read', 'principal' => $this->objectData['principaluri'] . '/calendar-proxy-read', 'protected' => \true]];
     }
 }

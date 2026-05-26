@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * The result of calling PutBlob API.
  *
@@ -46,7 +44,6 @@ class PutBlobResult
     private $etag;
     private $lastModified;
     private $requestServerEncrypted;
-
     /**
      * Creates PutBlobResult object from the response of the put blob request.
      *
@@ -59,42 +56,15 @@ class PutBlobResult
     public static function create(array $headers)
     {
         $result = new PutBlobResult();
-
-        $result->setETag(
-            Utilities::tryGetValueInsensitive(
-                Resources::ETAG,
-                $headers
-            )
-        );
-
-        if (Utilities::arrayKeyExistsInsensitive(
-            Resources::LAST_MODIFIED,
-            $headers
-        )) {
-            $lastModified = Utilities::tryGetValueInsensitive(
-                Resources::LAST_MODIFIED,
-                $headers
-            );
+        $result->setETag(Utilities::tryGetValueInsensitive(Resources::ETAG, $headers));
+        if (Utilities::arrayKeyExistsInsensitive(Resources::LAST_MODIFIED, $headers)) {
+            $lastModified = Utilities::tryGetValueInsensitive(Resources::LAST_MODIFIED, $headers);
             $result->setLastModified(Utilities::rfc1123ToDateTime($lastModified));
         }
-
-        $result->setContentMD5(
-            Utilities::tryGetValueInsensitive(Resources::CONTENT_MD5, $headers)
-        );
-
-        $result->setRequestServerEncrypted(
-            Utilities::toBoolean(
-                Utilities::tryGetValueInsensitive(
-                    Resources::X_MS_REQUEST_SERVER_ENCRYPTED,
-                    $headers
-                ),
-                true
-            )
-        );
-
+        $result->setContentMD5(Utilities::tryGetValueInsensitive(Resources::CONTENT_MD5, $headers));
+        $result->setRequestServerEncrypted(Utilities::toBoolean(Utilities::tryGetValueInsensitive(Resources::X_MS_REQUEST_SERVER_ENCRYPTED, $headers), \true));
         return $result;
     }
-
     /**
      * Gets ETag.
      *
@@ -104,7 +74,6 @@ class PutBlobResult
     {
         return $this->etag;
     }
-
     /**
      * Sets ETag.
      *
@@ -116,7 +85,6 @@ class PutBlobResult
     {
         $this->etag = $etag;
     }
-
     /**
      * Gets blob lastModified.
      *
@@ -126,7 +94,6 @@ class PutBlobResult
     {
         return $this->lastModified;
     }
-
     /**
      * Sets blob lastModified.
      *
@@ -138,7 +105,6 @@ class PutBlobResult
     {
         $this->lastModified = $lastModified;
     }
-
     /**
      * Gets block content MD5.
      *
@@ -148,7 +114,6 @@ class PutBlobResult
     {
         return $this->contentMD5;
     }
-
     /**
      * Sets the content MD5 value.
      *
@@ -160,7 +125,6 @@ class PutBlobResult
     {
         $this->contentMD5 = $contentMD5;
     }
-
     /**
      * Gets the whether the contents of the request are successfully encrypted.
      *
@@ -170,7 +134,6 @@ class PutBlobResult
     {
         return $this->requestServerEncrypted;
     }
-
     /**
      * Sets the request server encryption value.
      *

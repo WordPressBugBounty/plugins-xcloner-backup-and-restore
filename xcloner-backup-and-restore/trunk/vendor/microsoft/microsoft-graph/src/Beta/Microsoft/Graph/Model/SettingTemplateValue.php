@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SettingTemplateValue class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SettingTemplateValue extends Entity
 {
     /**
-    * Gets the defaultValue
-    * Default value for the setting. Read-only.
-    *
-    * @return string|null The defaultValue
-    */
+     * Gets the defaultValue
+     * Default value for the setting. Read-only.
+     *
+     * @return string|null The defaultValue
+     */
     public function getDefaultValue()
     {
         if (array_key_exists("defaultValue", $this->_propDict)) {
@@ -40,26 +42,25 @@ class SettingTemplateValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the defaultValue
-    * Default value for the setting. Read-only.
-    *
-    * @param string $val The value of the defaultValue
-    *
-    * @return SettingTemplateValue
-    */
+     * Sets the defaultValue
+     * Default value for the setting. Read-only.
+     *
+     * @param string $val The value of the defaultValue
+     *
+     * @return SettingTemplateValue
+     */
     public function setDefaultValue($val)
     {
         $this->_propDict["defaultValue"] = $val;
         return $this;
     }
     /**
-    * Gets the description
-    * Description of the setting. Read-only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Description of the setting. Read-only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -68,26 +69,25 @@ class SettingTemplateValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Description of the setting. Read-only.
-    *
-    * @param string $val The value of the description
-    *
-    * @return SettingTemplateValue
-    */
+     * Sets the description
+     * Description of the setting. Read-only.
+     *
+     * @param string $val The value of the description
+     *
+     * @return SettingTemplateValue
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * Name of the setting. Read-only.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the setting. Read-only.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -96,26 +96,25 @@ class SettingTemplateValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the setting. Read-only.
-    *
-    * @param string $val The value of the name
-    *
-    * @return SettingTemplateValue
-    */
+     * Sets the name
+     * Name of the setting. Read-only.
+     *
+     * @param string $val The value of the name
+     *
+     * @return SettingTemplateValue
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * Type of the setting. Read-only.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * Type of the setting. Read-only.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -124,15 +123,14 @@ class SettingTemplateValue extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * Type of the setting. Read-only.
-    *
-    * @param string $val The value of the type
-    *
-    * @return SettingTemplateValue
-    */
+     * Sets the type
+     * Type of the setting. Read-only.
+     *
+     * @param string $val The value of the type
+     *
+     * @return SettingTemplateValue
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

@@ -1,5 +1,6 @@
-<?php declare(strict_types=1);
+<?php
 
+declare (strict_types=1);
 /*
  * This file is part of the Monolog package.
  *
@@ -8,14 +9,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Formatter\FormatterInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Formatter\FormatterInterface;
 /**
  * Interface to describe loggers that have a formatter
  *
@@ -32,7 +31,6 @@ interface FormattableHandlerInterface
      * @return HandlerInterface   self
      */
     public function setFormatter(FormatterInterface $formatter): HandlerInterface;
-
     /**
      * Gets the formatter.
      *

@@ -1,17 +1,17 @@
 <?php
-namespace Aws\S3\Crypto;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\S3\Crypto;
 
-
-use Aws\Crypto\AbstractCryptoClient;
-use Aws\Crypto\EncryptionTrait;
-use Aws\Crypto\MetadataEnvelope;
-use Aws\Crypto\Cipher\CipherBuilderTrait;
-use Aws\S3\MultipartUploader;
-use Aws\S3\S3ClientInterface;
-use GuzzleHttp\Promise;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Crypto\AbstractCryptoClient;
+use XCloner\Aws\Crypto\EncryptionTrait;
+use XCloner\Aws\Crypto\MetadataEnvelope;
+use XCloner\Aws\Crypto\Cipher\CipherBuilderTrait;
+use XCloner\Aws\S3\MultipartUploader;
+use XCloner\Aws\S3\S3ClientInterface;
+use XCloner\GuzzleHttp\Promise;
 /**
  * Encapsulates the execution of a multipart upload of an encrypted object to S3.
  *
@@ -26,9 +26,7 @@ class S3EncryptionMultipartUploader extends MultipartUploader
     use CryptoParamsTrait;
     use EncryptionTrait;
     use UserAgentTrait;
-
     const CRYPTO_VERSION = '1n';
-
     /**
      * Returns if the passed cipher name is supported for encryption by the SDK.
      *
@@ -40,11 +38,9 @@ class S3EncryptionMultipartUploader extends MultipartUploader
     {
         return in_array($cipherName, AbstractCryptoClient::$supportedCiphers);
     }
-
     private $provider;
     private $instructionFileSuffix;
     private $strategy;
-
     /**
      * Creates a multipart upload for an S3 object after encrypting it.
      *
@@ -105,11 +101,8 @@ class S3EncryptionMultipartUploader extends MultipartUploader
      * @param mixed             $source Source of the data to upload.
      * @param array             $config Configuration used to perform the upload.
      */
-    public function __construct(
-        S3ClientInterface $client,
-        $source,
-        array $config = []
-    ) {
+    public function __construct(S3ClientInterface $client, $source, array $config = [])
+    {
         $this->appendUserAgent($client, 'feat/s3-encrypt/' . self::CRYPTO_VERSION);
         $this->client = $client;
         $config['params'] = [];
@@ -119,52 +112,31 @@ class S3EncryptionMultipartUploader extends MultipartUploader
         if (!empty($config['key'])) {
             $config['params']['Key'] = $config['key'];
         }
-
         $this->provider = $this->getMaterialsProvider($config);
         unset($config['@MaterialsProvider']);
-
         $this->instructionFileSuffix = $this->getInstructionFileSuffix($config);
         unset($config['@InstructionFileSuffix']);
-        $this->strategy = $this->getMetadataStrategy(
-            $config,
-            $this->instructionFileSuffix
-        );
+        $this->strategy = $this->getMetadataStrategy($config, $this->instructionFileSuffix);
         if ($this->strategy === null) {
             $this->strategy = self::getDefaultStrategy();
         }
         unset($config['@MetadataStrategy']);
-
         $config['prepare_data_source'] = $this->getEncryptingDataPreparer();
-
         parent::__construct($client, $source, $config);
     }
-
     private static function getDefaultStrategy()
     {
         return new HeadersMetadataStrategy();
     }
-
     private function getEncryptingDataPreparer()
     {
-        return function() {
+        return function () {
             // Defer encryption work until promise is executed
             $envelope = new MetadataEnvelope();
-
-            list($this->source, $params) = Promise\Create::promiseFor($this->encrypt(
-                $this->source,
-                $this->config['@cipheroptions'] ?: [],
-                $this->provider,
-                $envelope
-            ))->then(
-                function ($bodyStream) use ($envelope) {
-                    $params = $this->strategy->save(
-                        $envelope,
-                        $this->config['params']
-                    );
-                    return [$bodyStream, $params];
-                }
-            )->wait();
-
+            list($this->source, $params) = Promise\Create::promiseFor($this->encrypt($this->source, $this->config['@cipheroptions'] ?: [], $this->provider, $envelope))->then(function ($bodyStream) use ($envelope) {
+                $params = $this->strategy->save($envelope, $this->config['params']);
+                return [$bodyStream, $params];
+            })->wait();
             $this->source->rewind();
             $this->config['params'] = $params;
         };

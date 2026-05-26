@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmployeeOrgData class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EmployeeOrgData extends Entity
 {
     /**
-    * Gets the costCenter
-    * The cost center associated with the user. Returned only on $select. Supports $filter.
-    *
-    * @return string|null The costCenter
-    */
+     * Gets the costCenter
+     * The cost center associated with the user. Returned only on $select. Supports $filter.
+     *
+     * @return string|null The costCenter
+     */
     public function getCostCenter()
     {
         if (array_key_exists("costCenter", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EmployeeOrgData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the costCenter
-    * The cost center associated with the user. Returned only on $select. Supports $filter.
-    *
-    * @param string $val The value of the costCenter
-    *
-    * @return EmployeeOrgData
-    */
+     * Sets the costCenter
+     * The cost center associated with the user. Returned only on $select. Supports $filter.
+     *
+     * @param string $val The value of the costCenter
+     *
+     * @return EmployeeOrgData
+     */
     public function setCostCenter($val)
     {
         $this->_propDict["costCenter"] = $val;
         return $this;
     }
     /**
-    * Gets the division
-    * The name of the division in which the user works. Returned only on $select. Supports $filter.
-    *
-    * @return string|null The division
-    */
+     * Gets the division
+     * The name of the division in which the user works. Returned only on $select. Supports $filter.
+     *
+     * @return string|null The division
+     */
     public function getDivision()
     {
         if (array_key_exists("division", $this->_propDict)) {
@@ -68,15 +69,14 @@ class EmployeeOrgData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the division
-    * The name of the division in which the user works. Returned only on $select. Supports $filter.
-    *
-    * @param string $val The value of the division
-    *
-    * @return EmployeeOrgData
-    */
+     * Sets the division
+     * The name of the division in which the user works. Returned only on $select. Supports $filter.
+     *
+     * @param string $val The value of the division
+     *
+     * @return EmployeeOrgData
+     */
     public function setDivision($val)
     {
         $this->_propDict["division"] = $val;

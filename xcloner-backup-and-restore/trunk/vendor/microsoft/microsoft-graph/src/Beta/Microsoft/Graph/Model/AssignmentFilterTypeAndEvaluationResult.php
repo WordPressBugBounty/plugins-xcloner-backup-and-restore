@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AssignmentFilterTypeAndEvaluationResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AssignmentFilterTypeAndEvaluationResult extends Entity
 {
-
     /**
-    * Gets the assignmentFilterType
-    * Represents the filter type. Possible values are: none, include, exclude.
-    *
-    * @return DeviceAndAppManagementAssignmentFilterType|null The assignmentFilterType
-    */
+     * Gets the assignmentFilterType
+     * Represents the filter type. Possible values are: none, include, exclude.
+     *
+     * @return DeviceAndAppManagementAssignmentFilterType|null The assignmentFilterType
+     */
     public function getAssignmentFilterType()
     {
         if (array_key_exists("assignmentFilterType", $this->_propDict)) {
-            if (is_a($this->_propDict["assignmentFilterType"], "\Beta\Microsoft\Graph\Model\DeviceAndAppManagementAssignmentFilterType") || is_null($this->_propDict["assignmentFilterType"])) {
+            if (is_a($this->_propDict["assignmentFilterType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceAndAppManagementAssignmentFilterType") || is_null($this->_propDict["assignmentFilterType"])) {
                 return $this->_propDict["assignmentFilterType"];
             } else {
                 $this->_propDict["assignmentFilterType"] = new DeviceAndAppManagementAssignmentFilterType($this->_propDict["assignmentFilterType"]);
@@ -45,31 +46,29 @@ class AssignmentFilterTypeAndEvaluationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the assignmentFilterType
-    * Represents the filter type. Possible values are: none, include, exclude.
-    *
-    * @param DeviceAndAppManagementAssignmentFilterType $val The value to assign to the assignmentFilterType
-    *
-    * @return AssignmentFilterTypeAndEvaluationResult The AssignmentFilterTypeAndEvaluationResult
-    */
+     * Sets the assignmentFilterType
+     * Represents the filter type. Possible values are: none, include, exclude.
+     *
+     * @param DeviceAndAppManagementAssignmentFilterType $val The value to assign to the assignmentFilterType
+     *
+     * @return AssignmentFilterTypeAndEvaluationResult The AssignmentFilterTypeAndEvaluationResult
+     */
     public function setAssignmentFilterType($val)
     {
         $this->_propDict["assignmentFilterType"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the evaluationResult
-    * Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
-    *
-    * @return AssignmentFilterEvaluationResult|null The evaluationResult
-    */
+     * Gets the evaluationResult
+     * Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     *
+     * @return AssignmentFilterEvaluationResult|null The evaluationResult
+     */
     public function getEvaluationResult()
     {
         if (array_key_exists("evaluationResult", $this->_propDict)) {
-            if (is_a($this->_propDict["evaluationResult"], "\Beta\Microsoft\Graph\Model\AssignmentFilterEvaluationResult") || is_null($this->_propDict["evaluationResult"])) {
+            if (is_a($this->_propDict["evaluationResult"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AssignmentFilterEvaluationResult") || is_null($this->_propDict["evaluationResult"])) {
                 return $this->_propDict["evaluationResult"];
             } else {
                 $this->_propDict["evaluationResult"] = new AssignmentFilterEvaluationResult($this->_propDict["evaluationResult"]);
@@ -78,18 +77,17 @@ class AssignmentFilterTypeAndEvaluationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the evaluationResult
-    * Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
-    *
-    * @param AssignmentFilterEvaluationResult $val The value to assign to the evaluationResult
-    *
-    * @return AssignmentFilterTypeAndEvaluationResult The AssignmentFilterTypeAndEvaluationResult
-    */
+     * Sets the evaluationResult
+     * Represents the evalaution result of the filter. Possible values are: unknown, match, notMatch, inconclusive, failure, notEvaluated.
+     *
+     * @param AssignmentFilterEvaluationResult $val The value to assign to the evaluationResult
+     *
+     * @return AssignmentFilterTypeAndEvaluationResult The AssignmentFilterTypeAndEvaluationResult
+     */
     public function setEvaluationResult($val)
     {
         $this->_propDict["evaluationResult"] = $val;
-         return $this;
+        return $this;
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IosNetworkUsageRule class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IosNetworkUsageRule extends Entity
 {
     /**
-    * Gets the cellularDataBlocked
-    * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
-    *
-    * @return bool|null The cellularDataBlocked
-    */
+     * Gets the cellularDataBlocked
+     * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
+     *
+     * @return bool|null The cellularDataBlocked
+     */
     public function getCellularDataBlocked()
     {
         if (array_key_exists("cellularDataBlocked", $this->_propDict)) {
@@ -40,26 +42,25 @@ class IosNetworkUsageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the cellularDataBlocked
-    * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
-    *
-    * @param bool $val The value of the cellularDataBlocked
-    *
-    * @return IosNetworkUsageRule
-    */
+     * Sets the cellularDataBlocked
+     * If set to true, corresponding managed apps will not be allowed to use cellular data at any time.
+     *
+     * @param bool $val The value of the cellularDataBlocked
+     *
+     * @return IosNetworkUsageRule
+     */
     public function setCellularDataBlocked($val)
     {
         $this->_propDict["cellularDataBlocked"] = $val;
         return $this;
     }
     /**
-    * Gets the cellularDataBlockWhenRoaming
-    * If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.
-    *
-    * @return bool|null The cellularDataBlockWhenRoaming
-    */
+     * Gets the cellularDataBlockWhenRoaming
+     * If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.
+     *
+     * @return bool|null The cellularDataBlockWhenRoaming
+     */
     public function getCellularDataBlockWhenRoaming()
     {
         if (array_key_exists("cellularDataBlockWhenRoaming", $this->_propDict)) {
@@ -68,31 +69,29 @@ class IosNetworkUsageRule extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the cellularDataBlockWhenRoaming
-    * If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.
-    *
-    * @param bool $val The value of the cellularDataBlockWhenRoaming
-    *
-    * @return IosNetworkUsageRule
-    */
+     * Sets the cellularDataBlockWhenRoaming
+     * If set to true, corresponding managed apps will not be allowed to use cellular data when roaming.
+     *
+     * @param bool $val The value of the cellularDataBlockWhenRoaming
+     *
+     * @return IosNetworkUsageRule
+     */
     public function setCellularDataBlockWhenRoaming($val)
     {
         $this->_propDict["cellularDataBlockWhenRoaming"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedApps
-    * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
-    *
-    * @return AppListItem|null The managedApps
-    */
+     * Gets the managedApps
+     * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+     *
+     * @return AppListItem|null The managedApps
+     */
     public function getManagedApps()
     {
         if (array_key_exists("managedApps", $this->_propDict)) {
-            if (is_a($this->_propDict["managedApps"], "\Beta\Microsoft\Graph\Model\AppListItem") || is_null($this->_propDict["managedApps"])) {
+            if (is_a($this->_propDict["managedApps"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AppListItem") || is_null($this->_propDict["managedApps"])) {
                 return $this->_propDict["managedApps"];
             } else {
                 $this->_propDict["managedApps"] = new AppListItem($this->_propDict["managedApps"]);
@@ -101,18 +100,17 @@ class IosNetworkUsageRule extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the managedApps
-    * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
-    *
-    * @param AppListItem $val The value to assign to the managedApps
-    *
-    * @return IosNetworkUsageRule The IosNetworkUsageRule
-    */
+     * Sets the managedApps
+     * Information about the managed apps that this rule is going to apply to. This collection can contain a maximum of 500 elements.
+     *
+     * @param AppListItem $val The value to assign to the managedApps
+     *
+     * @return IosNetworkUsageRule The IosNetworkUsageRule
+     */
     public function setManagedApps($val)
     {
         $this->_propDict["managedApps"] = $val;
-         return $this;
+        return $this;
     }
 }

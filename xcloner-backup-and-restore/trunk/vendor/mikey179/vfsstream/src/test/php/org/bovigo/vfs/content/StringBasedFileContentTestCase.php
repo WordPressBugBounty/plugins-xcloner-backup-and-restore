@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,17 +8,18 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs\content;
+namespace XCloner\org\bovigo\vfs\content;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\content\StringBasedFileContent.
  *
  * @since  1.3.0
  * @group  issue_79
  */
-class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
+class StringBasedFileContentTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * instance to test
@@ -25,7 +27,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
      * @type  StringBasedFileContent
      */
     private $stringBasedFileContent;
-
     /**
      * set up test environment
      */
@@ -33,7 +34,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->stringBasedFileContent = new StringBasedFileContent('foobarbaz');
     }
-
     /**
      * @test
      */
@@ -41,7 +41,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foobarbaz', $this->stringBasedFileContent->content());
     }
-
     /**
      * @test
      */
@@ -49,7 +48,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->stringBasedFileContent->eof());
     }
-
     /**
      * @test
      */
@@ -57,7 +55,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals(9, $this->stringBasedFileContent->size());
     }
-
     /**
      * @test
      */
@@ -65,7 +62,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foo', $this->stringBasedFileContent->read(3));
     }
-
     /**
      * @test
      */
@@ -75,7 +71,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals('bar', $this->stringBasedFileContent->read(3));
         $this->assertEquals('baz', $this->stringBasedFileContent->read(3));
     }
-
     /**
      * @test
      */
@@ -83,7 +78,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertEquals('foobarbaz', $this->stringBasedFileContent->read(10));
     }
-
     /**
      * @test
      */
@@ -94,7 +88,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->stringBasedFileContent->read(10);
         $this->assertSame('', $this->stringBasedFileContent->read(3));
     }
-
     /**
      * @test
      */
@@ -103,7 +96,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->stringBasedFileContent->read(3);
         $this->assertEquals(9, $this->stringBasedFileContent->size());
     }
-
     /**
      * @test
      */
@@ -112,7 +104,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->stringBasedFileContent->read(3);
         $this->assertFalse($this->stringBasedFileContent->eof());
     }
-
     /**
      * @test
      */
@@ -121,7 +112,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->stringBasedFileContent->read(9);
         $this->assertTrue($this->stringBasedFileContent->eof());
     }
-
     /**
      * @test
      */
@@ -130,7 +120,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->stringBasedFileContent->read(10);
         $this->assertTrue($this->stringBasedFileContent->eof());
     }
-
     /**
      * @test
      */
@@ -138,35 +127,31 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $this->assertFalse($this->stringBasedFileContent->seek(0, 55));
     }
-
     /**
      * @test
      */
     public function canSeekToGivenOffset()
     {
-        $this->assertTrue($this->stringBasedFileContent->seek(5, SEEK_SET));
+        $this->assertTrue($this->stringBasedFileContent->seek(5, \SEEK_SET));
         $this->assertEquals('rbaz', $this->stringBasedFileContent->read(10));
     }
-
     /**
      * @test
      */
     public function canSeekFromCurrentOffset()
     {
-        $this->assertTrue($this->stringBasedFileContent->seek(5, SEEK_SET));
-        $this->assertTrue($this->stringBasedFileContent->seek(2, SEEK_CUR));
+        $this->assertTrue($this->stringBasedFileContent->seek(5, \SEEK_SET));
+        $this->assertTrue($this->stringBasedFileContent->seek(2, \SEEK_CUR));
         $this->assertEquals('az', $this->stringBasedFileContent->read(10));
     }
-
     /**
      * @test
      */
     public function canSeekToEnd()
     {
-        $this->assertTrue($this->stringBasedFileContent->seek(0, SEEK_END));
+        $this->assertTrue($this->stringBasedFileContent->seek(0, \SEEK_END));
         $this->assertEquals('', $this->stringBasedFileContent->read(10));
     }
-
     /**
      * @test
      */
@@ -175,17 +160,15 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertEquals(3, $this->stringBasedFileContent->write('bar'));
         $this->assertEquals('barbarbaz', $this->stringBasedFileContent->content());
     }
-
     /**
      * @test
      */
     public function writeAppendsContentWhenOffsetAtEof()
     {
-        $this->assertTrue($this->stringBasedFileContent->seek(0, SEEK_END));
+        $this->assertTrue($this->stringBasedFileContent->seek(0, \SEEK_END));
         $this->assertEquals(3, $this->stringBasedFileContent->write('bar'));
         $this->assertEquals('foobarbazbar', $this->stringBasedFileContent->content());
     }
-
     /**
      * @test
      * @group  issue_33
@@ -196,7 +179,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($this->stringBasedFileContent->truncate(6));
         $this->assertEquals('foobar', $this->stringBasedFileContent->content());
     }
-
     /**
      * @test
      * @group  issue_33
@@ -207,7 +189,6 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
         $this->assertTrue($this->stringBasedFileContent->truncate(6));
         $this->assertEquals(6, $this->stringBasedFileContent->size());
     }
-
     /**
      * @test
      * @group  issue_33
@@ -216,12 +197,8 @@ class StringBasedFileContentTestCase extends \BC_PHPUnit_Framework_TestCase
     public function truncateToGreaterSizeAddsZeroBytes()
     {
         $this->assertTrue($this->stringBasedFileContent->truncate(25));
-        $this->assertEquals(
-                "foobarbaz\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0",
-                $this->stringBasedFileContent->content()
-        );
+        $this->assertEquals("foobarbaz\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00", $this->stringBasedFileContent->content());
     }
-
     /**
      * @test
      * @group  issue_33

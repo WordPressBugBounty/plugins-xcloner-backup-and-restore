@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrinterStatus class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrinterStatus extends Entity
 {
     /**
-    * Gets the description
-    * A human-readable description of the printer's current processing state. Read-only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * A human-readable description of the printer's current processing state. Read-only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,31 +42,29 @@ class PrinterStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * A human-readable description of the printer's current processing state. Read-only.
-    *
-    * @param string $val The value of the description
-    *
-    * @return PrinterStatus
-    */
+     * Sets the description
+     * A human-readable description of the printer's current processing state. Read-only.
+     *
+     * @param string $val The value of the description
+     *
+     * @return PrinterStatus
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the details
-    * The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
-    *
-    * @return PrinterProcessingStateDetail|null The details
-    */
+     * Gets the details
+     * The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
+     *
+     * @return PrinterProcessingStateDetail|null The details
+     */
     public function getDetails()
     {
         if (array_key_exists("details", $this->_propDict)) {
-            if (is_a($this->_propDict["details"], "\Microsoft\Graph\Model\PrinterProcessingStateDetail") || is_null($this->_propDict["details"])) {
+            if (is_a($this->_propDict["details"], "XCloner\\Microsoft\\Graph\\Model\\PrinterProcessingStateDetail") || is_null($this->_propDict["details"])) {
                 return $this->_propDict["details"];
             } else {
                 $this->_propDict["details"] = new PrinterProcessingStateDetail($this->_propDict["details"]);
@@ -73,31 +73,29 @@ class PrinterStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the details
-    * The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
-    *
-    * @param PrinterProcessingStateDetail $val The value to assign to the details
-    *
-    * @return PrinterStatus The PrinterStatus
-    */
+     * Sets the details
+     * The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
+     *
+     * @param PrinterProcessingStateDetail $val The value to assign to the details
+     *
+     * @return PrinterStatus The PrinterStatus
+     */
     public function setDetails($val)
     {
         $this->_propDict["details"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the state
-    * The current processing state. Valid values are described in the following table. Read-only.
-    *
-    * @return PrinterProcessingState|null The state
-    */
+     * Gets the state
+     * The current processing state. Valid values are described in the following table. Read-only.
+     *
+     * @return PrinterProcessingState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Microsoft\Graph\Model\PrinterProcessingState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Microsoft\\Graph\\Model\\PrinterProcessingState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new PrinterProcessingState($this->_propDict["state"]);
@@ -106,18 +104,17 @@ class PrinterStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The current processing state. Valid values are described in the following table. Read-only.
-    *
-    * @param PrinterProcessingState $val The value to assign to the state
-    *
-    * @return PrinterStatus The PrinterStatus
-    */
+     * Sets the state
+     * The current processing state. Valid values are described in the following table. Read-only.
+     *
+     * @param PrinterProcessingState $val The value to assign to the state
+     *
+     * @return PrinterStatus The PrinterStatus
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
 }

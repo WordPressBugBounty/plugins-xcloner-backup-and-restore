@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DelegatedAdminAccessAssignment class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DelegatedAdminAccessAssignment extends Entity
 {
     /**
-    * Gets the accessContainer
-    * The access container through which members are assigned access. For example, a security group.
-    *
-    * @return DelegatedAdminAccessContainer|null The accessContainer
-    */
+     * Gets the accessContainer
+     * The access container through which members are assigned access. For example, a security group.
+     *
+     * @return DelegatedAdminAccessContainer|null The accessContainer
+     */
     public function getAccessContainer()
     {
         if (array_key_exists("accessContainer", $this->_propDict)) {
-            if (is_a($this->_propDict["accessContainer"], "\Beta\Microsoft\Graph\Model\DelegatedAdminAccessContainer") || is_null($this->_propDict["accessContainer"])) {
+            if (is_a($this->_propDict["accessContainer"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DelegatedAdminAccessContainer") || is_null($this->_propDict["accessContainer"])) {
                 return $this->_propDict["accessContainer"];
             } else {
                 $this->_propDict["accessContainer"] = new DelegatedAdminAccessContainer($this->_propDict["accessContainer"]);
@@ -45,31 +46,29 @@ class DelegatedAdminAccessAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the accessContainer
-    * The access container through which members are assigned access. For example, a security group.
-    *
-    * @param DelegatedAdminAccessContainer $val The accessContainer
-    *
-    * @return DelegatedAdminAccessAssignment
-    */
+     * Sets the accessContainer
+     * The access container through which members are assigned access. For example, a security group.
+     *
+     * @param DelegatedAdminAccessContainer $val The accessContainer
+     *
+     * @return DelegatedAdminAccessAssignment
+     */
     public function setAccessContainer($val)
     {
         $this->_propDict["accessContainer"] = $val;
         return $this;
     }
-
     /**
-    * Gets the accessDetails
-    * The access details containing the identifiers of the administrative roles that the partner is assigned in the customer tenant.
-    *
-    * @return DelegatedAdminAccessDetails|null The accessDetails
-    */
+     * Gets the accessDetails
+     * The access details containing the identifiers of the administrative roles that the partner is assigned in the customer tenant.
+     *
+     * @return DelegatedAdminAccessDetails|null The accessDetails
+     */
     public function getAccessDetails()
     {
         if (array_key_exists("accessDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["accessDetails"], "\Beta\Microsoft\Graph\Model\DelegatedAdminAccessDetails") || is_null($this->_propDict["accessDetails"])) {
+            if (is_a($this->_propDict["accessDetails"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DelegatedAdminAccessDetails") || is_null($this->_propDict["accessDetails"])) {
                 return $this->_propDict["accessDetails"];
             } else {
                 $this->_propDict["accessDetails"] = new DelegatedAdminAccessDetails($this->_propDict["accessDetails"]);
@@ -78,31 +77,29 @@ class DelegatedAdminAccessAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the accessDetails
-    * The access details containing the identifiers of the administrative roles that the partner is assigned in the customer tenant.
-    *
-    * @param DelegatedAdminAccessDetails $val The accessDetails
-    *
-    * @return DelegatedAdminAccessAssignment
-    */
+     * Sets the accessDetails
+     * The access details containing the identifiers of the administrative roles that the partner is assigned in the customer tenant.
+     *
+     * @param DelegatedAdminAccessDetails $val The accessDetails
+     *
+     * @return DelegatedAdminAccessAssignment
+     */
     public function setAccessDetails($val)
     {
         $this->_propDict["accessDetails"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    * The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -111,31 +108,29 @@ class DelegatedAdminAccessAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return DelegatedAdminAccessAssignment
-    */
+     * Sets the createdDateTime
+     * The date and time in ISO 8601 format and in UTC time when the access assignment was created. Read-only.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return DelegatedAdminAccessAssignment
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -144,31 +139,29 @@ class DelegatedAdminAccessAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return DelegatedAdminAccessAssignment
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time in ISO 8601 and in UTC time when this access assignment was last modified. Read-only.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return DelegatedAdminAccessAssignment
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
-    *
-    * @return DelegatedAdminAccessAssignmentStatus|null The status
-    */
+     * Gets the status
+     * The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
+     *
+     * @return DelegatedAdminAccessAssignmentStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\Model\DelegatedAdminAccessAssignmentStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DelegatedAdminAccessAssignmentStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new DelegatedAdminAccessAssignmentStatus($this->_propDict["status"]);
@@ -177,19 +170,17 @@ class DelegatedAdminAccessAssignment extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
-    *
-    * @param DelegatedAdminAccessAssignmentStatus $val The status
-    *
-    * @return DelegatedAdminAccessAssignment
-    */
+     * Sets the status
+     * The status of the access assignment. Read-only. The possible values are: pending, active, deleting, deleted, error, unknownFutureValue.
+     *
+     * @param DelegatedAdminAccessAssignmentStatus $val The status
+     *
+     * @return DelegatedAdminAccessAssignment
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
 }

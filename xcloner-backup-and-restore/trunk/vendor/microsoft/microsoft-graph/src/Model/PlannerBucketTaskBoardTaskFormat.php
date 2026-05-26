@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerBucketTaskBoardTaskFormat class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerBucketTaskBoardTaskFormat extends Entity
 {
     /**
-    * Gets the orderHint
-    * Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
-    *
-    * @return string|null The orderHint
-    */
+     * Gets the orderHint
+     * Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
+     *
+     * @return string|null The orderHint
+     */
     public function getOrderHint()
     {
         if (array_key_exists("orderHint", $this->_propDict)) {
@@ -41,19 +42,17 @@ class PlannerBucketTaskBoardTaskFormat extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the orderHint
-    * Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
-    *
-    * @param string $val The orderHint
-    *
-    * @return PlannerBucketTaskBoardTaskFormat
-    */
+     * Sets the orderHint
+     * Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.
+     *
+     * @param string $val The orderHint
+     *
+     * @return PlannerBucketTaskBoardTaskFormat
+     */
     public function setOrderHint($val)
     {
         $this->_propDict["orderHint"] = $val;
         return $this;
     }
-
 }

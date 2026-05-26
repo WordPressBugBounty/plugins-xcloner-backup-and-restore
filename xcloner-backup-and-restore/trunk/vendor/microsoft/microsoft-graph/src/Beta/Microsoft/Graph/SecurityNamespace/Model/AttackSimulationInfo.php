@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AttackSimulationInfo class
 *
@@ -24,19 +26,18 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
+class AttackSimulationInfo extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
     /**
-    * Gets the attackSimDateTime
-    * The date and time of the attack simulation.
-    *
-    * @return \DateTime|null The attackSimDateTime
-    */
+     * Gets the attackSimDateTime
+     * The date and time of the attack simulation.
+     *
+     * @return \DateTime|null The attackSimDateTime
+     */
     public function getAttackSimDateTime()
     {
         if (array_key_exists("attackSimDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["attackSimDateTime"], "\DateTime") || is_null($this->_propDict["attackSimDateTime"])) {
+            if (is_a($this->_propDict["attackSimDateTime"], "\\DateTime") || is_null($this->_propDict["attackSimDateTime"])) {
                 return $this->_propDict["attackSimDateTime"];
             } else {
                 $this->_propDict["attackSimDateTime"] = new \DateTime($this->_propDict["attackSimDateTime"]);
@@ -45,31 +46,29 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the attackSimDateTime
-    * The date and time of the attack simulation.
-    *
-    * @param \DateTime $val The value to assign to the attackSimDateTime
-    *
-    * @return AttackSimulationInfo The AttackSimulationInfo
-    */
+     * Sets the attackSimDateTime
+     * The date and time of the attack simulation.
+     *
+     * @param \DateTime $val The value to assign to the attackSimDateTime
+     *
+     * @return AttackSimulationInfo The AttackSimulationInfo
+     */
     public function setAttackSimDateTime($val)
     {
         $this->_propDict["attackSimDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the attackSimDurationTime
-    * The duration (in time) for the attack simulation.
-    *
-    * @return \DateInterval|null The attackSimDurationTime
-    */
+     * Gets the attackSimDurationTime
+     * The duration (in time) for the attack simulation.
+     *
+     * @return \DateInterval|null The attackSimDurationTime
+     */
     public function getAttackSimDurationTime()
     {
         if (array_key_exists("attackSimDurationTime", $this->_propDict)) {
-            if (is_a($this->_propDict["attackSimDurationTime"], "\DateInterval") || is_null($this->_propDict["attackSimDurationTime"])) {
+            if (is_a($this->_propDict["attackSimDurationTime"], "\\DateInterval") || is_null($this->_propDict["attackSimDurationTime"])) {
                 return $this->_propDict["attackSimDurationTime"];
             } else {
                 $this->_propDict["attackSimDurationTime"] = new \DateInterval($this->_propDict["attackSimDurationTime"]);
@@ -78,26 +77,25 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the attackSimDurationTime
-    * The duration (in time) for the attack simulation.
-    *
-    * @param \DateInterval $val The value to assign to the attackSimDurationTime
-    *
-    * @return AttackSimulationInfo The AttackSimulationInfo
-    */
+     * Sets the attackSimDurationTime
+     * The duration (in time) for the attack simulation.
+     *
+     * @param \DateInterval $val The value to assign to the attackSimDurationTime
+     *
+     * @return AttackSimulationInfo The AttackSimulationInfo
+     */
     public function setAttackSimDurationTime($val)
     {
         $this->_propDict["attackSimDurationTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the attackSimId
-    * The activity ID for the attack simulation.
-    *
-    * @return string|null The attackSimId
-    */
+     * Gets the attackSimId
+     * The activity ID for the attack simulation.
+     *
+     * @return string|null The attackSimId
+     */
     public function getAttackSimId()
     {
         if (array_key_exists("attackSimId", $this->_propDict)) {
@@ -106,26 +104,25 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the attackSimId
-    * The activity ID for the attack simulation.
-    *
-    * @param string $val The value of the attackSimId
-    *
-    * @return AttackSimulationInfo
-    */
+     * Sets the attackSimId
+     * The activity ID for the attack simulation.
+     *
+     * @param string $val The value of the attackSimId
+     *
+     * @return AttackSimulationInfo
+     */
     public function setAttackSimId($val)
     {
         $this->_propDict["attackSimId"] = $val;
         return $this;
     }
     /**
-    * Gets the attackSimUserId
-    * The unique identifier for the user who got the attack simulation email.
-    *
-    * @return string|null The attackSimUserId
-    */
+     * Gets the attackSimUserId
+     * The unique identifier for the user who got the attack simulation email.
+     *
+     * @return string|null The attackSimUserId
+     */
     public function getAttackSimUserId()
     {
         if (array_key_exists("attackSimUserId", $this->_propDict)) {
@@ -134,15 +131,14 @@ class AttackSimulationInfo extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the attackSimUserId
-    * The unique identifier for the user who got the attack simulation email.
-    *
-    * @param string $val The value of the attackSimUserId
-    *
-    * @return AttackSimulationInfo
-    */
+     * Sets the attackSimUserId
+     * The unique identifier for the user who got the attack simulation email.
+     *
+     * @param string $val The value of the attackSimUserId
+     *
+     * @return AttackSimulationInfo
+     */
     public function setAttackSimUserId($val)
     {
         $this->_propDict["attackSimUserId"] = $val;

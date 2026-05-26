@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SkypeForBusinessUserConversationMember class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SkypeForBusinessUserConversationMember extends ConversationMember
 {
     /**
-    * Gets the tenantId
-    * ID of the tenant that the user belongs to.
-    *
-    * @return string|null The tenantId
-    */
+     * Gets the tenantId
+     * ID of the tenant that the user belongs to.
+     *
+     * @return string|null The tenantId
+     */
     public function getTenantId()
     {
         if (array_key_exists("tenantId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class SkypeForBusinessUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the tenantId
-    * ID of the tenant that the user belongs to.
-    *
-    * @param string $val The tenantId
-    *
-    * @return SkypeForBusinessUserConversationMember
-    */
+     * Sets the tenantId
+     * ID of the tenant that the user belongs to.
+     *
+     * @param string $val The tenantId
+     *
+     * @return SkypeForBusinessUserConversationMember
+     */
     public function setTenantId($val)
     {
         $this->_propDict["tenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * ID of the user.
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * ID of the user.
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -70,19 +69,17 @@ class SkypeForBusinessUserConversationMember extends ConversationMember
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * ID of the user.
-    *
-    * @param string $val The userId
-    *
-    * @return SkypeForBusinessUserConversationMember
-    */
+     * Sets the userId
+     * ID of the user.
+     *
+     * @param string $val The userId
+     *
+     * @return SkypeForBusinessUserConversationMember
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
 }

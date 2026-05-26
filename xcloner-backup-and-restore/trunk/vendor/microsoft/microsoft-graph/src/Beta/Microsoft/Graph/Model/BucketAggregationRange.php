@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BucketAggregationRange class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BucketAggregationRange extends Entity
 {
     /**
-    * Gets the from
-    * Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
-    *
-    * @return string|null The from
-    */
+     * Gets the from
+     * Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
+     *
+     * @return string|null The from
+     */
     public function getFrom()
     {
         if (array_key_exists("from", $this->_propDict)) {
@@ -40,26 +42,25 @@ class BucketAggregationRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the from
-    * Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
-    *
-    * @param string $val The value of the from
-    *
-    * @return BucketAggregationRange
-    */
+     * Sets the from
+     * Defines the lower bound from which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
+     *
+     * @param string $val The value of the from
+     *
+     * @return BucketAggregationRange
+     */
     public function setFrom($val)
     {
         $this->_propDict["from"] = $val;
         return $this;
     }
     /**
-    * Gets the to
-    * Defines the upper bound up to which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
-    *
-    * @return string|null The to
-    */
+     * Gets the to
+     * Defines the upper bound up to which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
+     *
+     * @return string|null The to
+     */
     public function getTo()
     {
         if (array_key_exists("to", $this->_propDict)) {
@@ -68,15 +69,14 @@ class BucketAggregationRange extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the to
-    * Defines the upper bound up to which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
-    *
-    * @param string $val The value of the to
-    *
-    * @return BucketAggregationRange
-    */
+     * Sets the to
+     * Defines the upper bound up to which to compute the aggregation. This can be a numeric value or a string representation of a date using the YYYY-MM-DDTHH:mm:ss.sssZ format. Required.
+     *
+     * @param string $val The value of the to
+     *
+     * @return BucketAggregationRange
+     */
     public function setTo($val)
     {
         $this->_propDict["to"] = $val;

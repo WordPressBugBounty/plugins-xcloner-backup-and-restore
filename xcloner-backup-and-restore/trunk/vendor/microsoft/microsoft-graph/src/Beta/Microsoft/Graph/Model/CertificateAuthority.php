@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * CertificateAuthority class
 *
@@ -26,45 +28,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class CertificateAuthority extends Entity
 {
-
     /**
-    * Gets the certificate
-    * Required. The base64 encoded string representing the public certificate.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The certificate
-    */
+     * Gets the certificate
+     * Required. The base64 encoded string representing the public certificate.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The certificate
+     */
     public function getCertificate()
     {
         if (array_key_exists("certificate", $this->_propDict)) {
-            if (is_a($this->_propDict["certificate"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["certificate"])) {
+            if (is_a($this->_propDict["certificate"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["certificate"])) {
                 return $this->_propDict["certificate"];
             } else {
-                $this->_propDict["certificate"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["certificate"]);
+                $this->_propDict["certificate"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["certificate"]);
                 return $this->_propDict["certificate"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the certificate
-    * Required. The base64 encoded string representing the public certificate.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the certificate
-    *
-    * @return CertificateAuthority The CertificateAuthority
-    */
+     * Sets the certificate
+     * Required. The base64 encoded string representing the public certificate.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the certificate
+     *
+     * @return CertificateAuthority The CertificateAuthority
+     */
     public function setCertificate($val)
     {
         $this->_propDict["certificate"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the certificateRevocationListUrl
-    * The URL of the certificate revocation list.
-    *
-    * @return string|null The certificateRevocationListUrl
-    */
+     * Gets the certificateRevocationListUrl
+     * The URL of the certificate revocation list.
+     *
+     * @return string|null The certificateRevocationListUrl
+     */
     public function getCertificateRevocationListUrl()
     {
         if (array_key_exists("certificateRevocationListUrl", $this->_propDict)) {
@@ -73,26 +73,25 @@ class CertificateAuthority extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the certificateRevocationListUrl
-    * The URL of the certificate revocation list.
-    *
-    * @param string $val The value of the certificateRevocationListUrl
-    *
-    * @return CertificateAuthority
-    */
+     * Sets the certificateRevocationListUrl
+     * The URL of the certificate revocation list.
+     *
+     * @param string $val The value of the certificateRevocationListUrl
+     *
+     * @return CertificateAuthority
+     */
     public function setCertificateRevocationListUrl($val)
     {
         $this->_propDict["certificateRevocationListUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the deltaCertificateRevocationListUrl
-    * The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
-    *
-    * @return string|null The deltaCertificateRevocationListUrl
-    */
+     * Gets the deltaCertificateRevocationListUrl
+     * The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
+     *
+     * @return string|null The deltaCertificateRevocationListUrl
+     */
     public function getDeltaCertificateRevocationListUrl()
     {
         if (array_key_exists("deltaCertificateRevocationListUrl", $this->_propDict)) {
@@ -101,26 +100,25 @@ class CertificateAuthority extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deltaCertificateRevocationListUrl
-    * The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
-    *
-    * @param string $val The value of the deltaCertificateRevocationListUrl
-    *
-    * @return CertificateAuthority
-    */
+     * Sets the deltaCertificateRevocationListUrl
+     * The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
+     *
+     * @param string $val The value of the deltaCertificateRevocationListUrl
+     *
+     * @return CertificateAuthority
+     */
     public function setDeltaCertificateRevocationListUrl($val)
     {
         $this->_propDict["deltaCertificateRevocationListUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the isRootAuthority
-    * Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
-    *
-    * @return bool|null The isRootAuthority
-    */
+     * Gets the isRootAuthority
+     * Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
+     *
+     * @return bool|null The isRootAuthority
+     */
     public function getIsRootAuthority()
     {
         if (array_key_exists("isRootAuthority", $this->_propDict)) {
@@ -129,26 +127,25 @@ class CertificateAuthority extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isRootAuthority
-    * Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
-    *
-    * @param bool $val The value of the isRootAuthority
-    *
-    * @return CertificateAuthority
-    */
+     * Sets the isRootAuthority
+     * Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
+     *
+     * @param bool $val The value of the isRootAuthority
+     *
+     * @return CertificateAuthority
+     */
     public function setIsRootAuthority($val)
     {
         $this->_propDict["isRootAuthority"] = $val;
         return $this;
     }
     /**
-    * Gets the issuer
-    * The issuer of the certificate, calculated from the certificate value. Read-only.
-    *
-    * @return string|null The issuer
-    */
+     * Gets the issuer
+     * The issuer of the certificate, calculated from the certificate value. Read-only.
+     *
+     * @return string|null The issuer
+     */
     public function getIssuer()
     {
         if (array_key_exists("issuer", $this->_propDict)) {
@@ -157,26 +154,25 @@ class CertificateAuthority extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the issuer
-    * The issuer of the certificate, calculated from the certificate value. Read-only.
-    *
-    * @param string $val The value of the issuer
-    *
-    * @return CertificateAuthority
-    */
+     * Sets the issuer
+     * The issuer of the certificate, calculated from the certificate value. Read-only.
+     *
+     * @param string $val The value of the issuer
+     *
+     * @return CertificateAuthority
+     */
     public function setIssuer($val)
     {
         $this->_propDict["issuer"] = $val;
         return $this;
     }
     /**
-    * Gets the issuerSki
-    * The subject key identifier of the certificate, calculated from the certificate value. Read-only.
-    *
-    * @return string|null The issuerSki
-    */
+     * Gets the issuerSki
+     * The subject key identifier of the certificate, calculated from the certificate value. Read-only.
+     *
+     * @return string|null The issuerSki
+     */
     public function getIssuerSki()
     {
         if (array_key_exists("issuerSki", $this->_propDict)) {
@@ -185,15 +181,14 @@ class CertificateAuthority extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the issuerSki
-    * The subject key identifier of the certificate, calculated from the certificate value. Read-only.
-    *
-    * @param string $val The value of the issuerSki
-    *
-    * @return CertificateAuthority
-    */
+     * Sets the issuerSki
+     * The subject key identifier of the certificate, calculated from the certificate value. Read-only.
+     *
+     * @param string $val The value of the issuerSki
+     *
+     * @return CertificateAuthority
+     */
     public function setIssuerSki($val)
     {
         $this->_propDict["issuerSki"] = $val;

@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Xml\Property;
 
-namespace Sabre\DAVACL\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * Principal property.
  *
@@ -29,22 +27,18 @@ class Principal extends DAV\Xml\Property\Href
      * To specify a not-logged-in user, use the UNAUTHENTICATED principal.
      */
     const UNAUTHENTICATED = 1;
-
     /**
      * To specify any principal that is logged in, use AUTHENTICATED.
      */
     const AUTHENTICATED = 2;
-
     /**
      * Specific principals can be specified with the HREF.
      */
     const HREF = 3;
-
     /**
      * Everybody, basically.
      */
     const ALL = 4;
-
     /**
      * Principal-type.
      *
@@ -53,7 +47,6 @@ class Principal extends DAV\Xml\Property\Href
      * @var int
      */
     protected $type;
-
     /**
      * Creates the property.
      *
@@ -71,11 +64,10 @@ class Principal extends DAV\Xml\Property\Href
             throw new DAV\Exception('The href argument must be specified for the HREF principal type.');
         }
         if ($href) {
-            $href = rtrim($href, '/').'/';
+            $href = rtrim($href, '/') . '/';
             parent::__construct($href);
         }
     }
-
     /**
      * Returns the principal type.
      *
@@ -85,7 +77,6 @@ class Principal extends DAV\Xml\Property\Href
     {
         return $this->type;
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -119,7 +110,6 @@ class Principal extends DAV\Xml\Property\Href
                 break;
         }
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -145,10 +135,8 @@ class Principal extends DAV\Xml\Property\Href
             case self::ALL:
                 return '<em>all</em>';
         }
-
         return '<em>unknown</em>';
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -172,7 +160,6 @@ class Principal extends DAV\Xml\Property\Href
     public static function xmlDeserialize(Reader $reader)
     {
         $tree = $reader->parseInnerTree()[0];
-
         switch ($tree['name']) {
             case '{DAV:}unauthenticated':
                 return new self(self::UNAUTHENTICATED);
@@ -183,7 +170,7 @@ class Principal extends DAV\Xml\Property\Href
             case '{DAV:}all':
                 return new self(self::ALL);
             default:
-                throw new BadRequest('Unknown or unsupported principal type: '.$tree['name']);
+                throw new BadRequest('Unknown or unsupported principal type: ' . $tree['name']);
         }
     }
 }

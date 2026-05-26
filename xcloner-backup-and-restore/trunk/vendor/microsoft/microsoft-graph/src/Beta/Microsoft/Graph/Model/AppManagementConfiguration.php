@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AppManagementConfiguration class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AppManagementConfiguration extends Entity
 {
-
     /**
-    * Gets the keyCredentials
-    * Collection of keyCredential restrictions settings to be applied to an application or service principal.
-    *
-    * @return KeyCredentialConfiguration|null The keyCredentials
-    */
+     * Gets the keyCredentials
+     * Collection of keyCredential restrictions settings to be applied to an application or service principal.
+     *
+     * @return KeyCredentialConfiguration|null The keyCredentials
+     */
     public function getKeyCredentials()
     {
         if (array_key_exists("keyCredentials", $this->_propDict)) {
-            if (is_a($this->_propDict["keyCredentials"], "\Beta\Microsoft\Graph\Model\KeyCredentialConfiguration") || is_null($this->_propDict["keyCredentials"])) {
+            if (is_a($this->_propDict["keyCredentials"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\KeyCredentialConfiguration") || is_null($this->_propDict["keyCredentials"])) {
                 return $this->_propDict["keyCredentials"];
             } else {
                 $this->_propDict["keyCredentials"] = new KeyCredentialConfiguration($this->_propDict["keyCredentials"]);
@@ -45,31 +46,29 @@ class AppManagementConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the keyCredentials
-    * Collection of keyCredential restrictions settings to be applied to an application or service principal.
-    *
-    * @param KeyCredentialConfiguration $val The value to assign to the keyCredentials
-    *
-    * @return AppManagementConfiguration The AppManagementConfiguration
-    */
+     * Sets the keyCredentials
+     * Collection of keyCredential restrictions settings to be applied to an application or service principal.
+     *
+     * @param KeyCredentialConfiguration $val The value to assign to the keyCredentials
+     *
+     * @return AppManagementConfiguration The AppManagementConfiguration
+     */
     public function setKeyCredentials($val)
     {
         $this->_propDict["keyCredentials"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the passwordCredentials
-    * Collection of password restrictions settings to be applied to an application or service principal.
-    *
-    * @return PasswordCredentialConfiguration|null The passwordCredentials
-    */
+     * Gets the passwordCredentials
+     * Collection of password restrictions settings to be applied to an application or service principal.
+     *
+     * @return PasswordCredentialConfiguration|null The passwordCredentials
+     */
     public function getPasswordCredentials()
     {
         if (array_key_exists("passwordCredentials", $this->_propDict)) {
-            if (is_a($this->_propDict["passwordCredentials"], "\Beta\Microsoft\Graph\Model\PasswordCredentialConfiguration") || is_null($this->_propDict["passwordCredentials"])) {
+            if (is_a($this->_propDict["passwordCredentials"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PasswordCredentialConfiguration") || is_null($this->_propDict["passwordCredentials"])) {
                 return $this->_propDict["passwordCredentials"];
             } else {
                 $this->_propDict["passwordCredentials"] = new PasswordCredentialConfiguration($this->_propDict["passwordCredentials"]);
@@ -78,18 +77,17 @@ class AppManagementConfiguration extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the passwordCredentials
-    * Collection of password restrictions settings to be applied to an application or service principal.
-    *
-    * @param PasswordCredentialConfiguration $val The value to assign to the passwordCredentials
-    *
-    * @return AppManagementConfiguration The AppManagementConfiguration
-    */
+     * Sets the passwordCredentials
+     * Collection of password restrictions settings to be applied to an application or service principal.
+     *
+     * @param PasswordCredentialConfiguration $val The value to assign to the passwordCredentials
+     *
+     * @return AppManagementConfiguration The AppManagementConfiguration
+     */
     public function setPasswordCredentials($val)
     {
         $this->_propDict["passwordCredentials"] = $val;
-         return $this;
+        return $this;
     }
 }

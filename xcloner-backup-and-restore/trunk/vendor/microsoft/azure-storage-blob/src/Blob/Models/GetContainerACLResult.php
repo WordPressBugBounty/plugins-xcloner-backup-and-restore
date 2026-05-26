@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Holds container ACL
  *
@@ -41,9 +40,7 @@ class GetContainerACLResult
 {
     private $containerACL;
     private $lastModified;
-
     private $etag;
-
     /**
      * Parses the given array into signed identifiers
      *
@@ -57,21 +54,15 @@ class GetContainerACLResult
      *
      * @return self
      */
-    public static function create(
-        $publicAccess,
-        $etag,
-        \DateTime $lastModified,
-        array $parsed = null
-    ) {
+    public static function create($publicAccess, $etag, \DateTime $lastModified, array $parsed = null)
+    {
         $result = new GetContainerAclResult();
         $result->setETag($etag);
         $result->setLastModified($lastModified);
         $acl = ContainerACL::create($publicAccess, $parsed);
         $result->setContainerAcl($acl);
-
         return $result;
     }
-
     /**
      * Gets container ACL
      *
@@ -81,7 +72,6 @@ class GetContainerACLResult
     {
         return $this->containerACL;
     }
-
     /**
      * Sets container ACL
      *
@@ -93,7 +83,6 @@ class GetContainerACLResult
     {
         $this->containerACL = $containerACL;
     }
-
     /**
      * Gets container lastModified.
      *
@@ -103,7 +92,6 @@ class GetContainerACLResult
     {
         return $this->lastModified;
     }
-
     /**
      * Sets container lastModified.
      *
@@ -115,7 +103,6 @@ class GetContainerACLResult
     {
         $this->lastModified = $lastModified;
     }
-
     /**
      * Gets container etag.
      *
@@ -125,7 +112,6 @@ class GetContainerACLResult
     {
         return $this->etag;
     }
-
     /**
      * Sets container etag.
      *

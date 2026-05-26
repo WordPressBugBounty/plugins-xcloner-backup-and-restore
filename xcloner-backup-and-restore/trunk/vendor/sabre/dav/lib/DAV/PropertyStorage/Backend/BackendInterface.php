@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\PropertyStorage\Backend;
 
-namespace Sabre\DAV\PropertyStorage\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\PropFind;
-use Sabre\DAV\PropPatch;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\PropFind;
+use XCloner\Sabre\DAV\PropPatch;
 /**
  * Propertystorage backend interface.
  *
@@ -38,7 +36,6 @@ interface BackendInterface
      * @param string $path
      */
     public function propFind($path, PropFind $propFind);
-
     /**
      * Updates properties for a path.
      *
@@ -51,7 +48,6 @@ interface BackendInterface
      * @param string $path
      */
     public function propPatch($path, PropPatch $propPatch);
-
     /**
      * This method is called after a node is deleted.
      *
@@ -63,7 +59,6 @@ interface BackendInterface
      * @param string $path
      */
     public function delete($path);
-
     /**
      * This method is called after a successful MOVE.
      *

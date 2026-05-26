@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerTaskCreation class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PlannerTaskCreation extends Entity
 {
-
     /**
-    * Gets the teamsPublicationInfo
-    * Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
-    *
-    * @return PlannerTeamsPublicationInfo|null The teamsPublicationInfo
-    */
+     * Gets the teamsPublicationInfo
+     * Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
+     *
+     * @return PlannerTeamsPublicationInfo|null The teamsPublicationInfo
+     */
     public function getTeamsPublicationInfo()
     {
         if (array_key_exists("teamsPublicationInfo", $this->_propDict)) {
-            if (is_a($this->_propDict["teamsPublicationInfo"], "\Beta\Microsoft\Graph\Model\PlannerTeamsPublicationInfo") || is_null($this->_propDict["teamsPublicationInfo"])) {
+            if (is_a($this->_propDict["teamsPublicationInfo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PlannerTeamsPublicationInfo") || is_null($this->_propDict["teamsPublicationInfo"])) {
                 return $this->_propDict["teamsPublicationInfo"];
             } else {
                 $this->_propDict["teamsPublicationInfo"] = new PlannerTeamsPublicationInfo($this->_propDict["teamsPublicationInfo"]);
@@ -45,18 +46,17 @@ class PlannerTaskCreation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the teamsPublicationInfo
-    * Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
-    *
-    * @param PlannerTeamsPublicationInfo $val The value to assign to the teamsPublicationInfo
-    *
-    * @return PlannerTaskCreation The PlannerTaskCreation
-    */
+     * Sets the teamsPublicationInfo
+     * Information about the publication process that created this task. null value indicates that the task was not created by a publication process.
+     *
+     * @param PlannerTeamsPublicationInfo $val The value to assign to the teamsPublicationInfo
+     *
+     * @return PlannerTaskCreation The PlannerTaskCreation
+     */
     public function setTeamsPublicationInfo($val)
     {
         $this->_propDict["teamsPublicationInfo"] = $val;
-         return $this;
+        return $this;
     }
 }

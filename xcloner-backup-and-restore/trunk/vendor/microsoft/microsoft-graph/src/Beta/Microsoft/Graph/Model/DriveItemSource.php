@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DriveItemSource class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DriveItemSource extends Entity
 {
-
     /**
-    * Gets the application
-    * Enumeration value that indicates the source application where the file was created.
-    *
-    * @return DriveItemSourceApplication|null The application
-    */
+     * Gets the application
+     * Enumeration value that indicates the source application where the file was created.
+     *
+     * @return DriveItemSourceApplication|null The application
+     */
     public function getApplication()
     {
         if (array_key_exists("application", $this->_propDict)) {
-            if (is_a($this->_propDict["application"], "\Beta\Microsoft\Graph\Model\DriveItemSourceApplication") || is_null($this->_propDict["application"])) {
+            if (is_a($this->_propDict["application"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DriveItemSourceApplication") || is_null($this->_propDict["application"])) {
                 return $this->_propDict["application"];
             } else {
                 $this->_propDict["application"] = new DriveItemSourceApplication($this->_propDict["application"]);
@@ -45,26 +46,25 @@ class DriveItemSource extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the application
-    * Enumeration value that indicates the source application where the file was created.
-    *
-    * @param DriveItemSourceApplication $val The value to assign to the application
-    *
-    * @return DriveItemSource The DriveItemSource
-    */
+     * Sets the application
+     * Enumeration value that indicates the source application where the file was created.
+     *
+     * @param DriveItemSourceApplication $val The value to assign to the application
+     *
+     * @return DriveItemSource The DriveItemSource
+     */
     public function setApplication($val)
     {
         $this->_propDict["application"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the externalId
-    * The external identifier for the drive item from the source.
-    *
-    * @return string|null The externalId
-    */
+     * Gets the externalId
+     * The external identifier for the drive item from the source.
+     *
+     * @return string|null The externalId
+     */
     public function getExternalId()
     {
         if (array_key_exists("externalId", $this->_propDict)) {
@@ -73,15 +73,14 @@ class DriveItemSource extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the externalId
-    * The external identifier for the drive item from the source.
-    *
-    * @param string $val The value of the externalId
-    *
-    * @return DriveItemSource
-    */
+     * Sets the externalId
+     * The external identifier for the drive item from the source.
+     *
+     * @param string $val The value of the externalId
+     *
+     * @return DriveItemSource
+     */
     public function setExternalId($val)
     {
         $this->_propDict["externalId"] = $val;

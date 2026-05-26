@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * LoggedOnUser class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class LoggedOnUser extends Entity
 {
-
     /**
-    * Gets the lastLogOnDateTime
-    * Date time when user logs on
-    *
-    * @return \DateTime|null The lastLogOnDateTime
-    */
+     * Gets the lastLogOnDateTime
+     * Date time when user logs on
+     *
+     * @return \DateTime|null The lastLogOnDateTime
+     */
     public function getLastLogOnDateTime()
     {
         if (array_key_exists("lastLogOnDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastLogOnDateTime"], "\DateTime") || is_null($this->_propDict["lastLogOnDateTime"])) {
+            if (is_a($this->_propDict["lastLogOnDateTime"], "\\DateTime") || is_null($this->_propDict["lastLogOnDateTime"])) {
                 return $this->_propDict["lastLogOnDateTime"];
             } else {
                 $this->_propDict["lastLogOnDateTime"] = new \DateTime($this->_propDict["lastLogOnDateTime"]);
@@ -45,26 +46,25 @@ class LoggedOnUser extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastLogOnDateTime
-    * Date time when user logs on
-    *
-    * @param \DateTime $val The value to assign to the lastLogOnDateTime
-    *
-    * @return LoggedOnUser The LoggedOnUser
-    */
+     * Sets the lastLogOnDateTime
+     * Date time when user logs on
+     *
+     * @param \DateTime $val The value to assign to the lastLogOnDateTime
+     *
+     * @return LoggedOnUser The LoggedOnUser
+     */
     public function setLastLogOnDateTime($val)
     {
         $this->_propDict["lastLogOnDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the userId
-    * User id
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * User id
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -73,15 +73,14 @@ class LoggedOnUser extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * User id
-    *
-    * @param string $val The value of the userId
-    *
-    * @return LoggedOnUser
-    */
+     * Sets the userId
+     * User id
+     *
+     * @param string $val The value of the userId
+     *
+     * @return LoggedOnUser
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;

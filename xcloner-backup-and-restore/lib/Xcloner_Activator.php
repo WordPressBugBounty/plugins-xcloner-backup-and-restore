@@ -25,7 +25,12 @@ class Xcloner_Activator
     {
         global $wpdb;
         if (version_compare(phpversion(), Xcloner_Activator::xcloner_minimum_version, '<')) {
-            wp_die('<p>' . sprintf(__("XCloner requires minimum PHP version %s in order to run correctly. We have detected your version as %s"), Xcloner_Activator::xcloner_minimum_version, phpversion()) . '</p>', __("XCloner Activation Error"), array('response' => 500, 'back_link' => \true));
+            /* translators: %1$s is a value, %2$s is a value */
+            wp_die('<p>' . sprintf(__('XCloner requires minimum PHP version %1$s in order to run correctly. We have detected your version as %2$s', 'xcloner-backup-and-restore'), Xcloner_Activator::xcloner_minimum_version, phpversion()) . '</p>', __("XCloner Activation Error", 'xcloner-backup-and-restore'), array(
+                'response' => 500,
+                // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped, WordPress.WP.I18n.InterpolatedVariableText
+                'back_link' => \true,
+            ));
         }
         $charset_collate = $wpdb->get_charset_collate();
         $installed_ver = get_option("xcloner_db_version");

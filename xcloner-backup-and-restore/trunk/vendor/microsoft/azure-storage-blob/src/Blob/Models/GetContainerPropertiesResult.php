@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\MetadataTrait;
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\MetadataTrait;
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Holds result of getContainerProperties and getContainerMetadata
  *
@@ -45,12 +43,10 @@ use MicrosoftAzure\Storage\Common\Internal\Validate;
 class GetContainerPropertiesResult
 {
     use MetadataTrait;
-
     private $leaseStatus;
     private $leaseState;
     private $leaseDuration;
     private $publicAccess;
-
     /**
      * Gets blob leaseStatus.
      *
@@ -60,7 +56,6 @@ class GetContainerPropertiesResult
     {
         return $this->leaseStatus;
     }
-
     /**
      * Sets blob leaseStatus.
      *
@@ -72,7 +67,6 @@ class GetContainerPropertiesResult
     {
         $this->leaseStatus = $leaseStatus;
     }
-
     /**
      * Gets blob lease state.
      *
@@ -82,7 +76,6 @@ class GetContainerPropertiesResult
     {
         return $this->leaseState;
     }
-
     /**
      * Sets blob lease state.
      *
@@ -94,7 +87,6 @@ class GetContainerPropertiesResult
     {
         $this->leaseState = $leaseState;
     }
-
     /**
      * Gets blob lease duration.
      *
@@ -104,7 +96,6 @@ class GetContainerPropertiesResult
     {
         return $this->leaseDuration;
     }
-
     /**
      * Sets blob leaseStatus.
      *
@@ -116,7 +107,6 @@ class GetContainerPropertiesResult
     {
         $this->leaseDuration = $leaseDuration;
     }
-
     /**
      * Gets container publicAccess.
      *
@@ -126,7 +116,6 @@ class GetContainerPropertiesResult
     {
         return $this->publicAccess;
     }
-
     /**
      * Sets container publicAccess.
      *
@@ -136,13 +125,9 @@ class GetContainerPropertiesResult
      */
     public function setPublicAccess($publicAccess)
     {
-        Validate::isTrue(
-            PublicAccessType::isValid($publicAccess),
-            Resources::INVALID_BLOB_PAT_MSG
-        );
+        Validate::isTrue(PublicAccessType::isValid($publicAccess), Resources::INVALID_BLOB_PAT_MSG);
         $this->publicAccess = $publicAccess;
     }
-
     /**
      * Create an instance using the response headers from the API call.
      *
@@ -154,25 +139,11 @@ class GetContainerPropertiesResult
      */
     public static function create(array $responseHeaders)
     {
-        $result   = static::createMetadataResult($responseHeaders);
-
-        $result->setLeaseStatus(Utilities::tryGetValueInsensitive(
-            Resources::X_MS_LEASE_STATUS,
-            $responseHeaders
-        ));
-        $result->setLeaseState(Utilities::tryGetValueInsensitive(
-            Resources::X_MS_LEASE_STATE,
-            $responseHeaders
-        ));
-        $result->setLeaseDuration(Utilities::tryGetValueInsensitive(
-            Resources::X_MS_LEASE_DURATION,
-            $responseHeaders
-        ));
-        $result->setPublicAccess(Utilities::tryGetValueInsensitive(
-            Resources::X_MS_BLOB_PUBLIC_ACCESS,
-            $responseHeaders
-        ));
-
+        $result = static::createMetadataResult($responseHeaders);
+        $result->setLeaseStatus(Utilities::tryGetValueInsensitive(Resources::X_MS_LEASE_STATUS, $responseHeaders));
+        $result->setLeaseState(Utilities::tryGetValueInsensitive(Resources::X_MS_LEASE_STATE, $responseHeaders));
+        $result->setLeaseDuration(Utilities::tryGetValueInsensitive(Resources::X_MS_LEASE_DURATION, $responseHeaders));
+        $result->setPublicAccess(Utilities::tryGetValueInsensitive(Resources::X_MS_BLOB_PUBLIC_ACCESS, $responseHeaders));
         return $result;
     }
 }

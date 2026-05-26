@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PowerliftDownloadRequest class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PowerliftDownloadRequest extends Entity
 {
     /**
-    * Gets the files
-    * The list of files to download
-    *
-    * @return string|null The files
-    */
+     * Gets the files
+     * The list of files to download
+     *
+     * @return string|null The files
+     */
     public function getFiles()
     {
         if (array_key_exists("files", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PowerliftDownloadRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the files
-    * The list of files to download
-    *
-    * @param string $val The value of the files
-    *
-    * @return PowerliftDownloadRequest
-    */
+     * Sets the files
+     * The list of files to download
+     *
+     * @param string $val The value of the files
+     *
+     * @return PowerliftDownloadRequest
+     */
     public function setFiles($val)
     {
         $this->_propDict["files"] = $val;
         return $this;
     }
     /**
-    * Gets the powerliftId
-    * The unique id for the request
-    *
-    * @return string|null The powerliftId
-    */
+     * Gets the powerliftId
+     * The unique id for the request
+     *
+     * @return string|null The powerliftId
+     */
     public function getPowerliftId()
     {
         if (array_key_exists("powerliftId", $this->_propDict)) {
@@ -68,15 +69,14 @@ class PowerliftDownloadRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the powerliftId
-    * The unique id for the request
-    *
-    * @param string $val The value of the powerliftId
-    *
-    * @return PowerliftDownloadRequest
-    */
+     * Sets the powerliftId
+     * The unique id for the request
+     *
+     * @param string $val The value of the powerliftId
+     *
+     * @return PowerliftDownloadRequest
+     */
     public function setPowerliftId($val)
     {
         $this->_propDict["powerliftId"] = $val;

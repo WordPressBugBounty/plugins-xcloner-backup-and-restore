@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MembershipRuleEvaluationDetails class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class MembershipRuleEvaluationDetails extends Entity
 {
-
     /**
-    * Gets the membershipRuleEvaluationDetails
-    *
-    * @return ExpressionEvaluationDetails|null The membershipRuleEvaluationDetails
-    */
+     * Gets the membershipRuleEvaluationDetails
+     *
+     * @return ExpressionEvaluationDetails|null The membershipRuleEvaluationDetails
+     */
     public function getMembershipRuleEvaluationDetails()
     {
         if (array_key_exists("membershipRuleEvaluationDetails", $this->_propDict)) {
-            if (is_a($this->_propDict["membershipRuleEvaluationDetails"], "\Beta\Microsoft\Graph\Model\ExpressionEvaluationDetails") || is_null($this->_propDict["membershipRuleEvaluationDetails"])) {
+            if (is_a($this->_propDict["membershipRuleEvaluationDetails"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ExpressionEvaluationDetails") || is_null($this->_propDict["membershipRuleEvaluationDetails"])) {
                 return $this->_propDict["membershipRuleEvaluationDetails"];
             } else {
                 $this->_propDict["membershipRuleEvaluationDetails"] = new ExpressionEvaluationDetails($this->_propDict["membershipRuleEvaluationDetails"]);
@@ -44,17 +45,16 @@ class MembershipRuleEvaluationDetails extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the membershipRuleEvaluationDetails
-    *
-    * @param ExpressionEvaluationDetails $val The value to assign to the membershipRuleEvaluationDetails
-    *
-    * @return MembershipRuleEvaluationDetails The MembershipRuleEvaluationDetails
-    */
+     * Sets the membershipRuleEvaluationDetails
+     *
+     * @param ExpressionEvaluationDetails $val The value to assign to the membershipRuleEvaluationDetails
+     *
+     * @return MembershipRuleEvaluationDetails The MembershipRuleEvaluationDetails
+     */
     public function setMembershipRuleEvaluationDetails($val)
     {
         $this->_propDict["membershipRuleEvaluationDetails"] = $val;
-         return $this;
+        return $this;
     }
 }

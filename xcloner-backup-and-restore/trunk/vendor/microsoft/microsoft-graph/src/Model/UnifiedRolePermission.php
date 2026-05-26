@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UnifiedRolePermission class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UnifiedRolePermission extends Entity
 {
     /**
-    * Gets the allowedResourceActions
-    * Set of tasks that can be performed on a resource. Required.
-    *
-    * @return string|null The allowedResourceActions
-    */
+     * Gets the allowedResourceActions
+     * Set of tasks that can be performed on a resource. Required.
+     *
+     * @return string|null The allowedResourceActions
+     */
     public function getAllowedResourceActions()
     {
         if (array_key_exists("allowedResourceActions", $this->_propDict)) {
@@ -40,26 +42,25 @@ class UnifiedRolePermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowedResourceActions
-    * Set of tasks that can be performed on a resource. Required.
-    *
-    * @param string $val The value of the allowedResourceActions
-    *
-    * @return UnifiedRolePermission
-    */
+     * Sets the allowedResourceActions
+     * Set of tasks that can be performed on a resource. Required.
+     *
+     * @param string $val The value of the allowedResourceActions
+     *
+     * @return UnifiedRolePermission
+     */
     public function setAllowedResourceActions($val)
     {
         $this->_propDict["allowedResourceActions"] = $val;
         return $this;
     }
     /**
-    * Gets the condition
-    * Optional constraints that must be met for the permission to be effective.
-    *
-    * @return string|null The condition
-    */
+     * Gets the condition
+     * Optional constraints that must be met for the permission to be effective.
+     *
+     * @return string|null The condition
+     */
     public function getCondition()
     {
         if (array_key_exists("condition", $this->_propDict)) {
@@ -68,26 +69,25 @@ class UnifiedRolePermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the condition
-    * Optional constraints that must be met for the permission to be effective.
-    *
-    * @param string $val The value of the condition
-    *
-    * @return UnifiedRolePermission
-    */
+     * Sets the condition
+     * Optional constraints that must be met for the permission to be effective.
+     *
+     * @param string $val The value of the condition
+     *
+     * @return UnifiedRolePermission
+     */
     public function setCondition($val)
     {
         $this->_propDict["condition"] = $val;
         return $this;
     }
     /**
-    * Gets the excludedResourceActions
-    * Set of tasks that may not be performed on a resource. Not yet supported.
-    *
-    * @return string|null The excludedResourceActions
-    */
+     * Gets the excludedResourceActions
+     * Set of tasks that may not be performed on a resource. Not yet supported.
+     *
+     * @return string|null The excludedResourceActions
+     */
     public function getExcludedResourceActions()
     {
         if (array_key_exists("excludedResourceActions", $this->_propDict)) {
@@ -96,15 +96,14 @@ class UnifiedRolePermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the excludedResourceActions
-    * Set of tasks that may not be performed on a resource. Not yet supported.
-    *
-    * @param string $val The value of the excludedResourceActions
-    *
-    * @return UnifiedRolePermission
-    */
+     * Sets the excludedResourceActions
+     * Set of tasks that may not be performed on a resource. Not yet supported.
+     *
+     * @param string $val The value of the excludedResourceActions
+     *
+     * @return UnifiedRolePermission
+     */
     public function setExcludedResourceActions($val)
     {
         $this->_propDict["excludedResourceActions"] = $val;

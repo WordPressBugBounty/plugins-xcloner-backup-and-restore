@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AdminConsent class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AdminConsent extends Entity
 {
-
     /**
-    * Gets the shareAPNSData
-    * The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
-    *
-    * @return AdminConsentState|null The shareAPNSData
-    */
+     * Gets the shareAPNSData
+     * The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
+     *
+     * @return AdminConsentState|null The shareAPNSData
+     */
     public function getShareAPNSData()
     {
         if (array_key_exists("shareAPNSData", $this->_propDict)) {
-            if (is_a($this->_propDict["shareAPNSData"], "\Beta\Microsoft\Graph\Model\AdminConsentState") || is_null($this->_propDict["shareAPNSData"])) {
+            if (is_a($this->_propDict["shareAPNSData"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AdminConsentState") || is_null($this->_propDict["shareAPNSData"])) {
                 return $this->_propDict["shareAPNSData"];
             } else {
                 $this->_propDict["shareAPNSData"] = new AdminConsentState($this->_propDict["shareAPNSData"]);
@@ -45,31 +46,29 @@ class AdminConsent extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the shareAPNSData
-    * The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
-    *
-    * @param AdminConsentState $val The value to assign to the shareAPNSData
-    *
-    * @return AdminConsent The AdminConsent
-    */
+     * Sets the shareAPNSData
+     * The admin consent state of sharing user and device data to Apple. Possible values are: notConfigured, granted, notGranted.
+     *
+     * @param AdminConsentState $val The value to assign to the shareAPNSData
+     *
+     * @return AdminConsent The AdminConsent
+     */
     public function setShareAPNSData($val)
     {
         $this->_propDict["shareAPNSData"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the shareUserExperienceAnalyticsData
-    * Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
-    *
-    * @return AdminConsentState|null The shareUserExperienceAnalyticsData
-    */
+     * Gets the shareUserExperienceAnalyticsData
+     * Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
+     *
+     * @return AdminConsentState|null The shareUserExperienceAnalyticsData
+     */
     public function getShareUserExperienceAnalyticsData()
     {
         if (array_key_exists("shareUserExperienceAnalyticsData", $this->_propDict)) {
-            if (is_a($this->_propDict["shareUserExperienceAnalyticsData"], "\Beta\Microsoft\Graph\Model\AdminConsentState") || is_null($this->_propDict["shareUserExperienceAnalyticsData"])) {
+            if (is_a($this->_propDict["shareUserExperienceAnalyticsData"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AdminConsentState") || is_null($this->_propDict["shareUserExperienceAnalyticsData"])) {
                 return $this->_propDict["shareUserExperienceAnalyticsData"];
             } else {
                 $this->_propDict["shareUserExperienceAnalyticsData"] = new AdminConsentState($this->_propDict["shareUserExperienceAnalyticsData"]);
@@ -78,18 +77,17 @@ class AdminConsent extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the shareUserExperienceAnalyticsData
-    * Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
-    *
-    * @param AdminConsentState $val The value to assign to the shareUserExperienceAnalyticsData
-    *
-    * @return AdminConsent The AdminConsent
-    */
+     * Sets the shareUserExperienceAnalyticsData
+     * Gets or sets the admin consent for sharing User experience analytics data. Possible values are: notConfigured, granted, notGranted.
+     *
+     * @param AdminConsentState $val The value to assign to the shareUserExperienceAnalyticsData
+     *
+     * @return AdminConsent The AdminConsent
+     */
     public function setShareUserExperienceAnalyticsData($val)
     {
         $this->_propDict["shareUserExperienceAnalyticsData"] = $val;
-         return $this;
+        return $this;
     }
 }

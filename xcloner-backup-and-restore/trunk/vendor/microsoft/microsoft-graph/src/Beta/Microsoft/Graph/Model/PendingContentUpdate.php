@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PendingContentUpdate class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PendingContentUpdate extends Entity
 {
-
     /**
-    * Gets the queuedDateTime
-    * Date and time the pending binary operation was queued in UTC time. Read-only.
-    *
-    * @return \DateTime|null The queuedDateTime
-    */
+     * Gets the queuedDateTime
+     * Date and time the pending binary operation was queued in UTC time. Read-only.
+     *
+     * @return \DateTime|null The queuedDateTime
+     */
     public function getQueuedDateTime()
     {
         if (array_key_exists("queuedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["queuedDateTime"], "\DateTime") || is_null($this->_propDict["queuedDateTime"])) {
+            if (is_a($this->_propDict["queuedDateTime"], "\\DateTime") || is_null($this->_propDict["queuedDateTime"])) {
                 return $this->_propDict["queuedDateTime"];
             } else {
                 $this->_propDict["queuedDateTime"] = new \DateTime($this->_propDict["queuedDateTime"]);
@@ -45,18 +46,17 @@ class PendingContentUpdate extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the queuedDateTime
-    * Date and time the pending binary operation was queued in UTC time. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the queuedDateTime
-    *
-    * @return PendingContentUpdate The PendingContentUpdate
-    */
+     * Sets the queuedDateTime
+     * Date and time the pending binary operation was queued in UTC time. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the queuedDateTime
+     *
+     * @return PendingContentUpdate The PendingContentUpdate
+     */
     public function setQueuedDateTime($val)
     {
         $this->_propDict["queuedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

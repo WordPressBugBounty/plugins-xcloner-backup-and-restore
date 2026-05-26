@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceHealthScriptRunOnceSchedule class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule
 {
-
     /**
-    * Gets the date
-    * The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
-    *
-    * @return \DateTime|null The date
-    */
+     * Gets the date
+     * The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
+     *
+     * @return \DateTime|null The date
+     */
     public function getDate()
     {
         if (array_key_exists("date", $this->_propDict)) {
-            if (is_a($this->_propDict["date"], "\DateTime") || is_null($this->_propDict["date"])) {
+            if (is_a($this->_propDict["date"], "\\DateTime") || is_null($this->_propDict["date"])) {
                 return $this->_propDict["date"];
             } else {
                 $this->_propDict["date"] = new \DateTime($this->_propDict["date"]);
@@ -45,18 +46,17 @@ class DeviceHealthScriptRunOnceSchedule extends DeviceHealthScriptTimeSchedule
         }
         return null;
     }
-
     /**
-    * Sets the date
-    * The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
-    *
-    * @param \DateTime $val The value to assign to the date
-    *
-    * @return DeviceHealthScriptRunOnceSchedule The DeviceHealthScriptRunOnceSchedule
-    */
+     * Sets the date
+     * The date the script is scheduled to run. This collection can contain a maximum of 20 elements.
+     *
+     * @param \DateTime $val The value to assign to the date
+     *
+     * @return DeviceHealthScriptRunOnceSchedule The DeviceHealthScriptRunOnceSchedule
+     */
     public function setDate($val)
     {
         $this->_propDict["date"] = $val;
-         return $this;
+        return $this;
     }
 }

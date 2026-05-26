@@ -1,12 +1,12 @@
 <?php
-namespace Aws\Signature;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Signature;
 
-
-use Aws\Credentials\CredentialsInterface;
-use Psr\Http\Message\RequestInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Aws\Credentials\CredentialsInterface;
+use XCloner\Psr\Http\Message\RequestInterface;
 /**
  * Interface used to provide interchangeable strategies for signing requests
  * using the various AWS signature protocols.
@@ -23,11 +23,7 @@ interface SignatureInterface
      *
      * @return RequestInterface Returns the modified request.
      */
-    public function signRequest(
-        RequestInterface $request,
-        CredentialsInterface $credentials
-    );
-
+    public function signRequest(RequestInterface $request, CredentialsInterface $credentials);
     /**
      * Create a pre-signed request.
      *
@@ -39,10 +35,5 @@ interface SignatureInterface
      *
      * @return RequestInterface
      */
-    public function presign(
-        RequestInterface $request,
-        CredentialsInterface $credentials,
-        $expires,
-        array $options = []
-    );
+    public function presign(RequestInterface $request, CredentialsInterface $credentials, $expires, array $options = []);
 }

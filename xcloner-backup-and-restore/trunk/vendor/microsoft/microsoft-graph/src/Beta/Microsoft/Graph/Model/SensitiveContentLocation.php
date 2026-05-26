@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SensitiveContentLocation class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SensitiveContentLocation extends Entity
 {
     /**
-    * Gets the confidence
-    *
-    * @return int|null The confidence
-    */
+     * Gets the confidence
+     *
+     * @return int|null The confidence
+     */
     public function getConfidence()
     {
         if (array_key_exists("confidence", $this->_propDict)) {
@@ -39,29 +41,27 @@ class SensitiveContentLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the confidence
-    *
-    * @param int $val The value of the confidence
-    *
-    * @return SensitiveContentLocation
-    */
+     * Sets the confidence
+     *
+     * @param int $val The value of the confidence
+     *
+     * @return SensitiveContentLocation
+     */
     public function setConfidence($val)
     {
         $this->_propDict["confidence"] = $val;
         return $this;
     }
-
     /**
-    * Gets the evidences
-    *
-    * @return SensitiveContentEvidence|null The evidences
-    */
+     * Gets the evidences
+     *
+     * @return SensitiveContentEvidence|null The evidences
+     */
     public function getEvidences()
     {
         if (array_key_exists("evidences", $this->_propDict)) {
-            if (is_a($this->_propDict["evidences"], "\Beta\Microsoft\Graph\Model\SensitiveContentEvidence") || is_null($this->_propDict["evidences"])) {
+            if (is_a($this->_propDict["evidences"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SensitiveContentEvidence") || is_null($this->_propDict["evidences"])) {
                 return $this->_propDict["evidences"];
             } else {
                 $this->_propDict["evidences"] = new SensitiveContentEvidence($this->_propDict["evidences"]);
@@ -70,24 +70,23 @@ class SensitiveContentLocation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the evidences
-    *
-    * @param SensitiveContentEvidence $val The value to assign to the evidences
-    *
-    * @return SensitiveContentLocation The SensitiveContentLocation
-    */
+     * Sets the evidences
+     *
+     * @param SensitiveContentEvidence $val The value to assign to the evidences
+     *
+     * @return SensitiveContentLocation The SensitiveContentLocation
+     */
     public function setEvidences($val)
     {
         $this->_propDict["evidences"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the idMatch
-    *
-    * @return string|null The idMatch
-    */
+     * Gets the idMatch
+     *
+     * @return string|null The idMatch
+     */
     public function getIdMatch()
     {
         if (array_key_exists("idMatch", $this->_propDict)) {
@@ -96,24 +95,23 @@ class SensitiveContentLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the idMatch
-    *
-    * @param string $val The value of the idMatch
-    *
-    * @return SensitiveContentLocation
-    */
+     * Sets the idMatch
+     *
+     * @param string $val The value of the idMatch
+     *
+     * @return SensitiveContentLocation
+     */
     public function setIdMatch($val)
     {
         $this->_propDict["idMatch"] = $val;
         return $this;
     }
     /**
-    * Gets the length
-    *
-    * @return int|null The length
-    */
+     * Gets the length
+     *
+     * @return int|null The length
+     */
     public function getLength()
     {
         if (array_key_exists("length", $this->_propDict)) {
@@ -122,24 +120,23 @@ class SensitiveContentLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the length
-    *
-    * @param int $val The value of the length
-    *
-    * @return SensitiveContentLocation
-    */
+     * Sets the length
+     *
+     * @param int $val The value of the length
+     *
+     * @return SensitiveContentLocation
+     */
     public function setLength($val)
     {
         $this->_propDict["length"] = $val;
         return $this;
     }
     /**
-    * Gets the offset
-    *
-    * @return int|null The offset
-    */
+     * Gets the offset
+     *
+     * @return int|null The offset
+     */
     public function getOffset()
     {
         if (array_key_exists("offset", $this->_propDict)) {
@@ -148,14 +145,13 @@ class SensitiveContentLocation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the offset
-    *
-    * @param int $val The value of the offset
-    *
-    * @return SensitiveContentLocation
-    */
+     * Sets the offset
+     *
+     * @param int $val The value of the offset
+     *
+     * @return SensitiveContentLocation
+     */
     public function setOffset($val)
     {
         $this->_propDict["offset"] = $val;

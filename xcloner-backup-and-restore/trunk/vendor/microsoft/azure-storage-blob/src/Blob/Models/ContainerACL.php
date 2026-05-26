@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\ACLBase;
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\ACLBase;
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
 /**
  * Holds container ACL members.
  *
@@ -44,7 +42,6 @@ use MicrosoftAzure\Storage\Common\Internal\Validate;
 class ContainerACL extends ACLBase
 {
     private $publicAccess;
-
     /**
      * Constructor.
      */
@@ -53,7 +50,6 @@ class ContainerACL extends ACLBase
         //setting the resource type to a default value.
         $this->setResourceType(Resources::RESOURCE_TYPE_CONTAINER);
     }
-
     /**
      * Parses the given array into signed identifiers and create an instance of
      * ContainerACL
@@ -67,17 +63,12 @@ class ContainerACL extends ACLBase
      */
     public static function create($publicAccess, array $parsed = null)
     {
-        Validate::isTrue(
-            PublicAccessType::isValid($publicAccess),
-            Resources::INVALID_BLOB_PAT_MSG
-        );
+        Validate::isTrue(PublicAccessType::isValid($publicAccess), Resources::INVALID_BLOB_PAT_MSG);
         $result = new ContainerACL();
         $result->fromXmlArray($parsed);
         $result->setPublicAccess($publicAccess);
-
         return $result;
     }
-
     /**
      * Gets container publicAccess.
      *
@@ -87,7 +78,6 @@ class ContainerACL extends ACLBase
     {
         return $this->publicAccess;
     }
-
     /**
      * Sets container publicAccess.
      *
@@ -97,16 +87,10 @@ class ContainerACL extends ACLBase
      */
     public function setPublicAccess($publicAccess)
     {
-        Validate::isTrue(
-            PublicAccessType::isValid($publicAccess),
-            Resources::INVALID_BLOB_PAT_MSG
-        );
+        Validate::isTrue(PublicAccessType::isValid($publicAccess), Resources::INVALID_BLOB_PAT_MSG);
         $this->publicAccess = $publicAccess;
-        $this->setResourceType(
-            self::getResourceTypeByPublicAccess($publicAccess)
-        );
+        $this->setResourceType(self::getResourceTypeByPublicAccess($publicAccess));
     }
-
     /**
      * Gets the resource type according to the given public access. Default
      * value is Resources::RESOURCE_TYPE_CONTAINER.
@@ -119,7 +103,6 @@ class ContainerACL extends ACLBase
     private static function getResourceTypeByPublicAccess($publicAccess)
     {
         $result = '';
-
         switch ($publicAccess) {
             case PublicAccessType::BLOBS_ONLY:
                 $result = Resources::RESOURCE_TYPE_BLOB;
@@ -131,10 +114,8 @@ class ContainerACL extends ACLBase
                 $result = Resources::RESOURCE_TYPE_CONTAINER;
                 break;
         }
-
         return $result;
     }
-
     /**
      * Validate if the resource type is for the class.
      *
@@ -148,13 +129,8 @@ class ContainerACL extends ACLBase
      */
     protected static function validateResourceType($resourceType)
     {
-        Validate::isTrue(
-            $resourceType == Resources::RESOURCE_TYPE_BLOB ||
-            $resourceType == Resources::RESOURCE_TYPE_CONTAINER,
-            Resources::INVALID_RESOURCE_TYPE
-        );
+        Validate::isTrue($resourceType == Resources::RESOURCE_TYPE_BLOB || $resourceType == Resources::RESOURCE_TYPE_CONTAINER, Resources::INVALID_RESOURCE_TYPE);
     }
-
     /**
      * Create a ContainerAccessPolicy object.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,69 +15,66 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class RevisionList extends \Google\Collection
-{
-  protected $collection_key = 'revisions';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $nextPageToken;
-  protected $revisionsType = Revision::class;
-  protected $revisionsDataType = 'array';
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  /**
-   * @param Revision[]
-   */
-  public function setRevisions($revisions)
-  {
-    $this->revisions = $revisions;
-  }
-  /**
-   * @return Revision[]
-   */
-  public function getRevisions()
-  {
-    return $this->revisions;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class RevisionList extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'revisions';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $nextPageToken;
+    protected $revisionsType = Revision::class;
+    protected $revisionsDataType = 'array';
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+    /**
+     * @param Revision[]
+     */
+    public function setRevisions($revisions)
+    {
+        $this->revisions = $revisions;
+    }
+    /**
+     * @return Revision[]
+     */
+    public function getRevisions()
+    {
+        return $this->revisions;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(RevisionList::class, 'Google_Service_Drive_RevisionList');
+class_alias(RevisionList::class, 'XCloner\Google_Service_Drive_RevisionList');

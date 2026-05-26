@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsWindows10DevicesSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsWindows10DevicesSummary extends Entity
 {
     /**
-    * Gets the unsupportedOSversionDeviceCount
-    * The count of Windows 10 devices that have unsupported OS versions.
-    *
-    * @return int|null The unsupportedOSversionDeviceCount
-    */
+     * Gets the unsupportedOSversionDeviceCount
+     * The count of Windows 10 devices that have unsupported OS versions.
+     *
+     * @return int|null The unsupportedOSversionDeviceCount
+     */
     public function getUnsupportedOSversionDeviceCount()
     {
         if (array_key_exists("unsupportedOSversionDeviceCount", $this->_propDict)) {
@@ -40,15 +42,14 @@ class UserExperienceAnalyticsWindows10DevicesSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the unsupportedOSversionDeviceCount
-    * The count of Windows 10 devices that have unsupported OS versions.
-    *
-    * @param int $val The value of the unsupportedOSversionDeviceCount
-    *
-    * @return UserExperienceAnalyticsWindows10DevicesSummary
-    */
+     * Sets the unsupportedOSversionDeviceCount
+     * The count of Windows 10 devices that have unsupported OS versions.
+     *
+     * @param int $val The value of the unsupportedOSversionDeviceCount
+     *
+     * @return UserExperienceAnalyticsWindows10DevicesSummary
+     */
     public function setUnsupportedOSversionDeviceCount($val)
     {
         $this->_propDict["unsupportedOSversionDeviceCount"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Ediscovery\Model;
+namespace XCloner\Beta\Microsoft\Graph\Ediscovery\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserSource class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserSource extends DataSource
 {
     /**
-    * Gets the email
-    * Email address of the user's mailbox.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * Email address of the user's mailbox.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -41,31 +42,29 @@ class UserSource extends DataSource
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * Email address of the user's mailbox.
-    *
-    * @param string $val The email
-    *
-    * @return UserSource
-    */
+     * Sets the email
+     * Email address of the user's mailbox.
+     *
+     * @param string $val The email
+     *
+     * @return UserSource
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
-
     /**
-    * Gets the includedSources
-    * Specifies which sources are included in this group. Possible values are: mailbox, site.
-    *
-    * @return SourceType|null The includedSources
-    */
+     * Gets the includedSources
+     * Specifies which sources are included in this group. Possible values are: mailbox, site.
+     *
+     * @return SourceType|null The includedSources
+     */
     public function getIncludedSources()
     {
         if (array_key_exists("includedSources", $this->_propDict)) {
-            if (is_a($this->_propDict["includedSources"], "\Beta\Microsoft\Graph\Ediscovery\Model\SourceType") || is_null($this->_propDict["includedSources"])) {
+            if (is_a($this->_propDict["includedSources"], "XCloner\\Beta\\Microsoft\\Graph\\Ediscovery\\Model\\SourceType") || is_null($this->_propDict["includedSources"])) {
                 return $this->_propDict["includedSources"];
             } else {
                 $this->_propDict["includedSources"] = new SourceType($this->_propDict["includedSources"]);
@@ -74,27 +73,25 @@ class UserSource extends DataSource
         }
         return null;
     }
-
     /**
-    * Sets the includedSources
-    * Specifies which sources are included in this group. Possible values are: mailbox, site.
-    *
-    * @param SourceType $val The includedSources
-    *
-    * @return UserSource
-    */
+     * Sets the includedSources
+     * Specifies which sources are included in this group. Possible values are: mailbox, site.
+     *
+     * @param SourceType $val The includedSources
+     *
+     * @return UserSource
+     */
     public function setIncludedSources($val)
     {
         $this->_propDict["includedSources"] = $val;
         return $this;
     }
-
     /**
-    * Gets the siteWebUrl
-    * The URL of the user's OneDrive for Business site. Read-only.
-    *
-    * @return string|null The siteWebUrl
-    */
+     * Gets the siteWebUrl
+     * The URL of the user's OneDrive for Business site. Read-only.
+     *
+     * @return string|null The siteWebUrl
+     */
     public function getSiteWebUrl()
     {
         if (array_key_exists("siteWebUrl", $this->_propDict)) {
@@ -103,19 +100,17 @@ class UserSource extends DataSource
             return null;
         }
     }
-
     /**
-    * Sets the siteWebUrl
-    * The URL of the user's OneDrive for Business site. Read-only.
-    *
-    * @param string $val The siteWebUrl
-    *
-    * @return UserSource
-    */
+     * Sets the siteWebUrl
+     * The URL of the user's OneDrive for Business site. Read-only.
+     *
+     * @param string $val The siteWebUrl
+     *
+     * @return UserSource
+     */
     public function setSiteWebUrl($val)
     {
         $this->_propDict["siteWebUrl"] = $val;
         return $this;
     }
-
 }

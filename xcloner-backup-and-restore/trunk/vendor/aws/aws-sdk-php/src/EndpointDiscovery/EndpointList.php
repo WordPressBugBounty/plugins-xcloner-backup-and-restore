@@ -1,20 +1,19 @@
 <?php
-namespace Aws\EndpointDiscovery;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\EndpointDiscovery;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 class EndpointList
 {
     private $active;
     private $expired = [];
-
     public function __construct(array $endpoints)
     {
         $this->active = $endpoints;
         reset($this->active);
     }
-
     /**
      * Gets an active (unexpired) endpoint. Returns null if none found.
      *
@@ -38,7 +37,6 @@ class EndpointList
         $this->increment($this->active);
         return $active;
     }
-
     /**
      * Gets an active endpoint if possible, then an expired endpoint if possible.
      * Returns null if no endpoints found.
@@ -52,7 +50,6 @@ class EndpointList
         }
         return $this->getExpired();
     }
-
     /**
      * Removes an endpoint from both lists.
      *
@@ -63,7 +60,6 @@ class EndpointList
         unset($this->active[$key]);
         unset($this->expired[$key]);
     }
-
     /**
      * Get an expired endpoint. Returns null if none found.
      *
@@ -78,10 +74,9 @@ class EndpointList
         $this->increment($this->expired);
         return $expired;
     }
-
     private function increment(&$array)
     {
-        if (next($array) === false) {
+        if (next($array) === \false) {
             reset($array);
         }
     }

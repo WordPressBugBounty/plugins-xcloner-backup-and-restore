@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL;
 
-namespace Sabre\DAVACL;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * IPrincipal interface.
  *
@@ -28,14 +26,12 @@ interface IPrincipal extends DAV\INode
      * @return array
      */
     public function getAlternateUriSet();
-
     /**
      * Returns the full principal url.
      *
      * @return string
      */
     public function getPrincipalUrl();
-
     /**
      * Returns the list of group members.
      *
@@ -45,7 +41,6 @@ interface IPrincipal extends DAV\INode
      * @return array
      */
     public function getGroupMemberSet();
-
     /**
      * Returns the list of groups this principal is member of.
      *
@@ -55,7 +50,6 @@ interface IPrincipal extends DAV\INode
      * @return array
      */
     public function getGroupMembership();
-
     /**
      * Sets a list of group members.
      *
@@ -65,7 +59,6 @@ interface IPrincipal extends DAV\INode
      * This method should throw an exception if the members could not be set.
      */
     public function setGroupMemberSet(array $principals);
-
     /**
      * Returns the displayname.
      *

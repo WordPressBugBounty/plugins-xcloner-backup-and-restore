@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidManagedAppRegistration class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidManagedAppRegistration extends ManagedAppRegistration
 {
     /**
-    * Gets the patchVersion
-    * The patch version for the current android app registration
-    *
-    * @return string|null The patchVersion
-    */
+     * Gets the patchVersion
+     * The patch version for the current android app registration
+     *
+     * @return string|null The patchVersion
+     */
     public function getPatchVersion()
     {
         if (array_key_exists("patchVersion", $this->_propDict)) {
@@ -41,19 +42,17 @@ class AndroidManagedAppRegistration extends ManagedAppRegistration
             return null;
         }
     }
-
     /**
-    * Sets the patchVersion
-    * The patch version for the current android app registration
-    *
-    * @param string $val The patchVersion
-    *
-    * @return AndroidManagedAppRegistration
-    */
+     * Sets the patchVersion
+     * The patch version for the current android app registration
+     *
+     * @param string $val The patchVersion
+     *
+     * @return AndroidManagedAppRegistration
+     */
     public function setPatchVersion($val)
     {
         $this->_propDict["patchVersion"] = $val;
         return $this;
     }
-
 }

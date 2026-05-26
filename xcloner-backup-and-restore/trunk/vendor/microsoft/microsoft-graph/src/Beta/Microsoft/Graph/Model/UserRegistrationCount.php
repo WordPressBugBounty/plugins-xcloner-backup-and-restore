@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserRegistrationCount class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserRegistrationCount extends Entity
 {
     /**
-    * Gets the registrationCount
-    * Provides the registration count for your tenant.
-    *
-    * @return int|null The registrationCount
-    */
+     * Gets the registrationCount
+     * Provides the registration count for your tenant.
+     *
+     * @return int|null The registrationCount
+     */
     public function getRegistrationCount()
     {
         if (array_key_exists("registrationCount", $this->_propDict)) {
@@ -40,31 +42,29 @@ class UserRegistrationCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the registrationCount
-    * Provides the registration count for your tenant.
-    *
-    * @param int $val The value of the registrationCount
-    *
-    * @return UserRegistrationCount
-    */
+     * Sets the registrationCount
+     * Provides the registration count for your tenant.
+     *
+     * @param int $val The value of the registrationCount
+     *
+     * @return UserRegistrationCount
+     */
     public function setRegistrationCount($val)
     {
         $this->_propDict["registrationCount"] = $val;
         return $this;
     }
-
     /**
-    * Gets the registrationStatus
-    * Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
-    *
-    * @return RegistrationStatusType|null The registrationStatus
-    */
+     * Gets the registrationStatus
+     * Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
+     *
+     * @return RegistrationStatusType|null The registrationStatus
+     */
     public function getRegistrationStatus()
     {
         if (array_key_exists("registrationStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["registrationStatus"], "\Beta\Microsoft\Graph\Model\RegistrationStatusType") || is_null($this->_propDict["registrationStatus"])) {
+            if (is_a($this->_propDict["registrationStatus"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RegistrationStatusType") || is_null($this->_propDict["registrationStatus"])) {
                 return $this->_propDict["registrationStatus"];
             } else {
                 $this->_propDict["registrationStatus"] = new RegistrationStatusType($this->_propDict["registrationStatus"]);
@@ -73,18 +73,17 @@ class UserRegistrationCount extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the registrationStatus
-    * Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
-    *
-    * @param RegistrationStatusType $val The value to assign to the registrationStatus
-    *
-    * @return UserRegistrationCount The UserRegistrationCount
-    */
+     * Sets the registrationStatus
+     * Represents the status of user registration. Possible values are: registered, enabled, capable, and mfaRegistered.
+     *
+     * @param RegistrationStatusType $val The value to assign to the registrationStatus
+     *
+     * @return UserRegistrationCount The UserRegistrationCount
+     */
     public function setRegistrationStatus($val)
     {
         $this->_propDict["registrationStatus"] = $val;
-         return $this;
+        return $this;
     }
 }

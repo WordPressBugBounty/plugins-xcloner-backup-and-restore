@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,14 +15,12 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive\Resource;
 
-namespace Google\Service\Drive\Resource;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Google\Service\Drive\Channel;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Google\Service\Drive\Channel;
 /**
  * The "channels" collection of methods.
  * Typical usage is:
@@ -30,21 +29,20 @@ use Google\Service\Drive\Channel;
  *   $channels = $driveService->channels;
  *  </code>
  */
-class Channels extends \Google\Service\Resource
+class Channels extends \XCloner\Google\Service\Resource
 {
-  /**
-   * Stop watching resources through this channel (channels.stop)
-   *
-   * @param Channel $postBody
-   * @param array $optParams Optional parameters.
-   */
-  public function stop(Channel $postBody, $optParams = [])
-  {
-    $params = ['postBody' => $postBody];
-    $params = array_merge($params, $optParams);
-    return $this->call('stop', [$params]);
-  }
+    /**
+     * Stop watching resources through this channel (channels.stop)
+     *
+     * @param Channel $postBody
+     * @param array $optParams Optional parameters.
+     */
+    public function stop(Channel $postBody, $optParams = [])
+    {
+        $params = ['postBody' => $postBody];
+        $params = array_merge($params, $optParams);
+        return $this->call('stop', [$params]);
+    }
 }
-
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(Channels::class, 'Google_Service_Drive_Resource_Channels');
+class_alias(Channels::class, 'XCloner\Google_Service_Drive_Resource_Channels');

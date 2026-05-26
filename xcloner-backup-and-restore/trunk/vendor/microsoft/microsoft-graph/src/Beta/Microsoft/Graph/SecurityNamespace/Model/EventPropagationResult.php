@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EventPropagationResult class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class EventPropagationResult extends \Beta\Microsoft\Graph\Model\Entity
+class EventPropagationResult extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the location
-    * The name of the specific location in the workload associated with the event.
-    *
-    * @return string|null The location
-    */
+     * Gets the location
+     * The name of the specific location in the workload associated with the event.
+     *
+     * @return string|null The location
+     */
     public function getLocation()
     {
         if (array_key_exists("location", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EventPropagationResult extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the location
-    * The name of the specific location in the workload associated with the event.
-    *
-    * @param string $val The value of the location
-    *
-    * @return EventPropagationResult
-    */
+     * Sets the location
+     * The name of the specific location in the workload associated with the event.
+     *
+     * @param string $val The value of the location
+     *
+     * @return EventPropagationResult
+     */
     public function setLocation($val)
     {
         $this->_propDict["location"] = $val;
         return $this;
     }
     /**
-    * Gets the serviceName
-    * The name of the workload associated with the event.
-    *
-    * @return string|null The serviceName
-    */
+     * Gets the serviceName
+     * The name of the workload associated with the event.
+     *
+     * @return string|null The serviceName
+     */
     public function getServiceName()
     {
         if (array_key_exists("serviceName", $this->_propDict)) {
@@ -68,31 +69,29 @@ class EventPropagationResult extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the serviceName
-    * The name of the workload associated with the event.
-    *
-    * @param string $val The value of the serviceName
-    *
-    * @return EventPropagationResult
-    */
+     * Sets the serviceName
+     * The name of the workload associated with the event.
+     *
+     * @param string $val The value of the serviceName
+     *
+     * @return EventPropagationResult
+     */
     public function setServiceName($val)
     {
         $this->_propDict["serviceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success.
-    *
-    * @return EventPropagationStatus|null The status
-    */
+     * Gets the status
+     * Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success.
+     *
+     * @return EventPropagationStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\EventPropagationStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\EventPropagationStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new EventPropagationStatus($this->_propDict["status"]);
@@ -101,26 +100,25 @@ class EventPropagationResult extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success.
-    *
-    * @param EventPropagationStatus $val The value to assign to the status
-    *
-    * @return EventPropagationResult The EventPropagationResult
-    */
+     * Sets the status
+     * Indicates the status of the event creation request. The possible values are: none, inProcessing, failed, success.
+     *
+     * @param EventPropagationStatus $val The value to assign to the status
+     *
+     * @return EventPropagationResult The EventPropagationResult
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the statusInformation
-    * Additional information about the status of the event creation request.
-    *
-    * @return string|null The statusInformation
-    */
+     * Gets the statusInformation
+     * Additional information about the status of the event creation request.
+     *
+     * @return string|null The statusInformation
+     */
     public function getStatusInformation()
     {
         if (array_key_exists("statusInformation", $this->_propDict)) {
@@ -129,15 +127,14 @@ class EventPropagationResult extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the statusInformation
-    * Additional information about the status of the event creation request.
-    *
-    * @param string $val The value of the statusInformation
-    *
-    * @return EventPropagationResult
-    */
+     * Sets the statusInformation
+     * Additional information about the status of the event creation request.
+     *
+     * @param string $val The value of the statusInformation
+     *
+     * @return EventPropagationResult
+     */
     public function setStatusInformation($val)
     {
         $this->_propDict["statusInformation"] = $val;

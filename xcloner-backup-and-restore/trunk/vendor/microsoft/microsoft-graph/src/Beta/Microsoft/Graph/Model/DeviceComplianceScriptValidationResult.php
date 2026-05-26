@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceComplianceScriptValidationResult class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class DeviceComplianceScriptValidationResult extends Entity
 {
-
     /**
-    * Gets the ruleErrors
-    * Errors in json for the script for rules.
-    *
-    * @return DeviceComplianceScriptRuleError|null The ruleErrors
-    */
+     * Gets the ruleErrors
+     * Errors in json for the script for rules.
+     *
+     * @return DeviceComplianceScriptRuleError|null The ruleErrors
+     */
     public function getRuleErrors()
     {
         if (array_key_exists("ruleErrors", $this->_propDict)) {
-            if (is_a($this->_propDict["ruleErrors"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptRuleError") || is_null($this->_propDict["ruleErrors"])) {
+            if (is_a($this->_propDict["ruleErrors"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceComplianceScriptRuleError") || is_null($this->_propDict["ruleErrors"])) {
                 return $this->_propDict["ruleErrors"];
             } else {
                 $this->_propDict["ruleErrors"] = new DeviceComplianceScriptRuleError($this->_propDict["ruleErrors"]);
@@ -45,31 +46,29 @@ class DeviceComplianceScriptValidationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the ruleErrors
-    * Errors in json for the script for rules.
-    *
-    * @param DeviceComplianceScriptRuleError $val The value to assign to the ruleErrors
-    *
-    * @return DeviceComplianceScriptValidationResult The DeviceComplianceScriptValidationResult
-    */
+     * Sets the ruleErrors
+     * Errors in json for the script for rules.
+     *
+     * @param DeviceComplianceScriptRuleError $val The value to assign to the ruleErrors
+     *
+     * @return DeviceComplianceScriptValidationResult The DeviceComplianceScriptValidationResult
+     */
     public function setRuleErrors($val)
     {
         $this->_propDict["ruleErrors"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the rules
-    * Parsed rules from json.
-    *
-    * @return DeviceComplianceScriptRule|null The rules
-    */
+     * Gets the rules
+     * Parsed rules from json.
+     *
+     * @return DeviceComplianceScriptRule|null The rules
+     */
     public function getRules()
     {
         if (array_key_exists("rules", $this->_propDict)) {
-            if (is_a($this->_propDict["rules"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptRule") || is_null($this->_propDict["rules"])) {
+            if (is_a($this->_propDict["rules"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceComplianceScriptRule") || is_null($this->_propDict["rules"])) {
                 return $this->_propDict["rules"];
             } else {
                 $this->_propDict["rules"] = new DeviceComplianceScriptRule($this->_propDict["rules"]);
@@ -78,31 +77,29 @@ class DeviceComplianceScriptValidationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the rules
-    * Parsed rules from json.
-    *
-    * @param DeviceComplianceScriptRule $val The value to assign to the rules
-    *
-    * @return DeviceComplianceScriptValidationResult The DeviceComplianceScriptValidationResult
-    */
+     * Sets the rules
+     * Parsed rules from json.
+     *
+     * @param DeviceComplianceScriptRule $val The value to assign to the rules
+     *
+     * @return DeviceComplianceScriptValidationResult The DeviceComplianceScriptValidationResult
+     */
     public function setRules($val)
     {
         $this->_propDict["rules"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the scriptErrors
-    * Errors in json for the script.
-    *
-    * @return DeviceComplianceScriptError|null The scriptErrors
-    */
+     * Gets the scriptErrors
+     * Errors in json for the script.
+     *
+     * @return DeviceComplianceScriptError|null The scriptErrors
+     */
     public function getScriptErrors()
     {
         if (array_key_exists("scriptErrors", $this->_propDict)) {
-            if (is_a($this->_propDict["scriptErrors"], "\Beta\Microsoft\Graph\Model\DeviceComplianceScriptError") || is_null($this->_propDict["scriptErrors"])) {
+            if (is_a($this->_propDict["scriptErrors"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceComplianceScriptError") || is_null($this->_propDict["scriptErrors"])) {
                 return $this->_propDict["scriptErrors"];
             } else {
                 $this->_propDict["scriptErrors"] = new DeviceComplianceScriptError($this->_propDict["scriptErrors"]);
@@ -111,18 +108,17 @@ class DeviceComplianceScriptValidationResult extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the scriptErrors
-    * Errors in json for the script.
-    *
-    * @param DeviceComplianceScriptError $val The value to assign to the scriptErrors
-    *
-    * @return DeviceComplianceScriptValidationResult The DeviceComplianceScriptValidationResult
-    */
+     * Sets the scriptErrors
+     * Errors in json for the script.
+     *
+     * @param DeviceComplianceScriptError $val The value to assign to the scriptErrors
+     *
+     * @return DeviceComplianceScriptValidationResult The DeviceComplianceScriptValidationResult
+     */
     public function setScriptErrors($val)
     {
         $this->_propDict["scriptErrors"] = $val;
-         return $this;
+        return $this;
     }
 }

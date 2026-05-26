@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrivilegedRole class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PrivilegedRole extends Entity
 {
     /**
-    * Gets the name
-    * Role name.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Role name.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -41,61 +42,56 @@ class PrivilegedRole extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Role name.
-    *
-    * @param string $val The name
-    *
-    * @return PrivilegedRole
-    */
+     * Sets the name
+     * Role name.
+     *
+     * @param string $val The name
+     *
+     * @return PrivilegedRole
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the assignments
-    * The assignments for this role. Read-only. Nullable.
+     * The assignments for this role. Read-only. Nullable.
      *
      * @return array|null The assignments
      */
     public function getAssignments()
     {
         if (array_key_exists("assignments", $this->_propDict)) {
-           return $this->_propDict["assignments"];
+            return $this->_propDict["assignments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the assignments
-    * The assignments for this role. Read-only. Nullable.
-    *
-    * @param PrivilegedRoleAssignment[] $val The assignments
-    *
-    * @return PrivilegedRole
-    */
+     * Sets the assignments
+     * The assignments for this role. Read-only. Nullable.
+     *
+     * @param PrivilegedRoleAssignment[] $val The assignments
+     *
+     * @return PrivilegedRole
+     */
     public function setAssignments($val)
     {
         $this->_propDict["assignments"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settings
-    * The settings for this role. Read-only. Nullable.
-    *
-    * @return PrivilegedRoleSettings|null The settings
-    */
+     * Gets the settings
+     * The settings for this role. Read-only. Nullable.
+     *
+     * @return PrivilegedRoleSettings|null The settings
+     */
     public function getSettings()
     {
         if (array_key_exists("settings", $this->_propDict)) {
-            if (is_a($this->_propDict["settings"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleSettings") || is_null($this->_propDict["settings"])) {
+            if (is_a($this->_propDict["settings"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrivilegedRoleSettings") || is_null($this->_propDict["settings"])) {
                 return $this->_propDict["settings"];
             } else {
                 $this->_propDict["settings"] = new PrivilegedRoleSettings($this->_propDict["settings"]);
@@ -104,31 +100,29 @@ class PrivilegedRole extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the settings
-    * The settings for this role. Read-only. Nullable.
-    *
-    * @param PrivilegedRoleSettings $val The settings
-    *
-    * @return PrivilegedRole
-    */
+     * Sets the settings
+     * The settings for this role. Read-only. Nullable.
+     *
+     * @param PrivilegedRoleSettings $val The settings
+     *
+     * @return PrivilegedRole
+     */
     public function setSettings($val)
     {
         $this->_propDict["settings"] = $val;
         return $this;
     }
-
     /**
-    * Gets the summary
-    * The summary information for this role. Read-only. Nullable.
-    *
-    * @return PrivilegedRoleSummary|null The summary
-    */
+     * Gets the summary
+     * The summary information for this role. Read-only. Nullable.
+     *
+     * @return PrivilegedRoleSummary|null The summary
+     */
     public function getSummary()
     {
         if (array_key_exists("summary", $this->_propDict)) {
-            if (is_a($this->_propDict["summary"], "\Beta\Microsoft\Graph\Model\PrivilegedRoleSummary") || is_null($this->_propDict["summary"])) {
+            if (is_a($this->_propDict["summary"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PrivilegedRoleSummary") || is_null($this->_propDict["summary"])) {
                 return $this->_propDict["summary"];
             } else {
                 $this->_propDict["summary"] = new PrivilegedRoleSummary($this->_propDict["summary"]);
@@ -137,19 +131,17 @@ class PrivilegedRole extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the summary
-    * The summary information for this role. Read-only. Nullable.
-    *
-    * @param PrivilegedRoleSummary $val The summary
-    *
-    * @return PrivilegedRole
-    */
+     * Sets the summary
+     * The summary information for this role. Read-only. Nullable.
+     *
+     * @param PrivilegedRoleSummary $val The summary
+     *
+     * @return PrivilegedRole
+     */
     public function setSummary($val)
     {
         $this->_propDict["summary"] = $val;
         return $this;
     }
-
 }

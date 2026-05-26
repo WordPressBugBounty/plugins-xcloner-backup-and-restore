@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV;
 
-namespace Sabre\DAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * File class.
  *
@@ -44,7 +43,6 @@ abstract class File extends Node implements IFile
     {
         throw new Exception\Forbidden('Permission denied to change data');
     }
-
     /**
      * Returns the data.
      *
@@ -56,7 +54,6 @@ abstract class File extends Node implements IFile
     {
         throw new Exception\Forbidden('Permission denied to read this file');
     }
-
     /**
      * Returns the size of the file, in bytes.
      *
@@ -66,7 +63,6 @@ abstract class File extends Node implements IFile
     {
         return 0;
     }
-
     /**
      * Returns the ETag for a file.
      *
@@ -81,7 +77,6 @@ abstract class File extends Node implements IFile
     {
         return null;
     }
-
     /**
      * Returns the mime-type for a file.
      *

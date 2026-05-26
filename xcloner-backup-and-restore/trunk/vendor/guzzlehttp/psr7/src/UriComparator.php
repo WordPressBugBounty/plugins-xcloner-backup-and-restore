@@ -1,12 +1,11 @@
 <?php
 
-namespace GuzzleHttp\Psr7;
+namespace XCloner\GuzzleHttp\Psr7;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Psr\Http\Message\UriInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Psr\Http\Message\UriInterface;
 /**
  * Provides methods to determine if a modified URL should be considered cross-origin.
  *
@@ -23,34 +22,27 @@ final class UriComparator
     public static function isCrossOrigin(UriInterface $original, UriInterface $modified)
     {
         if (\strcasecmp($original->getHost(), $modified->getHost()) !== 0) {
-            return true;
+            return \true;
         }
-
         if ($original->getScheme() !== $modified->getScheme()) {
-            return true;
+            return \true;
         }
-
         if (self::computePort($original) !== self::computePort($modified)) {
-            return true;
+            return \true;
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * @return int
      */
     private static function computePort(UriInterface $uri)
     {
         $port = $uri->getPort();
-
         if (null !== $port) {
             return $port;
         }
-
         return 'https' === $uri->getScheme() ? 443 : 80;
     }
-
     private function __construct()
     {
         // cannot be instantiated

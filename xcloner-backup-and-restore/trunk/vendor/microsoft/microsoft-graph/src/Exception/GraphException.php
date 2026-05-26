@@ -1,4 +1,5 @@
-<?php 
+<?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  
 * Licensed under the MIT License.  See License in the project root 
@@ -14,12 +15,11 @@
 * @version   GIT: 0.1.0
 * @link      https://graph.microsoft.io/
 */
+namespace XCloner\Microsoft\Graph\Exception;
 
-namespace Microsoft\Graph\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Class GraphException
  *
@@ -31,22 +31,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GraphException extends \Exception
 {
     /**
-    * Construct a new Graph Exception handler
-    *
-    * @param string    $message  The error to send
-    * @param int       $code     The error code associated with the error
-    * @param \Exception $previous The last error sent, defaults to null
-    */
+     * Construct a new Graph Exception handler
+     *
+     * @param string    $message  The error to send
+     * @param int       $code     The error code associated with the error
+     * @param \Exception $previous The last error sent, defaults to null
+     */
     public function __construct($message, $code = 0, $previous = null)
     {
         parent::__construct($message, $code, $previous);
     }
-
     /**
-    * Stringify the returned error and message
-    *
-    * @return string The returned string message
-    */
+     * Stringify the returned error and message
+     *
+     * @return string The returned string message
+     */
     public function __toString()
     {
         return __CLASS__ . ": [{$this->code}]: {$this->message}\n";

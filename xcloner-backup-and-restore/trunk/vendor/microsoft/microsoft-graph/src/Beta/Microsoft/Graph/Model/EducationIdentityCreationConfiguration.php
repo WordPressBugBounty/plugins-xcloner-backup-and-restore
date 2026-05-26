@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationIdentityCreationConfiguration class
 *
@@ -27,26 +29,24 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationIdentityCreationConfiguration extends EducationIdentitySynchronizationConfiguration
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.educationIdentityCreationConfiguration");
     }
-
-
     /**
-    * Gets the userDomains
-    *
-    * @return EducationIdentityDomain|null The userDomains
-    */
+     * Gets the userDomains
+     *
+     * @return EducationIdentityDomain|null The userDomains
+     */
     public function getUserDomains()
     {
         if (array_key_exists("userDomains", $this->_propDict)) {
-            if (is_a($this->_propDict["userDomains"], "\Beta\Microsoft\Graph\Model\EducationIdentityDomain") || is_null($this->_propDict["userDomains"])) {
+            if (is_a($this->_propDict["userDomains"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationIdentityDomain") || is_null($this->_propDict["userDomains"])) {
                 return $this->_propDict["userDomains"];
             } else {
                 $this->_propDict["userDomains"] = new EducationIdentityDomain($this->_propDict["userDomains"]);
@@ -55,17 +55,16 @@ class EducationIdentityCreationConfiguration extends EducationIdentitySynchroniz
         }
         return null;
     }
-
     /**
-    * Sets the userDomains
-    *
-    * @param EducationIdentityDomain $val The value to assign to the userDomains
-    *
-    * @return EducationIdentityCreationConfiguration The EducationIdentityCreationConfiguration
-    */
+     * Sets the userDomains
+     *
+     * @param EducationIdentityDomain $val The value to assign to the userDomains
+     *
+     * @return EducationIdentityCreationConfiguration The EducationIdentityCreationConfiguration
+     */
     public function setUserDomains($val)
     {
         $this->_propDict["userDomains"] = $val;
-         return $this;
+        return $this;
     }
 }

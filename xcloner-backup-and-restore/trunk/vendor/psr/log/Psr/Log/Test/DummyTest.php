@@ -1,10 +1,10 @@
 <?php
 
-namespace Psr\Log\Test;
+namespace XCloner\Psr\Log\Test;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This class is internal and does not follow the BC promise.
  *

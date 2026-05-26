@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidFotaDeploymentAssignmentTarget class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidFotaDeploymentAssignmentTarget extends Entity
 {
     /**
-    * Gets the groupId
-    * AAD Group Id.
-    *
-    * @return string|null The groupId
-    */
+     * Gets the groupId
+     * AAD Group Id.
+     *
+     * @return string|null The groupId
+     */
     public function getGroupId()
     {
         if (array_key_exists("groupId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class AndroidFotaDeploymentAssignmentTarget extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the groupId
-    * AAD Group Id.
-    *
-    * @param string $val The value of the groupId
-    *
-    * @return AndroidFotaDeploymentAssignmentTarget
-    */
+     * Sets the groupId
+     * AAD Group Id.
+     *
+     * @param string $val The value of the groupId
+     *
+     * @return AndroidFotaDeploymentAssignmentTarget
+     */
     public function setGroupId($val)
     {
         $this->_propDict["groupId"] = $val;

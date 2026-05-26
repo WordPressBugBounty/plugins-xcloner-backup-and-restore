@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PermissionGrantPolicy class
 *
@@ -27,64 +28,58 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PermissionGrantPolicy extends PolicyBase
 {
-
-     /**
+    /**
      * Gets the excludes
-    * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
+     * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
      *
      * @return array|null The excludes
      */
     public function getExcludes()
     {
         if (array_key_exists("excludes", $this->_propDict)) {
-           return $this->_propDict["excludes"];
+            return $this->_propDict["excludes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the excludes
-    * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
-    *
-    * @param PermissionGrantConditionSet[] $val The excludes
-    *
-    * @return PermissionGrantPolicy
-    */
+     * Sets the excludes
+     * Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.
+     *
+     * @param PermissionGrantConditionSet[] $val The excludes
+     *
+     * @return PermissionGrantPolicy
+     */
     public function setExcludes($val)
     {
         $this->_propDict["excludes"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the includes
-    * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
+     * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
      *
      * @return array|null The includes
      */
     public function getIncludes()
     {
         if (array_key_exists("includes", $this->_propDict)) {
-           return $this->_propDict["includes"];
+            return $this->_propDict["includes"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the includes
-    * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
-    *
-    * @param PermissionGrantConditionSet[] $val The includes
-    *
-    * @return PermissionGrantPolicy
-    */
+     * Sets the includes
+     * Condition sets which are included in this permission grant policy. Automatically expanded on GET.
+     *
+     * @param PermissionGrantConditionSet[] $val The includes
+     *
+     * @return PermissionGrantPolicy
+     */
     public function setIncludes($val)
     {
         $this->_propDict["includes"] = $val;
         return $this;
     }
-
 }

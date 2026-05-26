@@ -1,14 +1,12 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\Exception;
 
-namespace Sabre\DAVACL\Exception;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
 /**
  * This exception is thrown when a client attempts to set conflicting
  * permissions.
@@ -27,7 +25,6 @@ class AceConflict extends DAV\Exception\Conflict
     public function serialize(DAV\Server $server, \DOMElement $errorNode)
     {
         $doc = $errorNode->ownerDocument;
-
         $np = $doc->createElementNS('DAV:', 'd:no-ace-conflict');
         $errorNode->appendChild($np);
     }

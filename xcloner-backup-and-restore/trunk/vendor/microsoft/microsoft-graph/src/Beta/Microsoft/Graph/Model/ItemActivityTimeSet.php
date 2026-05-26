@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemActivityTimeSet class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ItemActivityTimeSet extends Entity
 {
-
     /**
-    * Gets the lastRecordedDateTime
-    *
-    * @return \DateTime|null The lastRecordedDateTime
-    */
+     * Gets the lastRecordedDateTime
+     *
+     * @return \DateTime|null The lastRecordedDateTime
+     */
     public function getLastRecordedDateTime()
     {
         if (array_key_exists("lastRecordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastRecordedDateTime"], "\DateTime") || is_null($this->_propDict["lastRecordedDateTime"])) {
+            if (is_a($this->_propDict["lastRecordedDateTime"], "\\DateTime") || is_null($this->_propDict["lastRecordedDateTime"])) {
                 return $this->_propDict["lastRecordedDateTime"];
             } else {
                 $this->_propDict["lastRecordedDateTime"] = new \DateTime($this->_propDict["lastRecordedDateTime"]);
@@ -44,30 +45,28 @@ class ItemActivityTimeSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastRecordedDateTime
-    *
-    * @param \DateTime $val The value to assign to the lastRecordedDateTime
-    *
-    * @return ItemActivityTimeSet The ItemActivityTimeSet
-    */
+     * Sets the lastRecordedDateTime
+     *
+     * @param \DateTime $val The value to assign to the lastRecordedDateTime
+     *
+     * @return ItemActivityTimeSet The ItemActivityTimeSet
+     */
     public function setLastRecordedDateTime($val)
     {
         $this->_propDict["lastRecordedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the observedDateTime
-    * When the activity was observed to take place.
-    *
-    * @return \DateTime|null The observedDateTime
-    */
+     * Gets the observedDateTime
+     * When the activity was observed to take place.
+     *
+     * @return \DateTime|null The observedDateTime
+     */
     public function getObservedDateTime()
     {
         if (array_key_exists("observedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["observedDateTime"], "\DateTime") || is_null($this->_propDict["observedDateTime"])) {
+            if (is_a($this->_propDict["observedDateTime"], "\\DateTime") || is_null($this->_propDict["observedDateTime"])) {
                 return $this->_propDict["observedDateTime"];
             } else {
                 $this->_propDict["observedDateTime"] = new \DateTime($this->_propDict["observedDateTime"]);
@@ -76,31 +75,29 @@ class ItemActivityTimeSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the observedDateTime
-    * When the activity was observed to take place.
-    *
-    * @param \DateTime $val The value to assign to the observedDateTime
-    *
-    * @return ItemActivityTimeSet The ItemActivityTimeSet
-    */
+     * Sets the observedDateTime
+     * When the activity was observed to take place.
+     *
+     * @param \DateTime $val The value to assign to the observedDateTime
+     *
+     * @return ItemActivityTimeSet The ItemActivityTimeSet
+     */
     public function setObservedDateTime($val)
     {
         $this->_propDict["observedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the recordedDateTime
-    * When the observation was recorded on the service.
-    *
-    * @return \DateTime|null The recordedDateTime
-    */
+     * Gets the recordedDateTime
+     * When the observation was recorded on the service.
+     *
+     * @return \DateTime|null The recordedDateTime
+     */
     public function getRecordedDateTime()
     {
         if (array_key_exists("recordedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["recordedDateTime"], "\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
+            if (is_a($this->_propDict["recordedDateTime"], "\\DateTime") || is_null($this->_propDict["recordedDateTime"])) {
                 return $this->_propDict["recordedDateTime"];
             } else {
                 $this->_propDict["recordedDateTime"] = new \DateTime($this->_propDict["recordedDateTime"]);
@@ -109,18 +106,17 @@ class ItemActivityTimeSet extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the recordedDateTime
-    * When the observation was recorded on the service.
-    *
-    * @param \DateTime $val The value to assign to the recordedDateTime
-    *
-    * @return ItemActivityTimeSet The ItemActivityTimeSet
-    */
+     * Sets the recordedDateTime
+     * When the observation was recorded on the service.
+     *
+     * @param \DateTime $val The value to assign to the recordedDateTime
+     *
+     * @return ItemActivityTimeSet The ItemActivityTimeSet
+     */
     public function setRecordedDateTime($val)
     {
         $this->_propDict["recordedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

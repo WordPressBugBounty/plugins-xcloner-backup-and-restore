@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyUploadedLanguageFile class
 *
@@ -26,45 +28,43 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class GroupPolicyUploadedLanguageFile extends Entity
 {
-
     /**
-    * Gets the content
-    * The contents of the uploaded ADML file.
-    *
-    * @return \GuzzleHttp\Psr7\Stream|null The content
-    */
+     * Gets the content
+     * The contents of the uploaded ADML file.
+     *
+     * @return \GuzzleHttp\Psr7\Stream|null The content
+     */
     public function getContent()
     {
         if (array_key_exists("content", $this->_propDict)) {
-            if (is_a($this->_propDict["content"], "\GuzzleHttp\Psr7\Stream") || is_null($this->_propDict["content"])) {
+            if (is_a($this->_propDict["content"], "XCloner\\GuzzleHttp\\Psr7\\Stream") || is_null($this->_propDict["content"])) {
                 return $this->_propDict["content"];
             } else {
-                $this->_propDict["content"] = \GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
+                $this->_propDict["content"] = \XCloner\GuzzleHttp\Psr7\Utils::streamFor($this->_propDict["content"]);
                 return $this->_propDict["content"];
             }
         }
         return null;
     }
-
     /**
-    * Sets the content
-    * The contents of the uploaded ADML file.
-    *
-    * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the content
-    *
-    * @return GroupPolicyUploadedLanguageFile The GroupPolicyUploadedLanguageFile
-    */
+     * Sets the content
+     * The contents of the uploaded ADML file.
+     *
+     * @param \GuzzleHttp\Psr7\Stream $val The value to assign to the content
+     *
+     * @return GroupPolicyUploadedLanguageFile The GroupPolicyUploadedLanguageFile
+     */
     public function setContent($val)
     {
         $this->_propDict["content"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the fileName
-    * The file name of the uploaded ADML file.
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     * The file name of the uploaded ADML file.
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -73,26 +73,25 @@ class GroupPolicyUploadedLanguageFile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    * The file name of the uploaded ADML file.
-    *
-    * @param string $val The value of the fileName
-    *
-    * @return GroupPolicyUploadedLanguageFile
-    */
+     * Sets the fileName
+     * The file name of the uploaded ADML file.
+     *
+     * @param string $val The value of the fileName
+     *
+     * @return GroupPolicyUploadedLanguageFile
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    * Key of the entity.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * Key of the entity.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -101,26 +100,25 @@ class GroupPolicyUploadedLanguageFile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * Key of the entity.
-    *
-    * @param string $val The value of the id
-    *
-    * @return GroupPolicyUploadedLanguageFile
-    */
+     * Sets the id
+     * Key of the entity.
+     *
+     * @param string $val The value of the id
+     *
+     * @return GroupPolicyUploadedLanguageFile
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the languageCode
-    * The language code of the uploaded ADML file.
-    *
-    * @return string|null The languageCode
-    */
+     * Gets the languageCode
+     * The language code of the uploaded ADML file.
+     *
+     * @return string|null The languageCode
+     */
     public function getLanguageCode()
     {
         if (array_key_exists("languageCode", $this->_propDict)) {
@@ -129,31 +127,29 @@ class GroupPolicyUploadedLanguageFile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the languageCode
-    * The language code of the uploaded ADML file.
-    *
-    * @param string $val The value of the languageCode
-    *
-    * @return GroupPolicyUploadedLanguageFile
-    */
+     * Sets the languageCode
+     * The language code of the uploaded ADML file.
+     *
+     * @param string $val The value of the languageCode
+     *
+     * @return GroupPolicyUploadedLanguageFile
+     */
     public function setLanguageCode($val)
     {
         $this->_propDict["languageCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -162,18 +158,17 @@ class GroupPolicyUploadedLanguageFile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * The date and time the entity was last modified.
-    *
-    * @param \DateTime $val The value to assign to the lastModifiedDateTime
-    *
-    * @return GroupPolicyUploadedLanguageFile The GroupPolicyUploadedLanguageFile
-    */
+     * Sets the lastModifiedDateTime
+     * The date and time the entity was last modified.
+     *
+     * @param \DateTime $val The value to assign to the lastModifiedDateTime
+     *
+     * @return GroupPolicyUploadedLanguageFile The GroupPolicyUploadedLanguageFile
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
-         return $this;
+        return $this;
     }
 }

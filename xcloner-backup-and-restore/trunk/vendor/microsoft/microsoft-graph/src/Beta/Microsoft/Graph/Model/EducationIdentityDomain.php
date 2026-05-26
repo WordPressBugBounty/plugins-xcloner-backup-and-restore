@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationIdentityDomain class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class EducationIdentityDomain extends Entity
 {
-
     /**
-    * Gets the appliesTo
-    * The user role type to assign to the license. Possible values are: student, teacher, faculty.
-    *
-    * @return EducationUserRole|null The appliesTo
-    */
+     * Gets the appliesTo
+     * The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     *
+     * @return EducationUserRole|null The appliesTo
+     */
     public function getAppliesTo()
     {
         if (array_key_exists("appliesTo", $this->_propDict)) {
-            if (is_a($this->_propDict["appliesTo"], "\Beta\Microsoft\Graph\Model\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
+            if (is_a($this->_propDict["appliesTo"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\EducationUserRole") || is_null($this->_propDict["appliesTo"])) {
                 return $this->_propDict["appliesTo"];
             } else {
                 $this->_propDict["appliesTo"] = new EducationUserRole($this->_propDict["appliesTo"]);
@@ -45,26 +46,25 @@ class EducationIdentityDomain extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the appliesTo
-    * The user role type to assign to the license. Possible values are: student, teacher, faculty.
-    *
-    * @param EducationUserRole $val The value to assign to the appliesTo
-    *
-    * @return EducationIdentityDomain The EducationIdentityDomain
-    */
+     * Sets the appliesTo
+     * The user role type to assign to the license. Possible values are: student, teacher, faculty.
+     *
+     * @param EducationUserRole $val The value to assign to the appliesTo
+     *
+     * @return EducationIdentityDomain The EducationIdentityDomain
+     */
     public function setAppliesTo($val)
     {
         $this->_propDict["appliesTo"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * Represents the domain for the user account.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Represents the domain for the user account.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -73,15 +73,14 @@ class EducationIdentityDomain extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Represents the domain for the user account.
-    *
-    * @param string $val The value of the name
-    *
-    * @return EducationIdentityDomain
-    */
+     * Sets the name
+     * Represents the domain for the user account.
+     *
+     * @param string $val The value of the name
+     *
+     * @return EducationIdentityDomain
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

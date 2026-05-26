@@ -1,9 +1,10 @@
 <?php
-namespace Aws\Endpoint\UseFipsEndpoint;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws\Endpoint\UseFipsEndpoint;
 
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 interface ConfigurationInterface
 {
     /**
@@ -12,7 +13,6 @@ interface ConfigurationInterface
      * @return bool
      */
     public function isUseFipsEndpoint();
-
     /**
      * Returns the configuration as an associative array
      *

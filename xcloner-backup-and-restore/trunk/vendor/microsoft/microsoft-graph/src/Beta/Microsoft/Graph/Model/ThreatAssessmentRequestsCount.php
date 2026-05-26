@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ThreatAssessmentRequestsCount class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ThreatAssessmentRequestsCount extends Entity
 {
     /**
-    * Gets the count
-    *
-    * @return int|null The count
-    */
+     * Gets the count
+     *
+     * @return int|null The count
+     */
     public function getCount()
     {
         if (array_key_exists("count", $this->_propDict)) {
@@ -39,29 +41,27 @@ class ThreatAssessmentRequestsCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the count
-    *
-    * @param int $val The value of the count
-    *
-    * @return ThreatAssessmentRequestsCount
-    */
+     * Sets the count
+     *
+     * @param int $val The value of the count
+     *
+     * @return ThreatAssessmentRequestsCount
+     */
     public function setCount($val)
     {
         $this->_propDict["count"] = $val;
         return $this;
     }
-
     /**
-    * Gets the createdDateTime
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -70,24 +70,23 @@ class ThreatAssessmentRequestsCount extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    *
-    * @param \DateTime $val The value to assign to the createdDateTime
-    *
-    * @return ThreatAssessmentRequestsCount The ThreatAssessmentRequestsCount
-    */
+     * Sets the createdDateTime
+     *
+     * @param \DateTime $val The value to assign to the createdDateTime
+     *
+     * @return ThreatAssessmentRequestsCount The ThreatAssessmentRequestsCount
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the pivotValue
-    *
-    * @return string|null The pivotValue
-    */
+     * Gets the pivotValue
+     *
+     * @return string|null The pivotValue
+     */
     public function getPivotValue()
     {
         if (array_key_exists("pivotValue", $this->_propDict)) {
@@ -96,14 +95,13 @@ class ThreatAssessmentRequestsCount extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the pivotValue
-    *
-    * @param string $val The value of the pivotValue
-    *
-    * @return ThreatAssessmentRequestsCount
-    */
+     * Sets the pivotValue
+     *
+     * @param string $val The value of the pivotValue
+     *
+     * @return ThreatAssessmentRequestsCount
+     */
     public function setPivotValue($val)
     {
         $this->_propDict["pivotValue"] = $val;

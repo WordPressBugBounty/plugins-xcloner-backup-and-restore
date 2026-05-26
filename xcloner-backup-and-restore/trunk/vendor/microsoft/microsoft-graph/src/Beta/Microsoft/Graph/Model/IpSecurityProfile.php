@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IpSecurityProfile class
 *
@@ -28,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IpSecurityProfile extends Entity
 {
     /**
-    * Gets the activityGroupNames
-    *
-    * @return array|null The activityGroupNames
-    */
+     * Gets the activityGroupNames
+     *
+     * @return array|null The activityGroupNames
+     */
     public function getActivityGroupNames()
     {
         if (array_key_exists("activityGroupNames", $this->_propDict)) {
@@ -40,25 +41,23 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the activityGroupNames
-    *
-    * @param string[] $val The activityGroupNames
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the activityGroupNames
+     *
+     * @param string[] $val The activityGroupNames
+     *
+     * @return IpSecurityProfile
+     */
     public function setActivityGroupNames($val)
     {
         $this->_propDict["activityGroupNames"] = $val;
         return $this;
     }
-
     /**
-    * Gets the address
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -67,25 +66,23 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    *
-    * @param string $val The address
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the address
+     *
+     * @param string $val The address
+     *
+     * @return IpSecurityProfile
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureSubscriptionId
-    *
-    * @return string|null The azureSubscriptionId
-    */
+     * Gets the azureSubscriptionId
+     *
+     * @return string|null The azureSubscriptionId
+     */
     public function getAzureSubscriptionId()
     {
         if (array_key_exists("azureSubscriptionId", $this->_propDict)) {
@@ -94,25 +91,23 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureSubscriptionId
-    *
-    * @param string $val The azureSubscriptionId
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the azureSubscriptionId
+     *
+     * @param string $val The azureSubscriptionId
+     *
+     * @return IpSecurityProfile
+     */
     public function setAzureSubscriptionId($val)
     {
         $this->_propDict["azureSubscriptionId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the azureTenantId
-    *
-    * @return string|null The azureTenantId
-    */
+     * Gets the azureTenantId
+     *
+     * @return string|null The azureTenantId
+     */
     public function getAzureTenantId()
     {
         if (array_key_exists("azureTenantId", $this->_propDict)) {
@@ -121,25 +116,23 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the azureTenantId
-    *
-    * @param string $val The azureTenantId
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the azureTenantId
+     *
+     * @param string $val The azureTenantId
+     *
+     * @return IpSecurityProfile
+     */
     public function setAzureTenantId($val)
     {
         $this->_propDict["azureTenantId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the countHits
-    *
-    * @return int|null The countHits
-    */
+     * Gets the countHits
+     *
+     * @return int|null The countHits
+     */
     public function getCountHits()
     {
         if (array_key_exists("countHits", $this->_propDict)) {
@@ -148,25 +141,23 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countHits
-    *
-    * @param int $val The countHits
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the countHits
+     *
+     * @param int $val The countHits
+     *
+     * @return IpSecurityProfile
+     */
     public function setCountHits($val)
     {
         $this->_propDict["countHits"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the countHosts
-    *
-    * @return int|null The countHosts
-    */
+     * Gets the countHosts
+     *
+     * @return int|null The countHosts
+     */
     public function getCountHosts()
     {
         if (array_key_exists("countHosts", $this->_propDict)) {
@@ -175,29 +166,27 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the countHosts
-    *
-    * @param int $val The countHosts
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the countHosts
+     *
+     * @param int $val The countHosts
+     *
+     * @return IpSecurityProfile
+     */
     public function setCountHosts($val)
     {
         $this->_propDict["countHosts"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the firstSeenDateTime
-    *
-    * @return \DateTime|null The firstSeenDateTime
-    */
+     * Gets the firstSeenDateTime
+     *
+     * @return \DateTime|null The firstSeenDateTime
+     */
     public function getFirstSeenDateTime()
     {
         if (array_key_exists("firstSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["firstSeenDateTime"], "\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
+            if (is_a($this->_propDict["firstSeenDateTime"], "\\DateTime") || is_null($this->_propDict["firstSeenDateTime"])) {
                 return $this->_propDict["firstSeenDateTime"];
             } else {
                 $this->_propDict["firstSeenDateTime"] = new \DateTime($this->_propDict["firstSeenDateTime"]);
@@ -206,22 +195,19 @@ class IpSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the firstSeenDateTime
-    *
-    * @param \DateTime $val The firstSeenDateTime
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the firstSeenDateTime
+     *
+     * @param \DateTime $val The firstSeenDateTime
+     *
+     * @return IpSecurityProfile
+     */
     public function setFirstSeenDateTime($val)
     {
         $this->_propDict["firstSeenDateTime"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the ipCategories
      *
      * @return array|null The ipCategories
@@ -229,27 +215,24 @@ class IpSecurityProfile extends Entity
     public function getIpCategories()
     {
         if (array_key_exists("ipCategories", $this->_propDict)) {
-           return $this->_propDict["ipCategories"];
+            return $this->_propDict["ipCategories"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the ipCategories
-    *
-    * @param IpCategory[] $val The ipCategories
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the ipCategories
+     *
+     * @param IpCategory[] $val The ipCategories
+     *
+     * @return IpSecurityProfile
+     */
     public function setIpCategories($val)
     {
         $this->_propDict["ipCategories"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the ipReferenceData
      *
      * @return array|null The ipReferenceData
@@ -257,34 +240,32 @@ class IpSecurityProfile extends Entity
     public function getIpReferenceData()
     {
         if (array_key_exists("ipReferenceData", $this->_propDict)) {
-           return $this->_propDict["ipReferenceData"];
+            return $this->_propDict["ipReferenceData"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the ipReferenceData
-    *
-    * @param IpReferenceData[] $val The ipReferenceData
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the ipReferenceData
+     *
+     * @param IpReferenceData[] $val The ipReferenceData
+     *
+     * @return IpSecurityProfile
+     */
     public function setIpReferenceData($val)
     {
         $this->_propDict["ipReferenceData"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastSeenDateTime
-    *
-    * @return \DateTime|null The lastSeenDateTime
-    */
+     * Gets the lastSeenDateTime
+     *
+     * @return \DateTime|null The lastSeenDateTime
+     */
     public function getLastSeenDateTime()
     {
         if (array_key_exists("lastSeenDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSeenDateTime"], "\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
+            if (is_a($this->_propDict["lastSeenDateTime"], "\\DateTime") || is_null($this->_propDict["lastSeenDateTime"])) {
                 return $this->_propDict["lastSeenDateTime"];
             } else {
                 $this->_propDict["lastSeenDateTime"] = new \DateTime($this->_propDict["lastSeenDateTime"]);
@@ -293,25 +274,23 @@ class IpSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSeenDateTime
-    *
-    * @param \DateTime $val The lastSeenDateTime
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the lastSeenDateTime
+     *
+     * @param \DateTime $val The lastSeenDateTime
+     *
+     * @return IpSecurityProfile
+     */
     public function setLastSeenDateTime($val)
     {
         $this->_propDict["lastSeenDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the riskScore
-    *
-    * @return string|null The riskScore
-    */
+     * Gets the riskScore
+     *
+     * @return string|null The riskScore
+     */
     public function getRiskScore()
     {
         if (array_key_exists("riskScore", $this->_propDict)) {
@@ -320,25 +299,23 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the riskScore
-    *
-    * @param string $val The riskScore
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the riskScore
+     *
+     * @param string $val The riskScore
+     *
+     * @return IpSecurityProfile
+     */
     public function setRiskScore($val)
     {
         $this->_propDict["riskScore"] = $val;
         return $this;
     }
-
     /**
-    * Gets the tags
-    *
-    * @return array|null The tags
-    */
+     * Gets the tags
+     *
+     * @return array|null The tags
+     */
     public function getTags()
     {
         if (array_key_exists("tags", $this->_propDict)) {
@@ -347,29 +324,27 @@ class IpSecurityProfile extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the tags
-    *
-    * @param string[] $val The tags
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the tags
+     *
+     * @param string[] $val The tags
+     *
+     * @return IpSecurityProfile
+     */
     public function setTags($val)
     {
         $this->_propDict["tags"] = $val;
         return $this;
     }
-
     /**
-    * Gets the vendorInformation
-    *
-    * @return SecurityVendorInformation|null The vendorInformation
-    */
+     * Gets the vendorInformation
+     *
+     * @return SecurityVendorInformation|null The vendorInformation
+     */
     public function getVendorInformation()
     {
         if (array_key_exists("vendorInformation", $this->_propDict)) {
-            if (is_a($this->_propDict["vendorInformation"], "\Beta\Microsoft\Graph\Model\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
+            if (is_a($this->_propDict["vendorInformation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityVendorInformation") || is_null($this->_propDict["vendorInformation"])) {
                 return $this->_propDict["vendorInformation"];
             } else {
                 $this->_propDict["vendorInformation"] = new SecurityVendorInformation($this->_propDict["vendorInformation"]);
@@ -378,18 +353,16 @@ class IpSecurityProfile extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the vendorInformation
-    *
-    * @param SecurityVendorInformation $val The vendorInformation
-    *
-    * @return IpSecurityProfile
-    */
+     * Sets the vendorInformation
+     *
+     * @param SecurityVendorInformation $val The vendorInformation
+     *
+     * @return IpSecurityProfile
+     */
     public function setVendorInformation($val)
     {
         $this->_propDict["vendorInformation"] = $val;
         return $this;
     }
-
 }

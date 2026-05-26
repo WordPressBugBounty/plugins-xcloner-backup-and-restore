@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Exceptions;
 
-namespace MicrosoftAzure\Storage\Common\Exceptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
 /**
  * Exception thrown if an argument type does not match with the expected type.
  *
@@ -51,8 +49,6 @@ class InvalidArgumentTypeException extends \InvalidArgumentException
      */
     public function __construct($validType, $name = null)
     {
-        parent::__construct(
-            sprintf(Resources::INVALID_PARAM_MSG, $name, $validType)
-        );
+        parent::__construct(sprintf(Resources::INVALID_PARAM_MSG, $name, $validType));
     }
 }

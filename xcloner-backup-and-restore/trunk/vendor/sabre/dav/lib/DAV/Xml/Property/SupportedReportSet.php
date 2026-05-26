@@ -1,18 +1,16 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAV\Browser\HtmlOutput;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAV\Browser\HtmlOutput;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * supported-report-set property.
  *
@@ -34,7 +32,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
      * @var array
      */
     protected $reports = [];
-
     /**
      * Creates the property.
      *
@@ -51,7 +48,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
             $this->addReport($reports);
         }
     }
-
     /**
      * Adds a report to this property.
      *
@@ -63,7 +59,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
     public function addReport($report)
     {
         $report = (array) $report;
-
         foreach ($report as $r) {
             if (!preg_match('/^{([^}]*)}(.*)$/', $r)) {
                 throw new DAV\Exception('Reportname must be in clark-notation');
@@ -71,7 +66,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
             $this->reports[] = $r;
         }
     }
-
     /**
      * Returns the list of supported reports.
      *
@@ -81,7 +75,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
     {
         return $this->reports;
     }
-
     /**
      * Returns true or false if the property contains a specific report.
      *
@@ -91,12 +84,8 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
      */
     public function has($reportName)
     {
-        return in_array(
-            $reportName,
-            $this->reports
-        );
+        return in_array($reportName, $this->reports);
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -123,7 +112,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
             $writer->endElement();
         }
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -139,9 +127,6 @@ class SupportedReportSet implements XmlSerializable, HtmlOutput
      */
     public function toHtml(HtmlOutputHelper $html)
     {
-        return implode(
-            ', ',
-            array_map([$html, 'xmlName'], $this->getValue())
-        );
+        return implode(', ', array_map([$html, 'xmlName'], $this->getValue()));
     }
 }

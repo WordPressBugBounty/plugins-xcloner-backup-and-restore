@@ -21,17 +21,15 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-use MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
-use MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
+use XCloner\MicrosoftAzure\Storage\Common\Models\MarkerContinuationToken;
+use XCloner\MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
 /**
  * Container to hold list container response object.
  *
@@ -45,13 +43,11 @@ use MicrosoftAzure\Storage\Common\MarkerContinuationTokenTrait;
 class ListContainersResult
 {
     use MarkerContinuationTokenTrait;
-
     private $containers;
     private $prefix;
     private $marker;
     private $maxResults;
     private $accountName;
-
     /**
      * Creates ListBlobResult object from parsed XML response.
      *
@@ -65,61 +61,32 @@ class ListContainersResult
      */
     public static function create(array $parsedResponse, $location = '')
     {
-        $result               = new ListContainersResult();
-        $serviceEndpoint      = Utilities::tryGetKeysChainValue(
-            $parsedResponse,
-            Resources::XTAG_ATTRIBUTES,
-            Resources::XTAG_SERVICE_ENDPOINT
-        );
-        $result->setAccountName(Utilities::tryParseAccountNameFromUrl(
-            $serviceEndpoint
-        ));
-        $result->setPrefix(Utilities::tryGetValue(
-            $parsedResponse,
-            Resources::QP_PREFIX
-        ));
-        $result->setMarker(Utilities::tryGetValue(
-            $parsedResponse,
-            Resources::QP_MARKER
-        ));
-
-        $nextMarker =
-            Utilities::tryGetValue($parsedResponse, Resources::QP_NEXT_MARKER);
-
+        $result = new ListContainersResult();
+        $serviceEndpoint = Utilities::tryGetKeysChainValue($parsedResponse, Resources::XTAG_ATTRIBUTES, Resources::XTAG_SERVICE_ENDPOINT);
+        $result->setAccountName(Utilities::tryParseAccountNameFromUrl($serviceEndpoint));
+        $result->setPrefix(Utilities::tryGetValue($parsedResponse, Resources::QP_PREFIX));
+        $result->setMarker(Utilities::tryGetValue($parsedResponse, Resources::QP_MARKER));
+        $nextMarker = Utilities::tryGetValue($parsedResponse, Resources::QP_NEXT_MARKER);
         if ($nextMarker != null) {
-            $result->setContinuationToken(
-                new MarkerContinuationToken(
-                    $nextMarker,
-                    $location
-                )
-            );
+            $result->setContinuationToken(new MarkerContinuationToken($nextMarker, $location));
         }
-
-        $result->setMaxResults(Utilities::tryGetValue(
-            $parsedResponse,
-            Resources::QP_MAX_RESULTS
-        ));
-        $containers   = array();
+        $result->setMaxResults(Utilities::tryGetValue($parsedResponse, Resources::QP_MAX_RESULTS));
+        $containers = array();
         $rawContainer = array();
-
         if (!empty($parsedResponse['Containers'])) {
             $containersArray = $parsedResponse['Containers']['Container'];
-            $rawContainer    = Utilities::getArray($containersArray);
+            $rawContainer = Utilities::getArray($containersArray);
         }
-
         foreach ($rawContainer as $value) {
             $container = new Container();
             $container->setName($value['Name']);
             $container->setUrl($serviceEndpoint . $value['Name']);
-            $container->setMetadata(
-                Utilities::tryGetValue($value, Resources::QP_METADATA, array())
-            );
+            $container->setMetadata(Utilities::tryGetValue($value, Resources::QP_METADATA, array()));
             $properties = new ContainerProperties();
-            $date       = $value['Properties']['Last-Modified'];
-            $date       = Utilities::rfc1123ToDateTime($date);
+            $date = $value['Properties']['Last-Modified'];
+            $date = Utilities::rfc1123ToDateTime($date);
             $properties->setLastModified($date);
             $properties->setETag(Utilities::tryGetValueInsensitive(Resources::ETAG, $value['Properties']));
-
             if (array_key_exists('LeaseStatus', $value['Properties'])) {
                 $properties->setLeaseStatus($value['Properties']['LeaseStatus']);
             }
@@ -138,7 +105,6 @@ class ListContainersResult
         $result->setContainers($containers);
         return $result;
     }
-
     /**
      * Sets containers.
      *
@@ -153,7 +119,6 @@ class ListContainersResult
             $this->containers[] = clone $container;
         }
     }
-
     /**
      * Gets containers.
      *
@@ -163,7 +128,6 @@ class ListContainersResult
     {
         return $this->containers;
     }
-
     /**
      * Gets prefix.
      *
@@ -173,7 +137,6 @@ class ListContainersResult
     {
         return $this->prefix;
     }
-
     /**
      * Sets prefix.
      *
@@ -185,7 +148,6 @@ class ListContainersResult
     {
         $this->prefix = $prefix;
     }
-
     /**
      * Gets marker.
      *
@@ -195,7 +157,6 @@ class ListContainersResult
     {
         return $this->marker;
     }
-
     /**
      * Sets marker.
      *
@@ -207,7 +168,6 @@ class ListContainersResult
     {
         $this->marker = $marker;
     }
-
     /**
      * Gets max results.
      *
@@ -217,7 +177,6 @@ class ListContainersResult
     {
         return $this->maxResults;
     }
-
     /**
      * Sets max results.
      *
@@ -229,7 +188,6 @@ class ListContainersResult
     {
         $this->maxResults = $maxResults;
     }
-
     /**
      * Gets account name.
      *
@@ -239,7 +197,6 @@ class ListContainersResult
     {
         return $this->accountName;
     }
-
     /**
      * Sets account name.
      *

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IdentitySecurityDefaultsEnforcementPolicy class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IdentitySecurityDefaultsEnforcementPolicy extends PolicyBase
 {
     /**
-    * Gets the isEnabled
-    * If set to true, Azure Active Directory security defaults is enabled for the tenant.
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     * If set to true, Azure Active Directory security defaults is enabled for the tenant.
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -41,19 +42,17 @@ class IdentitySecurityDefaultsEnforcementPolicy extends PolicyBase
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    * If set to true, Azure Active Directory security defaults is enabled for the tenant.
-    *
-    * @param bool $val The isEnabled
-    *
-    * @return IdentitySecurityDefaultsEnforcementPolicy
-    */
+     * Sets the isEnabled
+     * If set to true, Azure Active Directory security defaults is enabled for the tenant.
+     *
+     * @param bool $val The isEnabled
+     *
+     * @return IdentitySecurityDefaultsEnforcementPolicy
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = boolval($val);
         return $this;
     }
-
 }

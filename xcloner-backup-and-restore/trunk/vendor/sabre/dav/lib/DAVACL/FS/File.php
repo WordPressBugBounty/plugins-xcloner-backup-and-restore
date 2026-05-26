@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAVACL\FS;
 
-namespace Sabre\DAVACL\FS;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\FSExt\File as BaseFile;
-use Sabre\DAVACL\ACLTrait;
-use Sabre\DAVACL\IACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\FSExt\File as BaseFile;
+use XCloner\Sabre\DAVACL\ACLTrait;
+use XCloner\Sabre\DAVACL\IACL;
 /**
  * This is an ACL-enabled file node.
  *
@@ -21,21 +19,18 @@ use Sabre\DAVACL\IACL;
 class File extends BaseFile implements IACL
 {
     use ACLTrait;
-
     /**
      * A list of ACL rules.
      *
      * @var array
      */
     protected $acl;
-
     /**
      * Owner uri, or null for no owner.
      *
      * @var string|null
      */
     protected $owner;
-
     /**
      * Constructor.
      *
@@ -49,7 +44,6 @@ class File extends BaseFile implements IACL
         $this->acl = $acl;
         $this->owner = $owner;
     }
-
     /**
      * Returns the owner principal.
      *
@@ -61,7 +55,6 @@ class File extends BaseFile implements IACL
     {
         return $this->owner;
     }
-
     /**
      * Returns a list of ACE's for this node.
      *

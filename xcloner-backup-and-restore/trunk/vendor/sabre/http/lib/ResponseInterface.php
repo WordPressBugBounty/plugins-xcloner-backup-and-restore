@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This interface represents a HTTP response.
  *
@@ -20,14 +19,12 @@ interface ResponseInterface extends MessageInterface
      * Returns the current HTTP status code.
      */
     public function getStatus(): int;
-
     /**
      * Returns the human-readable status string.
      *
      * In the case of a 200, this may for example be 'OK'.
      */
     public function getStatusText(): string;
-
     /**
      * Sets the HTTP status code.
      *

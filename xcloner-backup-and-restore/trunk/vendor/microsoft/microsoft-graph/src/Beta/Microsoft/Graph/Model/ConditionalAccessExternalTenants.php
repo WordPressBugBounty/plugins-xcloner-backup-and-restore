@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConditionalAccessExternalTenants class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class ConditionalAccessExternalTenants extends Entity
 {
-
     /**
-    * Gets the membershipKind
-    * Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
-    *
-    * @return ConditionalAccessExternalTenantsMembershipKind|null The membershipKind
-    */
+     * Gets the membershipKind
+     * Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
+     *
+     * @return ConditionalAccessExternalTenantsMembershipKind|null The membershipKind
+     */
     public function getMembershipKind()
     {
         if (array_key_exists("membershipKind", $this->_propDict)) {
-            if (is_a($this->_propDict["membershipKind"], "\Beta\Microsoft\Graph\Model\ConditionalAccessExternalTenantsMembershipKind") || is_null($this->_propDict["membershipKind"])) {
+            if (is_a($this->_propDict["membershipKind"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConditionalAccessExternalTenantsMembershipKind") || is_null($this->_propDict["membershipKind"])) {
                 return $this->_propDict["membershipKind"];
             } else {
                 $this->_propDict["membershipKind"] = new ConditionalAccessExternalTenantsMembershipKind($this->_propDict["membershipKind"]);
@@ -45,18 +46,17 @@ class ConditionalAccessExternalTenants extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the membershipKind
-    * Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
-    *
-    * @param ConditionalAccessExternalTenantsMembershipKind $val The value to assign to the membershipKind
-    *
-    * @return ConditionalAccessExternalTenants The ConditionalAccessExternalTenants
-    */
+     * Sets the membershipKind
+     * Represents the membership kind. The possible values are: all, enumerated, unknownFutureValue. enumerated references an object of conditionalAccessEnumeratedExternalTenants derived type.
+     *
+     * @param ConditionalAccessExternalTenantsMembershipKind $val The value to assign to the membershipKind
+     *
+     * @return ConditionalAccessExternalTenants The ConditionalAccessExternalTenants
+     */
     public function setMembershipKind($val)
     {
         $this->_propDict["membershipKind"] = $val;
-         return $this;
+        return $this;
     }
 }

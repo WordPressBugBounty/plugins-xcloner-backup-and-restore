@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OutOfOfficeSettings class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OutOfOfficeSettings extends Entity
 {
     /**
-    * Gets the isOutOfOffice
-    * True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false.
-    *
-    * @return bool|null The isOutOfOffice
-    */
+     * Gets the isOutOfOffice
+     * True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false.
+     *
+     * @return bool|null The isOutOfOffice
+     */
     public function getIsOutOfOffice()
     {
         if (array_key_exists("isOutOfOffice", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OutOfOfficeSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isOutOfOffice
-    * True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false.
-    *
-    * @param bool $val The value of the isOutOfOffice
-    *
-    * @return OutOfOfficeSettings
-    */
+     * Sets the isOutOfOffice
+     * True if either:It is currently in the out of office time window configured on the Outlook or Teams client.There is currently an event on the user's calendar that's marked as Show as Out of OfficeOtherwise, false.
+     *
+     * @param bool $val The value of the isOutOfOffice
+     *
+     * @return OutOfOfficeSettings
+     */
     public function setIsOutOfOffice($val)
     {
         $this->_propDict["isOutOfOffice"] = $val;
         return $this;
     }
     /**
-    * Gets the message
-    * The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office).
-    *
-    * @return string|null The message
-    */
+     * Gets the message
+     * The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office).
+     *
+     * @return string|null The message
+     */
     public function getMessage()
     {
         if (array_key_exists("message", $this->_propDict)) {
@@ -68,15 +69,14 @@ class OutOfOfficeSettings extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the message
-    * The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office).
-    *
-    * @param string $val The value of the message
-    *
-    * @return OutOfOfficeSettings
-    */
+     * Sets the message
+     * The out of office message that the user configured on Outlook client (Automatic Replies (Out of Office)) or the Teams client (Schedule out of office).
+     *
+     * @param string $val The value of the message
+     *
+     * @return OutOfOfficeSettings
+     */
     public function setMessage($val)
     {
         $this->_propDict["message"] = $val;

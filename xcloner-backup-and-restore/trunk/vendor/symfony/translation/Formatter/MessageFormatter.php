@@ -8,18 +8,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Formatter;
 
-namespace Symfony\Component\Translation\Formatter;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\IdentityTranslator;
-use Symfony\Contracts\Translation\TranslatorInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\IdentityTranslator;
+use XCloner\Symfony\Contracts\Translation\TranslatorInterface;
 // Help opcache.preload discover always-needed symbols
 class_exists(IntlFormatter::class);
-
 /**
  * @author Abdellatif Ait boudad <a.aitboudad@gmail.com>
  */
@@ -27,7 +24,6 @@ class MessageFormatter implements MessageFormatterInterface, IntlFormatterInterf
 {
     private $translator;
     private $intlFormatter;
-
     /**
      * @param TranslatorInterface|null $translator An identity translator to use as selector for pluralization
      */
@@ -36,7 +32,6 @@ class MessageFormatter implements MessageFormatterInterface, IntlFormatterInterf
         $this->translator = $translator ?? new IdentityTranslator();
         $this->intlFormatter = $intlFormatter ?? new IntlFormatter();
     }
-
     /**
      * {@inheritdoc}
      */
@@ -45,10 +40,8 @@ class MessageFormatter implements MessageFormatterInterface, IntlFormatterInterf
         if ($this->translator instanceof TranslatorInterface) {
             return $this->translator->trans($message, $parameters, null, $locale);
         }
-
         return strtr($message, $parameters);
     }
-
     /**
      * {@inheritdoc}
      */

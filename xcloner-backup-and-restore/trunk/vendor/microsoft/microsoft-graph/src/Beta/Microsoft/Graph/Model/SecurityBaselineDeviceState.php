@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityBaselineDeviceState class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecurityBaselineDeviceState extends Entity
 {
     /**
-    * Gets the deviceDisplayName
-    * Display name of the device
-    *
-    * @return string|null The deviceDisplayName
-    */
+     * Gets the deviceDisplayName
+     * Display name of the device
+     *
+     * @return string|null The deviceDisplayName
+     */
     public function getDeviceDisplayName()
     {
         if (array_key_exists("deviceDisplayName", $this->_propDict)) {
@@ -41,31 +42,29 @@ class SecurityBaselineDeviceState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceDisplayName
-    * Display name of the device
-    *
-    * @param string $val The deviceDisplayName
-    *
-    * @return SecurityBaselineDeviceState
-    */
+     * Sets the deviceDisplayName
+     * Display name of the device
+     *
+     * @param string $val The deviceDisplayName
+     *
+     * @return SecurityBaselineDeviceState
+     */
     public function setDeviceDisplayName($val)
     {
         $this->_propDict["deviceDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastReportedDateTime
-    * Last modified date time of the policy report
-    *
-    * @return \DateTime|null The lastReportedDateTime
-    */
+     * Gets the lastReportedDateTime
+     * Last modified date time of the policy report
+     *
+     * @return \DateTime|null The lastReportedDateTime
+     */
     public function getLastReportedDateTime()
     {
         if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -74,27 +73,25 @@ class SecurityBaselineDeviceState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastReportedDateTime
-    * Last modified date time of the policy report
-    *
-    * @param \DateTime $val The lastReportedDateTime
-    *
-    * @return SecurityBaselineDeviceState
-    */
+     * Sets the lastReportedDateTime
+     * Last modified date time of the policy report
+     *
+     * @param \DateTime $val The lastReportedDateTime
+     *
+     * @return SecurityBaselineDeviceState
+     */
     public function setLastReportedDateTime($val)
     {
         $this->_propDict["lastReportedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceId
-    * Intune device id
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * Intune device id
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -103,31 +100,29 @@ class SecurityBaselineDeviceState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * Intune device id
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return SecurityBaselineDeviceState
-    */
+     * Sets the managedDeviceId
+     * Intune device id
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return SecurityBaselineDeviceState
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
-    *
-    * @return SecurityBaselineComplianceState|null The state
-    */
+     * Gets the state
+     * Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
+     *
+     * @return SecurityBaselineComplianceState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\SecurityBaselineComplianceState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\SecurityBaselineComplianceState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new SecurityBaselineComplianceState($this->_propDict["state"]);
@@ -136,27 +131,25 @@ class SecurityBaselineDeviceState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
-    *
-    * @param SecurityBaselineComplianceState $val The state
-    *
-    * @return SecurityBaselineDeviceState
-    */
+     * Sets the state
+     * Security baseline compliance state. Possible values are: unknown, secure, notApplicable, notSecure, error, conflict.
+     *
+     * @param SecurityBaselineComplianceState $val The state
+     *
+     * @return SecurityBaselineDeviceState
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * User Principal Name
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * User Principal Name
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -165,19 +158,17 @@ class SecurityBaselineDeviceState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * User Principal Name
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return SecurityBaselineDeviceState
-    */
+     * Sets the userPrincipalName
+     * User Principal Name
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return SecurityBaselineDeviceState
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

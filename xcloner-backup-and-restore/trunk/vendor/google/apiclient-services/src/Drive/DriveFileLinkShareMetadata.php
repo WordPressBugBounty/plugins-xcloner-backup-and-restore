@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,52 +15,49 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class DriveFileLinkShareMetadata extends \Google\Model
-{
-  /**
-   * @var bool
-   */
-  public $securityUpdateEligible;
-  /**
-   * @var bool
-   */
-  public $securityUpdateEnabled;
-
-  /**
-   * @param bool
-   */
-  public function setSecurityUpdateEligible($securityUpdateEligible)
-  {
-    $this->securityUpdateEligible = $securityUpdateEligible;
-  }
-  /**
-   * @return bool
-   */
-  public function getSecurityUpdateEligible()
-  {
-    return $this->securityUpdateEligible;
-  }
-  /**
-   * @param bool
-   */
-  public function setSecurityUpdateEnabled($securityUpdateEnabled)
-  {
-    $this->securityUpdateEnabled = $securityUpdateEnabled;
-  }
-  /**
-   * @return bool
-   */
-  public function getSecurityUpdateEnabled()
-  {
-    return $this->securityUpdateEnabled;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class DriveFileLinkShareMetadata extends \XCloner\Google\Model
+{
+    /**
+     * @var bool
+     */
+    public $securityUpdateEligible;
+    /**
+     * @var bool
+     */
+    public $securityUpdateEnabled;
+    /**
+     * @param bool
+     */
+    public function setSecurityUpdateEligible($securityUpdateEligible)
+    {
+        $this->securityUpdateEligible = $securityUpdateEligible;
+    }
+    /**
+     * @return bool
+     */
+    public function getSecurityUpdateEligible()
+    {
+        return $this->securityUpdateEligible;
+    }
+    /**
+     * @param bool
+     */
+    public function setSecurityUpdateEnabled($securityUpdateEnabled)
+    {
+        $this->securityUpdateEnabled = $securityUpdateEnabled;
+    }
+    /**
+     * @return bool
+     */
+    public function getSecurityUpdateEnabled()
+    {
+        return $this->securityUpdateEnabled;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(DriveFileLinkShareMetadata::class, 'Google_Service_Drive_DriveFileLinkShareMetadata');
+class_alias(DriveFileLinkShareMetadata::class, 'XCloner\Google_Service_Drive_DriveFileLinkShareMetadata');

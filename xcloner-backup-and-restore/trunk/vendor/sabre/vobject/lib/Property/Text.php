@@ -1,16 +1,15 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Component;
-use Sabre\VObject\Document;
-use Sabre\VObject\Parser\MimeDir;
-use Sabre\VObject\Property;
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Component;
+use XCloner\Sabre\VObject\Document;
+use XCloner\Sabre\VObject\Parser\MimeDir;
+use XCloner\Sabre\VObject\Property;
+use XCloner\Sabre\Xml;
 /**
  * Text property.
  *
@@ -29,7 +28,6 @@ class Text extends Property
      * @var string
      */
     public $delimiter = ',';
-
     /**
      * List of properties that are considered 'structured'.
      *
@@ -42,11 +40,9 @@ class Text extends Property
         'ORG',
         'GENDER',
         'CLIENTPIDMAP',
-
         // iCalendar
         'REQUEST-STATUS',
     ];
-
     /**
      * Some text components have a minimum number of components.
      *
@@ -55,11 +51,7 @@ class Text extends Property
      *
      * @var array
      */
-    protected $minimumPropertyValues = [
-        'N' => 5,
-        'ADR' => 7,
-    ];
-
+    protected $minimumPropertyValues = ['N' => 5, 'ADR' => 7];
     /**
      * Creates the property.
      *
@@ -83,10 +75,8 @@ class Text extends Property
         if (in_array($name, $this->structuredValues)) {
             $this->delimiter = ';';
         }
-
         parent::__construct($root, $name, $value, $parameters, $group);
     }
-
     /**
      * Sets a raw value coming from a mimedir (iCalendar/vCard) file.
      *
@@ -99,7 +89,6 @@ class Text extends Property
     {
         $this->setValue(MimeDir::unescapeValue($val, $this->delimiter));
     }
-
     /**
      * Sets the value as a quoted-printable encoded string.
      *
@@ -108,7 +97,6 @@ class Text extends Property
     public function setQuotedPrintableValue($val)
     {
         $val = quoted_printable_decode($val);
-
         // Quoted printable only appears in vCard 2.1, and the only character
         // that may be escaped there is ;. So we are simply splitting on just
         // that.
@@ -119,7 +107,6 @@ class Text extends Property
         $matches = preg_split($regex, $val);
         $this->setValue($matches);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -128,36 +115,22 @@ class Text extends Property
     public function getRawMimeDirValue()
     {
         $val = $this->getParts();
-
         if (isset($this->minimumPropertyValues[$this->name])) {
             $val = array_pad($val, $this->minimumPropertyValues[$this->name], '');
         }
-
         foreach ($val as &$item) {
             if (!is_array($item)) {
                 $item = [$item];
             }
-
             foreach ($item as &$subItem) {
                 if (!is_null($subItem)) {
-                    $subItem = strtr(
-                        $subItem,
-                        [
-                            '\\' => '\\\\',
-                            ';' => '\;',
-                            ',' => '\,',
-                            "\n" => '\n',
-                            "\r" => '',
-                        ]
-                    );
+                    $subItem = strtr($subItem, ['\\' => '\\\\', ';' => '\;', ',' => '\,', "\n" => '\n', "\r" => '']);
                 }
             }
             $item = implode(',', $item);
         }
-
         return implode($this->delimiter, $val);
     }
-
     /**
      * Returns the value, in the format it should be encoded for json.
      *
@@ -173,10 +146,8 @@ class Text extends Property
         if (in_array($this->name, $this->structuredValues)) {
             return [$this->getParts()];
         }
-
         return $this->getParts();
     }
-
     /**
      * Returns the type of value.
      *
@@ -189,7 +160,6 @@ class Text extends Property
     {
         return 'TEXT';
     }
-
     /**
      * Turns the object back into a serialized blob.
      *
@@ -201,13 +171,10 @@ class Text extends Property
         if (Document::VCARD21 !== $this->root->getDocumentType()) {
             return parent::serialize();
         }
-
         $val = $this->getParts();
-
         if (isset($this->minimumPropertyValues[$this->name])) {
             $val = \array_pad($val, $this->minimumPropertyValues[$this->name], '');
         }
-
         // Imploding multiple parts into a single value, and splitting the
         // values with ;.
         if (\count($val) > 1) {
@@ -218,25 +185,22 @@ class Text extends Property
         } else {
             $val = $val[0];
         }
-
         $str = $this->name;
         if ($this->group) {
-            $str = $this->group.'.'.$this->name;
+            $str = $this->group . '.' . $this->name;
         }
         foreach ($this->parameters as $param) {
             if ('QUOTED-PRINTABLE' === $param->getValue()) {
                 continue;
             }
-            $str .= ';'.$param->serialize();
+            $str .= ';' . $param->serialize();
         }
-
         // If the resulting value contains a \n, we must encode it as
         // quoted-printable.
-        if (false !== \strpos($val, "\n")) {
+        if (\false !== \strpos($val, "\n")) {
             $str .= ';ENCODING=QUOTED-PRINTABLE:';
             $lastLine = $str;
             $out = null;
-
             // The PHP built-in quoted-printable-encode does not correctly
             // encode newlines for us. Specifically, the \r\n sequence must in
             // vcards be encoded as =0D=OA and we must insert soft-newlines
@@ -247,37 +211,29 @@ class Text extends Property
                 if ($ord >= 32 && $ord <= 126) {
                     $lastLine .= $val[$ii];
                 } else {
-                    $lastLine .= '='.\strtoupper(\bin2hex($val[$ii]));
+                    $lastLine .= '=' . \strtoupper(\bin2hex($val[$ii]));
                 }
                 if (\strlen($lastLine) >= 75) {
                     // Soft line break
-                    $out .= $lastLine."=\r\n ";
+                    $out .= $lastLine . "=\r\n ";
                     $lastLine = null;
                 }
             }
             if (!\is_null($lastLine)) {
-                $out .= $lastLine."\r\n";
+                $out .= $lastLine . "\r\n";
             }
-
             return $out;
         } else {
-            $str .= ':'.$val;
-
-            $str = \preg_replace(
-                '/(
+            $str .= ':' . $val;
+            $str = \preg_replace('/(
                     (?:^.)?         # 1 additional byte in first line because of missing single space (see next line)
                     .{1,74}         # max 75 bytes per line (1 byte is used for a single space added after every CRLF)
                     (?![\x80-\xbf]) # prevent splitting multibyte characters
-                )/x',
-                "$1\r\n ",
-                $str
-            );
-
+                )/x', "\$1\r\n ", $str);
             // remove single space after last CRLF
             return \substr($str, 0, -1);
         }
     }
-
     /**
      * This method serializes only the value of a property. This is used to
      * create xCard or xCal documents.
@@ -287,16 +243,11 @@ class Text extends Property
     protected function xmlSerializeValue(Xml\Writer $writer)
     {
         $values = $this->getParts();
-
         $map = function ($items) use ($values, $writer) {
             foreach ($items as $i => $item) {
-                $writer->writeElement(
-                    $item,
-                    !empty($values[$i]) ? $values[$i] : null
-                );
+                $writer->writeElement($item, !empty($values[$i]) ? $values[$i] : null);
             }
         };
-
         switch ($this->name) {
             // Special-casing the REQUEST-STATUS property.
             //
@@ -305,53 +256,26 @@ class Text extends Property
             case 'REQUEST-STATUS':
                 $writer->writeElement('code', $values[0]);
                 $writer->writeElement('description', $values[1]);
-
                 if (isset($values[2])) {
                     $writer->writeElement('data', $values[2]);
                 }
                 break;
-
             case 'N':
-                $map([
-                    'surname',
-                    'given',
-                    'additional',
-                    'prefix',
-                    'suffix',
-                ]);
+                $map(['surname', 'given', 'additional', 'prefix', 'suffix']);
                 break;
-
             case 'GENDER':
-                $map([
-                    'sex',
-                    'text',
-                ]);
+                $map(['sex', 'text']);
                 break;
-
             case 'ADR':
-                $map([
-                    'pobox',
-                    'ext',
-                    'street',
-                    'locality',
-                    'region',
-                    'code',
-                    'country',
-                ]);
+                $map(['pobox', 'ext', 'street', 'locality', 'region', 'code', 'country']);
                 break;
-
             case 'CLIENTPIDMAP':
-                $map([
-                    'sourceid',
-                    'uri',
-                ]);
+                $map(['sourceid', 'uri']);
                 break;
-
             default:
                 parent::xmlSerializeValue($writer);
         }
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -373,23 +297,17 @@ class Text extends Property
     public function validate($options = 0)
     {
         $warnings = parent::validate($options);
-
         if (isset($this->minimumPropertyValues[$this->name])) {
             $minimum = $this->minimumPropertyValues[$this->name];
             $parts = $this->getParts();
             if (count($parts) < $minimum) {
-                $warnings[] = [
-                    'level' => $options & self::REPAIR ? 1 : 3,
-                    'message' => 'The '.$this->name.' property must have at least '.$minimum.' values. It only has '.count($parts),
-                    'node' => $this,
-                ];
+                $warnings[] = ['level' => $options & self::REPAIR ? 1 : 3, 'message' => 'The ' . $this->name . ' property must have at least ' . $minimum . ' values. It only has ' . count($parts), 'node' => $this];
                 if ($options & self::REPAIR) {
                     $parts = array_pad($parts, $minimum, '');
                     $this->setParts($parts);
                 }
             }
         }
-
         return $warnings;
     }
 }

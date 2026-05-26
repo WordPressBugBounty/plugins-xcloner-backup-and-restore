@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * VersionAction class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class VersionAction extends Entity
 {
     /**
-    * Gets the newVersion
-    * The name of the new version that was created by this action.
-    *
-    * @return string|null The newVersion
-    */
+     * Gets the newVersion
+     * The name of the new version that was created by this action.
+     *
+     * @return string|null The newVersion
+     */
     public function getNewVersion()
     {
         if (array_key_exists("newVersion", $this->_propDict)) {
@@ -40,15 +42,14 @@ class VersionAction extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the newVersion
-    * The name of the new version that was created by this action.
-    *
-    * @param string $val The value of the newVersion
-    *
-    * @return VersionAction
-    */
+     * Sets the newVersion
+     * The name of the new version that was created by this action.
+     *
+     * @param string $val The value of the newVersion
+     *
+     * @return VersionAction
+     */
     public function setNewVersion($val)
     {
         $this->_propDict["newVersion"] = $val;

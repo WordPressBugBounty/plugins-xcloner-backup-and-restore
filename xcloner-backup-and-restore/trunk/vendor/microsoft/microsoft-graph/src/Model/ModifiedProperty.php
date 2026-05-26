@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ModifiedProperty class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ModifiedProperty extends Entity
 {
     /**
-    * Gets the displayName
-    * Indicates the property name of the target attribute that was changed.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Indicates the property name of the target attribute that was changed.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ModifiedProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Indicates the property name of the target attribute that was changed.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ModifiedProperty
-    */
+     * Sets the displayName
+     * Indicates the property name of the target attribute that was changed.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ModifiedProperty
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the newValue
-    * Indicates the updated value for the propery.
-    *
-    * @return string|null The newValue
-    */
+     * Gets the newValue
+     * Indicates the updated value for the propery.
+     *
+     * @return string|null The newValue
+     */
     public function getNewValue()
     {
         if (array_key_exists("newValue", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ModifiedProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the newValue
-    * Indicates the updated value for the propery.
-    *
-    * @param string $val The value of the newValue
-    *
-    * @return ModifiedProperty
-    */
+     * Sets the newValue
+     * Indicates the updated value for the propery.
+     *
+     * @param string $val The value of the newValue
+     *
+     * @return ModifiedProperty
+     */
     public function setNewValue($val)
     {
         $this->_propDict["newValue"] = $val;
         return $this;
     }
     /**
-    * Gets the oldValue
-    * Indicates the previous value (before the update) for the property.
-    *
-    * @return string|null The oldValue
-    */
+     * Gets the oldValue
+     * Indicates the previous value (before the update) for the property.
+     *
+     * @return string|null The oldValue
+     */
     public function getOldValue()
     {
         if (array_key_exists("oldValue", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ModifiedProperty extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the oldValue
-    * Indicates the previous value (before the update) for the property.
-    *
-    * @param string $val The value of the oldValue
-    *
-    * @return ModifiedProperty
-    */
+     * Sets the oldValue
+     * Indicates the previous value (before the update) for the property.
+     *
+     * @param string $val The value of the oldValue
+     *
+     * @return ModifiedProperty
+     */
     public function setOldValue($val)
     {
         $this->_propDict["oldValue"] = $val;

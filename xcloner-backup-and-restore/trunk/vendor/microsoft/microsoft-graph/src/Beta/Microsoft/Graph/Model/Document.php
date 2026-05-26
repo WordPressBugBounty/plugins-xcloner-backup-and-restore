@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Document class
 *
@@ -27,8 +28,7 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class Document extends Entity
 {
-
-     /**
+    /**
      * Gets the comments
      *
      * @return array|null The comments
@@ -36,23 +36,21 @@ class Document extends Entity
     public function getComments()
     {
         if (array_key_exists("comments", $this->_propDict)) {
-           return $this->_propDict["comments"];
+            return $this->_propDict["comments"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the comments
-    *
-    * @param DocumentComment[] $val The comments
-    *
-    * @return Document
-    */
+     * Sets the comments
+     *
+     * @param DocumentComment[] $val The comments
+     *
+     * @return Document
+     */
     public function setComments($val)
     {
         $this->_propDict["comments"] = $val;
         return $this;
     }
-
 }

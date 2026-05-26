@@ -1,7 +1,6 @@
 <?php
 
-declare(strict_types=1);
-
+declare (strict_types=1);
 /**
  * This file is part of the Carbon package.
  *
@@ -10,12 +9,11 @@ declare(strict_types=1);
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Carbon\Traits;
 
-namespace Carbon\Traits;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 trait DeprecatedProperties
 {
     /**
@@ -28,7 +26,6 @@ trait DeprecatedProperties
      *             Deprecated since 2.55.0
      */
     public $localeDayOfWeek;
-
     /**
      * the abbreviated day of week in current locale LC_TIME
      *
@@ -39,7 +36,6 @@ trait DeprecatedProperties
      *             Deprecated since 2.55.0
      */
     public $shortLocaleDayOfWeek;
-
     /**
      * the month in current locale LC_TIME
      *
@@ -50,7 +46,6 @@ trait DeprecatedProperties
      *             Deprecated since 2.55.0
      */
     public $localeMonth;
-
     /**
      * the abbreviated month in current locale LC_TIME
      *

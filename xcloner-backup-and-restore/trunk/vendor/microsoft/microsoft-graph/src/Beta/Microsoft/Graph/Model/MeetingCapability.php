@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MeetingCapability class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MeetingCapability extends Entity
 {
     /**
-    * Gets the allowAnonymousUsersToDialOut
-    * Indicates whether anonymous users dialout is allowed in a meeting.
-    *
-    * @return bool|null The allowAnonymousUsersToDialOut
-    */
+     * Gets the allowAnonymousUsersToDialOut
+     * Indicates whether anonymous users dialout is allowed in a meeting.
+     *
+     * @return bool|null The allowAnonymousUsersToDialOut
+     */
     public function getAllowAnonymousUsersToDialOut()
     {
         if (array_key_exists("allowAnonymousUsersToDialOut", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MeetingCapability extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowAnonymousUsersToDialOut
-    * Indicates whether anonymous users dialout is allowed in a meeting.
-    *
-    * @param bool $val The value of the allowAnonymousUsersToDialOut
-    *
-    * @return MeetingCapability
-    */
+     * Sets the allowAnonymousUsersToDialOut
+     * Indicates whether anonymous users dialout is allowed in a meeting.
+     *
+     * @param bool $val The value of the allowAnonymousUsersToDialOut
+     *
+     * @return MeetingCapability
+     */
     public function setAllowAnonymousUsersToDialOut($val)
     {
         $this->_propDict["allowAnonymousUsersToDialOut"] = $val;
         return $this;
     }
     /**
-    * Gets the allowAnonymousUsersToStartMeeting
-    * Indicates whether anonymous users are allowed to start a meeting.
-    *
-    * @return bool|null The allowAnonymousUsersToStartMeeting
-    */
+     * Gets the allowAnonymousUsersToStartMeeting
+     * Indicates whether anonymous users are allowed to start a meeting.
+     *
+     * @return bool|null The allowAnonymousUsersToStartMeeting
+     */
     public function getAllowAnonymousUsersToStartMeeting()
     {
         if (array_key_exists("allowAnonymousUsersToStartMeeting", $this->_propDict)) {
@@ -68,31 +69,29 @@ class MeetingCapability extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the allowAnonymousUsersToStartMeeting
-    * Indicates whether anonymous users are allowed to start a meeting.
-    *
-    * @param bool $val The value of the allowAnonymousUsersToStartMeeting
-    *
-    * @return MeetingCapability
-    */
+     * Sets the allowAnonymousUsersToStartMeeting
+     * Indicates whether anonymous users are allowed to start a meeting.
+     *
+     * @param bool $val The value of the allowAnonymousUsersToStartMeeting
+     *
+     * @return MeetingCapability
+     */
     public function setAllowAnonymousUsersToStartMeeting($val)
     {
         $this->_propDict["allowAnonymousUsersToStartMeeting"] = $val;
         return $this;
     }
-
     /**
-    * Gets the autoAdmittedUsers
-    * Possible values are: everyoneInCompany, everyone.
-    *
-    * @return AutoAdmittedUsersType|null The autoAdmittedUsers
-    */
+     * Gets the autoAdmittedUsers
+     * Possible values are: everyoneInCompany, everyone.
+     *
+     * @return AutoAdmittedUsersType|null The autoAdmittedUsers
+     */
     public function getAutoAdmittedUsers()
     {
         if (array_key_exists("autoAdmittedUsers", $this->_propDict)) {
-            if (is_a($this->_propDict["autoAdmittedUsers"], "\Beta\Microsoft\Graph\Model\AutoAdmittedUsersType") || is_null($this->_propDict["autoAdmittedUsers"])) {
+            if (is_a($this->_propDict["autoAdmittedUsers"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\AutoAdmittedUsersType") || is_null($this->_propDict["autoAdmittedUsers"])) {
                 return $this->_propDict["autoAdmittedUsers"];
             } else {
                 $this->_propDict["autoAdmittedUsers"] = new AutoAdmittedUsersType($this->_propDict["autoAdmittedUsers"]);
@@ -101,18 +100,17 @@ class MeetingCapability extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the autoAdmittedUsers
-    * Possible values are: everyoneInCompany, everyone.
-    *
-    * @param AutoAdmittedUsersType $val The value to assign to the autoAdmittedUsers
-    *
-    * @return MeetingCapability The MeetingCapability
-    */
+     * Sets the autoAdmittedUsers
+     * Possible values are: everyoneInCompany, everyone.
+     *
+     * @param AutoAdmittedUsersType $val The value to assign to the autoAdmittedUsers
+     *
+     * @return MeetingCapability The MeetingCapability
+     */
     public function setAutoAdmittedUsers($val)
     {
         $this->_propDict["autoAdmittedUsers"] = $val;
-         return $this;
+        return $this;
     }
 }

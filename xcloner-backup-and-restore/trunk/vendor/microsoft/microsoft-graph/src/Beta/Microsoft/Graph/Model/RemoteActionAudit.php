@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * RemoteActionAudit class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class RemoteActionAudit extends Entity
 {
     /**
-    * Gets the action
-    * The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim, deprovision, disable, reenable, moveDeviceToOrganizationalUnit.
-    *
-    * @return RemoteAction|null The action
-    */
+     * Gets the action
+     * The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim, deprovision, disable, reenable, moveDeviceToOrganizationalUnit.
+     *
+     * @return RemoteAction|null The action
+     */
     public function getAction()
     {
         if (array_key_exists("action", $this->_propDict)) {
-            if (is_a($this->_propDict["action"], "\Beta\Microsoft\Graph\Model\RemoteAction") || is_null($this->_propDict["action"])) {
+            if (is_a($this->_propDict["action"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\RemoteAction") || is_null($this->_propDict["action"])) {
                 return $this->_propDict["action"];
             } else {
                 $this->_propDict["action"] = new RemoteAction($this->_propDict["action"]);
@@ -45,31 +46,29 @@ class RemoteActionAudit extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the action
-    * The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim, deprovision, disable, reenable, moveDeviceToOrganizationalUnit.
-    *
-    * @param RemoteAction $val The action
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the action
+     * The action name. Possible values are: unknown, factoryReset, removeCompanyData, resetPasscode, remoteLock, enableLostMode, disableLostMode, locateDevice, rebootNow, recoverPasscode, cleanWindowsDevice, logoutSharedAppleDeviceActiveUser, quickScan, fullScan, windowsDefenderUpdateSignatures, factoryResetKeepEnrollmentData, updateDeviceAccount, automaticRedeployment, shutDown, rotateBitLockerKeys, rotateFileVaultKey, getFileVaultKey, setDeviceName, activateDeviceEsim, deprovision, disable, reenable, moveDeviceToOrganizationalUnit.
+     *
+     * @param RemoteAction $val The action
+     *
+     * @return RemoteActionAudit
+     */
     public function setAction($val)
     {
         $this->_propDict["action"] = $val;
         return $this;
     }
-
     /**
-    * Gets the actionState
-    * Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    *
-    * @return ActionState|null The actionState
-    */
+     * Gets the actionState
+     * Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     *
+     * @return ActionState|null The actionState
+     */
     public function getActionState()
     {
         if (array_key_exists("actionState", $this->_propDict)) {
-            if (is_a($this->_propDict["actionState"], "\Beta\Microsoft\Graph\Model\ActionState") || is_null($this->_propDict["actionState"])) {
+            if (is_a($this->_propDict["actionState"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ActionState") || is_null($this->_propDict["actionState"])) {
                 return $this->_propDict["actionState"];
             } else {
                 $this->_propDict["actionState"] = new ActionState($this->_propDict["actionState"]);
@@ -78,27 +77,25 @@ class RemoteActionAudit extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the actionState
-    * Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
-    *
-    * @param ActionState $val The actionState
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the actionState
+     * Action state. Possible values are: none, pending, canceled, active, done, failed, notSupported.
+     *
+     * @param ActionState $val The actionState
+     *
+     * @return RemoteActionAudit
+     */
     public function setActionState($val)
     {
         $this->_propDict["actionState"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceDisplayName
-    * Intune device name.
-    *
-    * @return string|null The deviceDisplayName
-    */
+     * Gets the deviceDisplayName
+     * Intune device name.
+     *
+     * @return string|null The deviceDisplayName
+     */
     public function getDeviceDisplayName()
     {
         if (array_key_exists("deviceDisplayName", $this->_propDict)) {
@@ -107,27 +104,25 @@ class RemoteActionAudit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceDisplayName
-    * Intune device name.
-    *
-    * @param string $val The deviceDisplayName
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the deviceDisplayName
+     * Intune device name.
+     *
+     * @param string $val The deviceDisplayName
+     *
+     * @return RemoteActionAudit
+     */
     public function setDeviceDisplayName($val)
     {
         $this->_propDict["deviceDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceIMEI
-    * IMEI of the device.
-    *
-    * @return string|null The deviceIMEI
-    */
+     * Gets the deviceIMEI
+     * IMEI of the device.
+     *
+     * @return string|null The deviceIMEI
+     */
     public function getDeviceIMEI()
     {
         if (array_key_exists("deviceIMEI", $this->_propDict)) {
@@ -136,27 +131,25 @@ class RemoteActionAudit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceIMEI
-    * IMEI of the device.
-    *
-    * @param string $val The deviceIMEI
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the deviceIMEI
+     * IMEI of the device.
+     *
+     * @param string $val The deviceIMEI
+     *
+     * @return RemoteActionAudit
+     */
     public function setDeviceIMEI($val)
     {
         $this->_propDict["deviceIMEI"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceOwnerUserPrincipalName
-    * Upn of the device owner.
-    *
-    * @return string|null The deviceOwnerUserPrincipalName
-    */
+     * Gets the deviceOwnerUserPrincipalName
+     * Upn of the device owner.
+     *
+     * @return string|null The deviceOwnerUserPrincipalName
+     */
     public function getDeviceOwnerUserPrincipalName()
     {
         if (array_key_exists("deviceOwnerUserPrincipalName", $this->_propDict)) {
@@ -165,27 +158,25 @@ class RemoteActionAudit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceOwnerUserPrincipalName
-    * Upn of the device owner.
-    *
-    * @param string $val The deviceOwnerUserPrincipalName
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the deviceOwnerUserPrincipalName
+     * Upn of the device owner.
+     *
+     * @param string $val The deviceOwnerUserPrincipalName
+     *
+     * @return RemoteActionAudit
+     */
     public function setDeviceOwnerUserPrincipalName($val)
     {
         $this->_propDict["deviceOwnerUserPrincipalName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the initiatedByUserPrincipalName
-    * User who initiated the device action, format is UPN.
-    *
-    * @return string|null The initiatedByUserPrincipalName
-    */
+     * Gets the initiatedByUserPrincipalName
+     * User who initiated the device action, format is UPN.
+     *
+     * @return string|null The initiatedByUserPrincipalName
+     */
     public function getInitiatedByUserPrincipalName()
     {
         if (array_key_exists("initiatedByUserPrincipalName", $this->_propDict)) {
@@ -194,27 +185,25 @@ class RemoteActionAudit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the initiatedByUserPrincipalName
-    * User who initiated the device action, format is UPN.
-    *
-    * @param string $val The initiatedByUserPrincipalName
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the initiatedByUserPrincipalName
+     * User who initiated the device action, format is UPN.
+     *
+     * @param string $val The initiatedByUserPrincipalName
+     *
+     * @return RemoteActionAudit
+     */
     public function setInitiatedByUserPrincipalName($val)
     {
         $this->_propDict["initiatedByUserPrincipalName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the managedDeviceId
-    * Action target.
-    *
-    * @return string|null The managedDeviceId
-    */
+     * Gets the managedDeviceId
+     * Action target.
+     *
+     * @return string|null The managedDeviceId
+     */
     public function getManagedDeviceId()
     {
         if (array_key_exists("managedDeviceId", $this->_propDict)) {
@@ -223,31 +212,29 @@ class RemoteActionAudit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the managedDeviceId
-    * Action target.
-    *
-    * @param string $val The managedDeviceId
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the managedDeviceId
+     * Action target.
+     *
+     * @param string $val The managedDeviceId
+     *
+     * @return RemoteActionAudit
+     */
     public function setManagedDeviceId($val)
     {
         $this->_propDict["managedDeviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the requestDateTime
-    * Time when the action was issued, given in UTC.
-    *
-    * @return \DateTime|null The requestDateTime
-    */
+     * Gets the requestDateTime
+     * Time when the action was issued, given in UTC.
+     *
+     * @return \DateTime|null The requestDateTime
+     */
     public function getRequestDateTime()
     {
         if (array_key_exists("requestDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["requestDateTime"], "\DateTime") || is_null($this->_propDict["requestDateTime"])) {
+            if (is_a($this->_propDict["requestDateTime"], "\\DateTime") || is_null($this->_propDict["requestDateTime"])) {
                 return $this->_propDict["requestDateTime"];
             } else {
                 $this->_propDict["requestDateTime"] = new \DateTime($this->_propDict["requestDateTime"]);
@@ -256,27 +243,25 @@ class RemoteActionAudit extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the requestDateTime
-    * Time when the action was issued, given in UTC.
-    *
-    * @param \DateTime $val The requestDateTime
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the requestDateTime
+     * Time when the action was issued, given in UTC.
+     *
+     * @param \DateTime $val The requestDateTime
+     *
+     * @return RemoteActionAudit
+     */
     public function setRequestDateTime($val)
     {
         $this->_propDict["requestDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userName
-    * [deprecated] Please use InitiatedByUserPrincipalName instead.
-    *
-    * @return string|null The userName
-    */
+     * Gets the userName
+     * [deprecated] Please use InitiatedByUserPrincipalName instead.
+     *
+     * @return string|null The userName
+     */
     public function getUserName()
     {
         if (array_key_exists("userName", $this->_propDict)) {
@@ -285,19 +270,17 @@ class RemoteActionAudit extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userName
-    * [deprecated] Please use InitiatedByUserPrincipalName instead.
-    *
-    * @param string $val The userName
-    *
-    * @return RemoteActionAudit
-    */
+     * Sets the userName
+     * [deprecated] Please use InitiatedByUserPrincipalName instead.
+     *
+     * @param string $val The userName
+     *
+     * @return RemoteActionAudit
+     */
     public function setUserName($val)
     {
         $this->_propDict["userName"] = $val;
         return $this;
     }
-
 }

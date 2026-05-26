@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * UserExperienceAnalyticsScoreHistory class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class UserExperienceAnalyticsScoreHistory extends Entity
 {
     /**
-    * Gets the startupDateTime
-    * The user experience analytics device startup date time.
-    *
-    * @return \DateTime|null The startupDateTime
-    */
+     * Gets the startupDateTime
+     * The user experience analytics device startup date time.
+     *
+     * @return \DateTime|null The startupDateTime
+     */
     public function getStartupDateTime()
     {
         if (array_key_exists("startupDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["startupDateTime"], "\DateTime") || is_null($this->_propDict["startupDateTime"])) {
+            if (is_a($this->_propDict["startupDateTime"], "\\DateTime") || is_null($this->_propDict["startupDateTime"])) {
                 return $this->_propDict["startupDateTime"];
             } else {
                 $this->_propDict["startupDateTime"] = new \DateTime($this->_propDict["startupDateTime"]);
@@ -45,19 +46,17 @@ class UserExperienceAnalyticsScoreHistory extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the startupDateTime
-    * The user experience analytics device startup date time.
-    *
-    * @param \DateTime $val The startupDateTime
-    *
-    * @return UserExperienceAnalyticsScoreHistory
-    */
+     * Sets the startupDateTime
+     * The user experience analytics device startup date time.
+     *
+     * @param \DateTime $val The startupDateTime
+     *
+     * @return UserExperienceAnalyticsScoreHistory
+     */
     public function setStartupDateTime($val)
     {
         $this->_propDict["startupDateTime"] = $val;
         return $this;
     }
-
 }

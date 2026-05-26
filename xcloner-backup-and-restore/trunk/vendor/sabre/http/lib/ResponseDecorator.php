@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Response Decorator.
  *
@@ -20,7 +19,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResponseDecorator implements ResponseInterface
 {
     use MessageDecoratorTrait;
-
     /**
      * Constructor.
      */
@@ -28,7 +26,6 @@ class ResponseDecorator implements ResponseInterface
     {
         $this->inner = $inner;
     }
-
     /**
      * Returns the current HTTP status code.
      */
@@ -36,7 +33,6 @@ class ResponseDecorator implements ResponseInterface
     {
         return $this->inner->getStatus();
     }
-
     /**
      * Returns the human-readable status string.
      *
@@ -46,7 +42,6 @@ class ResponseDecorator implements ResponseInterface
     {
         return $this->inner->getStatusText();
     }
-
     /**
      * Sets the HTTP status code.
      *
@@ -62,7 +57,6 @@ class ResponseDecorator implements ResponseInterface
     {
         $this->inner->setStatus($status);
     }
-
     /**
      * Serializes the request object as a string.
      *

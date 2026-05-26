@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Windows10EnrollmentCompletionPageConfigurationPolicySetItem class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends PolicySetItem
 {
     /**
-    * Gets the priority
-    * Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
-    *
-    * @return int|null The priority
-    */
+     * Gets the priority
+     * Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
+     *
+     * @return int|null The priority
+     */
     public function getPriority()
     {
         if (array_key_exists("priority", $this->_propDict)) {
@@ -41,19 +42,17 @@ class Windows10EnrollmentCompletionPageConfigurationPolicySetItem extends Policy
             return null;
         }
     }
-
     /**
-    * Sets the priority
-    * Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
-    *
-    * @param int $val The priority
-    *
-    * @return Windows10EnrollmentCompletionPageConfigurationPolicySetItem
-    */
+     * Sets the priority
+     * Priority of the Windows10EnrollmentCompletionPageConfigurationPolicySetItem.
+     *
+     * @param int $val The priority
+     *
+     * @return Windows10EnrollmentCompletionPageConfigurationPolicySetItem
+     */
     public function setPriority($val)
     {
         $this->_propDict["priority"] = intval($val);
         return $this;
     }
-
 }

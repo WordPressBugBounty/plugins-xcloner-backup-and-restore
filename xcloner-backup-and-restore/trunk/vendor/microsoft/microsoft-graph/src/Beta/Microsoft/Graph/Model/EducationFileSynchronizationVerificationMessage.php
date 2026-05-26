@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationFileSynchronizationVerificationMessage class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationFileSynchronizationVerificationMessage extends Entity
 {
     /**
-    * Gets the description
-    * Detailed information about the message type.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * Detailed information about the message type.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,25 +42,24 @@ class EducationFileSynchronizationVerificationMessage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * Detailed information about the message type.
-    *
-    * @param string $val The value of the description
-    *
-    * @return EducationFileSynchronizationVerificationMessage
-    */
+     * Sets the description
+     * Detailed information about the message type.
+     *
+     * @param string $val The value of the description
+     *
+     * @return EducationFileSynchronizationVerificationMessage
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the fileName
-    *
-    * @return string|null The fileName
-    */
+     * Gets the fileName
+     *
+     * @return string|null The fileName
+     */
     public function getFileName()
     {
         if (array_key_exists("fileName", $this->_propDict)) {
@@ -67,25 +68,24 @@ class EducationFileSynchronizationVerificationMessage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the fileName
-    *
-    * @param string $val The value of the fileName
-    *
-    * @return EducationFileSynchronizationVerificationMessage
-    */
+     * Sets the fileName
+     *
+     * @param string $val The value of the fileName
+     *
+     * @return EducationFileSynchronizationVerificationMessage
+     */
     public function setFileName($val)
     {
         $this->_propDict["fileName"] = $val;
         return $this;
     }
     /**
-    * Gets the type
-    * Type of the message. Possible values are: error, warning, information.
-    *
-    * @return string|null The type
-    */
+     * Gets the type
+     * Type of the message. Possible values are: error, warning, information.
+     *
+     * @return string|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
@@ -94,15 +94,14 @@ class EducationFileSynchronizationVerificationMessage extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the type
-    * Type of the message. Possible values are: error, warning, information.
-    *
-    * @param string $val The value of the type
-    *
-    * @return EducationFileSynchronizationVerificationMessage
-    */
+     * Sets the type
+     * Type of the message. Possible values are: error, warning, information.
+     *
+     * @param string $val The value of the type
+     *
+     * @return EducationFileSynchronizationVerificationMessage
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;

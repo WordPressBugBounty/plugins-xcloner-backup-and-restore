@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Browser;
 
-namespace Sabre\DAV\Browser;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * This is a simple plugin that will map any GET request for non-files to
  * PROPFIND allprops-requests.
@@ -29,7 +27,6 @@ class MapGetToPropFind extends DAV\ServerPlugin
      * @var DAV\Server
      */
     protected $server;
-
     /**
      * Initializes the plugin and subscribes to events.
      */
@@ -38,7 +35,6 @@ class MapGetToPropFind extends DAV\ServerPlugin
         $this->server = $server;
         $this->server->on('method:GET', [$this, 'httpGet'], 90);
     }
-
     /**
      * This method intercepts GET requests to non-files, and changes it into an HTTP PROPFIND request.
      *
@@ -50,12 +46,9 @@ class MapGetToPropFind extends DAV\ServerPlugin
         if ($node instanceof DAV\IFile) {
             return;
         }
-
         $subRequest = clone $request;
         $subRequest->setMethod('PROPFIND');
-
         $this->server->invokeMethod($subRequest, $response);
-
-        return false;
+        return \false;
     }
 }

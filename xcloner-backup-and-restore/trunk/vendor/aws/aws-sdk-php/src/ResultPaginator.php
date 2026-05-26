@@ -1,11 +1,11 @@
 <?php
-namespace Aws;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
+namespace XCloner\Aws;
 
-
-use GuzzleHttp\Promise;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\GuzzleHttp\Promise;
 /**
  * Iterator that yields each page of results of a pageable operation.
  */
@@ -13,43 +13,31 @@ class ResultPaginator implements \Iterator
 {
     /** @var AwsClientInterface Client performing operations. */
     private $client;
-
     /** @var string Name of the operation being paginated. */
     private $operation;
-
     /** @var array Args for the operation. */
     private $args;
-
     /** @var array Configuration for the paginator. */
     private $config;
-
     /** @var Result Most recent result from the client. */
     private $result;
-
     /** @var string|array Next token to use for pagination. */
     private $nextToken;
-
     /** @var int Number of operations/requests performed. */
     private $requestCount = 0;
-
     /**
      * @param AwsClientInterface $client
      * @param string             $operation
      * @param array              $args
      * @param array              $config
      */
-    public function __construct(
-        AwsClientInterface $client,
-        $operation,
-        array $args,
-        array $config
-    ) {
+    public function __construct(AwsClientInterface $client, $operation, array $args, array $config)
+    {
         $this->client = $client;
         $this->operation = $operation;
         $this->args = $args;
         $this->config = $config;
     }
-
     /**
      * Runs a paginator asynchronously and uses a callback to handle results.
      *
@@ -75,7 +63,7 @@ class ResultPaginator implements \Iterator
             $nextToken = null;
             do {
                 $command = $this->createNextCommand($this->args, $nextToken);
-                $result = (yield $this->client->executeAsync($command));
+                $result = yield $this->client->executeAsync($command);
                 $nextToken = $this->determineNextToken($result);
                 $retVal = $handleResult($result);
                 if ($retVal !== null) {
@@ -84,7 +72,6 @@ class ResultPaginator implements \Iterator
             } while ($nextToken);
         });
     }
-
     /**
      * Returns an iterator that iterates over the values of applying a JMESPath
      * search to each result yielded by the iterator as a flat sequence.
@@ -100,47 +87,38 @@ class ResultPaginator implements \Iterator
             return (array) $result->search($expression);
         });
     }
-
     /**
      * @return Result
      */
     #[\ReturnTypeWillChange]
     public function current()
     {
-        return $this->valid() ? $this->result : false;
+        return $this->valid() ? $this->result : \false;
     }
-
     #[\ReturnTypeWillChange]
     public function key()
     {
         return $this->valid() ? $this->requestCount - 1 : null;
     }
-
     #[\ReturnTypeWillChange]
     public function next()
     {
         $this->result = null;
     }
-
     #[\ReturnTypeWillChange]
     public function valid()
     {
         if ($this->result) {
-            return true;
+            return \true;
         }
-
         if ($this->nextToken || !$this->requestCount) {
-            $this->result = $this->client->execute(
-                $this->createNextCommand($this->args, $this->nextToken)
-            );
+            $this->result = $this->client->execute($this->createNextCommand($this->args, $this->nextToken));
             $this->nextToken = $this->determineNextToken($this->result);
             $this->requestCount++;
-            return true;
+            return \true;
         }
-
-        return false;
+        return \false;
     }
-
     #[\ReturnTypeWillChange]
     public function rewind()
     {
@@ -148,28 +126,19 @@ class ResultPaginator implements \Iterator
         $this->nextToken = null;
         $this->result = null;
     }
-
     private function createNextCommand(array $args, array $nextToken = null)
     {
-        return $this->client->getCommand($this->operation, array_merge($args, ($nextToken ?: [])));
+        return $this->client->getCommand($this->operation, array_merge($args, $nextToken ?: []));
     }
-
     private function determineNextToken(Result $result)
     {
         if (!$this->config['output_token']) {
             return null;
         }
-
-        if ($this->config['more_results']
-            && !$result->search($this->config['more_results'])
-        ) {
+        if ($this->config['more_results'] && !$result->search($this->config['more_results'])) {
             return null;
         }
-
-        $nextToken = is_scalar($this->config['output_token'])
-            ? [$this->config['input_token'] => $this->config['output_token']]
-            : array_combine($this->config['input_token'], $this->config['output_token']);
-
+        $nextToken = is_scalar($this->config['output_token']) ? [$this->config['input_token'] => $this->config['output_token']] : array_combine($this->config['input_token'], $this->config['output_token']);
         return array_filter(array_map(function ($outputToken) use ($result) {
             return $result->search($outputToken);
         }, $nextToken));

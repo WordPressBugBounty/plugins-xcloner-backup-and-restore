@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * MailboxEvidence class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class MailboxEvidence extends AlertEvidence
 {
     /**
-    * Gets the displayName
-    * The name associated with the mailbox.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name associated with the mailbox.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class MailboxEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name associated with the mailbox.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return MailboxEvidence
-    */
+     * Sets the displayName
+     * The name associated with the mailbox.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return MailboxEvidence
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the primaryAddress
-    * The primary email address of the mailbox.
-    *
-    * @return string|null The primaryAddress
-    */
+     * Gets the primaryAddress
+     * The primary email address of the mailbox.
+     *
+     * @return string|null The primaryAddress
+     */
     public function getPrimaryAddress()
     {
         if (array_key_exists("primaryAddress", $this->_propDict)) {
@@ -68,31 +69,29 @@ class MailboxEvidence extends AlertEvidence
             return null;
         }
     }
-
     /**
-    * Sets the primaryAddress
-    * The primary email address of the mailbox.
-    *
-    * @param string $val The value of the primaryAddress
-    *
-    * @return MailboxEvidence
-    */
+     * Sets the primaryAddress
+     * The primary email address of the mailbox.
+     *
+     * @param string $val The value of the primaryAddress
+     *
+     * @return MailboxEvidence
+     */
     public function setPrimaryAddress($val)
     {
         $this->_propDict["primaryAddress"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userAccount
-    * The user account of the mailbox.
-    *
-    * @return UserAccount|null The userAccount
-    */
+     * Gets the userAccount
+     * The user account of the mailbox.
+     *
+     * @return UserAccount|null The userAccount
+     */
     public function getUserAccount()
     {
         if (array_key_exists("userAccount", $this->_propDict)) {
-            if (is_a($this->_propDict["userAccount"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\UserAccount") || is_null($this->_propDict["userAccount"])) {
+            if (is_a($this->_propDict["userAccount"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\UserAccount") || is_null($this->_propDict["userAccount"])) {
                 return $this->_propDict["userAccount"];
             } else {
                 $this->_propDict["userAccount"] = new UserAccount($this->_propDict["userAccount"]);
@@ -101,18 +100,17 @@ class MailboxEvidence extends AlertEvidence
         }
         return null;
     }
-
     /**
-    * Sets the userAccount
-    * The user account of the mailbox.
-    *
-    * @param UserAccount $val The value to assign to the userAccount
-    *
-    * @return MailboxEvidence The MailboxEvidence
-    */
+     * Sets the userAccount
+     * The user account of the mailbox.
+     *
+     * @param UserAccount $val The value to assign to the userAccount
+     *
+     * @return MailboxEvidence The MailboxEvidence
+     */
     public function setUserAccount($val)
     {
         $this->_propDict["userAccount"] = $val;
-         return $this;
+        return $this;
     }
 }

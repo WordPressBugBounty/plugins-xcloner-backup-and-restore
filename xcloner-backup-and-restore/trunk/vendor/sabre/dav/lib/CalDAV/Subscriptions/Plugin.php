@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CalDAV\Subscriptions;
 
-namespace Sabre\CalDAV\Subscriptions;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\INode;
-use Sabre\DAV\PropFind;
-use Sabre\DAV\Server;
-use Sabre\DAV\ServerPlugin;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\INode;
+use XCloner\Sabre\DAV\PropFind;
+use XCloner\Sabre\DAV\Server;
+use XCloner\Sabre\DAV\ServerPlugin;
 /**
  * This plugin adds calendar-subscription support to your CalDAV server.
  *
@@ -34,15 +32,10 @@ class Plugin extends ServerPlugin
      */
     public function initialize(Server $server)
     {
-        $server->resourceTypeMapping['Sabre\\CalDAV\\Subscriptions\\ISubscription'] =
-            '{http://calendarserver.org/ns/}subscribed';
-
-        $server->xml->elementMap['{http://calendarserver.org/ns/}source'] =
-            'Sabre\\DAV\\Xml\\Property\\Href';
-
+        $server->resourceTypeMapping['Sabre\CalDAV\Subscriptions\ISubscription'] = '{http://calendarserver.org/ns/}subscribed';
+        $server->xml->elementMap['{http://calendarserver.org/ns/}source'] = 'XCloner\Sabre\DAV\Xml\Property\Href';
         $server->on('propFind', [$this, 'propFind'], 150);
     }
-
     /**
      * This method should return a list of server-features.
      *
@@ -55,7 +48,6 @@ class Plugin extends ServerPlugin
     {
         return ['calendarserver-subscribed'];
     }
-
     /**
      * Triggered after properties have been fetched.
      */
@@ -63,19 +55,13 @@ class Plugin extends ServerPlugin
     {
         // There's a bunch of properties that must appear as a self-closing
         // xml-element. This event handler ensures that this will be the case.
-        $props = [
-            '{http://calendarserver.org/ns/}subscribed-strip-alarms',
-            '{http://calendarserver.org/ns/}subscribed-strip-attachments',
-            '{http://calendarserver.org/ns/}subscribed-strip-todos',
-        ];
-
+        $props = ['{http://calendarserver.org/ns/}subscribed-strip-alarms', '{http://calendarserver.org/ns/}subscribed-strip-attachments', '{http://calendarserver.org/ns/}subscribed-strip-todos'];
         foreach ($props as $prop) {
             if (200 === $propFind->getStatus($prop)) {
                 $propFind->set($prop, '', 200);
             }
         }
     }
-
     /**
      * Returns a plugin name.
      *
@@ -88,7 +74,6 @@ class Plugin extends ServerPlugin
     {
         return 'subscriptions';
     }
-
     /**
      * Returns a bunch of meta-data about the plugin.
      *
@@ -102,10 +87,6 @@ class Plugin extends ServerPlugin
      */
     public function getPluginInfo()
     {
-        return [
-            'name' => $this->getPluginName(),
-            'description' => 'This plugin allows users to store iCalendar subscriptions in their calendar-home.',
-            'link' => null,
-        ];
+        return ['name' => $this->getPluginName(), 'description' => 'This plugin allows users to store iCalendar subscriptions in their calendar-home.', 'link' => null];
     }
 }

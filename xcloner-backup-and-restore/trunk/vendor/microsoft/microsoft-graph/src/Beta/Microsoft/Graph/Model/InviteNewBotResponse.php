@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InviteNewBotResponse class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InviteNewBotResponse extends ParticipantJoiningResponse
 {
     /**
-    * Gets the inviteUri
-    * URI to receive new incoming call notification.
-    *
-    * @return string|null The inviteUri
-    */
+     * Gets the inviteUri
+     * URI to receive new incoming call notification.
+     *
+     * @return string|null The inviteUri
+     */
     public function getInviteUri()
     {
         if (array_key_exists("inviteUri", $this->_propDict)) {
@@ -40,15 +42,14 @@ class InviteNewBotResponse extends ParticipantJoiningResponse
             return null;
         }
     }
-
     /**
-    * Sets the inviteUri
-    * URI to receive new incoming call notification.
-    *
-    * @param string $val The value of the inviteUri
-    *
-    * @return InviteNewBotResponse
-    */
+     * Sets the inviteUri
+     * URI to receive new incoming call notification.
+     *
+     * @param string $val The value of the inviteUri
+     *
+     * @return InviteNewBotResponse
+     */
     public function setInviteUri($val)
     {
         $this->_propDict["inviteUri"] = $val;

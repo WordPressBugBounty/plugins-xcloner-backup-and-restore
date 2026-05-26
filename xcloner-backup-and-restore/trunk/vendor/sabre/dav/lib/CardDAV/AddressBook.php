@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\CardDAV;
 
-namespace Sabre\CardDAV;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV;
-use Sabre\DAVACL;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV;
+use XCloner\Sabre\DAVACL;
 /**
  * The AddressBook class represents a CardDAV addressbook, owned by a specific user.
  *
@@ -22,21 +20,18 @@ use Sabre\DAVACL;
 class AddressBook extends DAV\Collection implements IAddressBook, DAV\IProperties, DAVACL\IACL, DAV\Sync\ISyncCollection, DAV\IMultiGet
 {
     use DAVACL\ACLTrait;
-
     /**
      * This is an array with addressbook information.
      *
      * @var array
      */
     protected $addressBookInfo;
-
     /**
      * CardDAV backend.
      *
      * @var Backend\BackendInterface
      */
     protected $carddavBackend;
-
     /**
      * Constructor.
      */
@@ -45,7 +40,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
         $this->carddavBackend = $carddavBackend;
         $this->addressBookInfo = $addressBookInfo;
     }
-
     /**
      * Returns the name of the addressbook.
      *
@@ -55,7 +49,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         return $this->addressBookInfo['uri'];
     }
-
     /**
      * Returns a card.
      *
@@ -69,10 +62,8 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
         if (!$obj) {
             throw new DAV\Exception\NotFound('Card not found');
         }
-
         return new Card($this->carddavBackend, $this->addressBookInfo, $obj);
     }
-
     /**
      * Returns the full list of cards.
      *
@@ -86,10 +77,8 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
             $obj['acl'] = $this->getChildACL();
             $children[] = new Card($this->carddavBackend, $this->addressBookInfo, $obj);
         }
-
         return $children;
     }
-
     /**
      * This method receives a list of paths in it's first argument.
      * It must return an array with Node objects.
@@ -108,10 +97,8 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
             $obj['acl'] = $this->getChildACL();
             $children[] = new Card($this->carddavBackend, $this->addressBookInfo, $obj);
         }
-
         return $children;
     }
-
     /**
      * Creates a new directory.
      *
@@ -123,7 +110,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         throw new DAV\Exception\MethodNotAllowed('Creating collections in addressbooks is not allowed');
     }
-
     /**
      * Creates a new file.
      *
@@ -143,10 +129,8 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
         }
         // Converting to UTF-8, if needed
         $vcardData = DAV\StringUtil::ensureUTF8($vcardData);
-
         return $this->carddavBackend->createCard($this->addressBookInfo['id'], $name, $vcardData);
     }
-
     /**
      * Deletes the entire addressbook.
      */
@@ -154,7 +138,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         $this->carddavBackend->deleteAddressBook($this->addressBookInfo['id']);
     }
-
     /**
      * Renames the addressbook.
      *
@@ -164,7 +147,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         throw new DAV\Exception\MethodNotAllowed('Renaming addressbooks is not yet supported');
     }
-
     /**
      * Returns the last modification date as a unix timestamp.
      */
@@ -172,7 +154,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         return null;
     }
-
     /**
      * Updates properties on this node.
      *
@@ -186,7 +167,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         return $this->carddavBackend->updateAddressBook($this->addressBookInfo['id'], $propPatch);
     }
-
     /**
      * Returns a list of properties for this nodes.
      *
@@ -207,10 +187,8 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
                 $response[$propertyName] = $this->addressBookInfo[$propertyName];
             }
         }
-
         return $response;
     }
-
     /**
      * Returns the owner principal.
      *
@@ -222,7 +200,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
     {
         return $this->addressBookInfo['principaluri'];
     }
-
     /**
      * This method returns the ACL's for card nodes in this address book.
      * The result of this method automatically gets passed to the
@@ -232,15 +209,8 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
      */
     public function getChildACL()
     {
-        return [
-            [
-                'privilege' => '{DAV:}all',
-                'principal' => $this->getOwner(),
-                'protected' => true,
-            ],
-        ];
+        return [['privilege' => '{DAV:}all', 'principal' => $this->getOwner(), 'protected' => \true]];
     }
-
     /**
      * This method returns the current sync-token for this collection.
      * This can be any string.
@@ -252,20 +222,13 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
      */
     public function getSyncToken()
     {
-        if (
-            $this->carddavBackend instanceof Backend\SyncSupport &&
-            isset($this->addressBookInfo['{DAV:}sync-token'])
-        ) {
+        if ($this->carddavBackend instanceof Backend\SyncSupport && isset($this->addressBookInfo['{DAV:}sync-token'])) {
             return $this->addressBookInfo['{DAV:}sync-token'];
         }
-        if (
-            $this->carddavBackend instanceof Backend\SyncSupport &&
-            isset($this->addressBookInfo['{http://sabredav.org/ns}sync-token'])
-        ) {
+        if ($this->carddavBackend instanceof Backend\SyncSupport && isset($this->addressBookInfo['{http://sabredav.org/ns}sync-token'])) {
             return $this->addressBookInfo['{http://sabredav.org/ns}sync-token'];
         }
     }
-
     /**
      * The getChanges method returns all the changes that have happened, since
      * the specified syncToken and the current collection.
@@ -327,12 +290,6 @@ class AddressBook extends DAV\Collection implements IAddressBook, DAV\IPropertie
         if (!$this->carddavBackend instanceof Backend\SyncSupport) {
             return null;
         }
-
-        return $this->carddavBackend->getChangesForAddressBook(
-            $this->addressBookInfo['id'],
-            $syncToken,
-            $syncLevel,
-            $limit
-        );
+        return $this->carddavBackend->getChangesForAddressBook($this->addressBookInfo['id'], $syncToken, $syncLevel, $limit);
     }
 }

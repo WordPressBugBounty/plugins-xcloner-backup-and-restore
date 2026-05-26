@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeSlot class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class TimeSlot extends Entity
 {
-
     /**
-    * Gets the end
-    * The date, time, and time zone that a period ends.
-    *
-    * @return DateTimeTimeZone|null The end
-    */
+     * Gets the end
+     * The date, time, and time zone that a period ends.
+     *
+     * @return DateTimeTimeZone|null The end
+     */
     public function getEnd()
     {
         if (array_key_exists("end", $this->_propDict)) {
-            if (is_a($this->_propDict["end"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["end"])) {
+            if (is_a($this->_propDict["end"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["end"])) {
                 return $this->_propDict["end"];
             } else {
                 $this->_propDict["end"] = new DateTimeTimeZone($this->_propDict["end"]);
@@ -45,31 +46,29 @@ class TimeSlot extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the end
-    * The date, time, and time zone that a period ends.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the end
-    *
-    * @return TimeSlot The TimeSlot
-    */
+     * Sets the end
+     * The date, time, and time zone that a period ends.
+     *
+     * @param DateTimeTimeZone $val The value to assign to the end
+     *
+     * @return TimeSlot The TimeSlot
+     */
     public function setEnd($val)
     {
         $this->_propDict["end"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the start
-    * The date, time, and time zone that a period begins.
-    *
-    * @return DateTimeTimeZone|null The start
-    */
+     * Gets the start
+     * The date, time, and time zone that a period begins.
+     *
+     * @return DateTimeTimeZone|null The start
+     */
     public function getStart()
     {
         if (array_key_exists("start", $this->_propDict)) {
-            if (is_a($this->_propDict["start"], "\Beta\Microsoft\Graph\Model\DateTimeTimeZone") || is_null($this->_propDict["start"])) {
+            if (is_a($this->_propDict["start"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DateTimeTimeZone") || is_null($this->_propDict["start"])) {
                 return $this->_propDict["start"];
             } else {
                 $this->_propDict["start"] = new DateTimeTimeZone($this->_propDict["start"]);
@@ -78,18 +77,17 @@ class TimeSlot extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the start
-    * The date, time, and time zone that a period begins.
-    *
-    * @param DateTimeTimeZone $val The value to assign to the start
-    *
-    * @return TimeSlot The TimeSlot
-    */
+     * Sets the start
+     * The date, time, and time zone that a period begins.
+     *
+     * @param DateTimeTimeZone $val The value to assign to the start
+     *
+     * @return TimeSlot The TimeSlot
+     */
     public function setStart($val)
     {
         $this->_propDict["start"] = $val;
-         return $this;
+        return $this;
     }
 }

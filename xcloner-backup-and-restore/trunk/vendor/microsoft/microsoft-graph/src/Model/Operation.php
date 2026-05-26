@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Operation class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Operation extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * The start time of the operation.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The start time of the operation.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,31 +46,29 @@ class Operation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The start time of the operation.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return Operation
-    */
+     * Sets the createdDateTime
+     * The start time of the operation.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return Operation
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastActionDateTime
-    * The time of the last action of the operation.
-    *
-    * @return \DateTime|null The lastActionDateTime
-    */
+     * Gets the lastActionDateTime
+     * The time of the last action of the operation.
+     *
+     * @return \DateTime|null The lastActionDateTime
+     */
     public function getLastActionDateTime()
     {
         if (array_key_exists("lastActionDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastActionDateTime"], "\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
+            if (is_a($this->_propDict["lastActionDateTime"], "\\DateTime") || is_null($this->_propDict["lastActionDateTime"])) {
                 return $this->_propDict["lastActionDateTime"];
             } else {
                 $this->_propDict["lastActionDateTime"] = new \DateTime($this->_propDict["lastActionDateTime"]);
@@ -78,31 +77,29 @@ class Operation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastActionDateTime
-    * The time of the last action of the operation.
-    *
-    * @param \DateTime $val The lastActionDateTime
-    *
-    * @return Operation
-    */
+     * Sets the lastActionDateTime
+     * The time of the last action of the operation.
+     *
+     * @param \DateTime $val The lastActionDateTime
+     *
+     * @return Operation
+     */
     public function setLastActionDateTime($val)
     {
         $this->_propDict["lastActionDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * The current status of the operation: notStarted, running, completed, failed
-    *
-    * @return OperationStatus|null The status
-    */
+     * Gets the status
+     * The current status of the operation: notStarted, running, completed, failed
+     *
+     * @return OperationStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\OperationStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Microsoft\\Graph\\Model\\OperationStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new OperationStatus($this->_propDict["status"]);
@@ -111,19 +108,17 @@ class Operation extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * The current status of the operation: notStarted, running, completed, failed
-    *
-    * @param OperationStatus $val The status
-    *
-    * @return Operation
-    */
+     * Sets the status
+     * The current status of the operation: notStarted, running, completed, failed
+     *
+     * @param OperationStatus $val The status
+     *
+     * @return Operation
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
 }

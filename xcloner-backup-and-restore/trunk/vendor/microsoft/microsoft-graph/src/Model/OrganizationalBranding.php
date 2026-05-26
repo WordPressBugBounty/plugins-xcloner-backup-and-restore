@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OrganizationalBranding class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class OrganizationalBranding extends OrganizationalBrandingProperties
 {
-
-     /**
+    /**
      * Gets the localizations
-    * Add different branding based on a locale.
+     * Add different branding based on a locale.
      *
      * @return array|null The localizations
      */
     public function getLocalizations()
     {
         if (array_key_exists("localizations", $this->_propDict)) {
-           return $this->_propDict["localizations"];
+            return $this->_propDict["localizations"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the localizations
-    * Add different branding based on a locale.
-    *
-    * @param OrganizationalBrandingLocalization[] $val The localizations
-    *
-    * @return OrganizationalBranding
-    */
+     * Sets the localizations
+     * Add different branding based on a locale.
+     *
+     * @param OrganizationalBrandingLocalization[] $val The localizations
+     *
+     * @return OrganizationalBranding
+     */
     public function setLocalizations($val)
     {
         $this->_propDict["localizations"] = $val;
         return $this;
     }
-
 }

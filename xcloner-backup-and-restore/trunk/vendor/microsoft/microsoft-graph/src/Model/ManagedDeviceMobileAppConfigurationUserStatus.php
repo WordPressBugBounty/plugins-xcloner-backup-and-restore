@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedDeviceMobileAppConfigurationUserStatus class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedDeviceMobileAppConfigurationUserStatus extends Entity
 {
     /**
-    * Gets the devicesCount
-    * Devices count for that user.
-    *
-    * @return int|null The devicesCount
-    */
+     * Gets the devicesCount
+     * Devices count for that user.
+     *
+     * @return int|null The devicesCount
+     */
     public function getDevicesCount()
     {
         if (array_key_exists("devicesCount", $this->_propDict)) {
@@ -41,31 +42,29 @@ class ManagedDeviceMobileAppConfigurationUserStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the devicesCount
-    * Devices count for that user.
-    *
-    * @param int $val The devicesCount
-    *
-    * @return ManagedDeviceMobileAppConfigurationUserStatus
-    */
+     * Sets the devicesCount
+     * Devices count for that user.
+     *
+     * @param int $val The devicesCount
+     *
+     * @return ManagedDeviceMobileAppConfigurationUserStatus
+     */
     public function setDevicesCount($val)
     {
         $this->_propDict["devicesCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the lastReportedDateTime
-    * Last modified date time of the policy report.
-    *
-    * @return \DateTime|null The lastReportedDateTime
-    */
+     * Gets the lastReportedDateTime
+     * Last modified date time of the policy report.
+     *
+     * @return \DateTime|null The lastReportedDateTime
+     */
     public function getLastReportedDateTime()
     {
         if (array_key_exists("lastReportedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastReportedDateTime"], "\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
+            if (is_a($this->_propDict["lastReportedDateTime"], "\\DateTime") || is_null($this->_propDict["lastReportedDateTime"])) {
                 return $this->_propDict["lastReportedDateTime"];
             } else {
                 $this->_propDict["lastReportedDateTime"] = new \DateTime($this->_propDict["lastReportedDateTime"]);
@@ -74,31 +73,29 @@ class ManagedDeviceMobileAppConfigurationUserStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastReportedDateTime
-    * Last modified date time of the policy report.
-    *
-    * @param \DateTime $val The lastReportedDateTime
-    *
-    * @return ManagedDeviceMobileAppConfigurationUserStatus
-    */
+     * Sets the lastReportedDateTime
+     * Last modified date time of the policy report.
+     *
+     * @param \DateTime $val The lastReportedDateTime
+     *
+     * @return ManagedDeviceMobileAppConfigurationUserStatus
+     */
     public function setLastReportedDateTime($val)
     {
         $this->_propDict["lastReportedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the status
-    * Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
-    *
-    * @return ComplianceStatus|null The status
-    */
+     * Gets the status
+     * Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     *
+     * @return ComplianceStatus|null The status
+     */
     public function getStatus()
     {
         if (array_key_exists("status", $this->_propDict)) {
-            if (is_a($this->_propDict["status"], "\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["status"])) {
+            if (is_a($this->_propDict["status"], "XCloner\\Microsoft\\Graph\\Model\\ComplianceStatus") || is_null($this->_propDict["status"])) {
                 return $this->_propDict["status"];
             } else {
                 $this->_propDict["status"] = new ComplianceStatus($this->_propDict["status"]);
@@ -107,27 +104,25 @@ class ManagedDeviceMobileAppConfigurationUserStatus extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the status
-    * Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
-    *
-    * @param ComplianceStatus $val The status
-    *
-    * @return ManagedDeviceMobileAppConfigurationUserStatus
-    */
+     * Sets the status
+     * Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     *
+     * @param ComplianceStatus $val The status
+     *
+     * @return ManagedDeviceMobileAppConfigurationUserStatus
+     */
     public function setStatus($val)
     {
         $this->_propDict["status"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userDisplayName
-    * User name of the DevicePolicyStatus.
-    *
-    * @return string|null The userDisplayName
-    */
+     * Gets the userDisplayName
+     * User name of the DevicePolicyStatus.
+     *
+     * @return string|null The userDisplayName
+     */
     public function getUserDisplayName()
     {
         if (array_key_exists("userDisplayName", $this->_propDict)) {
@@ -136,27 +131,25 @@ class ManagedDeviceMobileAppConfigurationUserStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userDisplayName
-    * User name of the DevicePolicyStatus.
-    *
-    * @param string $val The userDisplayName
-    *
-    * @return ManagedDeviceMobileAppConfigurationUserStatus
-    */
+     * Sets the userDisplayName
+     * User name of the DevicePolicyStatus.
+     *
+     * @param string $val The userDisplayName
+     *
+     * @return ManagedDeviceMobileAppConfigurationUserStatus
+     */
     public function setUserDisplayName($val)
     {
         $this->_propDict["userDisplayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * UserPrincipalName.
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * UserPrincipalName.
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -165,19 +158,17 @@ class ManagedDeviceMobileAppConfigurationUserStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * UserPrincipalName.
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return ManagedDeviceMobileAppConfigurationUserStatus
-    */
+     * Sets the userPrincipalName
+     * UserPrincipalName.
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return ManagedDeviceMobileAppConfigurationUserStatus
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

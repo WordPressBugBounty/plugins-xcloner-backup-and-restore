@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationDropdownList class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentation
 {
     /**
-    * Gets the defaultItem
-    * Localized string value identifying the default choice of the list of items.
-    *
-    * @return GroupPolicyPresentationDropdownListItem|null The defaultItem
-    */
+     * Gets the defaultItem
+     * Localized string value identifying the default choice of the list of items.
+     *
+     * @return GroupPolicyPresentationDropdownListItem|null The defaultItem
+     */
     public function getDefaultItem()
     {
         if (array_key_exists("defaultItem", $this->_propDict)) {
-            if (is_a($this->_propDict["defaultItem"], "\Beta\Microsoft\Graph\Model\GroupPolicyPresentationDropdownListItem") || is_null($this->_propDict["defaultItem"])) {
+            if (is_a($this->_propDict["defaultItem"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GroupPolicyPresentationDropdownListItem") || is_null($this->_propDict["defaultItem"])) {
                 return $this->_propDict["defaultItem"];
             } else {
                 $this->_propDict["defaultItem"] = new GroupPolicyPresentationDropdownListItem($this->_propDict["defaultItem"]);
@@ -45,57 +46,52 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
         }
         return null;
     }
-
     /**
-    * Sets the defaultItem
-    * Localized string value identifying the default choice of the list of items.
-    *
-    * @param GroupPolicyPresentationDropdownListItem $val The defaultItem
-    *
-    * @return GroupPolicyPresentationDropdownList
-    */
+     * Sets the defaultItem
+     * Localized string value identifying the default choice of the list of items.
+     *
+     * @param GroupPolicyPresentationDropdownListItem $val The defaultItem
+     *
+     * @return GroupPolicyPresentationDropdownList
+     */
     public function setDefaultItem($val)
     {
         $this->_propDict["defaultItem"] = $val;
         return $this;
     }
-
-
-     /**
+    /**
      * Gets the items
-    * Represents a set of localized display names and their associated values.
+     * Represents a set of localized display names and their associated values.
      *
      * @return array|null The items
      */
     public function getItems()
     {
         if (array_key_exists("items", $this->_propDict)) {
-           return $this->_propDict["items"];
+            return $this->_propDict["items"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the items
-    * Represents a set of localized display names and their associated values.
-    *
-    * @param GroupPolicyPresentationDropdownListItem[] $val The items
-    *
-    * @return GroupPolicyPresentationDropdownList
-    */
+     * Sets the items
+     * Represents a set of localized display names and their associated values.
+     *
+     * @param GroupPolicyPresentationDropdownListItem[] $val The items
+     *
+     * @return GroupPolicyPresentationDropdownList
+     */
     public function setItems($val)
     {
         $this->_propDict["items"] = $val;
         return $this;
     }
-
     /**
-    * Gets the required
-    * Requirement to enter a value in the parameter box. The default value is false.
-    *
-    * @return bool|null The required
-    */
+     * Gets the required
+     * Requirement to enter a value in the parameter box. The default value is false.
+     *
+     * @return bool|null The required
+     */
     public function getRequired()
     {
         if (array_key_exists("required", $this->_propDict)) {
@@ -104,19 +100,17 @@ class GroupPolicyPresentationDropdownList extends GroupPolicyUploadedPresentatio
             return null;
         }
     }
-
     /**
-    * Sets the required
-    * Requirement to enter a value in the parameter box. The default value is false.
-    *
-    * @param bool $val The required
-    *
-    * @return GroupPolicyPresentationDropdownList
-    */
+     * Sets the required
+     * Requirement to enter a value in the parameter box. The default value is false.
+     *
+     * @param bool $val The required
+     *
+     * @return GroupPolicyPresentationDropdownList
+     */
     public function setRequired($val)
     {
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-
 }

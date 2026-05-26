@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * BasicAuthentication class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class BasicAuthentication extends ApiAuthenticationConfigurationBase
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.basicAuthentication");
     }
-
     /**
-    * Gets the password
-    * The password. It is not returned in the responses.
-    *
-    * @return string|null The password
-    */
+     * Gets the password
+     * The password. It is not returned in the responses.
+     *
+     * @return string|null The password
+     */
     public function getPassword()
     {
         if (array_key_exists("password", $this->_propDict)) {
@@ -51,26 +52,25 @@ class BasicAuthentication extends ApiAuthenticationConfigurationBase
             return null;
         }
     }
-
     /**
-    * Sets the password
-    * The password. It is not returned in the responses.
-    *
-    * @param string $val The value of the password
-    *
-    * @return BasicAuthentication
-    */
+     * Sets the password
+     * The password. It is not returned in the responses.
+     *
+     * @param string $val The value of the password
+     *
+     * @return BasicAuthentication
+     */
     public function setPassword($val)
     {
         $this->_propDict["password"] = $val;
         return $this;
     }
     /**
-    * Gets the username
-    * The username.
-    *
-    * @return string|null The username
-    */
+     * Gets the username
+     * The username.
+     *
+     * @return string|null The username
+     */
     public function getUsername()
     {
         if (array_key_exists("username", $this->_propDict)) {
@@ -79,15 +79,14 @@ class BasicAuthentication extends ApiAuthenticationConfigurationBase
             return null;
         }
     }
-
     /**
-    * Sets the username
-    * The username.
-    *
-    * @param string $val The value of the username
-    *
-    * @return BasicAuthentication
-    */
+     * Sets the username
+     * The username.
+     *
+     * @param string $val The value of the username
+     *
+     * @return BasicAuthentication
+     */
     public function setUsername($val)
     {
         $this->_propDict["username"] = $val;

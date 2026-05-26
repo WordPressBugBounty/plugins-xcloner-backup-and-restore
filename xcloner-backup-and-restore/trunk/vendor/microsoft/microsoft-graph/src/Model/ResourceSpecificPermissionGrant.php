@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResourceSpecificPermissionGrant class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResourceSpecificPermissionGrant extends DirectoryObject
 {
     /**
-    * Gets the clientAppId
-    * ID of the service principal of the Azure AD app that has been granted access. Read-only.
-    *
-    * @return string|null The clientAppId
-    */
+     * Gets the clientAppId
+     * ID of the service principal of the Azure AD app that has been granted access. Read-only.
+     *
+     * @return string|null The clientAppId
+     */
     public function getClientAppId()
     {
         if (array_key_exists("clientAppId", $this->_propDict)) {
@@ -41,27 +42,25 @@ class ResourceSpecificPermissionGrant extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the clientAppId
-    * ID of the service principal of the Azure AD app that has been granted access. Read-only.
-    *
-    * @param string $val The clientAppId
-    *
-    * @return ResourceSpecificPermissionGrant
-    */
+     * Sets the clientAppId
+     * ID of the service principal of the Azure AD app that has been granted access. Read-only.
+     *
+     * @param string $val The clientAppId
+     *
+     * @return ResourceSpecificPermissionGrant
+     */
     public function setClientAppId($val)
     {
         $this->_propDict["clientAppId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the clientId
-    * ID of the Azure AD app that has been granted access. Read-only.
-    *
-    * @return string|null The clientId
-    */
+     * Gets the clientId
+     * ID of the Azure AD app that has been granted access. Read-only.
+     *
+     * @return string|null The clientId
+     */
     public function getClientId()
     {
         if (array_key_exists("clientId", $this->_propDict)) {
@@ -70,27 +69,25 @@ class ResourceSpecificPermissionGrant extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the clientId
-    * ID of the Azure AD app that has been granted access. Read-only.
-    *
-    * @param string $val The clientId
-    *
-    * @return ResourceSpecificPermissionGrant
-    */
+     * Sets the clientId
+     * ID of the Azure AD app that has been granted access. Read-only.
+     *
+     * @param string $val The clientId
+     *
+     * @return ResourceSpecificPermissionGrant
+     */
     public function setClientId($val)
     {
         $this->_propDict["clientId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the permission
-    * The name of the resource-specific permission. Read-only.
-    *
-    * @return string|null The permission
-    */
+     * Gets the permission
+     * The name of the resource-specific permission. Read-only.
+     *
+     * @return string|null The permission
+     */
     public function getPermission()
     {
         if (array_key_exists("permission", $this->_propDict)) {
@@ -99,27 +96,25 @@ class ResourceSpecificPermissionGrant extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the permission
-    * The name of the resource-specific permission. Read-only.
-    *
-    * @param string $val The permission
-    *
-    * @return ResourceSpecificPermissionGrant
-    */
+     * Sets the permission
+     * The name of the resource-specific permission. Read-only.
+     *
+     * @param string $val The permission
+     *
+     * @return ResourceSpecificPermissionGrant
+     */
     public function setPermission($val)
     {
         $this->_propDict["permission"] = $val;
         return $this;
     }
-
     /**
-    * Gets the permissionType
-    * The type of permission. Possible values are: Application, Delegated. Read-only.
-    *
-    * @return string|null The permissionType
-    */
+     * Gets the permissionType
+     * The type of permission. Possible values are: Application, Delegated. Read-only.
+     *
+     * @return string|null The permissionType
+     */
     public function getPermissionType()
     {
         if (array_key_exists("permissionType", $this->_propDict)) {
@@ -128,27 +123,25 @@ class ResourceSpecificPermissionGrant extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the permissionType
-    * The type of permission. Possible values are: Application, Delegated. Read-only.
-    *
-    * @param string $val The permissionType
-    *
-    * @return ResourceSpecificPermissionGrant
-    */
+     * Sets the permissionType
+     * The type of permission. Possible values are: Application, Delegated. Read-only.
+     *
+     * @param string $val The permissionType
+     *
+     * @return ResourceSpecificPermissionGrant
+     */
     public function setPermissionType($val)
     {
         $this->_propDict["permissionType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the resourceAppId
-    * ID of the Azure AD app that is hosting the resource. Read-only.
-    *
-    * @return string|null The resourceAppId
-    */
+     * Gets the resourceAppId
+     * ID of the Azure AD app that is hosting the resource. Read-only.
+     *
+     * @return string|null The resourceAppId
+     */
     public function getResourceAppId()
     {
         if (array_key_exists("resourceAppId", $this->_propDict)) {
@@ -157,19 +150,17 @@ class ResourceSpecificPermissionGrant extends DirectoryObject
             return null;
         }
     }
-
     /**
-    * Sets the resourceAppId
-    * ID of the Azure AD app that is hosting the resource. Read-only.
-    *
-    * @param string $val The resourceAppId
-    *
-    * @return ResourceSpecificPermissionGrant
-    */
+     * Sets the resourceAppId
+     * ID of the Azure AD app that is hosting the resource. Read-only.
+     *
+     * @param string $val The resourceAppId
+     *
+     * @return ResourceSpecificPermissionGrant
+     */
     public function setResourceAppId($val)
     {
         $this->_propDict["resourceAppId"] = $val;
         return $this;
     }
-
 }

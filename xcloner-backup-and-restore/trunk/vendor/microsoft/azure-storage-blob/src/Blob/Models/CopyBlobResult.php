@@ -21,15 +21,13 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * The result of calling copyBlob API.
  *
@@ -46,7 +44,6 @@ class CopyBlobResult
     private $_lastModified;
     private $_copyId;
     private $_copyStatus;
-
     /**
      * Creates CopyBlobResult object from the response of the copy blob request.
      *
@@ -59,35 +56,15 @@ class CopyBlobResult
     public static function create(array $headers)
     {
         $result = new CopyBlobResult();
-        $result->setETag(
-            Utilities::tryGetValueInsensitive(
-                Resources::ETAG,
-                $headers
-            )
-        );
-        $result->setCopyId(
-            Utilities::tryGetValueInsensitive(
-                Resources::X_MS_COPY_ID,
-                $headers
-            )
-        );
-        $result->setCopyStatus(
-            Utilities::tryGetValueInsensitive(
-                Resources::X_MS_COPY_STATUS,
-                $headers
-            )
-        );
+        $result->setETag(Utilities::tryGetValueInsensitive(Resources::ETAG, $headers));
+        $result->setCopyId(Utilities::tryGetValueInsensitive(Resources::X_MS_COPY_ID, $headers));
+        $result->setCopyStatus(Utilities::tryGetValueInsensitive(Resources::X_MS_COPY_STATUS, $headers));
         if (Utilities::arrayKeyExistsInsensitive(Resources::LAST_MODIFIED, $headers)) {
-            $lastModified = Utilities::tryGetValueInsensitive(
-                Resources::LAST_MODIFIED,
-                $headers
-            );
+            $lastModified = Utilities::tryGetValueInsensitive(Resources::LAST_MODIFIED, $headers);
             $result->setLastModified(Utilities::rfc1123ToDateTime($lastModified));
         }
-
         return $result;
     }
-
     /**
      * Gets copy Id
      *
@@ -97,7 +74,6 @@ class CopyBlobResult
     {
         return $this->_copyId;
     }
-
     /**
      * Sets copy Id
      *
@@ -111,7 +87,6 @@ class CopyBlobResult
     {
         $this->_copyId = $copyId;
     }
-
     /**
      * Gets copy status
      *
@@ -121,7 +96,6 @@ class CopyBlobResult
     {
         return $this->_copyStatus;
     }
-
     /**
      * Sets copy status
      *
@@ -135,7 +109,6 @@ class CopyBlobResult
     {
         $this->_copyStatus = $copystatus;
     }
-
     /**
      * Gets ETag.
      *
@@ -145,7 +118,6 @@ class CopyBlobResult
     {
         return $this->_etag;
     }
-
     /**
      * Sets ETag.
      *
@@ -157,7 +129,6 @@ class CopyBlobResult
     {
         $this->_etag = $etag;
     }
-
     /**
      * Gets blob lastModified.
      *
@@ -167,7 +138,6 @@ class CopyBlobResult
     {
         return $this->_lastModified;
     }
-
     /**
      * Sets blob lastModified.
      *

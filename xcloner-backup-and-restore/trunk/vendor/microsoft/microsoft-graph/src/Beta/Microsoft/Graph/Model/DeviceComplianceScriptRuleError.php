@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceComplianceScriptRuleError class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError
 {
     /**
-    * Gets the settingName
-    * Setting name for the rule with error.
-    *
-    * @return string|null The settingName
-    */
+     * Gets the settingName
+     * Setting name for the rule with error.
+     *
+     * @return string|null The settingName
+     */
     public function getSettingName()
     {
         if (array_key_exists("settingName", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeviceComplianceScriptRuleError extends DeviceComplianceScriptError
             return null;
         }
     }
-
     /**
-    * Sets the settingName
-    * Setting name for the rule with error.
-    *
-    * @param string $val The value of the settingName
-    *
-    * @return DeviceComplianceScriptRuleError
-    */
+     * Sets the settingName
+     * Setting name for the rule with error.
+     *
+     * @param string $val The value of the settingName
+     *
+     * @return DeviceComplianceScriptRuleError
+     */
     public function setSettingName($val)
     {
         $this->_propDict["settingName"] = $val;

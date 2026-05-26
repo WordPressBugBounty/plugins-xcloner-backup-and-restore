@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,69 +15,66 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class TeamDriveList extends \Google\Collection
-{
-  protected $collection_key = 'teamDrives';
-  /**
-   * @var string
-   */
-  public $kind;
-  /**
-   * @var string
-   */
-  public $nextPageToken;
-  protected $teamDrivesType = TeamDrive::class;
-  protected $teamDrivesDataType = 'array';
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param string
-   */
-  public function setNextPageToken($nextPageToken)
-  {
-    $this->nextPageToken = $nextPageToken;
-  }
-  /**
-   * @return string
-   */
-  public function getNextPageToken()
-  {
-    return $this->nextPageToken;
-  }
-  /**
-   * @param TeamDrive[]
-   */
-  public function setTeamDrives($teamDrives)
-  {
-    $this->teamDrives = $teamDrives;
-  }
-  /**
-   * @return TeamDrive[]
-   */
-  public function getTeamDrives()
-  {
-    return $this->teamDrives;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class TeamDriveList extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'teamDrives';
+    /**
+     * @var string
+     */
+    public $kind;
+    /**
+     * @var string
+     */
+    public $nextPageToken;
+    protected $teamDrivesType = TeamDrive::class;
+    protected $teamDrivesDataType = 'array';
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param string
+     */
+    public function setNextPageToken($nextPageToken)
+    {
+        $this->nextPageToken = $nextPageToken;
+    }
+    /**
+     * @return string
+     */
+    public function getNextPageToken()
+    {
+        return $this->nextPageToken;
+    }
+    /**
+     * @param TeamDrive[]
+     */
+    public function setTeamDrives($teamDrives)
+    {
+        $this->teamDrives = $teamDrives;
+    }
+    /**
+     * @return TeamDrive[]
+     */
+    public function getTeamDrives()
+    {
+        return $this->teamDrives;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(TeamDriveList::class, 'Google_Service_Drive_TeamDriveList');
+class_alias(TeamDriveList::class, 'XCloner\Google_Service_Drive_TeamDriveList');

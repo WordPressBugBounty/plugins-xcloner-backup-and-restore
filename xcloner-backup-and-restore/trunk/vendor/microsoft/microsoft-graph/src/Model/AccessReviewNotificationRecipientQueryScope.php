@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AccessReviewNotificationRecipientQueryScope class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificationRecipientScope
 {
     /**
-    * Gets the query
-    * Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
-    *
-    * @return string|null The query
-    */
+     * Gets the query
+     * Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+     *
+     * @return string|null The query
+     */
     public function getQuery()
     {
         if (array_key_exists("query", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
             return null;
         }
     }
-
     /**
-    * Sets the query
-    * Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
-    *
-    * @param string $val The value of the query
-    *
-    * @return AccessReviewNotificationRecipientQueryScope
-    */
+     * Sets the query
+     * Represents the query for who the recipients are. For example, /groups/{group id}/members for group members and /users/{user id} for a specific user.
+     *
+     * @param string $val The value of the query
+     *
+     * @return AccessReviewNotificationRecipientQueryScope
+     */
     public function setQuery($val)
     {
         $this->_propDict["query"] = $val;
         return $this;
     }
     /**
-    * Gets the queryRoot
-    * In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
-    *
-    * @return string|null The queryRoot
-    */
+     * Gets the queryRoot
+     * In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
+     *
+     * @return string|null The queryRoot
+     */
     public function getQueryRoot()
     {
         if (array_key_exists("queryRoot", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
             return null;
         }
     }
-
     /**
-    * Sets the queryRoot
-    * In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
-    *
-    * @param string $val The value of the queryRoot
-    *
-    * @return AccessReviewNotificationRecipientQueryScope
-    */
+     * Sets the queryRoot
+     * In the scenario where reviewers need to be specified dynamically, indicates the relative source of the query. This property is only required if a relative query (that is, ./manager) is specified.
+     *
+     * @param string $val The value of the queryRoot
+     *
+     * @return AccessReviewNotificationRecipientQueryScope
+     */
     public function setQueryRoot($val)
     {
         $this->_propDict["queryRoot"] = $val;
         return $this;
     }
     /**
-    * Gets the queryType
-    * Indicates the type of query. Allowed value is MicrosoftGraph.
-    *
-    * @return string|null The queryType
-    */
+     * Gets the queryType
+     * Indicates the type of query. Allowed value is MicrosoftGraph.
+     *
+     * @return string|null The queryType
+     */
     public function getQueryType()
     {
         if (array_key_exists("queryType", $this->_propDict)) {
@@ -96,15 +96,14 @@ class AccessReviewNotificationRecipientQueryScope extends AccessReviewNotificati
             return null;
         }
     }
-
     /**
-    * Sets the queryType
-    * Indicates the type of query. Allowed value is MicrosoftGraph.
-    *
-    * @param string $val The value of the queryType
-    *
-    * @return AccessReviewNotificationRecipientQueryScope
-    */
+     * Sets the queryType
+     * Indicates the type of query. Allowed value is MicrosoftGraph.
+     *
+     * @param string $val The value of the queryType
+     *
+     * @return AccessReviewNotificationRecipientQueryScope
+     */
     public function setQueryType($val)
     {
         $this->_propDict["queryType"] = $val;

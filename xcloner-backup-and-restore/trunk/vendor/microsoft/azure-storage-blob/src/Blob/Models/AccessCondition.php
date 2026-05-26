@@ -21,16 +21,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
-use MicrosoftAzure\Storage\Common\Internal\Validate;
-use MicrosoftAzure\Storage\Common\Internal\WindowsAzureUtilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Blob\Internal\BlobResources as Resources;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Validate;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\WindowsAzureUtilities;
 /**
  * Represents a set of access conditions to be used for operations against the
  * storage services.
@@ -46,7 +44,6 @@ class AccessCondition
 {
     private $_header = Resources::EMPTY_STRING;
     private $_value;
-
     /**
      * Constructor
      *
@@ -60,7 +57,6 @@ class AccessCondition
         $this->setHeader($headerType);
         $this->setValue($value);
     }
-
     /**
      * Specifies that no access condition is set.
      *
@@ -70,7 +66,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::EMPTY_STRING, null);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the resource's ETag value matches the specified ETag value.
@@ -92,7 +87,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::IF_MATCH, $etag);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the resource has been modified since the specified time.
@@ -114,12 +108,8 @@ class AccessCondition
     public static function ifModifiedSince(\DateTime $lastModified)
     {
         Validate::isDate($lastModified);
-        return new AccessCondition(
-            Resources::IF_MODIFIED_SINCE,
-            $lastModified
-        );
+        return new AccessCondition(Resources::IF_MODIFIED_SINCE, $lastModified);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the resource's ETag value does not match the specified ETag value.
@@ -141,7 +131,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::IF_NONE_MATCH, $etag);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the resource has not been modified since the specified time.
@@ -163,12 +152,8 @@ class AccessCondition
     public static function ifNotModifiedSince(\DateTime $lastModified)
     {
         Validate::isDate($lastModified);
-        return new AccessCondition(
-            Resources::IF_UNMODIFIED_SINCE,
-            $lastModified
-        );
+        return new AccessCondition(Resources::IF_UNMODIFIED_SINCE, $lastModified);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the operation would cause the blob to exceed that limit or if the append
@@ -190,7 +175,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::MAX_APPEND_POSITION, $appendPosition);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the operation would cause the blob to exceed that limit or if the blob size
@@ -214,7 +198,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::MAX_BLOB_SIZE, $maxBlobSize);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the blob’s sequence number is less than the specified value.
@@ -236,7 +219,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::SEQUENCE_NUMBER_LESS_THAN, $sequenceNumber);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the blob’s sequence number is equal to the specified value.
@@ -258,7 +240,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::SEQUENCE_NUMBER_EQUAL, $sequenceNumber);
     }
-
     /**
      * Returns an access condition such that an operation will be performed only if
      * the blob’s sequence number is less than or equal to the specified value.
@@ -280,7 +261,6 @@ class AccessCondition
     {
         return new AccessCondition(Resources::SEQUENCE_NUMBER_LESS_THAN_OR_EQUAL, $sequenceNumber);
     }
-
     /**
      * Sets header type
      *
@@ -292,10 +272,8 @@ class AccessCondition
     {
         $valid = AccessCondition::isValid($headerType);
         Validate::isTrue($valid, Resources::INVALID_HT_MSG);
-
         $this->_header = $headerType;
     }
-
     /**
      * Gets header type
      *
@@ -305,7 +283,6 @@ class AccessCondition
     {
         return $this->_header;
     }
-
     /**
      * Sets the header value
      *
@@ -317,7 +294,6 @@ class AccessCondition
     {
         $this->_value = $value;
     }
-
     /**
      * Gets the header value
      *
@@ -327,7 +303,6 @@ class AccessCondition
     {
         return $this->_value;
     }
-
     /**
      * Check if the $headerType belongs to valid header types
      *
@@ -339,20 +314,10 @@ class AccessCondition
      */
     public static function isValid($headerType)
     {
-        if ($headerType == Resources::EMPTY_STRING
-            || $headerType == Resources::IF_UNMODIFIED_SINCE
-            || $headerType == Resources::IF_MATCH
-            || $headerType == Resources::IF_MODIFIED_SINCE
-            || $headerType == Resources::IF_NONE_MATCH
-            || $headerType == Resources::MAX_BLOB_SIZE
-            || $headerType == Resources::MAX_APPEND_POSITION
-            || $headerType == Resources::SEQUENCE_NUMBER_LESS_THAN_OR_EQUAL
-            || $headerType == Resources::SEQUENCE_NUMBER_LESS_THAN
-            || $headerType == Resources::SEQUENCE_NUMBER_EQUAL
-        ) {
-            return true;
+        if ($headerType == Resources::EMPTY_STRING || $headerType == Resources::IF_UNMODIFIED_SINCE || $headerType == Resources::IF_MATCH || $headerType == Resources::IF_MODIFIED_SINCE || $headerType == Resources::IF_NONE_MATCH || $headerType == Resources::MAX_BLOB_SIZE || $headerType == Resources::MAX_APPEND_POSITION || $headerType == Resources::SEQUENCE_NUMBER_LESS_THAN_OR_EQUAL || $headerType == Resources::SEQUENCE_NUMBER_LESS_THAN || $headerType == Resources::SEQUENCE_NUMBER_EQUAL) {
+            return \true;
         } else {
-            return false;
+            return \false;
         }
     }
 }

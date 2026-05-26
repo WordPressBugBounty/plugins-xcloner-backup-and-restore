@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,88 +15,85 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class TeamDriveRestrictions extends \Google\Model
-{
-  /**
-   * @var bool
-   */
-  public $adminManagedRestrictions;
-  /**
-   * @var bool
-   */
-  public $copyRequiresWriterPermission;
-  /**
-   * @var bool
-   */
-  public $domainUsersOnly;
-  /**
-   * @var bool
-   */
-  public $teamMembersOnly;
-
-  /**
-   * @param bool
-   */
-  public function setAdminManagedRestrictions($adminManagedRestrictions)
-  {
-    $this->adminManagedRestrictions = $adminManagedRestrictions;
-  }
-  /**
-   * @return bool
-   */
-  public function getAdminManagedRestrictions()
-  {
-    return $this->adminManagedRestrictions;
-  }
-  /**
-   * @param bool
-   */
-  public function setCopyRequiresWriterPermission($copyRequiresWriterPermission)
-  {
-    $this->copyRequiresWriterPermission = $copyRequiresWriterPermission;
-  }
-  /**
-   * @return bool
-   */
-  public function getCopyRequiresWriterPermission()
-  {
-    return $this->copyRequiresWriterPermission;
-  }
-  /**
-   * @param bool
-   */
-  public function setDomainUsersOnly($domainUsersOnly)
-  {
-    $this->domainUsersOnly = $domainUsersOnly;
-  }
-  /**
-   * @return bool
-   */
-  public function getDomainUsersOnly()
-  {
-    return $this->domainUsersOnly;
-  }
-  /**
-   * @param bool
-   */
-  public function setTeamMembersOnly($teamMembersOnly)
-  {
-    $this->teamMembersOnly = $teamMembersOnly;
-  }
-  /**
-   * @return bool
-   */
-  public function getTeamMembersOnly()
-  {
-    return $this->teamMembersOnly;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class TeamDriveRestrictions extends \XCloner\Google\Model
+{
+    /**
+     * @var bool
+     */
+    public $adminManagedRestrictions;
+    /**
+     * @var bool
+     */
+    public $copyRequiresWriterPermission;
+    /**
+     * @var bool
+     */
+    public $domainUsersOnly;
+    /**
+     * @var bool
+     */
+    public $teamMembersOnly;
+    /**
+     * @param bool
+     */
+    public function setAdminManagedRestrictions($adminManagedRestrictions)
+    {
+        $this->adminManagedRestrictions = $adminManagedRestrictions;
+    }
+    /**
+     * @return bool
+     */
+    public function getAdminManagedRestrictions()
+    {
+        return $this->adminManagedRestrictions;
+    }
+    /**
+     * @param bool
+     */
+    public function setCopyRequiresWriterPermission($copyRequiresWriterPermission)
+    {
+        $this->copyRequiresWriterPermission = $copyRequiresWriterPermission;
+    }
+    /**
+     * @return bool
+     */
+    public function getCopyRequiresWriterPermission()
+    {
+        return $this->copyRequiresWriterPermission;
+    }
+    /**
+     * @param bool
+     */
+    public function setDomainUsersOnly($domainUsersOnly)
+    {
+        $this->domainUsersOnly = $domainUsersOnly;
+    }
+    /**
+     * @return bool
+     */
+    public function getDomainUsersOnly()
+    {
+        return $this->domainUsersOnly;
+    }
+    /**
+     * @param bool
+     */
+    public function setTeamMembersOnly($teamMembersOnly)
+    {
+        $this->teamMembersOnly = $teamMembersOnly;
+    }
+    /**
+     * @return bool
+     */
+    public function getTeamMembersOnly()
+    {
+        return $this->teamMembersOnly;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(TeamDriveRestrictions::class, 'Google_Service_Drive_TeamDriveRestrictions');
+class_alias(TeamDriveRestrictions::class, 'XCloner\Google_Service_Drive_TeamDriveRestrictions');

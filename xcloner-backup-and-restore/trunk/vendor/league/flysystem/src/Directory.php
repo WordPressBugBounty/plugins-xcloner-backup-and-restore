@@ -1,10 +1,10 @@
 <?php
 
-namespace League\Flysystem;
+namespace XCloner\League\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * @deprecated
  */
@@ -19,7 +19,6 @@ class Directory extends Handler
     {
         return $this->filesystem->deleteDir($this->path);
     }
-
     /**
      * List the directory contents.
      *
@@ -27,7 +26,7 @@ class Directory extends Handler
      *
      * @return array|bool directory contents or false
      */
-    public function getContents($recursive = false)
+    public function getContents($recursive = \false)
     {
         return $this->filesystem->listContents($this->path, $recursive);
     }

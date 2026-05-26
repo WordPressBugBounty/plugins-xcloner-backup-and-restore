@@ -22,16 +22,14 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Internal;
 
-namespace MicrosoftAzure\Storage\Common\Internal;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Models\AccessPolicy;
-use MicrosoftAzure\Storage\Common\Models\SignedIdentifier;
-use MicrosoftAzure\Storage\Common\Internal\Serialization\XmlSerializer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Models\AccessPolicy;
+use XCloner\MicrosoftAzure\Storage\Common\Models\SignedIdentifier;
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Serialization\XmlSerializer;
 /**
  * Provide base class for service ACLs.
  *
@@ -46,14 +44,12 @@ abstract class ACLBase
 {
     private $signedIdentifiers = array();
     private $resourceType = '';
-
     /**
      * Create an AccessPolicy object by resource type.
      *
      * @return AccessPolicy
      */
     abstract protected static function createAccessPolicy();
-
     /**
      * Validate if the resource type for the class.
      *
@@ -66,7 +62,6 @@ abstract class ACLBase
      * @return void
      */
     abstract protected static function validateResourceType($resourceType);
-
     /**
      * Converts signed identifiers to array representation for XML serialization
      *
@@ -77,14 +72,11 @@ abstract class ACLBase
     public function toArray()
     {
         $array = array();
-
         foreach ($this->getSignedIdentifiers() as $value) {
             $array[] = $value->toArray();
         }
-
         return $array;
     }
-
     /**
      * Converts this signed identifiers to XML representation.
      *
@@ -96,14 +88,9 @@ abstract class ACLBase
      */
     public function toXml(XmlSerializer $serializer)
     {
-        $properties = array(
-            XmlSerializer::DEFAULT_TAG => Resources::XTAG_SIGNED_IDENTIFIER,
-            XmlSerializer::ROOT_NAME   => Resources::XTAG_SIGNED_IDENTIFIERS
-        );
-
+        $properties = array(XmlSerializer::DEFAULT_TAG => Resources::XTAG_SIGNED_IDENTIFIER, XmlSerializer::ROOT_NAME => Resources::XTAG_SIGNED_IDENTIFIERS);
         return $serializer->serialize($this->toArray(), $properties);
     }
-
     /**
      * Construct the signed identifiers from a given parsed XML in array
      * representation.
@@ -117,31 +104,22 @@ abstract class ACLBase
     public function fromXmlArray(array $parsed = null)
     {
         $this->setSignedIdentifiers(array());
-
         // Initialize signed identifiers.
-        if (!empty($parsed) &&
-                is_array($parsed[Resources::XTAG_SIGNED_IDENTIFIER])
-        ) {
+        if (!empty($parsed) && is_array($parsed[Resources::XTAG_SIGNED_IDENTIFIER])) {
             $entries = $parsed[Resources::XTAG_SIGNED_IDENTIFIER];
-            $temp    = Utilities::getArray($entries);
-
+            $temp = Utilities::getArray($entries);
             foreach ($temp as $value) {
                 $accessPolicy = $value[Resources::XTAG_ACCESS_POLICY];
-                $startString  = urldecode(
-                    $accessPolicy[Resources::XTAG_SIGNED_START]
-                );
-                $expiryString = urldecode(
-                    $accessPolicy[Resources::XTAG_SIGNED_EXPIRY]
-                );
-                $start        = Utilities::convertToDateTime($startString);
-                $expiry       = Utilities::convertToDateTime($expiryString);
-                $permission   = $accessPolicy[Resources::XTAG_SIGNED_PERMISSION];
-                $id           = $value[Resources::XTAG_SIGNED_ID];
+                $startString = urldecode($accessPolicy[Resources::XTAG_SIGNED_START]);
+                $expiryString = urldecode($accessPolicy[Resources::XTAG_SIGNED_EXPIRY]);
+                $start = Utilities::convertToDateTime($startString);
+                $expiry = Utilities::convertToDateTime($expiryString);
+                $permission = $accessPolicy[Resources::XTAG_SIGNED_PERMISSION];
+                $id = $value[Resources::XTAG_SIGNED_ID];
                 $this->addSignedIdentifier($id, $start, $expiry, $permission);
             }
         }
     }
-
     /**
      * Gets the type of resource this ACL relate to.
      *
@@ -153,7 +131,6 @@ abstract class ACLBase
     {
         return $this->resourceType;
     }
-
     /**
      * Set the type of resource this ACL relate to.
      *
@@ -166,7 +143,6 @@ abstract class ACLBase
         static::validateResourceType($resourceType);
         $this->resourceType = $resourceType;
     }
-
     /**
      * Add a signed identifier to the ACL.
      *
@@ -186,40 +162,27 @@ abstract class ACLBase
      *
      * @see https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/establishing-a-stored-access-policy
      */
-    public function addSignedIdentifier(
-        $id,
-        \DateTime $start,
-        \DateTime $expiry,
-        $permissions
-    ) {
+    public function addSignedIdentifier($id, \DateTime $start, \DateTime $expiry, $permissions)
+    {
         Validate::canCastAsString($id, 'id');
         if ($start != null) {
             Validate::isDate($start);
         }
         Validate::isDate($expiry);
         Validate::canCastAsString($permissions, 'permissions');
-
         $accessPolicy = static::createAccessPolicy();
         $accessPolicy->setStart($start);
         $accessPolicy->setExpiry($expiry);
         $accessPolicy->setPermission($permissions);
-
         $signedIdentifier = new SignedIdentifier();
         $signedIdentifier->setId($id);
         $signedIdentifier->setAccessPolicy($accessPolicy);
-
         // Remove the signed identifier with the same ID.
         $this->removeSignedIdentifier($id);
-
         // There can be no more than 5 signed identifiers at the same time.
-        Validate::isTrue(
-            count($this->getSignedIdentifiers()) < 5,
-            Resources::ERROR_TOO_MANY_SIGNED_IDENTIFIERS
-        );
-
+        Validate::isTrue(count($this->getSignedIdentifiers()) < 5, Resources::ERROR_TOO_MANY_SIGNED_IDENTIFIERS);
         $this->signedIdentifiers[] = $signedIdentifier;
     }
-
     /**
      * Remove the signed identifier with given ID.
      *
@@ -234,13 +197,11 @@ abstract class ACLBase
         for ($i = 0; $i < count($this->signedIdentifiers); ++$i) {
             if ($this->signedIdentifiers[$i]->getId() == $id) {
                 array_splice($this->signedIdentifiers, $i, 1);
-                return true;
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     /**
      * Gets signed identifiers.
      *
@@ -250,14 +211,10 @@ abstract class ACLBase
     {
         return $this->signedIdentifiers;
     }
-
     public function setSignedIdentifiers(array $signedIdentifiers)
     {
         // There can be no more than 5 signed identifiers at the same time.
-        Validate::isTrue(
-            count($signedIdentifiers) <= 5,
-            Resources::ERROR_TOO_MANY_SIGNED_IDENTIFIERS
-        );
+        Validate::isTrue(count($signedIdentifiers) <= 5, Resources::ERROR_TOO_MANY_SIGNED_IDENTIFIERS);
         $this->signedIdentifiers = $signedIdentifiers;
     }
 }

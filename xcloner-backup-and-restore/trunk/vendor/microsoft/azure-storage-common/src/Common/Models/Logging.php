@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Utilities;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Utilities;
 /**
  * Holds elements of queue properties logging field.
  *
@@ -46,7 +44,6 @@ class Logging
     private $_read;
     private $_write;
     private $_retentionPolicy;
-
     /**
      * Creates object from $parsedResponse.
      *
@@ -62,13 +59,9 @@ class Logging
         $result->setDelete(Utilities::toBoolean($parsedResponse['Delete']));
         $result->setRead(Utilities::toBoolean($parsedResponse['Read']));
         $result->setWrite(Utilities::toBoolean($parsedResponse['Write']));
-        $result->setRetentionPolicy(
-            RetentionPolicy::create($parsedResponse['RetentionPolicy'])
-        );
-
+        $result->setRetentionPolicy(RetentionPolicy::create($parsedResponse['RetentionPolicy']));
         return $result;
     }
-
     /**
      * Gets the retention policy
      *
@@ -79,7 +72,6 @@ class Logging
     {
         return $this->_retentionPolicy;
     }
-
     /**
      * Sets retention policy
      *
@@ -91,7 +83,6 @@ class Logging
     {
         $this->_retentionPolicy = $policy;
     }
-
     /**
      * Gets whether all write requests should be logged.
      *
@@ -101,7 +92,6 @@ class Logging
     {
         return $this->_write;
     }
-
     /**
      * Sets whether all write requests should be logged.
      *
@@ -113,7 +103,6 @@ class Logging
     {
         $this->_write = $write;
     }
-
     /**
      * Gets whether all read requests should be logged.
      *
@@ -123,7 +112,6 @@ class Logging
     {
         return $this->_read;
     }
-
     /**
      * Sets whether all read requests should be logged.
      *
@@ -135,7 +123,6 @@ class Logging
     {
         $this->_read = $read;
     }
-
     /**
      * Gets whether all delete requests should be logged.
      *
@@ -145,7 +132,6 @@ class Logging
     {
         return $this->_delete;
     }
-
     /**
      * Sets whether all delete requests should be logged.
      *
@@ -157,7 +143,6 @@ class Logging
     {
         $this->_delete = $delete;
     }
-
     /**
      * Gets the version of Storage Analytics to configure
      *
@@ -167,7 +152,6 @@ class Logging
     {
         return $this->_version;
     }
-
     /**
      * Sets the version of Storage Analytics to configure
      *
@@ -179,7 +163,6 @@ class Logging
     {
         $this->_version = $version;
     }
-
     /**
      * Converts this object to array with XML tags
      *
@@ -188,14 +171,6 @@ class Logging
      */
     public function toArray()
     {
-        return array(
-            'Version'         => $this->_version,
-            'Delete'          => Utilities::booleanToString($this->_delete),
-            'Read'            => Utilities::booleanToString($this->_read),
-            'Write'           => Utilities::booleanToString($this->_write),
-            'RetentionPolicy' => !empty($this->_retentionPolicy)
-                ? $this->_retentionPolicy->toArray()
-                : null
-        );
+        return array('Version' => $this->_version, 'Delete' => Utilities::booleanToString($this->_delete), 'Read' => Utilities::booleanToString($this->_read), 'Write' => Utilities::booleanToString($this->_write), 'RetentionPolicy' => !empty($this->_retentionPolicy) ? $this->_retentionPolicy->toArray() : null);
     }
 }

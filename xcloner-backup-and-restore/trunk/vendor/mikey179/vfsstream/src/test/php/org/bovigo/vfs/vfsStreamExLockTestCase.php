@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,17 +8,18 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for LOCK_EX behaviour related to file_put_contents().
  *
  * @group   lock_fpc
  * @author  https://github.com/iwyg
  */
-class vfsStreamExLockTestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamExLockTestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * set up test environment
@@ -26,9 +28,7 @@ class vfsStreamExLockTestCase extends \BC_PHPUnit_Framework_TestCase
     {
         $root = vfsStream::setup();
         vfsStream::newFile('testfile')->at($root);
-
     }
-
     /**
      * This test verifies the current behaviour where vfsStream URLs do not work
      * with file_put_contents() and LOCK_EX. The test is intended to break once
@@ -38,20 +38,19 @@ class vfsStreamExLockTestCase extends \BC_PHPUnit_Framework_TestCase
      */
     public function filePutContentsLockShouldReportError()
     {
-        @file_put_contents(vfsStream::url('root/testfile'), "some string\n", LOCK_EX);
+        @file_put_contents(vfsStream::url('root/testfile'), "some string\n", \LOCK_EX);
         $php_error = error_get_last();
         $this->assertEquals("file_put_contents(): Exclusive locks may only be set for regular files", $php_error['message']);
     }
-
     /**
      * @test
      */
     public function flockSouldPass()
     {
         $fp = fopen(vfsStream::url('root/testfile'), 'w');
-        flock($fp, LOCK_EX);
+        flock($fp, \LOCK_EX);
         fwrite($fp, "another string\n");
-        flock($fp, LOCK_UN);
+        flock($fp, \LOCK_UN);
         fclose($fp);
         $this->assertEquals("another string\n", file_get_contents(vfsStream::url('root/testfile')));
     }

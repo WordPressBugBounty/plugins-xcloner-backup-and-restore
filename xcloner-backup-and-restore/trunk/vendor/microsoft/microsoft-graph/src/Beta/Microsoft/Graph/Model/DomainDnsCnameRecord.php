@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DomainDnsCnameRecord class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DomainDnsCnameRecord extends DomainDnsRecord
 {
     /**
-    * Gets the canonicalName
-    * The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
-    *
-    * @return string|null The canonicalName
-    */
+     * Gets the canonicalName
+     * The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
+     *
+     * @return string|null The canonicalName
+     */
     public function getCanonicalName()
     {
         if (array_key_exists("canonicalName", $this->_propDict)) {
@@ -41,19 +42,17 @@ class DomainDnsCnameRecord extends DomainDnsRecord
             return null;
         }
     }
-
     /**
-    * Sets the canonicalName
-    * The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
-    *
-    * @param string $val The canonicalName
-    *
-    * @return DomainDnsCnameRecord
-    */
+     * Sets the canonicalName
+     * The canonical name of the CNAME record. Used to configure the CNAME record at the DNS host.
+     *
+     * @param string $val The canonicalName
+     *
+     * @return DomainDnsCnameRecord
+     */
     public function setCanonicalName($val)
     {
         $this->_propDict["canonicalName"] = $val;
         return $this;
     }
-
 }

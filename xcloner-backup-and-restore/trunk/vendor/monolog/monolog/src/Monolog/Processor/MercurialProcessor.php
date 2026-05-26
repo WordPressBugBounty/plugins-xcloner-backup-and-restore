@@ -8,14 +8,12 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Processor;
 
-namespace Monolog\Processor;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Monolog\Logger;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Monolog\Logger;
 /**
  * Injects Hg branch and Hg revision number in all records
  *
@@ -25,12 +23,10 @@ class MercurialProcessor implements ProcessorInterface
 {
     private $level;
     private static $cache;
-
     public function __construct($level = Logger::DEBUG)
     {
         $this->level = Logger::toMonologLevel($level);
     }
-
     /**
      * @param  array $record
      * @return array
@@ -41,26 +37,18 @@ class MercurialProcessor implements ProcessorInterface
         if ($record['level'] < $this->level) {
             return $record;
         }
-
         $record['extra']['hg'] = self::getMercurialInfo();
-
         return $record;
     }
-
     private static function getMercurialInfo()
     {
         if (self::$cache) {
             return self::$cache;
         }
-
         $result = explode(' ', trim(`hg id -nb`));
         if (count($result) >= 3) {
-            return self::$cache = array(
-                'branch' => $result[1],
-                'revision' => $result[2],
-            );
+            return self::$cache = array('branch' => $result[1], 'revision' => $result[2]);
         }
-
         return self::$cache = array();
     }
 }

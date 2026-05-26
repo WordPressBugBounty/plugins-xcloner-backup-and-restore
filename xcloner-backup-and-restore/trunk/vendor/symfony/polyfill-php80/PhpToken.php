@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Polyfill\Php80;
 
-namespace Symfony\Polyfill\Php80;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * @author Fedonyuk Anton <info@ensostudio.ru>
  *
@@ -25,22 +24,18 @@ class PhpToken implements \Stringable
      * @var int
      */
     public $id;
-
     /**
      * @var string
      */
     public $text;
-
     /**
      * @var int
      */
     public $line;
-
     /**
      * @var int
      */
     public $pos;
-
     public function __construct(int $id, string $text, int $line = -1, int $position = -1)
     {
         $this->id = $id;
@@ -48,40 +43,33 @@ class PhpToken implements \Stringable
         $this->line = $line;
         $this->pos = $position;
     }
-
     public function getTokenName(): ?string
     {
         if ('UNKNOWN' === $name = token_name($this->id)) {
             $name = \strlen($this->text) > 1 || \ord($this->text) < 32 ? null : $this->text;
         }
-
         return $name;
     }
-
     /**
      * @param int|string|array $kind
      */
     public function is($kind): bool
     {
         foreach ((array) $kind as $value) {
-            if (\in_array($value, [$this->id, $this->text], true)) {
-                return true;
+            if (\in_array($value, [$this->id, $this->text], \true)) {
+                return \true;
             }
         }
-
-        return false;
+        return \false;
     }
-
     public function isIgnorable(): bool
     {
-        return \in_array($this->id, [\T_WHITESPACE, \T_COMMENT, \T_DOC_COMMENT, \T_OPEN_TAG], true);
+        return \in_array($this->id, [\T_WHITESPACE, \T_COMMENT, \T_DOC_COMMENT, \T_OPEN_TAG], \true);
     }
-
     public function __toString(): string
     {
         return (string) $this->text;
     }
-
     /**
      * @return static[]
      */
@@ -100,7 +88,6 @@ class PhpToken implements \Stringable
             $tokens[$index] = new static($id, $text, $line, $position);
             $position += \strlen($text);
         }
-
         return $tokens;
     }
 }

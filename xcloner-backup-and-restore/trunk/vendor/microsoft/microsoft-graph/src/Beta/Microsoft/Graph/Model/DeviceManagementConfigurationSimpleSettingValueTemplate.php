@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementConfigurationSimpleSettingValueTemplate class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementConfigurationSimpleSettingValueTemplate extends Entity
 {
     /**
-    * Gets the settingValueTemplateId
-    * Setting Value Template Id
-    *
-    * @return string|null The settingValueTemplateId
-    */
+     * Gets the settingValueTemplateId
+     * Setting Value Template Id
+     *
+     * @return string|null The settingValueTemplateId
+     */
     public function getSettingValueTemplateId()
     {
         if (array_key_exists("settingValueTemplateId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class DeviceManagementConfigurationSimpleSettingValueTemplate extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingValueTemplateId
-    * Setting Value Template Id
-    *
-    * @param string $val The value of the settingValueTemplateId
-    *
-    * @return DeviceManagementConfigurationSimpleSettingValueTemplate
-    */
+     * Sets the settingValueTemplateId
+     * Setting Value Template Id
+     *
+     * @param string $val The value of the settingValueTemplateId
+     *
+     * @return DeviceManagementConfigurationSimpleSettingValueTemplate
+     */
     public function setSettingValueTemplateId($val)
     {
         $this->_propDict["settingValueTemplateId"] = $val;

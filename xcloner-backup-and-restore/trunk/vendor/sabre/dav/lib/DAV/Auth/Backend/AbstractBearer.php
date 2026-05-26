@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Auth\Backend;
 
-namespace Sabre\DAV\Auth\Backend;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\HTTP;
-use Sabre\HTTP\RequestInterface;
-use Sabre\HTTP\ResponseInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\HTTP;
+use XCloner\Sabre\HTTP\RequestInterface;
+use XCloner\Sabre\HTTP\ResponseInterface;
 /**
  * HTTP Bearer authentication backend class.
  *
@@ -35,7 +33,6 @@ abstract class AbstractBearer implements BackendInterface
      * @var string
      */
     protected $realm = 'sabre/dav';
-
     /**
      * Validates a Bearer token.
      *
@@ -47,7 +44,6 @@ abstract class AbstractBearer implements BackendInterface
      * @return string|false
      */
     abstract protected function validateBearerToken($bearerToken);
-
     /**
      * Sets the authentication realm for this backend.
      *
@@ -57,7 +53,6 @@ abstract class AbstractBearer implements BackendInterface
     {
         $this->realm = $realm;
     }
-
     /**
      * When this method is called, the backend must check if authentication was
      * successful.
@@ -86,24 +81,17 @@ abstract class AbstractBearer implements BackendInterface
      */
     public function check(RequestInterface $request, ResponseInterface $response)
     {
-        $auth = new HTTP\Auth\Bearer(
-            $this->realm,
-            $request,
-            $response
-        );
-
+        $auth = new HTTP\Auth\Bearer($this->realm, $request, $response);
         $bearerToken = $auth->getToken($request);
         if (!$bearerToken) {
-            return [false, "No 'Authorization: Bearer' header found. Either the client didn't send one, or the server is mis-configured"];
+            return [\false, "No 'Authorization: Bearer' header found. Either the client didn't send one, or the server is mis-configured"];
         }
         $principalUrl = $this->validateBearerToken($bearerToken);
         if (!$principalUrl) {
-            return [false, 'Bearer token was incorrect'];
+            return [\false, 'Bearer token was incorrect'];
         }
-
-        return [true, $principalUrl];
+        return [\true, $principalUrl];
     }
-
     /**
      * This method is called when a user could not be authenticated, and
      * authentication was required for the current request.
@@ -123,11 +111,7 @@ abstract class AbstractBearer implements BackendInterface
      */
     public function challenge(RequestInterface $request, ResponseInterface $response)
     {
-        $auth = new HTTP\Auth\Bearer(
-            $this->realm,
-            $request,
-            $response
-        );
+        $auth = new HTTP\Auth\Bearer($this->realm, $request, $response);
         $auth->requireLogin();
     }
 }

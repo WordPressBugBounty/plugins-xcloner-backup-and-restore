@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Album class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class Album extends Entity
 {
     /**
-    * Gets the coverImageItemId
-    * Unique identifier of the [driveItem][] that is the cover of the album.
-    *
-    * @return string|null The coverImageItemId
-    */
+     * Gets the coverImageItemId
+     * Unique identifier of the [driveItem][] that is the cover of the album.
+     *
+     * @return string|null The coverImageItemId
+     */
     public function getCoverImageItemId()
     {
         if (array_key_exists("coverImageItemId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class Album extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the coverImageItemId
-    * Unique identifier of the [driveItem][] that is the cover of the album.
-    *
-    * @param string $val The value of the coverImageItemId
-    *
-    * @return Album
-    */
+     * Sets the coverImageItemId
+     * Unique identifier of the [driveItem][] that is the cover of the album.
+     *
+     * @param string $val The value of the coverImageItemId
+     *
+     * @return Album
+     */
     public function setCoverImageItemId($val)
     {
         $this->_propDict["coverImageItemId"] = $val;

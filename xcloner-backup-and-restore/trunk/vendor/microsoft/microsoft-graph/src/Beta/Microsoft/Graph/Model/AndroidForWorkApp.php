@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidForWorkApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidForWorkApp extends MobileApp
 {
     /**
-    * Gets the appIdentifier
-    * The Identity Name.
-    *
-    * @return string|null The appIdentifier
-    */
+     * Gets the appIdentifier
+     * The Identity Name.
+     *
+     * @return string|null The appIdentifier
+     */
     public function getAppIdentifier()
     {
         if (array_key_exists("appIdentifier", $this->_propDict)) {
@@ -41,27 +42,25 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appIdentifier
-    * The Identity Name.
-    *
-    * @param string $val The appIdentifier
-    *
-    * @return AndroidForWorkApp
-    */
+     * Sets the appIdentifier
+     * The Identity Name.
+     *
+     * @param string $val The appIdentifier
+     *
+     * @return AndroidForWorkApp
+     */
     public function setAppIdentifier($val)
     {
         $this->_propDict["appIdentifier"] = $val;
         return $this;
     }
-
     /**
-    * Gets the appStoreUrl
-    * The Play for Work Store app URL.
-    *
-    * @return string|null The appStoreUrl
-    */
+     * Gets the appStoreUrl
+     * The Play for Work Store app URL.
+     *
+     * @return string|null The appStoreUrl
+     */
     public function getAppStoreUrl()
     {
         if (array_key_exists("appStoreUrl", $this->_propDict)) {
@@ -70,27 +69,25 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appStoreUrl
-    * The Play for Work Store app URL.
-    *
-    * @param string $val The appStoreUrl
-    *
-    * @return AndroidForWorkApp
-    */
+     * Sets the appStoreUrl
+     * The Play for Work Store app URL.
+     *
+     * @param string $val The appStoreUrl
+     *
+     * @return AndroidForWorkApp
+     */
     public function setAppStoreUrl($val)
     {
         $this->_propDict["appStoreUrl"] = $val;
         return $this;
     }
-
     /**
-    * Gets the packageId
-    * The package identifier.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * The package identifier.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -99,27 +96,25 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * The package identifier.
-    *
-    * @param string $val The packageId
-    *
-    * @return AndroidForWorkApp
-    */
+     * Sets the packageId
+     * The package identifier.
+     *
+     * @param string $val The packageId
+     *
+     * @return AndroidForWorkApp
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the totalLicenseCount
-    * The total number of VPP licenses.
-    *
-    * @return int|null The totalLicenseCount
-    */
+     * Gets the totalLicenseCount
+     * The total number of VPP licenses.
+     *
+     * @return int|null The totalLicenseCount
+     */
     public function getTotalLicenseCount()
     {
         if (array_key_exists("totalLicenseCount", $this->_propDict)) {
@@ -128,27 +123,25 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the totalLicenseCount
-    * The total number of VPP licenses.
-    *
-    * @param int $val The totalLicenseCount
-    *
-    * @return AndroidForWorkApp
-    */
+     * Sets the totalLicenseCount
+     * The total number of VPP licenses.
+     *
+     * @param int $val The totalLicenseCount
+     *
+     * @return AndroidForWorkApp
+     */
     public function setTotalLicenseCount($val)
     {
         $this->_propDict["totalLicenseCount"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @return int|null The usedLicenseCount
-    */
+     * Gets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @return int|null The usedLicenseCount
+     */
     public function getUsedLicenseCount()
     {
         if (array_key_exists("usedLicenseCount", $this->_propDict)) {
@@ -157,19 +150,17 @@ class AndroidForWorkApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the usedLicenseCount
-    * The number of VPP licenses in use.
-    *
-    * @param int $val The usedLicenseCount
-    *
-    * @return AndroidForWorkApp
-    */
+     * Sets the usedLicenseCount
+     * The number of VPP licenses in use.
+     *
+     * @param int $val The usedLicenseCount
+     *
+     * @return AndroidForWorkApp
+     */
     public function setUsedLicenseCount($val)
     {
         $this->_propDict["usedLicenseCount"] = intval($val);
         return $this;
     }
-
 }

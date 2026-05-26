@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AssignedTrainingInfo class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AssignedTrainingInfo extends Entity
 {
     /**
-    * Gets the assignedUserCount
-    * Number of users who were assigned the training in an attack simulation and training campaign.
-    *
-    * @return int|null The assignedUserCount
-    */
+     * Gets the assignedUserCount
+     * Number of users who were assigned the training in an attack simulation and training campaign.
+     *
+     * @return int|null The assignedUserCount
+     */
     public function getAssignedUserCount()
     {
         if (array_key_exists("assignedUserCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class AssignedTrainingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the assignedUserCount
-    * Number of users who were assigned the training in an attack simulation and training campaign.
-    *
-    * @param int $val The value of the assignedUserCount
-    *
-    * @return AssignedTrainingInfo
-    */
+     * Sets the assignedUserCount
+     * Number of users who were assigned the training in an attack simulation and training campaign.
+     *
+     * @param int $val The value of the assignedUserCount
+     *
+     * @return AssignedTrainingInfo
+     */
     public function setAssignedUserCount($val)
     {
         $this->_propDict["assignedUserCount"] = $val;
         return $this;
     }
     /**
-    * Gets the completedUserCount
-    * Number of users who completed the training in an attack simulation and training campaign.
-    *
-    * @return int|null The completedUserCount
-    */
+     * Gets the completedUserCount
+     * Number of users who completed the training in an attack simulation and training campaign.
+     *
+     * @return int|null The completedUserCount
+     */
     public function getCompletedUserCount()
     {
         if (array_key_exists("completedUserCount", $this->_propDict)) {
@@ -68,26 +69,25 @@ class AssignedTrainingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the completedUserCount
-    * Number of users who completed the training in an attack simulation and training campaign.
-    *
-    * @param int $val The value of the completedUserCount
-    *
-    * @return AssignedTrainingInfo
-    */
+     * Sets the completedUserCount
+     * Number of users who completed the training in an attack simulation and training campaign.
+     *
+     * @param int $val The value of the completedUserCount
+     *
+     * @return AssignedTrainingInfo
+     */
     public function setCompletedUserCount($val)
     {
         $this->_propDict["completedUserCount"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * Display name of the training in an attack simulation and training campaign.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Display name of the training in an attack simulation and training campaign.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -96,15 +96,14 @@ class AssignedTrainingInfo extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Display name of the training in an attack simulation and training campaign.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return AssignedTrainingInfo
-    */
+     * Sets the displayName
+     * Display name of the training in an attack simulation and training campaign.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return AssignedTrainingInfo
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;

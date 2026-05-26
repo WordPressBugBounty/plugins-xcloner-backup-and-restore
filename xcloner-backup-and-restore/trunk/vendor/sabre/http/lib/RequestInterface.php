@@ -1,12 +1,11 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\HTTP;
 
-namespace Sabre\HTTP;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * The RequestInterface represents a HTTP request.
  *
@@ -20,37 +19,30 @@ interface RequestInterface extends MessageInterface
      * Returns the current HTTP method.
      */
     public function getMethod(): string;
-
     /**
      * Sets the HTTP method.
      */
     public function setMethod(string $method);
-
     /**
      * Returns the request url.
      */
     public function getUrl(): string;
-
     /**
      * Sets the request url.
      */
     public function setUrl(string $url);
-
     /**
      * Returns the absolute url.
      */
     public function getAbsoluteUrl(): string;
-
     /**
      * Sets the absolute url.
      */
     public function setAbsoluteUrl(string $url);
-
     /**
      * Returns the current base url.
      */
     public function getBaseUrl(): string;
-
     /**
      * Sets a base url.
      *
@@ -59,7 +51,6 @@ interface RequestInterface extends MessageInterface
      * The base url should default to /
      */
     public function setBaseUrl(string $url);
-
     /**
      * Returns the relative path.
      *
@@ -76,21 +67,18 @@ interface RequestInterface extends MessageInterface
      * If the path is outside of the base url, a LogicException will be thrown.
      */
     public function getPath(): string;
-
     /**
      * Returns the list of query parameters.
      *
      * This is equivalent to PHP's $_GET superglobal.
      */
     public function getQueryParameters(): array;
-
     /**
      * Returns the POST data.
      *
      * This is equivalent to PHP's $_POST superglobal.
      */
     public function getPostData(): array;
-
     /**
      * Sets the post data.
      *
@@ -100,7 +88,6 @@ interface RequestInterface extends MessageInterface
      * php://input, but unfortunately we need to special case it.
      */
     public function setPostData(array $postData);
-
     /**
      * Returns an item from the _SERVER array.
      *
@@ -109,7 +96,6 @@ interface RequestInterface extends MessageInterface
      * @return string|null
      */
     public function getRawServerValue(string $valueName);
-
     /**
      * Sets the _SERVER array.
      */

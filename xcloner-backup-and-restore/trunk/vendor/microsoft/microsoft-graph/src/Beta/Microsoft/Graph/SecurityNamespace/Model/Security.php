@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * Security class
 *
@@ -25,17 +26,17 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class Security extends \Beta\Microsoft\Graph\Model\Entity
+class Security extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the informationProtection
-    *
-    * @return InformationProtection|null The informationProtection
-    */
+     * Gets the informationProtection
+     *
+     * @return InformationProtection|null The informationProtection
+     */
     public function getInformationProtection()
     {
         if (array_key_exists("informationProtection", $this->_propDict)) {
-            if (is_a($this->_propDict["informationProtection"], "\Beta\Microsoft\Graph\SecurityNamespace\Model\InformationProtection") || is_null($this->_propDict["informationProtection"])) {
+            if (is_a($this->_propDict["informationProtection"], "XCloner\\Beta\\Microsoft\\Graph\\SecurityNamespace\\Model\\InformationProtection") || is_null($this->_propDict["informationProtection"])) {
                 return $this->_propDict["informationProtection"];
             } else {
                 $this->_propDict["informationProtection"] = new InformationProtection($this->_propDict["informationProtection"]);
@@ -44,18 +45,16 @@ class Security extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the informationProtection
-    *
-    * @param InformationProtection $val The informationProtection
-    *
-    * @return Security
-    */
+     * Sets the informationProtection
+     *
+     * @param InformationProtection $val The informationProtection
+     *
+     * @return Security
+     */
     public function setInformationProtection($val)
     {
         $this->_propDict["informationProtection"] = $val;
         return $this;
     }
-
 }

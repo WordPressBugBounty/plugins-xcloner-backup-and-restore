@@ -1,19 +1,17 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTime;
 use DateTimeZone;
-use Sabre\HTTP;
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+use XCloner\Sabre\HTTP;
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * This property represents the {DAV:}getlastmodified property.
  *
@@ -32,7 +30,6 @@ class GetLastModified implements Element
      * @var DateTime
      */
     public $time;
-
     /**
      * Constructor.
      *
@@ -43,13 +40,11 @@ class GetLastModified implements Element
         if ($time instanceof DateTime) {
             $this->time = clone $time;
         } else {
-            $this->time = new DateTime('@'.$time);
+            $this->time = new DateTime('@' . $time);
         }
-
         // Setting timezone to UTC
         $this->time->setTimezone(new DateTimeZone('UTC'));
     }
-
     /**
      * getTime.
      *
@@ -59,7 +54,6 @@ class GetLastModified implements Element
     {
         return $this->time;
     }
-
     /**
      * The serialize method is called during xml writing.
      *
@@ -74,11 +68,8 @@ class GetLastModified implements Element
      */
     public function xmlSerialize(Writer $writer)
     {
-        $writer->write(
-            HTTP\toDate($this->time)
-        );
+        $writer->write(HTTP\toDate($this->time));
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *

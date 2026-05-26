@@ -1,15 +1,13 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\VObject\TimezoneGuesser;
 
-namespace Sabre\VObject\TimezoneGuesser;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 use DateTimeZone;
-use Sabre\VObject\Component\VTimeZone;
-
+use XCloner\Sabre\VObject\Component\VTimeZone;
 class GuessFromMsTzId implements TimezoneGuesser
 {
     /**
@@ -20,7 +18,6 @@ class GuessFromMsTzId implements TimezoneGuesser
     public static $microsoftExchangeMap = [
         0 => 'UTC',
         31 => 'Africa/Casablanca',
-
         // Insanely, id #2 is used for both Europe/Lisbon, and Europe/Sarajevo.
         // I'm not even kidding.. We handle this special case in the
         // getTimeZone method.
@@ -29,7 +26,8 @@ class GuessFromMsTzId implements TimezoneGuesser
         4 => 'Europe/Berlin',
         6 => 'Europe/Prague',
         3 => 'Europe/Paris',
-        69 => 'Africa/Luanda', // This was a best guess
+        69 => 'Africa/Luanda',
+        // This was a best guess
         7 => 'Europe/Athens',
         5 => 'Europe/Bucharest',
         49 => 'Africa/Cairo',
@@ -41,7 +39,8 @@ class GuessFromMsTzId implements TimezoneGuesser
         51 => 'Europe/Moscow',
         56 => 'Africa/Nairobi',
         25 => 'Asia/Tehran',
-        24 => 'Asia/Muscat', // Best guess
+        24 => 'Asia/Muscat',
+        // Best guess
         54 => 'Asia/Baku',
         48 => 'Asia/Kabul',
         58 => 'Asia/Yekaterinburg',
@@ -76,7 +75,8 @@ class GuessFromMsTzId implements TimezoneGuesser
         29 => 'Atlantic/Azores',
         53 => 'Atlantic/Cape_Verde',
         30 => 'America/Noronha',
-        8 => 'America/Sao_Paulo', // Best guess
+        8 => 'America/Sao_Paulo',
+        // Best guess
         32 => 'America/Argentina/Buenos_Aires',
         60 => 'America/Godthab',
         28 => 'America/St_Johns',
@@ -91,15 +91,16 @@ class GuessFromMsTzId implements TimezoneGuesser
         37 => 'America/Mexico_City',
         36 => 'America/Edmonton',
         38 => 'America/Phoenix',
-        12 => 'America/Denver', // Best guess
-        13 => 'America/Los_Angeles', // Best guess
+        12 => 'America/Denver',
+        // Best guess
+        13 => 'America/Los_Angeles',
+        // Best guess
         14 => 'America/Anchorage',
         15 => 'Pacific/Honolulu',
         16 => 'Pacific/Midway',
         39 => 'Pacific/Kwajalein',
     ];
-
-    public function guess(VTimeZone $vtimezone, bool $throwIfUnsure = false): ?DateTimeZone
+    public function guess(VTimeZone $vtimezone, bool $throwIfUnsure = \false): ?DateTimeZone
     {
         // Microsoft may add a magic number, which we also have an
         // answer for.
@@ -107,16 +108,13 @@ class GuessFromMsTzId implements TimezoneGuesser
             return null;
         }
         $cdoId = (int) $vtimezone->{'X-MICROSOFT-CDO-TZID'}->getValue();
-
         // 2 can mean both Europe/Lisbon and Europe/Sarajevo.
-        if (2 === $cdoId && false !== strpos((string) $vtimezone->TZID, 'Sarajevo')) {
+        if (2 === $cdoId && \false !== strpos((string) $vtimezone->TZID, 'Sarajevo')) {
             return new DateTimeZone('Europe/Sarajevo');
         }
-
         if (isset(self::$microsoftExchangeMap[$cdoId])) {
             return new DateTimeZone(self::$microsoftExchangeMap[$cdoId]);
         }
-
         return null;
     }
 }

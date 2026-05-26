@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsWebApp class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsWebApp extends MobileApp
 {
     /**
-    * Gets the appUrl
-    * The web app URL.
-    *
-    * @return string|null The appUrl
-    */
+     * Gets the appUrl
+     * The web app URL.
+     *
+     * @return string|null The appUrl
+     */
     public function getAppUrl()
     {
         if (array_key_exists("appUrl", $this->_propDict)) {
@@ -41,19 +42,17 @@ class WindowsWebApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the appUrl
-    * The web app URL.
-    *
-    * @param string $val The appUrl
-    *
-    * @return WindowsWebApp
-    */
+     * Sets the appUrl
+     * The web app URL.
+     *
+     * @param string $val The appUrl
+     *
+     * @return WindowsWebApp
+     */
     public function setAppUrl($val)
     {
         $this->_propDict["appUrl"] = $val;
         return $this;
     }
-
 }

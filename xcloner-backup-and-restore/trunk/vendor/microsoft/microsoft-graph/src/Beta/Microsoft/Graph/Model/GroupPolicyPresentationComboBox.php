@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupPolicyPresentationComboBox class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation
 {
     /**
-    * Gets the defaultValue
-    * Localized default string displayed in the combo box. The default value is empty.
-    *
-    * @return string|null The defaultValue
-    */
+     * Gets the defaultValue
+     * Localized default string displayed in the combo box. The default value is empty.
+     *
+     * @return string|null The defaultValue
+     */
     public function getDefaultValue()
     {
         if (array_key_exists("defaultValue", $this->_propDict)) {
@@ -41,27 +42,25 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the defaultValue
-    * Localized default string displayed in the combo box. The default value is empty.
-    *
-    * @param string $val The defaultValue
-    *
-    * @return GroupPolicyPresentationComboBox
-    */
+     * Sets the defaultValue
+     * Localized default string displayed in the combo box. The default value is empty.
+     *
+     * @param string $val The defaultValue
+     *
+     * @return GroupPolicyPresentationComboBox
+     */
     public function setDefaultValue($val)
     {
         $this->_propDict["defaultValue"] = $val;
         return $this;
     }
-
     /**
-    * Gets the maxLength
-    * An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
-    *
-    * @return int|null The maxLength
-    */
+     * Gets the maxLength
+     * An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
+     *
+     * @return int|null The maxLength
+     */
     public function getMaxLength()
     {
         if (array_key_exists("maxLength", $this->_propDict)) {
@@ -70,27 +69,25 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the maxLength
-    * An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
-    *
-    * @param int $val The maxLength
-    *
-    * @return GroupPolicyPresentationComboBox
-    */
+     * Sets the maxLength
+     * An unsigned integer that specifies the maximum number of text characters for the parameter. The default value is 1023.
+     *
+     * @param int $val The maxLength
+     *
+     * @return GroupPolicyPresentationComboBox
+     */
     public function setMaxLength($val)
     {
         $this->_propDict["maxLength"] = intval($val);
         return $this;
     }
-
     /**
-    * Gets the required
-    * Specifies whether a value must be specified for the parameter. The default value is false.
-    *
-    * @return bool|null The required
-    */
+     * Gets the required
+     * Specifies whether a value must be specified for the parameter. The default value is false.
+     *
+     * @return bool|null The required
+     */
     public function getRequired()
     {
         if (array_key_exists("required", $this->_propDict)) {
@@ -99,27 +96,25 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the required
-    * Specifies whether a value must be specified for the parameter. The default value is false.
-    *
-    * @param bool $val The required
-    *
-    * @return GroupPolicyPresentationComboBox
-    */
+     * Sets the required
+     * Specifies whether a value must be specified for the parameter. The default value is false.
+     *
+     * @param bool $val The required
+     *
+     * @return GroupPolicyPresentationComboBox
+     */
     public function setRequired($val)
     {
         $this->_propDict["required"] = boolval($val);
         return $this;
     }
-
     /**
-    * Gets the suggestions
-    * Localized strings listed in the drop-down list of the combo box. The default value is empty.
-    *
-    * @return array|null The suggestions
-    */
+     * Gets the suggestions
+     * Localized strings listed in the drop-down list of the combo box. The default value is empty.
+     *
+     * @return array|null The suggestions
+     */
     public function getSuggestions()
     {
         if (array_key_exists("suggestions", $this->_propDict)) {
@@ -128,19 +123,17 @@ class GroupPolicyPresentationComboBox extends GroupPolicyUploadedPresentation
             return null;
         }
     }
-
     /**
-    * Sets the suggestions
-    * Localized strings listed in the drop-down list of the combo box. The default value is empty.
-    *
-    * @param string[] $val The suggestions
-    *
-    * @return GroupPolicyPresentationComboBox
-    */
+     * Sets the suggestions
+     * Localized strings listed in the drop-down list of the combo box. The default value is empty.
+     *
+     * @param string[] $val The suggestions
+     *
+     * @return GroupPolicyPresentationComboBox
+     */
     public function setSuggestions($val)
     {
         $this->_propDict["suggestions"] = $val;
         return $this;
     }
-
 }

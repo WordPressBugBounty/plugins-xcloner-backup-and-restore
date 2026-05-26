@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WindowsDeviceADAccount class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WindowsDeviceADAccount extends WindowsDeviceAccount
 {
     /**
-    * Gets the domainName
-    * Not yet documented
-    *
-    * @return string|null The domainName
-    */
+     * Gets the domainName
+     * Not yet documented
+     *
+     * @return string|null The domainName
+     */
     public function getDomainName()
     {
         if (array_key_exists("domainName", $this->_propDict)) {
@@ -40,26 +42,25 @@ class WindowsDeviceADAccount extends WindowsDeviceAccount
             return null;
         }
     }
-
     /**
-    * Sets the domainName
-    * Not yet documented
-    *
-    * @param string $val The value of the domainName
-    *
-    * @return WindowsDeviceADAccount
-    */
+     * Sets the domainName
+     * Not yet documented
+     *
+     * @param string $val The value of the domainName
+     *
+     * @return WindowsDeviceADAccount
+     */
     public function setDomainName($val)
     {
         $this->_propDict["domainName"] = $val;
         return $this;
     }
     /**
-    * Gets the userName
-    * Not yet documented
-    *
-    * @return string|null The userName
-    */
+     * Gets the userName
+     * Not yet documented
+     *
+     * @return string|null The userName
+     */
     public function getUserName()
     {
         if (array_key_exists("userName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class WindowsDeviceADAccount extends WindowsDeviceAccount
             return null;
         }
     }
-
     /**
-    * Sets the userName
-    * Not yet documented
-    *
-    * @param string $val The value of the userName
-    *
-    * @return WindowsDeviceADAccount
-    */
+     * Sets the userName
+     * Not yet documented
+     *
+     * @param string $val The value of the userName
+     *
+     * @return WindowsDeviceADAccount
+     */
     public function setUserName($val)
     {
         $this->_propDict["userName"] = $val;

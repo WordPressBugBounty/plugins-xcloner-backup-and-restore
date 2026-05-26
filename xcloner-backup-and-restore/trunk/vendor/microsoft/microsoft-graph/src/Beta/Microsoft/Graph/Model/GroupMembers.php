@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * GroupMembers class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class GroupMembers extends UserSet
 {
     /**
-    * Gets the description
-    * The name of the group in Azure AD. Read only.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The name of the group in Azure AD. Read only.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -40,26 +42,25 @@ class GroupMembers extends UserSet
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The name of the group in Azure AD. Read only.
-    *
-    * @param string $val The value of the description
-    *
-    * @return GroupMembers
-    */
+     * Sets the description
+     * The name of the group in Azure AD. Read only.
+     *
+     * @param string $val The value of the description
+     *
+     * @return GroupMembers
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    * The ID of the group in Azure AD.
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The ID of the group in Azure AD.
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -68,15 +69,14 @@ class GroupMembers extends UserSet
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The ID of the group in Azure AD.
-    *
-    * @param string $val The value of the id
-    *
-    * @return GroupMembers
-    */
+     * Sets the id
+     * The ID of the group in Azure AD.
+     *
+     * @param string $val The value of the id
+     *
+     * @return GroupMembers
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;

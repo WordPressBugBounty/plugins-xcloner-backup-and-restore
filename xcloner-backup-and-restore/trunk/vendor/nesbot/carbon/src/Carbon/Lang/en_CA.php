@@ -1,8 +1,10 @@
 <?php
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-?><?php
+namespace XCloner;
 
+if (!\defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * This file is part of the Carbon package.
  *
@@ -11,7 +13,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-
 /*
  * Authors:
  * - François B
@@ -19,14 +20,4 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
  * - Mayank Badola
  * - JD Isaacks
  */
-return array_replace_recursive(require __DIR__.'/en.php', [
-    'from_now' => 'in :time',
-    'formats' => [
-        'LT' => 'h:mm A',
-        'LTS' => 'h:mm:ss A',
-        'L' => 'YYYY-MM-DD',
-        'LL' => 'MMMM D, YYYY',
-        'LLL' => 'MMMM D, YYYY h:mm A',
-        'LLLL' => 'dddd, MMMM D, YYYY h:mm A',
-    ],
-]);
+return \array_replace_recursive(require __DIR__ . '/en.php', ['from_now' => 'in :time', 'formats' => ['LT' => 'h:mm A', 'LTS' => 'h:mm:ss A', 'L' => 'YYYY-MM-DD', 'LL' => 'MMMM D, YYYY', 'LLL' => 'MMMM D, YYYY h:mm A', 'LLLL' => 'dddd, MMMM D, YYYY h:mm A']]);

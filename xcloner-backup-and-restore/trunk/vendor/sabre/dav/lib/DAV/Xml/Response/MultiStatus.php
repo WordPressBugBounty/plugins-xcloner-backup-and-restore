@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Response;
 
-namespace Sabre\DAV\Xml\Response;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml\Element;
-use Sabre\Xml\Reader;
-use Sabre\Xml\Writer;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml\Element;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\Writer;
 /**
  * WebDAV MultiStatus parser.
  *
@@ -32,14 +30,12 @@ class MultiStatus implements Element
      * @var \Sabre\DAV\Xml\Element\Response[]
      */
     protected $responses;
-
     /**
      * A sync token (from RFC6578).
      *
      * @var string
      */
     protected $syncToken;
-
     /**
      * Constructor.
      *
@@ -51,7 +47,6 @@ class MultiStatus implements Element
         $this->responses = $responses;
         $this->syncToken = $syncToken;
     }
-
     /**
      * Returns the response list.
      *
@@ -61,7 +56,6 @@ class MultiStatus implements Element
     {
         return $this->responses;
     }
-
     /**
      * Returns the sync-token, if available.
      *
@@ -71,7 +65,6 @@ class MultiStatus implements Element
     {
         return $this->syncToken;
     }
-
     /**
      * The serialize method is called during xml writing.
      *
@@ -93,7 +86,6 @@ class MultiStatus implements Element
             $writer->writeElement('{DAV:}sync-token', $syncToken);
         }
     }
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -117,12 +109,10 @@ class MultiStatus implements Element
     public static function xmlDeserialize(Reader $reader)
     {
         $elementMap = $reader->elementMap;
-        $elementMap['{DAV:}prop'] = 'Sabre\\DAV\\Xml\\Element\\Prop';
+        $elementMap['{DAV:}prop'] = 'XCloner\Sabre\DAV\Xml\Element\Prop';
         $elements = $reader->parseInnerTree($elementMap);
-
         $responses = [];
         $syncToken = null;
-
         if ($elements) {
             foreach ($elements as $elem) {
                 if ('{DAV:}response' === $elem['name']) {
@@ -133,7 +123,6 @@ class MultiStatus implements Element
                 }
             }
         }
-
         return new self($responses, $syncToken);
     }
 }

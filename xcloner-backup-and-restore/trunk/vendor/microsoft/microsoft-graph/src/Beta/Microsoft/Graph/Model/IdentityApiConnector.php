@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * IdentityApiConnector class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class IdentityApiConnector extends Entity
 {
     /**
-    * Gets the authenticationConfiguration
-    * The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
-    *
-    * @return ApiAuthenticationConfigurationBase|null The authenticationConfiguration
-    */
+     * Gets the authenticationConfiguration
+     * The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
+     *
+     * @return ApiAuthenticationConfigurationBase|null The authenticationConfiguration
+     */
     public function getAuthenticationConfiguration()
     {
         if (array_key_exists("authenticationConfiguration", $this->_propDict)) {
-            if (is_a($this->_propDict["authenticationConfiguration"], "\Beta\Microsoft\Graph\Model\ApiAuthenticationConfigurationBase") || is_null($this->_propDict["authenticationConfiguration"])) {
+            if (is_a($this->_propDict["authenticationConfiguration"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ApiAuthenticationConfigurationBase") || is_null($this->_propDict["authenticationConfiguration"])) {
                 return $this->_propDict["authenticationConfiguration"];
             } else {
                 $this->_propDict["authenticationConfiguration"] = new ApiAuthenticationConfigurationBase($this->_propDict["authenticationConfiguration"]);
@@ -45,27 +46,25 @@ class IdentityApiConnector extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the authenticationConfiguration
-    * The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
-    *
-    * @param ApiAuthenticationConfigurationBase $val The authenticationConfiguration
-    *
-    * @return IdentityApiConnector
-    */
+     * Sets the authenticationConfiguration
+     * The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
+     *
+     * @param ApiAuthenticationConfigurationBase $val The authenticationConfiguration
+     *
+     * @return IdentityApiConnector
+     */
     public function setAuthenticationConfiguration($val)
     {
         $this->_propDict["authenticationConfiguration"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * The name of the API connector.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The name of the API connector.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -74,27 +73,25 @@ class IdentityApiConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The name of the API connector.
-    *
-    * @param string $val The displayName
-    *
-    * @return IdentityApiConnector
-    */
+     * Sets the displayName
+     * The name of the API connector.
+     *
+     * @param string $val The displayName
+     *
+     * @return IdentityApiConnector
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the targetUrl
-    * The URL of the API endpoint to call.
-    *
-    * @return string|null The targetUrl
-    */
+     * Gets the targetUrl
+     * The URL of the API endpoint to call.
+     *
+     * @return string|null The targetUrl
+     */
     public function getTargetUrl()
     {
         if (array_key_exists("targetUrl", $this->_propDict)) {
@@ -103,19 +100,17 @@ class IdentityApiConnector extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the targetUrl
-    * The URL of the API endpoint to call.
-    *
-    * @param string $val The targetUrl
-    *
-    * @return IdentityApiConnector
-    */
+     * Sets the targetUrl
+     * The URL of the API endpoint to call.
+     *
+     * @param string $val The targetUrl
+     *
+     * @return IdentityApiConnector
+     */
     public function setTargetUrl($val)
     {
         $this->_propDict["targetUrl"] = $val;
         return $this;
     }
-
 }

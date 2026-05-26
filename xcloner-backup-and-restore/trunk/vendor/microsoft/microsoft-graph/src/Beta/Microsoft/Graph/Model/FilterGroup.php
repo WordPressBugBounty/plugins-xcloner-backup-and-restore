@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * FilterGroup class
 *
@@ -26,17 +28,16 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class FilterGroup extends Entity
 {
-
     /**
-    * Gets the clauses
-    * Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
-    *
-    * @return FilterClause|null The clauses
-    */
+     * Gets the clauses
+     * Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
+     *
+     * @return FilterClause|null The clauses
+     */
     public function getClauses()
     {
         if (array_key_exists("clauses", $this->_propDict)) {
-            if (is_a($this->_propDict["clauses"], "\Beta\Microsoft\Graph\Model\FilterClause") || is_null($this->_propDict["clauses"])) {
+            if (is_a($this->_propDict["clauses"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\FilterClause") || is_null($this->_propDict["clauses"])) {
                 return $this->_propDict["clauses"];
             } else {
                 $this->_propDict["clauses"] = new FilterClause($this->_propDict["clauses"]);
@@ -45,26 +46,25 @@ class FilterGroup extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the clauses
-    * Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
-    *
-    * @param FilterClause $val The value to assign to the clauses
-    *
-    * @return FilterGroup The FilterGroup
-    */
+     * Sets the clauses
+     * Filter clauses (conditions) of this group. All clauses in a group must be satisfied in order for the filter group to evaluate to true.
+     *
+     * @param FilterClause $val The value to assign to the clauses
+     *
+     * @return FilterGroup The FilterGroup
+     */
     public function setClauses($val)
     {
         $this->_propDict["clauses"] = $val;
-         return $this;
+        return $this;
     }
     /**
-    * Gets the name
-    * Human-readable name of the filter group.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Human-readable name of the filter group.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -73,15 +73,14 @@ class FilterGroup extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Human-readable name of the filter group.
-    *
-    * @param string $val The value of the name
-    *
-    * @return FilterGroup
-    */
+     * Sets the name
+     * Human-readable name of the filter group.
+     *
+     * @param string $val The value of the name
+     *
+     * @return FilterGroup
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

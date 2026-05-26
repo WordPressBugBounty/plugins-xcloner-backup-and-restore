@@ -1,4 +1,5 @@
 <?php
+
 /*
  * Copyright 2014 Google Inc.
  *
@@ -14,51 +15,48 @@
  * License for the specific language governing permissions and limitations under
  * the License.
  */
+namespace XCloner\Google\Service\Drive;
 
-namespace Google\Service\Drive;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-class ModifyLabelsRequest extends \Google\Collection
-{
-  protected $collection_key = 'labelModifications';
-  /**
-   * @var string
-   */
-  public $kind;
-  protected $labelModificationsType = LabelModification::class;
-  protected $labelModificationsDataType = 'array';
-
-  /**
-   * @param string
-   */
-  public function setKind($kind)
-  {
-    $this->kind = $kind;
-  }
-  /**
-   * @return string
-   */
-  public function getKind()
-  {
-    return $this->kind;
-  }
-  /**
-   * @param LabelModification[]
-   */
-  public function setLabelModifications($labelModifications)
-  {
-    $this->labelModifications = $labelModifications;
-  }
-  /**
-   * @return LabelModification[]
-   */
-  public function getLabelModifications()
-  {
-    return $this->labelModifications;
-  }
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
 }
-
+class ModifyLabelsRequest extends \XCloner\Google\Collection
+{
+    protected $collection_key = 'labelModifications';
+    /**
+     * @var string
+     */
+    public $kind;
+    protected $labelModificationsType = LabelModification::class;
+    protected $labelModificationsDataType = 'array';
+    /**
+     * @param string
+     */
+    public function setKind($kind)
+    {
+        $this->kind = $kind;
+    }
+    /**
+     * @return string
+     */
+    public function getKind()
+    {
+        return $this->kind;
+    }
+    /**
+     * @param LabelModification[]
+     */
+    public function setLabelModifications($labelModifications)
+    {
+        $this->labelModifications = $labelModifications;
+    }
+    /**
+     * @return LabelModification[]
+     */
+    public function getLabelModifications()
+    {
+        return $this->labelModifications;
+    }
+}
 // Adding a class alias for backwards compatibility with the previous class name.
-class_alias(ModifyLabelsRequest::class, 'Google_Service_Drive_ModifyLabelsRequest');
+class_alias(ModifyLabelsRequest::class, 'XCloner\Google_Service_Drive_ModifyLabelsRequest');

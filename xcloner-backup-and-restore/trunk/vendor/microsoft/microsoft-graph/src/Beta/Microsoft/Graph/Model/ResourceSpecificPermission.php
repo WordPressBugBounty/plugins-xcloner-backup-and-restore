@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ResourceSpecificPermission class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ResourceSpecificPermission extends Entity
 {
     /**
-    * Gets the description
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -39,24 +41,23 @@ class ResourceSpecificPermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    *
-    * @param string $val The value of the description
-    *
-    * @return ResourceSpecificPermission
-    */
+     * Sets the description
+     *
+     * @param string $val The value of the description
+     *
+     * @return ResourceSpecificPermission
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -65,24 +66,23 @@ class ResourceSpecificPermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return ResourceSpecificPermission
-    */
+     * Sets the displayName
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return ResourceSpecificPermission
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
     /**
-    * Gets the id
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -91,24 +91,23 @@ class ResourceSpecificPermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    *
-    * @param string $val The value of the id
-    *
-    * @return ResourceSpecificPermission
-    */
+     * Sets the id
+     *
+     * @param string $val The value of the id
+     *
+     * @return ResourceSpecificPermission
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
     /**
-    * Gets the isEnabled
-    *
-    * @return bool|null The isEnabled
-    */
+     * Gets the isEnabled
+     *
+     * @return bool|null The isEnabled
+     */
     public function getIsEnabled()
     {
         if (array_key_exists("isEnabled", $this->_propDict)) {
@@ -117,24 +116,23 @@ class ResourceSpecificPermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the isEnabled
-    *
-    * @param bool $val The value of the isEnabled
-    *
-    * @return ResourceSpecificPermission
-    */
+     * Sets the isEnabled
+     *
+     * @param bool $val The value of the isEnabled
+     *
+     * @return ResourceSpecificPermission
+     */
     public function setIsEnabled($val)
     {
         $this->_propDict["isEnabled"] = $val;
         return $this;
     }
     /**
-    * Gets the value
-    *
-    * @return string|null The value
-    */
+     * Gets the value
+     *
+     * @return string|null The value
+     */
     public function getValue()
     {
         if (array_key_exists("value", $this->_propDict)) {
@@ -143,14 +141,13 @@ class ResourceSpecificPermission extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the value
-    *
-    * @param string $val The value of the value
-    *
-    * @return ResourceSpecificPermission
-    */
+     * Sets the value
+     *
+     * @param string $val The value of the value
+     *
+     * @return ResourceSpecificPermission
+     */
     public function setValue($val)
     {
         $this->_propDict["value"] = $val;

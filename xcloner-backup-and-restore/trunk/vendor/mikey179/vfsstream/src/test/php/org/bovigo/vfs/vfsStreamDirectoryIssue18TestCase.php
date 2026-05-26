@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of vfsStream.
  *
@@ -7,16 +8,17 @@
  *
  * @package  org\bovigo\vfs
  */
-namespace org\bovigo\vfs;
+namespace XCloner\org\bovigo\vfs;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Test for org\bovigo\vfs\vfsStreamDirectory.
  *
  * @group  bug_18
  */
-class vfsStreamDirectoryIssue18TestCase extends \BC_PHPUnit_Framework_TestCase
+class vfsStreamDirectoryIssue18TestCase extends \XCloner\BC_PHPUnit_Framework_TestCase
 {
     /**
      * access to root directory
@@ -24,7 +26,6 @@ class vfsStreamDirectoryIssue18TestCase extends \BC_PHPUnit_Framework_TestCase
      * @var  vfsStreamDirectory
      */
     protected $rootDirectory;
-
     /**
      * set up test environment
      */
@@ -37,47 +38,35 @@ class vfsStreamDirectoryIssue18TestCase extends \BC_PHPUnit_Framework_TestCase
         $dir->addChild(vfsStream::newDirectory('app2'));
         $dir->addChild(vfsStream::newDirectory('foo'));
     }
-
     /**
      * @test
      */
     public function shouldContainThreeSubdirectories()
     {
-        $this->assertEquals(3,
-                            count($this->rootDirectory->getChild('var/log/app')->getChildren())
-        );
+        $this->assertEquals(3, count($this->rootDirectory->getChild('var/log/app')->getChildren()));
     }
-
     /**
      * @test
      */
     public function shouldContainSubdirectoryFoo()
     {
         $this->assertTrue($this->rootDirectory->getChild('var/log/app')->hasChild('foo'));
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory',
-                                $this->rootDirectory->getChild('var/log/app')->getChild('foo')
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $this->rootDirectory->getChild('var/log/app')->getChild('foo'));
     }
-
     /**
      * @test
      */
     public function shouldContainSubdirectoryApp1()
     {
         $this->assertTrue($this->rootDirectory->getChild('var/log/app')->hasChild('app1'));
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory',
-                                $this->rootDirectory->getChild('var/log/app')->getChild('app1')
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $this->rootDirectory->getChild('var/log/app')->getChild('app1'));
     }
-
     /**
      * @test
      */
     public function shouldContainSubdirectoryApp2()
     {
         $this->assertTrue($this->rootDirectory->getChild('var/log/app')->hasChild('app2'));
-        $this->assertInstanceOf('org\\bovigo\\vfs\\vfsStreamDirectory',
-                                $this->rootDirectory->getChild('var/log/app')->getChild('app2')
-        );
+        $this->assertInstanceOf('XCloner\org\bovigo\vfs\vfsStreamDirectory', $this->rootDirectory->getChild('var/log/app')->getChild('app2'));
     }
 }

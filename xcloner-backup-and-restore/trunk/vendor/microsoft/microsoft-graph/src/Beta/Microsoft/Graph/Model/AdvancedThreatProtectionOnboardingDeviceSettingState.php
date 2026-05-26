@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AdvancedThreatProtectionOnboardingDeviceSettingState class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
 {
     /**
-    * Gets the complianceGracePeriodExpirationDateTime
-    * The DateTime when device compliance grace period expires
-    *
-    * @return \DateTime|null The complianceGracePeriodExpirationDateTime
-    */
+     * Gets the complianceGracePeriodExpirationDateTime
+     * The DateTime when device compliance grace period expires
+     *
+     * @return \DateTime|null The complianceGracePeriodExpirationDateTime
+     */
     public function getComplianceGracePeriodExpirationDateTime()
     {
         if (array_key_exists("complianceGracePeriodExpirationDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["complianceGracePeriodExpirationDateTime"], "\DateTime") || is_null($this->_propDict["complianceGracePeriodExpirationDateTime"])) {
+            if (is_a($this->_propDict["complianceGracePeriodExpirationDateTime"], "\\DateTime") || is_null($this->_propDict["complianceGracePeriodExpirationDateTime"])) {
                 return $this->_propDict["complianceGracePeriodExpirationDateTime"];
             } else {
                 $this->_propDict["complianceGracePeriodExpirationDateTime"] = new \DateTime($this->_propDict["complianceGracePeriodExpirationDateTime"]);
@@ -45,27 +46,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the complianceGracePeriodExpirationDateTime
-    * The DateTime when device compliance grace period expires
-    *
-    * @param \DateTime $val The complianceGracePeriodExpirationDateTime
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the complianceGracePeriodExpirationDateTime
+     * The DateTime when device compliance grace period expires
+     *
+     * @param \DateTime $val The complianceGracePeriodExpirationDateTime
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setComplianceGracePeriodExpirationDateTime($val)
     {
         $this->_propDict["complianceGracePeriodExpirationDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceId
-    * The Device Id that is being reported
-    *
-    * @return string|null The deviceId
-    */
+     * Gets the deviceId
+     * The Device Id that is being reported
+     *
+     * @return string|null The deviceId
+     */
     public function getDeviceId()
     {
         if (array_key_exists("deviceId", $this->_propDict)) {
@@ -74,27 +73,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceId
-    * The Device Id that is being reported
-    *
-    * @param string $val The deviceId
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the deviceId
+     * The Device Id that is being reported
+     *
+     * @param string $val The deviceId
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setDeviceId($val)
     {
         $this->_propDict["deviceId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceModel
-    * The device model that is being reported
-    *
-    * @return string|null The deviceModel
-    */
+     * Gets the deviceModel
+     * The device model that is being reported
+     *
+     * @return string|null The deviceModel
+     */
     public function getDeviceModel()
     {
         if (array_key_exists("deviceModel", $this->_propDict)) {
@@ -103,27 +100,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceModel
-    * The device model that is being reported
-    *
-    * @param string $val The deviceModel
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the deviceModel
+     * The device model that is being reported
+     *
+     * @param string $val The deviceModel
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setDeviceModel($val)
     {
         $this->_propDict["deviceModel"] = $val;
         return $this;
     }
-
     /**
-    * Gets the deviceName
-    * The Device Name that is being reported
-    *
-    * @return string|null The deviceName
-    */
+     * Gets the deviceName
+     * The Device Name that is being reported
+     *
+     * @return string|null The deviceName
+     */
     public function getDeviceName()
     {
         if (array_key_exists("deviceName", $this->_propDict)) {
@@ -132,31 +127,29 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the deviceName
-    * The Device Name that is being reported
-    *
-    * @param string $val The deviceName
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the deviceName
+     * The Device Name that is being reported
+     *
+     * @param string $val The deviceName
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setDeviceName($val)
     {
         $this->_propDict["deviceName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the platformType
-    * Device platform type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
-    *
-    * @return DeviceType|null The platformType
-    */
+     * Gets the platformType
+     * Device platform type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     *
+     * @return DeviceType|null The platformType
+     */
     public function getPlatformType()
     {
         if (array_key_exists("platformType", $this->_propDict)) {
-            if (is_a($this->_propDict["platformType"], "\Beta\Microsoft\Graph\Model\DeviceType") || is_null($this->_propDict["platformType"])) {
+            if (is_a($this->_propDict["platformType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceType") || is_null($this->_propDict["platformType"])) {
                 return $this->_propDict["platformType"];
             } else {
                 $this->_propDict["platformType"] = new DeviceType($this->_propDict["platformType"]);
@@ -165,27 +158,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the platformType
-    * Device platform type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
-    *
-    * @param DeviceType $val The platformType
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the platformType
+     * Device platform type. Possible values are: desktop, windowsRT, winMO6, nokia, windowsPhone, mac, winCE, winEmbedded, iPhone, iPad, iPod, android, iSocConsumer, unix, macMDM, holoLens, surfaceHub, androidForWork, androidEnterprise, windows10x, androidnGMS, chromeOS, linux, blackberry, palm, unknown, cloudPC.
+     *
+     * @param DeviceType $val The platformType
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setPlatformType($val)
     {
         $this->_propDict["platformType"] = $val;
         return $this;
     }
-
     /**
-    * Gets the setting
-    * The setting class name and property name.
-    *
-    * @return string|null The setting
-    */
+     * Gets the setting
+     * The setting class name and property name.
+     *
+     * @return string|null The setting
+     */
     public function getSetting()
     {
         if (array_key_exists("setting", $this->_propDict)) {
@@ -194,27 +185,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the setting
-    * The setting class name and property name.
-    *
-    * @param string $val The setting
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the setting
+     * The setting class name and property name.
+     *
+     * @param string $val The setting
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setSetting($val)
     {
         $this->_propDict["setting"] = $val;
         return $this;
     }
-
     /**
-    * Gets the settingName
-    * The Setting Name that is being reported
-    *
-    * @return string|null The settingName
-    */
+     * Gets the settingName
+     * The Setting Name that is being reported
+     *
+     * @return string|null The settingName
+     */
     public function getSettingName()
     {
         if (array_key_exists("settingName", $this->_propDict)) {
@@ -223,31 +212,29 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the settingName
-    * The Setting Name that is being reported
-    *
-    * @param string $val The settingName
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the settingName
+     * The Setting Name that is being reported
+     *
+     * @param string $val The settingName
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setSettingName($val)
     {
         $this->_propDict["settingName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the state
-    * The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
-    *
-    * @return ComplianceStatus|null The state
-    */
+     * Gets the state
+     * The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     *
+     * @return ComplianceStatus|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ComplianceStatus") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ComplianceStatus") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ComplianceStatus($this->_propDict["state"]);
@@ -256,27 +243,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
-    *
-    * @param ComplianceStatus $val The state
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the state
+     * The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     *
+     * @param ComplianceStatus $val The state
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userEmail
-    * The User email address that is being reported
-    *
-    * @return string|null The userEmail
-    */
+     * Gets the userEmail
+     * The User email address that is being reported
+     *
+     * @return string|null The userEmail
+     */
     public function getUserEmail()
     {
         if (array_key_exists("userEmail", $this->_propDict)) {
@@ -285,27 +270,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userEmail
-    * The User email address that is being reported
-    *
-    * @param string $val The userEmail
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the userEmail
+     * The User email address that is being reported
+     *
+     * @param string $val The userEmail
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setUserEmail($val)
     {
         $this->_propDict["userEmail"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userId
-    * The user Id that is being reported
-    *
-    * @return string|null The userId
-    */
+     * Gets the userId
+     * The user Id that is being reported
+     *
+     * @return string|null The userId
+     */
     public function getUserId()
     {
         if (array_key_exists("userId", $this->_propDict)) {
@@ -314,27 +297,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userId
-    * The user Id that is being reported
-    *
-    * @param string $val The userId
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the userId
+     * The user Id that is being reported
+     *
+     * @param string $val The userId
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setUserId($val)
     {
         $this->_propDict["userId"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userName
-    * The User Name that is being reported
-    *
-    * @return string|null The userName
-    */
+     * Gets the userName
+     * The User Name that is being reported
+     *
+     * @return string|null The userName
+     */
     public function getUserName()
     {
         if (array_key_exists("userName", $this->_propDict)) {
@@ -343,27 +324,25 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userName
-    * The User Name that is being reported
-    *
-    * @param string $val The userName
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the userName
+     * The User Name that is being reported
+     *
+     * @param string $val The userName
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setUserName($val)
     {
         $this->_propDict["userName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the userPrincipalName
-    * The User PrincipalName that is being reported
-    *
-    * @return string|null The userPrincipalName
-    */
+     * Gets the userPrincipalName
+     * The User PrincipalName that is being reported
+     *
+     * @return string|null The userPrincipalName
+     */
     public function getUserPrincipalName()
     {
         if (array_key_exists("userPrincipalName", $this->_propDict)) {
@@ -372,19 +351,17 @@ class AdvancedThreatProtectionOnboardingDeviceSettingState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userPrincipalName
-    * The User PrincipalName that is being reported
-    *
-    * @param string $val The userPrincipalName
-    *
-    * @return AdvancedThreatProtectionOnboardingDeviceSettingState
-    */
+     * Sets the userPrincipalName
+     * The User PrincipalName that is being reported
+     *
+     * @param string $val The userPrincipalName
+     *
+     * @return AdvancedThreatProtectionOnboardingDeviceSettingState
+     */
     public function setUserPrincipalName($val)
     {
         $this->_propDict["userPrincipalName"] = $val;
         return $this;
     }
-
 }

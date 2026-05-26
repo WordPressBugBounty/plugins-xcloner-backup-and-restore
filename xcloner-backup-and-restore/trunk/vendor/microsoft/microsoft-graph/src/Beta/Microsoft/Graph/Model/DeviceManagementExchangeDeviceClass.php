@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceManagementExchangeDeviceClass class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceManagementExchangeDeviceClass extends Entity
 {
     /**
-    * Gets the name
-    * Name of the device class which will be impacted by this rule.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * Name of the device class which will be impacted by this rule.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -40,31 +42,29 @@ class DeviceManagementExchangeDeviceClass extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * Name of the device class which will be impacted by this rule.
-    *
-    * @param string $val The value of the name
-    *
-    * @return DeviceManagementExchangeDeviceClass
-    */
+     * Sets the name
+     * Name of the device class which will be impacted by this rule.
+     *
+     * @param string $val The value of the name
+     *
+     * @return DeviceManagementExchangeDeviceClass
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;
         return $this;
     }
-
     /**
-    * Gets the type
-    * Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
-    *
-    * @return DeviceManagementExchangeAccessRuleType|null The type
-    */
+     * Gets the type
+     * Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
+     *
+     * @return DeviceManagementExchangeAccessRuleType|null The type
+     */
     public function getType()
     {
         if (array_key_exists("type", $this->_propDict)) {
-            if (is_a($this->_propDict["type"], "\Beta\Microsoft\Graph\Model\DeviceManagementExchangeAccessRuleType") || is_null($this->_propDict["type"])) {
+            if (is_a($this->_propDict["type"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceManagementExchangeAccessRuleType") || is_null($this->_propDict["type"])) {
                 return $this->_propDict["type"];
             } else {
                 $this->_propDict["type"] = new DeviceManagementExchangeAccessRuleType($this->_propDict["type"]);
@@ -73,18 +73,17 @@ class DeviceManagementExchangeDeviceClass extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the type
-    * Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
-    *
-    * @param DeviceManagementExchangeAccessRuleType $val The value to assign to the type
-    *
-    * @return DeviceManagementExchangeDeviceClass The DeviceManagementExchangeDeviceClass
-    */
+     * Sets the type
+     * Type of device which is impacted by this rule e.g. Model, Family. Possible values are: family, model.
+     *
+     * @param DeviceManagementExchangeAccessRuleType $val The value to assign to the type
+     *
+     * @return DeviceManagementExchangeDeviceClass The DeviceManagementExchangeDeviceClass
+     */
     public function setType($val)
     {
         $this->_propDict["type"] = $val;
-         return $this;
+        return $this;
     }
 }

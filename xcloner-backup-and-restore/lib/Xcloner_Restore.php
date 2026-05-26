@@ -45,6 +45,7 @@ class Xcloner_Restore
         $this->logger = new Logger('xcloner_restore');
         $logger_path = $this->get_logger_filename();
         if (!@is_writeable($logger_path) && !@is_writable($this->backup_storage_dir)) {
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_is_writeable, WordPress.WP.AlternativeFunctions.file_system_operations_is_writable
             $logger_path = "php://stderr";
         }
         $this->logger->pushHandler(new StreamHandler($logger_path, Logger::DEBUG));
@@ -109,6 +110,7 @@ class Xcloner_Restore
         $method = $action . "_action";
         if (!method_exists($this, $method) && !method_exists($this->xcloner_container->get_xcloner_api(), $action)) {
             throw new Exception($method . " does not exists");
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         $this->logger->debug(sprintf('Starting action %s', $method));
         if (method_exists($this, $method)) {
@@ -130,30 +132,38 @@ class Xcloner_Restore
         $start_position = $this->xcloner_sanitization->sanitize_input_as_int($_POST['start']);
         if (!$start_position) {
             $fp = fopen($target_file, "wb+");
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         } else {
             $fp = fopen($target_file, "ab+");
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         }
         if (!$fp) {
             throw new Exception('Unable to open $target_file file for writing');
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         fseek($fp, $start_position);
         if (isset($_FILES['blob'])) {
             $this->logger->debug(sprintf('Writing %s bytes to file %s starting position %s using FILES blob', filesize($_FILES['blob']['tmp_name']), $target_file, $start_position));
             $blob = file_get_contents($_FILES['blob']['tmp_name']);
             if (!$bytes_written = fwrite($fp, $blob)) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fwrite
                 throw new Exception("Unable to write data to file {$target_file}");
+                // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
             }
-            @unlink($_FILES['blob']['tmp_name']);
+            wp_delete_file($_FILES['blob']['tmp_name']);
         } elseif (isset($_POST['blob'])) {
             $blob = $this->xcloner_sanitization->sanitize_input_as_string($_POST['blob']);
             $this->logger->debug(sprintf('Writing %s bytes to file %s starting position %s using POST blob', strlen($blob), $target_file, $start_position));
             if (!$bytes_written = fwrite($fp, $blob)) {
+                // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fwrite
                 throw new Exception("Unable to write data to file {$target_file}");
+                // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
             }
         } else {
             throw new Exception("Upload failed, did not receive any binary data");
         }
         fclose($fp);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         return $bytes_written;
     }
     /**
@@ -169,6 +179,7 @@ class Xcloner_Restore
         $mysql_backup_file = $this->site_path . DS . $mysqldump_file;
         if (!file_exists($mysql_backup_file)) {
             throw new Exception(sprintf("Mysql backup file %s does not exists", $mysql_backup_file));
+            // phpcs:ignore WordPress.Security.EscapeOutput.ExceptionNotEscaped
         }
         $mysqli = $this->xcloner_container->get_xcloner_database();
         $this->set_foreign_key_checks($mysqli, \false);
@@ -179,6 +190,7 @@ class Xcloner_Restore
         $return['backup_file'] = $mysqldump_file;
         $return['backup_size'] = filesize($mysql_backup_file);
         $fp = fopen($mysql_backup_file, "r");
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fopen
         if (!$fp) {
             $this->logger->error(sprintf('Unable to open mysql backup file %s', $mysql_backup_file));
             $this->send_response(200, $return);
@@ -238,6 +250,7 @@ class Xcloner_Restore
             $this->set_foreign_key_checks($mysqli, \true);
         }
         fclose($fp);
+        // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
         $this->send_response(200, $return);
     }
     /**
@@ -316,7 +329,7 @@ class Xcloner_Restore
                             $this->logger->info(sprintf('Found %s mysql backup file', $content['path']));
                             $mysqldump_list[$content['path']]['path'] = $content['path'];
                             $mysqldump_list[$content['path']]['size'] = $content['size'];
-                            $mysqldump_list[$content['path']]['timestamp'] = date("d M,Y H:i", $content['timestamp']);
+                            $mysqldump_list[$content['path']]['timestamp'] = gmdate("d M,Y H:i", $content['timestamp']);
                             if ($hash and $hash == $matches[1]) {
                                 $mysqldump_list[$content['path']]['selected'] = "selected";
                             } else {
@@ -480,7 +493,9 @@ class Xcloner_Restore
         $fp = $this->filesystem->readStream($filename);
         if (is_resource($fp)) {
             $encryption_length = fread($fp, 16);
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fread
             fclose($fp);
+            // phpcs:ignore WordPress.WP.AlternativeFunctions.file_system_operations_fclose
             if (is_numeric($encryption_length)) {
                 return \true;
             }
@@ -499,7 +514,8 @@ class Xcloner_Restore
         if (!file_put_contents($tmp_file, "++")) {
             throw new Exception("Could not write to new host");
         }
-        if (!unlink($tmp_file)) {
+        wp_delete_file($tmp_file);
+        if (file_exists($tmp_file)) {
             throw new Exception("Could not delete temporary file from new host");
         }
         $max_upload = $this->return_bytes(ini_get('upload_max_filesize'));

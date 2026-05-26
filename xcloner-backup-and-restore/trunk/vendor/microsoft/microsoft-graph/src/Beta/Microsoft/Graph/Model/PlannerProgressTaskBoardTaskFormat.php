@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PlannerProgressTaskBoardTaskFormat class
 *
@@ -28,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PlannerProgressTaskBoardTaskFormat extends PlannerDelta
 {
     /**
-    * Gets the orderHint
-    * Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
-    *
-    * @return string|null The orderHint
-    */
+     * Gets the orderHint
+     * Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
+     *
+     * @return string|null The orderHint
+     */
     public function getOrderHint()
     {
         if (array_key_exists("orderHint", $this->_propDict)) {
@@ -41,19 +42,17 @@ class PlannerProgressTaskBoardTaskFormat extends PlannerDelta
             return null;
         }
     }
-
     /**
-    * Sets the orderHint
-    * Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
-    *
-    * @param string $val The orderHint
-    *
-    * @return PlannerProgressTaskBoardTaskFormat
-    */
+     * Sets the orderHint
+     * Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.
+     *
+     * @param string $val The orderHint
+     *
+     * @return PlannerProgressTaskBoardTaskFormat
+     */
     public function setOrderHint($val)
     {
         $this->_propDict["orderHint"] = $val;
         return $this;
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\ManagedTenants\Model;
+namespace XCloner\Beta\Microsoft\Graph\ManagedTenants\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkloadStatus class
 *
@@ -24,14 +26,14 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
+class WorkloadStatus extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
     /**
-    * Gets the displayName
-    * The display name for the workload. Required. Read-only.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * The display name for the workload. Required. Read-only.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -40,31 +42,29 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * The display name for the workload. Required. Read-only.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return WorkloadStatus
-    */
+     * Sets the displayName
+     * The display name for the workload. Required. Read-only.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return WorkloadStatus
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the offboardedDateTime
-    * The date and time the workload was offboarded. Optional. Read-only.
-    *
-    * @return \DateTime|null The offboardedDateTime
-    */
+     * Gets the offboardedDateTime
+     * The date and time the workload was offboarded. Optional. Read-only.
+     *
+     * @return \DateTime|null The offboardedDateTime
+     */
     public function getOffboardedDateTime()
     {
         if (array_key_exists("offboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["offboardedDateTime"], "\DateTime") || is_null($this->_propDict["offboardedDateTime"])) {
+            if (is_a($this->_propDict["offboardedDateTime"], "\\DateTime") || is_null($this->_propDict["offboardedDateTime"])) {
                 return $this->_propDict["offboardedDateTime"];
             } else {
                 $this->_propDict["offboardedDateTime"] = new \DateTime($this->_propDict["offboardedDateTime"]);
@@ -73,31 +73,29 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the offboardedDateTime
-    * The date and time the workload was offboarded. Optional. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the offboardedDateTime
-    *
-    * @return WorkloadStatus The WorkloadStatus
-    */
+     * Sets the offboardedDateTime
+     * The date and time the workload was offboarded. Optional. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the offboardedDateTime
+     *
+     * @return WorkloadStatus The WorkloadStatus
+     */
     public function setOffboardedDateTime($val)
     {
         $this->_propDict["offboardedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the onboardedDateTime
-    * The date and time the workload was onboarded. Optional. Read-only.
-    *
-    * @return \DateTime|null The onboardedDateTime
-    */
+     * Gets the onboardedDateTime
+     * The date and time the workload was onboarded. Optional. Read-only.
+     *
+     * @return \DateTime|null The onboardedDateTime
+     */
     public function getOnboardedDateTime()
     {
         if (array_key_exists("onboardedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardedDateTime"], "\DateTime") || is_null($this->_propDict["onboardedDateTime"])) {
+            if (is_a($this->_propDict["onboardedDateTime"], "\\DateTime") || is_null($this->_propDict["onboardedDateTime"])) {
                 return $this->_propDict["onboardedDateTime"];
             } else {
                 $this->_propDict["onboardedDateTime"] = new \DateTime($this->_propDict["onboardedDateTime"]);
@@ -106,31 +104,29 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the onboardedDateTime
-    * The date and time the workload was onboarded. Optional. Read-only.
-    *
-    * @param \DateTime $val The value to assign to the onboardedDateTime
-    *
-    * @return WorkloadStatus The WorkloadStatus
-    */
+     * Sets the onboardedDateTime
+     * The date and time the workload was onboarded. Optional. Read-only.
+     *
+     * @param \DateTime $val The value to assign to the onboardedDateTime
+     *
+     * @return WorkloadStatus The WorkloadStatus
+     */
     public function setOnboardedDateTime($val)
     {
         $this->_propDict["onboardedDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the onboardingStatus
-    * The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
-    *
-    * @return WorkloadOnboardingStatus|null The onboardingStatus
-    */
+     * Gets the onboardingStatus
+     * The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
+     *
+     * @return WorkloadOnboardingStatus|null The onboardingStatus
+     */
     public function getOnboardingStatus()
     {
         if (array_key_exists("onboardingStatus", $this->_propDict)) {
-            if (is_a($this->_propDict["onboardingStatus"], "\Beta\Microsoft\Graph\ManagedTenants\Model\WorkloadOnboardingStatus") || is_null($this->_propDict["onboardingStatus"])) {
+            if (is_a($this->_propDict["onboardingStatus"], "XCloner\\Beta\\Microsoft\\Graph\\ManagedTenants\\Model\\WorkloadOnboardingStatus") || is_null($this->_propDict["onboardingStatus"])) {
                 return $this->_propDict["onboardingStatus"];
             } else {
                 $this->_propDict["onboardingStatus"] = new WorkloadOnboardingStatus($this->_propDict["onboardingStatus"]);
@@ -139,18 +135,17 @@ class WorkloadStatus extends \Beta\Microsoft\Graph\Model\Entity
         }
         return null;
     }
-
     /**
-    * Sets the onboardingStatus
-    * The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
-    *
-    * @param WorkloadOnboardingStatus $val The value to assign to the onboardingStatus
-    *
-    * @return WorkloadStatus The WorkloadStatus
-    */
+     * Sets the onboardingStatus
+     * The onboarding status for the workload. Possible values are: notOnboarded, onboarded, unknownFutureValue. Optional. Read-only.
+     *
+     * @param WorkloadOnboardingStatus $val The value to assign to the onboardingStatus
+     *
+     * @return WorkloadStatus The WorkloadStatus
+     */
     public function setOnboardingStatus($val)
     {
         $this->_propDict["onboardingStatus"] = $val;
-         return $this;
+        return $this;
     }
 }

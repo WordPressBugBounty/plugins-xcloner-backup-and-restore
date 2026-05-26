@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\SecurityNamespace\Model;
+namespace XCloner\Beta\Microsoft\Graph\SecurityNamespace\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TriggersRoot class
 *
@@ -25,10 +26,9 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-class TriggersRoot extends \Beta\Microsoft\Graph\Model\Entity
+class TriggersRoot extends \XCloner\Beta\Microsoft\Graph\Model\Entity
 {
-
-     /**
+    /**
      * Gets the retentionEvents
      *
      * @return array|null The retentionEvents
@@ -36,23 +36,21 @@ class TriggersRoot extends \Beta\Microsoft\Graph\Model\Entity
     public function getRetentionEvents()
     {
         if (array_key_exists("retentionEvents", $this->_propDict)) {
-           return $this->_propDict["retentionEvents"];
+            return $this->_propDict["retentionEvents"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the retentionEvents
-    *
-    * @param RetentionEvent[] $val The retentionEvents
-    *
-    * @return TriggersRoot
-    */
+     * Sets the retentionEvents
+     *
+     * @param RetentionEvent[] $val The retentionEvents
+     *
+     * @return TriggersRoot
+     */
     public function setRetentionEvents($val)
     {
         $this->_propDict["retentionEvents"] = $val;
         return $this;
     }
-
 }

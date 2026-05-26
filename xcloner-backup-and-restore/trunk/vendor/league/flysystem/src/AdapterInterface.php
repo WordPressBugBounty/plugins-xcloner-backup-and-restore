@@ -1,22 +1,20 @@
 <?php
 
-namespace League\Flysystem;
+namespace XCloner\League\Flysystem;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 interface AdapterInterface extends ReadInterface
 {
     /**
      * @const  VISIBILITY_PUBLIC  public visibility
      */
     const VISIBILITY_PUBLIC = 'public';
-
     /**
      * @const  VISIBILITY_PRIVATE  private visibility
      */
     const VISIBILITY_PRIVATE = 'private';
-
     /**
      * Write a new file.
      *
@@ -27,7 +25,6 @@ interface AdapterInterface extends ReadInterface
      * @return array|false false on failure file meta data on success
      */
     public function write($path, $contents, Config $config);
-
     /**
      * Write a new file using a stream.
      *
@@ -38,7 +35,6 @@ interface AdapterInterface extends ReadInterface
      * @return array|false false on failure file meta data on success
      */
     public function writeStream($path, $resource, Config $config);
-
     /**
      * Update a file.
      *
@@ -49,7 +45,6 @@ interface AdapterInterface extends ReadInterface
      * @return array|false false on failure file meta data on success
      */
     public function update($path, $contents, Config $config);
-
     /**
      * Update a file using a stream.
      *
@@ -60,7 +55,6 @@ interface AdapterInterface extends ReadInterface
      * @return array|false false on failure file meta data on success
      */
     public function updateStream($path, $resource, Config $config);
-
     /**
      * Rename a file.
      *
@@ -70,7 +64,6 @@ interface AdapterInterface extends ReadInterface
      * @return bool
      */
     public function rename($path, $newpath);
-
     /**
      * Copy a file.
      *
@@ -80,7 +73,6 @@ interface AdapterInterface extends ReadInterface
      * @return bool
      */
     public function copy($path, $newpath);
-
     /**
      * Delete a file.
      *
@@ -89,7 +81,6 @@ interface AdapterInterface extends ReadInterface
      * @return bool
      */
     public function delete($path);
-
     /**
      * Delete a directory.
      *
@@ -98,7 +89,6 @@ interface AdapterInterface extends ReadInterface
      * @return bool
      */
     public function deleteDir($dirname);
-
     /**
      * Create a directory.
      *
@@ -108,7 +98,6 @@ interface AdapterInterface extends ReadInterface
      * @return array|false
      */
     public function createDir($dirname, Config $config);
-
     /**
      * Set the visibility for a file.
      *

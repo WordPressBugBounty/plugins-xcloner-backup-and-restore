@@ -21,14 +21,12 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use MicrosoftAzure\Storage\Common\Internal\Resources;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\MicrosoftAzure\Storage\Common\Internal\Resources;
 /**
  * Holds signed identifiers.
  *
@@ -43,7 +41,6 @@ class SignedIdentifier
 {
     private $id;
     private $accessPolicy;
-
     /**
      * Constructor
      *
@@ -55,7 +52,6 @@ class SignedIdentifier
         $this->setId($id);
         $this->setAccessPolicy($accessPolicy);
     }
-
     /**
      * Gets id.
      *
@@ -65,7 +61,6 @@ class SignedIdentifier
     {
         return $this->id;
     }
-
     /**
      * Sets id.
      *
@@ -77,7 +72,6 @@ class SignedIdentifier
     {
         $this->id = $id;
     }
-
     /**
      * Gets accessPolicy.
      *
@@ -87,7 +81,6 @@ class SignedIdentifier
     {
         return $this->accessPolicy;
     }
-
     /**
      * Sets accessPolicy.
      *
@@ -99,7 +92,6 @@ class SignedIdentifier
     {
         $this->accessPolicy = $accessPolicy;
     }
-
     /**
      * Converts this current object to XML representation.
      *
@@ -112,10 +104,8 @@ class SignedIdentifier
         $array = array();
         $accessPolicyArray = array();
         $accessPolicyArray[Resources::XTAG_SIGNED_ID] = $this->getId();
-        $accessPolicyArray[Resources::XTAG_ACCESS_POLICY] =
-            $this->getAccessPolicy()->toArray();
+        $accessPolicyArray[Resources::XTAG_ACCESS_POLICY] = $this->getAccessPolicy()->toArray();
         $array[Resources::XTAG_SIGNED_IDENTIFIER] = $accessPolicyArray;
-
         return $array;
     }
 }

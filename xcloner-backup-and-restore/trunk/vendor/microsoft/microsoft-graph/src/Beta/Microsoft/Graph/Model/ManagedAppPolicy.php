@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedAppPolicy class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedAppPolicy extends Entity
 {
     /**
-    * Gets the createdDateTime
-    * The date and time the policy was created.
-    *
-    * @return \DateTime|null The createdDateTime
-    */
+     * Gets the createdDateTime
+     * The date and time the policy was created.
+     *
+     * @return \DateTime|null The createdDateTime
+     */
     public function getCreatedDateTime()
     {
         if (array_key_exists("createdDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["createdDateTime"], "\DateTime") || is_null($this->_propDict["createdDateTime"])) {
+            if (is_a($this->_propDict["createdDateTime"], "\\DateTime") || is_null($this->_propDict["createdDateTime"])) {
                 return $this->_propDict["createdDateTime"];
             } else {
                 $this->_propDict["createdDateTime"] = new \DateTime($this->_propDict["createdDateTime"]);
@@ -45,27 +46,25 @@ class ManagedAppPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the createdDateTime
-    * The date and time the policy was created.
-    *
-    * @param \DateTime $val The createdDateTime
-    *
-    * @return ManagedAppPolicy
-    */
+     * Sets the createdDateTime
+     * The date and time the policy was created.
+     *
+     * @param \DateTime $val The createdDateTime
+     *
+     * @return ManagedAppPolicy
+     */
     public function setCreatedDateTime($val)
     {
         $this->_propDict["createdDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the description
-    * The policy's description.
-    *
-    * @return string|null The description
-    */
+     * Gets the description
+     * The policy's description.
+     *
+     * @return string|null The description
+     */
     public function getDescription()
     {
         if (array_key_exists("description", $this->_propDict)) {
@@ -74,27 +73,25 @@ class ManagedAppPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the description
-    * The policy's description.
-    *
-    * @param string $val The description
-    *
-    * @return ManagedAppPolicy
-    */
+     * Sets the description
+     * The policy's description.
+     *
+     * @param string $val The description
+     *
+     * @return ManagedAppPolicy
+     */
     public function setDescription($val)
     {
         $this->_propDict["description"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Policy display name.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Policy display name.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -103,31 +100,29 @@ class ManagedAppPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Policy display name.
-    *
-    * @param string $val The displayName
-    *
-    * @return ManagedAppPolicy
-    */
+     * Sets the displayName
+     * Policy display name.
+     *
+     * @param string $val The displayName
+     *
+     * @return ManagedAppPolicy
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastModifiedDateTime
-    * Last time the policy was modified.
-    *
-    * @return \DateTime|null The lastModifiedDateTime
-    */
+     * Gets the lastModifiedDateTime
+     * Last time the policy was modified.
+     *
+     * @return \DateTime|null The lastModifiedDateTime
+     */
     public function getLastModifiedDateTime()
     {
         if (array_key_exists("lastModifiedDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastModifiedDateTime"], "\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
+            if (is_a($this->_propDict["lastModifiedDateTime"], "\\DateTime") || is_null($this->_propDict["lastModifiedDateTime"])) {
                 return $this->_propDict["lastModifiedDateTime"];
             } else {
                 $this->_propDict["lastModifiedDateTime"] = new \DateTime($this->_propDict["lastModifiedDateTime"]);
@@ -136,27 +131,25 @@ class ManagedAppPolicy extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastModifiedDateTime
-    * Last time the policy was modified.
-    *
-    * @param \DateTime $val The lastModifiedDateTime
-    *
-    * @return ManagedAppPolicy
-    */
+     * Sets the lastModifiedDateTime
+     * Last time the policy was modified.
+     *
+     * @param \DateTime $val The lastModifiedDateTime
+     *
+     * @return ManagedAppPolicy
+     */
     public function setLastModifiedDateTime($val)
     {
         $this->_propDict["lastModifiedDateTime"] = $val;
         return $this;
     }
-
     /**
-    * Gets the roleScopeTagIds
-    * List of Scope Tags for this Entity instance.
-    *
-    * @return array|null The roleScopeTagIds
-    */
+     * Gets the roleScopeTagIds
+     * List of Scope Tags for this Entity instance.
+     *
+     * @return array|null The roleScopeTagIds
+     */
     public function getRoleScopeTagIds()
     {
         if (array_key_exists("roleScopeTagIds", $this->_propDict)) {
@@ -165,27 +158,25 @@ class ManagedAppPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the roleScopeTagIds
-    * List of Scope Tags for this Entity instance.
-    *
-    * @param string[] $val The roleScopeTagIds
-    *
-    * @return ManagedAppPolicy
-    */
+     * Sets the roleScopeTagIds
+     * List of Scope Tags for this Entity instance.
+     *
+     * @param string[] $val The roleScopeTagIds
+     *
+     * @return ManagedAppPolicy
+     */
     public function setRoleScopeTagIds($val)
     {
         $this->_propDict["roleScopeTagIds"] = $val;
         return $this;
     }
-
     /**
-    * Gets the version
-    * Version of the entity.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * Version of the entity.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -194,19 +185,17 @@ class ManagedAppPolicy extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * Version of the entity.
-    *
-    * @param string $val The version
-    *
-    * @return ManagedAppPolicy
-    */
+     * Sets the version
+     * Version of the entity.
+     *
+     * @param string $val The version
+     *
+     * @return ManagedAppPolicy
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

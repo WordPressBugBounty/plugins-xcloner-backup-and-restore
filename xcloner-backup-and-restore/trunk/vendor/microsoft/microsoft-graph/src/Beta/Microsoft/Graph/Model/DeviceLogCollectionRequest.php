@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DeviceLogCollectionRequest class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DeviceLogCollectionRequest extends Entity
 {
     /**
-    * Gets the id
-    * The unique identifier
-    *
-    * @return string|null The id
-    */
+     * Gets the id
+     * The unique identifier
+     *
+     * @return string|null The id
+     */
     public function getId()
     {
         if (array_key_exists("id", $this->_propDict)) {
@@ -40,31 +42,29 @@ class DeviceLogCollectionRequest extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the id
-    * The unique identifier
-    *
-    * @param string $val The value of the id
-    *
-    * @return DeviceLogCollectionRequest
-    */
+     * Sets the id
+     * The unique identifier
+     *
+     * @param string $val The value of the id
+     *
+     * @return DeviceLogCollectionRequest
+     */
     public function setId($val)
     {
         $this->_propDict["id"] = $val;
         return $this;
     }
-
     /**
-    * Gets the templateType
-    * The template type that is sent with the collection request. Possible values are: predefined.
-    *
-    * @return DeviceLogCollectionTemplateType|null The templateType
-    */
+     * Gets the templateType
+     * The template type that is sent with the collection request. Possible values are: predefined.
+     *
+     * @return DeviceLogCollectionTemplateType|null The templateType
+     */
     public function getTemplateType()
     {
         if (array_key_exists("templateType", $this->_propDict)) {
-            if (is_a($this->_propDict["templateType"], "\Beta\Microsoft\Graph\Model\DeviceLogCollectionTemplateType") || is_null($this->_propDict["templateType"])) {
+            if (is_a($this->_propDict["templateType"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\DeviceLogCollectionTemplateType") || is_null($this->_propDict["templateType"])) {
                 return $this->_propDict["templateType"];
             } else {
                 $this->_propDict["templateType"] = new DeviceLogCollectionTemplateType($this->_propDict["templateType"]);
@@ -73,18 +73,17 @@ class DeviceLogCollectionRequest extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the templateType
-    * The template type that is sent with the collection request. Possible values are: predefined.
-    *
-    * @param DeviceLogCollectionTemplateType $val The value to assign to the templateType
-    *
-    * @return DeviceLogCollectionRequest The DeviceLogCollectionRequest
-    */
+     * Sets the templateType
+     * The template type that is sent with the collection request. Possible values are: predefined.
+     *
+     * @param DeviceLogCollectionTemplateType $val The value to assign to the templateType
+     *
+     * @return DeviceLogCollectionRequest The DeviceLogCollectionRequest
+     */
     public function setTemplateType($val)
     {
         $this->_propDict["templateType"] = $val;
-         return $this;
+        return $this;
     }
 }

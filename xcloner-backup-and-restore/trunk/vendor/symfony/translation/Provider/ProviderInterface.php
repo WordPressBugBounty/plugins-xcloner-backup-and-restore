@@ -8,19 +8,16 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Symfony\Component\Translation\Provider;
 
-namespace Symfony\Component\Translation\Provider;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Symfony\Component\Translation\TranslatorBag;
-use Symfony\Component\Translation\TranslatorBagInterface;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Symfony\Component\Translation\TranslatorBag;
+use XCloner\Symfony\Component\Translation\TranslatorBagInterface;
 interface ProviderInterface
 {
     public function __toString(): string;
-
     /**
      * Translations available in the TranslatorBag only must be created.
      * Translations available in both the TranslatorBag and on the provider
@@ -28,8 +25,6 @@ interface ProviderInterface
      * Translations available on the provider only must be kept.
      */
     public function write(TranslatorBagInterface $translatorBag): void;
-
     public function read(array $domains, array $locales): TranslatorBag;
-
     public function delete(TranslatorBagInterface $translatorBag): void;
 }

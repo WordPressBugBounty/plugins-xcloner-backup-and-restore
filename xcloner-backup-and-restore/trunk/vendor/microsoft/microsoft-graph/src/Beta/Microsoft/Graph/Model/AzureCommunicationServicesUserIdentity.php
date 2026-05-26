@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AzureCommunicationServicesUserIdentity class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AzureCommunicationServicesUserIdentity extends Identity
 {
     /**
-    * Gets the azureCommunicationServicesResourceId
-    * The Azure Communication Services resource ID associated with the user.
-    *
-    * @return string|null The azureCommunicationServicesResourceId
-    */
+     * Gets the azureCommunicationServicesResourceId
+     * The Azure Communication Services resource ID associated with the user.
+     *
+     * @return string|null The azureCommunicationServicesResourceId
+     */
     public function getAzureCommunicationServicesResourceId()
     {
         if (array_key_exists("azureCommunicationServicesResourceId", $this->_propDict)) {
@@ -40,15 +42,14 @@ class AzureCommunicationServicesUserIdentity extends Identity
             return null;
         }
     }
-
     /**
-    * Sets the azureCommunicationServicesResourceId
-    * The Azure Communication Services resource ID associated with the user.
-    *
-    * @param string $val The value of the azureCommunicationServicesResourceId
-    *
-    * @return AzureCommunicationServicesUserIdentity
-    */
+     * Sets the azureCommunicationServicesResourceId
+     * The Azure Communication Services resource ID associated with the user.
+     *
+     * @param string $val The value of the azureCommunicationServicesResourceId
+     *
+     * @return AzureCommunicationServicesUserIdentity
+     */
     public function setAzureCommunicationServicesResourceId($val)
     {
         $this->_propDict["azureCommunicationServicesResourceId"] = $val;

@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ConfigurationManagerClientHealthState class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ConfigurationManagerClientHealthState extends Entity
 {
     /**
-    * Gets the errorCode
-    * Error code for failed state.
-    *
-    * @return int|null The errorCode
-    */
+     * Gets the errorCode
+     * Error code for failed state.
+     *
+     * @return int|null The errorCode
+     */
     public function getErrorCode()
     {
         if (array_key_exists("errorCode", $this->_propDict)) {
@@ -40,31 +42,29 @@ class ConfigurationManagerClientHealthState extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the errorCode
-    * Error code for failed state.
-    *
-    * @param int $val The value of the errorCode
-    *
-    * @return ConfigurationManagerClientHealthState
-    */
+     * Sets the errorCode
+     * Error code for failed state.
+     *
+     * @param int $val The value of the errorCode
+     *
+     * @return ConfigurationManagerClientHealthState
+     */
     public function setErrorCode($val)
     {
         $this->_propDict["errorCode"] = $val;
         return $this;
     }
-
     /**
-    * Gets the lastSyncDateTime
-    * Datetime for last sync with configuration manager management point.
-    *
-    * @return \DateTime|null The lastSyncDateTime
-    */
+     * Gets the lastSyncDateTime
+     * Datetime for last sync with configuration manager management point.
+     *
+     * @return \DateTime|null The lastSyncDateTime
+     */
     public function getLastSyncDateTime()
     {
         if (array_key_exists("lastSyncDateTime", $this->_propDict)) {
-            if (is_a($this->_propDict["lastSyncDateTime"], "\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
+            if (is_a($this->_propDict["lastSyncDateTime"], "\\DateTime") || is_null($this->_propDict["lastSyncDateTime"])) {
                 return $this->_propDict["lastSyncDateTime"];
             } else {
                 $this->_propDict["lastSyncDateTime"] = new \DateTime($this->_propDict["lastSyncDateTime"]);
@@ -73,31 +73,29 @@ class ConfigurationManagerClientHealthState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the lastSyncDateTime
-    * Datetime for last sync with configuration manager management point.
-    *
-    * @param \DateTime $val The value to assign to the lastSyncDateTime
-    *
-    * @return ConfigurationManagerClientHealthState The ConfigurationManagerClientHealthState
-    */
+     * Sets the lastSyncDateTime
+     * Datetime for last sync with configuration manager management point.
+     *
+     * @param \DateTime $val The value to assign to the lastSyncDateTime
+     *
+     * @return ConfigurationManagerClientHealthState The ConfigurationManagerClientHealthState
+     */
     public function setLastSyncDateTime($val)
     {
         $this->_propDict["lastSyncDateTime"] = $val;
-         return $this;
+        return $this;
     }
-
     /**
-    * Gets the state
-    * Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
-    *
-    * @return ConfigurationManagerClientState|null The state
-    */
+     * Gets the state
+     * Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
+     *
+     * @return ConfigurationManagerClientState|null The state
+     */
     public function getState()
     {
         if (array_key_exists("state", $this->_propDict)) {
-            if (is_a($this->_propDict["state"], "\Beta\Microsoft\Graph\Model\ConfigurationManagerClientState") || is_null($this->_propDict["state"])) {
+            if (is_a($this->_propDict["state"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ConfigurationManagerClientState") || is_null($this->_propDict["state"])) {
                 return $this->_propDict["state"];
             } else {
                 $this->_propDict["state"] = new ConfigurationManagerClientState($this->_propDict["state"]);
@@ -106,18 +104,17 @@ class ConfigurationManagerClientHealthState extends Entity
         }
         return null;
     }
-
     /**
-    * Sets the state
-    * Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
-    *
-    * @param ConfigurationManagerClientState $val The value to assign to the state
-    *
-    * @return ConfigurationManagerClientHealthState The ConfigurationManagerClientHealthState
-    */
+     * Sets the state
+     * Current configuration manager client state. Possible values are: unknown, installed, healthy, installFailed, updateFailed, communicationError.
+     *
+     * @param ConfigurationManagerClientState $val The value to assign to the state
+     *
+     * @return ConfigurationManagerClientHealthState The ConfigurationManagerClientHealthState
+     */
     public function setState($val)
     {
         $this->_propDict["state"] = $val;
-         return $this;
+        return $this;
     }
 }

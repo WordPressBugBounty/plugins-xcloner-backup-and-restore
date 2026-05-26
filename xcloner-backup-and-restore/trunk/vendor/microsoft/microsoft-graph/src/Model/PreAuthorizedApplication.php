@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PreAuthorizedApplication class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class PreAuthorizedApplication extends Entity
 {
     /**
-    * Gets the appId
-    * The unique identifier for the application.
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * The unique identifier for the application.
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -40,26 +42,25 @@ class PreAuthorizedApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * The unique identifier for the application.
-    *
-    * @param string $val The value of the appId
-    *
-    * @return PreAuthorizedApplication
-    */
+     * Sets the appId
+     * The unique identifier for the application.
+     *
+     * @param string $val The value of the appId
+     *
+     * @return PreAuthorizedApplication
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
     /**
-    * Gets the delegatedPermissionIds
-    * The unique identifier for the oauth2PermissionScopes the application requires.
-    *
-    * @return string|null The delegatedPermissionIds
-    */
+     * Gets the delegatedPermissionIds
+     * The unique identifier for the oauth2PermissionScopes the application requires.
+     *
+     * @return string|null The delegatedPermissionIds
+     */
     public function getDelegatedPermissionIds()
     {
         if (array_key_exists("delegatedPermissionIds", $this->_propDict)) {
@@ -68,15 +69,14 @@ class PreAuthorizedApplication extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the delegatedPermissionIds
-    * The unique identifier for the oauth2PermissionScopes the application requires.
-    *
-    * @param string $val The value of the delegatedPermissionIds
-    *
-    * @return PreAuthorizedApplication
-    */
+     * Sets the delegatedPermissionIds
+     * The unique identifier for the oauth2PermissionScopes the application requires.
+     *
+     * @param string $val The value of the delegatedPermissionIds
+     *
+     * @return PreAuthorizedApplication
+     */
     public function setDelegatedPermissionIds($val)
     {
         $this->_propDict["delegatedPermissionIds"] = $val;

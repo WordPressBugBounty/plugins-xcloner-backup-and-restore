@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ManagedApp class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ManagedApp extends MobileApp
 {
     /**
-    * Gets the appAvailability
-    * The Application's availability. Possible values are: global, lineOfBusiness.
-    *
-    * @return ManagedAppAvailability|null The appAvailability
-    */
+     * Gets the appAvailability
+     * The Application's availability. Possible values are: global, lineOfBusiness.
+     *
+     * @return ManagedAppAvailability|null The appAvailability
+     */
     public function getAppAvailability()
     {
         if (array_key_exists("appAvailability", $this->_propDict)) {
-            if (is_a($this->_propDict["appAvailability"], "\Beta\Microsoft\Graph\Model\ManagedAppAvailability") || is_null($this->_propDict["appAvailability"])) {
+            if (is_a($this->_propDict["appAvailability"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\ManagedAppAvailability") || is_null($this->_propDict["appAvailability"])) {
                 return $this->_propDict["appAvailability"];
             } else {
                 $this->_propDict["appAvailability"] = new ManagedAppAvailability($this->_propDict["appAvailability"]);
@@ -45,27 +46,25 @@ class ManagedApp extends MobileApp
         }
         return null;
     }
-
     /**
-    * Sets the appAvailability
-    * The Application's availability. Possible values are: global, lineOfBusiness.
-    *
-    * @param ManagedAppAvailability $val The appAvailability
-    *
-    * @return ManagedApp
-    */
+     * Sets the appAvailability
+     * The Application's availability. Possible values are: global, lineOfBusiness.
+     *
+     * @param ManagedAppAvailability $val The appAvailability
+     *
+     * @return ManagedApp
+     */
     public function setAppAvailability($val)
     {
         $this->_propDict["appAvailability"] = $val;
         return $this;
     }
-
     /**
-    * Gets the version
-    * The Application's version.
-    *
-    * @return string|null The version
-    */
+     * Gets the version
+     * The Application's version.
+     *
+     * @return string|null The version
+     */
     public function getVersion()
     {
         if (array_key_exists("version", $this->_propDict)) {
@@ -74,19 +73,17 @@ class ManagedApp extends MobileApp
             return null;
         }
     }
-
     /**
-    * Sets the version
-    * The Application's version.
-    *
-    * @param string $val The version
-    *
-    * @return ManagedApp
-    */
+     * Sets the version
+     * The Application's version.
+     *
+     * @param string $val The version
+     *
+     * @return ManagedApp
+     */
     public function setVersion($val)
     {
         $this->_propDict["version"] = $val;
         return $this;
     }
-
 }

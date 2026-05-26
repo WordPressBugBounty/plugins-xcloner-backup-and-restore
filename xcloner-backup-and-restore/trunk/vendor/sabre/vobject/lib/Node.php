@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject;
+namespace XCloner\Sabre\VObject;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\Xml;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\Xml;
 /**
  * A node is the root class for every element in an iCalendar of vCard object.
  *
@@ -23,7 +22,6 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
      * (if possible).
      */
     const REPAIR = 1;
-
     /**
      * If this option is set, the validator will operate on the vcards on the
      * assumption that the vcards need to be valid for CardDAV.
@@ -32,7 +30,6 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
      * regular vcards.
      */
     const PROFILE_CARDDAV = 2;
-
     /**
      * If this option is set, the validator will operate on iCalendar objects
      * on the assumption that the vcards need to be valid for CalDAV.
@@ -41,35 +38,30 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
      * identical component types and UIDs.
      */
     const PROFILE_CALDAV = 4;
-
     /**
      * Reference to the parent object, if this is not the top object.
      *
      * @var Node
      */
     public $parent;
-
     /**
      * Iterator override.
      *
      * @var ElementList
      */
     protected $iterator = null;
-
     /**
      * The root document.
      *
      * @var Component
      */
     protected $root;
-
     /**
      * Serializes the node into a mimedir format.
      *
      * @return string
      */
     abstract public function serialize();
-
     /**
      * This method returns an array, with the representation as it should be
      * encoded in JSON. This is used to create jCard or jCal documents.
@@ -78,7 +70,6 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
      */
     #[\ReturnTypeWillChange]
     abstract public function jsonSerialize();
-
     /**
      * This method serializes the data into XML. This is used to create xCard or
      * xCal documents.
@@ -86,7 +77,6 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
      * @param Xml\Writer $writer XML writer
      */
     abstract public function xmlSerialize(Xml\Writer $writer);
-
     /**
      * Call this method on a document if you're done using it.
      *
@@ -98,9 +88,7 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
         $this->parent = null;
         $this->root = null;
     }
-
     /* {{{ IteratorAggregator interface */
-
     /**
      * Returns the iterator for this object.
      *
@@ -112,10 +100,8 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
         if (!is_null($this->iterator)) {
             return $this->iterator;
         }
-
         return new ElementList([$this]);
     }
-
     /**
      * Sets the overridden iterator.
      *
@@ -125,7 +111,6 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     {
         $this->iterator = $iterator;
     }
-
     /**
      * Validates the node for correctness.
      *
@@ -152,11 +137,8 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     {
         return [];
     }
-
     /* }}} */
-
     /* {{{ Countable interface */
-
     /**
      * Returns the number of elements.
      *
@@ -166,14 +148,10 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     public function count()
     {
         $it = $this->getIterator();
-
         return $it->count();
     }
-
     /* }}} */
-
     /* {{{ ArrayAccess Interface */
-
     /**
      * Checks if an item exists through ArrayAccess.
      *
@@ -187,10 +165,8 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     public function offsetExists($offset)
     {
         $iterator = $this->getIterator();
-
         return $iterator->offsetExists($offset);
     }
-
     /**
      * Gets an item through ArrayAccess.
      *
@@ -204,10 +180,8 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     public function offsetGet($offset)
     {
         $iterator = $this->getIterator();
-
         return $iterator->offsetGet($offset);
     }
-
     /**
      * Sets an item through ArrayAccess.
      *
@@ -221,15 +195,12 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     {
         $iterator = $this->getIterator();
         $iterator->offsetSet($offset, $value);
-
         // @codeCoverageIgnoreStart
-    //
-    // This method always throws an exception, so we ignore the closing
-    // brace
+        //
+        // This method always throws an exception, so we ignore the closing
+        // brace
     }
-
     // @codeCoverageIgnoreEnd
-
     /**
      * Sets an item through ArrayAccess.
      *
@@ -242,14 +213,11 @@ abstract class Node implements \IteratorAggregate, \ArrayAccess, \Countable, \Js
     {
         $iterator = $this->getIterator();
         $iterator->offsetUnset($offset);
-
         // @codeCoverageIgnoreStart
-    //
-    // This method always throws an exception, so we ignore the closing
-    // brace
+        //
+        // This method always throws an exception, so we ignore the closing
+        // brace
     }
-
     // @codeCoverageIgnoreEnd
-
     /* }}} */
 }

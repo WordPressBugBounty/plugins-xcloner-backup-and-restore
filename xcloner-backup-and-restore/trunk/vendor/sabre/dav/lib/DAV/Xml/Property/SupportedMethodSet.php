@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Property;
 
-namespace Sabre\DAV\Xml\Property;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Browser\HtmlOutput;
-use Sabre\DAV\Browser\HtmlOutputHelper;
-use Sabre\Xml\Writer;
-use Sabre\Xml\XmlSerializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Browser\HtmlOutput;
+use XCloner\Sabre\DAV\Browser\HtmlOutputHelper;
+use XCloner\Sabre\Xml\Writer;
+use XCloner\Sabre\Xml\XmlSerializable;
 /**
  * supported-method-set property.
  *
@@ -33,7 +31,6 @@ class SupportedMethodSet implements XmlSerializable, HtmlOutput
      * @var string[]
      */
     protected $methods = [];
-
     /**
      * Creates the property.
      *
@@ -43,7 +40,6 @@ class SupportedMethodSet implements XmlSerializable, HtmlOutput
     {
         $this->methods = $methods;
     }
-
     /**
      * Returns the list of supported http methods.
      *
@@ -53,7 +49,6 @@ class SupportedMethodSet implements XmlSerializable, HtmlOutput
     {
         return $this->methods;
     }
-
     /**
      * Returns true or false if the property contains a specific method.
      *
@@ -63,12 +58,8 @@ class SupportedMethodSet implements XmlSerializable, HtmlOutput
      */
     public function has($methodName)
     {
-        return in_array(
-            $methodName,
-            $this->methods
-        );
+        return in_array($methodName, $this->methods);
     }
-
     /**
      * The xmlSerialize method is called during xml writing.
      *
@@ -93,7 +84,6 @@ class SupportedMethodSet implements XmlSerializable, HtmlOutput
             $writer->endElement();
         }
     }
-
     /**
      * Generate html representation for this value.
      *
@@ -109,9 +99,6 @@ class SupportedMethodSet implements XmlSerializable, HtmlOutput
      */
     public function toHtml(HtmlOutputHelper $html)
     {
-        return implode(
-            ', ',
-            array_map([$html, 'h'], $this->getValue())
-        );
+        return implode(', ', array_map([$html, 'h'], $this->getValue()));
     }
 }

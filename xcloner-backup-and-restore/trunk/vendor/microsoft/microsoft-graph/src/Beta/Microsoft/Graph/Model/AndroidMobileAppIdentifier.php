@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AndroidMobileAppIdentifier class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class AndroidMobileAppIdentifier extends MobileAppIdentifier
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.androidMobileAppIdentifier");
     }
-
     /**
-    * Gets the packageId
-    * The identifier for an app, as specified in the play store.
-    *
-    * @return string|null The packageId
-    */
+     * Gets the packageId
+     * The identifier for an app, as specified in the play store.
+     *
+     * @return string|null The packageId
+     */
     public function getPackageId()
     {
         if (array_key_exists("packageId", $this->_propDict)) {
@@ -51,15 +52,14 @@ class AndroidMobileAppIdentifier extends MobileAppIdentifier
             return null;
         }
     }
-
     /**
-    * Sets the packageId
-    * The identifier for an app, as specified in the play store.
-    *
-    * @param string $val The value of the packageId
-    *
-    * @return AndroidMobileAppIdentifier
-    */
+     * Sets the packageId
+     * The identifier for an app, as specified in the play store.
+     *
+     * @param string $val The value of the packageId
+     *
+     * @return AndroidMobileAppIdentifier
+     */
     public function setPackageId($val)
     {
         $this->_propDict["packageId"] = $val;

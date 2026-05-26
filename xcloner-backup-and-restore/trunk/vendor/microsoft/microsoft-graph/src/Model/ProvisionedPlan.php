@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ProvisionedPlan class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ProvisionedPlan extends Entity
 {
     /**
-    * Gets the capabilityStatus
-    * For example, 'Enabled'.
-    *
-    * @return string|null The capabilityStatus
-    */
+     * Gets the capabilityStatus
+     * For example, 'Enabled'.
+     *
+     * @return string|null The capabilityStatus
+     */
     public function getCapabilityStatus()
     {
         if (array_key_exists("capabilityStatus", $this->_propDict)) {
@@ -40,26 +42,25 @@ class ProvisionedPlan extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the capabilityStatus
-    * For example, 'Enabled'.
-    *
-    * @param string $val The value of the capabilityStatus
-    *
-    * @return ProvisionedPlan
-    */
+     * Sets the capabilityStatus
+     * For example, 'Enabled'.
+     *
+     * @param string $val The value of the capabilityStatus
+     *
+     * @return ProvisionedPlan
+     */
     public function setCapabilityStatus($val)
     {
         $this->_propDict["capabilityStatus"] = $val;
         return $this;
     }
     /**
-    * Gets the provisioningStatus
-    * For example, 'Success'.
-    *
-    * @return string|null The provisioningStatus
-    */
+     * Gets the provisioningStatus
+     * For example, 'Success'.
+     *
+     * @return string|null The provisioningStatus
+     */
     public function getProvisioningStatus()
     {
         if (array_key_exists("provisioningStatus", $this->_propDict)) {
@@ -68,26 +69,25 @@ class ProvisionedPlan extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the provisioningStatus
-    * For example, 'Success'.
-    *
-    * @param string $val The value of the provisioningStatus
-    *
-    * @return ProvisionedPlan
-    */
+     * Sets the provisioningStatus
+     * For example, 'Success'.
+     *
+     * @param string $val The value of the provisioningStatus
+     *
+     * @return ProvisionedPlan
+     */
     public function setProvisioningStatus($val)
     {
         $this->_propDict["provisioningStatus"] = $val;
         return $this;
     }
     /**
-    * Gets the service
-    * The name of the service; for example, 'AccessControlS2S'
-    *
-    * @return string|null The service
-    */
+     * Gets the service
+     * The name of the service; for example, 'AccessControlS2S'
+     *
+     * @return string|null The service
+     */
     public function getService()
     {
         if (array_key_exists("service", $this->_propDict)) {
@@ -96,15 +96,14 @@ class ProvisionedPlan extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the service
-    * The name of the service; for example, 'AccessControlS2S'
-    *
-    * @param string $val The value of the service
-    *
-    * @return ProvisionedPlan
-    */
+     * Sets the service
+     * The name of the service; for example, 'AccessControlS2S'
+     *
+     * @param string $val The value of the service
+     *
+     * @return ProvisionedPlan
+     */
     public function setService($val)
     {
         $this->_propDict["service"] = $val;

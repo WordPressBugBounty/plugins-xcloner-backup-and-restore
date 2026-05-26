@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * DataSubject class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class DataSubject extends Entity
 {
     /**
-    * Gets the email
-    * Email of the data subject.
-    *
-    * @return string|null The email
-    */
+     * Gets the email
+     * Email of the data subject.
+     *
+     * @return string|null The email
+     */
     public function getEmail()
     {
         if (array_key_exists("email", $this->_propDict)) {
@@ -40,26 +42,25 @@ class DataSubject extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the email
-    * Email of the data subject.
-    *
-    * @param string $val The value of the email
-    *
-    * @return DataSubject
-    */
+     * Sets the email
+     * Email of the data subject.
+     *
+     * @param string $val The value of the email
+     *
+     * @return DataSubject
+     */
     public function setEmail($val)
     {
         $this->_propDict["email"] = $val;
         return $this;
     }
     /**
-    * Gets the firstName
-    * First name of the data subject.
-    *
-    * @return string|null The firstName
-    */
+     * Gets the firstName
+     * First name of the data subject.
+     *
+     * @return string|null The firstName
+     */
     public function getFirstName()
     {
         if (array_key_exists("firstName", $this->_propDict)) {
@@ -68,26 +69,25 @@ class DataSubject extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the firstName
-    * First name of the data subject.
-    *
-    * @param string $val The value of the firstName
-    *
-    * @return DataSubject
-    */
+     * Sets the firstName
+     * First name of the data subject.
+     *
+     * @param string $val The value of the firstName
+     *
+     * @return DataSubject
+     */
     public function setFirstName($val)
     {
         $this->_propDict["firstName"] = $val;
         return $this;
     }
     /**
-    * Gets the lastName
-    * Last Name of the data subject.
-    *
-    * @return string|null The lastName
-    */
+     * Gets the lastName
+     * Last Name of the data subject.
+     *
+     * @return string|null The lastName
+     */
     public function getLastName()
     {
         if (array_key_exists("lastName", $this->_propDict)) {
@@ -96,26 +96,25 @@ class DataSubject extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the lastName
-    * Last Name of the data subject.
-    *
-    * @param string $val The value of the lastName
-    *
-    * @return DataSubject
-    */
+     * Sets the lastName
+     * Last Name of the data subject.
+     *
+     * @param string $val The value of the lastName
+     *
+     * @return DataSubject
+     */
     public function setLastName($val)
     {
         $this->_propDict["lastName"] = $val;
         return $this;
     }
     /**
-    * Gets the residency
-    * The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.
-    *
-    * @return string|null The residency
-    */
+     * Gets the residency
+     * The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.
+     *
+     * @return string|null The residency
+     */
     public function getResidency()
     {
         if (array_key_exists("residency", $this->_propDict)) {
@@ -124,15 +123,14 @@ class DataSubject extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the residency
-    * The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.
-    *
-    * @param string $val The value of the residency
-    *
-    * @return DataSubject
-    */
+     * Sets the residency
+     * The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.
+     *
+     * @param string $val The value of the residency
+     *
+     * @return DataSubject
+     */
     public function setResidency($val)
     {
         $this->_propDict["residency"] = $val;

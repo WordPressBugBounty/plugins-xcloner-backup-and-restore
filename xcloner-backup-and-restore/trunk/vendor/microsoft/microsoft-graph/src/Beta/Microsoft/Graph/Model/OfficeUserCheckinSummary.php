@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * OfficeUserCheckinSummary class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class OfficeUserCheckinSummary extends Entity
 {
     /**
-    * Gets the failedUserCount
-    * Total failed user check ins for the last 3 months.
-    *
-    * @return int|null The failedUserCount
-    */
+     * Gets the failedUserCount
+     * Total failed user check ins for the last 3 months.
+     *
+     * @return int|null The failedUserCount
+     */
     public function getFailedUserCount()
     {
         if (array_key_exists("failedUserCount", $this->_propDict)) {
@@ -40,26 +42,25 @@ class OfficeUserCheckinSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the failedUserCount
-    * Total failed user check ins for the last 3 months.
-    *
-    * @param int $val The value of the failedUserCount
-    *
-    * @return OfficeUserCheckinSummary
-    */
+     * Sets the failedUserCount
+     * Total failed user check ins for the last 3 months.
+     *
+     * @param int $val The value of the failedUserCount
+     *
+     * @return OfficeUserCheckinSummary
+     */
     public function setFailedUserCount($val)
     {
         $this->_propDict["failedUserCount"] = $val;
         return $this;
     }
     /**
-    * Gets the succeededUserCount
-    * Total successful user check ins for the last 3 months.
-    *
-    * @return int|null The succeededUserCount
-    */
+     * Gets the succeededUserCount
+     * Total successful user check ins for the last 3 months.
+     *
+     * @return int|null The succeededUserCount
+     */
     public function getSucceededUserCount()
     {
         if (array_key_exists("succeededUserCount", $this->_propDict)) {
@@ -68,15 +69,14 @@ class OfficeUserCheckinSummary extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the succeededUserCount
-    * Total successful user check ins for the last 3 months.
-    *
-    * @param int $val The value of the succeededUserCount
-    *
-    * @return OfficeUserCheckinSummary
-    */
+     * Sets the succeededUserCount
+     * Total successful user check ins for the last 3 months.
+     *
+     * @param int $val The value of the succeededUserCount
+     *
+     * @return OfficeUserCheckinSummary
+     */
     public function setSucceededUserCount($val)
     {
         $this->_propDict["succeededUserCount"] = $val;

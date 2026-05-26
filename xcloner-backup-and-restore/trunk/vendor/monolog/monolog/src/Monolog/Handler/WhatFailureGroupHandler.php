@@ -8,12 +8,11 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
+namespace XCloner\Monolog\Handler;
 
-namespace Monolog\Handler;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Forwards records to multiple handlers suppressing failures of each handler
  * and continuing through to give every handler a chance to succeed.
@@ -32,7 +31,6 @@ class WhatFailureGroupHandler extends GroupHandler
                 $record = call_user_func($processor, $record);
             }
         }
-
         foreach ($this->handlers as $handler) {
             try {
                 $handler->handle($record);
@@ -42,10 +40,8 @@ class WhatFailureGroupHandler extends GroupHandler
                 // What failure?
             }
         }
-
-        return false === $this->bubble;
+        return \false === $this->bubble;
     }
-
     /**
      * {@inheritdoc}
      */
@@ -61,7 +57,6 @@ class WhatFailureGroupHandler extends GroupHandler
             }
             $records = $processed;
         }
-
         foreach ($this->handlers as $handler) {
             try {
                 $handler->handleBatch($records);

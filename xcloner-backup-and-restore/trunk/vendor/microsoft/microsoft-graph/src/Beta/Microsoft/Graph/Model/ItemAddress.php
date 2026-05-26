@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * ItemAddress class
 *
@@ -28,15 +29,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class ItemAddress extends ItemFacet
 {
     /**
-    * Gets the detail
-    * Details about the address itself.
-    *
-    * @return PhysicalAddress|null The detail
-    */
+     * Gets the detail
+     * Details about the address itself.
+     *
+     * @return PhysicalAddress|null The detail
+     */
     public function getDetail()
     {
         if (array_key_exists("detail", $this->_propDict)) {
-            if (is_a($this->_propDict["detail"], "\Beta\Microsoft\Graph\Model\PhysicalAddress") || is_null($this->_propDict["detail"])) {
+            if (is_a($this->_propDict["detail"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PhysicalAddress") || is_null($this->_propDict["detail"])) {
                 return $this->_propDict["detail"];
             } else {
                 $this->_propDict["detail"] = new PhysicalAddress($this->_propDict["detail"]);
@@ -45,27 +46,25 @@ class ItemAddress extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the detail
-    * Details about the address itself.
-    *
-    * @param PhysicalAddress $val The detail
-    *
-    * @return ItemAddress
-    */
+     * Sets the detail
+     * Details about the address itself.
+     *
+     * @param PhysicalAddress $val The detail
+     *
+     * @return ItemAddress
+     */
     public function setDetail($val)
     {
         $this->_propDict["detail"] = $val;
         return $this;
     }
-
     /**
-    * Gets the displayName
-    * Friendly name the user has assigned to this address.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * Friendly name the user has assigned to this address.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -74,31 +73,29 @@ class ItemAddress extends ItemFacet
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * Friendly name the user has assigned to this address.
-    *
-    * @param string $val The displayName
-    *
-    * @return ItemAddress
-    */
+     * Sets the displayName
+     * Friendly name the user has assigned to this address.
+     *
+     * @param string $val The displayName
+     *
+     * @return ItemAddress
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;
         return $this;
     }
-
     /**
-    * Gets the geoCoordinates
-    * The geocoordinates of the address.
-    *
-    * @return GeoCoordinates|null The geoCoordinates
-    */
+     * Gets the geoCoordinates
+     * The geocoordinates of the address.
+     *
+     * @return GeoCoordinates|null The geoCoordinates
+     */
     public function getGeoCoordinates()
     {
         if (array_key_exists("geoCoordinates", $this->_propDict)) {
-            if (is_a($this->_propDict["geoCoordinates"], "\Beta\Microsoft\Graph\Model\GeoCoordinates") || is_null($this->_propDict["geoCoordinates"])) {
+            if (is_a($this->_propDict["geoCoordinates"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\GeoCoordinates") || is_null($this->_propDict["geoCoordinates"])) {
                 return $this->_propDict["geoCoordinates"];
             } else {
                 $this->_propDict["geoCoordinates"] = new GeoCoordinates($this->_propDict["geoCoordinates"]);
@@ -107,19 +104,17 @@ class ItemAddress extends ItemFacet
         }
         return null;
     }
-
     /**
-    * Sets the geoCoordinates
-    * The geocoordinates of the address.
-    *
-    * @param GeoCoordinates $val The geoCoordinates
-    *
-    * @return ItemAddress
-    */
+     * Sets the geoCoordinates
+     * The geocoordinates of the address.
+     *
+     * @param GeoCoordinates $val The geoCoordinates
+     *
+     * @return ItemAddress
+     */
     public function setGeoCoordinates($val)
     {
         $this->_propDict["geoCoordinates"] = $val;
         return $this;
     }
-
 }

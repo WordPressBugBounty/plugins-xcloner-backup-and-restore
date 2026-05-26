@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EducationTeamsAppResource class
 *
@@ -27,22 +29,21 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EducationTeamsAppResource extends EducationResource
 {
     /**
-    * Set the @odata.type since this type is immediately descended from an abstract
-    * type that is referenced as the type in an entity.
-    * @param array $propDict The property dictionary
-    */
+     * Set the @odata.type since this type is immediately descended from an abstract
+     * type that is referenced as the type in an entity.
+     * @param array $propDict The property dictionary
+     */
     public function __construct($propDict = array())
     {
         parent::__construct($propDict);
         $this->setODataType("#microsoft.graph.educationTeamsAppResource");
     }
-
     /**
-    * Gets the appIconWebUrl
-    * URL that points to the app's icon.
-    *
-    * @return string|null The appIconWebUrl
-    */
+     * Gets the appIconWebUrl
+     * URL that points to the app's icon.
+     *
+     * @return string|null The appIconWebUrl
+     */
     public function getAppIconWebUrl()
     {
         if (array_key_exists("appIconWebUrl", $this->_propDict)) {
@@ -51,26 +52,25 @@ class EducationTeamsAppResource extends EducationResource
             return null;
         }
     }
-
     /**
-    * Sets the appIconWebUrl
-    * URL that points to the app's icon.
-    *
-    * @param string $val The value of the appIconWebUrl
-    *
-    * @return EducationTeamsAppResource
-    */
+     * Sets the appIconWebUrl
+     * URL that points to the app's icon.
+     *
+     * @param string $val The value of the appIconWebUrl
+     *
+     * @return EducationTeamsAppResource
+     */
     public function setAppIconWebUrl($val)
     {
         $this->_propDict["appIconWebUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the appId
-    * Teams App ID of the application.
-    *
-    * @return string|null The appId
-    */
+     * Gets the appId
+     * Teams App ID of the application.
+     *
+     * @return string|null The appId
+     */
     public function getAppId()
     {
         if (array_key_exists("appId", $this->_propDict)) {
@@ -79,26 +79,25 @@ class EducationTeamsAppResource extends EducationResource
             return null;
         }
     }
-
     /**
-    * Sets the appId
-    * Teams App ID of the application.
-    *
-    * @param string $val The value of the appId
-    *
-    * @return EducationTeamsAppResource
-    */
+     * Sets the appId
+     * Teams App ID of the application.
+     *
+     * @param string $val The value of the appId
+     *
+     * @return EducationTeamsAppResource
+     */
     public function setAppId($val)
     {
         $this->_propDict["appId"] = $val;
         return $this;
     }
     /**
-    * Gets the teamsEmbeddedContentUrl
-    * URL for the app resource that will be opened by Teams.
-    *
-    * @return string|null The teamsEmbeddedContentUrl
-    */
+     * Gets the teamsEmbeddedContentUrl
+     * URL for the app resource that will be opened by Teams.
+     *
+     * @return string|null The teamsEmbeddedContentUrl
+     */
     public function getTeamsEmbeddedContentUrl()
     {
         if (array_key_exists("teamsEmbeddedContentUrl", $this->_propDict)) {
@@ -107,26 +106,25 @@ class EducationTeamsAppResource extends EducationResource
             return null;
         }
     }
-
     /**
-    * Sets the teamsEmbeddedContentUrl
-    * URL for the app resource that will be opened by Teams.
-    *
-    * @param string $val The value of the teamsEmbeddedContentUrl
-    *
-    * @return EducationTeamsAppResource
-    */
+     * Sets the teamsEmbeddedContentUrl
+     * URL for the app resource that will be opened by Teams.
+     *
+     * @param string $val The value of the teamsEmbeddedContentUrl
+     *
+     * @return EducationTeamsAppResource
+     */
     public function setTeamsEmbeddedContentUrl($val)
     {
         $this->_propDict["teamsEmbeddedContentUrl"] = $val;
         return $this;
     }
     /**
-    * Gets the webUrl
-    * URL for the app resource that can be opened in the browser.
-    *
-    * @return string|null The webUrl
-    */
+     * Gets the webUrl
+     * URL for the app resource that can be opened in the browser.
+     *
+     * @return string|null The webUrl
+     */
     public function getWebUrl()
     {
         if (array_key_exists("webUrl", $this->_propDict)) {
@@ -135,15 +133,14 @@ class EducationTeamsAppResource extends EducationResource
             return null;
         }
     }
-
     /**
-    * Sets the webUrl
-    * URL for the app resource that can be opened in the browser.
-    *
-    * @param string $val The value of the webUrl
-    *
-    * @return EducationTeamsAppResource
-    */
+     * Sets the webUrl
+     * URL for the app resource that can be opened in the browser.
+     *
+     * @param string $val The value of the webUrl
+     *
+     * @return EducationTeamsAppResource
+     */
     public function setWebUrl($val)
     {
         $this->_propDict["webUrl"] = $val;

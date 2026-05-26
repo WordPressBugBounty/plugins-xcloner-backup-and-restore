@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * TimeZoneInformation class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class TimeZoneInformation extends Entity
 {
     /**
-    * Gets the alias
-    * An identifier for the time zone.
-    *
-    * @return string|null The alias
-    */
+     * Gets the alias
+     * An identifier for the time zone.
+     *
+     * @return string|null The alias
+     */
     public function getAlias()
     {
         if (array_key_exists("alias", $this->_propDict)) {
@@ -40,26 +42,25 @@ class TimeZoneInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the alias
-    * An identifier for the time zone.
-    *
-    * @param string $val The value of the alias
-    *
-    * @return TimeZoneInformation
-    */
+     * Sets the alias
+     * An identifier for the time zone.
+     *
+     * @param string $val The value of the alias
+     *
+     * @return TimeZoneInformation
+     */
     public function setAlias($val)
     {
         $this->_propDict["alias"] = $val;
         return $this;
     }
     /**
-    * Gets the displayName
-    * A display string that represents the time zone.
-    *
-    * @return string|null The displayName
-    */
+     * Gets the displayName
+     * A display string that represents the time zone.
+     *
+     * @return string|null The displayName
+     */
     public function getDisplayName()
     {
         if (array_key_exists("displayName", $this->_propDict)) {
@@ -68,15 +69,14 @@ class TimeZoneInformation extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the displayName
-    * A display string that represents the time zone.
-    *
-    * @param string $val The value of the displayName
-    *
-    * @return TimeZoneInformation
-    */
+     * Sets the displayName
+     * A display string that represents the time zone.
+     *
+     * @param string $val The value of the displayName
+     *
+     * @return TimeZoneInformation
+     */
     public function setDisplayName($val)
     {
         $this->_propDict["displayName"] = $val;

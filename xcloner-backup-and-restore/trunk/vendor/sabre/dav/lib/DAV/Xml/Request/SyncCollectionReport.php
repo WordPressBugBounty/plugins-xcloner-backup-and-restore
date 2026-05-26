@@ -1,17 +1,15 @@
 <?php
 
-declare(strict_types=1);
+declare (strict_types=1);
+namespace XCloner\Sabre\DAV\Xml\Request;
 
-namespace Sabre\DAV\Xml\Request;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\DAV\Exception\BadRequest;
-use Sabre\Xml\Element\KeyValue;
-use Sabre\Xml\Reader;
-use Sabre\Xml\XmlDeserializable;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\DAV\Exception\BadRequest;
+use XCloner\Sabre\Xml\Element\KeyValue;
+use XCloner\Sabre\Xml\Reader;
+use XCloner\Sabre\Xml\XmlDeserializable;
 /**
  * SyncCollection request parser.
  *
@@ -31,28 +29,24 @@ class SyncCollectionReport implements XmlDeserializable
      * @var string|null
      */
     public $syncToken;
-
     /**
      * The 'depth' of the sync the client is interested in.
      *
      * @var int
      */
     public $syncLevel;
-
     /**
      * Maximum amount of items returned.
      *
      * @var int|null
      */
     public $limit;
-
     /**
      * The list of properties that are being requested for every change.
      *
      * @var array|null
      */
     public $properties;
-
     /**
      * The deserialize method is called during xml parsing.
      *
@@ -76,28 +70,18 @@ class SyncCollectionReport implements XmlDeserializable
     public static function xmlDeserialize(Reader $reader)
     {
         $self = new self();
-
         $reader->pushContext();
-
-        $reader->elementMap['{DAV:}prop'] = 'Sabre\Xml\Element\Elements';
+        $reader->elementMap['{DAV:}prop'] = 'XCloner\Sabre\Xml\Element\Elements';
         $elems = KeyValue::xmlDeserialize($reader);
-
         $reader->popContext();
-
-        $required = [
-            '{DAV:}sync-token',
-            '{DAV:}prop',
-            ];
-
+        $required = ['{DAV:}sync-token', '{DAV:}prop'];
         foreach ($required as $elem) {
             if (!array_key_exists($elem, $elems)) {
-                throw new BadRequest('The '.$elem.' element in the {DAV:}sync-collection report is required');
+                throw new BadRequest('The ' . $elem . ' element in the {DAV:}sync-collection report is required');
             }
         }
-
         $self->properties = $elems['{DAV:}prop'];
         $self->syncToken = $elems['{DAV:}sync-token'];
-
         if (isset($elems['{DAV:}limit'])) {
             $nresults = null;
             foreach ($elems['{DAV:}limit'] as $child) {
@@ -107,15 +91,13 @@ class SyncCollectionReport implements XmlDeserializable
             }
             $self->limit = $nresults;
         }
-
         if (isset($elems['{DAV:}sync-level'])) {
             $value = $elems['{DAV:}sync-level'];
             if ('infinity' === $value) {
-                $value = \Sabre\DAV\Server::DEPTH_INFINITY;
+                $value = \XCloner\Sabre\DAV\Server::DEPTH_INFINITY;
             }
             $self->syncLevel = $value;
         }
-
         return $self;
     }
 }

@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Common\Models;
 
-namespace MicrosoftAzure\Storage\Common\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Holds info about resource+ range used in HTTP requests
  *
@@ -41,7 +40,6 @@ class Range
 {
     private $start;
     private $end;
-
     /**
      * Constructor
      *
@@ -53,9 +51,8 @@ class Range
     public function __construct($start, $end = null)
     {
         $this->start = $start;
-        $this->end   = $end;
+        $this->end = $end;
     }
-
     /**
      * Sets resource start range
      *
@@ -67,7 +64,6 @@ class Range
     {
         $this->start = $start;
     }
-
     /**
      * Gets resource start range
      *
@@ -77,7 +73,6 @@ class Range
     {
         return $this->start;
     }
-
     /**
      * Sets resource end range
      *
@@ -89,7 +84,6 @@ class Range
     {
         $this->end = $end;
     }
-
     /**
      * Gets resource end range
      *
@@ -99,7 +93,6 @@ class Range
     {
         return $this->end;
     }
-
     /**
      * Gets resource range length
      *
@@ -113,7 +106,6 @@ class Range
             return null;
         }
     }
-
     /**
      * Sets resource range length
      *
@@ -125,7 +117,6 @@ class Range
     {
         $this->end = $this->start + $value - 1;
     }
-
     /**
      * Constructs the range string according to the set start and end
      *
@@ -134,12 +125,10 @@ class Range
     public function getRangeString()
     {
         $rangeString = '';
-
-        $rangeString .= ('bytes=' . $this->start . '-');
+        $rangeString .= 'bytes=' . $this->start . '-';
         if ($this->end != null) {
             $rangeString .= $this->end;
         }
-
         return $rangeString;
     }
 }

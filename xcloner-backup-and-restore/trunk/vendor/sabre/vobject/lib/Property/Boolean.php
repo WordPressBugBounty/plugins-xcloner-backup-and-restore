@@ -1,12 +1,11 @@
 <?php
 
-namespace Sabre\VObject\Property;
+namespace XCloner\Sabre\VObject\Property;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
-use Sabre\VObject\Property;
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
+use XCloner\Sabre\VObject\Property;
 /**
  * Boolean property.
  *
@@ -31,10 +30,9 @@ class Boolean extends Property
      */
     public function setRawMimeDirValue($val)
     {
-        $val = 'TRUE' === strtoupper($val) ? true : false;
+        $val = 'TRUE' === strtoupper($val) ? \true : \false;
         $this->setValue($val);
     }
-
     /**
      * Returns a raw mime-dir representation of the value.
      *
@@ -44,7 +42,6 @@ class Boolean extends Property
     {
         return $this->value ? 'TRUE' : 'FALSE';
     }
-
     /**
      * Returns the type of value.
      *
@@ -57,19 +54,15 @@ class Boolean extends Property
     {
         return 'BOOLEAN';
     }
-
     /**
      * Hydrate data from a XML subtree, as it would appear in a xCard or xCal
      * object.
      */
     public function setXmlValue(array $value)
     {
-        $value = array_map(
-            function ($value) {
-                return 'true' === $value;
-            },
-            $value
-        );
+        $value = array_map(function ($value) {
+            return 'true' === $value;
+        }, $value);
         parent::setXmlValue($value);
     }
 }

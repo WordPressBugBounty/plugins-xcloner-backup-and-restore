@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * WorkbookFilterDatetime class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class WorkbookFilterDatetime extends Entity
 {
     /**
-    * Gets the date
-    *
-    * @return string|null The date
-    */
+     * Gets the date
+     *
+     * @return string|null The date
+     */
     public function getDate()
     {
         if (array_key_exists("date", $this->_propDict)) {
@@ -39,24 +41,23 @@ class WorkbookFilterDatetime extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the date
-    *
-    * @param string $val The value of the date
-    *
-    * @return WorkbookFilterDatetime
-    */
+     * Sets the date
+     *
+     * @param string $val The value of the date
+     *
+     * @return WorkbookFilterDatetime
+     */
     public function setDate($val)
     {
         $this->_propDict["date"] = $val;
         return $this;
     }
     /**
-    * Gets the specificity
-    *
-    * @return string|null The specificity
-    */
+     * Gets the specificity
+     *
+     * @return string|null The specificity
+     */
     public function getSpecificity()
     {
         if (array_key_exists("specificity", $this->_propDict)) {
@@ -65,14 +66,13 @@ class WorkbookFilterDatetime extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the specificity
-    *
-    * @param string $val The value of the specificity
-    *
-    * @return WorkbookFilterDatetime
-    */
+     * Sets the specificity
+     *
+     * @param string $val The value of the specificity
+     *
+     * @return WorkbookFilterDatetime
+     */
     public function setSpecificity($val)
     {
         $this->_propDict["specificity"] = $val;

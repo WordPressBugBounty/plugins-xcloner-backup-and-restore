@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * SecurityProviderStatus class
 *
@@ -27,10 +29,10 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class SecurityProviderStatus extends Entity
 {
     /**
-    * Gets the enabled
-    *
-    * @return bool|null The enabled
-    */
+     * Gets the enabled
+     *
+     * @return bool|null The enabled
+     */
     public function getEnabled()
     {
         if (array_key_exists("enabled", $this->_propDict)) {
@@ -39,24 +41,23 @@ class SecurityProviderStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the enabled
-    *
-    * @param bool $val The value of the enabled
-    *
-    * @return SecurityProviderStatus
-    */
+     * Sets the enabled
+     *
+     * @param bool $val The value of the enabled
+     *
+     * @return SecurityProviderStatus
+     */
     public function setEnabled($val)
     {
         $this->_propDict["enabled"] = $val;
         return $this;
     }
     /**
-    * Gets the endpoint
-    *
-    * @return string|null The endpoint
-    */
+     * Gets the endpoint
+     *
+     * @return string|null The endpoint
+     */
     public function getEndpoint()
     {
         if (array_key_exists("endpoint", $this->_propDict)) {
@@ -65,24 +66,23 @@ class SecurityProviderStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the endpoint
-    *
-    * @param string $val The value of the endpoint
-    *
-    * @return SecurityProviderStatus
-    */
+     * Sets the endpoint
+     *
+     * @param string $val The value of the endpoint
+     *
+     * @return SecurityProviderStatus
+     */
     public function setEndpoint($val)
     {
         $this->_propDict["endpoint"] = $val;
         return $this;
     }
     /**
-    * Gets the provider
-    *
-    * @return string|null The provider
-    */
+     * Gets the provider
+     *
+     * @return string|null The provider
+     */
     public function getProvider()
     {
         if (array_key_exists("provider", $this->_propDict)) {
@@ -91,24 +91,23 @@ class SecurityProviderStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the provider
-    *
-    * @param string $val The value of the provider
-    *
-    * @return SecurityProviderStatus
-    */
+     * Sets the provider
+     *
+     * @param string $val The value of the provider
+     *
+     * @return SecurityProviderStatus
+     */
     public function setProvider($val)
     {
         $this->_propDict["provider"] = $val;
         return $this;
     }
     /**
-    * Gets the region
-    *
-    * @return string|null The region
-    */
+     * Gets the region
+     *
+     * @return string|null The region
+     */
     public function getRegion()
     {
         if (array_key_exists("region", $this->_propDict)) {
@@ -117,24 +116,23 @@ class SecurityProviderStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the region
-    *
-    * @param string $val The value of the region
-    *
-    * @return SecurityProviderStatus
-    */
+     * Sets the region
+     *
+     * @param string $val The value of the region
+     *
+     * @return SecurityProviderStatus
+     */
     public function setRegion($val)
     {
         $this->_propDict["region"] = $val;
         return $this;
     }
     /**
-    * Gets the vendor
-    *
-    * @return string|null The vendor
-    */
+     * Gets the vendor
+     *
+     * @return string|null The vendor
+     */
     public function getVendor()
     {
         if (array_key_exists("vendor", $this->_propDict)) {
@@ -143,14 +141,13 @@ class SecurityProviderStatus extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the vendor
-    *
-    * @param string $val The value of the vendor
-    *
-    * @return SecurityProviderStatus
-    */
+     * Sets the vendor
+     *
+     * @param string $val The value of the vendor
+     *
+     * @return SecurityProviderStatus
+     */
     public function setVendor($val)
     {
         $this->_propDict["vendor"] = $val;

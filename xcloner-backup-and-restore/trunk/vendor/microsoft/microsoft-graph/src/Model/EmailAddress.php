@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Microsoft\Graph\Model;
+namespace XCloner\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * EmailAddress class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class EmailAddress extends Entity
 {
     /**
-    * Gets the address
-    * The email address of the person or entity.
-    *
-    * @return string|null The address
-    */
+     * Gets the address
+     * The email address of the person or entity.
+     *
+     * @return string|null The address
+     */
     public function getAddress()
     {
         if (array_key_exists("address", $this->_propDict)) {
@@ -40,26 +42,25 @@ class EmailAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the address
-    * The email address of the person or entity.
-    *
-    * @param string $val The value of the address
-    *
-    * @return EmailAddress
-    */
+     * Sets the address
+     * The email address of the person or entity.
+     *
+     * @param string $val The value of the address
+     *
+     * @return EmailAddress
+     */
     public function setAddress($val)
     {
         $this->_propDict["address"] = $val;
         return $this;
     }
     /**
-    * Gets the name
-    * The display name of the person or entity.
-    *
-    * @return string|null The name
-    */
+     * Gets the name
+     * The display name of the person or entity.
+     *
+     * @return string|null The name
+     */
     public function getName()
     {
         if (array_key_exists("name", $this->_propDict)) {
@@ -68,15 +69,14 @@ class EmailAddress extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the name
-    * The display name of the person or entity.
-    *
-    * @param string $val The value of the name
-    *
-    * @return EmailAddress
-    */
+     * Sets the name
+     * The display name of the person or entity.
+     *
+     * @param string $val The value of the name
+     *
+     * @return EmailAddress
+     */
     public function setName($val)
     {
         $this->_propDict["name"] = $val;

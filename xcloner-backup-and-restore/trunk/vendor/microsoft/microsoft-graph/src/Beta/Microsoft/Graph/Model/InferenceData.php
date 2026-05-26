@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * InferenceData class
 *
@@ -27,11 +29,11 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class InferenceData extends Entity
 {
     /**
-    * Gets the confidenceScore
-    * Confidence score reflecting the accuracy of the data inferred about the user.
-    *
-    * @return float|null The confidenceScore
-    */
+     * Gets the confidenceScore
+     * Confidence score reflecting the accuracy of the data inferred about the user.
+     *
+     * @return float|null The confidenceScore
+     */
     public function getConfidenceScore()
     {
         if (array_key_exists("confidenceScore", $this->_propDict)) {
@@ -40,26 +42,25 @@ class InferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the confidenceScore
-    * Confidence score reflecting the accuracy of the data inferred about the user.
-    *
-    * @param float $val The value of the confidenceScore
-    *
-    * @return InferenceData
-    */
+     * Sets the confidenceScore
+     * Confidence score reflecting the accuracy of the data inferred about the user.
+     *
+     * @param float $val The value of the confidenceScore
+     *
+     * @return InferenceData
+     */
     public function setConfidenceScore($val)
     {
         $this->_propDict["confidenceScore"] = $val;
         return $this;
     }
     /**
-    * Gets the userHasVerifiedAccuracy
-    * Records if the user has confirmed this inference as being True or False.
-    *
-    * @return bool|null The userHasVerifiedAccuracy
-    */
+     * Gets the userHasVerifiedAccuracy
+     * Records if the user has confirmed this inference as being True or False.
+     *
+     * @return bool|null The userHasVerifiedAccuracy
+     */
     public function getUserHasVerifiedAccuracy()
     {
         if (array_key_exists("userHasVerifiedAccuracy", $this->_propDict)) {
@@ -68,15 +69,14 @@ class InferenceData extends Entity
             return null;
         }
     }
-
     /**
-    * Sets the userHasVerifiedAccuracy
-    * Records if the user has confirmed this inference as being True or False.
-    *
-    * @param bool $val The value of the userHasVerifiedAccuracy
-    *
-    * @return InferenceData
-    */
+     * Sets the userHasVerifiedAccuracy
+     * Records if the user has confirmed this inference as being True or False.
+     *
+     * @param bool $val The value of the userHasVerifiedAccuracy
+     *
+     * @return InferenceData
+     */
     public function setUserHasVerifiedAccuracy($val)
     {
         $this->_propDict["userHasVerifiedAccuracy"] = $val;

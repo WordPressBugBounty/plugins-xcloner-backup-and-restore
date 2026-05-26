@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,10 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * AddWatermark class
 *
@@ -26,16 +28,15 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class AddWatermark extends MarkContent
 {
-
     /**
-    * Gets the orientation
-    *
-    * @return PageOrientation|null The orientation
-    */
+     * Gets the orientation
+     *
+     * @return PageOrientation|null The orientation
+     */
     public function getOrientation()
     {
         if (array_key_exists("orientation", $this->_propDict)) {
-            if (is_a($this->_propDict["orientation"], "\Beta\Microsoft\Graph\Model\PageOrientation") || is_null($this->_propDict["orientation"])) {
+            if (is_a($this->_propDict["orientation"], "XCloner\\Beta\\Microsoft\\Graph\\Model\\PageOrientation") || is_null($this->_propDict["orientation"])) {
                 return $this->_propDict["orientation"];
             } else {
                 $this->_propDict["orientation"] = new PageOrientation($this->_propDict["orientation"]);
@@ -44,17 +45,16 @@ class AddWatermark extends MarkContent
         }
         return null;
     }
-
     /**
-    * Sets the orientation
-    *
-    * @param PageOrientation $val The value to assign to the orientation
-    *
-    * @return AddWatermark The AddWatermark
-    */
+     * Sets the orientation
+     *
+     * @param PageOrientation $val The value to assign to the orientation
+     *
+     * @return AddWatermark The AddWatermark
+     */
     public function setOrientation($val)
     {
         $this->_propDict["orientation"] = $val;
-         return $this;
+        return $this;
     }
 }

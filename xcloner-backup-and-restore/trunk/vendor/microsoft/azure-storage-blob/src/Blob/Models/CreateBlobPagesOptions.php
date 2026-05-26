@@ -21,12 +21,11 @@
  * @license   https://github.com/azure/azure-storage-php/LICENSE
  * @link      https://github.com/azure/azure-storage-php
  */
+namespace XCloner\MicrosoftAzure\Storage\Blob\Models;
 
-namespace MicrosoftAzure\Storage\Blob\Models;
-
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
  * Optional parameters for create and clear blob pages
  *
@@ -40,7 +39,6 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 class CreateBlobPagesOptions extends BlobServiceOptions
 {
     private $_contentMD5;
-
     /**
      * Gets blob contentMD5.
      *
@@ -50,7 +48,6 @@ class CreateBlobPagesOptions extends BlobServiceOptions
     {
         return $this->_contentMD5;
     }
-
     /**
      * Sets blob contentMD5.
      *

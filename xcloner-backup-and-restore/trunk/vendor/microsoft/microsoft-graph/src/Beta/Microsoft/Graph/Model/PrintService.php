@@ -1,4 +1,5 @@
 <?php
+
 /**
 * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.  See License in the project root for license information.
 * 
@@ -11,11 +12,11 @@
 * @license   https://opensource.org/licenses/MIT MIT License
 * @link      https://graph.microsoft.com
 */
-namespace Beta\Microsoft\Graph\Model;
+namespace XCloner\Beta\Microsoft\Graph\Model;
 
-if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
-
-
+if (!defined('ABSPATH') && \PHP_SAPI !== 'cli') {
+    die;
+}
 /**
 * PrintService class
 *
@@ -27,34 +28,31 @@ if (!defined('ABSPATH') && PHP_SAPI !== 'cli') { die(); }
 */
 class PrintService extends Entity
 {
-
-     /**
+    /**
      * Gets the endpoints
-    * Endpoints that can be used to access the service. Read-only. Nullable.
+     * Endpoints that can be used to access the service. Read-only. Nullable.
      *
      * @return array|null The endpoints
      */
     public function getEndpoints()
     {
         if (array_key_exists("endpoints", $this->_propDict)) {
-           return $this->_propDict["endpoints"];
+            return $this->_propDict["endpoints"];
         } else {
             return null;
         }
     }
-
     /**
-    * Sets the endpoints
-    * Endpoints that can be used to access the service. Read-only. Nullable.
-    *
-    * @param PrintServiceEndpoint[] $val The endpoints
-    *
-    * @return PrintService
-    */
+     * Sets the endpoints
+     * Endpoints that can be used to access the service. Read-only. Nullable.
+     *
+     * @param PrintServiceEndpoint[] $val The endpoints
+     *
+     * @return PrintService
+     */
     public function setEndpoints($val)
     {
         $this->_propDict["endpoints"] = $val;
         return $this;
     }
-
 }
