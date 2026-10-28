@@ -2,9 +2,6 @@
 
 namespace XCloner;
 
-if (!\defined('ABSPATH')) {
-    exit;
-}
 /**
  * The plugin bootstrap file
  *
@@ -20,8 +17,8 @@ if (!\defined('ABSPATH')) {
  * @wordpress-plugin
  * Plugin Name: XCloner - Site Backup and Restore
  * Plugin URI: https://xcloner.com/
- * Description:  XCloner is a tool that will help you manage your website backups, generate/restore/move so your website will be always secured! With XCloner you will be able to clone your site to any other location with just a few clicks, as well as transfer the backup archives to remote FTP, SFTP, DropBox, Amazon S3, Google Drive, WebDAV, Backblaze, Azure accounts.
- * Version: 4.8.7
+ * Description: XCloner is a tool that will help you manage your website backups, generate/restore/move so your website will be always secured! With XCloner you will be able to clone your site to any other location with just a few clicks, as well as transfer the backup archives to remote FTP, SFTP, DropBox, Amazon S3, Google Drive, WebDAV, Backblaze, Azure accounts.
+ * Version: 4.8.8
  * Author: watchful
  * Author URI: https://watchful.net/
  * License: GPL-2.0+
@@ -29,13 +26,16 @@ if (!\defined('ABSPATH')) {
  * Text Domain: xcloner-backup-and-restore
  * Domain Path: /languages
  */
+if (!\defined('ABSPATH')) {
+    exit;
+}
 require_once __DIR__ . '/vendor/autoload.php';
 use XCloner\Watchfulli\XClonerCore\Xcloner_Activator;
 use XCloner\Watchfulli\XClonerCore\Xcloner_cli;
 use XCloner\Watchfulli\XClonerCore\Xcloner_Deactivator;
 use XCloner\Watchfulli\XClonerCore\Xcloner;
 if (!\defined('XCLONER_PLUGIN_VERSION')) {
-    \define('XCLONER_PLUGIN_VERSION', '4.8.6');
+    \define('XCLONER_PLUGIN_VERSION', '4.8.8');
 }
 if (!\defined("DS")) {
     \define("DS", \DIRECTORY_SEPARATOR);
