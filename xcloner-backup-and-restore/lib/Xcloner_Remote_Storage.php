@@ -363,7 +363,13 @@ class Xcloner_Remote_Storage
         if (!class_exists('XmlWriter')) {
             throw new Exception("AZURE BLOB requires libxml PHP module to be installed with XmlWriter class enabled!");
         }
-        $credentials = array('credentials' => array('key' => $this->xcloner_settings->get_xcloner_option("xcloner_aws_key"), 'secret' => $this->xcloner_settings->get_xcloner_option("xcloner_aws_secret")), 'region' => $this->xcloner_settings->get_xcloner_option("xcloner_aws_region"), 'version' => 'latest');
+        $credentials = array(
+            'credentials' => array('key' => $this->xcloner_settings->get_xcloner_option("xcloner_aws_key"), 'secret' => $this->xcloner_settings->get_xcloner_option("xcloner_aws_secret")),
+            'region' => $this->xcloner_settings->get_xcloner_option("xcloner_aws_region"),
+            'version' => 'latest',
+            // PHP-Scoper can prefix a class reference, but not the SDK's dynamic exception name.
+            'exception_class' => \XCloner\Aws\S3\Exception\S3Exception::class,
+        );
         if ($this->xcloner_settings->get_xcloner_option('xcloner_aws_endpoint')) {
             $credentials['endpoint'] = $this->xcloner_settings->get_xcloner_option('xcloner_aws_endpoint');
         }
